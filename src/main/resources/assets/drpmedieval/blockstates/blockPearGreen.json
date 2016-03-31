@@ -1,0 +1,10 @@
+{
+    "variants":{
+		"age=0":{"model":"drpmedieval:WIP"},
+		"age=1":{"model":"drpmedieval:Pears/PearGreen1"},
+		"age=2":{"model":"drpmedieval:Pears/PearGreen2"},
+		"age=3":{"model":"drpmedieval:Pears/PearGreen3"},
+		"age=4":{"model":"drpmedieval:Pears/PearGreen4"},
+		"age=5":{"model":"drpmedieval:Pears/PearGreen5"}   
+    }
+}
