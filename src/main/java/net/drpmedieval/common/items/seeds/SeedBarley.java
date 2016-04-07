@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemSeeds;
 
-public class SeedBarley extends ItemSeeds{
+public class SeedBarley extends ItemSeeds {
 
 	public SeedBarley() {
 		super(DRPMedievalBlocks.barley, Blocks.farmland);

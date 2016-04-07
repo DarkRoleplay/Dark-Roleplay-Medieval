@@ -11,51 +11,53 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BarrelGunpowder extends Block{
+public class BarrelGunpowder extends Block {
 
 	public BarrelGunpowder() {
 		super(Material.wood);
-		this.setBlockBounds(0F,0F,0F,1F,1F,1F);
+		this.setBlockBounds(0F, 0F, 0F, 1F, 1F, 1F);
 		this.setUnlocalizedName("blockBarrelGunpowder");
 		this.setStepSound(Block.soundTypeWood);
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
 	}
 
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
-		if(facing.equals(facing.UP) && worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true)) return this.getDefaultState();
-		else return Blocks.air.getDefaultState();
-    }
-	
+	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+
+		if(facing.equals(facing.UP) && worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true))
+			return this.getDefaultState();
+		else
+			return Blocks.air.getDefaultState();
+	}
+
 	@Override
-	public boolean isFullCube()
-    {
-        return false;
-    }
-    @Override
-    public boolean isOpaqueCube()
-	{
+	public boolean isFullCube() {
+
 		return false;
 	}
-	
-    //Ground Blocks
-    public void onNeighborBlockChange(World worldIn, BlockPos pos, IBlockState state, Block neighborBlock)
-    {
-        if (!this.canBlockStay(worldIn, pos, EnumFacing.UP))
-        {
-            this.dropBlockAsItem(worldIn, pos, state, 0);
-            worldIn.setBlockToAir(pos);
-        }
-        super.onNeighborBlockChange(worldIn, pos, state, neighborBlock);
-    }
-    
-    protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing)
-    {
-        return worldIn.isSideSolid(pos.offset(facing.getOpposite()), facing, true);
-    }
-    
-    public boolean isSideSolid(IBlockAccess world, BlockPos pos, EnumFacing side)
-    {
-    	return false;
-    }
+
+	@Override
+	public boolean isOpaqueCube() {
+
+		return false;
+	}
+
+	// Ground Blocks
+	public void onNeighborBlockChange(World worldIn, BlockPos pos, IBlockState state, Block neighborBlock) {
+
+		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
+			this.dropBlockAsItem(worldIn, pos, state, 0);
+			worldIn.setBlockToAir(pos);
+		}
+		super.onNeighborBlockChange(worldIn, pos, state, neighborBlock);
+	}
+
+	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
+
+		return worldIn.isSideSolid(pos.offset(facing.getOpposite()), facing, true);
+	}
+
+	public boolean isSideSolid(IBlockAccess world, BlockPos pos, EnumFacing side) {
+
+		return false;
+	}
 }

@@ -16,35 +16,38 @@ import net.minecraft.util.ResourceLocation;
 
 public class SpecialRenderGrindstone extends TileEntitySpecialRenderer {
 
-	private static final ResourceLocation texture = new ResourceLocation(
-			DarkRoleplayMedieval.MODID, "textures/oldBlocks/blockGrindstone.png");
+	private static final ResourceLocation texture = new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/oldBlocks/blockGrindstone.png");
 
 	private ModelGrindstone model;
 
 	public SpecialRenderGrindstone() {
 		this.model = new ModelGrindstone();
 	}
+
 	@Override
-	public void renderTileEntityAt(TileEntity tileentity, double x, double y,
-			double z, float f, int i) {
+	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int i) {
+
 		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMedievalBlocks.grindstone)){
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 			GL11.glRotatef(180, 0F, 0F, 1F);
-			
+
 			PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 			IBlockState state = tileentity.getWorld().getBlockState(tileentity.getPos());
 			int facing = 0;
-			if(state.getValue(FACING).equals(EnumFacing.NORTH)) facing = 1;
-			else if(state.getValue(FACING).equals(EnumFacing.EAST)) facing = 2;
-			else if(state.getValue(FACING).equals(EnumFacing.SOUTH)) facing = 3;
+			if(state.getValue(FACING).equals(EnumFacing.NORTH))
+				facing = 1;
+			else if(state.getValue(FACING).equals(EnumFacing.EAST))
+				facing = 2;
+			else if(state.getValue(FACING).equals(EnumFacing.SOUTH))
+				facing = 3;
 			else if(state.getValue(FACING).equals(EnumFacing.WEST)) facing = 4;
-			
-			GL11.glRotatef(facing * 90, 0.0F, 1.0F, 0.0F); 
+
+			GL11.glRotatef(facing * 90, 0.0F, 1.0F, 0.0F);
 			this.bindTexture(texture);
-	
+
 			this.model.renderModel(0.0625F);
-	
+
 			GL11.glPopMatrix();
 		}
 	}
@@ -52,6 +55,7 @@ public class SpecialRenderGrindstone extends TileEntitySpecialRenderer {
 }
 
 class ModelGrindstone extends ModelBase {
+
 	// fields
 	ModelRenderer Bein1;
 	ModelRenderer Schleifstein9;
@@ -284,8 +288,8 @@ class ModelGrindstone extends ModelBase {
 		setRotation(Bein17, 0F, 0F, 0F);
 	}
 
-	public void render(Entity entity, float f, float f1, float f2, float f3,
-			float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		Bein1.render(f5);
@@ -323,6 +327,7 @@ class ModelGrindstone extends ModelBase {
 	}
 
 	public void renderModel(float f5) {
+
 		Bein1.render(f5);
 		Schleifstein9.render(f5);
 		Bein2.render(f5);
@@ -358,14 +363,15 @@ class ModelGrindstone extends ModelBase {
 	}
 
 	private void setRotation(ModelRenderer model, float x, float y, float z) {
+
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;
 	}
 
-	public void setRotationAngles(float f, float f1, float f2, float f3,float f4, float f5,Entity entity) {
-		super.setRotationAngles(f, f1, f2, f3, f4, f5,entity);
+	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
+
+		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 	}
 
 }
-

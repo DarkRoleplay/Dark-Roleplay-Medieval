@@ -12,10 +12,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
-public class SilverCoin  extends CurrencyBase{
-	
-	public SilverCoin(){
-		super(100,null);
+public class SilverCoin extends CurrencyBase {
+
+	public SilverCoin() {
+		super(100, null);
 		this.setUnlocalizedName("itemSilverCoin");
 		this.setMaxStackSize(100);
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);

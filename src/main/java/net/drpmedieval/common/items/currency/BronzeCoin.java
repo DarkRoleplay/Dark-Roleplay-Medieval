@@ -11,9 +11,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
-public class BronzeCoin extends CurrencyBase{
-	 
-	public BronzeCoin(){
+public class BronzeCoin extends CurrencyBase {
+
+	public BronzeCoin() {
 		super(1, null);
 		this.setUnlocalizedName("itemBronzeCoin");
 		this.setMaxStackSize(100);

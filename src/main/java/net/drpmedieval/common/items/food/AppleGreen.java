@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class AppleGreen extends ItemFood{
+public class AppleGreen extends ItemFood {
 
-	public AppleGreen(){
+	public AppleGreen() {
 		super(4, 0.3F, false);
 		setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab);
 		setUnlocalizedName("itemAppleGreen");

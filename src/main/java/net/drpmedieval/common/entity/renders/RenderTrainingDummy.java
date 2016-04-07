@@ -17,22 +17,21 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderTrainingDummy extends RenderLiving<TrainingDummy>{
+public class RenderTrainingDummy extends RenderLiving<TrainingDummy> {
 
-	private static final ResourceLocation trainingDummyTextures = new ResourceLocation(DarkRoleplayMedieval.MODID,"textures/entitys/TrainingDummy.png");
-	
+	private static final ResourceLocation trainingDummyTextures = new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/entitys/TrainingDummy.png");
+
 	public RenderTrainingDummy() {
 		this(Minecraft.getMinecraft().getRenderManager());
 	}
-	 
+
 	public RenderTrainingDummy(RenderManager renderManagerIn) {
 		super(Minecraft.getMinecraft().getRenderManager(), new TrainingDummyModel(), 0.5F);
 	}
 
 	@Override
 	protected ResourceLocation getEntityTexture(TrainingDummy entity) {
+
 		return trainingDummyTextures;
 	}
 }
-
-

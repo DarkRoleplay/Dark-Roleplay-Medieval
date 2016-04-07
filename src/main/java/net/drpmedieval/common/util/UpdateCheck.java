@@ -10,66 +10,74 @@ import net.drpmedieval.common.DarkRoleplayMedieval;
 public class UpdateCheck {
 
 	private static final String UPDATE_URL = "https://www.dropbox.com/s/m3t5qhlvi7ic5g4/DarkRoleplayMedieval.txt?dl=1";
-	
+
 	private static boolean newVersionAvailable = false;
-	
+
 	private static String newVersion = "none";
-	
+
 	private static String downloadURL = "http://www.curse.com/users/JTK222/projects";
-	
+
 	private static String changelogURL = "http://www.curse.com/users/JTK222/projects";
-	
-	public static void checkForUpdate(){
+
+	public static void checkForUpdate() {
+
 		new Thread("Update-Checker") {
-			
-			public void run(){
-				try {
+
+			public void run() {
+
+				try{
 					URL url = new URL(UPDATE_URL);
 					Scanner scanner = new Scanner(url.openStream());
-					
+
 					String[] version = scanner.nextLine().split("~");
 
 					scanner.close();
-					
+
 					if(version[0].equals("1.8")){
 						if(!DarkRoleplayMedieval.VERSION.equals(version[1])){
 							newVersion = version[1];
 							setNewVersionAvailable();
 							if(!version[2].equals("none")) downloadURL = version[2];
-								 
+
 							if(!version[3].equals("none")) changelogURL = version[3];
-							
+
 						}
 					}
-					
-					
-				} catch (MalformedURLException e) {
+
+				}
+				catch(MalformedURLException e){
 					System.err.println("Dark Roleplay Medieval Update Check failed!");
-				} catch (IOException e) {
+				}
+				catch(IOException e){
 					System.err.println("Dark Roleplay Medieval Update Check failed!");
 				}
 			}
-			
+
 		}.start();
 	}
-	
-	private static synchronized void setNewVersionAvailable(){
+
+	private static synchronized void setNewVersionAvailable() {
+
 		newVersionAvailable = true;
 	}
-	
-	public static synchronized boolean isNewVersionAvailable(){
+
+	public static synchronized boolean isNewVersionAvailable() {
+
 		return newVersionAvailable;
 	}
-	
-	public static synchronized String getDownloadURL(){
+
+	public static synchronized String getDownloadURL() {
+
 		return downloadURL;
 	}
-	
-	public static synchronized String getChangelogURL(){
+
+	public static synchronized String getChangelogURL() {
+
 		return changelogURL;
 	}
-	
-	public static synchronized String getVersion(){
+
+	public static synchronized String getVersion() {
+
 		return newVersion;
 	}
 }

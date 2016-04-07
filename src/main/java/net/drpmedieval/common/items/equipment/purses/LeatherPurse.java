@@ -11,13 +11,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class LeatherPurse extends PurseBase{
+public class LeatherPurse extends PurseBase {
 
-	public LeatherPurse(){
+	public LeatherPurse() {
 		super(3);
 		this.setUnlocalizedName("itemLeatherPurse");
 		this.setMaxStackSize(1);
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalEquipTab);
 	}
-	
+
 }

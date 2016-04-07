@@ -24,7 +24,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class Chain extends BlockContainer{
+public class Chain extends BlockContainer {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
@@ -36,32 +36,32 @@ public class Chain extends BlockContainer{
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
 	}
 
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
-		EntityPlayer entity =  (EntityPlayer) placer;
-		if(entity!=null){
+	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+
+		EntityPlayer entity = (EntityPlayer) placer;
+		if(entity != null){
 			if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.chain)) return Blocks.air.getDefaultState();
-			int dir = MathHelper.floor_double((double)(entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-			switch(dir){
-			case 0:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
-			case 1:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
-			case 2:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
-			case 3:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
-			default:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+			int dir = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+			switch (dir) {
+				case 0:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				case 1:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+				case 2:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+				case 3:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
+				default:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
 			}
 		}
-		
+
 		return Blocks.air.getDefaultState();
-    }
-	
-	public IBlockState getStateFromMeta(int meta)
-    {
-		switch(meta){
+	}
+
+	public IBlockState getStateFromMeta(int meta) {
+
+		switch (meta) {
 			case 0:
 				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
 			case 1:
@@ -73,66 +73,74 @@ public class Chain extends BlockContainer{
 			default:
 				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
 		}
-    }
+	}
 
-    public int getMetaFromState(IBlockState state)
-    {
-    	EnumFacing facing = (EnumFacing) state.getValue(FACING);
-    	if(facing.equals(EnumFacing.NORTH)) return 0;
-    	if(facing.equals(EnumFacing.EAST)) return 1;
-    	if(facing.equals(EnumFacing.SOUTH)) return 2;
-    	if(facing.equals(EnumFacing.WEST)) return 3;
-    	return 0;
-    }
+	public int getMetaFromState(IBlockState state) {
 
-    protected BlockState createBlockState()
-    {
-        return new BlockState(this, new IProperty[] {FACING});
-    }
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
+		if(facing.equals(EnumFacing.NORTH)) return 0;
+		if(facing.equals(EnumFacing.EAST)) return 1;
+		if(facing.equals(EnumFacing.SOUTH)) return 2;
+		if(facing.equals(EnumFacing.WEST)) return 3;
+		return 0;
+	}
+
+	protected BlockState createBlockState() {
+
+		return new BlockState(this, new IProperty[] {FACING});
+	}
 
 	@Override
 	public boolean isFullCube() {
+
 		return false;
 	}
 
 	@Override
 	public boolean isOpaqueCube() {
+
 		return false;
 	}
 
 	@Override
 	public boolean isLadder(IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
-		return true; 
+
+		return true;
 	}
-	
+
 	// Ground Blocks
-	public void onNeighborBlockChange(World worldIn, BlockPos pos,
-			IBlockState state, Block neighborBlock) {
-		if (!this.canBlockStay(worldIn, pos, EnumFacing.UP)) {
+	public void onNeighborBlockChange(World worldIn, BlockPos pos, IBlockState state, Block neighborBlock) {
+
+		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
 		super.onNeighborBlockChange(worldIn, pos, state, neighborBlock);
 	}
 
-	protected boolean canBlockStay(World worldIn, BlockPos pos,
-			EnumFacing facing) {
-		if(worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN)) return true;
-		else if(worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.chain)) return true;
-		else return false;
+	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
+
+		if(worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN))
+			return true;
+		else if(worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.chain))
+			return true;
+		else
+			return false;
 	}
 
 	public boolean isSideSolid(IBlockAccess world, BlockPos pos, EnumFacing side) {
+
 		return false;
 	}
-	
-    //TODO 
-    public int getRenderType() {
+
+	// TODO
+	public int getRenderType() {
+
 		return -1;
 	}
-    
+
 	public TileEntity createNewTileEntity(World world, int meta) {
+
 		return new TileEntityChain();
 	}
 }
-

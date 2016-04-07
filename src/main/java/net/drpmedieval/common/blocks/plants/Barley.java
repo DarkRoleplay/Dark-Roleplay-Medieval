@@ -7,25 +7,25 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
-public class Barley extends BlockCrops{
+public class Barley extends BlockCrops {
 
-	public Barley(){
+	public Barley() {
 		this.setUnlocalizedName("blockBarley");
 	}
-	
-	protected boolean canPlaceBlockOn(Block ground)
-	{
-	        return ground == Blocks.farmland;
-	}
-	
-	protected Item getSeed()
-    {
-        return DRPMedievalItems.itemSeedBarley;
-    }
 
-    protected Item getCrop()
-    {
-        return DRPMedievalItems.itemBarley;
-    }
-	
+	protected boolean canPlaceBlockOn(Block ground) {
+
+		return ground == Blocks.farmland;
+	}
+
+	protected Item getSeed() {
+
+		return DRPMedievalItems.itemSeedBarley;
+	}
+
+	protected Item getCrop() {
+
+		return DRPMedievalItems.itemBarley;
+	}
+
 }

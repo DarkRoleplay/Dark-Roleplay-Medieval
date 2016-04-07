@@ -10,32 +10,40 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class DRPMedievalCreativeTabs {
 
-	public static CreativeTabs drpmedievalBlocksTab = new CreativeTabs("DRPMedievalBlocksTab"){
-		@SideOnly(Side.CLIENT)
-        public Item getTabIconItem(){
-                return Item.getItemFromBlock(DRPMedievalBlocks.barrelEmpty);
-        }
-	};
-	
-	public static CreativeTabs drpmedievalFoodTab = new CreativeTabs("DRPMedievalFoodTab"){
+	public static CreativeTabs drpmedievalBlocksTab = new CreativeTabs("DRPMedievalBlocksTab") {
+
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
+
+			return Item.getItemFromBlock(DRPMedievalBlocks.barrelEmpty);
+		}
+	};
+
+	public static CreativeTabs drpmedievalFoodTab = new CreativeTabs("DRPMedievalFoodTab") {
+
+		@SideOnly(Side.CLIENT)
+		public Item getTabIconItem() {
+
 			return DRPMedievalItems.itemPumpkinStew;
 		}
 	};
-	
-	public static CreativeTabs drpmedievalEquipTab = new CreativeTabs("DRPMedievalEquipTab"){
+
+	public static CreativeTabs drpmedievalEquipTab = new CreativeTabs("DRPMedievalEquipTab") {
+
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
+
 			return DRPMedievalItems.itemQuiver;
 		}
 	};
-	
-	public static CreativeTabs drpmedievalMiscTab = new CreativeTabs("DRPMedievalMiscTab"){
+
+	public static CreativeTabs drpmedievalMiscTab = new CreativeTabs("DRPMedievalMiscTab") {
+
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
+
 			return DRPMedievalItems.itemFurWolf;
 		}
 	};
-	
+
 }

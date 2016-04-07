@@ -11,27 +11,26 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class Firewood extends Item{
+public class Firewood extends Item {
 
 	private static String unlocalizedName = "itemFirewood";
-	
-	public Firewood(){
-        this.setHasSubtypes(true);
+
+	public Firewood() {
+		this.setHasSubtypes(true);
 		this.setUnlocalizedName("itemFirewood");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
-	
-	 @SideOnly(Side.CLIENT)
-	 public void getSubItems(Item itemIn, CreativeTabs tab, List subItems)
-	 {
-		 List<ItemStack> subItems2 = (List<ItemStack>) subItems;
-		 
-		 
-		 for(int i = 0; i < 6; i++){
-		 	subItems2.add(new ItemStack(itemIn, 1, i));
-		 }
-		 
-		 subItems = subItems2;
-	 }
-	 
+
+	@SideOnly(Side.CLIENT)
+	public void getSubItems(Item itemIn, CreativeTabs tab, List subItems) {
+
+		List<ItemStack> subItems2 = (List<ItemStack>) subItems;
+
+		for(int i = 0; i < 6; i++){
+			subItems2.add(new ItemStack(itemIn, 1, i));
+		}
+
+		subItems = subItems2;
+	}
+
 }

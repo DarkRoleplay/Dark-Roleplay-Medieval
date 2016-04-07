@@ -10,16 +10,17 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class EntityCreator {
 
-	public static final void createEntity(Class entityClass, String entityName,EnumCreatureType type, int propability, int minSpawn, int maxSpawn, BiomeGenBase[] biomes, int solidColor, int spotColor, boolean hasSpawnEgg){
+	public static final void createEntity(Class entityClass, String entityName, EnumCreatureType type, int propability, int minSpawn, int maxSpawn, BiomeGenBase[] biomes, int solidColor, int spotColor, boolean hasSpawnEgg) {
+
 		int id = 0;
-		EntityRegistry.registerModEntity(entityClass, entityName, id , DarkRoleplayMedieval.instance, 64, 1, true);
-		//EntityRegistry.addSpawn(entityName, propability, minSpawn, maxSpawn, type, biomes);
-	
+		EntityRegistry.registerModEntity(entityClass, entityName, id, DarkRoleplayMedieval.instance, 64, 1, true);
+		// EntityRegistry.addSpawn(entityName, propability, minSpawn, maxSpawn,
+		// type, biomes);
+
 		if(hasSpawnEgg){
 			EntityList.entityEggs.put(Integer.valueOf(id), new EntityList.EntityEggInfo(id, solidColor, spotColor));
 		}
-	
+
 	}
-	
-	
+
 }

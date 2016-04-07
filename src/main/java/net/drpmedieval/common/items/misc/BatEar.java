@@ -8,9 +8,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class BatEar extends Item{
+public class BatEar extends Item {
 
-	public BatEar(){
+	public BatEar() {
 		this.setUnlocalizedName("itemBatEar");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}

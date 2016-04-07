@@ -15,26 +15,26 @@ import net.minecraft.util.ResourceLocation;
 
 public class SpecialRenderFirepit extends TileEntitySpecialRenderer {
 
-	private static final ResourceLocation texture = new ResourceLocation(
-			DarkRoleplayMedieval.MODID, "textures/oldBlocks/blockLargeFirepit.png");
+	private static final ResourceLocation texture = new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/oldBlocks/blockLargeFirepit.png");
 
 	private ModelSmallFirepit model;
 
 	public SpecialRenderFirepit() {
 		this.model = new ModelSmallFirepit();
 	}
+
 	@Override
-	public void renderTileEntityAt(TileEntity tileentity, double x, double y,
-			double z, float f, int i) {
+	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int i) {
+
 		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMedievalBlocks.firepit)){
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) x + 0.5F, (float) y + 0.77F, (float) z + 0.5F);
 			GL11.glRotatef(180, 0F, 0F, 1F);
-			GL11.glRotatef(90, 0.0F, 1.0F, 0.0F); 
+			GL11.glRotatef(90, 0.0F, 1.0F, 0.0F);
 			this.bindTexture(texture);
-	
+
 			this.model.renderModel(0.03125F);
-	
+
 			GL11.glPopMatrix();
 		}
 	}
@@ -42,6 +42,7 @@ public class SpecialRenderFirepit extends TileEntitySpecialRenderer {
 }
 
 class ModelSmallFirepit extends ModelBase {
+
 	ModelRenderer Stone1;
 	ModelRenderer Stone2;
 	ModelRenderer Stone3;
@@ -131,7 +132,7 @@ class ModelSmallFirepit extends ModelBase {
 	public ModelSmallFirepit() {
 		textureWidth = 128;
 		textureHeight = 128;
-		
+
 		Stone1 = new ModelRenderer(this, 0, 0);
 		Stone1.addBox(0F, 0F, 0F, 5, 3, 1);
 		Stone1.setRotationPoint(-5F, 22.5F, -22F);
@@ -644,8 +645,8 @@ class ModelSmallFirepit extends ModelBase {
 		setRotation(Wood13, 0.5205006F, 0.3160182F, 0F);
 	}
 
-	public void render(Entity entity, float f, float f1, float f2, float f3,
-			float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 
@@ -737,12 +738,14 @@ class ModelSmallFirepit extends ModelBase {
 	}
 
 	private void setRotation(ModelRenderer model, float x, float y, float z) {
+
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;
 	}
 
 	public void renderModel(float f) {
+
 		/*
 		 * Stock4.render(f); Stein1.render(f); Stock3.render(f);
 		 * Stein2.render(f); Stock2.render(f); Stein3.render(f);
@@ -848,8 +851,8 @@ class ModelSmallFirepit extends ModelBase {
 		Wood13.render(f);
 	}
 
-	public void setRotationAngles(float f, float f1, float f2, float f3,
-			float f4, float f5, Entity entity) {
+	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
+
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 	}
 

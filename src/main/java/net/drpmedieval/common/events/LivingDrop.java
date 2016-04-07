@@ -14,15 +14,14 @@ public class LivingDrop {
 	public static int dropped;
 
 	@SubscribeEvent
-	public void onEntityDrop(LivingDropsEvent event)
-	{
-		
+	public void onEntityDrop(LivingDropsEvent event) {
+
 		if(event.entityLiving instanceof EntityBat){
 			random = new Random();
 			dropped = random.nextInt(3);
 			event.entityLiving.dropItem(DRPMedievalItems.itemBatEar, dropped);
 		}
-		
+
 		if(event.entityLiving instanceof EntityWolf){
 			dropped = random.nextInt(2);
 			event.entityLiving.dropItem(DRPMedievalItems.itemFurWolf, dropped);
@@ -30,5 +29,5 @@ public class LivingDrop {
 			event.entityLiving.dropItem(DRPMedievalItems.itemWolfMeatRaw, dropped);
 		}
 	}
-	
+
 }

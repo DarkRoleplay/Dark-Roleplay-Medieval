@@ -26,6 +26,7 @@ import net.drpmedieval.common.items.food.WolfMeatCooked;
 import net.drpmedieval.common.items.food.WolfMeatRaw;
 import net.drpmedieval.common.items.misc.BatEar;
 import net.drpmedieval.common.items.misc.DoughBarley;
+import net.drpmedieval.common.items.misc.DoughPumpkin;
 import net.drpmedieval.common.items.misc.DoughWheat;
 import net.drpmedieval.common.items.misc.Firewood;
 import net.drpmedieval.common.items.misc.FlourBarley;
@@ -42,168 +43,172 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class DRPMedievalItems {
 
-	/**A**/
-	
+	/** A **/
+
 	public static AppleGreen itemAppleGreen = new AppleGreen();
 	public static AppleYellow itemAppleYellow = new AppleYellow();
-	
-	/**B**/
+
+	/** B **/
 
 	public static Barley itemBarley = new Barley();
 	public static BatEar itemBatEar = new BatEar();
 	public static BronzeCoin itemBronzeCoin = new BronzeCoin();
 	public static BronzeRing itemBronzeRing = new BronzeRing();
-	
-	/**C**/
-	
+
+	/** C **/
+
 	public static CatfishCooked itemCatfishCooked = new CatfishCooked();
 	public static CatfishRaw itemCatfishRaw = new CatfishRaw();
 	public static ChickenStew itemChickenStew = new ChickenStew();
 	public static CodStew itemCodStew = new CodStew();
-	
-	/**D**/
-	
+
+	/** D **/
+
 	public static DoughBarley itemDoughBarley = new DoughBarley();
+	public static DoughPumpkin itemDoughPumpkin = new DoughPumpkin();
 	public static DoughWheat itemDoughWheat = new DoughWheat();
-	
-	/**E**/
-	
-	/**F**/
-	
+
+	/** E **/
+
+	/** F **/
+
 	public static Firewood itemFirewood = new Firewood();
 	public static FlourBarley itemFlourBarley = new FlourBarley();
 	public static FlourWheat itemFlourWheat = new FlourWheat();
 	public static FurWolf itemFurWolf = new FurWolf();
-	
-	/**G**/
-	
+
+	/** G **/
+
 	public static GoldenCoin itemGoldenCoin = new GoldenCoin();
 	public static GoldenRing itemGoldenRing = new GoldenRing();
-	
-	/**H**/
-	
-	/**I**/
-	
-	/**J**/
-	
-	/**K**/
-	
-	/**L**/
-	
+
+	/** H **/
+
+	/** I **/
+
+	/** J **/
+
+	/** K **/
+
+	/** L **/
+
 	public static LeatherPurse itemLeatherPurse = new LeatherPurse();
-	
-	/**M**/
-	
-	/**N**/
-	
-	/**O**/
-	
-	/**P**/
-	
+
+	/** M **/
+
+	/** N **/
+
+	/** O **/
+
+	/** P **/
+
 	public static PearGreen itemPearGreen = new PearGreen();
 	public static PearYellow itemPearYellow = new PearYellow();
 	public static PumpkinBread itemPumpkinBread = new PumpkinBread();
 	public static PumpkinStew itemPumpkinStew = new PumpkinStew();
-	
-	/**Q**/
-	
+
+	/** Q **/
+
 	public static Quiver itemQuiver = new Quiver();
-	
-	/**R**/
-	
-	/**S**/
-	
+
+	/** R **/
+
+	/** S **/
+
 	public static SeedBarley itemSeedBarley = new SeedBarley();
 	public static SilverCoin itemSilverCoin = new SilverCoin();
 	public static SilverRing itemSilverRing = new SilverRing();
-	
-	/**T**/
-	
+
+	/** T **/
+
 	public static TriggerTrap itemTriggerTrap = new TriggerTrap();
 	public static Turnip itemTurnip = new Turnip();
-	
-	/**U**/
-	
-	/**V**/
-	
+
+	/** U **/
+
+	/** V **/
+
 	public static VegieStew itemVegieStew = new VegieStew();
-	
-	/**W**/
-	
+
+	/** W **/
+
 	public static WolfMeatCooked itemWolfMeatCooked = new WolfMeatCooked();
 	public static WolfMeatRaw itemWolfMeatRaw = new WolfMeatRaw();
-	
-	/**X**/
-	
-	/**Y**/
-	
-	/**Z**/
 
-	public static final void itemPreInit(FMLPreInitializationEvent event){
-		//A
-			registerItem(itemAppleGreen);
-			registerItem(itemAppleYellow);
-		//B
-			registerItem(itemBarley);
-			registerItem(itemBatEar);
-			registerItem(itemBronzeCoin);
-			registerItem(itemBronzeRing);
-		//C
-			registerItem(itemCatfishCooked);
-			registerItem(itemCatfishRaw);
-			registerItem(itemChickenStew);
-			registerItem(itemCodStew);
-		//D
-			registerItem(itemDoughBarley);
-			registerItem(itemDoughWheat);
-		//E
-		//F
-			registerItem(itemFirewood);
-			registerItem(itemFlourBarley);
-			registerItem(itemFlourWheat);
-			registerItem(itemFurWolf);
-		//G
-			registerItem(itemGoldenCoin);
-			registerItem(itemGoldenRing);
-		//H
-		//I
-		//J
-		//K
-		//L
-			registerItem(itemLeatherPurse);
-		//M
-		//N
-		//O
-		//P
-			registerItem(itemPearGreen);
-			registerItem(itemPearYellow);
-			registerItem(itemPumpkinBread);
-			registerItem(itemPumpkinStew);
-		//Q
-			registerItem(itemQuiver);
-		//R
-		//S
-			registerItem(itemSeedBarley);
-			registerItem(itemSilverCoin);
-			registerItem(itemSilverRing);
-		//T
-			registerItem(itemTriggerTrap);
-			registerItem(itemTurnip);
-		//V
-			registerItem(itemVegieStew);
-		//W
-			registerItem(itemWolfMeatCooked);
-			registerItem(itemWolfMeatRaw);
-		//X
-		//Y
-		//Z
+	/** X **/
+
+	/** Y **/
+
+	/** Z **/
+
+	public static final void itemPreInit(FMLPreInitializationEvent event) {
+
+		// A
+		registerItem(itemAppleGreen);
+		registerItem(itemAppleYellow);
+		// B
+		registerItem(itemBarley);
+		registerItem(itemBatEar);
+		registerItem(itemBronzeCoin);
+		registerItem(itemBronzeRing);
+		// C
+		registerItem(itemCatfishCooked);
+		registerItem(itemCatfishRaw);
+		registerItem(itemChickenStew);
+		registerItem(itemCodStew);
+		// D
+		registerItem(itemDoughBarley);
+		registerItem(itemDoughPumpkin);
+		registerItem(itemDoughWheat);
+		// E
+		// F
+		registerItem(itemFirewood);
+		registerItem(itemFlourBarley);
+		registerItem(itemFlourWheat);
+		registerItem(itemFurWolf);
+		// G
+		registerItem(itemGoldenCoin);
+		registerItem(itemGoldenRing);
+		// H
+		// I
+		// J
+		// K
+		// L
+		registerItem(itemLeatherPurse);
+		// M
+		// N
+		// O
+		// P
+		registerItem(itemPearGreen);
+		registerItem(itemPearYellow);
+		registerItem(itemPumpkinBread);
+		registerItem(itemPumpkinStew);
+		// Q
+		registerItem(itemQuiver);
+		// R
+		// S
+		registerItem(itemSeedBarley);
+		registerItem(itemSilverCoin);
+		registerItem(itemSilverRing);
+		// T
+		registerItem(itemTriggerTrap);
+		registerItem(itemTurnip);
+		// V
+		registerItem(itemVegieStew);
+		// W
+		registerItem(itemWolfMeatCooked);
+		registerItem(itemWolfMeatRaw);
+		// X
+		// Y
+		// Z
 	}
-	
-	public static final void itemInit(FMLInitializationEvent event){}
 
-	public static final void itemPostInit(FMLPostInitializationEvent event){}
-	
-	public static final void registerItem(Item item){
+	public static final void itemInit(FMLInitializationEvent event) {}
+
+	public static final void itemPostInit(FMLPostInitializationEvent event) {}
+
+	public static final void registerItem(Item item) {
+
 		GameRegistry.registerItem(item, (item.getUnlocalizedName().split("[.]"))[1]);
 	}
 }
