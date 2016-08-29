@@ -25,11 +25,11 @@ public class Barley extends BlockCrops {
 
 	protected Item getSeed() {
 
-		return DRPMedievalItems.itemSeedBarley;
+		return DRPMedievalItems.SeedBarley;
 	}
 
 	protected Item getCrop() {
-		return DRPMedievalItems.itemBarley;
+		return DRPMedievalItems.Barley;
 	}
 
 	// -------------------------------------------------- Block Data --------------------------------------------------

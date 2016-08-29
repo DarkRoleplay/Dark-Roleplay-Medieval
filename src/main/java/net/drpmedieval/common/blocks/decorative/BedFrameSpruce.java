@@ -18,6 +18,6 @@ public class BedFrameSpruce extends AdvancedBed{
 	
 	@Override
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state){
-        return new ItemStack(DRPMedievalItems.bedFrameSpruce);
+        return new ItemStack(DRPMedievalItems.BedFrameSpruce);
     }
 }

@@ -179,13 +179,13 @@ public class TorchHolderEmpty extends Block {
 					//worldIn.markBlockForUpdate(pos);
 					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(Blocks.TORCH),  player.inventory.mainInventory), 1);
 				}
-				else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(DRPMedievalItems.itemTriggerTrap)){
+				else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(DRPMedievalItems.TriggerTrap)){
 					if((Boolean) state.getValue(AddonLighter)){
 						state = state.cycleProperty(AddonLighter);
 						state = state.cycleProperty(AddonTrap);
 						world.spawnEntityInWorld(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
 						world.setBlockState(pos, state, 3);
-						if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.itemTriggerTrap,  player.inventory.mainInventory), 1);
+						if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TriggerTrap,  player.inventory.mainInventory), 1);
 					}
 					else if((Boolean) state.getValue(AddonTrap)){
 
@@ -193,12 +193,12 @@ public class TorchHolderEmpty extends Block {
 					else{
 						state = state.cycleProperty(AddonTrap);
 						world.setBlockState(pos, state, 3);
-						if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.itemTriggerTrap,  player.inventory.mainInventory), 1);
+						if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TriggerTrap,  player.inventory.mainInventory), 1);
 					}
 				}
 				else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Items.FLINT)){
 					if((Boolean) state.getValue(AddonTrap)){
-						world.spawnEntityInWorld(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.itemTriggerTrap, 1)));
+						world.spawnEntityInWorld(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TriggerTrap, 1)));
 						state = state.cycleProperty(AddonTrap);
 						state = state.cycleProperty(AddonLighter);
 						world.setBlockState(pos, state, 3);
