@@ -1,8 +1,8 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-		"particle": "drpmedieval:blocks/AppleRed",
-        "0": "drpmedieval:blocks/AppleRed"
+		"particle": "drpmedieval:blocks/AppleRedRipe",
+        "0": "drpmedieval:blocks/AppleRedRipe"
     },
     "elements": [
         {

@@ -1,11 +1,9 @@
 package net.drpmedieval.common.items.misc;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
@@ -13,11 +11,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Firewood extends Item {
 
-	private static String unlocalizedName = "itemFirewood";
+	private static String unlocalizedName = "Firewood";
 
 	public Firewood() {
 		this.setHasSubtypes(true);
-		this.setUnlocalizedName("itemFirewood");
+		this.setRegistryName("Firewood");
+		this.setUnlocalizedName("Firewood");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
 

@@ -1,0 +1,29 @@
+{
+    "multipart": [
+	
+		{  "when": { "facing": "north" ,"part": "foot"},
+			"apply": { "model": "drpmedieval:Beds/Frames/BedFrameAcaciaFoot", "y":180}
+		},
+		{  "when": { "facing": "east" ,"part": "foot" },
+			"apply": { "model": "drpmedieval:Beds/Frames/BedFrameAcaciaFoot", "y":270}
+		},
+		{  "when": { "facing": "south" ,"part": "foot" },
+			"apply": { "model": "drpmedieval:Beds/Frames/BedFrameAcaciaFoot", "y": 0}
+		},
+		{  "when": { "facing": "west" ,"part": "foot" },
+			"apply": { "model": "drpmedieval:Beds/Frames/BedFrameAcaciaFoot", "y":90}
+		},
+		{  "when": { "facing": "north" ,"part": "head"},
+			"apply": { "model": "drpmedieval:Beds/Frames/BedFrameAcaciaHead", "y":180}
+		},
+		{  "when": { "facing": "east" ,"part": "head" },
+			"apply": { "model": "drpmedieval:Beds/Frames/BedFrameAcaciaHead", "y":270}
+		},
+		{  "when": { "facing": "south" ,"part": "head" },
+			"apply": { "model": "drpmedieval:Beds/Frames/BedFrameAcaciaHead", "y": 0}
+		},
+		{  "when": { "facing": "west" ,"part": "head" },
+			"apply": { "model": "drpmedieval:Beds/Frames/BedFrameAcaciaHead", "y":90}
+		}
+	]
+}

@@ -8,7 +8,8 @@ public class AppleYellow extends ItemFood {
 	public AppleYellow() {
 		super(4, 0.3F, false);
 		setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab);
-		setUnlocalizedName("itemAppleYellow");
+		this.setRegistryName("AppleYellow");
+		setUnlocalizedName("AppleYellow");
 		setMaxStackSize(64);
 	}
 

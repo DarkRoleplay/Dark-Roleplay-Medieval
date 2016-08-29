@@ -1,0 +1,8 @@
+{
+    "variants":{
+        "facing=north":{"model":"drpmedieval:LogChairs/LogChairSpruce"},
+        "facing=east":{"model":"drpmedieval:LogChairs/LogChairSpruce", "y":90},
+        "facing=south":{"model":"drpmedieval:LogChairs/LogChairSpruce", "y":180},
+        "facing=west":{"model":"drpmedieval:LogChairs/LogChairSpruce", "y":270}   
+    }
+}

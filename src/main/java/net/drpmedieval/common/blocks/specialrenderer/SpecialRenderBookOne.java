@@ -4,7 +4,6 @@ import org.lwjgl.opengl.GL11;
 
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.DRPMedievalBlocks;
-import net.drpmedieval.common.blocks.decorative.BookOne;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
@@ -44,7 +43,7 @@ public class SpecialRenderBookOne extends TileEntitySpecialRenderer {
 				facing = 3;
 			else if(state.getValue(FACING).equals(EnumFacing.WEST)) facing = 4;
 
-			GL11.glRotatef(facing * 90, 0.0F, 1.0F, 0.0F);
+			GL11.glRotatef(facing * 90 -45, 0.0F, 1.0F, 0.0F);
 			this.bindTexture(texture);
 
 			this.model.renderModel(0.0625F);

@@ -8,7 +8,8 @@ public class PumpkinBread extends ItemFood {
 	public PumpkinBread() {
 		super(6, 0.5F, false);
 		setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab);
-		setUnlocalizedName("itemPumpkinBread");
+		this.setRegistryName("PumpkinBread");
+		setUnlocalizedName("PumpkinBread");
 		setMaxStackSize(64);
 	}
 

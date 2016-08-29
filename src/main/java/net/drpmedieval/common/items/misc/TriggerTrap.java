@@ -6,7 +6,8 @@ import net.minecraft.item.Item;
 public class TriggerTrap extends Item {
 
 	public TriggerTrap() {
-		this.setUnlocalizedName("itemTriggerTrap");
+		this.setRegistryName("TriggerTrap");
+		this.setUnlocalizedName("TriggerTrap");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
 }

@@ -8,7 +8,8 @@ public class PearGreen extends ItemFood {
 	public PearGreen() {
 		super(4, 0.3F, false);
 		setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab);
-		setUnlocalizedName("itemPearGreen");
+		this.setRegistryName("PearGreen");
+		setUnlocalizedName("PearGreen");
 		setMaxStackSize(64);
 	}
 

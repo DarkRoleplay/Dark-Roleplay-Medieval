@@ -1,12 +1,12 @@
 package net.drpmedieval.common.items.equipment.ammunition;
 
-import net.drpcore.server.items.AmmunitionContainerBase;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
-
-public class Quiver extends AmmunitionContainerBase {
+import net.drpcore.api.items.AmmunitionBase;
+import net.drpmedieval.common.util.DRPMedievalCreativeTabs;;
+public class Quiver extends AmmunitionBase {
 
 	public Quiver() {
-		this.setUnlocalizedName("itemQuiver");
+		this.setRegistryName("Quiver");
+		this.setUnlocalizedName("Quiver");
 		this.setMaxStackSize(1);
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalEquipTab);
 	}

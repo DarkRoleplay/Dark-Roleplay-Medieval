@@ -1,28 +1,24 @@
 package net.drpmedieval.common.blocks.decorative;
 
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
-import net.drpmedieval.common.blocks.tileentitys.TileEntityKeyHanging;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityShipsWheel;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ShipsWheel extends BlockContainer {
 
@@ -30,12 +26,31 @@ public class ShipsWheel extends BlockContainer {
 
 	public ShipsWheel() {
 		super(DRPMedievalMaterials.wood);
-		this.setBlockBounds(0F, 0F, 0F, 1F, 1F, 1F);
-		this.setUnlocalizedName("blockShipsWheel");
-		this.setStepSound(Block.soundTypeWood);
+		this.setRegistryName("ShipsWheel");
+		this.setUnlocalizedName("ShipsWheel");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setHardness(2F);
+		this.setSoundType(SoundType.WOOD);
 	}
-
+	
+	// -------------------------------------------------- Block Data --------------------------------------------------
+	
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+		if(state.getValue(FACING) == EnumFacing.NORTH){
+			return new AxisAlignedBB(0F, 0F, 0.625F, 1F, 1F, 1F);
+		}else if( state.getValue(FACING) == EnumFacing.EAST ){
+			return new AxisAlignedBB(0F, 0F, 0F, 0.375F, 1F, 1F);
+		}else if( state.getValue(FACING) == EnumFacing.SOUTH ){
+			return new AxisAlignedBB(0F, 0F, 0F, 1F, 1F, 0.375F);
+		}else if( state.getValue(FACING) == EnumFacing.WEST ){
+			return new AxisAlignedBB(0.625F, 0F, 0F, 1F, 1F, 1F);
+		}
+		return null;
+    }
+	
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
 		switch (meta) {
@@ -52,6 +67,7 @@ public class ShipsWheel extends BlockContainer {
 		}
 	}
 
+	@Override
 	public int getMetaFromState(IBlockState state) {
 
 		EnumFacing facing = (EnumFacing) state.getValue(FACING);
@@ -62,28 +78,45 @@ public class ShipsWheel extends BlockContainer {
 		return 0;
 	}
 
-	protected BlockState createBlockState() {
+	@Override
+	protected BlockStateContainer createBlockState() {
 
-		return new BlockState(this, new IProperty[] {FACING});
+		return new BlockStateContainer(this, new IProperty[] {FACING});
 	}
+	
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+	
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+			
+	// -------------------------------------------------- Block Placement --------------------------------------------------
+	
+	@Override
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
+
+		EnumFacing enumfacing = (EnumFacing) state.getValue(FACING);
+
+		if(!this.canBlockStay(worldIn, pos, enumfacing)){
+			this.dropBlockAsItem(worldIn, pos, state, 0);
+			worldIn.setBlockToAir(pos);
+		}
+
+		super.neighborChanged(state, worldIn, pos, neighborBlock);
+	}
+
+	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
+
+		return worldIn.isSideSolid(pos.offset(facing.getOpposite()), facing, true);
+	}
+	
+	// -------------------------------------------------- Block Events --------------------------------------------------
 
 	@Override
-	public boolean isFullCube() {
-
-		return false;
-	}
-
-	@Override
-	public boolean isOpaqueCube() {
-
-		return false;
-	}
-
-	public boolean isSideSolid(IBlockAccess world, BlockPos pos, EnumFacing side) {
-
-		return false;
-	}
-
 	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 
 		if(facing.equals(facing.SOUTH))
@@ -95,62 +128,26 @@ public class ShipsWheel extends BlockContainer {
 		else if(facing.equals(facing.EAST))
 			return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
 		else
-			return Blocks.air.getDefaultState();
+			return Blocks.AIR.getDefaultState();
 
 	}
-
-	public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos) {
-
-		if(!worldIn.getBlockState(pos).getBlock().equals(this)) return;
-		EnumFacing facing = (EnumFacing) worldIn.getBlockState(pos).getValue(FACING);
-		if(facing.equals(EnumFacing.NORTH))
-			this.setBlockBounds(0F, 0F, 0.625F, 1F, 1F, 1F);
-		else if(facing.equals(EnumFacing.EAST))
-			this.setBlockBounds(0F, 0F, 0F, 0.375F, 1F, 1F);
-		else if(facing.equals(EnumFacing.SOUTH))
-			this.setBlockBounds(0F, 0F, 0F, 1F, 1F, 0.375F);
-		else if(facing.equals(EnumFacing.WEST)) this.setBlockBounds(0.625F, 0F, 0F, 1F, 1F, 1F);
-
-	}
-
-	public void onNeighborBlockChange(World worldIn, BlockPos pos, IBlockState state, Block neighborBlock) {
-
-		EnumFacing enumfacing = (EnumFacing) state.getValue(FACING);
-
-		if(!this.canBlockStay(worldIn, pos, enumfacing)){
-			this.dropBlockAsItem(worldIn, pos, state, 0);
-			worldIn.setBlockToAir(pos);
-		}
-
-		super.onNeighborBlockChange(worldIn, pos, state, neighborBlock);
-	}
-
-	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
-
-		return worldIn.isSideSolid(pos.offset(facing.getOpposite()), facing, true);
-	}
-
-	public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state) {
-
-		this.setBlockBoundsBasedOnState(worldIn, pos);
-		return super.getCollisionBoundingBox(worldIn, pos, state);
-	}
-
-	@SideOnly(Side.CLIENT)
-	public AxisAlignedBB getSelectedBoundingBox(World worldIn, BlockPos pos) {
-
-		this.setBlockBoundsBasedOnState(worldIn, pos);
-		return super.getSelectedBoundingBox(worldIn, pos);
-	}
-
-	// TODO
-	public int getRenderType() {
-
-		return -1;
-	}
-
+	
+	// -------------------------------------------------- Old Rendering System --------------------------------------------------
+	// TODO Old Rendering System
+	
+	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 
 		return new TileEntityShipsWheel();
+	}
+	
+	@Override
+	public EnumBlockRenderType getRenderType(IBlockState state){
+		return EnumBlockRenderType.INVISIBLE;
+	}
+	
+	@Override
+	public boolean hasTileEntity(IBlockState state) {
+		return true;
 	}
 }

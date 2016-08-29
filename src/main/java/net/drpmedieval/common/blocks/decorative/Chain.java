@@ -3,24 +3,23 @@ package net.drpmedieval.common.blocks.decorative;
 import net.drpmedieval.common.blocks.DRPMedievalBlocks;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityChain;
-import net.drpmedieval.common.blocks.tileentitys.TileEntityMortar;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -30,35 +29,28 @@ public class Chain extends BlockContainer {
 
 	public Chain() {
 		super(DRPMedievalMaterials.iron);
-		this.setBlockBounds(0.375F, 0F, 0.375F, 0.625F, 1F, 0.625F);
-		this.setUnlocalizedName("blockChain");
-		this.setStepSound(Block.soundTypeMetal);
+		this.setRegistryName("Chain");
+		this.setUnlocalizedName("Chain");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setHardness(3F);
+		this.setSoundType(SoundType.METAL);
+	}
+	
+	// -------------------------------------------------- Block Data --------------------------------------------------
+
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+        return new AxisAlignedBB(0.375F, 0F, 0.375F, 0.625F, 1F, 0.625F);
+    }
+	
+	@Override
+    public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
+		return true; 
 	}
 
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-
-		EntityPlayer entity = (EntityPlayer) placer;
-		if(entity != null){
-			if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.chain)) return Blocks.air.getDefaultState();
-			int dir = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-			switch (dir) {
-				case 0:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
-				case 1:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
-				case 2:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
-				case 3:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
-				default:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
-			}
-		}
-
-		return Blocks.air.getDefaultState();
-	}
-
+	
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
 		switch (meta) {
@@ -75,6 +67,7 @@ public class Chain extends BlockContainer {
 		}
 	}
 
+	@Override
 	public int getMetaFromState(IBlockState state) {
 
 		EnumFacing facing = (EnumFacing) state.getValue(FACING);
@@ -85,37 +78,32 @@ public class Chain extends BlockContainer {
 		return 0;
 	}
 
-	protected BlockState createBlockState() {
-
-		return new BlockState(this, new IProperty[] {FACING});
-	}
-
 	@Override
-	public boolean isFullCube() {
+	protected BlockStateContainer createBlockState() {
 
+		return new BlockStateContainer(this, new IProperty[] {FACING});
+	}
+	
+	@Override
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
-
+	
 	@Override
-	public boolean isOpaqueCube() {
-
+	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-
+			
+	// -------------------------------------------------- Block Placement --------------------------------------------------
+	
 	@Override
-	public boolean isLadder(IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
-
-		return true;
-	}
-
-	// Ground Blocks
-	public void onNeighborBlockChange(World worldIn, BlockPos pos, IBlockState state, Block neighborBlock) {
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
 
 		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
-		super.onNeighborBlockChange(worldIn, pos, state, neighborBlock);
+		super.neighborChanged(state, worldIn, pos, neighborBlock);
 	}
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
@@ -127,18 +115,47 @@ public class Chain extends BlockContainer {
 		else
 			return false;
 	}
+	
+	// -------------------------------------------------- Block Events --------------------------------------------------
+	
+	@Override	
+	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 
-	public boolean isSideSolid(IBlockAccess world, BlockPos pos, EnumFacing side) {
+		EntityPlayer entity = (EntityPlayer) placer;
+		if(entity != null){
+			if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.chain)) return Blocks.AIR.getDefaultState();
+			int dir = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+			switch (dir) {
+				case 0:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				case 1:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+				case 2:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+				case 3:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
+				default:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+			}
+		}
 
-		return false;
+		return Blocks.AIR.getDefaultState();
 	}
-
-	// TODO
-	public int getRenderType() {
-
-		return -1;
+	
+	// -------------------------------------------------- Old Rendering System --------------------------------------------------
+	// TODO Old Rendering System
+	
+	@Override
+	public EnumBlockRenderType getRenderType(IBlockState state){
+		return EnumBlockRenderType.INVISIBLE;
 	}
-
+	
+	@Override
+	public boolean hasTileEntity(IBlockState state) {
+		return true;
+	}
+	
+	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 
 		return new TileEntityChain();

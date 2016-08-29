@@ -3,17 +3,16 @@ package net.drpmedieval.common.items.food;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
 import net.minecraft.world.World;
 
 public class VegieStew extends ItemFood {
 
 	public VegieStew() {
 		super(6, 0.3F, false);
-		this.setUnlocalizedName("itemVegieStew");
+		this.setRegistryName("VegieStew");
+		this.setUnlocalizedName("VegieStew");
 		setMaxStackSize(1);
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab);
 	}
@@ -22,10 +21,10 @@ public class VegieStew extends ItemFood {
 
 		--stack.stackSize;
 		playerIn.getFoodStats().addStats(this, stack);
-		worldIn.playSoundAtEntity(playerIn, "random.burp", 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
+		//TODO FIX SOUND
+		//worldIn.playSoundAtEntity(playerIn, "random.burp", 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
 		this.onFoodEaten(stack, worldIn, playerIn);
-		playerIn.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
 
-		return new ItemStack(Items.bowl);
+		return new ItemStack(Items.BOWL);
 	}
 }

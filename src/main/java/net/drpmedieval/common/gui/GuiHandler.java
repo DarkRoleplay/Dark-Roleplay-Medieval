@@ -1,15 +1,11 @@
 package net.drpmedieval.common.gui;
 
-import net.drpcore.server.entity.player.ExtendedPlayer;
-import net.drpcore.server.inventory.PlayerInventory;
-import net.drpcore.server.items.PurseBase;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityCrate;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityDungeonChest;
 import net.drpmedieval.common.gui.container.ContainerCrate;
 import net.drpmedieval.common.gui.container.ContainerDungeonChest;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 

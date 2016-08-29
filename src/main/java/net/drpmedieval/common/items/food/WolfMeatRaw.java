@@ -8,7 +8,8 @@ public class WolfMeatRaw extends ItemFood {
 	public WolfMeatRaw() {
 		super(2, 0.15F, false);
 		setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab);
-		setUnlocalizedName("itemWolfMeatRaw");
+		this.setRegistryName("WolfMeatRaw");
+		setUnlocalizedName("WolfMeatRaw");
 		setMaxStackSize(64);
 	}
 

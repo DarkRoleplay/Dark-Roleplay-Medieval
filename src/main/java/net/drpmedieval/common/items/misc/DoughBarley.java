@@ -6,7 +6,8 @@ import net.minecraft.item.Item;
 public class DoughBarley extends Item {
 
 	public DoughBarley() {
-		this.setUnlocalizedName("itemDoughBarley");
+		this.setRegistryName("DoughBarley");
+		this.setUnlocalizedName("DoughBarley");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
 }

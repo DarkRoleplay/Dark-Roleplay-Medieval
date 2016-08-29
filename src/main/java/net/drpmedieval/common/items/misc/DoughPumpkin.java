@@ -11,11 +11,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class DoughPumpkin extends Item {
 
-	private static String unlocalizedName = "itemDoughPumpkin";
+	private static String unlocalizedName = "DoughPumpkin";
 
 	public DoughPumpkin() {
 		this.setHasSubtypes(true);
-		this.setUnlocalizedName("itemDoughPumpkin");
+		this.setRegistryName("DoughPumpkin");
+		this.setUnlocalizedName("DoughPumpkin");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
 

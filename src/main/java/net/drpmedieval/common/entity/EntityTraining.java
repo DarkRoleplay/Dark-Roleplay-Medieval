@@ -1,6 +1,5 @@
 package net.drpmedieval.common.entity;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -23,19 +22,16 @@ public class EntityTraining extends EntityLiving {
 
 	@Override
 	protected void entityInit() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound tagCompund) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void writeEntityToNBT(NBTTagCompound tagCompound) {
-		// TODO Auto-generated method stub
 
 	}
 

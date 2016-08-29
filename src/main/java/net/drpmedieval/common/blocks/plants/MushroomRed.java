@@ -2,19 +2,22 @@ package net.drpmedieval.common.blocks.plants;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -24,43 +27,31 @@ public class MushroomRed extends Block {
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
 	public MushroomRed() {
-		super(Material.plants);
-		this.setBlockBounds(0F, 0F, 0F, 1F, 0.5F, 1F);
-		this.setUnlocalizedName("blockMushroomRed");
-		this.setStepSound(Block.soundTypeGrass);
+		super(Material.PLANTS);
+		this.setRegistryName("MushroomRed");
+		this.setUnlocalizedName("MushroomRed");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setHardness(0.5F);
+		this.setSoundType(SoundType.PLANT);
+		this.setTickRandomly(false);
 	}
+	
+	// -------------------------------------------------- Block Data --------------------------------------------------
 
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+        return new AxisAlignedBB(0F,0F,0F,1F,0.5F,1F);
+    }
 
-		EnumFacing face = EnumFacing.NORTH;
-		Random rnd = new Random();
-		int dir = rnd.nextInt(4);
-
-		switch (dir) {
-			case 1:
-				face = EnumFacing.EAST;
-				break;
-			case 2:
-				face = EnumFacing.SOUTH;
-				break;
-			case 3:
-				face = EnumFacing.WEST;
-			default:
-				break;
-		}
-
-		if(facing.equals(facing.UP) && worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true))
-			return this.getDefaultState().withProperty(AGE, 3).withProperty(FACING, face);
-		else
-			return Blocks.air.getDefaultState();
-	}
-
-	public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state) {
-
-		return null;
-	}
-
+	@Override
+	@Nullable
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos)
+    {
+        return NULL_AABB;
+    }
+	
+	@Override	
 	public IBlockState getStateFromMeta(int meta) {
 
 		EnumFacing face = EnumFacing.NORTH;
@@ -86,6 +77,7 @@ public class MushroomRed extends Block {
 		return this.getDefaultState().withProperty(AGE, age).withProperty(FACING, face);
 	}
 
+	@Override
 	public int getMetaFromState(IBlockState state) {
 
 		int meta = (Integer) state.getValue(AGE);
@@ -103,43 +95,69 @@ public class MushroomRed extends Block {
 		return meta;
 	}
 
-	protected BlockState createBlockState() {
-
-		return new BlockState(this, new IProperty[] {AGE, FACING});
-	}
-
 	@Override
-	public boolean isFullCube() {
+	protected BlockStateContainer createBlockState() {
 
+		return new BlockStateContainer(this, new IProperty[] {AGE, FACING});
+	}
+	
+	@Override
+	public boolean isPassable(IBlockAccess worldIn, BlockPos pos){
+		return true;
+	}
+	
+	@Override
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
-
-	public boolean isSolidFullCube() {
-
+			
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-
-	public boolean isOpaqueCube() {
-
-		return false;
-	}
-
-	public void onNeighborBlockChange(World worldIn, BlockPos pos, IBlockState state, Block neighborBlock) {
+					
+	// -------------------------------------------------- Block Placement --------------------------------------------------
+	
+	@Override
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
 
 		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
-		super.onNeighborBlockChange(worldIn, pos, state, neighborBlock);
+		super.neighborChanged(state, worldIn, pos, neighborBlock);
 	}
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
 
 		return worldIn.isSideSolid(pos.offset(facing.getOpposite()), facing, true);
 	}
+	
+	// -------------------------------------------------- Block Events --------------------------------------------------
+		
+	@Override
+	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 
-	public boolean isSideSolid(IBlockAccess world, BlockPos pos, EnumFacing side) {
+		EnumFacing face = EnumFacing.NORTH;
+		Random rnd = new Random();
+		int dir = rnd.nextInt(4);
 
-		return false;
+		switch (dir) {
+			case 1:
+				face = EnumFacing.EAST;
+				break;
+			case 2:
+				face = EnumFacing.SOUTH;
+				break;
+			case 3:
+				face = EnumFacing.WEST;
+			default:
+				break;
+		}
+
+		if(facing.equals(facing.UP) && worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true))
+			return this.getDefaultState().withProperty(AGE, 3).withProperty(FACING, face);
+		else
+			return Blocks.AIR.getDefaultState();
 	}
 }

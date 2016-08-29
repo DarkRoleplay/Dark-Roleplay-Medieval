@@ -17,9 +17,9 @@ public class TileEntityDungeonChest extends TileEntity {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound compound) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 
-		super.writeToNBT(compound);
+		super.writeToNBT(nbt);
 
 		NBTTagList list = new NBTTagList();
 
@@ -32,8 +32,9 @@ public class TileEntityDungeonChest extends TileEntity {
 			}
 		}
 
-		compound.setTag("ItemStacks", list);
+		nbt.setTag("ItemStacks", list);
 
+		return nbt;
 	}
 
 	@Override

@@ -1,45 +1,14 @@
 package net.drpmedieval.common.blocks;
 
-import net.drpmedieval.common.blocks.*;
-import net.drpmedieval.common.blocks.craftingstations.Anvil;
-import net.drpmedieval.common.blocks.craftingstations.Cauldron;
-import net.drpmedieval.common.blocks.craftingstations.ChoppingBlock;
-import net.drpmedieval.common.blocks.craftingstations.Firepit;
-import net.drpmedieval.common.blocks.craftingstations.Grindstone;
-import net.drpmedieval.common.blocks.craftingstations.HangingCauldron;
-import net.drpmedieval.common.blocks.craftingstations.Mortar;
-import net.drpmedieval.common.blocks.decorative.BarrelClosed;
-import net.drpmedieval.common.blocks.decorative.BarrelEmpty;
-import net.drpmedieval.common.blocks.decorative.BarrelGunpowder;
-import net.drpmedieval.common.blocks.decorative.BookOne;
-import net.drpmedieval.common.blocks.decorative.BucketDirt;
-import net.drpmedieval.common.blocks.decorative.BucketEmpty;
-import net.drpmedieval.common.blocks.decorative.BucketWater;
-import net.drpmedieval.common.blocks.decorative.Chain;
-import net.drpmedieval.common.blocks.decorative.HangingBridge;
-import net.drpmedieval.common.blocks.decorative.Hook;
-import net.drpmedieval.common.blocks.decorative.KeyHanging;
-import net.drpmedieval.common.blocks.decorative.MugBeer;
-import net.drpmedieval.common.blocks.decorative.MugEmpty;
-import net.drpmedieval.common.blocks.decorative.PotionEmpty;
-import net.drpmedieval.common.blocks.decorative.Rope;
-import net.drpmedieval.common.blocks.decorative.RopeAnchor;
-import net.drpmedieval.common.blocks.decorative.ShipsWheel;
-import net.drpmedieval.common.blocks.decorative.Target;
-import net.drpmedieval.common.blocks.decorative.TorchHolderEmpty;
-import net.drpmedieval.common.blocks.decorative.TorchHolderLit;
-import net.drpmedieval.common.blocks.decorative.TorchHolderUnlit;
-import net.drpmedieval.common.blocks.plants.AppleGreen;
-import net.drpmedieval.common.blocks.plants.AppleRed;
-import net.drpmedieval.common.blocks.plants.AppleYellow;
-import net.drpmedieval.common.blocks.plants.Barley;
-import net.drpmedieval.common.blocks.plants.MushroomBrown;
-import net.drpmedieval.common.blocks.plants.MushroomRed;
-import net.drpmedieval.common.blocks.plants.PearGreen;
-import net.drpmedieval.common.blocks.plants.PearYellow;
-import net.drpmedieval.common.blocks.storage.Crate;
-import net.drpmedieval.common.blocks.storage.DungeonChest;
+import net.drpmedieval.common.DarkRoleplayMedieval;
+import net.drpmedieval.common.blocks.craftingstations.*;
+import net.drpmedieval.common.blocks.decorative.*;
+import net.drpmedieval.common.blocks.plants.*;
+import net.drpmedieval.common.blocks.storage.*;
+import net.drpmedieval.common.items.DRPMedievalItems;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -47,9 +16,18 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class DRPMedievalBlocks {
 
+	/*
+	 @Override
+	 public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+     {
+         return new AxisAlignedBB(,,,,,);
+     }
+	 */
+	
 	/** A **/
 
 	public static Anvil anvil = new Anvil();
+	public static Apiary apiary = new Apiary();
 	public static AppleGreen appleGreen = new AppleGreen();
 	public static AppleRed appleRed = new AppleRed();
 	public static AppleYellow appleYellow = new AppleYellow();
@@ -57,19 +35,29 @@ public class DRPMedievalBlocks {
 	/** B **/
 
 	public static Barley barley = new Barley();
+	public static BarrelChair barrelChair = new BarrelChair();
 	public static BarrelClosed barrelClosed = new BarrelClosed();
 	public static BarrelEmpty barrelEmpty = new BarrelEmpty();
-	public static BarrelGunpowder barrelGunpowder = new BarrelGunpowder();
+	public static BarrelFilled barrelGunpowder = new BarrelFilled("BarrelGunpowder","BarrelGunpowder");
+		
+	public static BedFrame bedFrameOak = new BedFrame("BedFrameOak","BedFrameOak",DRPMedievalItems.BedFrameOak);
+	public static BedFrame bedFrameSpruce = new BedFrame("BedFrameSpruce","BedFrameSpruce",DRPMedievalItems.BedFrameSpruce);
+	public static BedFrame bedFrameBirch = new BedFrame("BedFrameBirch","BedFrameBirch",DRPMedievalItems.BedFrameBirch);
+	public static BedFrame bedFrameJungle = new BedFrame("BedFrameJungle","BedFrameJungle",DRPMedievalItems.BedFrameJungle);
+	public static BedFrame bedFrameAcacia = new BedFrame("BedFrameAcacia","BedFrameAcacia",DRPMedievalItems.BedFrameAcacia);
+	public static BedFrame bedFrameDarkOak = new BedFrame("BedFrameDarkOak","BedFrameDarkOak",DRPMedievalItems.BedFrameDarkOak);
+
 	public static BookOne bookOne = new BookOne();
 	public static BucketDirt bucketDirt = new BucketDirt();
-	public static BucketEmpty bucketEmpty = new BucketEmpty();
-	public static BucketWater bucketWater = new BucketWater();
+	public static Bucket bucketEmpty = new Bucket("BucketEmpty", "BucketEmpty");
+	public static Bucket bucketWater = new Bucket("BucketWater", "BucketWater");
 
 	/** C **/
 
 	public static Cauldron cauldron = new Cauldron();
 	public static Chain chain = new Chain();
 	public static ChoppingBlock choppingBlock = new ChoppingBlock();
+	public static CleanPlanks cleanPlanks = new CleanPlanks();
 	public static Crate crate = new Crate();
 
 	/** D **/
@@ -90,10 +78,10 @@ public class DRPMedievalBlocks {
 
 	public static HangingBridge hangingBridge = new HangingBridge();
 	public static HangingCauldron hangingCauldron = new HangingCauldron();
-	public static Hook hook = new Hook();
 
 	/** I **/
-
+	public static Hook ironHook = new Hook();
+	
 	/** J **/
 
 	/** K **/
@@ -102,6 +90,14 @@ public class DRPMedievalBlocks {
 
 	/** L **/
 
+	public static LogChair logChairOak = new LogChair("LogChairOak","LogChairOak");
+	public static LogChair logChairSpruce = new LogChair("LogChairSpruce","LogChairSpruce");
+	public static LogChair logChairBirch = new LogChair("LogChairBirch","LogChairBirch");
+	public static LogChair logChairJungle = new LogChair("LogChairJungle","LogChairJungle");
+	public static LogChair logChairAcacia = new LogChair("LogChairAcacia","LogChairAcacia");
+	public static LogChair logChairDarkOak = new LogChair("LogChairDarkOak","LogChairDarkOak");
+
+	
 	/** M **/
 
 	public static Mortar mortar = new Mortar();
@@ -150,17 +146,37 @@ public class DRPMedievalBlocks {
 
 	/** Z **/
 
-	public static void blockPreInit(FMLPreInitializationEvent event) {
+	public static void preInit(FMLPreInitializationEvent event) {
 
 		registerBlock(barrelEmpty);
 		registerBlock(barrelClosed);
 		registerBlock(barrelGunpowder);
+		
+		registerBlock(bedFrameOak, null);
+		registerBlock(bedFrameSpruce, null);
+		registerBlock(bedFrameBirch, null);
+		registerBlock(bedFrameJungle, null);
+		registerBlock(bedFrameAcacia, null);
+		registerBlock(bedFrameDarkOak, null);
+		
+		registerBlock(apiary);
+		registerBlock(barrelChair);
+		
+		registerBlock(logChairOak);
+		registerBlock(logChairSpruce);
+		registerBlock(logChairBirch);
+		registerBlock(logChairJungle);
+		registerBlock(logChairAcacia);
+		registerBlock(logChairDarkOak);
+		
+		registerBlock(cleanPlanks, null);
+		
 		registerBlock(choppingBlock);
-		registerBlock(appleRed);
-		registerBlock(appleYellow);
-		registerBlock(appleGreen);
-		registerBlock(pearYellow);
-		registerBlock(pearGreen);
+		registerBlock(appleRed, null);
+		registerBlock(appleYellow, null);
+		registerBlock(appleGreen, null);
+		registerBlock(pearYellow, null);
+		registerBlock(pearGreen, null);
 		registerBlock(mushroomBrown);
 		registerBlock(mushroomRed);
 		registerBlock(bucketEmpty);
@@ -180,7 +196,7 @@ public class DRPMedievalBlocks {
 		registerBlock(chain);
 		registerBlock(crate);
 		registerBlock(dungeonChest);
-		registerBlock(hook);
+		registerBlock(ironHook);
 		registerBlock(keyHanging);
 		registerBlock(shipsWheel);
 		registerBlock(target);
@@ -188,16 +204,29 @@ public class DRPMedievalBlocks {
 		registerBlock(torchHolderUnlit);
 		registerBlock(torchHolderLit);
 		registerBlock(firepit);
-		registerBlock(barley);
+		registerBlock(barley, null);
+		
 	}
 
-	public static final void blockInit(FMLInitializationEvent event) {}
+	public static final void init(FMLInitializationEvent event) {}
 
-	public static final void blockPostInit(FMLPostInitializationEvent event) {}
+	public static final void postInit(FMLPostInitializationEvent event) {}
 
-	public static final void registerBlock(Block block) {
+	public static final void registerBlockOld(Block block) {
 
 		GameRegistry.registerBlock(block, (block.getUnlocalizedName().split("[.]"))[1]);
 	}
+	
+	public static final void registerBlock(Block block) {
+		registerBlock(block,new ItemBlock(block).setRegistryName(block.getRegistryName()));
+	}
 
+	public static final void registerBlock(Block block, Item item) {
+		GameRegistry.register(block);
+		if(item != null){
+			GameRegistry.register(item);
+			DarkRoleplayMedieval.proxy.addItemToRegisterMesh(item);
+		}
+	}
+	
 }

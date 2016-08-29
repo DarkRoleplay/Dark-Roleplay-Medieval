@@ -3,12 +3,13 @@ package net.drpmedieval.common.blocks.decorative;
 import net.drpmedieval.common.blocks.DRPMedievalBlocks;
 import net.drpmedieval.common.blocks.helper.RopeFixPoint;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.util.InventoryHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -16,27 +17,107 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Rope extends Block {
 
 	public static PropertyInteger POSITION = PropertyInteger.create("position", 0, 4);
 
 	public Rope() {
-		super(Material.cloth);
-		this.setBlockBounds(0F, 0F, 0F, 1F, 1F, 1F);
-		this.setUnlocalizedName("blockRope");
-		this.setStepSound(Block.soundTypeCloth);
+		super(Material.CLOTH);
+		this.setRegistryName("Rope");
+		this.setUnlocalizedName("Rope");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setHardness(0.5F);
+		this.setSoundType(SoundType.CLOTH);
+	}
+	
+	// -------------------------------------------------- Block Data --------------------------------------------------
+
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+		if(state.getValue(POSITION).intValue() == 0){
+			return new AxisAlignedBB(0.4375F,0F,0.4375F,0.5625F,1F,0.5625F);
+		}else if( state.getValue(POSITION).intValue() == 1){
+			return new AxisAlignedBB(0.4375F,0F,0F,0.5625F,1F,0.125F);
+		}else if( state.getValue(POSITION).intValue() == 2){
+			return new AxisAlignedBB(0.875F,0F,0.4375F,1F,1F,0.5625F);
+		}else if( state.getValue(POSITION).intValue() == 3){
+			return new AxisAlignedBB(0.4375F,0F,0.875F,0.5625F,1F,1F);
+		}else if( state.getValue(POSITION).intValue() == 4){
+			return new AxisAlignedBB(0F,0F,0.4375F,0.125F,1F,0.5625F);
+		}
+		return null;
+    }
+	
+	@Override
+    public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
+		return true; 
+	}
+	
+	@Override
+	public boolean canPlaceBlockOnSide(World world, BlockPos pos, EnumFacing facing) {
+
+		if(world.getBlockState(pos.offset(facing.getOpposite())).getBlock() instanceof RopeFixPoint){
+			RopeFixPoint fixPoint = (RopeFixPoint) world.getBlockState(pos.offset(facing.getOpposite())).getBlock();
+			if(fixPoint.isRopeFixable(world, pos.offset(facing), facing)){ return true; }
+		}
+		return false;
+	}
+	
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+
+		return this.getDefaultState().withProperty(POSITION, Integer.valueOf(meta));
 	}
 
+	@Override
+	public int getMetaFromState(IBlockState state) {
+
+		return ((Integer) state.getValue(POSITION)).intValue();
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+
+		return new BlockStateContainer(this, new IProperty[] {POSITION});
+	}
+	
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+	
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+			
+	// -------------------------------------------------- Block Placement --------------------------------------------------
+
+	@Override
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
+
+		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
+			this.dropBlockAsItem(worldIn, pos, state, 0);
+			worldIn.setBlockToAir(pos);
+		}
+		super.neighborChanged(state, worldIn, pos, neighborBlock);
+	}
+
+	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
+
+		return true;
+	}
+	// -------------------------------------------------- Block Events --------------------------------------------------
+	
+	@Override
 	public IBlockState onBlockPlaced(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 
 		int dir = 0;
@@ -49,59 +130,33 @@ public class Rope extends Block {
 		if(world.getBlockState(pos.offset(facing.getOpposite())).getBlock() instanceof RopeFixPoint){
 			RopeFixPoint fixPoint = (RopeFixPoint) world.getBlockState(pos.offset(facing.getOpposite())).getBlock();
 			pos = fixPoint.getPlacementOffset(world, pos.offset(facing.getOpposite()), pos);
+			if(placer instanceof EntityPlayer && world.getBlockState(pos).getBlock() == Blocks.AIR)
+				if(!((EntityPlayer) placer).capabilities.isCreativeMode) ((EntityPlayer) placer).inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMedievalBlocks.rope),  ((EntityPlayer) placer).inventory.mainInventory), 1);
+				
 			world.setBlockState(pos, this.getDefaultState().withProperty(POSITION, dir), 3);
-			world.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), this.stepSound.getPlaceSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, this.stepSound.getFrequency() * 0.8F);
-			return Blocks.air.getDefaultState();
+			//TODO Play Sound
+			//world.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), this.stepSound.getPlaceSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, /*this.stepSound.getFrequency()*/ 1 * 0.8F);
+			return Blocks.AIR.getDefaultState();
 		}
 		return this.getDefaultState().withProperty(POSITION, dir);
 	}
+	
 
 	@Override
-	public boolean canPlaceBlockOnSide(World world, BlockPos pos, EnumFacing facing) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-		if(world.getBlockState(pos.offset(facing.getOpposite())).getBlock() instanceof RopeFixPoint){
-			RopeFixPoint fixPoint = (RopeFixPoint) world.getBlockState(pos.offset(facing.getOpposite())).getBlock();
-			if(fixPoint.isRopeFixable(world, pos.offset(facing), facing)){ return true; }
-		}
-		return false;
-	}
-
-	public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos) {
-
-		IBlockState state = worldIn.getBlockState(pos);
-		if(state.getBlock() == this){
-			if(state.getValue(POSITION).equals(0)){
-				this.setBlockBounds(1.0F / 16F * 7F, 0.0F, 1.0F / 16F * 7F, 1.0F / 16F * 9F, 1.0F / 16F * 16F, 1.0F / 16F * 9F);
-			}
-			else if(state.getValue(POSITION).equals(1)){
-				this.setBlockBounds(1.0F / 16F * 7F, 0.0F, 1.0F / 16F * 0F, 1.0F / 16F * 9F, 1.0F / 16F * 16F, 1.0F / 16F * 2F);
-			}
-			else if(state.getValue(POSITION).equals(2)){
-				this.setBlockBounds(1.0F / 16F * 14F, 0.0F, 1.0F / 16F * 7F, 1.0F / 16F * 16F, 1.0F / 16F * 16F, 1.0F / 16F * 9F);
-			}
-			else if(state.getValue(POSITION).equals(3)){
-				this.setBlockBounds(1.0F / 16F * 7F, 0.0F, 1.0F / 16F * 14F, 1.0F / 16F * 9F, 1.0F / 16F * 16F, 1.0F / 16F * 16F);
-			}
-			else if(state.getValue(POSITION).equals(4)){
-				this.setBlockBounds(1.0F / 16F * 0F, 0.0F, 1.0F / 16F * 7F, 1.0F / 16F * 2F, 1.0F / 16F * 16F, 1.0F / 16F * 9F);
-			}
-		}
-	}
-
-	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
-
-		if(player.getHeldItem() != null){
-			if(player.getHeldItem().getItem().equals(Item.getItemFromBlock(DRPMedievalBlocks.rope))){
+		if(player.getHeldItem(EnumHand.MAIN_HAND) != null){
+			if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Item.getItemFromBlock(DRPMedievalBlocks.rope))){
 				for(int i = pos.getY() - 1; i > 0; i--){
 					BlockPos pos2 = new BlockPos(pos.getX(), pos.getY() - (pos.getY() - i), pos.getZ());
-					if(worldIn.getBlockState(pos2).getBlock().equals(DRPMedievalBlocks.rope)){
+					if(world.getBlockState(pos2).getBlock().equals(DRPMedievalBlocks.rope)){
 						continue;
 					}
-					else if(worldIn.getBlockState(pos2).getBlock().equals(Blocks.air)){
-						worldIn.setBlockState(pos2, state);
-						worldIn.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), this.stepSound.getPlaceSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, this.stepSound.getFrequency() * 0.8F);
-						if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(Item.getItemFromBlock(DRPMedievalBlocks.rope));
+					else if(world.getBlockState(pos2).getBlock().equals(Blocks.AIR)){
+						world.setBlockState(pos2, state);
+						//TODO PLAY SOUND
+						//world.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), this.stepSound.getPlaceSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, /*this.stepSound.getFrequency()*/1 * 0.8F);
+						if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMedievalBlocks.rope),  player.inventory.mainInventory), 1);
 						return true;
 					}
 					else{
@@ -114,13 +169,14 @@ public class Rope extends Block {
 			if(player.isSneaking()){
 				for(int i = pos.getY() - 1; i > 0; i--){
 					BlockPos pos2 = new BlockPos(pos.getX(), pos.getY() - (pos.getY() - i), pos.getZ());
-					if(worldIn.getBlockState(pos2).getBlock().equals(DRPMedievalBlocks.rope)){
+					if(world.getBlockState(pos2).getBlock().equals(DRPMedievalBlocks.rope)){
 						continue;
 					}
 					else{
 						BlockPos pos3 = new BlockPos(pos2.getX(), pos2.getY() + 1, pos2.getZ());
-						worldIn.setBlockState(pos3, Blocks.air.getDefaultState());
-						worldIn.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), this.stepSound.getBreakSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, this.stepSound.getFrequency() * 0.8F);
+						world.setBlockState(pos3, Blocks.AIR.getDefaultState());
+						//TODO PLAY SOUND
+						//worldIn.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), this.stepSound.getBreakSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, this.stepSound.getFrequency() * 0.8F);
 
 						if(!player.worldObj.isRemote) player.worldObj.spawnEntityInWorld(new EntityItem(player.worldObj, player.posX, player.posY, player.posZ, new ItemStack(DRPMedievalBlocks.rope, 1)));
 						return true;
@@ -129,71 +185,5 @@ public class Rope extends Block {
 			}
 		}
 		return true;
-	}
-
-	public IBlockState getStateFromMeta(int meta) {
-
-		return this.getDefaultState().withProperty(POSITION, Integer.valueOf(meta));
-	}
-
-	public int getMetaFromState(IBlockState state) {
-
-		return ((Integer) state.getValue(POSITION)).intValue();
-	}
-
-	protected BlockState createBlockState() {
-
-		return new BlockState(this, new IProperty[] {POSITION});
-	}
-
-	@Override
-	public boolean isFullCube() {
-
-		return false;
-	}
-
-	@Override
-	public boolean isOpaqueCube() {
-
-		return false;
-	}
-
-	@Override
-	public boolean isLadder(IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
-
-		return true;
-	}
-
-	public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state) {
-
-		this.setBlockBoundsBasedOnState(worldIn, pos);
-		return super.getCollisionBoundingBox(worldIn, pos, state);
-	}
-
-	@SideOnly(Side.CLIENT)
-	public AxisAlignedBB getSelectedBoundingBox(World worldIn, BlockPos pos) {
-
-		this.setBlockBoundsBasedOnState(worldIn, pos);
-		return super.getSelectedBoundingBox(worldIn, pos);
-	}
-
-	// Ground Blocks
-	public void onNeighborBlockChange(World worldIn, BlockPos pos, IBlockState state, Block neighborBlock) {
-
-		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
-			this.dropBlockAsItem(worldIn, pos, state, 0);
-			worldIn.setBlockToAir(pos);
-		}
-		super.onNeighborBlockChange(worldIn, pos, state, neighborBlock);
-	}
-
-	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
-
-		return true;
-	}
-
-	public boolean isSideSolid(IBlockAccess world, BlockPos pos, EnumFacing side) {
-
-		return false;
 	}
 }

@@ -1,0 +1,14 @@
+package net.drpmedieval.common.config;
+
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+
+public class DRPMedievalConfig {
+	
+	public static final void preInit(FMLPreInitializationEvent event) {}
+	
+	public static final void init(FMLInitializationEvent event) {}
+
+	public static final void postInit(FMLPostInitializationEvent event) {}
+}

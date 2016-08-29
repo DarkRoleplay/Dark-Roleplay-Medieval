@@ -1,0 +1,8 @@
+{
+    "variants":{
+        "facing=north":{"model":"drpmedieval:Apiary/Apiary"},
+        "facing=east":{"model":"drpmedieval:Apiary/Apiary", "y":90},
+        "facing=south":{"model":"drpmedieval:Apiary/Apiary", "y":180},
+        "facing=west":{"model":"drpmedieval:Apiary/Apiary", "y":270}   
+    }
+}

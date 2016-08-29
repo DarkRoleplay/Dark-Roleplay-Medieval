@@ -2,16 +2,12 @@ package net.drpmedieval.common.worldgen;
 
 import net.drpmedieval.common.items.DRPMedievalItems;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraft.util.WeightedRandomFishable;
-import net.minecraftforge.common.ChestGenHooks;
-import net.minecraftforge.common.FishingHooks;
 import net.minecraftforge.common.MinecraftForge;
 
 public class WorldLoot {
 
 	public static void registerChestLoot() {
-
+		/**
 		// Bonus Chest
 		ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(DRPMedievalItems.itemBronzeCoin), 15, 30, 40));
 
@@ -55,19 +51,21 @@ public class WorldLoot {
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(DRPMedievalItems.itemBronzeCoin), 1, 64, 60));
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(DRPMedievalItems.itemSilverCoin), 1, 32, 30));
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(DRPMedievalItems.itemGoldenCoin), 1, 3, 10));
+		*/
 	}
 
 	public static void registerGrassLoot() {
 
-		MinecraftForge.addGrassSeed(new ItemStack(DRPMedievalItems.itemSeedBarley), 1);
+		MinecraftForge.addGrassSeed(new ItemStack(DRPMedievalItems.SeedBarley), 1);
 	}
 
 	public static void registerFishingLoot() {
-
+		/**
 		FishingHooks.addFish(new WeightedRandomFishable(new ItemStack(DRPMedievalItems.itemCatfishRaw, 1), 10));
 		FishingHooks.addTreasure(new WeightedRandomFishable(new ItemStack(DRPMedievalItems.itemBronzeCoin, 1), 40));
 		FishingHooks.addTreasure(new WeightedRandomFishable(new ItemStack(DRPMedievalItems.itemSilverCoin, 1), 15));
 		FishingHooks.addTreasure(new WeightedRandomFishable(new ItemStack(DRPMedievalItems.itemGoldenCoin, 1), 5));
+		*/
 	}
 
 }

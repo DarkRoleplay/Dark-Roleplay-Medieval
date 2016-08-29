@@ -6,7 +6,8 @@ import net.minecraft.item.Item;
 public class FlourWheat extends Item {
 
 	public FlourWheat() {
-		this.setUnlocalizedName("itemFlourWheat");
+		this.setRegistryName("FlourWheat");
+		this.setUnlocalizedName("FlourWheat");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
 

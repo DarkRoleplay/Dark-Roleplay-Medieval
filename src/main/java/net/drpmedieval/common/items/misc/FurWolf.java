@@ -6,7 +6,8 @@ import net.minecraft.item.Item;
 public class FurWolf extends Item {
 
 	public FurWolf() {
-		this.setUnlocalizedName("itemFurWolf");
+		this.setRegistryName("FurWolf");
+		this.setUnlocalizedName("FurWolf");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
 

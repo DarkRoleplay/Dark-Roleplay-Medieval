@@ -2,22 +2,24 @@ package net.drpmedieval.common.blocks.storage;
 
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
-import net.drpmedieval.common.blocks.tileentitys.TileEntityCauldron;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityCrate;
-import net.drpmedieval.common.blocks.tileentitys.TileEntityDungeonChest;
 import net.drpmedieval.common.gui.GuiHandler;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.InventoryHelper;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -25,43 +27,66 @@ public class Crate extends BlockContainer {
 
 	public Crate() {
 		super(DRPMedievalMaterials.wood);
-		this.setBlockBounds(0F, 0F, 0F, 1F, 1F, 1F);
-		this.setUnlocalizedName("blockCrate");
-		this.setStepSound(Block.soundTypeWood);
+		this.setRegistryName("Crate");
+		this.setUnlocalizedName("Crate");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setHardness(2F);
+		this.setSoundType(SoundType.WOOD);
+	}
+	
+	// -------------------------------------------------- Block Data --------------------------------------------------
+	
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+	{
+		return new AxisAlignedBB(0F, 0F, 0F, 1F, 1F, 1F);
 	}
 
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+	
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+			
+	// -------------------------------------------------- Block Placement --------------------------------------------------
+	
+	@Override
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
+
+		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
+			this.dropBlockAsItem(worldIn, pos, state, 0);
+			worldIn.setBlockToAir(pos);
+		}
+		super.neighborChanged(state, worldIn, pos, neighborBlock);
+	}
+
+	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
+
+		return worldIn.isSideSolid(pos.offset(facing.getOpposite()), facing, true);
+	}
+	
+	// -------------------------------------------------- Block Events --------------------------------------------------
+
+	@Override
 	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 
 		if(worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true))
 			return this.getDefaultState();
 		else
-			return Blocks.air.getDefaultState();
+			return Blocks.AIR.getDefaultState();
 	}
 
 	@Override
-	public boolean isFullCube() {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-		return false;
-	}
-
-	public boolean isSolidFullCube() {
-
-		return false;
-	}
-
-	public boolean isOpaqueCube() {
-
-		return false;
-	}
-
-	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ) {
-
-		if(!worldIn.isRemote){
-			TileEntity tileentity = worldIn.getTileEntity(pos);
+		if(!world.isRemote){
+			TileEntity tileentity = world.getTileEntity(pos);
 			if(tileentity instanceof TileEntityCrate){
-				playerIn.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_CRATE, worldIn, pos.getX(), pos.getY(), pos.getZ());
+				player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_CRATE, world, pos.getX(), pos.getY(), pos.getZ());
 			}
 
 		}
@@ -80,35 +105,24 @@ public class Crate extends BlockContainer {
 
 		super.breakBlock(worldIn, pos, state);
 	}
-
-	// Ground Blocks
-	public void onNeighborBlockChange(World worldIn, BlockPos pos, IBlockState state, Block neighborBlock) {
-
-		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
-			this.dropBlockAsItem(worldIn, pos, state, 0);
-			worldIn.setBlockToAir(pos);
-		}
-		super.onNeighborBlockChange(worldIn, pos, state, neighborBlock);
+	
+	// -------------------------------------------------- Old Rendering System --------------------------------------------------
+	// TODO Old Rendering System
+	
+	@Override
+	public EnumBlockRenderType getRenderType(IBlockState state){
+		return EnumBlockRenderType.INVISIBLE;
 	}
-
-	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
-
-		return worldIn.isSideSolid(pos.offset(facing.getOpposite()), facing, true);
-	}
-
-	public boolean isSideSolid(IBlockAccess world, BlockPos pos, EnumFacing side) {
-
+	
+	@Override
+	public boolean hasTileEntity(IBlockState state) {
 		return true;
 	}
-
-	// TODO
-	public int getRenderType() {
-
-		return -1;
-	}
-
+	
+	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 
 		return new TileEntityCrate();
 	}
+	
 }

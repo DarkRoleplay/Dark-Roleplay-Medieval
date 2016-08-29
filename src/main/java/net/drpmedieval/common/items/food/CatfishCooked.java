@@ -8,7 +8,8 @@ public class CatfishCooked extends ItemFood {
 	public CatfishCooked() {
 		super(6, 0.6F, false);
 		setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab);
-		setUnlocalizedName("itemCatfishCooked");
+		this.setRegistryName("CatfishCooked");
+		setUnlocalizedName("CatfishCooked");
 		setMaxStackSize(64);
 	}
 }

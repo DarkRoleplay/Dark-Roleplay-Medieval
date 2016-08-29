@@ -3,18 +3,20 @@ package net.drpmedieval.common.blocks.decorative;
 import net.drpmedieval.common.blocks.DRPMedievalBlocks;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -27,34 +29,23 @@ public class HangingBridge extends Block {
 	public static final PropertyBool EAST = PropertyBool.create("east");
 
 	public HangingBridge() {
-		super(Material.wood);
-		this.setBlockBounds(0F, 0F, 0F, 1F, 0.125F, 1F);
-		this.setUnlocalizedName("blockHangingBridge");
-		this.setStepSound(Block.soundTypeWood);
+		super(Material.WOOD);
+		this.setRegistryName("HangingBridge");
+		this.setUnlocalizedName("HangingBridge");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setHardness(1F);
+		this.setSoundType(SoundType.WOOD);
 	}
 
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+	// -------------------------------------------------- Block Data --------------------------------------------------
 
-		EntityPlayer entity = (EntityPlayer) placer;
-		if(entity != null){
-			int dir = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-			switch (dir) {
-				case 0:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
-				case 1:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
-				case 2:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
-				case 3:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
-				default:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
-			}
-		}
-		return Blocks.air.getDefaultState();
-	}
-
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+        return new AxisAlignedBB(0F, 0F, 0F, 1F, 0.125F, 1F);
+    }
+	
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
 		switch (meta) {
@@ -71,6 +62,7 @@ public class HangingBridge extends Block {
 		}
 	}
 
+	@Override
 	public int getMetaFromState(IBlockState state) {
 
 		EnumFacing facing = (EnumFacing) state.getValue(FACING);
@@ -81,6 +73,7 @@ public class HangingBridge extends Block {
 		return 0;
 	}
 
+	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
 
 		boolean north = false;
@@ -146,40 +139,60 @@ public class HangingBridge extends Block {
 		return state.withProperty(NORTH, north).withProperty(EAST, east).withProperty(SOUTH, south).withProperty(WEST, west);
 	}
 
-	protected BlockState createBlockState() {
-
-		return new BlockState(this, new IProperty[] {FACING, NORTH, SOUTH, EAST, WEST});
-	}
-
 	@Override
-	public boolean isFullCube() {
+	protected BlockStateContainer createBlockState() {
 
+		return new BlockStateContainer(this, new IProperty[] {FACING, NORTH, SOUTH, EAST, WEST});
+	}
+	
+	@Override
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
-
+	
 	@Override
-	public boolean isOpaqueCube() {
-
+	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-
-	// Ground Blocks
-	public void onNeighborBlockChange(World worldIn, BlockPos pos, IBlockState state, Block neighborBlock) {
+			
+	// -------------------------------------------------- Block Placement --------------------------------------------------
+	
+	@Override
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
 
 		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
-		super.onNeighborBlockChange(worldIn, pos, state, neighborBlock);
+		super.neighborChanged(state, worldIn, pos, neighborBlock);
 	}
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
 
 		return true;
 	}
+	// -------------------------------------------------- Block Events --------------------------------------------------
+	
+	@Override
+	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 
-	public boolean isSideSolid(IBlockAccess world, BlockPos pos, EnumFacing side) {
-
-		return false;
+		EntityPlayer entity = (EntityPlayer) placer;
+		if(entity != null){
+			int dir = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+			switch (dir) {
+				case 0:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				case 1:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+				case 2:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+				case 3:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
+				default:
+					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+			}
+		}
+		return Blocks.AIR.getDefaultState();
 	}
+
 }
