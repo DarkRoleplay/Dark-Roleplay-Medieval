@@ -44,11 +44,11 @@ import net.minecraftforge.fml.relauncher.Side;
 public class DarkRoleplayMedieval {
 
 	public static final String NAME = "Dark Roleplay Medieval";
-	public static final String VERSION = "0.1.3";
+	public static final String VERSION = "0.1.4b";
 	public static final String MODID = "drpmedieval";
 	public static final String ACCEPTEDVERSIONS = "[1.9.4,)";
 	public static final String DEPENDECIES = "required-after:drpcore@0.1.4,)";
-	public static final String UPDATECHECK = "https://raw.githubusercontent.com/DarkRoleplay/1.9-Dark-Roleplay-Core/master/DarkRoleplayCore.json";
+	public static final String UPDATECHECK = "https://raw.githubusercontent.com/DarkRoleplay/Dark-Roleplay-Medieval/master/DarkRoleplayMedieval.json";
 	
 	public static boolean isOnServer = false;
 	
