@@ -136,10 +136,9 @@ public class Mortar extends BlockContainer {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
-
-		if(!world.isRemote){
-			player.openGui(DarkRoleplayCore.instance, GuiHandler.GUI_CRAFTING, player.worldObj, pos.getX(), pos.getY(), pos.getZ());
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+		if(world.isRemote){
+			player.openGui(DarkRoleplayCore.instance,GuiHandler.GUI_CRAFTING_RECIPESELECTION,player.worldObj,pos.getX(),pos.getY(),pos.getZ());
 		}
 		return true;
 	}

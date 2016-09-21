@@ -1,5 +1,7 @@
 package net.drpmedieval.common.blocks.craftingstations;
 
+import net.drpcore.common.DarkRoleplayCore;
+import net.drpcore.common.gui.GuiHandler;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityGrindstone;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
@@ -14,9 +16,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -112,7 +116,15 @@ public class Grindstone extends BlockContainer {
 	}
 	
 	// -------------------------------------------------- Block Events --------------------------------------------------
-
+	
+	@Override
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+		if(world.isRemote){
+			player.openGui(DarkRoleplayCore.instance,GuiHandler.GUI_CRAFTING_RECIPESELECTION,player.worldObj,pos.getX(),pos.getY(),pos.getZ());
+		}
+		return true;
+	}
+	
 	@Override
 	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ,int meta, EntityLivingBase placer) {
 		Entity entity = (Entity) placer;

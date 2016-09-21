@@ -72,6 +72,7 @@ public class DRPMedievalBlocks {
 
 	/** G **/
 
+	public static GoldenShipsBell goldenShipsBell = new GoldenShipsBell();
 	public static Grindstone grindstone = new Grindstone();
 
 	/** H **/
@@ -205,6 +206,7 @@ public class DRPMedievalBlocks {
 		registerBlock(torchHolderLit);
 		registerBlock(firepit);
 		registerBlock(barley, null);
+		registerBlock(goldenShipsBell);
 		
 	}
 

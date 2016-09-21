@@ -3,6 +3,7 @@ package net.drpmedieval.client;
 import java.util.ArrayList;
 
 import net.drpmedieval.client.events.ItemColorHandler;
+import net.drpmedieval.client.sound.SoundEvents;
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.DRPMedievalBlocks;
 import net.drpmedieval.common.blocks.specialrenderer.*;
@@ -31,6 +32,7 @@ public class ClientProxy extends CommonProxy {
 	
 	public void init(FMLInitializationEvent event) {
 		registerRenders();
+		SoundEvents.registerSounds();
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {}

@@ -1,0 +1,8 @@
+{
+    "variants":{
+        "facing=north":{"model":"drpmedieval:ShipsBell/GoldenShipsBell"},
+        "facing=east":{"model":"drpmedieval:ShipsBell/GoldenShipsBell", "y":90},
+        "facing=south":{"model":"drpmedieval:ShipsBell/GoldenShipsBell", "y":180},
+        "facing=west":{"model":"drpmedieval:ShipsBell/GoldenShipsBell", "y":270}   
+    }
+}

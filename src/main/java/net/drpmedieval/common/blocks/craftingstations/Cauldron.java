@@ -153,15 +153,15 @@ public class Cauldron extends BlockContainer {
 
 		if(!world.isRemote){
 			if(!(Boolean) state.getValue(FILLED) && player.getHeldItem(EnumHand.MAIN_HAND) != null){
-
 				if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Items.WATER_BUCKET)){
 					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Items.WATER_BUCKET,  player.inventory.mainInventory), 1);
 					player.inventory.addItemStackToInventory(new ItemStack(Items.WATER_BUCKET, 1));
 					world.setBlockState(pos, state.withProperty(FILLED, true));
+					return true;
 				}
-			}
-			else
-				player.openGui(DarkRoleplayCore.instance, GuiHandler.GUI_CRAFTING, player.worldObj, pos.getX(), pos.getY(), pos.getZ());
+			}				
+		}else if(world.isRemote && (Boolean) state.getValue(FILLED)){
+			player.openGui(DarkRoleplayCore.instance,GuiHandler.GUI_CRAFTING_RECIPESELECTION,player.worldObj,pos.getX(),pos.getY(),pos.getZ());
 		}
 		return true;
 	}

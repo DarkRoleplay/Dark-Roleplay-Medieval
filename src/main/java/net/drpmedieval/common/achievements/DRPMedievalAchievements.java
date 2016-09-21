@@ -10,7 +10,7 @@ public class DRPMedievalAchievements {
 	public static final void preInit(FMLPreInitializationEvent event) {}
 	
 	public static final void init(FMLInitializationEvent event) {
-		AchievementPage.registerAchievementPage(Achievements.DarkRoleplay);
+		//AchievementPage.registerAchievementPage(new Achievements().DarkRoleplay);
 	}
 
 	public static final void postInit(FMLPostInitializationEvent event) {}
