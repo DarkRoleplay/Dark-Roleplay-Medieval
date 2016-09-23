@@ -48,7 +48,7 @@ public class DRPMedievalCrafting {
 					new ItemStack[] {
 						new ItemStack(Blocks.LOG)
 					}
-				){
+				)/*{
 					@Override
 					public ItemStack[] getOutput(ItemStack[] primaryIngr, ItemStack[] secondaryIngr) {
 						switch(primaryIngr[0].getMetadata()){
@@ -60,9 +60,10 @@ public class DRPMedievalCrafting {
 								return new ItemStack[] {new ItemStack(DRPMedievalItems.Plank, 6, 2)};
 							case 3:
 								return new ItemStack[] {new ItemStack(DRPMedievalItems.Plank, 6, 3)};
+							default:
+								return new ItemStack[] {getDefaultOutput()};			
 						}
-					return new ItemStack[] {getDefaultOutput()};
-				}}.setCraftingTime(2));
+				}}*/.setCraftingTime(2));
 		//Planks Dark Oak/Acacia
 			cc.registerRecipe("CraftMats", 
 				new AdvancedRecipe(DarkRoleplayMedieval.MODID,
@@ -71,7 +72,7 @@ public class DRPMedievalCrafting {
 					new ItemStack[] {
 						new ItemStack(Blocks.LOG2)
 					}
-				){
+				)/*{
 					@Override
 					public ItemStack[] getOutput(ItemStack[] primaryIngr, ItemStack[] secondaryIngr) {
 						switch(primaryIngr[0].getMetadata()){
@@ -81,7 +82,7 @@ public class DRPMedievalCrafting {
 								return new ItemStack[] {new ItemStack(DRPMedievalItems.Plank, 6, 5)};
 						}
 					return new ItemStack[] {getDefaultOutput()};
-				}}.setCraftingTime(2));
+				}}*/.setCraftingTime(2));
 		
 		/**---------- Decorative ----------*/
 		
@@ -89,8 +90,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.barrelClosed , 1),
-					new ItemStack(DRPMedievalBlocks.barrelClosed , 1),
+					new ItemStack(DRPMedievalBlocks.barrelEmpty , 1),
+					new ItemStack(DRPMedievalBlocks.barrelEmpty , 1),
 					new ItemStack[] {
 						new ItemStack(DRPMedievalItems.Plank, 5),
 						new ItemStack(Items.IRON_INGOT, 2)})
@@ -100,8 +101,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-						new ItemStack(DRPMedievalBlocks.barrelEmpty , 1),
-						new ItemStack(DRPMedievalBlocks.barrelEmpty , 1),
+						new ItemStack(DRPMedievalBlocks.barrelClosed , 1),
+						new ItemStack(DRPMedievalBlocks.barrelClosed , 1),
 						new ItemStack[] {
 							new ItemStack(DRPMedievalItems.Plank, 6),
 							new ItemStack(Items.IRON_INGOT, 2)})
@@ -150,7 +151,7 @@ public class DRPMedievalCrafting {
 				.setCraftingTime(5));
 			
 		//Rope Anchor
-			cc.registerRecipe("Deco",
+		/*	cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
 					new ItemStack(DRPMedievalBlocks.ropeAnchor , 1),
@@ -192,7 +193,7 @@ public class DRPMedievalCrafting {
 					}
 				}
 		}
-		.setCraftingTime(3));
+		.setCraftingTime(3));*/
 			
 		//Book
 			cc.registerRecipe("Deco",
@@ -273,8 +274,8 @@ public class DRPMedievalCrafting {
 		/**---------- Crafting Stations ----------*/
 			
 			
-		//Anvil
-			cc.registerRecipe("Crafting Stations",
+		//Anvil ---DOUBLE ITEMS---
+			/*cc.registerRecipe("Crafting Stations",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
 					new ItemStack(DRPMedievalBlocks.anvil , 1),
@@ -283,7 +284,7 @@ public class DRPMedievalCrafting {
 						new ItemStack(Items.IRON_INGOT, 32),
 						new ItemStack(Items.STICK, 1)
 					})
-				.setCraftingTime(30));
+				.setCraftingTime(30));*/
 			
 			
 		//Firepit
@@ -304,10 +305,12 @@ public class DRPMedievalCrafting {
 					new ItemStack(DRPMedievalBlocks.choppingBlock , 1),
 					new ItemStack(DRPMedievalBlocks.choppingBlock , 1),
 					new ItemStack[] {
-						new ItemStack(Items.IRON_AXE,1)},
-					new ItemStack[] {
+						new ItemStack(Items.IRON_AXE,1),
 						new ItemStack(Blocks.LOG, 1)
-					})
+						})
+					//new ItemStack[] {
+					//	new ItemStack(Blocks.LOG, 1)
+					//})
 				.setCraftingTime(5));
 
 		//Mortar

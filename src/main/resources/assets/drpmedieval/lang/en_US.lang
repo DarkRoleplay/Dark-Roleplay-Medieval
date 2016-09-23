@@ -20,6 +20,7 @@ tile.Crate.name=Crate
 tile.DungeonChest.name=Dungeon Chest
 tile.FirepitLit.name=Lit Firepit
 tile.Grindstone.name=Grindstone
+tile.GoldenShipsBell.name=Golden Ships Bell
 tile.HangingBridge.name=Hanging Bridge
 tile.HangingCauldron.name=Hanging Cauldron
 tile.IronHook.name=Iron Hook
