@@ -1,5 +1,9 @@
 package net.drpmedieval.common.gui;
 
+import java.util.ArrayList;
+
+import net.drpmedieval.client.gui.MusikMinigameGui;
+import net.drpmedieval.client.gui.Note;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityCrate;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityDungeonChest;
 import net.drpmedieval.common.gui.container.ContainerCrate;
@@ -13,6 +17,7 @@ public class GuiHandler implements IGuiHandler {
 
 	public static final int GUI_DUNGEONCHEST = 0;
 	public static final int GUI_CRATE = 1;
+	public static final int GUI_MINIGAME_MUSIK = 2;
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
@@ -35,6 +40,31 @@ public class GuiHandler implements IGuiHandler {
 				return new GuiDungeonChest(new ContainerDungeonChest(player.inventory, (TileEntityDungeonChest) world.getTileEntity(new BlockPos(x, y, z))));
 			case GUI_CRATE:
 				return new GuiCrate(new ContainerCrate(player.inventory, (TileEntityCrate) world.getTileEntity(new BlockPos(x, y, z))));
+			case GUI_MINIGAME_MUSIK:
+				ArrayList<Note> test = new ArrayList<Note>(){{
+					add(Note.FULL_1_D);//Half
+					//
+					add(Note.FULL_2_G);//Quarter
+					add(Note.FULL_2_G);//eigth
+					add(Note.FULL_2_A);//eigth
+					add(Note.FULL_2_G);//eigth
+					add(Note.FULL_2_F);//eigth
+					//
+					add(Note.FULL_1_E);//Quarter
+					add(Note.FULL_1_E);//Quarter
+					add(Note.FULL_1_E);//Quarter
+					//
+					add(Note.FULL_2_A);//Quarter
+					add(Note.FULL_2_A);//eigth
+					add(Note.FULL_2_H);//eigth
+					add(Note.FULL_2_A);//eigth
+					add(Note.FULL_2_G);//eigth
+					//
+					add(Note.FULL_2_F);//Quarter
+					add(Note.FULL_2_F);//Quarter
+					add(Note.FULL_2_F);//Quarter
+					}};
+				return new MusikMinigameGui(test);
 			default:
 				return null;
 		}

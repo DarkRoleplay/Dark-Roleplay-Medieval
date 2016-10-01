@@ -3,9 +3,11 @@ package net.drpmedieval.common.blocks;
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.craftingstations.*;
 import net.drpmedieval.common.blocks.decorative.*;
+import net.drpmedieval.common.blocks.other.RegeneratingOre;
 import net.drpmedieval.common.blocks.plants.*;
 import net.drpmedieval.common.blocks.storage.*;
 import net.drpmedieval.common.items.DRPMedievalItems;
+import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -121,6 +123,7 @@ public class DRPMedievalBlocks {
 
 	/** R **/
 
+	public static RegeneratingOre rgO = new RegeneratingOre("regenOre", DRPMedievalCreativeTabs.drpmedievalMiscTab, 0.4F, 5);
 	public static Rope rope = new Rope();
 	public static RopeAnchor ropeAnchor = new RopeAnchor();
 
@@ -148,7 +151,8 @@ public class DRPMedievalBlocks {
 	/** Z **/
 
 	public static void preInit(FMLPreInitializationEvent event) {
-
+		registerBlock(rgO);
+		
 		registerBlock(barrelEmpty);
 		registerBlock(barrelClosed);
 		registerBlock(barrelGunpowder);
