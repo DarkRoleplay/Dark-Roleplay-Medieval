@@ -42,27 +42,65 @@ public class GuiHandler implements IGuiHandler {
 				return new GuiCrate(new ContainerCrate(player.inventory, (TileEntityCrate) world.getTileEntity(new BlockPos(x, y, z))));
 			case GUI_MINIGAME_MUSIK:
 				ArrayList<Note> test = new ArrayList<Note>(){{
-					add(Note.FULL_1_D);//Half
-					//
-					add(Note.FULL_2_G);//Quarter
-					add(Note.FULL_2_G);//eigth
-					add(Note.FULL_2_A);//eigth
-					add(Note.FULL_2_G);//eigth
-					add(Note.FULL_2_F);//eigth
-					//
-					add(Note.FULL_1_E);//Quarter
-					add(Note.FULL_1_E);//Quarter
-					add(Note.FULL_1_E);//Quarter
-					//
-					add(Note.FULL_2_A);//Quarter
-					add(Note.FULL_2_A);//eigth
-					add(Note.FULL_2_H);//eigth
-					add(Note.FULL_2_A);//eigth
-					add(Note.FULL_2_G);//eigth
-					//
-					add(Note.FULL_2_F);//Quarter
-					add(Note.FULL_2_F);//Quarter
-					add(Note.FULL_2_F);//Quarter
+					
+					add(Note.QUARTER_1_E);
+					add(Note.QUARTER_1_E);
+					add(Note.HALF_1_E);
+					add(Note.QUARTER_1_E);
+					add(Note.QUARTER_1_E);
+					add(Note.HALF_1_E);
+					add(Note.QUARTER_1_E);
+					add(Note.QUARTER_1_F);
+					add(Note.QUARTER_1_C);
+					add(Note.QUARTER_1_D);
+					add(Note.HALF_1_E);
+					add(Note.QUARTER_1_F);
+					add(Note.QUARTER_1_F);
+					add(Note.QUARTER_1_F);
+					add(Note.QUARTER_1_F);
+					add(Note.QUARTER_1_F);
+					add(Note.QUARTER_1_E);
+					add(Note.QUARTER_1_E);
+					add(Note.EIGHT_1_E);
+					add(Note.QUARTER_1_E);
+					add(Note.QUARTER_1_D);
+					add(Note.QUARTER_1_D);
+					add(Note.QUARTER_1_E);
+					add(Note.HALF_1_D);
+					add(Note.HALF_2_G);
+					add(Note.QUARTER_1_E);
+					add(Note.QUARTER_1_E);
+					add(Note.HALF_1_E);
+					add(Note.QUARTER_1_E);
+					add(Note.QUARTER_1_E);
+					add(Note.HALF_1_E);
+					add(Note.QUARTER_1_E);
+					add(Note.QUARTER_2_G);
+					add(Note.QUARTER_1_C);
+					add(Note.QUARTER_1_D);
+					add(Note.FULL_1_E);
+					add(Note.QUARTER_1_F);
+					add(Note.QUARTER_1_F);
+					add(Note.QUARTER_1_F);
+					add(Note.QUARTER_1_F);
+					add(Note.QUARTER_1_F);
+					add(Note.QUARTER_1_E);
+					add(Note.QUARTER_1_E);
+					add(Note.QUARTER_1_E);
+					add(Note.QUARTER_2_G);
+					add(Note.QUARTER_2_G);
+					add(Note.QUARTER_1_F);
+					add(Note.QUARTER_1_D);
+					add(Note.HALF_1_C);
+					add(Note.QUARTER_1_E);
+					add(Note.QUARTER_1_D);
+					add(Note.QUARTER_1_C);
+					add(Note.FULL_NONE);
+					add(Note.QUARTER_1_E);
+					add(Note.QUARTER_1_D);
+					add(Note.QUARTER_1_C);
+					add(Note.FULL_NONE);
+					
 					}};
 				return new MusikMinigameGui(test);
 			default:
