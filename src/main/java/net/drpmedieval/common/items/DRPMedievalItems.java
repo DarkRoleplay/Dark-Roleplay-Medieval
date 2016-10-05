@@ -3,6 +3,7 @@ package net.drpmedieval.common.items;
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.DRPMedievalBlocks;
 import net.drpmedieval.common.items.blocks.*;
+import net.drpmedieval.common.items.consumable.BarkAndGlue;
 import net.drpmedieval.common.items.crops.*;
 import net.drpmedieval.common.items.currency.*;
 import net.drpmedieval.common.items.equipment.*;
@@ -28,6 +29,7 @@ public class DRPMedievalItems {
 
 	/** B **/
 
+	public static BarkAndGlue BarkAndGlue = new BarkAndGlue();
 	public static AdvancedBedItem BedFrameOak = new AdvancedBedItem("BedFrameOak", "BedFrameOak");
 	public static AdvancedBedItem BedFrameSpruce = new AdvancedBedItem("BedFrameSpruce", "BedFrameSpruce");
 	public static AdvancedBedItem BedFrameBirch = new AdvancedBedItem("BedFrameBirch", "BedFrameBirch");
@@ -151,6 +153,7 @@ public class DRPMedievalItems {
 		registerItem(AppleGreen);
 		registerItem(AppleYellow);
 		// B
+		registerItem(BarkAndGlue);
 		//registerItem(bedFrameOak);
 		//registerItem(bedFrameSpruce);
 		//registerItem(bedFrameBirch);
