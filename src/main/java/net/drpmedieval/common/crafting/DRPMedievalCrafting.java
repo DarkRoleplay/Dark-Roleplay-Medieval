@@ -90,8 +90,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.barrelEmpty , 1),
-					new ItemStack(DRPMedievalBlocks.barrelEmpty , 1),
+					new ItemStack(DRPMedievalBlocks.BARREL_EMPTY , 1),
+					new ItemStack(DRPMedievalBlocks.BARREL_EMPTY , 1),
 					new ItemStack[] {
 						new ItemStack(DRPMedievalItems.Plank, 5),
 						new ItemStack(Items.IRON_INGOT, 2)})
@@ -101,8 +101,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-						new ItemStack(DRPMedievalBlocks.barrelClosed , 1),
-						new ItemStack(DRPMedievalBlocks.barrelClosed , 1),
+						new ItemStack(DRPMedievalBlocks.BARREL_CLOSED , 1),
+						new ItemStack(DRPMedievalBlocks.BARREL_CLOSED , 1),
 						new ItemStack[] {
 							new ItemStack(DRPMedievalItems.Plank, 6),
 							new ItemStack(Items.IRON_INGOT, 2)})
@@ -112,10 +112,10 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.barrelGunpowder , 1),
-					new ItemStack(DRPMedievalBlocks.barrelGunpowder , 1),
+					new ItemStack(DRPMedievalBlocks.BARREL_GUNPOWDER , 1),
+					new ItemStack(DRPMedievalBlocks.BARREL_GUNPOWDER , 1),
 					new ItemStack[] {
-						new ItemStack(DRPMedievalBlocks.barrelEmpty, 1),
+						new ItemStack(DRPMedievalBlocks.BARREL_EMPTY, 1),
 						new ItemStack(Items.GUNPOWDER, 9)})
 				.setCraftingTime(3));
 			
@@ -123,19 +123,19 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.hangingBridge , 1),
-					new ItemStack(DRPMedievalBlocks.hangingBridge , 1),
+					new ItemStack(DRPMedievalBlocks.HANGING_BRIDGE , 1),
+					new ItemStack(DRPMedievalBlocks.HANGING_BRIDGE , 1),
 					new ItemStack[] {
 						new ItemStack(DRPMedievalItems.Plank, 3),
-						new ItemStack(DRPMedievalBlocks.rope,4)})
+						new ItemStack(DRPMedievalBlocks.ROPE,4)})
 				.setCraftingTime(3));
 			
 		//Empty Mug
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.mugEmpty , 1),
-					new ItemStack(DRPMedievalBlocks.mugEmpty , 1),
+					new ItemStack(DRPMedievalBlocks.MUG_EMPTY , 1),
+					new ItemStack(DRPMedievalBlocks.MUG_EMPTY , 1),
 					new ItemStack[] {
 						new ItemStack(DRPMedievalItems.Plank, 1)})
 				.setCraftingTime(3));
@@ -144,8 +144,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.rope , 3),
-					new ItemStack(DRPMedievalBlocks.rope , 3),
+					new ItemStack(DRPMedievalBlocks.ROPE , 3),
+					new ItemStack(DRPMedievalBlocks.ROPE , 3),
 					new ItemStack[] {
 						new ItemStack(Items.STRING,9 )})
 				.setCraftingTime(5));
@@ -208,8 +208,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.shipsWheel , 1),
-					new ItemStack(DRPMedievalBlocks.shipsWheel , 1),
+					new ItemStack(DRPMedievalBlocks.SHIPS_HELM , 1),
+					new ItemStack(DRPMedievalBlocks.SHIPS_HELM , 1),
 					new ItemStack[] {
 						new ItemStack(DRPMedievalItems.Plank,4 )})
 				.setCraftingTime(10));
@@ -218,8 +218,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.bucketEmpty , 1),
-					new ItemStack(DRPMedievalBlocks.bucketEmpty , 1),
+					new ItemStack(DRPMedievalBlocks.BUCKET_EMPTY , 1),
+					new ItemStack(DRPMedievalBlocks.BUCKET_EMPTY , 1),
 					new ItemStack[] {
 						new ItemStack(DRPMedievalItems.Plank, 1),
 						new ItemStack(Items.IRON_INGOT , 1)})
@@ -229,10 +229,10 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.bucketDirt , 1),
-					new ItemStack(DRPMedievalBlocks.bucketDirt , 1),
+					new ItemStack(DRPMedievalBlocks.BUCKET_DIRT , 1),
+					new ItemStack(DRPMedievalBlocks.BUCKET_DIRT , 1),
 					new ItemStack[] {
-						new ItemStack(DRPMedievalBlocks.bucketEmpty, 1),
+						new ItemStack(DRPMedievalBlocks.BUCKET_EMPTY, 1),
 						new ItemStack(Blocks.DIRT, 1)})
 				.setCraftingTime(3));
 			
@@ -240,10 +240,10 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.bucketWater , 1),
-					new ItemStack(DRPMedievalBlocks.bucketWater , 1),
+					new ItemStack(DRPMedievalBlocks.BUCKET_WATER, 1),
+					new ItemStack(DRPMedievalBlocks.BUCKET_WATER , 1),
 					new ItemStack[] {
-						new ItemStack(DRPMedievalBlocks.bucketEmpty, 1)})
+						new ItemStack(DRPMedievalBlocks.BUCKET_EMPTY, 1)})
 				.setCraftingTime(3));
 		
 		/**---------- Storage ----------*/
@@ -253,8 +253,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Storage",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.dungeonChest , 1),
-					new ItemStack(DRPMedievalBlocks.dungeonChest , 1),
+					new ItemStack(DRPMedievalBlocks.DUNGEON_CHEST, 1),
+					new ItemStack(DRPMedievalBlocks.DUNGEON_CHEST , 1),
 					new ItemStack[] {
 						new ItemStack(DRPMedievalItems.Plank, 4),
 						new ItemStack(Items.IRON_INGOT,1)})
@@ -264,8 +264,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Storage",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.crate , 1),
-					new ItemStack(DRPMedievalBlocks.crate , 1),
+					new ItemStack(DRPMedievalBlocks.CRATE , 1),
+					new ItemStack(DRPMedievalBlocks.CRATE , 1),
 					new ItemStack[] {
 						new ItemStack(DRPMedievalItems.Plank, 6),
 						new ItemStack(Items.IRON_INGOT,1)})
@@ -291,8 +291,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Crafting Stations",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-						new ItemStack(DRPMedievalBlocks.firepit , 1),
-						new ItemStack(DRPMedievalBlocks.firepit , 1),
+						new ItemStack(DRPMedievalBlocks.FIREPIT, 1),
+						new ItemStack(DRPMedievalBlocks.FIREPIT, 1),
 						new ItemStack[] {
 							new ItemStack(DRPMedievalItems.Firewood, 6),
 							new ItemStack(Blocks.COBBLESTONE,2)})
@@ -302,8 +302,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Crafting Stations",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.choppingBlock , 1),
-					new ItemStack(DRPMedievalBlocks.choppingBlock , 1),
+					new ItemStack(DRPMedievalBlocks.CHOPPING_BLOCK, 1),
+					new ItemStack(DRPMedievalBlocks.CHOPPING_BLOCK, 1),
 					new ItemStack[] {
 						new ItemStack(Items.IRON_AXE,1),
 						new ItemStack(Blocks.LOG, 1)
@@ -317,8 +317,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Crafting Stations",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.mortar , 1),
-					new ItemStack(DRPMedievalBlocks.mortar , 1),
+					new ItemStack(DRPMedievalBlocks.MORTAR, 1),
+					new ItemStack(DRPMedievalBlocks.MORTAR, 1),
 					new ItemStack[] {
 						new ItemStack(Items.STICK,1),
 						new ItemStack(Blocks.STONE,1),
@@ -329,8 +329,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Crafting Stations",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.grindstone , 1),
-					new ItemStack(DRPMedievalBlocks.grindstone , 1),
+					new ItemStack(DRPMedievalBlocks.GRINDSTONE, 1),
+					new ItemStack(DRPMedievalBlocks.GRINDSTONE, 1),
 					new ItemStack[] {
 						new ItemStack(Blocks.LOG,2),
 						new ItemStack(Blocks.STONE,1),
@@ -421,11 +421,11 @@ public class DRPMedievalCrafting {
 		/**---------- Crafting Stations ----------*/
 
 		//Cauldron
-			cc.registerRecipe(DRPMedievalBlocks.anvil,"Crafting Stations",
+			cc.registerRecipe(DRPMedievalBlocks.ANVIL,"Crafting Stations",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.cauldron, 1),
-					new ItemStack(DRPMedievalBlocks.cauldron , 1),
+					new ItemStack(DRPMedievalBlocks.CAULDRON, 1),
+					new ItemStack(DRPMedievalBlocks.CAULDRON , 1),
 					new ItemStack[] {
 							new ItemStack(Items.IRON_INGOT, 12), 
 							new ItemStack(DRPMedievalItems.Firewood, 5)
@@ -433,11 +433,11 @@ public class DRPMedievalCrafting {
 				.setCraftingTime(15));
 			
 		//Hanging Cauldron
-			cc.registerRecipe(DRPMedievalBlocks.anvil,"Crafting Stations",
+			cc.registerRecipe(DRPMedievalBlocks.ANVIL,"Crafting Stations",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.hangingCauldron, 1),
-					new ItemStack(DRPMedievalBlocks.hangingCauldron , 1),
+					new ItemStack(DRPMedievalBlocks.HANGING_CAULDRON, 1),
+					new ItemStack(DRPMedievalBlocks.HANGING_CAULDRON , 1),
 					new ItemStack[] {
 							new ItemStack(Items.IRON_INGOT, 10)
 					})
@@ -447,33 +447,33 @@ public class DRPMedievalCrafting {
 		/**---------- Decorative ----------*/
 
 		//Chain
-			cc.registerRecipe(DRPMedievalBlocks.anvil,"Deco",
+			cc.registerRecipe(DRPMedievalBlocks.ANVIL,"Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.chain, 3),
-					new ItemStack(DRPMedievalBlocks.chain , 3),
+					new ItemStack(DRPMedievalBlocks.CHAIN, 3),
+					new ItemStack(DRPMedievalBlocks.CHAIN , 3),
 					new ItemStack[] {
 							new ItemStack(Items.IRON_INGOT, 2)
 					})
 				.setCraftingTime(10));
 
 		//Iron Hook
-			cc.registerRecipe(DRPMedievalBlocks.anvil,"Deco",
+			cc.registerRecipe(DRPMedievalBlocks.ANVIL,"Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.ironHook, 1),
-					new ItemStack(DRPMedievalBlocks.ironHook , 1),
+					new ItemStack(DRPMedievalBlocks.IRON_HOOK, 1),
+					new ItemStack(DRPMedievalBlocks.IRON_HOOK , 1),
 					new ItemStack[] {
 							new ItemStack(Items.IRON_INGOT, 1)
 					})
 				.setCraftingTime(10));	
 			
 		//Torch Holder
-			cc.registerRecipe(DRPMedievalBlocks.anvil,"Deco",
+			cc.registerRecipe(DRPMedievalBlocks.ANVIL,"Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.torchHolderEmpty, 3),
-					new ItemStack(DRPMedievalBlocks.torchHolderEmpty , 3),
+					new ItemStack(DRPMedievalBlocks.TORCH_HOLDER_EMPTY, 3),
+					new ItemStack(DRPMedievalBlocks.TORCH_HOLDER_EMPTY, 3),
 					new ItemStack[] {
 							new ItemStack(Items.IRON_INGOT, 2)
 					})

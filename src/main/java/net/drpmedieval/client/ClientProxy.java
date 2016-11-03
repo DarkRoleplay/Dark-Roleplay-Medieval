@@ -8,6 +8,10 @@ import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.DRPMedievalBlocks;
 import net.drpmedieval.common.blocks.specialrenderer.*;
 import net.drpmedieval.common.blocks.tileentitys.*;
+import net.drpmedieval.common.entity.item.EntitySledge;
+import net.drpmedieval.common.entity.models.TrainingDummyModel;
+import net.drpmedieval.common.entity.renders.RenderEntitySledge;
+import net.drpmedieval.common.entity.renders.RenderTrainingDummy;
 import net.drpmedieval.common.items.DRPMedievalItems;
 import net.drpmedieval.common.proxy.CommonProxy;
 import net.minecraft.block.Block;
@@ -15,11 +19,15 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -28,17 +36,21 @@ public class ClientProxy extends CommonProxy {
 	
 	ArrayList<Item> toRegisterMeshes = new ArrayList<Item>();
 	
-	public void preInit(FMLPreInitializationEvent event) {}
+	public void preInit(FMLPreInitializationEvent event) {
+        RenderingRegistry.registerEntityRenderingHandler(EntitySledge.class, RenderEntitySledge.FACTORY);
+
+	}
 	
 	public void init(FMLInitializationEvent event) {
 		registerRenders();
 		SoundEvents.registerSounds();
+
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {}
 
 
-	public void registerRenders() {
+	public void registerRenders() {		
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new ItemColorHandler(), DRPMedievalItems.StringCoil);
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAnvil.class, new SpecialRenderAnvil());
@@ -66,13 +78,13 @@ public class ClientProxy extends CommonProxy {
 		
 		// Old Blocks
 		registerItemMesh(DRPMedievalBlocks.bookOne);
-		registerItemMesh(DRPMedievalBlocks.anvil);
-		registerItemMesh(DRPMedievalBlocks.grindstone);
-		registerItemMesh(DRPMedievalBlocks.hangingCauldron);
-		registerItemMesh(DRPMedievalBlocks.mortar);
-		registerItemMesh(DRPMedievalBlocks.cauldron);
-		registerItemMesh(DRPMedievalBlocks.ropeAnchor);
-		registerItemMesh(DRPMedievalBlocks.firepit);
+		registerItemMesh(DRPMedievalBlocks.ANVIL);
+		registerItemMesh(DRPMedievalBlocks.GRINDSTONE);
+		registerItemMesh(DRPMedievalBlocks.HANGING_CAULDRON);
+		registerItemMesh(DRPMedievalBlocks.MORTAR);
+		registerItemMesh(DRPMedievalBlocks.CAULDRON);
+		registerItemMesh(DRPMedievalBlocks.ROPE_ANCHOR);
+		registerItemMesh(DRPMedievalBlocks.FIREPIT);
 
 		//SPECIAL
 		forceAdditionalModels();
@@ -90,8 +102,19 @@ public class ClientProxy extends CommonProxy {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 4, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankDarkOak", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 5, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankAcacia", "inventory"));
 		
+		registerItemMesh("SimpleChairs",DRPMedievalBlocks.SIMPLE_CHAIR_OAK);
+		registerItemMesh("SimpleChairs",DRPMedievalBlocks.SIMPLE_CHAIR_BIRCH);
+		registerItemMesh("SimpleChairs",DRPMedievalBlocks.SIMPLE_CHAIR_SPRUCE);
+		registerItemMesh("SimpleChairs",DRPMedievalBlocks.SIMPLE_CHAIR_JUNGLE);
+		registerItemMesh("SimpleChairs",DRPMedievalBlocks.SIMPLE_CHAIR_ACACIA);
+		registerItemMesh("SimpleChairs",DRPMedievalBlocks.SIMPLE_CHAIR_DARK_OAK);
+		
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "SimpleChairs/SimpleChairOak", "inventory"));
+
+		
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.DoughPumpkin, 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "DoughPumpkinWheat", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.DoughPumpkin, 1, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "DoughPumpkinBarley", "inventory"));
+	
 	}
 
 	public void forceAdditionalModels() {
@@ -102,8 +125,12 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	public void registerItemMesh(Block block) {
-
 		String Name = block.getUnlocalizedName().toString().substring(block.getUnlocalizedName().toString().indexOf(".") + 1, block.getUnlocalizedName().toString().length());
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + Name, "inventory"));
+	}
+	
+	public void registerItemMesh(String folder, Block block) {
+		String Name = folder + "/" + (block.getUnlocalizedName().toString().substring(block.getUnlocalizedName().toString().indexOf(".") + 1, block.getUnlocalizedName().toString().length()));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + Name, "inventory"));
 	}
 

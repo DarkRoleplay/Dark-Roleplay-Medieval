@@ -20,11 +20,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class ShipsWheel extends BlockContainer {
+public class ShipsHelm extends BlockContainer {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
-	public ShipsWheel() {
+	public ShipsHelm() {
 		super(DRPMedievalMaterials.wood);
 		this.setRegistryName("ShipsWheel");
 		this.setUnlocalizedName("ShipsWheel");

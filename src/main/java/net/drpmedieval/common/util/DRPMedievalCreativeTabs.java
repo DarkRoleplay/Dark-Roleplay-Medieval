@@ -15,7 +15,7 @@ public class DRPMedievalCreativeTabs {
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
 
-			return Item.getItemFromBlock(DRPMedievalBlocks.choppingBlock);
+			return Item.getItemFromBlock(DRPMedievalBlocks.CHOPPING_BLOCK);
 		}
 	};
 
