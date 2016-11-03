@@ -9,6 +9,32 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class DRPMedievalCreativeTabs {
 
+	public static CreativeTabs DECORATION = new CreativeTabs("DRPMedievalDecorationTab") {
+
+		@Override
+		@SideOnly(Side.CLIENT)
+		public Item getTabIconItem() {
+
+			return Item.getItemFromBlock(DRPMedievalBlocks.LOG_CHAIR_DARK_OAK);
+		}
+	};
+	
+	public static CreativeTabs BUILDING_MATS = new CreativeTabs("DRPMedievalBuildingMaterialsTab") {
+
+		@Override
+		@SideOnly(Side.CLIENT)
+		public Item getTabIconItem() {
+			return Item.getItemFromBlock(DRPMedievalBlocks.CHOPPING_BLOCK);
+		}
+		
+		@Override
+		@SideOnly(Side.CLIENT)
+	    public int getIconItemDamage()
+	    {
+	        return 0;
+	    }
+	};
+	
 	public static CreativeTabs drpmedievalBlocksTab = new CreativeTabs("DRPMedievalBlocksTab") {
 
 		@Override

@@ -36,7 +36,7 @@ public class TorchHolderEmpty extends Block {
 		super(DRPMedievalMaterials.iron);
 		this.setRegistryName("TorchHolderEmpty");
 		this.setUnlocalizedName("TorchHolderEmpty");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(4F);
 		this.setHarvestLevel("pickaxe", 0);
 		this.setSoundType(SoundType.ANVIL);
@@ -175,7 +175,7 @@ public class TorchHolderEmpty extends Block {
 		if(!world.isRemote){
 			if(player.getHeldItem(EnumHand.MAIN_HAND) != null){
 				if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Item.getItemFromBlock(Blocks.TORCH))){
-					world.setBlockState(pos, DRPMedievalBlocks.torchHolderUnlit.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(AddonLighter, state.getValue(AddonLighter)).withProperty(AddonTrap, state.getValue(AddonLighter)));
+					world.setBlockState(pos, DRPMedievalBlocks.TORCH_HOLDER_UNLIT.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(AddonLighter, state.getValue(AddonLighter)).withProperty(AddonTrap, state.getValue(AddonLighter)));
 					//worldIn.markBlockForUpdate(pos);
 					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(Blocks.TORCH),  player.inventory.mainInventory), 1);
 				}

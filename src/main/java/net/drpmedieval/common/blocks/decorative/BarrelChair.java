@@ -27,7 +27,7 @@ public class BarrelChair  extends Block {
 		super(DRPMedievalMaterials.wood);
 		this.setRegistryName("BarrelChair");
 		this.setUnlocalizedName("BarrelChair");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setHarvestLevel("axe", 0);
 		this.setSoundType(SoundType.WOOD);

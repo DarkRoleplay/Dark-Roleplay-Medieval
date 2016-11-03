@@ -2,6 +2,7 @@ package net.drpmedieval.common.blocks.decorative;
 
 import java.util.List;
 
+import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -26,7 +27,7 @@ public class CleanPlanks extends Block
         this.setRegistryName("CleanPlanks");
         this.setUnlocalizedName("CleanPlanks");
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, CleanPlanks.EnumType.OAK));
-        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        this.setCreativeTab(DRPMedievalCreativeTabs.BUILDING_MATS);
     }
 
     /**

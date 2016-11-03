@@ -26,9 +26,9 @@ public class ShipsHelm extends BlockContainer {
 
 	public ShipsHelm() {
 		super(DRPMedievalMaterials.wood);
-		this.setRegistryName("ShipsWheel");
-		this.setUnlocalizedName("ShipsWheel");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setRegistryName("ShipsHelm");
+		this.setUnlocalizedName("ShipsHelm");
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
 	}

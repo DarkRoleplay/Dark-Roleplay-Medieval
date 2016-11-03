@@ -9,7 +9,7 @@ public class SimpleChair extends Chair{
 
 	public SimpleChair(String registryName){
 		super(Material.WOOD,registryName,registryName , 4 * 0.0625F);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setHarvestLevel("axe", 0);
 		this.setSoundType(SoundType.WOOD);

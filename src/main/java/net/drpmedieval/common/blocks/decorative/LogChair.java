@@ -29,7 +29,7 @@ public class LogChair extends Block {
 		super(DRPMedievalMaterials.wood);
 		this.setRegistryName(registreName);
 		this.setUnlocalizedName(unlocalizedName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setHarvestLevel("axe", 0);
 		this.setSoundType(SoundType.WOOD);

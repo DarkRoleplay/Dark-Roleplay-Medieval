@@ -30,7 +30,7 @@ public class BucketDirt extends DRPMedievalRotatedBlock {
 		super(Material.WOOD);
 		this.setRegistryName("BucketDirt");
 		this.setUnlocalizedName("BucketDirt");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(1F);
 		this.setSoundType(SoundType.WOOD);
 	}

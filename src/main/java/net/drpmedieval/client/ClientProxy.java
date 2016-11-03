@@ -87,7 +87,7 @@ public class ClientProxy extends CommonProxy {
 		registerItemMesh(DRPMedievalBlocks.FIREPIT);
 
 		//SPECIAL
-		forceAdditionalModels();
+		
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodOak", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 1, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodSpruce", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 2, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodBirch", "inventory"));
@@ -102,6 +102,8 @@ public class ClientProxy extends CommonProxy {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 4, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankDarkOak", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 5, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankAcacia", "inventory"));
 		
+		forceAdditionalModels();
+		
 		registerItemMesh("SimpleChairs",DRPMedievalBlocks.SIMPLE_CHAIR_OAK);
 		registerItemMesh("SimpleChairs",DRPMedievalBlocks.SIMPLE_CHAIR_BIRCH);
 		registerItemMesh("SimpleChairs",DRPMedievalBlocks.SIMPLE_CHAIR_SPRUCE);
@@ -109,8 +111,12 @@ public class ClientProxy extends CommonProxy {
 		registerItemMesh("SimpleChairs",DRPMedievalBlocks.SIMPLE_CHAIR_ACACIA);
 		registerItemMesh("SimpleChairs",DRPMedievalBlocks.SIMPLE_CHAIR_DARK_OAK);
 		
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "SimpleChairs/SimpleChairOak", "inventory"));
-
+		registerItemMesh("SimpleTables",DRPMedievalBlocks.SIMPLE_TABLE_OAK);
+		registerItemMesh("SimpleTables",DRPMedievalBlocks.SIMPLE_TABLE_BIRCH);
+		registerItemMesh("SimpleTables",DRPMedievalBlocks.SIMPLE_TABLE_SPRUCE);
+		registerItemMesh("SimpleTables",DRPMedievalBlocks.SIMPLE_TABLE_JUNGLE);
+		registerItemMesh("SimpleTables",DRPMedievalBlocks.SIMPLE_TABLE_ACACIA);
+		registerItemMesh("SimpleTables",DRPMedievalBlocks.SIMPLE_TABLE_DARK_OAK);
 		
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.DoughPumpkin, 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "DoughPumpkinWheat", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.DoughPumpkin, 1, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "DoughPumpkinBarley", "inventory"));
@@ -118,7 +124,6 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	public void forceAdditionalModels() {
-
 		ModelBakery.registerItemVariants(DRPMedievalItems.Firewood, new ResourceLocation[] {new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodOak"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodSpruce"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodBirch"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodJungle"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodDarkOak"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodAcacia")});
 		ModelBakery.registerItemVariants(DRPMedievalItems.Plank, new ResourceLocation[] {new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankOak"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankSpruce"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankBirch"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankJungle"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankDarkOak"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankAcacia")});
 		ModelBakery.registerItemVariants(DRPMedievalItems.DoughPumpkin, new ResourceLocation[] {new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "DoughPumpkinWheat"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "DoughPumpkinBarley")});
@@ -131,6 +136,7 @@ public class ClientProxy extends CommonProxy {
 	
 	public void registerItemMesh(String folder, Block block) {
 		String Name = folder + "/" + (block.getUnlocalizedName().toString().substring(block.getUnlocalizedName().toString().indexOf(".") + 1, block.getUnlocalizedName().toString().length()));
+		ModelBakery.registerItemVariants(Item.getItemFromBlock(block),new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + Name));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + Name, "inventory"));
 	}
 

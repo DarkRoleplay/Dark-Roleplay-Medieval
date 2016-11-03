@@ -143,6 +143,7 @@ public class DarkRoleplayMedieval {
 		MissingMappings.registerToRemap(DRPMedievalBlocks.ROPE, DarkRoleplayMedieval.MODID + ":" + "blockRope");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.ROPE_ANCHOR, DarkRoleplayMedieval.MODID + ":" + "blockRopeAnchor");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.SHIPS_HELM, DarkRoleplayMedieval.MODID + ":" + "blockShipsWheel");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.SHIPS_HELM, DarkRoleplayMedieval.MODID + ":" + "ShipsWheel");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.TARGET, DarkRoleplayMedieval.MODID + ":" + "blockTarget");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.TORCH_HOLDER_EMPTY, DarkRoleplayMedieval.MODID + ":" + "blockTorchHolderEmpty");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.TORCH_HOLDER_LIT, DarkRoleplayMedieval.MODID + ":" + "blockTorchHolderLit");

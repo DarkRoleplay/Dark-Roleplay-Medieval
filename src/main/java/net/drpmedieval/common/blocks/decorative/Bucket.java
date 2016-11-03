@@ -28,7 +28,7 @@ public class Bucket extends DRPMedievalRotatedBlock {
 		super(Material.WOOD);
 		this.setRegistryName(registreName);
 		this.setUnlocalizedName(unlocalizedName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(1F);
 		this.setSoundType(SoundType.WOOD);
 		this.AABB_NORTH = new AxisAlignedBB(0.1875F, 0F, 0.1875F, 0.8125F, 0.625F, 0.8125F);
