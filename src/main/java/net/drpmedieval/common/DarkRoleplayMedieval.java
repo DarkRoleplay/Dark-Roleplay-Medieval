@@ -3,6 +3,9 @@ package net.drpmedieval.common;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.drpmedieval.common.achievements.DRPMedievalAchievements;
 import net.drpmedieval.common.blocks.DRPMedievalBlocks;
 import net.drpmedieval.common.blocks.tileentitys.*;
@@ -49,6 +52,8 @@ public class DarkRoleplayMedieval {
 	public static final String ACCEPTEDVERSIONS = "[1.9.4,)";
 	public static final String DEPENDECIES = "required-after:drpcore@0.1.4b,)";
 	public static final String UPDATECHECK = "https://raw.githubusercontent.com/DarkRoleplay/Dark-Roleplay-Medieval/master/DarkRoleplayMedieval.json";
+
+    public static final Logger LOGGER = LogManager.getLogger(MODID);
 	
 	public static boolean isOnServer = false;
 	
@@ -120,9 +125,12 @@ public class DarkRoleplayMedieval {
 		MissingMappings.registerToRemap(DRPMedievalBlocks.GRINDSTONE, DarkRoleplayMedieval.MODID + ":" + "blockGrindstone");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.HANGING_CAULDRON, DarkRoleplayMedieval.MODID + ":" + "blockHangingCauldron");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.MORTAR, DarkRoleplayMedieval.MODID + ":" + "blockMortar");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_CLOSED, DarkRoleplayMedieval.MODID + ":" + "blockBarrelClosed");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_EMPTY, DarkRoleplayMedieval.MODID + ":" + "blockBarrelEmpty");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_GUNPOWDER, DarkRoleplayMedieval.MODID + ":" + "blockBarrelGunpowder");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_CLOSED_SPRUCE, DarkRoleplayMedieval.MODID + ":" + "blockBarrelClosed");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_CLOSED_SPRUCE, DarkRoleplayMedieval.MODID + ":" + "BarrelClosed");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_EMPTY_SPRUCE, DarkRoleplayMedieval.MODID + ":" + "blockBarrelEmpty");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_EMPTY_SPRUCE, DarkRoleplayMedieval.MODID + ":" + "BarrelEmpty");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_GUNPOWDER_SPRUCE, DarkRoleplayMedieval.MODID + ":" + "blockBarrelGunpowder");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_GUNPOWDER_SPRUCE, DarkRoleplayMedieval.MODID + ":" + "BarrelGunpowder");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_OAK, DarkRoleplayMedieval.MODID + ":" + "bedFrameOak");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_SPRUCE, DarkRoleplayMedieval.MODID + ":" + "bedFrameSpruce");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_BIRCH, DarkRoleplayMedieval.MODID + ":" + "bedFrameBirch");
@@ -145,6 +153,7 @@ public class DarkRoleplayMedieval {
 		MissingMappings.registerToRemap(DRPMedievalBlocks.SHIPS_HELM, DarkRoleplayMedieval.MODID + ":" + "blockShipsWheel");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.SHIPS_HELM, DarkRoleplayMedieval.MODID + ":" + "ShipsWheel");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.TARGET, DarkRoleplayMedieval.MODID + ":" + "blockTarget");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.APIARY_OAK, DarkRoleplayMedieval.MODID + ":" + "Apiary");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.TORCH_HOLDER_EMPTY, DarkRoleplayMedieval.MODID + ":" + "blockTorchHolderEmpty");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.TORCH_HOLDER_LIT, DarkRoleplayMedieval.MODID + ":" + "blockTorchHolderLit");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.TORCH_HOLDER_UNLIT, DarkRoleplayMedieval.MODID + ":" + "blockTorchHolderUnlit");
@@ -164,6 +173,7 @@ public class DarkRoleplayMedieval {
 		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_JUNGLE, DarkRoleplayMedieval.MODID + ":" + "logChairJungle");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_ACACIA, DarkRoleplayMedieval.MODID + ":" + "logChairAcacia");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_DARK_OAK, DarkRoleplayMedieval.MODID + ":" + "logChairDarkOak");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_CHAIR_SPRUCE, DarkRoleplayMedieval.MODID + ":" + "BarrelChair");
 		
 		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameOak, DarkRoleplayMedieval.MODID + ":" + "bedFrameOak");
 		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameSpruce, DarkRoleplayMedieval.MODID + ":" + "bedFrameSpruce");
@@ -206,11 +216,6 @@ public class DarkRoleplayMedieval {
 		MissingMappings.registerToRemap(DRPMedievalItems.SeedBarley, DarkRoleplayMedieval.MODID + ":" + "itemSeedBarley");
 	}
 
-	public static void createEntity(Class entityClass, String entityName, int solidColor, int spotColor) {
-
-		EntityRegistry.registerModEntity(entityClass, entityName, 0, DarkRoleplayMedieval.instance, 64, 5, false, solidColor, spotColor);
-	}
-
 	public void registerTileEntitys() {
 
 		GameRegistry.registerTileEntity(TileEntityAnvil.class, DarkRoleplayMedieval.MODID + ":" + "TileEntityAnvil");
@@ -226,7 +231,10 @@ public class DarkRoleplayMedieval {
 		GameRegistry.registerTileEntity(TileEntityTarget.class, DarkRoleplayMedieval.MODID + ":" + "TileEntityTarget");
 		GameRegistry.registerTileEntity(TileEntityRopeAnchor.class, DarkRoleplayMedieval.MODID + ":" + "TileEntityRopeAnchor");
 		GameRegistry.registerTileEntity(TileEntityFirepit.class, DarkRoleplayMedieval.MODID + ":" + "TileEntityFirepit");
+        GameRegistry.registerTileEntity(BucketTileEntity.class, DarkRoleplayMedieval.MODID + "BucketTileEntity");
 
+		
+		
 		// Storage Blocks
 		GameRegistry.registerTileEntity(TileEntityCrate.class, DarkRoleplayMedieval.MODID + ":" + "TilEntityCrate");
 		GameRegistry.registerTileEntity(TileEntityDungeonChest.class, DarkRoleplayMedieval.MODID + ":" + "TileEntityDungeonChest");

@@ -1,9 +1,13 @@
-package net.drpmedieval.common.blocks.decorative.SimpleChairs;
+package net.drpmedieval.common.blocks.decorative.simpleChairs;
 
 import net.drpmedieval.common.blocks.decorative.Chair;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 
 public class SimpleChair extends Chair{
 
@@ -15,4 +19,8 @@ public class SimpleChair extends Chair{
 		this.setSoundType(SoundType.WOOD);
 	}
 	
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos){
+        return new AxisAlignedBB(0F, 0F, 0F, 1F, 0.5F, 1F);
+    }
 }

@@ -1,0 +1,8 @@
+{
+    "variants":{
+        "facing=north":{"model":"drpmedieval:BarrelChairs/BarrelChairBirch"},
+        "facing=east":{"model":"drpmedieval:BarrelChairs/BarrelChairBirch", "y":90},
+        "facing=south":{"model":"drpmedieval:BarrelChairs/BarrelChairBirch", "y":180},
+        "facing=west":{"model":"drpmedieval:BarrelChairs/BarrelChairBirch", "y":270}   
+    }
+}

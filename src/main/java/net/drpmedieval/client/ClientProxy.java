@@ -1,8 +1,11 @@
 package net.drpmedieval.client;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import net.drpmedieval.client.events.ItemColorHandler;
+import net.drpmedieval.client.renderer.entity.RenderEntityRopedArrow;
+import net.drpmedieval.client.renderer.entity.RenderEntitySledge;
 import net.drpmedieval.client.sound.SoundEvents;
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.DRPMedievalBlocks;
@@ -10,7 +13,7 @@ import net.drpmedieval.common.blocks.specialrenderer.*;
 import net.drpmedieval.common.blocks.tileentitys.*;
 import net.drpmedieval.common.entity.item.EntitySledge;
 import net.drpmedieval.common.entity.models.TrainingDummyModel;
-import net.drpmedieval.common.entity.renders.RenderEntitySledge;
+import net.drpmedieval.common.entity.projectile.EntityRopedArrow;
 import net.drpmedieval.common.entity.renders.RenderTrainingDummy;
 import net.drpmedieval.common.items.DRPMedievalItems;
 import net.drpmedieval.common.proxy.CommonProxy;
@@ -20,10 +23,12 @@ import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
@@ -32,13 +37,16 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
+import net.minecraft.client.renderer.entity.RenderArrow;
+
 public class ClientProxy extends CommonProxy {
 	
 	ArrayList<Item> toRegisterMeshes = new ArrayList<Item>();
 	
 	public void preInit(FMLPreInitializationEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(EntitySledge.class, RenderEntitySledge.FACTORY);
-
+        RenderingRegistry.registerEntityRenderingHandler(EntityRopedArrow.class, RenderEntityRopedArrow.FACTORY);
+        //RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, renderer);
 	}
 	
 	public void init(FMLInitializationEvent event) {
@@ -68,13 +76,6 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTarget.class, new SpecialRenderTarget());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRopeAnchor.class, new SpecialRenderRopeAnchor());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFirepit.class, new SpecialRenderFirepit());
-		// registerItemMesh(DRPMedievalItems);
-
-		for(Item item : toRegisterMeshes){
-			registerItemMesh(item);
-		}
-		
-		toRegisterMeshes = null;
 		
 		// Old Blocks
 		registerItemMesh(DRPMedievalBlocks.bookOne);
@@ -85,24 +86,13 @@ public class ClientProxy extends CommonProxy {
 		registerItemMesh(DRPMedievalBlocks.CAULDRON);
 		registerItemMesh(DRPMedievalBlocks.ROPE_ANCHOR);
 		registerItemMesh(DRPMedievalBlocks.FIREPIT);
-
-		//SPECIAL
-		
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodOak", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 1, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodSpruce", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 2, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodBirch", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 3, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodJungle", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 4, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodDarkOak", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 5, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodAcacia", "inventory"));
-
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankOak", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 1, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankSpruce", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 2, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankBirch", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 3, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankJungle", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 4, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankDarkOak", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 5, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankAcacia", "inventory"));
 		
 		forceAdditionalModels();
+		
+		for(Item item : toRegisterMeshes){
+			registerItemMesh(item);
+		}
+		toRegisterMeshes = null;
 		
 		registerItemMesh("SimpleChairs",DRPMedievalBlocks.SIMPLE_CHAIR_OAK);
 		registerItemMesh("SimpleChairs",DRPMedievalBlocks.SIMPLE_CHAIR_BIRCH);
@@ -118,11 +108,87 @@ public class ClientProxy extends CommonProxy {
 		registerItemMesh("SimpleTables",DRPMedievalBlocks.SIMPLE_TABLE_ACACIA);
 		registerItemMesh("SimpleTables",DRPMedievalBlocks.SIMPLE_TABLE_DARK_OAK);
 		
+		registerItemMesh("Apiaries",DRPMedievalBlocks.APIARY_OAK);
+		registerItemMesh("Apiaries",DRPMedievalBlocks.APIARY_BIRCH);
+		registerItemMesh("Apiaries",DRPMedievalBlocks.APIARY_SPRUCE);
+		registerItemMesh("Apiaries",DRPMedievalBlocks.APIARY_JUNGLE);
+		registerItemMesh("Apiaries",DRPMedievalBlocks.APIARY_ACACIA);
+		registerItemMesh("Apiaries",DRPMedievalBlocks.APIARY_DARK_OAK);
+		
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_EMPTY_OAK);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_EMPTY_BIRCH);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_EMPTY_SPRUCE);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_EMPTY_JUNGLE);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_EMPTY_ACACIA);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_EMPTY_DARK_OAK);
+		
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_CLOSED_OAK);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_CLOSED_BIRCH);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_CLOSED_SPRUCE);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_CLOSED_JUNGLE);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_CLOSED_ACACIA);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_CLOSED_DARK_OAK);
+		
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_WATER_OAK);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_WATER_BIRCH);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_WATER_SPRUCE);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_WATER_JUNGLE);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_WATER_ACACIA);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_WATER_DARK_OAK);
+		
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_GUNPOWDER_OAK);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_GUNPOWDER_BIRCH);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_GUNPOWDER_SPRUCE);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_GUNPOWDER_JUNGLE);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_GUNPOWDER_ACACIA);
+		registerItemMesh("Barrels",DRPMedievalBlocks.BARREL_GUNPOWDER_DARK_OAK);
+		
+		registerItemMesh("BarrelChairs", DRPMedievalBlocks.BARREL_CHAIR_OAK);
+		registerItemMesh("BarrelChairs", DRPMedievalBlocks.BARREL_CHAIR_BIRCH);
+		registerItemMesh("BarrelChairs", DRPMedievalBlocks.BARREL_CHAIR_SPRUCE);
+		registerItemMesh("BarrelChairs", DRPMedievalBlocks.BARREL_CHAIR_JUNGLE);
+		registerItemMesh("BarrelChairs", DRPMedievalBlocks.BARREL_CHAIR_ACACIA);
+		registerItemMesh("BarrelChairs", DRPMedievalBlocks.BARREL_CHAIR_DARK_OAK);
+		
+		registerItemMesh("LogChairs", DRPMedievalBlocks.LOG_CHAIR_OAK);
+		registerItemMesh("LogChairs", DRPMedievalBlocks.LOG_CHAIR_BIRCH);
+		registerItemMesh("LogChairs", DRPMedievalBlocks.LOG_CHAIR_SPRUCE);
+		registerItemMesh("LogChairs", DRPMedievalBlocks.LOG_CHAIR_JUNGLE);
+		registerItemMesh("LogChairs", DRPMedievalBlocks.LOG_CHAIR_ACACIA);
+		registerItemMesh("LogChairs", DRPMedievalBlocks.LOG_CHAIR_DARK_OAK);
+		
+		registerItemMesh("Buckets",DRPMedievalBlocks.BUCKET_EMPTY);
+		registerItemMesh("Buckets",DRPMedievalBlocks.BUCKET_WATER);
+		registerItemMesh("Buckets",DRPMedievalBlocks.BUCKET_DIRT);
+
+		
+		registerItemMesh("Planks",DRPMedievalItems.Plank);
+		
+		//SPECIAL
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodOak", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 1, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodSpruce", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 2, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodBirch", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 3, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodJungle", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 4, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodDarkOak", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Firewood, 5, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodAcacia", "inventory"));
+
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankOak", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 1, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankSpruce", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 2, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankBirch", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 3, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankJungle", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 4, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankDarkOak", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.Plank, 5, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankAcacia", "inventory"));
+		
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.DoughPumpkin, 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "DoughPumpkinWheat", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DRPMedievalItems.DoughPumpkin, 1, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + "DoughPumpkinBarley", "inventory"));
 	
 	}
 
+
+	public void addItemToRegisterMesh(Item item) {
+		toRegisterMeshes.add(item);
+	}
+	
 	public void forceAdditionalModels() {
 		ModelBakery.registerItemVariants(DRPMedievalItems.Firewood, new ResourceLocation[] {new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodOak"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodSpruce"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodBirch"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodJungle"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodDarkOak"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Firewood/FirewoodAcacia")});
 		ModelBakery.registerItemVariants(DRPMedievalItems.Plank, new ResourceLocation[] {new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankOak"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankSpruce"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankBirch"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankJungle"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankDarkOak"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "Planks/plankAcacia")});
@@ -130,22 +196,43 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	public void registerItemMesh(Block block) {
-		String Name = block.getUnlocalizedName().toString().substring(block.getUnlocalizedName().toString().indexOf(".") + 1, block.getUnlocalizedName().toString().length());
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + Name, "inventory"));
+		this.registerItemMesh(null, Item.getItemFromBlock(block));
 	}
 	
 	public void registerItemMesh(String folder, Block block) {
-		String Name = folder + "/" + (block.getUnlocalizedName().toString().substring(block.getUnlocalizedName().toString().indexOf(".") + 1, block.getUnlocalizedName().toString().length()));
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(block),new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + Name));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + Name, "inventory"));
-	}
-
-	public void addItemToRegisterMesh(Item item) {
-		toRegisterMeshes.add(item);
+		this.registerItemMesh(folder, Item.getItemFromBlock(block));
 	}
 	
 	public void registerItemMesh(Item item){
-		String Name = item.getUnlocalizedName().toString().substring(item.getUnlocalizedName().toString().indexOf(".") + 1, item.getUnlocalizedName().toString().length());
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + Name, "inventory"));
+		this.registerItemMesh(null, item);
+	}
+	
+	public void registerItemMesh(String folder, Item item) {
+	    String path = stringParseName(item.getUnlocalizedName().toString().substring(item.getUnlocalizedName().toString().indexOf(".") + 1, item.getUnlocalizedName().toString().length()));
+		if(folder != null){
+			path = folder + "/" + path;
+			System.out.println(path);
+			ModelBakery.registerItemVariants(item,new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + path));
+		}
+		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(DarkRoleplayMedieval.MODID + ":" + path, "inventory"));	
+	}
+	
+	private String stringParseName(String name){
+		char[] nameArray = name.toCharArray();
+		ArrayList<Character> nameList = new ArrayList();
+		for(int i = 0; i < nameArray.length; i++){
+			if(((Character)nameArray[i]).isAlphabetic(Character.UPPERCASE_LETTER)){
+				nameList.add(Character.toLowerCase(nameArray[i]));
+				nameList.add('_');
+			}else{
+				nameList.add(nameArray[i]);
+			}
+		}
+		
+		StringBuilder builder = new StringBuilder(nameList.size());
+	    for(Character ch: nameList){
+	    	builder.append(ch);
+	    	}
+	    return builder.toString();
 	}
 }

@@ -22,9 +22,4 @@ public class SeedBarley extends AdvancedCropSeed {
 		this.setUnlocalizedName("SeedBarley");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
-	
-	@Override
-	protected Block getCrop(){
-		return DRPMedievalBlocks.BARLEY;
-	}
 }

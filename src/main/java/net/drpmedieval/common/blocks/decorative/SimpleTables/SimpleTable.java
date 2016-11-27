@@ -1,5 +1,6 @@
-package net.drpmedieval.common.blocks.decorative.SimpleTables;
+package net.drpmedieval.common.blocks.decorative.simpleTables;
 
+import net.drpmedieval.common.blocks.helper.EnumAxis;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
@@ -14,11 +15,12 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class SimpleTable extends Block{
 	
-    public static final PropertyEnum<SimpleTable.EnumTableAxis> TABLE_AXIS = PropertyEnum.<SimpleTable.EnumTableAxis>create("axis", SimpleTable.EnumTableAxis.class);
+    public static final PropertyEnum<EnumAxis> TABLE_AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class);
 	
 	public SimpleTable(String registryName) {
 		super(Material.WOOD);
@@ -34,20 +36,20 @@ public class SimpleTable extends Block{
 	public IBlockState getStateFromMeta(int meta) {
 		switch (meta) {
 			case 0:
-				return this.getDefaultState().withProperty(TABLE_AXIS, SimpleTable.EnumTableAxis.X);
+				return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.X);
 			case 1:
-				return this.getDefaultState().withProperty(TABLE_AXIS, SimpleTable.EnumTableAxis.Z);
+				return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.Z);
 			default:
-				return this.getDefaultState().withProperty(TABLE_AXIS, SimpleTable.EnumTableAxis.X);
+				return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.X);
 		}
 	}
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
-		SimpleTable.EnumTableAxis facing = (SimpleTable.EnumTableAxis) state.getValue(TABLE_AXIS);
-		if(facing.equals(SimpleTable.EnumTableAxis.X)) return 0;
-		if(facing.equals(SimpleTable.EnumTableAxis.Z)) return 1;
+		EnumAxis facing = (EnumAxis) state.getValue(TABLE_AXIS);
+		if(facing.equals(EnumAxis.X)) return 0;
+		if(facing.equals(EnumAxis.Z)) return 1;
 
 		return 0;
 	}
@@ -74,42 +76,18 @@ public class SimpleTable extends Block{
 		switch(placer.getHorizontalFacing().getOpposite()){
 		case EAST:
 		case WEST:
-			return this.getDefaultState().withProperty(TABLE_AXIS, EnumTableAxis.Z);
+			return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.Z);
 		case NORTH:
 		case SOUTH:
-	        return this.getDefaultState().withProperty(TABLE_AXIS, EnumTableAxis.X);
+	        return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.X);
 	    default:
-	        return this.getDefaultState().withProperty(TABLE_AXIS, EnumTableAxis.X);
+	        return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.X);
 		}
     }
 	
-	public static enum EnumTableAxis implements IStringSerializable{
-        X("x"),
-        Z("z");
-
-        private final String name;
-
-        private EnumTableAxis(String name) {
-            this.name = name;
-        }
-
-        public String toString(){
-            return this.name;
-        }
-
-        public static SimpleTable.EnumTableAxis fromFacingAxis(EnumFacing.Axis axis){
-            switch (axis){
-                case X:
-                    return X;
-                case Z:
-                    return Z;
-                default:
-                	return X;
-            }
-        }
-
-        public String getName(){
-            return this.name;
-        }
+    public boolean isSideSolid(IBlockState base_state, IBlockAccess world, BlockPos pos, EnumFacing side){
+    	if(side == EnumFacing.UP)
+    		return true;
+    				return false;
     }
 }

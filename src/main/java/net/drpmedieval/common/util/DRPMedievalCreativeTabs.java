@@ -15,7 +15,7 @@ public class DRPMedievalCreativeTabs {
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
 
-			return Item.getItemFromBlock(DRPMedievalBlocks.LOG_CHAIR_DARK_OAK);
+			return Item.getItemFromBlock(DRPMedievalBlocks.SIMPLE_CHAIR_OAK);
 		}
 	};
 	
@@ -24,7 +24,7 @@ public class DRPMedievalCreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
-			return Item.getItemFromBlock(DRPMedievalBlocks.CHOPPING_BLOCK);
+			return Item.getItemFromBlock(DRPMedievalBlocks.CLEAN_PLANKS);
 		}
 		
 		@Override

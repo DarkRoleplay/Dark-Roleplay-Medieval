@@ -1,0 +1,7 @@
+{
+    "parent": "drpmedieval:block/Barrels/BarrelClosed",
+    "textures": {
+        "side": "drpmedieval:blocks/Barrels/BarrelSideBirch",
+        "top": "drpmedieval:blocks/Barrels/BarrelTopBirch"
+    }
+}

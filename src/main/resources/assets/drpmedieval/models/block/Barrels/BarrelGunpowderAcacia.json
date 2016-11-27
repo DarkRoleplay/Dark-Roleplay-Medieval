@@ -1,0 +1,7 @@
+{
+    "parent": "drpmedieval:block/Barrels/BarrelGunpowder",
+    "textures": {
+        "side": "drpmedieval:blocks/Barrels/BarrelSideAcacia",
+        "top": "drpmedieval:blocks/Barrels/BarrelTopAcacia"
+    }
+}

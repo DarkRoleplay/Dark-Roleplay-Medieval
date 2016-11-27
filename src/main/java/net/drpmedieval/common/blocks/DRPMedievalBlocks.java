@@ -3,12 +3,20 @@ package net.drpmedieval.common.blocks;
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.craftingstations.*;
 import net.drpmedieval.common.blocks.decorative.*;
-import net.drpmedieval.common.blocks.decorative.SimpleChairs.SimpleChair;
-import net.drpmedieval.common.blocks.decorative.SimpleTables.SimpleTable;
+import net.drpmedieval.common.blocks.decorative.apiaries.Apiary;
+import net.drpmedieval.common.blocks.decorative.barrelChair.BarrelChair;
+import net.drpmedieval.common.blocks.decorative.barrels.BarrelClosed;
+import net.drpmedieval.common.blocks.decorative.barrels.BarrelEmpty;
+import net.drpmedieval.common.blocks.decorative.barrels.BarrelFilled;
+import net.drpmedieval.common.blocks.decorative.buckets.Bucket;
+import net.drpmedieval.common.blocks.decorative.buckets.BucketDirt;
+import net.drpmedieval.common.blocks.decorative.simpleChairs.SimpleChair;
+import net.drpmedieval.common.blocks.decorative.simpleTables.SimpleTable;
 import net.drpmedieval.common.blocks.other.RegeneratingOre;
 import net.drpmedieval.common.blocks.plants.*;
 import net.drpmedieval.common.blocks.storage.*;
 import net.drpmedieval.common.items.DRPMedievalItems;
+import net.drpmedieval.common.items.seeds.SeedBarley;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -23,7 +31,13 @@ public class DRPMedievalBlocks {
 	/** A **/
 
 	public static Anvil ANVIL = new Anvil();
-	public static Apiary APIARY = new Apiary();
+	public static Apiary APIARY_OAK = new Apiary("ApiaryOak");
+	public static Apiary APIARY_BIRCH = new Apiary("ApiaryBirch");
+	public static Apiary APIARY_SPRUCE = new Apiary("ApiarySpruce");
+	public static Apiary APIARY_JUNGLE = new Apiary("ApiaryJungle");
+	public static Apiary APIARY_ACACIA = new Apiary("ApiaryAcacia");
+	public static Apiary APIARY_DARK_OAK = new Apiary("ApiaryDarkOak");
+
 	public static AppleGreen APPLE_GREEN = new AppleGreen(); //TODO FIX APPLES
 	public static AppleRed APPLE_RED = new AppleRed();
 	public static AppleYellow APPLE_YELLOW = new AppleYellow();
@@ -31,10 +45,42 @@ public class DRPMedievalBlocks {
 	/** B **/
 
 	public static Barley BARLEY = new Barley();
-	public static BarrelChair BARREL_CHAIR = new BarrelChair();
-	public static BarrelClosed BARREL_CLOSED = new BarrelClosed();
-	public static BarrelEmpty BARREL_EMPTY = new BarrelEmpty();
-	public static BarrelFilled BARREL_GUNPOWDER = new BarrelFilled("BarrelGunpowder","BarrelGunpowder");
+	
+	public static BarrelChair BARREL_CHAIR_OAK = new BarrelChair("BarrelChairOak");
+	public static BarrelChair BARREL_CHAIR_BIRCH = new BarrelChair("BarrelChairBirch");
+	public static BarrelChair BARREL_CHAIR_SPRUCE = new BarrelChair("BarrelChairSpruce");
+	public static BarrelChair BARREL_CHAIR_JUNGLE = new BarrelChair("BarrelChairJungle");
+	public static BarrelChair BARREL_CHAIR_ACACIA = new BarrelChair("BarrelChairAcacia");
+	public static BarrelChair BARREL_CHAIR_DARK_OAK = new BarrelChair("BarrelChairDarkOak");
+	//public static BarrelClosed BARREL_CLOSED = new BarrelClosed();
+	
+	public static BarrelEmpty BARREL_EMPTY_OAK = new BarrelEmpty("BarrelEmptyOak");
+	public static BarrelEmpty BARREL_EMPTY_BIRCH = new BarrelEmpty("BarrelEmptyBirch");
+	public static BarrelEmpty BARREL_EMPTY_SPRUCE = new BarrelEmpty("BarrelEmptySpruce");
+	public static BarrelEmpty BARREL_EMPTY_JUNGLE = new BarrelEmpty("BarrelEmptyJungle");
+	public static BarrelEmpty BARREL_EMPTY_ACACIA = new BarrelEmpty("BarrelEmptyAcacia");
+	public static BarrelEmpty BARREL_EMPTY_DARK_OAK = new BarrelEmpty("BarrelEmptyDarkOak");
+	
+	public static BarrelFilled BARREL_WATER_OAK = new BarrelFilled("BarrelWaterOak");
+	public static BarrelFilled BARREL_WATER_BIRCH = new BarrelFilled("BarrelWaterBirch");
+	public static BarrelFilled BARREL_WATER_SPRUCE = new BarrelFilled("BarrelWaterSpruce");
+	public static BarrelFilled BARREL_WATER_JUNGLE = new BarrelFilled("BarrelWaterJungle");
+	public static BarrelFilled BARREL_WATER_ACACIA = new BarrelFilled("BarrelWaterAcacia");
+	public static BarrelFilled BARREL_WATER_DARK_OAK = new BarrelFilled("BarrelWaterDarkOak");
+	
+	public static BarrelClosed BARREL_CLOSED_OAK = new BarrelClosed("BarrelClosedOak");
+	public static BarrelClosed BARREL_CLOSED_BIRCH = new BarrelClosed("BarrelClosedBirch");
+	public static BarrelClosed BARREL_CLOSED_SPRUCE = new BarrelClosed("BarrelClosedSpruce");
+	public static BarrelClosed BARREL_CLOSED_JUNGLE = new BarrelClosed("BarrelClosedJungle");
+	public static BarrelClosed BARREL_CLOSED_ACACIA = new BarrelClosed("BarrelClosedAcacia");
+	public static BarrelClosed BARREL_CLOSED_DARK_OAK = new BarrelClosed("BarrelClosedDarkOak");
+	
+	public static BarrelFilled BARREL_GUNPOWDER_OAK = new BarrelFilled("BarrelGunpowderOak");
+	public static BarrelFilled BARREL_GUNPOWDER_BIRCH = new BarrelFilled("BarrelGunpowderBirch");
+	public static BarrelFilled BARREL_GUNPOWDER_SPRUCE = new BarrelFilled("BarrelGunpowderSpruce");
+	public static BarrelFilled BARREL_GUNPOWDER_JUNGLE = new BarrelFilled("BarrelGunpowderJungle");
+	public static BarrelFilled BARREL_GUNPOWDER_ACACIA = new BarrelFilled("BarrelGunpowderAcacia");
+	public static BarrelFilled BARREL_GUNPOWDER_DARK_OAK = new BarrelFilled("BarrelGunpowderDarkOak");
 		
 	public static BedFrame BED_FRAME_OAK = new BedFrame("BedFrameOak","BedFrameOak",DRPMedievalItems.BedFrameOak);
 	public static BedFrame BED_FRAME_SPRUCE = new BedFrame("BedFrameSpruce","BedFrameSpruce",DRPMedievalItems.BedFrameSpruce);
@@ -136,6 +182,7 @@ public class DRPMedievalBlocks {
 	public static SimpleTable SIMPLE_TABLE_JUNGLE = new SimpleTable("SimpleTableJungle");
 	public static SimpleTable SIMPLE_TABLE_ACACIA = new SimpleTable("SimpleTableAcacia");
 	public static SimpleTable SIMPLE_TABLE_DARK_OAK = new SimpleTable("SimpleTableDarkOak");
+	
 	public static ShipsHelm SHIPS_HELM = new ShipsHelm();
 
 	/** T **/
@@ -174,9 +221,33 @@ public class DRPMedievalBlocks {
 		registerBlock(SIMPLE_TABLE_ACACIA, false);
 		registerBlock(SIMPLE_TABLE_DARK_OAK, false);
 		
-		registerBlock(BARREL_EMPTY);
-		registerBlock(BARREL_CLOSED);
-		registerBlock(BARREL_GUNPOWDER);
+		registerBlock(BARREL_EMPTY_OAK);
+		registerBlock(BARREL_EMPTY_BIRCH);
+		registerBlock(BARREL_EMPTY_SPRUCE);
+		registerBlock(BARREL_EMPTY_JUNGLE);
+		registerBlock(BARREL_EMPTY_ACACIA);
+		registerBlock(BARREL_EMPTY_DARK_OAK);
+		
+		registerBlock(BARREL_WATER_OAK);
+		registerBlock(BARREL_WATER_BIRCH);
+		registerBlock(BARREL_WATER_SPRUCE);
+		registerBlock(BARREL_WATER_JUNGLE);
+		registerBlock(BARREL_WATER_ACACIA);
+		registerBlock(BARREL_WATER_DARK_OAK);
+		
+		registerBlock(BARREL_CLOSED_OAK);
+		registerBlock(BARREL_CLOSED_BIRCH);
+		registerBlock(BARREL_CLOSED_SPRUCE);
+		registerBlock(BARREL_CLOSED_JUNGLE);
+		registerBlock(BARREL_CLOSED_ACACIA);
+		registerBlock(BARREL_CLOSED_DARK_OAK);
+		
+		registerBlock(BARREL_GUNPOWDER_OAK);
+		registerBlock(BARREL_GUNPOWDER_BIRCH);
+		registerBlock(BARREL_GUNPOWDER_SPRUCE);
+		registerBlock(BARREL_GUNPOWDER_JUNGLE);
+		registerBlock(BARREL_GUNPOWDER_ACACIA);
+		registerBlock(BARREL_GUNPOWDER_DARK_OAK);
 		
 		registerBlock(BED_FRAME_OAK, null);
 		registerBlock(BED_FRAME_BIRCH, null);
@@ -185,8 +256,19 @@ public class DRPMedievalBlocks {
 		registerBlock(BED_FRAME_ACACIA, null);
 		registerBlock(BED_FRAME_DARK_OAK, null);
 		
-		registerBlock(APIARY);
-		registerBlock(BARREL_CHAIR);
+		registerBlock(APIARY_OAK);
+		registerBlock(APIARY_BIRCH);
+		registerBlock(APIARY_SPRUCE);
+		registerBlock(APIARY_JUNGLE);
+		registerBlock(APIARY_ACACIA);
+		registerBlock(APIARY_DARK_OAK);
+		
+		registerBlock(BARREL_CHAIR_OAK);
+		registerBlock(BARREL_CHAIR_BIRCH);
+		registerBlock(BARREL_CHAIR_SPRUCE);
+		registerBlock(BARREL_CHAIR_JUNGLE);
+		registerBlock(BARREL_CHAIR_ACACIA);
+		registerBlock(BARREL_CHAIR_DARK_OAK);
 		
 		registerBlock(LOG_CHAIR_OAK);
 		registerBlock(LOG_CHAIR_BIRCH);
@@ -195,7 +277,7 @@ public class DRPMedievalBlocks {
 		registerBlock(LOG_CHAIR_ACACIA);
 		registerBlock(LOG_CHAIR_DARK_OAK);
 		
-		registerBlock(CLEAN_PLANKS, null);
+		registerBlock(CLEAN_PLANKS);
 		
 		registerBlock(CHOPPING_BLOCK);
 		registerBlock(APPLE_RED, null);
@@ -231,6 +313,9 @@ public class DRPMedievalBlocks {
 		registerBlock(TORCH_HOLDER_LIT);
 		registerBlock(FIREPIT);
 		registerBlock(BARLEY,null);
+		DRPMedievalItems.SeedBarley = new SeedBarley();
+		DRPMedievalItems.registerItem(DRPMedievalItems.SeedBarley);
+		
 		registerBlock(GOLDEN_SHIPS_BELL);
 		
 	}

@@ -34,13 +34,13 @@ public class GenerateStructure implements IWorldGenerator{
 			if(hasBiome){
 				switch(random.nextInt(3)){
 				case 0:
-					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMedievalBlocks.appleGreen);
+					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMedievalBlocks.APPLE_GREEN);
 					break;
 				case 1:
-					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMedievalBlocks.appleRed);
+					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMedievalBlocks.APPLE_RED);
 					break;
 				case 2:
-					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMedievalBlocks.appleYellow);
+					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMedievalBlocks.APPLE_YELLOW);
 					break;
 					
 				}

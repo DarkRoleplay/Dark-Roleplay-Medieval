@@ -4,9 +4,10 @@ import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.DRPMedievalBlocks;
 import net.drpmedieval.common.items.blocks.*;
 import net.drpmedieval.common.items.book.WriteablePage;
-import net.drpmedieval.common.items.consumable.BarkAndGlue;
+import net.drpmedieval.common.items.consumable.*;
 import net.drpmedieval.common.items.crops.*;
 import net.drpmedieval.common.items.currency.*;
+import net.drpmedieval.common.items.entities.Sledge;
 import net.drpmedieval.common.items.equipment.*;
 import net.drpmedieval.common.items.equipment.ammunition.*;
 import net.drpmedieval.common.items.equipment.other.*;
@@ -112,6 +113,8 @@ public class DRPMedievalItems {
 	public static Quiver Quiver = new Quiver();
 
 	/** R **/
+	
+	public static RopedArrow ROPED_ARROW = new RopedArrow();
 
 	/** S **/
 
@@ -120,6 +123,7 @@ public class DRPMedievalItems {
 	public static SilverCoin SilverCoin = new SilverCoin();
 	public static SilverRing SilverRing = new SilverRing();
 	public static StringCoil StringCoil = new StringCoil();
+	public static Sledge SLEDGE = new Sledge();
 
 	/** T **/
 
@@ -213,10 +217,11 @@ public class DRPMedievalItems {
 		// Q
 		registerItem(Quiver);
 		// R
+		registerItem(ROPED_ARROW);
 		// S
-		registerItem(SeedBarley);
 		registerItem(SilverCoin);
 		registerItem(SilverRing);
+		registerItem(SLEDGE);
 		// T
 		registerItem(TannedLeather);
 		registerItem(TannedLeatherString);

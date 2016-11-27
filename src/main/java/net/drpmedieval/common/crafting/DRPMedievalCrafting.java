@@ -90,8 +90,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.BARREL_EMPTY , 1),
-					new ItemStack(DRPMedievalBlocks.BARREL_EMPTY , 1),
+					new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_SPRUCE , 1),
+					new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_SPRUCE , 1),
 					new ItemStack[] {
 						new ItemStack(DRPMedievalItems.Plank, 5),
 						new ItemStack(Items.IRON_INGOT, 2)})
@@ -101,8 +101,8 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-						new ItemStack(DRPMedievalBlocks.BARREL_CLOSED , 1),
-						new ItemStack(DRPMedievalBlocks.BARREL_CLOSED , 1),
+						new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_SPRUCE , 1),
+						new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_SPRUCE , 1),
 						new ItemStack[] {
 							new ItemStack(DRPMedievalItems.Plank, 6),
 							new ItemStack(Items.IRON_INGOT, 2)})
@@ -112,10 +112,10 @@ public class DRPMedievalCrafting {
 			cc.registerRecipe("Deco",
 				new AdvancedRecipe(
 					DarkRoleplayMedieval.MODID,
-					new ItemStack(DRPMedievalBlocks.BARREL_GUNPOWDER , 1),
-					new ItemStack(DRPMedievalBlocks.BARREL_GUNPOWDER , 1),
+					new ItemStack(DRPMedievalBlocks.BARREL_GUNPOWDER_SPRUCE , 1),
+					new ItemStack(DRPMedievalBlocks.BARREL_GUNPOWDER_SPRUCE , 1),
 					new ItemStack[] {
-						new ItemStack(DRPMedievalBlocks.BARREL_EMPTY, 1),
+						new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_SPRUCE, 1),
 						new ItemStack(Items.GUNPOWDER, 9)})
 				.setCraftingTime(3));
 			
