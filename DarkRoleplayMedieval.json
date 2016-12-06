@@ -1,12 +1,12 @@
 {
   "homepage": "https://minecraft.curseforge.com/projects/dark-roleplay-medieval",
   "promos": {
-    "1.9.4-latest"     : "0.1.5",
-    "1.9.4-recomended" : "0.1.5",
-	"1.10-latest"     : "0.1.5",
-    "1.10-recomended" : "0.1.5",
-	"1.10.2-latest"     : "0.1.5",
-    "1.10.2-recomended" : "0.1.5"
+    "1.9.4-latest"     : "0.1.6",
+    "1.9.4-recomended" : "0.1.6",
+	"1.10-latest"     : "0.1.6",
+    "1.10-recomended" : "0.1.6",
+	"1.10.2-latest"     : "0.1.6",
+    "1.10.2-recomended" : "0.1.6"
   },
   "1.9" : {
     "0.1.4" : "* 1.9.4 Port, \n* Wolfs drop less fur if killed with bow",

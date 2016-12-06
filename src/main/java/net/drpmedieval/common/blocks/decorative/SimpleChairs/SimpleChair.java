@@ -2,6 +2,7 @@ package net.drpmedieval.common.blocks.decorative.simpleChairs;
 
 import net.drpmedieval.common.blocks.decorative.Chair;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

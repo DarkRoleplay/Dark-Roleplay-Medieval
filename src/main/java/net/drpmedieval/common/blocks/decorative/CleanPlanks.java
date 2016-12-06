@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -38,19 +39,7 @@ public class CleanPlanks extends Block
     {
         return ((CleanPlanks.EnumType)state.getValue(VARIANT)).getMetadata();
     }
-
-    /**
-     * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
-     */
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list)
-    {
-        for (CleanPlanks.EnumType cleanplanks$enumtype : CleanPlanks.EnumType.values())
-        {
-            list.add(new ItemStack(itemIn, 1, cleanplanks$enumtype.getMetadata()));
-        }
-    }
-
+    
     /**
      * Convert the given metadata into a BlockState for this Block
      */
@@ -96,62 +85,51 @@ public class CleanPlanks extends Block
         /** The color that represents this entry on a map. */
         private final MapColor mapColor;
 
-        private EnumType(int metaIn, String nameIn, MapColor mapColorIn)
-        {
+        private EnumType(int metaIn, String nameIn, MapColor mapColorIn){
             this(metaIn, nameIn, nameIn, mapColorIn);
         }
 
-        private EnumType(int metaIn, String nameIn, String unlocalizedNameIn, MapColor mapColorIn)
-        {
-            this.meta = metaIn;
-            this.name = nameIn;
+        private EnumType(int meta, String name, String unlocalizedNameIn, MapColor mapColorIn){
+            this.meta = meta;
+            this.name = name;
             this.unlocalizedName = unlocalizedNameIn;
             this.mapColor = mapColorIn;
         }
 
-        public int getMetadata()
-        {
+        public int getMetadata(){
             return this.meta;
         }
 
         /**
          * The color which represents this entry on a map.
          */
-        public MapColor getMapColor()
-        {
+        public MapColor getMapColor(){
             return this.mapColor;
         }
 
-        public String toString()
-        {
+        public String toString(){
             return this.name;
         }
 
-        public static CleanPlanks.EnumType byMetadata(int meta)
-        {
-            if (meta < 0 || meta >= META_LOOKUP.length)
-            {
+        public static CleanPlanks.EnumType byMetadata(int meta){
+            if (meta < 0 || meta >= META_LOOKUP.length){
                 meta = 0;
             }
 
             return META_LOOKUP[meta];
         }
 
-        public String getName()
-        {
+        public String getName(){
             return this.name;
         }
 
-        public String getUnlocalizedName()
-        {
+        public String getUnlocalizedName(){
             return this.unlocalizedName;
         }
 
-        static
-        {
-            for (CleanPlanks.EnumType CleanPlanks$enumtype : values())
-            {
-                META_LOOKUP[CleanPlanks$enumtype.getMetadata()] = CleanPlanks$enumtype;
+        static{
+            for (CleanPlanks.EnumType type : values()){
+                META_LOOKUP[type.getMetadata()] = type;
             }
         }
     }

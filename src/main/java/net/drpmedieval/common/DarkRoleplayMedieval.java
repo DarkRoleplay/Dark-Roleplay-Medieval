@@ -47,10 +47,10 @@ import net.minecraftforge.fml.relauncher.Side;
 public class DarkRoleplayMedieval {
 
 	public static final String NAME = "Dark Roleplay Medieval";
-	public static final String VERSION = "0.1.5";
+	public static final String VERSION = "0.1.6";
 	public static final String MODID = "drpmedieval";
 	public static final String ACCEPTEDVERSIONS = "[1.9.4,)";
-	public static final String DEPENDECIES = "required-after:drpcore@0.1.4b,)";
+	public static final String DEPENDECIES = "required-after:drpcore@0.1.6b,)";
 	public static final String UPDATECHECK = "https://raw.githubusercontent.com/DarkRoleplay/Dark-Roleplay-Medieval/master/DarkRoleplayMedieval.json";
 
     public static final Logger LOGGER = LogManager.getLogger(MODID);
@@ -73,6 +73,7 @@ public class DarkRoleplayMedieval {
 		DRPMedievalConfig.preInit(event);
 		DRPMedievalAchievements.preInit(event);
 		DRPMedievalCrafting.preInit(event);
+		
 		proxy.preInit(event);
 		
 		GameRegistry.registerFuelHandler(new DarkRoleplayFuelHandler());
@@ -88,7 +89,6 @@ public class DarkRoleplayMedieval {
 		DRPMedievalConfig.init(event);
 		DRPMedievalAchievements.init(event);
 		DRPMedievalCrafting.init(event);
-		proxy.init(event);
 		
 		WorldLoot.registerChestLoot();
 		WorldLoot.registerFishingLoot();
@@ -99,6 +99,8 @@ public class DarkRoleplayMedieval {
 		registerTileEntitys();
 		
 		registerFurnaceRecipes();
+		
+		proxy.init(event);
 
 		MinecraftForge.EVENT_BUS.register(new AttachCapabilityTileEntity());
 		

@@ -54,7 +54,7 @@ public class RenderEntitySledge extends RenderLiving<EntitySledge>{
 
         if (!this.renderOutlines){
             this.renderLeash(entity, x, y, z, entityYaw, partialTicks);
-    		this.renderLivingLabel2(entity, "Test", x, y, z, 30);
+    		//this.renderLivingLabel2(entity, "Test", x, y, z, 30);
         }
     }
 	
@@ -183,7 +183,7 @@ public class RenderEntitySledge extends RenderLiving<EntitySledge>{
             boolean flag1 = this.renderManager.options.thirdPersonView == 2;
             float f2 = entityIn.height + 0.5F - (flag ? 0.25F : 0.0F);
             int i = "deadmau5".equals(str) ? -10 : 0;
-            EntityRenderer.func_189692_a(this.getFontRendererFromRenderManager(), str, (float)x, (float)y + f2 + 1.2F, (float)z, i, f, f1, flag1, flag);
+            EntityRenderer.drawNameplate(this.getFontRendererFromRenderManager(), str, (float)x, (float)y + f2 + 1.2F, (float)z, i, f, f1, flag1, flag);
         }
     }
 }

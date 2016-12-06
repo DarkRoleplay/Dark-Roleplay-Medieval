@@ -140,7 +140,7 @@ public class AdvancedBed extends BlockBed implements ITileEntityProvider{
                 }
             }
 
-            if (worldIn.provider.canRespawnHere() && worldIn.getBiomeGenForCoords(pos) != Biomes.HELL)
+            if (worldIn.provider.canRespawnHere() && worldIn.getBiomeForCoordsBody(pos) != Biomes.HELL)
             {
                 if (((Boolean)state.getValue(OCCUPIED)).booleanValue())
                 {
@@ -198,7 +198,7 @@ public class AdvancedBed extends BlockBed implements ITileEntityProvider{
     {
         for (EntityPlayer entityplayer : worldIn.playerEntities)
         {
-            if (entityplayer.isPlayerSleeping() && entityplayer.playerLocation.equals(pos))
+            if (entityplayer.isPlayerSleeping() && entityplayer.getPosition().equals(pos))
             {
                 return entityplayer;
             }

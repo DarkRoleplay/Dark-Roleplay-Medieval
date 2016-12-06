@@ -119,7 +119,7 @@ public class DRPMedievalItems {
 	/** S **/
 
 	public static SaddleHorse SaddleHorse = new SaddleHorse();
-	public static SeedBarley SeedBarley = new SeedBarley();
+	public static SeedBarley SeedBarley;
 	public static SilverCoin SilverCoin = new SilverCoin();
 	public static SilverRing SilverRing = new SilverRing();
 	public static StringCoil StringCoil = new StringCoil();
@@ -157,6 +157,8 @@ public class DRPMedievalItems {
 		BedFrameJungle.setBed(DRPMedievalBlocks.BED_FRAME_JUNGLE);
 		BedFrameAcacia.setBed(DRPMedievalBlocks.BED_FRAME_ACACIA);
 		BedFrameDarkOak.setBed(DRPMedievalBlocks.BED_FRAME_DARK_OAK);
+		
+		SeedBarley = new SeedBarley();
 		
 		// Under Development Items
 		registerItem(wpg, false); //TODO CHANGE BOOL AND FIX

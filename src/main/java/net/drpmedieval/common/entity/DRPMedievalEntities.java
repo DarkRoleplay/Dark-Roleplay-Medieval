@@ -14,7 +14,7 @@ public class DRPMedievalEntities {
 	public static final void preInit(FMLPreInitializationEvent event) {
 		
 		EntityRegistry.registerModEntity(EntitySittable.class, "Mountable", id++, DarkRoleplayMedieval.instance, 80, 1, false);
-		EntityRegistry.registerModEntity(EntitySledge.class, "Sledge", id++, DarkRoleplayMedieval.instance, 63, 3, true , 0xFF00FF, 0x00FF00);
+		EntityRegistry.registerModEntity(EntitySledge.class, "Sledge", id++, DarkRoleplayMedieval.instance, 63, 3, true);
 		EntityRegistry.registerModEntity(EntityRopedArrow.class, "RopedArrow", id++, DarkRoleplayMedieval.instance, 0, 3, true);
 		
 		

@@ -14,8 +14,8 @@ public class DRPMedievalCreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
-
-			return Item.getItemFromBlock(DRPMedievalBlocks.SIMPLE_CHAIR_OAK);
+			return DRPMedievalItems.AppleGreen;
+			//return Item.getItemFromBlock(DRPMedievalBlocks.SIMPLE_CHAIR_OAK);
 		}
 	};
 	

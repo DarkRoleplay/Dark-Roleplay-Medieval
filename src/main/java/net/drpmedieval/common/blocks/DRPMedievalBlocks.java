@@ -3,19 +3,17 @@ package net.drpmedieval.common.blocks;
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.craftingstations.*;
 import net.drpmedieval.common.blocks.decorative.*;
-import net.drpmedieval.common.blocks.decorative.apiaries.Apiary;
-import net.drpmedieval.common.blocks.decorative.barrelChair.BarrelChair;
-import net.drpmedieval.common.blocks.decorative.barrels.BarrelClosed;
-import net.drpmedieval.common.blocks.decorative.barrels.BarrelEmpty;
-import net.drpmedieval.common.blocks.decorative.barrels.BarrelFilled;
-import net.drpmedieval.common.blocks.decorative.buckets.Bucket;
-import net.drpmedieval.common.blocks.decorative.buckets.BucketDirt;
-import net.drpmedieval.common.blocks.decorative.simpleChairs.SimpleChair;
-import net.drpmedieval.common.blocks.decorative.simpleTables.SimpleTable;
+import net.drpmedieval.common.blocks.decorative.apiaries.*;
+import net.drpmedieval.common.blocks.decorative.barrelChair.*;
+import net.drpmedieval.common.blocks.decorative.barrels.*;
+import net.drpmedieval.common.blocks.decorative.buckets.*;
+import net.drpmedieval.common.blocks.decorative.simpleChairs.*;
+import net.drpmedieval.common.blocks.decorative.simpleTables.*;
 import net.drpmedieval.common.blocks.other.RegeneratingOre;
 import net.drpmedieval.common.blocks.plants.*;
 import net.drpmedieval.common.blocks.storage.*;
 import net.drpmedieval.common.items.DRPMedievalItems;
+import net.drpmedieval.common.items.blocks.CleanPlankItem;
 import net.drpmedieval.common.items.seeds.SeedBarley;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
@@ -52,7 +50,6 @@ public class DRPMedievalBlocks {
 	public static BarrelChair BARREL_CHAIR_JUNGLE = new BarrelChair("BarrelChairJungle");
 	public static BarrelChair BARREL_CHAIR_ACACIA = new BarrelChair("BarrelChairAcacia");
 	public static BarrelChair BARREL_CHAIR_DARK_OAK = new BarrelChair("BarrelChairDarkOak");
-	//public static BarrelClosed BARREL_CLOSED = new BarrelClosed();
 	
 	public static BarrelEmpty BARREL_EMPTY_OAK = new BarrelEmpty("BarrelEmptyOak");
 	public static BarrelEmpty BARREL_EMPTY_BIRCH = new BarrelEmpty("BarrelEmptyBirch");
@@ -169,7 +166,7 @@ public class DRPMedievalBlocks {
 
 	/** S **/
 
-	public static SimpleChair SIMPLE_CHAIR_OAK = new SimpleChair("SimpleChairOak");
+	public static SimpleChair SIMPLE_CHAIR_OAK = new SimpleChair("SimpleChairOak");;
 	public static SimpleChair SIMPLE_CHAIR_BIRCH = new SimpleChair("SimpleChairBirch");
 	public static SimpleChair SIMPLE_CHAIR_SPRUCE = new SimpleChair("SimpleChairSpruce");
 	public static SimpleChair SIMPLE_CHAIR_JUNGLE = new SimpleChair("SimpleChairJungle");
@@ -206,8 +203,8 @@ public class DRPMedievalBlocks {
 
 	public static void preInit(FMLPreInitializationEvent event) {
 		//registerBlock(rgO);
-		
-		registerBlock(SIMPLE_CHAIR_OAK);
+
+		registerBlock(SIMPLE_CHAIR_OAK, false);
 		registerBlock(SIMPLE_CHAIR_BIRCH, false);
 		registerBlock(SIMPLE_CHAIR_SPRUCE, false);
 		registerBlock(SIMPLE_CHAIR_JUNGLE, false);
@@ -277,7 +274,7 @@ public class DRPMedievalBlocks {
 		registerBlock(LOG_CHAIR_ACACIA);
 		registerBlock(LOG_CHAIR_DARK_OAK);
 		
-		registerBlock(CLEAN_PLANKS);
+		registerBlock(CLEAN_PLANKS, new CleanPlankItem(CLEAN_PLANKS));
 		
 		registerBlock(CHOPPING_BLOCK);
 		registerBlock(APPLE_RED, null);
@@ -313,6 +310,7 @@ public class DRPMedievalBlocks {
 		registerBlock(TORCH_HOLDER_LIT);
 		registerBlock(FIREPIT);
 		registerBlock(BARLEY,null);
+		
 		DRPMedievalItems.SeedBarley = new SeedBarley();
 		DRPMedievalItems.registerItem(DRPMedievalItems.SeedBarley);
 		
