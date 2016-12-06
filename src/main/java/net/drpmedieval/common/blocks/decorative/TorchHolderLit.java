@@ -41,7 +41,7 @@ public class TorchHolderLit extends Block {
 		super(DRPMedievalMaterials.iron);
 		this.setRegistryName("TorchHolderLit");
 		this.setUnlocalizedName("TorchHolderLit");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(4F);
 		this.setHarvestLevel("pickaxe", 0);
 		this.setSoundType(SoundType.ANVIL);	
@@ -206,7 +206,7 @@ public class TorchHolderLit extends Block {
 		if((Boolean) state.getValue(AddonLighter)){
 			if(!worldIn.isRemote){
 				if(worldIn.isBlockPowered(pos)){
-					worldIn.setBlockState(pos, DRPMedievalBlocks.torchHolderUnlit.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(AddonLighter, state.getValue(AddonLighter)).withProperty(AddonTrap, state.getValue(AddonTrap)).withProperty(POWERED, state.getValue(POWERED)), 2);
+					worldIn.setBlockState(pos, DRPMedievalBlocks.TORCH_HOLDER_UNLIT.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(AddonLighter, state.getValue(AddonLighter)).withProperty(AddonTrap, state.getValue(AddonTrap)).withProperty(POWERED, state.getValue(POWERED)), 2);
 				}
 			}
 		}
@@ -248,7 +248,7 @@ public class TorchHolderLit extends Block {
 					state = state.cycleProperty(POWERED);
 					world.setBlockState(pos, state, 3);
 					world.scheduleUpdate(pos, this, 60);
-					world.scheduleUpdate(pos, DRPMedievalBlocks.torchHolderUnlit, 60);
+					world.scheduleUpdate(pos, DRPMedievalBlocks.TORCH_HOLDER_UNLIT, 60);
 					//TODO PLAY SOUND
 					//worldIn.playSoundEffect((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, "random.click", 0.3F, ((Boolean) state.getValue(POWERED)).booleanValue() ? 0.6F : 0.5F);
 
@@ -293,13 +293,13 @@ public class TorchHolderLit extends Block {
 			}
 			else{
 				if(player.isSneaking()){
-					world.setBlockState(pos, DRPMedievalBlocks.torchHolderUnlit.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(AddonLighter, state.getValue(AddonLighter)).withProperty(AddonTrap, state.getValue(AddonTrap)).withProperty(POWERED, state.getValue(POWERED)));
+					world.setBlockState(pos, DRPMedievalBlocks.TORCH_HOLDER_UNLIT.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(AddonLighter, state.getValue(AddonLighter)).withProperty(AddonTrap, state.getValue(AddonTrap)).withProperty(POWERED, state.getValue(POWERED)));
 				}
 				else if((Boolean) state.getValue(AddonTrap) && !(Boolean) state.getValue(POWERED)){
 					state = state.cycleProperty(POWERED);
 					world.setBlockState(pos, state, 3);
 					world.scheduleUpdate(pos, this, 60);
-					world.scheduleUpdate(pos, DRPMedievalBlocks.torchHolderUnlit, 60);
+					world.scheduleUpdate(pos, DRPMedievalBlocks.TORCH_HOLDER_UNLIT, 60);
 					//TODO PLAY SOUND
 					//worldIn.playSoundEffect((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, "random.click", 0.3F, ((Boolean) state.getValue(POWERED)).booleanValue() ? 0.6F : 0.5F);
 

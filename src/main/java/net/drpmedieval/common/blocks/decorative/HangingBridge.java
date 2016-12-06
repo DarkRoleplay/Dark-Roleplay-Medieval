@@ -39,7 +39,7 @@ public class HangingBridge extends Block {
 		super(Material.WOOD);
 		this.setRegistryName("HangingBridge");
 		this.setUnlocalizedName("HangingBridge");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(1F);
 		this.setSoundType(SoundType.WOOD);
 	}
@@ -143,58 +143,58 @@ public class HangingBridge extends Block {
 		boolean south = false;
 		boolean west = false;
 		if(state.getValue(FACING).equals(EnumFacing.NORTH)){
-			if(worldIn.getBlockState(pos.north()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.north()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				north = true;
 			}
-			if(worldIn.getBlockState(pos.east()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.east()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				east = true;
 			}
-			if(worldIn.getBlockState(pos.south()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.south()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				south = true;
 			}
-			if(worldIn.getBlockState(pos.west()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.west()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				west = true;
 			}
 		}
 		else if(state.getValue(FACING).equals(EnumFacing.EAST)){
-			if(worldIn.getBlockState(pos.east()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.east()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				north = true;
 			}
-			if(worldIn.getBlockState(pos.south()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.south()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				east = true;
 			}
-			if(worldIn.getBlockState(pos.west()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.west()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				south = true;
 			}
-			if(worldIn.getBlockState(pos.north()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.north()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				west = true;
 			}
 		}
 		else if(state.getValue(FACING).equals(EnumFacing.SOUTH)){
-			if(worldIn.getBlockState(pos.south()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.south()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				north = true;
 			}
-			if(worldIn.getBlockState(pos.west()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.west()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				east = true;
 			}
-			if(worldIn.getBlockState(pos.north()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.north()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				south = true;
 			}
-			if(worldIn.getBlockState(pos.east()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.east()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				west = true;
 			}
 		}
 		else if(state.getValue(FACING).equals(EnumFacing.WEST)){
-			if(worldIn.getBlockState(pos.west()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.west()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				north = true;
 			}
-			if(worldIn.getBlockState(pos.north()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.north()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				east = true;
 			}
-			if(worldIn.getBlockState(pos.east()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.east()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				south = true;
 			}
-			if(worldIn.getBlockState(pos.south()).getBlock().equals(DRPMedievalBlocks.hangingBridge)){
+			if(worldIn.getBlockState(pos.south()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)){
 				west = true;
 			}
 		}

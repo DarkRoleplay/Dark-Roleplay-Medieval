@@ -31,7 +31,7 @@ public class Hook extends BlockContainer {
 		super(DRPMedievalMaterials.iron);
 		this.setRegistryName("IronHook");
 		this.setUnlocalizedName("IronHook");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(4F);
 		this.setHarvestLevel("pickaxe", 1);
 		this.setSoundType(SoundType.METAL);
@@ -103,7 +103,7 @@ public class Hook extends BlockContainer {
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
 
-		return worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.chain);
+		return worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.CHAIN);
 	}
 	
 	// -------------------------------------------------- Block Events --------------------------------------------------
@@ -111,7 +111,7 @@ public class Hook extends BlockContainer {
 	@Override
 	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 
-		if(!worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.chain)) return Blocks.AIR.getDefaultState();
+		if(!worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.CHAIN)) return Blocks.AIR.getDefaultState();
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
 			int dir = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;

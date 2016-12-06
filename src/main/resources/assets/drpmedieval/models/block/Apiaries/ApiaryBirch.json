@@ -1,0 +1,7 @@
+{
+    "parent": "drpmedieval:block/Apiaries/Apiary",
+    "textures": {
+        "wall": "drpmedieval:blocks/Apiaries/ApiaryPlankBirch",
+		"roof": "drpmedieval:blocks/Apiaries/ApiaryBarkBirch"
+    }
+}

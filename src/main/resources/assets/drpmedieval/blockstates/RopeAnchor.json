@@ -1,20 +1,20 @@
 {
     "variants":{
-        "east=false,north=false,south=false,west=false":{"model":"drpmedieval:WIP"},
-		"east=false,north=false,south=false,west=true":{"model":"drpmedieval:WIP"},
-		"east=false,north=false,south=true,west=false":{"model":"drpmedieval:WIP"},
-		"east=false,north=false,south=true,west=true":{"model":"drpmedieval:WIP"},
-		"east=false,north=true,south=false,west=false":{"model":"drpmedieval:WIP"},
-		"east=false,north=true,south=false,west=true":{"model":"drpmedieval:WIP"},
-		"east=false,north=true,south=true,west=false":{"model":"drpmedieval:WIP"},
-		"east=false,north=true,south=true,west=true":{"model":"drpmedieval:WIP"},
-		"east=true,north=false,south=false,west=false":{"model":"drpmedieval:WIP"},
-		"east=true,north=false,south=false,west=true":{"model":"drpmedieval:WIP"},
-		"east=true,north=false,south=true,west=false":{"model":"drpmedieval:WIP"},
-		"east=true,north=false,south=true,west=true":{"model":"drpmedieval:WIP"},
-		"east=true,north=true,south=false,west=false":{"model":"drpmedieval:WIP"},
-		"east=true,north=true,south=false,west=true":{"model":"drpmedieval:WIP"},
-		"east=true,north=true,south=true,west=false":{"model":"drpmedieval:WIP"},
-		"east=true,north=true,south=true,west=true":{"model":"drpmedieval:WIP"}
+        "east=false,north=false,south=false,west=false":{"model":"drpmedieval:MISSING"},
+		"east=false,north=false,south=false,west=true":{"model":"drpmedieval:MISSING"},
+		"east=false,north=false,south=true,west=false":{"model":"drpmedieval:MISSING"},
+		"east=false,north=false,south=true,west=true":{"model":"drpmedieval:MISSING"},
+		"east=false,north=true,south=false,west=false":{"model":"drpmedieval:MISSING"},
+		"east=false,north=true,south=false,west=true":{"model":"drpmedieval:MISSING"},
+		"east=false,north=true,south=true,west=false":{"model":"drpmedieval:MISSING"},
+		"east=false,north=true,south=true,west=true":{"model":"drpmedieval:MISSING"},
+		"east=true,north=false,south=false,west=false":{"model":"drpmedieval:MISSING"},
+		"east=true,north=false,south=false,west=true":{"model":"drpmedieval:MISSING"},
+		"east=true,north=false,south=true,west=false":{"model":"drpmedieval:MISSING"},
+		"east=true,north=false,south=true,west=true":{"model":"drpmedieval:MISSING"},
+		"east=true,north=true,south=false,west=false":{"model":"drpmedieval:MISSING"},
+		"east=true,north=true,south=false,west=true":{"model":"drpmedieval:MISSING"},
+		"east=true,north=true,south=true,west=false":{"model":"drpmedieval:MISSING"},
+		"east=true,north=true,south=true,west=true":{"model":"drpmedieval:MISSING"}
     }
 }

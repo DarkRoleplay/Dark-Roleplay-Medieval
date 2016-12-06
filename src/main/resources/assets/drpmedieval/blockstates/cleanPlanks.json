@@ -5,6 +5,7 @@
         "variant=birch":{"model":"drpmedieval:CleanPlanks/cleanPlankBirch"},
 		"variant=jungle":{"model":"drpmedieval:CleanPlanks/cleanPlankJungle"},
         "variant=acacia":{"model":"drpmedieval:CleanPlanks/cleanPlankAcacia"},
-        "variant=dark_oak":{"model":"drpmedieval:CleanPlanks/cleanPlankDarkOak"}   
+        "variant=dark_oak":{"model":"drpmedieval:CleanPlanks/cleanPlankDarkOak"},
+		"variant=inventory":{"model":"drpmedieval:CleanPlanks/cleanPlankDarkOak"}
     }
 }

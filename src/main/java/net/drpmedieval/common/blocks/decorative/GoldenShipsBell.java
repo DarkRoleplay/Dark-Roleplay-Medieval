@@ -34,7 +34,7 @@ public class GoldenShipsBell   extends Block {
 		super(DRPMedievalMaterials.iron);
 		this.setRegistryName("GoldenShipsBell");
 		this.setUnlocalizedName("GoldenShipsBell");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.ANVIL);
 	}

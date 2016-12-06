@@ -1,5 +1,6 @@
 package net.drpmedieval.common.blocks.plants;
 
+import net.drpcore.api.blocks.AdvancedCrop;
 import net.drpmedieval.common.items.DRPMedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -10,9 +11,10 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class Barley extends BlockCrops {
+public class Barley extends AdvancedCrop {
 
 	public Barley() {
+		super(28);
 		this.setRegistryName("Barley");
 		this.setUnlocalizedName("Barley");
         this.setDefaultState(this.blockState.getBaseState().withProperty(this.AGE, Integer.valueOf(0)));

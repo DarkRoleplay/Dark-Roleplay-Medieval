@@ -3,10 +3,18 @@ package net.drpmedieval.common.blocks;
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.craftingstations.*;
 import net.drpmedieval.common.blocks.decorative.*;
+import net.drpmedieval.common.blocks.decorative.apiaries.*;
+import net.drpmedieval.common.blocks.decorative.barrelChair.*;
+import net.drpmedieval.common.blocks.decorative.barrels.*;
+import net.drpmedieval.common.blocks.decorative.buckets.*;
+import net.drpmedieval.common.blocks.decorative.simpleChairs.*;
+import net.drpmedieval.common.blocks.decorative.simpleTables.*;
 import net.drpmedieval.common.blocks.other.RegeneratingOre;
 import net.drpmedieval.common.blocks.plants.*;
 import net.drpmedieval.common.blocks.storage.*;
 import net.drpmedieval.common.items.DRPMedievalItems;
+import net.drpmedieval.common.items.blocks.CleanPlankItem;
+import net.drpmedieval.common.items.seeds.SeedBarley;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -17,97 +25,126 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class DRPMedievalBlocks {
-
-	/*
-	 @Override
-	 public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-     {
-         return new AxisAlignedBB(,,,,,);
-     }
-	 */
 	
 	/** A **/
 
-	public static Anvil anvil = new Anvil();
-	public static Apiary apiary = new Apiary();
-	public static AppleGreen appleGreen = new AppleGreen();
-	public static AppleRed appleRed = new AppleRed();
-	public static AppleYellow appleYellow = new AppleYellow();
+	public static Anvil ANVIL = new Anvil();
+	public static Apiary APIARY_OAK = new Apiary("ApiaryOak");
+	public static Apiary APIARY_BIRCH = new Apiary("ApiaryBirch");
+	public static Apiary APIARY_SPRUCE = new Apiary("ApiarySpruce");
+	public static Apiary APIARY_JUNGLE = new Apiary("ApiaryJungle");
+	public static Apiary APIARY_ACACIA = new Apiary("ApiaryAcacia");
+	public static Apiary APIARY_DARK_OAK = new Apiary("ApiaryDarkOak");
+
+	public static AppleGreen APPLE_GREEN = new AppleGreen(); //TODO FIX APPLES
+	public static AppleRed APPLE_RED = new AppleRed();
+	public static AppleYellow APPLE_YELLOW = new AppleYellow();
 
 	/** B **/
 
-	public static Barley barley = new Barley();
-	public static BarrelChair barrelChair = new BarrelChair();
-	public static BarrelClosed barrelClosed = new BarrelClosed();
-	public static BarrelEmpty barrelEmpty = new BarrelEmpty();
-	public static BarrelFilled barrelGunpowder = new BarrelFilled("BarrelGunpowder","BarrelGunpowder");
+	public static Barley BARLEY = new Barley();
+	
+	public static BarrelChair BARREL_CHAIR_OAK = new BarrelChair("BarrelChairOak");
+	public static BarrelChair BARREL_CHAIR_BIRCH = new BarrelChair("BarrelChairBirch");
+	public static BarrelChair BARREL_CHAIR_SPRUCE = new BarrelChair("BarrelChairSpruce");
+	public static BarrelChair BARREL_CHAIR_JUNGLE = new BarrelChair("BarrelChairJungle");
+	public static BarrelChair BARREL_CHAIR_ACACIA = new BarrelChair("BarrelChairAcacia");
+	public static BarrelChair BARREL_CHAIR_DARK_OAK = new BarrelChair("BarrelChairDarkOak");
+	
+	public static BarrelEmpty BARREL_EMPTY_OAK = new BarrelEmpty("BarrelEmptyOak");
+	public static BarrelEmpty BARREL_EMPTY_BIRCH = new BarrelEmpty("BarrelEmptyBirch");
+	public static BarrelEmpty BARREL_EMPTY_SPRUCE = new BarrelEmpty("BarrelEmptySpruce");
+	public static BarrelEmpty BARREL_EMPTY_JUNGLE = new BarrelEmpty("BarrelEmptyJungle");
+	public static BarrelEmpty BARREL_EMPTY_ACACIA = new BarrelEmpty("BarrelEmptyAcacia");
+	public static BarrelEmpty BARREL_EMPTY_DARK_OAK = new BarrelEmpty("BarrelEmptyDarkOak");
+	
+	public static BarrelFilled BARREL_WATER_OAK = new BarrelFilled("BarrelWaterOak");
+	public static BarrelFilled BARREL_WATER_BIRCH = new BarrelFilled("BarrelWaterBirch");
+	public static BarrelFilled BARREL_WATER_SPRUCE = new BarrelFilled("BarrelWaterSpruce");
+	public static BarrelFilled BARREL_WATER_JUNGLE = new BarrelFilled("BarrelWaterJungle");
+	public static BarrelFilled BARREL_WATER_ACACIA = new BarrelFilled("BarrelWaterAcacia");
+	public static BarrelFilled BARREL_WATER_DARK_OAK = new BarrelFilled("BarrelWaterDarkOak");
+	
+	public static BarrelClosed BARREL_CLOSED_OAK = new BarrelClosed("BarrelClosedOak");
+	public static BarrelClosed BARREL_CLOSED_BIRCH = new BarrelClosed("BarrelClosedBirch");
+	public static BarrelClosed BARREL_CLOSED_SPRUCE = new BarrelClosed("BarrelClosedSpruce");
+	public static BarrelClosed BARREL_CLOSED_JUNGLE = new BarrelClosed("BarrelClosedJungle");
+	public static BarrelClosed BARREL_CLOSED_ACACIA = new BarrelClosed("BarrelClosedAcacia");
+	public static BarrelClosed BARREL_CLOSED_DARK_OAK = new BarrelClosed("BarrelClosedDarkOak");
+	
+	public static BarrelFilled BARREL_GUNPOWDER_OAK = new BarrelFilled("BarrelGunpowderOak");
+	public static BarrelFilled BARREL_GUNPOWDER_BIRCH = new BarrelFilled("BarrelGunpowderBirch");
+	public static BarrelFilled BARREL_GUNPOWDER_SPRUCE = new BarrelFilled("BarrelGunpowderSpruce");
+	public static BarrelFilled BARREL_GUNPOWDER_JUNGLE = new BarrelFilled("BarrelGunpowderJungle");
+	public static BarrelFilled BARREL_GUNPOWDER_ACACIA = new BarrelFilled("BarrelGunpowderAcacia");
+	public static BarrelFilled BARREL_GUNPOWDER_DARK_OAK = new BarrelFilled("BarrelGunpowderDarkOak");
 		
-	public static BedFrame bedFrameOak = new BedFrame("BedFrameOak","BedFrameOak",DRPMedievalItems.BedFrameOak);
-	public static BedFrame bedFrameSpruce = new BedFrame("BedFrameSpruce","BedFrameSpruce",DRPMedievalItems.BedFrameSpruce);
-	public static BedFrame bedFrameBirch = new BedFrame("BedFrameBirch","BedFrameBirch",DRPMedievalItems.BedFrameBirch);
-	public static BedFrame bedFrameJungle = new BedFrame("BedFrameJungle","BedFrameJungle",DRPMedievalItems.BedFrameJungle);
-	public static BedFrame bedFrameAcacia = new BedFrame("BedFrameAcacia","BedFrameAcacia",DRPMedievalItems.BedFrameAcacia);
-	public static BedFrame bedFrameDarkOak = new BedFrame("BedFrameDarkOak","BedFrameDarkOak",DRPMedievalItems.BedFrameDarkOak);
+	public static BedFrame BED_FRAME_OAK = new BedFrame("BedFrameOak","BedFrameOak",DRPMedievalItems.BedFrameOak);
+	public static BedFrame BED_FRAME_SPRUCE = new BedFrame("BedFrameSpruce","BedFrameSpruce",DRPMedievalItems.BedFrameSpruce);
+	public static BedFrame BED_FRAME_BIRCH = new BedFrame("BedFrameBirch","BedFrameBirch",DRPMedievalItems.BedFrameBirch);
+	public static BedFrame BED_FRAME_JUNGLE = new BedFrame("BedFrameJungle","BedFrameJungle",DRPMedievalItems.BedFrameJungle);
+	public static BedFrame BED_FRAME_ACACIA = new BedFrame("BedFrameAcacia","BedFrameAcacia",DRPMedievalItems.BedFrameAcacia);
+	public static BedFrame BED_FRAME_DARK_OAK = new BedFrame("BedFrameDarkOak","BedFrameDarkOak",DRPMedievalItems.BedFrameDarkOak);
 
 	public static BookOne bookOne = new BookOne();
-	public static BucketDirt bucketDirt = new BucketDirt();
-	public static Bucket bucketEmpty = new Bucket("BucketEmpty", "BucketEmpty");
-	public static Bucket bucketWater = new Bucket("BucketWater", "BucketWater");
+	public static BucketDirt BUCKET_DIRT = new BucketDirt();
+	public static Bucket BUCKET_EMPTY = new Bucket("BucketEmpty", "BucketEmpty");
+	public static Bucket BUCKET_WATER = new Bucket("BucketWater", "BucketWater");
 
 	/** C **/
 
-	public static Cauldron cauldron = new Cauldron();
-	public static Chain chain = new Chain();
-	public static ChoppingBlock choppingBlock = new ChoppingBlock();
-	public static CleanPlanks cleanPlanks = new CleanPlanks();
-	public static Crate crate = new Crate();
+	public static Cauldron CAULDRON = new Cauldron();
+	public static Chain CHAIN = new Chain();
+	public static ChoppingBlock CHOPPING_BLOCK = new ChoppingBlock();
+	public static CleanPlanks CLEAN_PLANKS = new CleanPlanks();
+	public static Crate CRATE = new Crate();
 
 	/** D **/
 
-	public static DungeonChest dungeonChest = new DungeonChest();
+	public static DungeonChest DUNGEON_CHEST = new DungeonChest();
 
 	/** E **/
 
 	/** F **/
 
-	public static Firepit firepit = new Firepit();
+	public static Firepit FIREPIT = new Firepit();
 
 	/** G **/
 
-	public static GoldenShipsBell goldenShipsBell = new GoldenShipsBell();
-	public static Grindstone grindstone = new Grindstone();
+	public static GoldenShipsBell GOLDEN_SHIPS_BELL = new GoldenShipsBell();
+	public static Grindstone GRINDSTONE = new Grindstone();
 
 	/** H **/
 
-	public static HangingBridge hangingBridge = new HangingBridge();
-	public static HangingCauldron hangingCauldron = new HangingCauldron();
+	public static HangingBridge HANGING_BRIDGE = new HangingBridge();
+	public static HangingCauldron HANGING_CAULDRON = new HangingCauldron();
 
 	/** I **/
-	public static Hook ironHook = new Hook();
+	public static Hook IRON_HOOK = new Hook();
 	
 	/** J **/
 
 	/** K **/
 
-	public static KeyHanging keyHanging = new KeyHanging();
+	public static KeyHanging KEY_HANGING = new KeyHanging();
 
 	/** L **/
 
-	public static LogChair logChairOak = new LogChair("LogChairOak","LogChairOak");
-	public static LogChair logChairSpruce = new LogChair("LogChairSpruce","LogChairSpruce");
-	public static LogChair logChairBirch = new LogChair("LogChairBirch","LogChairBirch");
-	public static LogChair logChairJungle = new LogChair("LogChairJungle","LogChairJungle");
-	public static LogChair logChairAcacia = new LogChair("LogChairAcacia","LogChairAcacia");
-	public static LogChair logChairDarkOak = new LogChair("LogChairDarkOak","LogChairDarkOak");
+	public static LogChair LOG_CHAIR_OAK = new LogChair("LogChairOak","LogChairOak");
+	public static LogChair LOG_CHAIR_SPRUCE = new LogChair("LogChairSpruce","LogChairSpruce");
+	public static LogChair LOG_CHAIR_BIRCH = new LogChair("LogChairBirch","LogChairBirch");
+	public static LogChair LOG_CHAIR_JUNGLE = new LogChair("LogChairJungle","LogChairJungle");
+	public static LogChair LOG_CHAIR_ACACIA = new LogChair("LogChairAcacia","LogChairAcacia");
+	public static LogChair LOG_CHAIR_DARK_OAK = new LogChair("LogChairDarkOak","LogChairDarkOak");
 
 	
 	/** M **/
 
-	public static Mortar mortar = new Mortar();
-	public static MugBeer mugBeer = new MugBeer();
-	public static MugEmpty mugEmpty = new MugEmpty();
-	public static MushroomBrown mushroomBrown = new MushroomBrown();
-	public static MushroomRed mushroomRed = new MushroomRed();
+	public static Mortar MORTAR = new Mortar();
+	public static MugBeer MUG_BEER = new MugBeer();
+	public static MugEmpty MUG_EMPTY = new MugEmpty();
+	public static MushroomBrown MUSHROOM_BROWN = new MushroomBrown();
+	public static MushroomRed MUSHROOM_RED = new MushroomRed();
 
 	/** N **/
 
@@ -115,28 +152,42 @@ public class DRPMedievalBlocks {
 
 	/** P **/
 
-	public static PearGreen pearGreen = new PearGreen();
-	public static PearYellow pearYellow = new PearYellow();
-	public static PotionEmpty potionEmpty = new PotionEmpty();
+	public static PearGreen PEAR_GREEN = new PearGreen(); //TODO FIX PEARS
+	public static PearYellow PEAR_YELLOW = new PearYellow();
+	public static PotionEmpty POTION_EMPTY = new PotionEmpty(); //TODO Fix Potions
 
 	/** Q **/
 
 	/** R **/
 
-	public static RegeneratingOre rgO = new RegeneratingOre("regenOre", DRPMedievalCreativeTabs.drpmedievalMiscTab, 0.4F, 5);
-	public static Rope rope = new Rope();
-	public static RopeAnchor ropeAnchor = new RopeAnchor();
+	public static RegeneratingOre rgO = new RegeneratingOre("regenOre", DRPMedievalCreativeTabs.drpmedievalMiscTab, 0.4F, 5); //TODO REGENERATING ORES
+	public static Rope ROPE = new Rope();
+	public static RopeAnchor ROPE_ANCHOR = new RopeAnchor();
 
 	/** S **/
 
-	public static ShipsWheel shipsWheel = new ShipsWheel();
+	public static SimpleChair SIMPLE_CHAIR_OAK = new SimpleChair("SimpleChairOak");;
+	public static SimpleChair SIMPLE_CHAIR_BIRCH = new SimpleChair("SimpleChairBirch");
+	public static SimpleChair SIMPLE_CHAIR_SPRUCE = new SimpleChair("SimpleChairSpruce");
+	public static SimpleChair SIMPLE_CHAIR_JUNGLE = new SimpleChair("SimpleChairJungle");
+	public static SimpleChair SIMPLE_CHAIR_ACACIA = new SimpleChair("SimpleChairAcacia");
+	public static SimpleChair SIMPLE_CHAIR_DARK_OAK = new SimpleChair("SimpleChairDarkOak");
+	
+	public static SimpleTable SIMPLE_TABLE_OAK = new SimpleTable("SimpleTableOak");
+	public static SimpleTable SIMPLE_TABLE_BIRCH = new SimpleTable("SimpleTableBirch");
+	public static SimpleTable SIMPLE_TABLE_SPRUCE = new SimpleTable("SimpleTableSpruce");
+	public static SimpleTable SIMPLE_TABLE_JUNGLE = new SimpleTable("SimpleTableJungle");
+	public static SimpleTable SIMPLE_TABLE_ACACIA = new SimpleTable("SimpleTableAcacia");
+	public static SimpleTable SIMPLE_TABLE_DARK_OAK = new SimpleTable("SimpleTableDarkOak");
+	
+	public static ShipsHelm SHIPS_HELM = new ShipsHelm();
 
 	/** T **/
 
-	public static Target target = new Target();
-	public static TorchHolderEmpty torchHolderEmpty = new TorchHolderEmpty();
-	public static TorchHolderLit torchHolderLit = new TorchHolderLit();
-	public static TorchHolderUnlit torchHolderUnlit = new TorchHolderUnlit();
+	public static Target TARGET = new Target();
+	public static TorchHolderEmpty TORCH_HOLDER_EMPTY = new TorchHolderEmpty();
+	public static TorchHolderLit TORCH_HOLDER_LIT = new TorchHolderLit();
+	public static TorchHolderUnlit TORCH_HOLDER_UNLIT = new TorchHolderUnlit();
 
 	/** U **/
 
@@ -151,66 +202,119 @@ public class DRPMedievalBlocks {
 	/** Z **/
 
 	public static void preInit(FMLPreInitializationEvent event) {
-		registerBlock(rgO);
+		//registerBlock(rgO);
+
+		registerBlock(SIMPLE_CHAIR_OAK, false);
+		registerBlock(SIMPLE_CHAIR_BIRCH, false);
+		registerBlock(SIMPLE_CHAIR_SPRUCE, false);
+		registerBlock(SIMPLE_CHAIR_JUNGLE, false);
+		registerBlock(SIMPLE_CHAIR_ACACIA, false);
+		registerBlock(SIMPLE_CHAIR_DARK_OAK, false);
 		
-		registerBlock(barrelEmpty);
-		registerBlock(barrelClosed);
-		registerBlock(barrelGunpowder);
+		registerBlock(SIMPLE_TABLE_OAK, false);
+		registerBlock(SIMPLE_TABLE_BIRCH, false);
+		registerBlock(SIMPLE_TABLE_SPRUCE, false);
+		registerBlock(SIMPLE_TABLE_JUNGLE, false);
+		registerBlock(SIMPLE_TABLE_ACACIA, false);
+		registerBlock(SIMPLE_TABLE_DARK_OAK, false);
 		
-		registerBlock(bedFrameOak, null);
-		registerBlock(bedFrameSpruce, null);
-		registerBlock(bedFrameBirch, null);
-		registerBlock(bedFrameJungle, null);
-		registerBlock(bedFrameAcacia, null);
-		registerBlock(bedFrameDarkOak, null);
+		registerBlock(BARREL_EMPTY_OAK);
+		registerBlock(BARREL_EMPTY_BIRCH);
+		registerBlock(BARREL_EMPTY_SPRUCE);
+		registerBlock(BARREL_EMPTY_JUNGLE);
+		registerBlock(BARREL_EMPTY_ACACIA);
+		registerBlock(BARREL_EMPTY_DARK_OAK);
 		
-		registerBlock(apiary);
-		registerBlock(barrelChair);
+		registerBlock(BARREL_WATER_OAK);
+		registerBlock(BARREL_WATER_BIRCH);
+		registerBlock(BARREL_WATER_SPRUCE);
+		registerBlock(BARREL_WATER_JUNGLE);
+		registerBlock(BARREL_WATER_ACACIA);
+		registerBlock(BARREL_WATER_DARK_OAK);
 		
-		registerBlock(logChairOak);
-		registerBlock(logChairSpruce);
-		registerBlock(logChairBirch);
-		registerBlock(logChairJungle);
-		registerBlock(logChairAcacia);
-		registerBlock(logChairDarkOak);
+		registerBlock(BARREL_CLOSED_OAK);
+		registerBlock(BARREL_CLOSED_BIRCH);
+		registerBlock(BARREL_CLOSED_SPRUCE);
+		registerBlock(BARREL_CLOSED_JUNGLE);
+		registerBlock(BARREL_CLOSED_ACACIA);
+		registerBlock(BARREL_CLOSED_DARK_OAK);
 		
-		registerBlock(cleanPlanks, null);
+		registerBlock(BARREL_GUNPOWDER_OAK);
+		registerBlock(BARREL_GUNPOWDER_BIRCH);
+		registerBlock(BARREL_GUNPOWDER_SPRUCE);
+		registerBlock(BARREL_GUNPOWDER_JUNGLE);
+		registerBlock(BARREL_GUNPOWDER_ACACIA);
+		registerBlock(BARREL_GUNPOWDER_DARK_OAK);
 		
-		registerBlock(choppingBlock);
-		registerBlock(appleRed, null);
-		registerBlock(appleYellow, null);
-		registerBlock(appleGreen, null);
-		registerBlock(pearYellow, null);
-		registerBlock(pearGreen, null);
-		registerBlock(mushroomBrown);
-		registerBlock(mushroomRed);
-		registerBlock(bucketEmpty);
-		registerBlock(bucketDirt);
-		registerBlock(bucketWater);
-		registerBlock(mugEmpty);
-		registerBlock(mugBeer);
-		registerBlock(mortar);
-		registerBlock(grindstone);
-		registerBlock(anvil);
-		registerBlock(cauldron);
-		registerBlock(hangingCauldron);
-		registerBlock(hangingBridge);
+		registerBlock(BED_FRAME_OAK, null);
+		registerBlock(BED_FRAME_BIRCH, null);
+		registerBlock(BED_FRAME_SPRUCE, null);
+		registerBlock(BED_FRAME_JUNGLE, null);
+		registerBlock(BED_FRAME_ACACIA, null);
+		registerBlock(BED_FRAME_DARK_OAK, null);
+		
+		registerBlock(APIARY_OAK);
+		registerBlock(APIARY_BIRCH);
+		registerBlock(APIARY_SPRUCE);
+		registerBlock(APIARY_JUNGLE);
+		registerBlock(APIARY_ACACIA);
+		registerBlock(APIARY_DARK_OAK);
+		
+		registerBlock(BARREL_CHAIR_OAK);
+		registerBlock(BARREL_CHAIR_BIRCH);
+		registerBlock(BARREL_CHAIR_SPRUCE);
+		registerBlock(BARREL_CHAIR_JUNGLE);
+		registerBlock(BARREL_CHAIR_ACACIA);
+		registerBlock(BARREL_CHAIR_DARK_OAK);
+		
+		registerBlock(LOG_CHAIR_OAK);
+		registerBlock(LOG_CHAIR_BIRCH);
+		registerBlock(LOG_CHAIR_SPRUCE);
+		registerBlock(LOG_CHAIR_JUNGLE);
+		registerBlock(LOG_CHAIR_ACACIA);
+		registerBlock(LOG_CHAIR_DARK_OAK);
+		
+		registerBlock(CLEAN_PLANKS, new CleanPlankItem(CLEAN_PLANKS));
+		
+		registerBlock(CHOPPING_BLOCK);
+		registerBlock(APPLE_RED, null);
+		registerBlock(APPLE_YELLOW, null);
+		registerBlock(APPLE_GREEN, null);
+		registerBlock(PEAR_YELLOW, null);
+		registerBlock(PEAR_GREEN, null);
+		registerBlock(MUSHROOM_BROWN);
+		registerBlock(MUSHROOM_RED);
+		registerBlock(BUCKET_EMPTY);
+		registerBlock(BUCKET_DIRT);
+		registerBlock(BUCKET_WATER);
+		registerBlock(MUG_EMPTY);
+		registerBlock(MUG_BEER);
+		registerBlock(MORTAR);
+		registerBlock(GRINDSTONE);
+		registerBlock(ANVIL);
+		registerBlock(CAULDRON);
+		registerBlock(HANGING_CAULDRON);
+		registerBlock(HANGING_BRIDGE);
 		registerBlock(bookOne);
-		registerBlock(rope);
-		registerBlock(ropeAnchor);
-		registerBlock(chain);
-		registerBlock(crate);
-		registerBlock(dungeonChest);
-		registerBlock(ironHook);
-		registerBlock(keyHanging);
-		registerBlock(shipsWheel);
-		registerBlock(target);
-		registerBlock(torchHolderEmpty);
-		registerBlock(torchHolderUnlit);
-		registerBlock(torchHolderLit);
-		registerBlock(firepit);
-		registerBlock(barley, null);
-		registerBlock(goldenShipsBell);
+		registerBlock(ROPE);
+		registerBlock(ROPE_ANCHOR);
+		registerBlock(CHAIN);
+		registerBlock(CRATE);
+		registerBlock(DUNGEON_CHEST);
+		registerBlock(IRON_HOOK);
+		registerBlock(KEY_HANGING);
+		registerBlock(SHIPS_HELM);
+		registerBlock(TARGET);
+		registerBlock(TORCH_HOLDER_EMPTY);
+		registerBlock(TORCH_HOLDER_UNLIT);
+		registerBlock(TORCH_HOLDER_LIT);
+		registerBlock(FIREPIT);
+		registerBlock(BARLEY,null);
+		
+		DRPMedievalItems.SeedBarley = new SeedBarley();
+		DRPMedievalItems.registerItem(DRPMedievalItems.SeedBarley);
+		
+		registerBlock(GOLDEN_SHIPS_BELL);
 		
 	}
 
@@ -224,10 +328,19 @@ public class DRPMedievalBlocks {
 	}
 	
 	public static final void registerBlock(Block block) {
-		registerBlock(block,new ItemBlock(block).setRegistryName(block.getRegistryName()));
+		registerBlock(block,new ItemBlock(block).setRegistryName(block.getRegistryName()),true);
+	}
+	
+	public static final void registerBlock(Block block, boolean registerMesh) {
+		registerBlock(block,new ItemBlock(block).setRegistryName(block.getRegistryName()), registerMesh);
 	}
 
 	public static final void registerBlock(Block block, Item item) {
+		registerBlock(block, item, true);
+
+	}
+	
+	public static final void registerBlock(Block block, Item item, boolean registerMesh) {
 		GameRegistry.register(block);
 		if(item != null){
 			GameRegistry.register(item);

@@ -1,0 +1,7 @@
+{
+    "parent": "drpmedieval:block/Barrels/BarrelWater",
+    "textures": {
+        "side": "drpmedieval:blocks/Barrels/BarrelSideDarkOak",
+        "top": "drpmedieval:blocks/Barrels/BarrelTopDarkOak"
+    }
+}

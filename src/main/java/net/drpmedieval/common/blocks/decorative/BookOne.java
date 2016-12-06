@@ -30,7 +30,7 @@ public class BookOne extends BlockContainer{
 		super(Material.CLOTH);
 		this.setRegistryName("BookOne");
 		this.setUnlocalizedName("BookOne");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(1F);
 		this.setSoundType(SoundType.CLOTH);
 	}

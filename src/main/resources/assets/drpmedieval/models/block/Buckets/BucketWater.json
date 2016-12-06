@@ -1,7 +1,6 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "drpmedieval:blocks/Bucket",
+        "0": "drpmedieval:blocks/Buckets/Bucket",
         "1": "blocks/water_still"
     },
     "elements": [

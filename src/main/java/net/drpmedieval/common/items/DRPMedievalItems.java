@@ -3,8 +3,11 @@ package net.drpmedieval.common.items;
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.DRPMedievalBlocks;
 import net.drpmedieval.common.items.blocks.*;
+import net.drpmedieval.common.items.book.WriteablePage;
+import net.drpmedieval.common.items.consumable.*;
 import net.drpmedieval.common.items.crops.*;
 import net.drpmedieval.common.items.currency.*;
+import net.drpmedieval.common.items.entities.Sledge;
 import net.drpmedieval.common.items.equipment.*;
 import net.drpmedieval.common.items.equipment.ammunition.*;
 import net.drpmedieval.common.items.equipment.other.*;
@@ -21,6 +24,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class DRPMedievalItems {
 
+	/** In Dev Items **/
+	
+	public static WriteablePage wpg = new WriteablePage();
+	
 	/** A **/
 
 	public static AppleGreen AppleGreen = new AppleGreen();
@@ -28,6 +35,7 @@ public class DRPMedievalItems {
 
 	/** B **/
 
+	public static BarkAndGlue BarkAndGlue = new BarkAndGlue();
 	public static AdvancedBedItem BedFrameOak = new AdvancedBedItem("BedFrameOak", "BedFrameOak");
 	public static AdvancedBedItem BedFrameSpruce = new AdvancedBedItem("BedFrameSpruce", "BedFrameSpruce");
 	public static AdvancedBedItem BedFrameBirch = new AdvancedBedItem("BedFrameBirch", "BedFrameBirch");
@@ -105,14 +113,17 @@ public class DRPMedievalItems {
 	public static Quiver Quiver = new Quiver();
 
 	/** R **/
+	
+	public static RopedArrow ROPED_ARROW = new RopedArrow();
 
 	/** S **/
 
 	public static SaddleHorse SaddleHorse = new SaddleHorse();
-	public static SeedBarley SeedBarley = new SeedBarley();
+	public static SeedBarley SeedBarley;
 	public static SilverCoin SilverCoin = new SilverCoin();
 	public static SilverRing SilverRing = new SilverRing();
 	public static StringCoil StringCoil = new StringCoil();
+	public static Sledge SLEDGE = new Sledge();
 
 	/** T **/
 
@@ -140,17 +151,23 @@ public class DRPMedievalItems {
 
 	public static final void preInit(FMLPreInitializationEvent event) {
 
-		BedFrameOak.setBed(DRPMedievalBlocks.bedFrameOak);
-		BedFrameSpruce.setBed(DRPMedievalBlocks.bedFrameSpruce);
-		BedFrameBirch.setBed(DRPMedievalBlocks.bedFrameBirch);
-		BedFrameJungle.setBed(DRPMedievalBlocks.bedFrameJungle);
-		BedFrameAcacia.setBed(DRPMedievalBlocks.bedFrameAcacia);
-		BedFrameDarkOak.setBed(DRPMedievalBlocks.bedFrameDarkOak);
+		BedFrameOak.setBed(DRPMedievalBlocks.BED_FRAME_OAK);
+		BedFrameSpruce.setBed(DRPMedievalBlocks.BED_FRAME_SPRUCE);
+		BedFrameBirch.setBed(DRPMedievalBlocks.BED_FRAME_BIRCH);
+		BedFrameJungle.setBed(DRPMedievalBlocks.BED_FRAME_JUNGLE);
+		BedFrameAcacia.setBed(DRPMedievalBlocks.BED_FRAME_ACACIA);
+		BedFrameDarkOak.setBed(DRPMedievalBlocks.BED_FRAME_DARK_OAK);
+		
+		SeedBarley = new SeedBarley();
+		
+		// Under Development Items
+		registerItem(wpg, false); //TODO CHANGE BOOL AND FIX
 		
 		// A
 		registerItem(AppleGreen);
 		registerItem(AppleYellow);
 		// B
+		registerItem(BarkAndGlue, false); //TODO CHANGE BOOL
 		//registerItem(bedFrameOak);
 		//registerItem(bedFrameSpruce);
 		//registerItem(bedFrameBirch);
@@ -169,7 +186,7 @@ public class DRPMedievalItems {
 		registerItem(CodStew);
 		// D
 		registerItem(DoughBarley);
-		registerItem(DoughPumpkin);
+		registerItem(DoughPumpkin,false);
 		registerItem(DoughWheat);
 		// E
 		// F
@@ -202,10 +219,11 @@ public class DRPMedievalItems {
 		// Q
 		registerItem(Quiver);
 		// R
+		registerItem(ROPED_ARROW);
 		// S
-		registerItem(SeedBarley);
 		registerItem(SilverCoin);
 		registerItem(SilverRing);
+		registerItem(SLEDGE);
 		// T
 		registerItem(TannedLeather);
 		registerItem(TannedLeatherString);
@@ -226,8 +244,13 @@ public class DRPMedievalItems {
 
 	public static final void postInit(FMLPostInitializationEvent event) {}
 
-	public static final void registerItem(Item item) {
+	public static final void registerItem(Item item){
+		registerItem(item,true);
+	}
+	
+	public static final void registerItem(Item item, boolean registerModel) {
 		GameRegistry.register(item);
-		DarkRoleplayMedieval.proxy.addItemToRegisterMesh(item);
+		if(registerModel)
+			DarkRoleplayMedieval.proxy.addItemToRegisterMesh(item);
 	}
 }

@@ -30,7 +30,7 @@ public class Target extends BlockContainer {
 		super(Material.WOOD);
 		this.setRegistryName("Target");
 		this.setUnlocalizedName("Target");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
 	}

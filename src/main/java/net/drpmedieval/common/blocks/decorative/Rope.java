@@ -32,7 +32,7 @@ public class Rope extends Block {
 		super(Material.CLOTH);
 		this.setRegistryName("Rope");
 		this.setUnlocalizedName("Rope");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(0.5F);
 		this.setSoundType(SoundType.CLOTH);
 	}
@@ -131,7 +131,7 @@ public class Rope extends Block {
 			RopeFixPoint fixPoint = (RopeFixPoint) world.getBlockState(pos.offset(facing.getOpposite())).getBlock();
 			pos = fixPoint.getPlacementOffset(world, pos.offset(facing.getOpposite()), pos);
 			if(placer instanceof EntityPlayer && world.getBlockState(pos).getBlock() == Blocks.AIR)
-				if(!((EntityPlayer) placer).capabilities.isCreativeMode) ((EntityPlayer) placer).inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMedievalBlocks.rope),  ((EntityPlayer) placer).inventory.mainInventory), 1);
+				if(!((EntityPlayer) placer).capabilities.isCreativeMode) ((EntityPlayer) placer).inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMedievalBlocks.ROPE),  ((EntityPlayer) placer).inventory.mainInventory), 1);
 				
 			world.setBlockState(pos, this.getDefaultState().withProperty(POSITION, dir), 3);
 			//TODO Play Sound
@@ -146,17 +146,17 @@ public class Rope extends Block {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 
 		if(player.getHeldItem(EnumHand.MAIN_HAND) != null){
-			if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Item.getItemFromBlock(DRPMedievalBlocks.rope))){
+			if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Item.getItemFromBlock(DRPMedievalBlocks.ROPE))){
 				for(int i = pos.getY() - 1; i > 0; i--){
 					BlockPos pos2 = new BlockPos(pos.getX(), pos.getY() - (pos.getY() - i), pos.getZ());
-					if(world.getBlockState(pos2).getBlock().equals(DRPMedievalBlocks.rope)){
+					if(world.getBlockState(pos2).getBlock().equals(DRPMedievalBlocks.ROPE)){
 						continue;
 					}
 					else if(world.getBlockState(pos2).getBlock().equals(Blocks.AIR)){
 						world.setBlockState(pos2, state);
 						//TODO PLAY SOUND
 						//world.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), this.stepSound.getPlaceSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, /*this.stepSound.getFrequency()*/1 * 0.8F);
-						if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMedievalBlocks.rope),  player.inventory.mainInventory), 1);
+						if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMedievalBlocks.ROPE),  player.inventory.mainInventory), 1);
 						return true;
 					}
 					else{
@@ -169,7 +169,7 @@ public class Rope extends Block {
 			if(player.isSneaking()){
 				for(int i = pos.getY() - 1; i > 0; i--){
 					BlockPos pos2 = new BlockPos(pos.getX(), pos.getY() - (pos.getY() - i), pos.getZ());
-					if(world.getBlockState(pos2).getBlock().equals(DRPMedievalBlocks.rope)){
+					if(world.getBlockState(pos2).getBlock().equals(DRPMedievalBlocks.ROPE)){
 						continue;
 					}
 					else{
@@ -178,7 +178,7 @@ public class Rope extends Block {
 						//TODO PLAY SOUND
 						//worldIn.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), this.stepSound.getBreakSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, this.stepSound.getFrequency() * 0.8F);
 
-						if(!player.worldObj.isRemote) player.worldObj.spawnEntityInWorld(new EntityItem(player.worldObj, player.posX, player.posY, player.posZ, new ItemStack(DRPMedievalBlocks.rope, 1)));
+						if(!player.worldObj.isRemote) player.worldObj.spawnEntityInWorld(new EntityItem(player.worldObj, player.posX, player.posY, player.posZ, new ItemStack(DRPMedievalBlocks.ROPE, 1)));
 						return true;
 					}
 				}

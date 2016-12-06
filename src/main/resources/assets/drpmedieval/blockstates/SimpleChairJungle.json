@@ -1,0 +1,8 @@
+{
+    "variants":{
+        "facing=north":{"model":"drpmedieval:SimpleChairs/SimpleChairJungle"},
+        "facing=east":{"model":"drpmedieval:SimpleChairs/SimpleChairJungle", "y":90},
+        "facing=south":{"model":"drpmedieval:SimpleChairs/SimpleChairJungle", "y":180},
+        "facing=west":{"model":"drpmedieval:SimpleChairs/SimpleChairJungle", "y":270}   
+    }
+}

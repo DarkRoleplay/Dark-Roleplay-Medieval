@@ -31,7 +31,7 @@ public class Chain extends BlockContainer {
 		super(DRPMedievalMaterials.iron);
 		this.setRegistryName("Chain");
 		this.setUnlocalizedName("Chain");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(3F);
 		this.setSoundType(SoundType.METAL);
 	}
@@ -110,7 +110,7 @@ public class Chain extends BlockContainer {
 
 		if(worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN))
 			return true;
-		else if(worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.chain))
+		else if(worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.CHAIN))
 			return true;
 		else
 			return false;
@@ -123,7 +123,7 @@ public class Chain extends BlockContainer {
 
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
-			if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.chain)) return Blocks.AIR.getDefaultState();
+			if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.CHAIN)) return Blocks.AIR.getDefaultState();
 			int dir = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 			switch (dir) {
 				case 0:
