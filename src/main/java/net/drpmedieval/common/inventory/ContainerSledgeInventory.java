@@ -34,7 +34,7 @@ public class ContainerSledgeInventory  extends Container{
     }
 
     public boolean canInteractWith(EntityPlayer playerIn){
-        return this.sledgeInventory.isUseableByPlayer(playerIn) && this.theSledge.isEntityAlive() && this.theSledge.getDistanceToEntity(playerIn) < 8.0F;
+        return this.sledgeInventory.isUsableByPlayer(playerIn) && this.theSledge.isEntityAlive() && this.theSledge.getDistanceToEntity(playerIn) < 8.0F;
     }
 
     /**
@@ -77,7 +77,7 @@ public class ContainerSledgeInventory  extends Container{
                 return null;
             }
 
-            if (itemstack1.stackSize == 0)
+            if (itemstack1.getCount() == 0)
             {
                 slot.putStack((ItemStack)null);
             }

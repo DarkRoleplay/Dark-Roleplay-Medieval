@@ -2,7 +2,6 @@ package net.drpmedieval.common.blocks.other;
 
 import java.util.Random;
 
-import net.drpcore.common.DarkRoleplayCore;
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
@@ -106,9 +105,9 @@ public class RegeneratingOre extends Block{
     }
     
     @Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(world.isRemote){
-			player.openGui(DarkRoleplayMedieval.instance,net.drpmedieval.common.gui.GuiHandler.GUI_MINIGAME_MUSIK,player.worldObj,pos.getX(),pos.getY(),pos.getZ());
+			player.openGui(DarkRoleplayMedieval.instance,net.drpmedieval.common.gui.GuiHandler.GUI_MINIGAME_MUSIK,player.getEntityWorld(),pos.getX(),pos.getY(),pos.getZ());
 		}
 		return true;
 	}

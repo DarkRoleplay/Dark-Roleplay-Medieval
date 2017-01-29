@@ -32,7 +32,7 @@ public class WriteablePage extends Item{
 		 if(tag.hasKey("test")){
 			 TextComponent tc = new TextComponent();
 			 tc.parseFromCompound((NBTTagCompound) tag.getTag("test"));
-			 playerIn.addChatMessage(new TextComponentString(tc.getText()));
+			 playerIn.sendMessage(new TextComponentString(tc.getText()));
 		 }else{
 			 NBTTagCompound[] texts = new NBTTagCompound[5];
 			 

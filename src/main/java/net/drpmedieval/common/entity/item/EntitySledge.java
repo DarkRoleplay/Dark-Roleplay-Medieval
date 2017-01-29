@@ -16,13 +16,13 @@ import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.HorseArmorType;
-import net.minecraft.entity.passive.HorseType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.AnimalChest;
+import net.minecraft.inventory.ContainerHorseChest;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.IInventoryChangedListener;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.Item;
@@ -44,7 +44,7 @@ import net.minecraft.world.World;
 
 public class EntitySledge extends EntityLiving implements IWorldNameable, IInventoryChangedListener {
 	
-	private AnimalChest chest;
+	private ContainerHorseChest chest;
     private static final DataParameter<Byte> CHESTED = EntityDataManager.<Byte>createKey(EntityHorse.class, DataSerializers.BYTE);
 	
     private net.minecraftforge.items.IItemHandler itemHandler = null;
@@ -73,7 +73,7 @@ public class EntitySledge extends EntityLiving implements IWorldNameable, IInven
         this.prevPosZ = z;
     }
     
-    public AnimalChest getChest(){
+    public ContainerHorseChest getChest(){
     	return this.chest;
     }
     
@@ -84,8 +84,8 @@ public class EntitySledge extends EntityLiving implements IWorldNameable, IInven
     }
 
     private void initSledgeChest(){
-        AnimalChest animalchest = this.chest;
-        this.chest = new AnimalChest("HorseChest", 27);
+    	ContainerHorseChest animalchest = this.chest;
+        this.chest = new ContainerHorseChest("SledgeChest", 27);
         this.chest.setCustomName(this.getName());
 
         if (animalchest != null)
@@ -131,8 +131,8 @@ public class EntitySledge extends EntityLiving implements IWorldNameable, IInven
         this.dropChests();
     }
     
-    private void dropItemsInChest(Entity entityIn, AnimalChest animalChestIn){
-        if (animalChestIn != null && !this.worldObj.isRemote){
+    private void dropItemsInChest(Entity entityIn, ContainerHorseChest animalChestIn){
+        if (animalChestIn != null && !this.getEntityWorld().isRemote){
             for (int i = 0; i < animalChestIn.getSizeInventory(); ++i){
                 ItemStack itemstack = animalChestIn.getStackInSlot(i);
 
@@ -144,14 +144,14 @@ public class EntitySledge extends EntityLiving implements IWorldNameable, IInven
     }
     
     public void dropChests(){
-        if (!this.worldObj.isRemote && this.isChested()){
+        if (!this.getEntityWorld().isRemote && this.isChested()){
             this.dropItem(Item.getItemFromBlock(Blocks.CHEST), 1);
             this.setChested(false);
         }
     }
     
     @Override
-	public boolean processInteract(EntityPlayer player, EnumHand hand, @Nullable ItemStack stack){
+	public boolean processInteract(EntityPlayer player, EnumHand hand){
         //if (net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.entity.minecart.MinecartInteractEvent(this, player, stack, hand))) return true;
 
         if (player.isSneaking()){
@@ -162,13 +162,13 @@ public class EntitySledge extends EntityLiving implements IWorldNameable, IInven
         //	this.initSledgeChest();
         //	this.setChested(true);
         //	if(!player.capabilities.isCreativeMode)
-       // 		player.getHeldItem(hand).stackSize--;
+       // 		player.getHeldItem(hand).shrink(1);
         	return true;
     	}else if (this.isBeingRidden()){
             return true;
         }
         else{
-            if (!this.worldObj.isRemote){
+            if (!this.getEntityWorld().isRemote){
                 player.rotationYaw = this.rotationYaw;
                 player.rotationPitch = this.rotationPitch;
                 player.startRiding(this);
@@ -245,7 +245,7 @@ public class EntitySledge extends EntityLiving implements IWorldNameable, IInven
         //}
         passenger.setRenderYawOffset(this.rotationYaw);
         float f = MathHelper.wrapDegrees(passenger.rotationYaw - this.rotationYaw);
-        float f1 = MathHelper.clamp_float(f, -105.0F, 105.0F);
+        float f1 = MathHelper.clamp(f, -105.0F, 105.0F);
         passenger.prevRotationYaw += f1 - f;
         passenger.rotationYaw += f1 - f;
         passenger.setRotationYawHead(passenger.rotationYaw);
@@ -254,14 +254,14 @@ public class EntitySledge extends EntityLiving implements IWorldNameable, IInven
     public void onDeath(DamageSource cause){
         super.onDeath(cause);
 
-        if (!this.worldObj.isRemote){
+        if (!this.getEntityWorld().isRemote){
             this.dropChestItems();
         }
     }
     
     public void openGUI(EntityPlayer player){
         if ((!this.isBeingRidden() || this.isPassenger(player))){
-    		player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_SLEDGE, player.worldObj, (int) Math.floor(this.posX), (int) Math.floor(this.posY), (int) Math.floor(this.posZ));
+    		player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_SLEDGE, player.getEntityWorld(), (int) Math.floor(this.posX), (int) Math.floor(this.posY), (int) Math.floor(this.posZ));
         }
     }
 	
@@ -303,7 +303,7 @@ public class EntitySledge extends EntityLiving implements IWorldNameable, IInven
 				int j = nbttagcompound.getByte("Slot") & 255;
 
 				if (j >= 2 && j < this.chest.getSizeInventory()) {
-					this.chest.setInventorySlotContents(j, ItemStack.loadItemStackFromNBT(nbttagcompound));
+					this.chest.setInventorySlotContents(j, new ItemStack(nbttagcompound));
 				}
 			}
 		}
@@ -340,5 +340,5 @@ public class EntitySledge extends EntityLiving implements IWorldNameable, IInven
 	}
 
 	@Override
-	public void onInventoryChanged(InventoryBasic invBasic) {}
+	public void onInventoryChanged(IInventory invBasic) {}
 }

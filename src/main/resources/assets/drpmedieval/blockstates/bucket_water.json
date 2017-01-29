@@ -1,0 +1,8 @@
+{
+    "variants":{
+        "facing=north":{"model":"drpmedieval:buckets/bucket_water"},
+        "facing=east":{"model":"drpmedieval:buckets/bucket_water", "y":90},
+        "facing=south":{"model":"drpmedieval:buckets/bucket_water", "y":180},
+        "facing=west":{"model":"drpmedieval:buckets/bucket_water", "y":270}   
+    }
+}

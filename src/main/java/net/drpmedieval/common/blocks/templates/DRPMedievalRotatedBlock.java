@@ -80,10 +80,10 @@ public class DRPMedievalRotatedBlock extends DRPMedievalBlock{
 	}
 	
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ,int meta, EntityLivingBase placer) {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 		EntityPlayer entity = (EntityPlayer) placer;
 		if (entity != null) {
-			int dir = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+			int dir = MathHelper.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 			switch (dir) {
 			case 0:
 				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);

@@ -26,10 +26,10 @@ public class RopeAnchor extends BlockContainer implements RopeFixPoint {
 	public static final PropertyBool SOUTH = PropertyBool.create("south");
 	public static final PropertyBool WEST = PropertyBool.create("west");
 
-	public RopeAnchor() {
+	public RopeAnchor(String registryName) {
 		super(Material.WOOD);
-		this.setRegistryName("RopeAnchor");
-		this.setUnlocalizedName("RopeAnchor");
+		this.setRegistryName(registryName);
+		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);

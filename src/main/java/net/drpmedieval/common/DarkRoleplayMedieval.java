@@ -72,7 +72,7 @@ public class DarkRoleplayMedieval {
 		DRPMedievalEntities.preInit(event);
 		DRPMedievalConfig.preInit(event);
 		DRPMedievalAchievements.preInit(event);
-		DRPMedievalCrafting.preInit(event);
+		//TODO DRPMedievalCrafting.preInit(event);
 		
 		proxy.preInit(event);
 		
@@ -88,7 +88,7 @@ public class DarkRoleplayMedieval {
 		DRPMedievalEntities.init(event);
 		DRPMedievalConfig.init(event);
 		DRPMedievalAchievements.init(event);
-		DRPMedievalCrafting.init(event);
+		//TODO DRPMedievalCrafting.init(event);
 		
 		WorldLoot.registerChestLoot();
 		WorldLoot.registerFishingLoot();
@@ -115,7 +115,7 @@ public class DarkRoleplayMedieval {
 		DRPMedievalEntities.postInit(event);
 		DRPMedievalConfig.postInit(event);
 		DRPMedievalAchievements.postInit(event);
-		DRPMedievalCrafting.postInit(event);
+		//TODO DRPMedievalCrafting.postInit(event);
 		proxy.postInit(event);
 		
 		LoreHelper.registerItemDesc(DRPMedievalItems.TriggerTrap, new ArrayList<String>(){{add(TextFormatting.WHITE + "Usage:");add(TextFormatting.GRAY + "Apply it to a Torch Holder");add(TextFormatting.GRAY + "and use the Torch Holder as a Lever.");}});
@@ -162,7 +162,7 @@ public class DarkRoleplayMedieval {
 		MissingMappings.registerToRemap(DRPMedievalBlocks.APPLE_GREEN, DarkRoleplayMedieval.MODID + ":" + "blockAppleGreen");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.APPLE_RED, DarkRoleplayMedieval.MODID + ":" + "blockAppleRed");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.APPLE_YELLOW, DarkRoleplayMedieval.MODID + ":" + "blockAppleYellow");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BARLEY, DarkRoleplayMedieval.MODID + ":" + "blockBarley");
+		//MissingMappings.registerToRemap(DRPMedievalBlocks.BARLEY, DarkRoleplayMedieval.MODID + ":" + "blockBarley");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.MUSHROOM_BROWN, DarkRoleplayMedieval.MODID + ":" + "blockMushroomBrown");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.MUSHROOM_RED, DarkRoleplayMedieval.MODID + ":" + "blockMushroomRed");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.PEAR_GREEN, DarkRoleplayMedieval.MODID + ":" + "blockPearGreen");
@@ -215,7 +215,7 @@ public class DarkRoleplayMedieval {
 		MissingMappings.registerToRemap(DRPMedievalItems.FlourWheat, DarkRoleplayMedieval.MODID + ":" + "itemFlourWheat");
 		MissingMappings.registerToRemap(DRPMedievalItems.FurWolf, DarkRoleplayMedieval.MODID + ":" + "itemFurWolf");
 		MissingMappings.registerToRemap(DRPMedievalItems.TriggerTrap, DarkRoleplayMedieval.MODID + ":" + "itemTriggerTrap");
-		MissingMappings.registerToRemap(DRPMedievalItems.SeedBarley, DarkRoleplayMedieval.MODID + ":" + "itemSeedBarley");
+		//MissingMappings.registerToRemap(DRPMedievalItems.SeedBarley, DarkRoleplayMedieval.MODID + ":" + "itemSeedBarley");
 	}
 
 	public void registerTileEntitys() {

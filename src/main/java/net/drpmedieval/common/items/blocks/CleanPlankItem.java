@@ -2,7 +2,7 @@ package net.drpmedieval.common.items.blocks;
 
 import java.util.List;
 
-import net.drpmedieval.common.blocks.decorative.CleanPlanks;
+import net.drpmedieval.common.blocks.building.CleanPlanks;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;

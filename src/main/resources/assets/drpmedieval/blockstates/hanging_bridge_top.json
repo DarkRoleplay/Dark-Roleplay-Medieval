@@ -1,0 +1,355 @@
+{
+    "multipart": [
+		{
+			"when" : {"height" : "0", "axis" : "x"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_8"}
+		},{
+			"when" : {"height" : "0", "axis" : "z"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_8", "y" : 90}
+		},{
+			"when" : {"height" : "0", "axis" : "x", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_8"}
+		},{
+			"when" : {"height" : "0", "axis" : "x", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_8", "y" : 180}
+		},{
+			"when" : {"height" : "0", "axis" : "z", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_8", "y" : 90}
+		},{
+			"when" : {"height" : "0", "axis" : "z", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_8", "y" : 270}
+		},{
+			"when" : {"height" : "0", "axis" : "x", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_8"}
+		},{
+			"when" : {"height" : "0", "axis" : "x", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_8"}
+		},{
+			"when" : {"height" : "0", "axis" : "x", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_8", "y" : 180}
+		},{
+			"when" : {"height" : "0", "axis" : "x", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_8", "y" : 180}
+		},{
+			"when" : {"height" : "0", "axis" : "z", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_8", "y" : 90}
+		},{
+			"when" : {"height" : "0", "axis" : "z", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_8", "y" : 90}
+		},{
+			"when" : {"height" : "0", "axis" : "z", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_8", "y" : 270}
+		},{
+			"when" : {"height" : "0", "axis" : "z", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_8", "y" : 270}
+		}
+		
+		,{
+			"when" : {"height" : "1", "axis" : "x"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_9"}
+		},{
+			"when" : {"height" : "1", "axis" : "z"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_9", "y" : 90}
+		},{
+			"when" : {"height" : "1", "axis" : "x", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_9"}
+		},{
+			"when" : {"height" : "1", "axis" : "x", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_9", "y" : 180}
+		},{
+			"when" : {"height" : "1", "axis" : "z", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_9", "y" : 90}
+		},{
+			"when" : {"height" : "1", "axis" : "z", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_9", "y" : 270}
+		},{
+			"when" : {"height" : "1", "axis" : "x", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_9"}
+		},{
+			"when" : {"height" : "1", "axis" : "x", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_9"}
+		},{
+			"when" : {"height" : "1", "axis" : "x", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_9", "y" : 180}
+		},{
+			"when" : {"height" : "1", "axis" : "x", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_9", "y" : 180}
+		},{
+			"when" : {"height" : "1", "axis" : "z", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_9", "y" : 90}
+		},{
+			"when" : {"height" : "1", "axis" : "z", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_9", "y" : 90}
+		},{
+			"when" : {"height" : "1", "axis" : "z", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_9", "y" : 270}
+		},{
+			"when" : {"height" : "1", "axis" : "z", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_9", "y" : 270}
+		}
+		
+		,{
+			"when" : {"height" : "2", "axis" : "x"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_10"}
+		},{
+			"when" : {"height" : "2", "axis" : "z"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_10", "y" : 90}
+		},{
+			"when" : {"height" : "2", "axis" : "x", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_10"}
+		},{
+			"when" : {"height" : "2", "axis" : "x", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_10", "y" : 180}
+		},{
+			"when" : {"height" : "2", "axis" : "z", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_10", "y" : 90}
+		},{
+			"when" : {"height" : "2", "axis" : "z", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_10", "y" : 270}
+		},{
+			"when" : {"height" : "2", "axis" : "x", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_10"}
+		},{
+			"when" : {"height" : "2", "axis" : "x", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_10"}
+		},{
+			"when" : {"height" : "2", "axis" : "x", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_10", "y" : 180}
+		},{
+			"when" : {"height" : "2", "axis" : "x", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_10", "y" : 180}
+		},{
+			"when" : {"height" : "2", "axis" : "z", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_10", "y" : 90}
+		},{
+			"when" : {"height" : "2", "axis" : "z", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_10", "y" : 90}
+		},{
+			"when" : {"height" : "2", "axis" : "z", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_10", "y" : 270}
+		},{
+			"when" : {"height" : "2", "axis" : "z", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_10", "y" : 270}
+		}
+		
+		,{
+			"when" : {"height" : "3", "axis" : "x"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_11"}
+		},{
+			"when" : {"height" : "3", "axis" : "z"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_11", "y" : 90}
+		},{
+			"when" : {"height" : "3", "axis" : "x", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_11"}
+		},{
+			"when" : {"height" : "3", "axis" : "x", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_11", "y" : 180}
+		},{
+			"when" : {"height" : "3", "axis" : "z", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_11", "y" : 90}
+		},{
+			"when" : {"height" : "3", "axis" : "z", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_11", "y" : 270}
+		},{
+			"when" : {"height" : "3", "axis" : "x", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_11"}
+		},{
+			"when" : {"height" : "3", "axis" : "x", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_11"}
+		},{
+			"when" : {"height" : "3", "axis" : "x", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_11", "y" : 180}
+		},{
+			"when" : {"height" : "3", "axis" : "x", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_11", "y" : 180}
+		},{
+			"when" : {"height" : "3", "axis" : "z", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_11", "y" : 90}
+		},{
+			"when" : {"height" : "3", "axis" : "z", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_11", "y" : 90}
+		},{
+			"when" : {"height" : "3", "axis" : "z", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_11", "y" : 270}
+		},{
+			"when" : {"height" : "3", "axis" : "z", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_11", "y" : 270}
+		}
+		
+		,{
+			"when" : {"height" : "4", "axis" : "x"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_12"}
+		},{
+			"when" : {"height" : "4", "axis" : "z"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_12", "y" : 90}
+		},{
+			"when" : {"height" : "4", "axis" : "x", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_12"}
+		},{
+			"when" : {"height" : "4", "axis" : "x", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_12", "y" : 180}
+		},{
+			"when" : {"height" : "4", "axis" : "z", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_12", "y" : 90}
+		},{
+			"when" : {"height" : "4", "axis" : "z", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_12", "y" : 270}
+		},{
+			"when" : {"height" : "4", "axis" : "x", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_12"}
+		},{
+			"when" : {"height" : "4", "axis" : "x", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_12"}
+		},{
+			"when" : {"height" : "4", "axis" : "x", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_12", "y" : 180}
+		},{
+			"when" : {"height" : "4", "axis" : "x", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_12", "y" : 180}
+		},{
+			"when" : {"height" : "4", "axis" : "z", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_12", "y" : 90}
+		},{
+			"when" : {"height" : "4", "axis" : "z", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_12", "y" : 90}
+		},{
+			"when" : {"height" : "4", "axis" : "z", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_12", "y" : 270}
+		},{
+			"when" : {"height" : "4", "axis" : "z", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_12", "y" : 270}
+		}
+		
+		,{
+			"when" : {"height" : "5", "axis" : "x"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_13"}
+		},{
+			"when" : {"height" : "5", "axis" : "z"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_13", "y" : 90}
+		},{
+			"when" : {"height" : "5", "axis" : "x", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_13"}
+		},{
+			"when" : {"height" : "5", "axis" : "x", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_13", "y" : 180}
+		},{
+			"when" : {"height" : "5", "axis" : "z", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_13", "y" : 90}
+		},{
+			"when" : {"height" : "5", "axis" : "z", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_13", "y" : 270}
+		},{
+			"when" : {"height" : "5", "axis" : "x", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_13"}
+		},{
+			"when" : {"height" : "5", "axis" : "x", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_13"}
+		},{
+			"when" : {"height" : "5", "axis" : "x", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_13", "y" : 180}
+		},{
+			"when" : {"height" : "5", "axis" : "x", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_13", "y" : 180}
+		},{
+			"when" : {"height" : "5", "axis" : "z", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_13", "y" : 90}
+		},{
+			"when" : {"height" : "5", "axis" : "z", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_13", "y" : 90}
+		},{
+			"when" : {"height" : "5", "axis" : "z", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_13", "y" : 270}
+		},{
+			"when" : {"height" : "5", "axis" : "z", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_13", "y" : 270}
+		}
+		
+		,{
+			"when" : {"height" : "6", "axis" : "x"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_14"}
+		},{
+			"when" : {"height" : "6", "axis" : "z"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_14", "y" : 90}
+		},{
+			"when" : {"height" : "6", "axis" : "x", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_14"}
+		},{
+			"when" : {"height" : "6", "axis" : "x", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_14", "y" : 180}
+		},{
+			"when" : {"height" : "6", "axis" : "z", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_14", "y" : 90}
+		},{
+			"when" : {"height" : "6", "axis" : "z", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_14", "y" : 270}
+		},{
+			"when" : {"height" : "6", "axis" : "x", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_14"}
+		},{
+			"when" : {"height" : "6", "axis" : "x", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_14"}
+		},{
+			"when" : {"height" : "6", "axis" : "x", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_14", "y" : 180}
+		},{
+			"when" : {"height" : "6", "axis" : "x", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_14", "y" : 180}
+		},{
+			"when" : {"height" : "6", "axis" : "z", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_14", "y" : 90}
+		},{
+			"when" : {"height" : "6", "axis" : "z", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_14", "y" : 90}
+		},{
+			"when" : {"height" : "6", "axis" : "z", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_14", "y" : 270}
+		},{
+			"when" : {"height" : "6", "axis" : "z", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_14", "y" : 270}
+		}
+		
+		,{
+			"when" : {"height" : "7", "axis" : "x"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_15"}
+		},{
+			"when" : {"height" : "7", "axis" : "z"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/planks_15", "y" : 90}
+		},{
+			"when" : {"height" : "7", "axis" : "x", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_15"}
+		},{
+			"when" : {"height" : "7", "axis" : "x", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_15", "y" : 180}
+		},{
+			"when" : {"height" : "7", "axis" : "z", "west" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_15", "y" : 90}
+		},{
+			"when" : {"height" : "7", "axis" : "z", "east" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/rope_side_15", "y" : 270}
+		},{
+			"when" : {"height" : "7", "axis" : "x", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_15"}
+		},{
+			"when" : {"height" : "7", "axis" : "x", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_15"}
+		},{
+			"when" : {"height" : "7", "axis" : "x", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_15", "y" : 180}
+		},{
+			"when" : {"height" : "7", "axis" : "x", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_15", "y" : 180}
+		},{
+			"when" : {"height" : "7", "axis" : "z", "west" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_15", "y" : 90}
+		},{
+			"when" : {"height" : "7", "axis" : "z", "east" : "true", "north" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_15", "y" : 90}
+		},{
+			"when" : {"height" : "7", "axis" : "z", "west" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_right_15", "y" : 270}
+		},{
+			"when" : {"height" : "7", "axis" : "z", "east" : "true", "south" : "true"},
+			"apply" : {"model" : "drpmedieval:hanging_bridge/post_left_15", "y" : 270}
+		}
+    ]
+}

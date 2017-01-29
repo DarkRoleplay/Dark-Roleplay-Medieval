@@ -1,6 +1,5 @@
 package net.drpmedieval.common.blocks.helper;
 
-import net.drpmedieval.common.blocks.decorative.simpleTables.SimpleTable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 

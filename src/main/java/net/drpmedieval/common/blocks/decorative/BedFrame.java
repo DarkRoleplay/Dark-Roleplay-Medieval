@@ -31,8 +31,8 @@ public class BedFrame extends AdvancedBed {
 	
 	AdvancedBedItem bed = null;
 	
-	public BedFrame(String registerName,String unlocalizedName,AdvancedBedItem bed) {
-		super(Material.WOOD,registerName,unlocalizedName);
+	public BedFrame(String registryName,AdvancedBedItem bed) {
+		super(Material.WOOD,registryName,registryName);
 		this.bed = bed;
 	}
 	

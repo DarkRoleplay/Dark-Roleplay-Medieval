@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "drpmedieval:items/blockDungeonChest"
+        "layer0": "drpmedieval:items/block_dungeon_chest"
     },
     "display": {
 		"gui": {

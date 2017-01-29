@@ -71,14 +71,14 @@ public class Sledge extends Item{
                             worldIn.setBlockToAir(blockpos);
                             worldIn.setBlockToAir(blockpos1);
                             EntitySledge entitySledge = new EntitySledge(worldIn, d0 + 0.5D, d1, d2 + 0.5D);
-                            float f = (float)MathHelper.floor_float(MathHelper.wrapDegrees(playerIn.rotationYaw - 180.0F)); //(float)MathHelper.floor_float((MathHelper.wrapDegrees(playerIn.rotationYaw - 180.0F) + 22.5F) / 45.0F) * 45.0F;
+                            float f = (float)MathHelper.floor(MathHelper.wrapDegrees(playerIn.rotationYaw - 180.0F)); //(float)MathHelper.floor_float((MathHelper.wrapDegrees(playerIn.rotationYaw - 180.0F) + 22.5F) / 45.0F) * 45.0F;
                             entitySledge.setLocationAndAngles(d0 + 0.5D, d1, d2 + 0.5D, f, 0.0F);
                             ItemMonsterPlacer.applyItemEntityDataToEntity(worldIn, playerIn, stack, entitySledge);
-                            worldIn.spawnEntityInWorld(entitySledge);
+                            worldIn.spawnEntity(entitySledge);
                             worldIn.playSound((EntityPlayer)null, entitySledge.posX, entitySledge.posY, entitySledge.posZ, SoundEvents.ENTITY_ARMORSTAND_PLACE, SoundCategory.BLOCKS, 0.75F, 0.8F);
                         }
 
-                        --stack.stackSize;
+                        stack.shrink(1);;
                         return EnumActionResult.SUCCESS;
                     }
                 }

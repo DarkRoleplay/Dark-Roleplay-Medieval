@@ -178,7 +178,7 @@ public class DRPMedievalItems {
 		registerItem(Barley);
 		registerItem(BatEar);
 		registerItem(BronzeCoin);
-		registerItem(BronzeRing);
+		registerItem((Item) BronzeRing);
 		// C
 		registerItem(CatfishCooked);
 		registerItem(CatfishRaw);
@@ -196,7 +196,7 @@ public class DRPMedievalItems {
 		registerItem(FurWolf);
 		// G
 		registerItem(GoldenCoin);
-		registerItem(GoldenRing);
+		registerItem((Item) GoldenRing);
 		// H
 		// I
 		// J
@@ -205,7 +205,7 @@ public class DRPMedievalItems {
 		registerItem(LeatherBookCover);
 		registerItem(LeatherBookCoverThik);
 		registerItem(LeatherBookCoverThin);
-		registerItem(LeatherPurse);
+		registerItem((Item) LeatherPurse);
 		registerItem(LeatherString);
 		// M
 		// N

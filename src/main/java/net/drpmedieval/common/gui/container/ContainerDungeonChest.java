@@ -48,7 +48,7 @@ public class ContainerDungeonChest extends Container {
 			}
 			else if(!this.mergeItemStack(itemstack1, 0, 27, false)){ return null; }
 
-			if(itemstack1.stackSize == 0){
+			if(itemstack1.getCount() == 0){
 				slot.putStack((ItemStack) null);
 			}
 			else{

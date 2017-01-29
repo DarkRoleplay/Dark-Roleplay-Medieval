@@ -1,8 +1,8 @@
 {
 	"textures":{
 		"string":"blocks/wool_colored_white",
-		"wood":"drpmedieval:blocks/CleanPlankOak",
-		"needle":"drpmedieval:blocks/Metal"},
+		"wood":"drpmedieval:blocks/clean_plank_oak",
+		"needle":"drpmedieval:blocks/metal"},
 	"elements":[
 		{
 			"from":[2.75,-2.5,2.75],

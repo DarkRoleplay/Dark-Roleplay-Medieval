@@ -1,6 +1,6 @@
 {
     "parent": "block/crop",
     "textures": {
-        "crop": "drpmedieval:blocks/Barley7"
+        "crop": "drpmedieval:blocks/barley7"
     }
 }

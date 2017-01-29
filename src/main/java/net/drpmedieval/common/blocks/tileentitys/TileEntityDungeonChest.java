@@ -49,7 +49,7 @@ public class TileEntityDungeonChest extends TileEntity {
 			byte b = tag.getByte("Slot");
 
 			if(b >= 0 && b < inventory.getSizeInventory()){
-				inventory.setInventorySlotContents(b, ItemStack.loadItemStackFromNBT(tag));
+				inventory.setInventorySlotContents(b, new ItemStack(tag));
 			}
 		}
 	}

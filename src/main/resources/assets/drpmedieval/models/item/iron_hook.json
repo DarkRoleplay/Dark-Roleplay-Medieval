@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "drpmedieval:items/blockHook"
+        "layer0": "drpmedieval:items/block_hook"
     },
     "display": {
 		"gui": {

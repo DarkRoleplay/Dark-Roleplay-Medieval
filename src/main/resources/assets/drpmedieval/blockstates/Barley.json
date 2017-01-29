@@ -1,20 +1,20 @@
 {
     "variants": {
-        "age=0,is_crop_controller=true": { "model": "drpmedieval:Barley/Barley0" },
-        "age=1,is_crop_controller=true": { "model": "drpmedieval:Barley/Barley1" },
-        "age=2,is_crop_controller=true": { "model": "drpmedieval:Barley/Barley2" },
-        "age=3,is_crop_controller=true": { "model": "drpmedieval:Barley/Barley3" },
-        "age=4,is_crop_controller=true": { "model": "drpmedieval:Barley/Barley4" },
-        "age=5,is_crop_controller=true": { "model": "drpmedieval:Barley/Barley5" },
-        "age=6,is_crop_controller=true": { "model": "drpmedieval:Barley/Barley6" },
-        "age=7,is_crop_controller=true": { "model": "drpmedieval:Barley/Barley7" },
-		"age=0,is_crop_controller=false": { "model": "drpmedieval:Barley/Barley0" },
-        "age=1,is_crop_controller=false": { "model": "drpmedieval:Barley/Barley1" },
-        "age=2,is_crop_controller=false": { "model": "drpmedieval:Barley/Barley2" },
-        "age=3,is_crop_controller=false": { "model": "drpmedieval:Barley/Barley3" },
-        "age=4,is_crop_controller=false": { "model": "drpmedieval:Barley/Barley4" },
-        "age=5,is_crop_controller=false": { "model": "drpmedieval:Barley/Barley5" },
-        "age=6,is_crop_controller=false": { "model": "drpmedieval:Barley/Barley6" },
-        "age=7,is_crop_controller=false": { "model": "drpmedieval:Barley/Barley7" }
+        "age=0,is_crop_controller=true": { "model": "drpmedieval:barley/barley0" },
+        "age=1,is_crop_controller=true": { "model": "drpmedieval:barley/barley1" },
+        "age=2,is_crop_controller=true": { "model": "drpmedieval:barley/barley2" },
+        "age=3,is_crop_controller=true": { "model": "drpmedieval:barley/barley3" },
+        "age=4,is_crop_controller=true": { "model": "drpmedieval:barley/barley4" },
+        "age=5,is_crop_controller=true": { "model": "drpmedieval:barley/barley5" },
+        "age=6,is_crop_controller=true": { "model": "drpmedieval:barley/barley6" },
+        "age=7,is_crop_controller=true": { "model": "drpmedieval:barley/barley7" },
+		"age=0,is_crop_controller=false": { "model": "drpmedieval:barley/barley0" },
+        "age=1,is_crop_controller=false": { "model": "drpmedieval:barley/barley1" },
+        "age=2,is_crop_controller=false": { "model": "drpmedieval:barley/barley2" },
+        "age=3,is_crop_controller=false": { "model": "drpmedieval:barley/barley3" },
+        "age=4,is_crop_controller=false": { "model": "drpmedieval:barley/barley4" },
+        "age=5,is_crop_controller=false": { "model": "drpmedieval:barley/barley5" },
+        "age=6,is_crop_controller=false": { "model": "drpmedieval:barley/barley6" },
+        "age=7,is_crop_controller=false": { "model": "drpmedieval:barley/barley7" }
     }
 }

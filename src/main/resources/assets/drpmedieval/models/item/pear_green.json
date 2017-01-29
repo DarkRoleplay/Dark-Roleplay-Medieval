@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "drpmedieval:items/itemPearGreen"
+        "layer0": "drpmedieval:items/item_pear_green"
     }
 }

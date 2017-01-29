@@ -1,0 +1,10 @@
+{
+    "variants":{
+		"age=0":{"model":"drpmedieval:apples/apple_green1"},
+		"age=1":{"model":"drpmedieval:apples/apple_green2"},
+		"age=2":{"model":"drpmedieval:apples/apple_green3"},
+		"age=3":{"model":"drpmedieval:apples/apple_green4"},
+		"age=4":{"model":"drpmedieval:apples/apple_green4"},
+		"age=5":{"model":"drpmedieval:apples/apple_green5"}   
+    }
+}

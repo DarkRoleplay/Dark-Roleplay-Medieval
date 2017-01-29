@@ -56,7 +56,7 @@ public class WorldLoot {
 
 	public static void registerGrassLoot() {
 
-		MinecraftForge.addGrassSeed(new ItemStack(DRPMedievalItems.SeedBarley), 1);
+		//TODO FIX SEEDS MinecraftForge.addGrassSeed(new ItemStack(DRPMedievalItems.SeedBarley), 1);
 	}
 
 	public static void registerFishingLoot() {

@@ -1,0 +1,44 @@
+{
+    "variants":{
+       "addonlighter=false,addontrap=false,facing=north,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit"},
+	   "addonlighter=false,addontrap=false,facing=east,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":90},
+	   "addonlighter=false,addontrap=false,facing=south,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":180},
+	   "addonlighter=false,addontrap=false,facing=west,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":270},
+	   
+	   "addonlighter=true,addontrap=false,facing=north,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit"},
+	   "addonlighter=true,addontrap=false,facing=east,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":90},
+	   "addonlighter=true,addontrap=false,facing=south,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":180},
+	   "addonlighter=true,addontrap=false,facing=west,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":270},
+	   
+	   "addonlighter=false,addontrap=true,facing=north,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit"},
+	   "addonlighter=false,addontrap=true,facing=east,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":90},
+	   "addonlighter=false,addontrap=true,facing=south,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":180},
+	   "addonlighter=false,addontrap=true,facing=west,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":270},
+	   
+	   "addonlighter=true,addontrap=true,facing=north,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit"},
+	   "addonlighter=true,addontrap=true,facing=east,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":90},
+	   "addonlighter=true,addontrap=true,facing=south,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":180},
+	   "addonlighter=true,addontrap=true,facing=west,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":270},
+	   
+	   "addonlighter=false,addontrap=false,facing=north,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered"},
+	   "addonlighter=false,addontrap=false,facing=east,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered","y":90},
+	   "addonlighter=false,addontrap=false,facing=south,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered","y":180},
+	   "addonlighter=false,addontrap=false,facing=west,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered","y":270},
+	   
+	   "addonlighter=true,addontrap=false,facing=north,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered"},
+	   "addonlighter=true,addontrap=false,facing=east,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered","y":90},
+	   "addonlighter=true,addontrap=false,facing=south,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered","y":180},
+	   "addonlighter=true,addontrap=false,facing=west,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered","y":270},
+	   
+	   "addonlighter=false,addontrap=true,facing=north,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered"},
+	   "addonlighter=false,addontrap=true,facing=east,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered","y":90},
+	   "addonlighter=false,addontrap=true,facing=south,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered","y":180},
+	   "addonlighter=false,addontrap=true,facing=west,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered","y":270},
+	   
+	   "addonlighter=true,addontrap=true,facing=north,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered"},
+	   "addonlighter=true,addontrap=true,facing=east,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered","y":90},
+	   "addonlighter=true,addontrap=true,facing=south,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered","y":180},
+	   "addonlighter=true,addontrap=true,facing=west,powered=true":{"model":"drpmedieval:torch_holder/torch_holder_lit_powered","y":270}
+
+	}
+}

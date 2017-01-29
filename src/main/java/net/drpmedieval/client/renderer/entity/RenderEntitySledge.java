@@ -97,7 +97,8 @@ public class RenderEntitySledge extends RenderLiving<EntitySledge>{
             float f7 = entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * partialTicks;
             this.renderLivingAt(entity, x, y, z);
             float f8 = this.handleRotationFloat(entity, partialTicks);
-            this.rotateCorpse(entity, f8, f, partialTicks);
+            //TODO SLEDGE RENDERER FIX ROTATE CORPSE
+            //this.rotateCorpse(entity, f8, f, partialTicks);
             float f4 = this.prepareScale(entity, partialTicks);
             float f5 = 0.0F;
             float f6 = 0.0F;

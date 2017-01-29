@@ -1,0 +1,37 @@
+{
+    "variants":{
+       "axis=x,east=false,north=false,south=false,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0000"},
+       "axis=x,east=true,north=false,south=false,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1000"},
+       "axis=x,east=false,north=true,south=false,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0100"},
+       "axis=x,east=true,north=true,south=false,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1100"},
+       "axis=x,east=false,north=false,south=true,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0010"},
+       "axis=x,east=true,north=false,south=true,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1010"},
+       "axis=x,east=false,north=true,south=true,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0110"},
+       "axis=x,east=true,north=true,south=true,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1110"},
+       "axis=x,east=false,north=false,south=false,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0001"},
+       "axis=x,east=true,north=false,south=false,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1001"},
+       "axis=x,east=false,north=true,south=false,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0101"},
+       "axis=x,east=true,north=true,south=false,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1101"},
+       "axis=x,east=false,north=false,south=true,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0011"},
+       "axis=x,east=true,north=false,south=true,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1011"},
+       "axis=x,east=false,north=true,south=true,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0111"},
+       "axis=x,east=true,north=true,south=true,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1111"},
+       
+       "axis=z,axis=z,east=false,north=false,south=false,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0000", "y":90},
+       "axis=z,axis=z,east=true,north=false,south=false,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1000", "y":90},
+       "axis=z,axis=z,east=false,north=true,south=false,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0100", "y":90},
+       "axis=z,axis=z,east=true,north=true,south=false,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1100", "y":90},
+       "axis=z,east=false,north=false,south=true,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0010", "y":90},
+       "axis=z,east=true,north=false,south=true,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1010", "y":90},
+       "axis=z,east=false,north=true,south=true,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0110", "y":90},
+       "axis=z,east=true,north=true,south=true,west=false":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1110", "y":90},
+       "axis=z,east=false,north=false,south=false,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0001", "y":90},
+       "axis=z,east=true,north=false,south=false,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1001", "y":90},
+       "axis=z,east=false,north=true,south=false,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0101", "y":90},
+       "axis=z,east=true,north=true,south=false,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1101", "y":90},
+       "axis=z,east=false,north=false,south=true,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0011", "y":90},
+       "axis=z,east=true,north=false,south=true,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1011", "y":90},
+       "axis=z,east=false,north=true,south=true,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-0111", "y":90},
+       "axis=z,east=true,north=true,south=true,west=true":{"model":"drpmedieval:hanging_bridge/hanging_bridge-1111", "y":90}
+    }
+}

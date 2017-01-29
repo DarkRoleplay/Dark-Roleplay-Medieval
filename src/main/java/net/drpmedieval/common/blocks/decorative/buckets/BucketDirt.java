@@ -44,10 +44,10 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 	public static final PropertyInteger FLOWER2 = PropertyInteger.create("flower2", 0, 10);
 	public static final PropertyInteger FLOWER3 = PropertyInteger.create("flower3", 0, 10);
 
-	public BucketDirt() {
+	public BucketDirt(String registreName) {
 		super(Material.WOOD);
-		this.setRegistryName("BucketDirt");
-		this.setUnlocalizedName("BucketDirt");
+		this.setRegistryName(registreName);
+		this.setUnlocalizedName(registreName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(1F);
 		this.setSoundType(SoundType.WOOD);
@@ -121,13 +121,13 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 	// -------------------------------------------------- Block Placement --------------------------------------------------
 	
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 
 		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
-		super.neighborChanged(state, worldIn, pos, neighborBlock);
+				super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 	}
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
@@ -137,7 +137,7 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 	// -------------------------------------------------- Block Events --------------------------------------------------
 	
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
 		switch(placer.getHorizontalFacing().getOpposite()){
 		case EAST:
 		case WEST:
@@ -193,7 +193,7 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 					continue;	
 				}
 	            EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY()+1, pos.getZ(), stack);
-	            world.spawnEntityInWorld(entityItem);
+	            world.spawnEntity(entityItem);
 			}
 		}
 
@@ -201,7 +201,7 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 	}
 	
 	@Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
         if (!world.isRemote) {
         	BucketTileEntity te = getTE(world, pos);
         	//world.setBlockState(pos, state.withProperty(FLOWER1, 0));
@@ -209,7 +209,7 @@ public class BucketDirt extends Block implements ITileEntityProvider{
                 if (player.getHeldItem(hand) != null) {
                 	if(player.getHeldItem(hand).getItem() == Item.getItemFromBlock(Blocks.YELLOW_FLOWER)){
                 		te.addFlower(1);
-                        player.getHeldItem(hand).stackSize--;
+                        player.getHeldItem(hand).shrink(1);
                         player.openContainer.detectAndSendChanges();
                 	}else if(player.getHeldItem(hand).getItem() == Item.getItemFromBlock(Blocks.RED_FLOWER)){
                 		switch(player.getHeldItem(hand).getMetadata()){
@@ -244,7 +244,7 @@ public class BucketDirt extends Block implements ITileEntityProvider{
                 			break;
                 		}
                 		
-                        player.getHeldItem(hand).stackSize--;
+                        player.getHeldItem(hand).shrink(1);
                         player.openContainer.detectAndSendChanges();
                 	}
                 }
@@ -309,7 +309,7 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 		}
 		if (!player.inventory.addItemStackToInventory(stack)) {
             EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY()+1, pos.getZ(), stack);
-            world.spawnEntityInWorld(entityItem);
+            world.spawnEntity(entityItem);
         } else {
             player.openContainer.detectAndSendChanges();
         }

@@ -1,5 +1,5 @@
 {
-    "parent": "drpmedieval:block/ChoppingBlock/ChoppingBlock",
+    "parent": "drpmedieval:block/chopping_block/chopping_block",
     "display": {
 		"gui": {
             "rotation": [ 30, 45, 0 ],

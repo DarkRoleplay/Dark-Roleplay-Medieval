@@ -1,0 +1,8 @@
+{
+    "variants":{
+        "facing=north":{"model":"drpmedieval:spinning_wheel/spinning_wheel"},
+        "facing=east":{"model":"drpmedieval:spinning_wheel/spinning_wheel", "y":90},
+        "facing=south":{"model":"drpmedieval:spinning_wheel/spinning_wheel", "y":180},
+        "facing=west":{"model":"drpmedieval:spinning_wheel/spinning_wheel", "y":270}   
+    }
+}

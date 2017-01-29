@@ -1,0 +1,29 @@
+{
+    "multipart": [
+	
+		{  "when": { "facing": "north" ,"part": "foot"},
+			"apply": { "model": "drpmedieval:beds/frames/bed_frame_birch_foot", "y":180}
+		},
+		{  "when": { "facing": "east" ,"part": "foot" },
+			"apply": { "model": "drpmedieval:beds/frames/bed_frame_birch_foot", "y":270}
+		},
+		{  "when": { "facing": "south" ,"part": "foot" },
+			"apply": { "model": "drpmedieval:beds/frames/bed_frame_birch_foot", "y": 0}
+		},
+		{  "when": { "facing": "west" ,"part": "foot" },
+			"apply": { "model": "drpmedieval:beds/frames/bed_frame_birch_foot", "y":90}
+		},
+		{  "when": { "facing": "north" ,"part": "head"},
+			"apply": { "model": "drpmedieval:beds/frames/bed_frame_birch_head", "y":180}
+		},
+		{  "when": { "facing": "east" ,"part": "head" },
+			"apply": { "model": "drpmedieval:beds/frames/bed_frame_birch_head", "y":270}
+		},
+		{  "when": { "facing": "south" ,"part": "head" },
+			"apply": { "model": "drpmedieval:beds/frames/bed_frame_birch_head", "y": 0}
+		},
+		{  "when": { "facing": "west" ,"part": "head" },
+			"apply": { "model": "drpmedieval:beds/frames/bed_frame_birch_head", "y":90}
+		}
+	]
+}

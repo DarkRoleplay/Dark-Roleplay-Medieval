@@ -1,5 +1,5 @@
 {
-    "parent": "drpmedieval:block/TorchHolder/TorchHolderEmpty",
+    "parent": "drpmedieval:block/torch_holder/torch_holder_empty",
     "display": {
 		"gui": {
             "rotation": [  25, -135, 0 ],

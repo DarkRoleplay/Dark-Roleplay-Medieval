@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "drpmedieval:items/itemGoldenRing"
+        "layer0": "drpmedieval:items/item_golden_ring"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "drpmedieval:item/planks/plank",
     "textures": {
-        "all": "drpmedieval:blocks/CleanPlankDarkOak"
+        "all": "drpmedieval:blocks/clean_plank_dark_oak"
     }
 }

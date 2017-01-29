@@ -1,15 +1,15 @@
 package net.drpmedieval.common.items.currency;
 
-import net.drpcore.api.items.CurrencyBase;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
-public class SilverCoin extends CurrencyBase {
+import net.minecraft.item.Item;
+
+public class SilverCoin extends Item {
 
 	public SilverCoin() {
-		super(100, null);
+		//super(100, null);
 		this.setRegistryName("SilverCoin");
 		this.setUnlocalizedName("SilverCoin");
-		this.setMaxStackSize(100);
+		this.setMaxStackSize(50);
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
-		this.setValue(100);
 	}
 }

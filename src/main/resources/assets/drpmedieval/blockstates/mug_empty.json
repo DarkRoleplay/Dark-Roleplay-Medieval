@@ -1,0 +1,8 @@
+{
+    "variants":{
+        "facing=north":{"model":"drpmedieval:mugs/mug_empty"},
+        "facing=east":{"model":"drpmedieval:mugs/mug_empty", "y":90},
+        "facing=south":{"model":"drpmedieval:mugs/mug_empty", "y":180},
+        "facing=west":{"model":"drpmedieval:mugs/mug_empty", "y":270}   
+    }
+}

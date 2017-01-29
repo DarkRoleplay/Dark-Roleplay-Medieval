@@ -1,0 +1,8 @@
+{
+    "variants":{
+        "facing=north":{"model":"drpmedieval:MISSING"},
+        "facing=east":{"model":"drpmedieval:MISSING", "y":90},
+        "facing=south":{"model":"drpmedieval:MISSING", "y":180},
+        "facing=west":{"model":"drpmedieval:MISSING", "y":270}   
+    }
+}

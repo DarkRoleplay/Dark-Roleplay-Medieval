@@ -1,0 +1,48 @@
+{
+	"__comment": "Designed by JTK222",
+	"textures": {
+		"particle": "drpmedieval:blocks/clean_plank_spruce",
+		"texture": "drpmedieval:blocks/clean_plank_spruce"
+	},
+	"elements": [
+		{
+			"__comment": "Cube1",
+			"from": [ 0, 3, 0.5 ],
+			"to": [ 16, 5, 4.5 ],
+			"faces": {
+				"down": { "uv": [ 0, 11.5, 16, 15.5 ], "texture": "#texture" },
+				"up": { "uv": [ 0, 0.5, 16, 4.5 ], "texture": "#texture" },
+				"north": { "uv": [ 0, 11, 16, 13 ], "texture": "#texture" },
+				"south": { "uv": [ 0, 11, 16, 13 ], "texture": "#texture" },
+				"west": { "uv": [ 0.5, 11, 4.5, 13 ], "texture": "#texture" },
+				"east": { "uv": [ 11.5, 11, 15.5, 13 ], "texture": "#texture" }
+			}
+		},
+		{
+			"__comment": "Cube2",
+			"from": [ 0, 3, 6 ],
+			"to": [ 16, 5, 10 ],
+			"faces": {
+				"down": { "uv": [ 0, 6, 16, 10 ], "texture": "#texture" },
+				"up": { "uv": [ 0, 6, 16, 10 ], "texture": "#texture" },
+				"north": { "uv": [ 0, 11, 16, 13 ], "texture": "#texture" },
+				"south": { "uv": [ 0, 11, 16, 13 ], "texture": "#texture" },
+				"west": { "uv": [ 6, 11, 10, 13 ], "texture": "#texture" },
+				"east": { "uv": [ 6, 11, 10, 13 ], "texture": "#texture" }
+			}
+		},
+		{
+			"__comment": "Cube1",
+			"from": [ 0, 3, 11.5 ],
+			"to": [ 16, 5, 15.5 ],
+			"faces": {
+				"down": { "uv": [ 0, 0.5, 16, 4.5 ], "texture": "#texture" },
+				"up": { "uv": [ 0, 11.5, 16, 15.5 ], "texture": "#texture" },
+				"north": { "uv": [ 0, 11, 16, 13 ], "texture": "#texture" },
+				"south": { "uv": [ 0, 11, 16, 13 ], "texture": "#texture" },
+				"west": { "uv": [ 11.5, 11, 15.5, 13 ], "texture": "#texture" },
+				"east": { "uv": [ 0.5, 11, 4.5, 13 ], "texture": "#texture" }
+			}
+		}
+	]
+}

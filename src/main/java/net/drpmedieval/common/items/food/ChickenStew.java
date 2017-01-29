@@ -19,7 +19,7 @@ public class ChickenStew extends ItemFood {
 
 	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityPlayer playerIn) {
 
-		--stack.stackSize;
+		stack.shrink(1);
 		playerIn.getFoodStats().addStats(this, stack);
 		//TODO FIX SOUND
 		//worldIn.playSoundAtEntity(playerIn, "random.burp", 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);

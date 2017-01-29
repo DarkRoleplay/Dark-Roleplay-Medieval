@@ -121,8 +121,8 @@ public class AdvancedBed extends BlockBed implements ITileEntityProvider{
 	
 	// -------------------------------------------------- Bed Methods --------------------------------------------------
 	
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
-    {
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
         if (worldIn.isRemote)
         {
             return true;
@@ -148,7 +148,7 @@ public class AdvancedBed extends BlockBed implements ITileEntityProvider{
 
                     if (entityplayer != null)
                     {
-                        playerIn.addChatComponentMessage(new TextComponentTranslation("tile.bed.occupied", new Object[0]));
+                        playerIn.sendMessage(new TextComponentTranslation("tile.bed.occupied", new Object[0]));
                         return true;
                     }
 
@@ -168,11 +168,11 @@ public class AdvancedBed extends BlockBed implements ITileEntityProvider{
                 {
                     if (entityplayer$enumstatus == SleepResult.NOT_POSSIBLE_NOW)
                     {
-                        playerIn.addChatComponentMessage(new TextComponentTranslation("tile.bed.noSleep", new Object[0]));
+                        playerIn.sendMessage(new TextComponentTranslation("tile.bed.noSleep", new Object[0]));
                     }
                     else if (entityplayer$enumstatus == SleepResult.NOT_SAFE)
                     {
-                        playerIn.addChatComponentMessage(new TextComponentTranslation("tile.bed.notSafe", new Object[0]));
+                        playerIn.sendMessage(new TextComponentTranslation("tile.bed.notSafe", new Object[0]));
                     }
 
                     return true;

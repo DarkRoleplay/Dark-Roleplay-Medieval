@@ -1,6 +1,6 @@
 package net.drpmedieval.common.gui.slots;
 
-import net.drpcore.api.items.CurrencyBase;
+import net.dark_roleplay.drpcore.api.items.DRPEquip;
 
 import net.drpmedieval.common.items.DRPMedievalItems;
 import net.drpmedieval.common.items.equipment.purses.LeatherPurse;
@@ -18,6 +18,6 @@ public class SlotCoin extends Slot {
 	public boolean isItemValid(ItemStack itemstack) {
 
 		// Everything returns true except an instance of our Item
-		return !(itemstack.getItem() instanceof LeatherPurse) && itemstack.getItem() instanceof CurrencyBase;
+		return !(itemstack.getItem() instanceof DRPEquip); // && itemstack.getItem() instanceof CurrencyBase;
 	}
 }

@@ -26,7 +26,7 @@ public class GenerateStructure implements IWorldGenerator{
 			
 			boolean hasBiome = false;
 			
-			for(BiomeDictionary.Type type : BiomeDictionary.getTypesForBiome(world.getBiomeForCoordsBody(new BlockPos(x,y,z)))){
+			for(BiomeDictionary.Type type : BiomeDictionary.getTypes(world.getBiomeForCoordsBody(new BlockPos(x,y,z)))){
 				if(type == BiomeDictionary.Type.FOREST)
 					hasBiome = true;
 			}

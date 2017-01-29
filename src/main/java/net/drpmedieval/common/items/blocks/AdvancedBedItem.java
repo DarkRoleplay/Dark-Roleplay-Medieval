@@ -41,7 +41,7 @@ public class AdvancedBedItem extends Item{
 	}
 	
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
         if (worldIn.isRemote)
         {
@@ -62,11 +62,11 @@ public class AdvancedBedItem extends Item{
                 pos = pos.up();
             }
 
-            int i = MathHelper.floor_double((double)(playerIn.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+            int i = MathHelper.floor((double)(player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
             EnumFacing enumfacing = EnumFacing.getHorizontal(i);
             BlockPos blockpos = pos.offset(enumfacing);
 
-            if (playerIn.canPlayerEdit(pos, facing, stack) && playerIn.canPlayerEdit(blockpos, facing, stack))
+            if (player.canPlayerEdit(pos, facing, player.getHeldItem(hand)) && player.canPlayerEdit(blockpos, facing, player.getHeldItem(hand)))
             {
                 boolean flag1 = worldIn.getBlockState(blockpos).getBlock().isReplaceable(worldIn, blockpos);
                 boolean flag2 = flag || worldIn.isAirBlock(pos);
@@ -85,7 +85,7 @@ public class AdvancedBedItem extends Item{
 	
 	                    SoundType soundtype = iblockstate1.getBlock().getSoundType();
 	                    worldIn.playSound((EntityPlayer)null, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
-	                    --stack.stackSize;
+	                    player.getHeldItem(hand).shrink(1);;
                 	}else{
                 		 System.out.println("MISSSING BED");
                 	}

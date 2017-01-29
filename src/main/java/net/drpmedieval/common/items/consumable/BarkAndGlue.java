@@ -23,7 +23,7 @@ public class BarkAndGlue extends Item{
 		if(world.getBlockState(pos).getBlock() instanceof BlockLog){
 			if(world.getBlockState(pos).getValue(BlockLog.LOG_AXIS) != BlockLog.EnumAxis.NONE){
 				world.setBlockState(pos, world.getBlockState(pos).withProperty(BlockLog.LOG_AXIS,BlockLog.EnumAxis.NONE));
-				stack.stackSize --;
+				stack.shrink(1);
 				return EnumActionResult.SUCCESS;
 			}
 		}

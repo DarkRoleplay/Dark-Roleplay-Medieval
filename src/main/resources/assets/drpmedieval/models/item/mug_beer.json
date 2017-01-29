@@ -1,5 +1,5 @@
 {
-    "parent": "drpmedieval:block/Mugs/MugBeer",
+    "parent": "drpmedieval:block/mugs/mug_beer",
     "display": {
 		"gui": {
             "rotation": [ 30, 45, 0 ],

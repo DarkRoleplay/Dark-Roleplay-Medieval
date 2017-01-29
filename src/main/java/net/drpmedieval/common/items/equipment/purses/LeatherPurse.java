@@ -1,13 +1,13 @@
 package net.drpmedieval.common.items.equipment.purses;
 
-
-import net.drpcore.api.items.equip.PurseBase;
+import net.dark_roleplay.drpcore.api.items.DRPEquip;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 
-public class LeatherPurse extends PurseBase {
+public class LeatherPurse extends DRPEquip {
 
 	public LeatherPurse() {
-		super(3);
+		//super(3);
+		super("purses", DRPEquip.DRPEquip_TYPE.TYPE_MONEY_STORAGE);
 		this.setRegistryName("LeatherPurse");
 		this.setUnlocalizedName("LeatherPurse");
 		this.setMaxStackSize(1);

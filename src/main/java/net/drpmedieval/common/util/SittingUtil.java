@@ -14,7 +14,7 @@ public class SittingUtil {
 		if (!checkForExistingEntity(par1World, x, y, z, player)){
 			EntitySittable nemb = new EntitySittable(par1World, x, y, z, par6);
 			System.out.println("DEBUG1");
-			if(par1World.spawnEntityInWorld(nemb))
+			if(par1World.spawnEntity(nemb))
 				System.out.println("DEBUG2");
 			if(player.startRiding(nemb))
 				System.out.println("DEBUG3");
@@ -26,7 +26,7 @@ public class SittingUtil {
 	public static boolean sitOnBlockWithRotationOffset(World par1World, double x, double y, double z, EntityPlayer par5EntityPlayer, double par6, int metadata, double offset){
 		if (!checkForExistingEntity(par1World, x, y, z, par5EntityPlayer)){
 			EntitySittable nemb = new EntitySittable(par1World, x, y, z, par6, metadata, offset);
-			par1World.spawnEntityInWorld(nemb);
+			par1World.spawnEntity(nemb);
 			par5EntityPlayer.startRiding(nemb);
 		}
 		return true;

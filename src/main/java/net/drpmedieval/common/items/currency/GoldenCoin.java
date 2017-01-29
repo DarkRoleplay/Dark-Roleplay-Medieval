@@ -1,16 +1,16 @@
 package net.drpmedieval.common.items.currency;
 
-import net.drpcore.api.items.CurrencyBase;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.minecraft.item.Item;
 
-public class GoldenCoin extends CurrencyBase {
+public class GoldenCoin extends Item {
 
 	public GoldenCoin() {
-		super(10000, null);
+		//super(10000, null);
 		this.setRegistryName("GoldenCoin");
 		this.setUnlocalizedName("GoldenCoin");
-		this.setMaxStackSize(100);
+		this.setMaxStackSize(50);
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
-		this.setValue(10000);
+		//this.setValue(10000);
 	}
 }
