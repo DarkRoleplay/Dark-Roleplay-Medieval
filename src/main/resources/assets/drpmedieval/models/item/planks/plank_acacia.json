@@ -1,6 +1,7 @@
 {
     "parent": "drpmedieval:item/planks/plank",
     "textures": {
-        "all": "drpmedieval:blocks/CleanPlankAcacia"
+		"particle": "drpmedieval:blocks/clean_plank_acacia",
+        "0": "drpmedieval:blocks/clean_plank_acacia"
     }
 }

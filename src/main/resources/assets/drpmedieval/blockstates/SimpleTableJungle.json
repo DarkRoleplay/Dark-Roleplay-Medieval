@@ -1,6 +1,0 @@
-{
-    "variants":{
-        "axis=x":{"model":"drpmedieval:SimpleTables/SimpleTableJungle"},
-        "axis=z":{"model":"drpmedieval:SimpleTables/SimpleTableJungle", "y":90} 
-    }
-}

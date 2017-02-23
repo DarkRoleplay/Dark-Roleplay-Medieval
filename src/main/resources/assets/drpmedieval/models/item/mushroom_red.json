@@ -1,5 +1,5 @@
 {
-    "parent": "drpmedieval:block/Mushrooms/MushroomRed3",
+    "parent": "drpmedieval:block/mushrooms/mushroom_red3",
     "display": {
 		"gui": {
             "rotation": [ 25, 180, 0 ],

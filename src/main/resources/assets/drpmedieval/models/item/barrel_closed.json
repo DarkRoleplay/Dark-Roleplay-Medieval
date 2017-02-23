@@ -1,5 +1,5 @@
 {
-    "parent": "drpmedieval:block/Barrels/BarrelClosed",
+    "parent": "drpmedieval:block/barrels/barrel_closed",
     "display": {
 		"gui": {
             "rotation": [ 30, 45, 0 ],

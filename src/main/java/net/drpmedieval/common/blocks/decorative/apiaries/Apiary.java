@@ -27,8 +27,8 @@ public class Apiary  extends Block {
 		super(Material.WOOD);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
-		this.setHardness(1F);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
+		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
 	}
 	
@@ -87,13 +87,12 @@ public class Apiary  extends Block {
 	// -------------------------------------------------- Block Placement --------------------------------------------------
 	
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
-
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
-		super.neighborChanged(state, worldIn, pos, neighborBlock);
+		super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 	}
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
@@ -103,7 +102,7 @@ public class Apiary  extends Block {
 	// -------------------------------------------------- Block Events --------------------------------------------------
 	
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 
 		if(!worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true)) return Blocks.AIR.getDefaultState();
 		return this.getDefaultState().withProperty(FACING,placer.getHorizontalFacing());

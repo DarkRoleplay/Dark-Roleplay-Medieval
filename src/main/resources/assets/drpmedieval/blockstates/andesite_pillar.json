@@ -1,0 +1,19 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model": "cube_column",
+        "textures": {
+			"end": "drpmedieval:blocks/stones/andesite_pillar_top",
+			"side": "drpmedieval:blocks/stones/andesite_pillar_side"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"axis":{
+			"y":{},
+			"z":{"x":90},
+			"x":{"x":90, "y":90}
+		},
+		"inventory":[{}]
+	}
+}

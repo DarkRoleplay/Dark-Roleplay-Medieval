@@ -1,6 +1,6 @@
 package net.drpmedieval.common.entity.projectile;
 
-import net.drpmedieval.common.items.DRPMedievalItems;
+import net.drpmedieval.common.items.DRPMItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.entity.projectile.EntityTippedArrow;
@@ -58,7 +58,7 @@ public class EntityRopedArrow extends EntityArrow{
     }
     
     protected ItemStack getArrowStack(){
-    	return new ItemStack(DRPMedievalItems.ROPED_ARROW);
+    	return new ItemStack(DRPMItems.ROPED_ARROW);
     }
     
     @SideOnly(Side.CLIENT)

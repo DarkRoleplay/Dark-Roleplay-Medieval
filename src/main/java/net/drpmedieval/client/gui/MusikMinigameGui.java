@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-import net.drpcore.api.guis.guis.DRPGuiScreen;
-import net.drpcore.client.gui.ITimedGui;
+import net.dark_roleplay.drpcore.api.gui.DRPGuiScreen;
+import net.dark_roleplay.drpcore.api.gui.ITimedGui;
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -133,7 +133,7 @@ public class MusikMinigameGui extends DRPGuiScreen implements ITimedGui{
 			int h = (currentTick * speed) + ( (speed * 20) * currentNote) + 13 - (notePositions.get(0));
 			Note nt = notes.get(0);
 			if(h > this.height - 20 && h < this.height && nt.getLane() + 4 == lane){
-	    		Minecraft.getMinecraft().theWorld.playSound(Minecraft.getMinecraft().thePlayer.getPosition().add(0.5,0.5,0.5), SoundEvents.BLOCK_NOTE_HARP, SoundCategory.PLAYERS, nt.getVolume(), nt.getPitch(), true);
+	    		Minecraft.getMinecraft().world.playSound(Minecraft.getMinecraft().player.getPosition().add(0.5,0.5,0.5), SoundEvents.BLOCK_NOTE_HARP, SoundCategory.PLAYERS, nt.getVolume(), nt.getPitch(), true);
 	    		notes.remove(0);
 	    		notePositions.remove(0);
 			}else{

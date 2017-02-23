@@ -28,14 +28,14 @@ public class BarrelFilled extends Block {
 		this.setSoundType(SoundType.WOOD);
 	}
 
-	// -------------------------------------------------- Block Data --------------------------------------------------
+	// -------------------------------------------------- Block Data
+	// --------------------------------------------------
 
 	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
-        return new AxisAlignedBB(0F, 0F, 0F, 1F, 1F, 1F);
-    }
-	
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return new AxisAlignedBB(0F, 0F, 0F, 1F, 1F, 1F);
+	}
+
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
@@ -45,36 +45,37 @@ public class BarrelFilled extends Block {
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-	// -------------------------------------------------- Block Placement --------------------------------------------------
-	
+	// -------------------------------------------------- Block Placement
+	// --------------------------------------------------
+
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 
 		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
-		super.neighborChanged(state, worldIn, pos, neighborBlock);
+				super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 	}
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
 
 		return worldIn.isSideSolid(pos.offset(facing.getOpposite()), facing, true);
 	}
-	
-	// -------------------------------------------------- Rendering --------------------------------------------------
 
-	 @SideOnly(Side.CLIENT)
-	 public BlockRenderLayer getBlockLayer()
-	 {
-		 return BlockRenderLayer.TRANSLUCENT;
-	 }
+	// -------------------------------------------------- Rendering
+	// --------------------------------------------------
 
-	
-	// -------------------------------------------------- Block Events --------------------------------------------------
-			
+	@SideOnly(Side.CLIENT)
+	public BlockRenderLayer getBlockLayer() {
+		return BlockRenderLayer.TRANSLUCENT;
+	}
+
+	// -------------------------------------------------- Block Events
+	// --------------------------------------------------
+
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 
 		if(facing.equals(facing.UP) && worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true))
 			return this.getDefaultState();

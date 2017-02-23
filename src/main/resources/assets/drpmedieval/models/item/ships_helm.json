@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "drpmedieval:items/blockShipsWheel"
+        "layer0": "drpmedieval:items/block_ships_wheel"
     },
     "display": {
 		"gui": {

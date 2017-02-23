@@ -24,10 +24,10 @@ public class ShipsHelm extends BlockContainer {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
-	public ShipsHelm() {
+	public ShipsHelm(String registryName) {
 		super(DRPMedievalMaterials.wood);
-		this.setRegistryName("ShipsHelm");
-		this.setUnlocalizedName("ShipsHelm");
+		this.setRegistryName(registryName);
+		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
@@ -97,7 +97,7 @@ public class ShipsHelm extends BlockContainer {
 	// -------------------------------------------------- Block Placement --------------------------------------------------
 	
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 
 		EnumFacing enumfacing = (EnumFacing) state.getValue(FACING);
 
@@ -106,7 +106,7 @@ public class ShipsHelm extends BlockContainer {
 			worldIn.setBlockToAir(pos);
 		}
 
-		super.neighborChanged(state, worldIn, pos, neighborBlock);
+				super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 	}
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
@@ -117,7 +117,7 @@ public class ShipsHelm extends BlockContainer {
 	// -------------------------------------------------- Block Events --------------------------------------------------
 
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 
 		if(facing.equals(facing.SOUTH))
 			return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);

@@ -62,7 +62,7 @@ public class BedFrameTileEntity extends TileEntity {
 
 			@Override
 			public void writePacketData(PacketBuffer buf) throws IOException {
-				switch (buf.readStringFromBuffer(10)) {
+				switch (buf.readString(10)) {
 				case "none":
 					mattress.setMattress(EnumMattressType.NONE);
 					break;

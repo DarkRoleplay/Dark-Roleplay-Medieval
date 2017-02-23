@@ -1,7 +1,7 @@
 package net.drpmedieval.common.blocks.decorative;
 
 import net.drpmedieval.client.sound.SoundEvents;
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.drpmedieval.common.util.SittingUtil;
@@ -30,10 +30,10 @@ public class GoldenShipsBell   extends Block {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
-	public GoldenShipsBell() {
+	public GoldenShipsBell(String registryName) {
 		super(DRPMedievalMaterials.iron);
-		this.setRegistryName("GoldenShipsBell");
-		this.setUnlocalizedName("GoldenShipsBell");
+		this.setRegistryName(registryName);
+		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.ANVIL);
@@ -93,12 +93,12 @@ public class GoldenShipsBell   extends Block {
 	// -------------------------------------------------- Block Placement --------------------------------------------------
 	
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
-		super.neighborChanged(state, worldIn, pos, neighborBlock);
+				super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 	}
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
@@ -108,11 +108,11 @@ public class GoldenShipsBell   extends Block {
 	// -------------------------------------------------- Block Events --------------------------------------------------
 
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 		if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN, true)) return Blocks.AIR.getDefaultState();
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
-			int dir = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+			int dir = MathHelper.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 			switch (dir) {
 				case 0:
 					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
@@ -130,8 +130,10 @@ public class GoldenShipsBell   extends Block {
 	}
 	
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ){
-		worldIn.playSound(pos.getX(),pos.getY(),pos.getZ(), SoundEvents.ShipsBell, SoundCategory.BLOCKS, 3F, 1F, true);
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+		if(!worldIn.isRemote){
+			worldIn.playSound(pos.getX(),pos.getY(),pos.getZ(), SoundEvents.ShipsBell, SoundCategory.BLOCKS, 3F, 1F, true);
+		}
 		return true;
 	}
 	

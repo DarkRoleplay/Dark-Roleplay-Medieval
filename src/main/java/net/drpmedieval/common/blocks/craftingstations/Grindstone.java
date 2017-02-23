@@ -1,7 +1,7 @@
 package net.drpmedieval.common.blocks.craftingstations;
 
-import net.drpcore.common.DarkRoleplayCore;
-import net.drpcore.common.gui.GuiHandler;
+import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
+import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityGrindstone;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
@@ -31,12 +31,12 @@ public class Grindstone extends BlockContainer {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
-	public Grindstone() {
+	public Grindstone(String registryName) {
 		super(DRPMedievalMaterials.rock);
-		this.setRegistryName("Grindstone");
-		this.setUnlocalizedName("Grindstone");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
-		this.setHardness(4F);
+		this.setRegistryName(registryName);
+		this.setUnlocalizedName(registryName);
+		this.setCreativeTab(DRPMedievalCreativeTabs.UTILITY);
+		this.setHardness(2F);
 		this.setHarvestLevel("pickaxe", 0);
 		this.setSoundType(SoundType.WOOD);
 	}
@@ -96,13 +96,13 @@ public class Grindstone extends BlockContainer {
 	// -------------------------------------------------- Block Placement --------------------------------------------------
 	
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 
 		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
-		super.neighborChanged(state, worldIn, pos, neighborBlock);
+				super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 	}
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
@@ -118,17 +118,17 @@ public class Grindstone extends BlockContainer {
 	// -------------------------------------------------- Block Events --------------------------------------------------
 	
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(world.isRemote){
-			player.openGui(DarkRoleplayCore.instance,GuiHandler.GUI_CRAFTING_RECIPESELECTION,player.worldObj,pos.getX(),pos.getY(),pos.getZ());
+			player.openGui(DarkRoleplayCore.instance, DRPCoreGuis.DRPCORE_GUI_CRAFTING_RECIPESELECTION, player.world, pos.getX(), pos.getY(), pos.getZ());
 		}
 		return true;
 	}
 	
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ,int meta, EntityLivingBase placer) {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 		Entity entity = (Entity) placer;
-		int dir = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+		int dir = MathHelper.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 		switch (dir) {
 		case 0:
 			return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);

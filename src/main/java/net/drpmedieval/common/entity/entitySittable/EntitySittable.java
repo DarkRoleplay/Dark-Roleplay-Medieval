@@ -71,8 +71,8 @@ public class EntitySittable  extends Entity
 
 	@Override
 	public void onEntityUpdate(){
-		if (!this.worldObj.isRemote){
-			if(!this.isBeingRidden() || this.worldObj.isAirBlock(new BlockPos(blockPosX, blockPosY, blockPosZ))){
+		if (!this.getEntityWorld().isRemote){
+			if(!this.isBeingRidden() || this.getEntityWorld().isAirBlock(new BlockPos(blockPosX, blockPosY, blockPosZ))){
 				this.setDead();
 			}
 		}

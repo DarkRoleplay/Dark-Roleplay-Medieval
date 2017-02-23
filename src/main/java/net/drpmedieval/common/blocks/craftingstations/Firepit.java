@@ -2,8 +2,9 @@ package net.drpmedieval.common.blocks.craftingstations;
 
 import java.util.Random;
 
-import net.drpcore.common.DarkRoleplayCore;
-import net.drpcore.common.gui.GuiHandler;
+import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
+import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
+import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityFirepit;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.BlockContainer;
@@ -26,12 +27,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Firepit extends BlockContainer {
 
-	public Firepit() {
-		super(Material.WOOD);
+	public Firepit(String registryName) {
+		super(DRPMedievalMaterials.wood);
+		this.setRegistryName(registryName);
+		this.setUnlocalizedName(registryName);
 		this.setLightLevel(0.875F);
-		this.setRegistryName("FirepitLit");
-		this.setUnlocalizedName("FirepitLit");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.UTILITY);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
 	}
@@ -62,9 +63,9 @@ public class Firepit extends BlockContainer {
 	// -------------------------------------------------- Block Events --------------------------------------------------
 	
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(world.isRemote){
-			player.openGui(DarkRoleplayCore.instance,GuiHandler.GUI_CRAFTING_RECIPESELECTION,player.worldObj,pos.getX(),pos.getY(),pos.getZ());
+			player.openGui(DarkRoleplayCore.instance, DRPCoreGuis.DRPCORE_GUI_CRAFTING_RECIPESELECTION, player.world, pos.getX(), pos.getY(), pos.getZ());
 		}
 		return true;
 	}

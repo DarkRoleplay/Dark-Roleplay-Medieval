@@ -1,6 +1,6 @@
 package net.drpmedieval.common.worldgen;
 
-import net.drpmedieval.common.items.DRPMedievalItems;
+import net.drpmedieval.common.items.DRPMItems;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -56,7 +56,7 @@ public class WorldLoot {
 
 	public static void registerGrassLoot() {
 
-		MinecraftForge.addGrassSeed(new ItemStack(DRPMedievalItems.SeedBarley), 1);
+		//TODO FIX SEEDS MinecraftForge.addGrassSeed(new ItemStack(DRPMedievalItems.SeedBarley), 1);
 	}
 
 	public static void registerFishingLoot() {

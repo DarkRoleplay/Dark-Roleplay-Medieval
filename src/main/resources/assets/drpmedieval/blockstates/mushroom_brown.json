@@ -1,0 +1,23 @@
+{
+    "variants":{
+        "age=3,facing=north":{"model":"drpmedieval:mushrooms/mushroom_brown3"},
+        "age=3,facing=east":{"model":"drpmedieval:mushrooms/mushroom_brown3", "y":90},
+        "age=3,facing=south":{"model":"drpmedieval:mushrooms/mushroom_brown3", "y":180},
+        "age=3,facing=west":{"model":"drpmedieval:mushrooms/mushroom_brown3", "y":270},   
+		
+		"age=2,facing=north":{"model":"drpmedieval:mushrooms/mushroom_brown2"},
+        "age=2,facing=east":{"model":"drpmedieval:mushrooms/mushroom_brown2", "y":90},
+        "age=2,facing=south":{"model":"drpmedieval:mushrooms/mushroom_brown2", "y":180},
+        "age=2,facing=west":{"model":"drpmedieval:mushrooms/mushroom_brown2", "y":270}, 
+		
+		"age=1,facing=north":{"model":"drpmedieval:mushrooms/mushroom_brown1"},
+        "age=1,facing=east":{"model":"drpmedieval:mushrooms/mushroom_brown1", "y":90},
+        "age=1,facing=south":{"model":"drpmedieval:mushrooms/mushroom_brown1", "y":180},
+        "age=1,facing=west":{"model":"drpmedieval:mushrooms/mushroom_brown1", "y":270}, 
+		
+		"age=0,facing=north":{"model":"drpmedieval:mushrooms/mushroom_brown0"},
+        "age=0,facing=east":{"model":"drpmedieval:mushrooms/mushroom_brown0", "y":90},
+        "age=0,facing=south":{"model":"drpmedieval:mushrooms/mushroom_brown0", "y":180},
+        "age=0,facing=west":{"model":"drpmedieval:mushrooms/mushroom_brown0", "y":270}
+    }
+}

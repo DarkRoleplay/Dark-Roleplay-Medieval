@@ -3,7 +3,7 @@ package net.drpmedieval.common.blocks.specialrenderer;
 import org.lwjgl.opengl.GL11;
 
 import net.drpmedieval.common.DarkRoleplayMedieval;
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class SpecialRenderCrate extends TileEntitySpecialRenderer {
 
-	private static final ResourceLocation texture = new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/oldBlocks/blockCrate.png");
+	private static final ResourceLocation texture = new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/old_blocks/block_crate.png");
 
 	private ModelCrate model;
 
@@ -24,7 +24,7 @@ public class SpecialRenderCrate extends TileEntitySpecialRenderer {
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int i) {
 
-		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMedievalBlocks.CRATE)){
+		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMBlocks.CRATE)){
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 			GL11.glRotatef(180, 0F, 0F, 1F);

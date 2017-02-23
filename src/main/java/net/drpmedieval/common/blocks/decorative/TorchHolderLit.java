@@ -2,9 +2,9 @@ package net.drpmedieval.common.blocks.decorative;
 
 import java.util.Random;
 
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
-import net.drpmedieval.common.items.DRPMedievalItems;
+import net.drpmedieval.common.items.DRPMItems;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.drpmedieval.common.util.InventoryHelper;
 import net.minecraft.block.Block;
@@ -37,10 +37,10 @@ public class TorchHolderLit extends Block {
 	public static PropertyBool AddonTrap = PropertyBool.create("addontrap");
 	public static final PropertyBool POWERED = PropertyBool.create("powered");
 
-	public TorchHolderLit() {
+	public TorchHolderLit(String registryName) {
 		super(DRPMedievalMaterials.iron);
-		this.setRegistryName("TorchHolderLit");
-		this.setUnlocalizedName("TorchHolderLit");
+		this.setRegistryName(registryName);
+		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(4F);
 		this.setHarvestLevel("pickaxe", 0);
@@ -194,7 +194,7 @@ public class TorchHolderLit extends Block {
 	// -------------------------------------------------- Block Placement --------------------------------------------------
 
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 
 		EnumFacing enumfacing = (EnumFacing) state.getValue(FACING);
 		if(!this.canBlockStay(worldIn, pos, enumfacing)){
@@ -206,7 +206,7 @@ public class TorchHolderLit extends Block {
 		if((Boolean) state.getValue(AddonLighter)){
 			if(!worldIn.isRemote){
 				if(worldIn.isBlockPowered(pos)){
-					worldIn.setBlockState(pos, DRPMedievalBlocks.TORCH_HOLDER_UNLIT.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(AddonLighter, state.getValue(AddonLighter)).withProperty(AddonTrap, state.getValue(AddonTrap)).withProperty(POWERED, state.getValue(POWERED)), 2);
+					worldIn.setBlockState(pos, DRPMBlocks.TORCH_HOLDER_UNLIT.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(AddonLighter, state.getValue(AddonLighter)).withProperty(AddonTrap, state.getValue(AddonTrap)).withProperty(POWERED, state.getValue(POWERED)), 2);
 				}
 			}
 		}
@@ -230,17 +230,17 @@ public class TorchHolderLit extends Block {
 
 		if(!worldIn.isRemote){
 			worldIn.setBlockState(pos, state.withProperty(POWERED, Boolean.valueOf(false)), 3);
-			worldIn.notifyNeighborsOfStateChange(pos, this);
+			worldIn.notifyNeighborsOfStateChange(pos, this, false);
 			//TODO PLAY SOUND
 			//worldIn.playSoundEffect((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, "random.click", 0.3F, ((Boolean) state.getValue(POWERED)).booleanValue() ? 0.6F : 0.5F);
 			EnumFacing Facing = (EnumFacing) state.getValue(FACING);
-			worldIn.notifyNeighborsOfStateChange(pos.offset(Facing.getOpposite()), state.getBlock());
+			worldIn.notifyNeighborsOfStateChange(pos.offset(Facing.getOpposite()), state.getBlock(),false);
 		}
 
 	}
 	
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 
 		if(!world.isRemote){
 			if(player.getHeldItem(EnumHand.MAIN_HAND) == null){
@@ -248,23 +248,23 @@ public class TorchHolderLit extends Block {
 					state = state.cycleProperty(POWERED);
 					world.setBlockState(pos, state, 3);
 					world.scheduleUpdate(pos, this, 60);
-					world.scheduleUpdate(pos, DRPMedievalBlocks.TORCH_HOLDER_UNLIT, 60);
+					world.scheduleUpdate(pos, DRPMBlocks.TORCH_HOLDER_UNLIT, 60);
 					//TODO PLAY SOUND
 					//worldIn.playSoundEffect((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, "random.click", 0.3F, ((Boolean) state.getValue(POWERED)).booleanValue() ? 0.6F : 0.5F);
 
 					EnumFacing Facing = (EnumFacing) state.getValue(FACING);
 
-					world.notifyNeighborsOfStateChange(pos.offset(Facing.getOpposite()), state.getBlock());
+					world.notifyNeighborsOfStateChange(pos.offset(Facing.getOpposite()), state.getBlock(), false);
 
 				}
 			}
-			else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(DRPMedievalItems.TriggerTrap)){
+			else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(DRPMItems.TriggerTrap)){
 				if((Boolean) state.getValue(AddonLighter)){
 					state = state.cycleProperty(AddonLighter);
 					state = state.cycleProperty(AddonTrap);
-					world.spawnEntityInWorld(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
+					world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
 					world.setBlockState(pos, state, 3);
-					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TriggerTrap,  player.inventory.mainInventory), 1);
+					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMItems.TriggerTrap,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
 				}
 				else if((Boolean) state.getValue(AddonTrap)){
 
@@ -272,16 +272,16 @@ public class TorchHolderLit extends Block {
 				else{
 					state = state.cycleProperty(AddonTrap);
 					world.setBlockState(pos, state, 3);
-					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TriggerTrap,  player.inventory.mainInventory), 1);
+					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMItems.TriggerTrap,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
 				}
 			}
 			else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Items.FLINT)){
 				if((Boolean) state.getValue(AddonTrap)){
-					world.spawnEntityInWorld(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TriggerTrap, 1)));
+					world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMItems.TriggerTrap, 1)));
 					state = state.cycleProperty(AddonTrap);
 					state = state.cycleProperty(AddonLighter);
 					world.setBlockState(pos, state, 3);
-					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Items.FLINT,  player.inventory.mainInventory), 1);
+					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Items.FLINT,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
 				}
 				else if((Boolean) state.getValue(AddonLighter)){
 
@@ -289,23 +289,23 @@ public class TorchHolderLit extends Block {
 				else{
 					state = state.cycleProperty(AddonLighter);
 					world.setBlockState(pos, state, 3);
-					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Items.FLINT,  player.inventory.mainInventory), 1);}
+					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Items.FLINT,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);}
 			}
 			else{
 				if(player.isSneaking()){
-					world.setBlockState(pos, DRPMedievalBlocks.TORCH_HOLDER_UNLIT.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(AddonLighter, state.getValue(AddonLighter)).withProperty(AddonTrap, state.getValue(AddonTrap)).withProperty(POWERED, state.getValue(POWERED)));
+					world.setBlockState(pos, DRPMBlocks.TORCH_HOLDER_UNLIT.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(AddonLighter, state.getValue(AddonLighter)).withProperty(AddonTrap, state.getValue(AddonTrap)).withProperty(POWERED, state.getValue(POWERED)));
 				}
 				else if((Boolean) state.getValue(AddonTrap) && !(Boolean) state.getValue(POWERED)){
 					state = state.cycleProperty(POWERED);
 					world.setBlockState(pos, state, 3);
 					world.scheduleUpdate(pos, this, 60);
-					world.scheduleUpdate(pos, DRPMedievalBlocks.TORCH_HOLDER_UNLIT, 60);
+					world.scheduleUpdate(pos, DRPMBlocks.TORCH_HOLDER_UNLIT, 60);
 					//TODO PLAY SOUND
 					//worldIn.playSoundEffect((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, "random.click", 0.3F, ((Boolean) state.getValue(POWERED)).booleanValue() ? 0.6F : 0.5F);
 
 					EnumFacing Facing = (EnumFacing) state.getValue(FACING);
 
-					world.notifyNeighborsOfStateChange(pos.offset(Facing.getOpposite()), state.getBlock());
+					world.notifyNeighborsOfStateChange(pos.offset(Facing.getOpposite()), state.getBlock(),false);
 
 				}
 			}
@@ -315,7 +315,7 @@ public class TorchHolderLit extends Block {
 	}
 
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 
 		if(facing.equals(facing.SOUTH))
 			return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH).withProperty(AddonLighter, false).withProperty(AddonTrap, false).withProperty(POWERED, false);
@@ -328,5 +328,17 @@ public class TorchHolderLit extends Block {
 		else
 			return Blocks.AIR.getDefaultState();
 	}
+	
+	@Override
+	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
+		if(!world.isRemote){
+			if(state.getValue(AddonLighter)){
+				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
+			}
+			if(state.getValue(AddonTrap)){
+				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMItems.TriggerTrap, 1)));
+			}
+		}
+    }
 
 }

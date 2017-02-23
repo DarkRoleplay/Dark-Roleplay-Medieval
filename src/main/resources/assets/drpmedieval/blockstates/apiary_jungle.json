@@ -1,0 +1,8 @@
+{
+    "variants":{
+        "facing=south":{"model":"drpmedieval:apiaries/apiary_jungle"},
+        "facing=west":{"model":"drpmedieval:apiaries/apiary_jungle", "y":90},
+        "facing=north":{"model":"drpmedieval:apiaries/apiary_jungle", "y":180},
+        "facing=east":{"model":"drpmedieval:apiaries/apiary_jungle", "y":270}   
+    }
+}

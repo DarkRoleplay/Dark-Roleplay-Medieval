@@ -1,11 +1,11 @@
 package net.drpmedieval.common.blocks.decorative;
 
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.helper.AdvancedBed;
 import net.drpmedieval.common.blocks.helper.EnumMattressType;
 import net.drpmedieval.common.blocks.tileentitys.BedFrameTileEntity;
 import net.drpmedieval.common.capabilities.DRPMCapabilities;
-import net.drpmedieval.common.items.DRPMedievalItems;
+import net.drpmedieval.common.items.DRPMItems;
 import net.drpmedieval.common.items.blocks.AdvancedBedItem;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.drpmedieval.common.worldgen.feature.TreeTest;
@@ -31,8 +31,8 @@ public class BedFrame extends AdvancedBed {
 	
 	AdvancedBedItem bed = null;
 	
-	public BedFrame(String registerName,String unlocalizedName,AdvancedBedItem bed) {
-		super(Material.WOOD,registerName,unlocalizedName);
+	public BedFrame(String registryName,AdvancedBedItem bed) {
+		super(Material.WOOD,registryName,registryName);
 		this.bed = bed;
 	}
 	

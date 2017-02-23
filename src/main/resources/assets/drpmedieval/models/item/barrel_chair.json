@@ -1,15 +1,15 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "__comment": "model generated using mr_crayfish's model creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "particle": "blocks/blocks/drpmedieval:blocks/BarrelSide",
-        "0": "drpmedieval:blocks/BarrelSide",
-        "1": "drpmedieval:blocks/BarrelTop",
-        "2": "blocks/BarrelTop",
-        "3": "blocks/BarrelSide"
+        "particle": "blocks/blocks/drpmedieval:blocks/barrel_side",
+        "0": "drpmedieval:blocks/barrel_side",
+        "1": "drpmedieval:blocks/barrel_top",
+        "2": "blocks/barrel_top",
+        "3": "blocks/barrel_side"
     },
     "elements": [
         {
-            "name": "BottomNorth",
+            "name": "bottom_north",
             "from": [ 5.0, 0.0, 1.0 ], 
             "to": [ 11.0, 3.0, 2.0 ], 
             "faces": {
@@ -22,7 +22,7 @@
             }
         },
         {
-            "name": "BottomNorthNorthEast",
+            "name": "bottom_north_north_east",
             "from": [ 11.0, 0.0, 2.0 ], 
             "to": [ 13.0, 3.0, 3.0 ], 
             "faces": {
@@ -35,7 +35,7 @@
             }
         },
         {
-            "name": "BottomEastNorthEast",
+            "name": "bottom_east_north_east",
             "from": [ 13.0, 0.0, 3.0 ], 
             "to": [ 14.0, 3.0, 5.0 ], 
             "faces": {
@@ -48,7 +48,7 @@
             }
         },
         {
-            "name": "BottomEast",
+            "name": "bottom_east",
             "from": [ 14.0, 0.0, 5.0 ], 
             "to": [ 15.0, 3.0, 11.0 ], 
             "faces": {
@@ -61,7 +61,7 @@
             }
         },
         {
-            "name": "BottomEastSouthEast",
+            "name": "bottom_east_south_east",
             "from": [ 13.0, 0.0, 11.0 ], 
             "to": [ 14.0, 3.0, 13.0 ], 
             "faces": {
@@ -74,7 +74,7 @@
             }
         },
         {
-            "name": "BottomSouthSouthEast",
+            "name": "bottom_south_south_east",
             "from": [ 11.0, 0.0, 13.0 ], 
             "to": [ 13.0, 3.0, 14.0 ], 
             "faces": {
@@ -87,7 +87,7 @@
             }
         },
         {
-            "name": "BottomSouth",
+            "name": "bottom_south",
             "from": [ 5.0, 0.0, 14.0 ], 
             "to": [ 11.0, 3.0, 15.0 ], 
             "faces": {
@@ -100,7 +100,7 @@
             }
         },
         {
-            "name": "BottomNorthNorthWest",
+            "name": "bottom_north_north_west",
             "from": [ 3.0, 0.0, 2.0 ], 
             "to": [ 5.0, 3.0, 3.0 ], 
             "faces": {
@@ -113,7 +113,7 @@
             }
         },
         {
-            "name": "BottomSouthSouthWest",
+            "name": "bottom_south_south_west",
             "from": [ 3.0, 0.0, 13.0 ], 
             "to": [ 5.0, 3.0, 14.0 ], 
             "faces": {
@@ -126,7 +126,7 @@
             }
         },
         {
-            "name": "BottomWestSouthWest",
+            "name": "bottom_west_south_west",
             "from": [ 2.0, 0.0, 11.0 ], 
             "to": [ 3.0, 3.0, 13.0 ], 
             "faces": {
@@ -139,7 +139,7 @@
             }
         },
         {
-            "name": "BottomWestNorthWest",
+            "name": "bottom_west_north_west",
             "from": [ 2.0, 0.0, 3.0 ], 
             "to": [ 3.0, 3.0, 5.0 ], 
             "faces": {
@@ -152,7 +152,7 @@
             }
         },
         {
-            "name": "BottomWest",
+            "name": "bottom_west",
             "from": [ 1.0, 0.0, 5.0 ], 
             "to": [ 2.0, 3.0, 11.0 ], 
             "faces": {
@@ -165,7 +165,7 @@
             }
         },
         {
-            "name": "CenterNorth",
+            "name": "center_north",
             "from": [ 5.0, 3.0, 0.0 ], 
             "to": [ 11.0, 13.0, 1.0 ], 
             "faces": {
@@ -178,7 +178,7 @@
             }
         },
         {
-            "name": "CenterNorthNorthEast",
+            "name": "center_north_north_east",
             "from": [ 11.0, 3.0, 1.0 ], 
             "to": [ 13.0, 13.0, 2.0 ], 
             "faces": {
@@ -191,7 +191,7 @@
             }
         },
         {
-            "name": "CenterNorthEast",
+            "name": "center_north_east",
             "from": [ 13.0, 3.0, 2.0 ], 
             "to": [ 14.0, 13.0, 3.0 ], 
             "faces": {
@@ -204,7 +204,7 @@
             }
         },
         {
-            "name": "CenterEastNorthEast",
+            "name": "center_east_north_east",
             "from": [ 14.0, 3.0, 3.0 ], 
             "to": [ 15.0, 13.0, 5.0 ], 
             "faces": {
@@ -217,7 +217,7 @@
             }
         },
         {
-            "name": "CenterEast",
+            "name": "center_east",
             "from": [ 15.0, 3.0, 5.0 ], 
             "to": [ 16.0, 13.0, 10.0 ], 
             "faces": {
@@ -230,7 +230,7 @@
             }
         },
         {
-            "name": "CenterEastSouthEast",
+            "name": "center_east_south_east",
             "from": [ 14.0, 3.0, 11.0 ], 
             "to": [ 15.0, 8.0, 13.0 ], 
             "faces": {
@@ -243,7 +243,7 @@
             }
         },
         {
-            "name": "CenterSouthEast",
+            "name": "center_south_east",
             "from": [ 13.0, 3.0, 13.0 ], 
             "to": [ 14.0, 8.0, 14.0 ], 
             "faces": {
@@ -256,7 +256,7 @@
             }
         },
         {
-            "name": "CenterSouthSouthEast",
+            "name": "center_south_south_east",
             "from": [ 11.0, 3.0, 14.0 ], 
             "to": [ 13.0, 8.0, 15.0 ], 
             "faces": {
@@ -269,7 +269,7 @@
             }
         },
         {
-            "name": "CenterSouth",
+            "name": "center_south",
             "from": [ 5.0, 3.0, 15.0 ], 
             "to": [ 11.0, 8.0, 16.0 ], 
             "faces": {
@@ -282,7 +282,7 @@
             }
         },
         {
-            "name": "CenterNorthNorthWest",
+            "name": "center_north_north_west",
             "from": [ 3.0, 3.0, 1.0 ], 
             "to": [ 5.0, 13.0, 2.0 ], 
             "faces": {
@@ -295,7 +295,7 @@
             }
         },
         {
-            "name": "CenterNorthWest",
+            "name": "center_north_west",
             "from": [ 2.0, 3.0, 2.0 ], 
             "to": [ 3.0, 13.0, 3.0 ], 
             "faces": {
@@ -308,7 +308,7 @@
             }
         },
         {
-            "name": "CenterWestNorthWest",
+            "name": "center_west_north_west",
             "from": [ 1.0, 3.0, 3.0 ], 
             "to": [ 2.0, 13.0, 5.0 ], 
             "faces": {
@@ -321,7 +321,7 @@
             }
         },
         {
-            "name": "CenterWest",
+            "name": "center_west",
             "from": [ 0.0, 3.0, 5.0 ], 
             "to": [ 1.0, 13.0, 10.0 ], 
             "faces": {
@@ -334,7 +334,7 @@
             }
         },
         {
-            "name": "CenterWestSouthWest",
+            "name": "center_west_south_west",
             "from": [ 1.0, 3.0, 11.0 ], 
             "to": [ 2.0, 8.0, 13.0 ], 
             "faces": {
@@ -347,7 +347,7 @@
             }
         },
         {
-            "name": "CenterSouthSouthWest",
+            "name": "center_south_south_west",
             "from": [ 3.0, 3.0, 14.0 ], 
             "to": [ 5.0, 8.0, 15.0 ], 
             "faces": {
@@ -360,7 +360,7 @@
             }
         },
         {
-            "name": "CenterSouthWest",
+            "name": "center_south_west",
             "from": [ 2.0, 3.0, 13.0 ], 
             "to": [ 3.0, 8.0, 14.0 ], 
             "faces": {
@@ -373,7 +373,7 @@
             }
         },
         {
-            "name": "TopNorth",
+            "name": "top_north",
             "from": [ 5.0, 13.0, 1.0 ], 
             "to": [ 11.0, 16.0, 2.0 ], 
             "faces": {
@@ -386,7 +386,7 @@
             }
         },
         {
-            "name": "TopNorthNorth",
+            "name": "top_north_north",
             "from": [ 11.0, 13.0, 2.0 ], 
             "to": [ 13.0, 16.0, 3.0 ], 
             "faces": {
@@ -399,7 +399,7 @@
             }
         },
         {
-            "name": "TopEastNorthEast",
+            "name": "top_east_north_east",
             "from": [ 13.0, 13.0, 3.0 ], 
             "to": [ 14.0, 16.0, 5.0 ], 
             "faces": {
@@ -412,7 +412,7 @@
             }
         },
         {
-            "name": "TopEast",
+            "name": "top_east",
             "from": [ 14.0, 13.0, 5.0 ], 
             "to": [ 15.0, 15.0, 9.0 ], 
             "faces": {
@@ -425,7 +425,7 @@
             }
         },
         {
-            "name": "TopNorthWestNorth",
+            "name": "top_north_west_north",
             "from": [ 3.0, 13.0, 2.0 ], 
             "to": [ 5.0, 16.0, 3.0 ], 
             "faces": {
@@ -438,7 +438,7 @@
             }
         },
         {
-            "name": "TopWestWestNorth",
+            "name": "top_west_west_north",
             "from": [ 2.0, 13.0, 3.0 ], 
             "to": [ 3.0, 16.0, 5.0 ], 
             "faces": {
@@ -451,7 +451,7 @@
             }
         },
         {
-            "name": "TopWest",
+            "name": "top_west",
             "from": [ 1.0, 13.0, 5.0 ], 
             "to": [ 2.0, 15.0, 8.0 ], 
             "faces": {
@@ -464,7 +464,7 @@
             }
         },
         {
-            "name": "GroundCenter",
+            "name": "ground_center",
             "from": [ 5.0, 1.0, 2.0 ], 
             "to": [ 11.0, 2.0, 14.0 ], 
             "faces": {
@@ -477,7 +477,7 @@
             }
         },
         {
-            "name": "GroundWest1",
+            "name": "ground_west1",
             "from": [ 3.0, 1.0, 3.0 ], 
             "to": [ 5.0, 2.0, 13.0 ], 
             "faces": {
@@ -490,7 +490,7 @@
             }
         },
         {
-            "name": "GroundWest2",
+            "name": "ground_west2",
             "from": [ 2.0, 1.0, 5.0 ], 
             "to": [ 3.0, 2.0, 11.0 ], 
             "faces": {
@@ -503,7 +503,7 @@
             }
         },
         {
-            "name": "GroundEast1",
+            "name": "ground_east1",
             "from": [ 11.0, 1.0, 3.0 ], 
             "to": [ 13.0, 2.0, 13.0 ], 
             "faces": {
@@ -516,7 +516,7 @@
             }
         },
         {
-            "name": "GroundEast2",
+            "name": "ground_east2",
             "from": [ 13.0, 1.0, 5.0 ], 
             "to": [ 14.0, 2.0, 11.0 ], 
             "faces": {
@@ -529,7 +529,7 @@
             }
         },
         {
-            "name": "TopCenter",
+            "name": "top_center",
             "from": [ 5.0, 7.0, 1.0 ], 
             "to": [ 11.0, 8.0, 15.0 ], 
             "faces": {
@@ -537,7 +537,7 @@
             }
         },
         {
-            "name": "TopWest1",
+            "name": "top_west1",
             "from": [ 3.0, 7.0, 2.0 ], 
             "to": [ 5.0, 8.0, 14.0 ], 
             "faces": {
@@ -545,7 +545,7 @@
             }
         },
         {
-            "name": "TopWest2",
+            "name": "top_west2",
             "from": [ 2.0, 7.0, 3.0 ], 
             "to": [ 3.0, 8.0, 13.0 ], 
             "faces": {
@@ -553,7 +553,7 @@
             }
         },
         {
-            "name": "TopEast1",
+            "name": "top_east1",
             "from": [ 11.0, 7.0, 2.0 ], 
             "to": [ 13.0, 8.0, 14.0 ], 
             "faces": {
@@ -561,7 +561,7 @@
             }
         },
         {
-            "name": "TopEast2",
+            "name": "top_east2",
             "from": [ 13.0, 7.0, 3.0 ], 
             "to": [ 14.0, 8.0, 13.0 ], 
             "faces": {
@@ -574,7 +574,7 @@
             }
         },
         {
-            "name": "Cube",
+            "name": "cube",
             "from": [ 14.0, 7.0, 5.0 ], 
             "to": [ 15.0, 8.0, 11.0 ], 
             "faces": {
@@ -582,7 +582,7 @@
             }
         },
         {
-            "name": "Cube",
+            "name": "cube",
             "from": [ 1.0, 7.0, 5.0 ], 
             "to": [ 2.0, 8.0, 11.0 ], 
             "faces": {
@@ -590,7 +590,7 @@
             }
         },
         {
-            "name": "Cube",
+            "name": "cube",
             "from": [ 15.0, 3.0, 10.0 ], 
             "to": [ 16.0, 11.0, 11.0 ], 
             "faces": {
@@ -603,7 +603,7 @@
             }
         },
         {
-            "name": "Cube",
+            "name": "cube",
             "from": [ 0.0, 3.0, 10.0 ], 
             "to": [ 1.0, 11.0, 11.0 ], 
             "faces": {

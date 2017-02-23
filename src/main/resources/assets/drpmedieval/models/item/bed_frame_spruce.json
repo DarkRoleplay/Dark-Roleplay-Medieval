@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "drpmedieval:items/bedFrameSpruce"
+        "layer0": "drpmedieval:items/bed_frame_spruce"
     }
 }

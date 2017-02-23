@@ -1,12 +1,12 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "__comment": "model generated using mr_crayfish's model creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-		"particle": "drpmedieval:blocks/Rope",
-        "0": "drpmedieval:blocks/Rope"
+		"particle": "drpmedieval:blocks/rope",
+        "0": "drpmedieval:blocks/rope"
     },
     "elements": [
         {
-            "name": "Cube",
+            "name": "cube",
             "from": [ 7.0, 0.0, 0.0 ], 
             "to": [ 9.0, 16.0, 2.0 ], 
             "faces": {

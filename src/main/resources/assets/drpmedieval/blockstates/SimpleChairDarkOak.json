@@ -1,8 +1,0 @@
-{
-    "variants":{
-        "facing=north":{"model":"drpmedieval:SimpleChairs/SimpleChairDarkOak"},
-        "facing=east":{"model":"drpmedieval:SimpleChairs/SimpleChairDarkOak", "y":90},
-        "facing=south":{"model":"drpmedieval:SimpleChairs/SimpleChairDarkOak", "y":180},
-        "facing=west":{"model":"drpmedieval:SimpleChairs/SimpleChairDarkOak", "y":270}   
-    }
-}

@@ -1,0 +1,82 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "particle": "drpmedieval:blocks/clean_plank_spruce",
+			"texture": "drpmedieval:blocks/clean_plank_spruce"
+        }
+        "uvlock": true
+    },"variants": {
+		"axis": {
+			"x":{},
+			"y":{"y": 90}
+		},
+		"west":{
+			true:[
+				"height":{
+					0:{
+						"model" : "drpmedieval:hanging_bridge/planks_0"
+					},1:{
+						"model" : "drpmedieval:hanging_bridge/planks_1"
+					},2:{
+						"model" : "drpmedieval:hanging_bridge/planks_2"
+					},3:{
+						"model" : "drpmedieval:hanging_bridge/planks_3"
+					},4:{
+						"model" : "drpmedieval:hanging_bridge/planks_4"
+					},5:{
+						"model" : "drpmedieval:hanging_bridge/planks_5"
+					},6:{
+						"model" : "drpmedieval:hanging_bridge/planks_6"
+					},7:{
+						"model" : "drpmedieval:hanging_bridge/planks_7"
+					}
+				]
+			},
+			false:{}
+		},
+		"east":{
+			true:{
+				"height":{
+					0:{
+						"model" : "drpmedieval:hanging_bridge/planks_0", "y" : 90
+					},1:{
+						"model" : "drpmedieval:hanging_bridge/planks_1", "y" : 90
+					},2:{
+						"model" : "drpmedieval:hanging_bridge/planks_2", "y" : 90
+					},3:{
+						"model" : "drpmedieval:hanging_bridge/planks_3", "y" : 90
+					},4:{
+						"model" : "drpmedieval:hanging_bridge/planks_4", "y" : 90
+					},5:{
+						"model" : "drpmedieval:hanging_bridge/planks_5", "y" : 90
+					},6:{
+						"model" : "drpmedieval:hanging_bridge/planks_6", "y" : 90
+					},7:{
+						"model" : "drpmedieval:hanging_bridge/planks_7", "y" : 90
+					}
+				}
+			},
+			false:{}
+		},
+		"north":{
+			true:{},
+			false:{}
+		},
+		"south":{
+			true:{},
+			false:{}
+		},
+		"height":{
+			0:{},
+			1:{},
+			2:{},
+			3:{},
+			4:{},
+			5:{},
+			6:{},
+			7:{}
+		}
+		
+    }
+}

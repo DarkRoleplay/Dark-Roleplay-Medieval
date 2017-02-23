@@ -1,6 +1,6 @@
 package net.drpmedieval.common.blocks.decorative;
 
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityChain;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
@@ -27,10 +27,10 @@ public class Chain extends BlockContainer {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
-	public Chain() {
+	public Chain(String registryName) {
 		super(DRPMedievalMaterials.iron);
-		this.setRegistryName("Chain");
-		this.setUnlocalizedName("Chain");
+		this.setRegistryName(registryName);
+		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(3F);
 		this.setSoundType(SoundType.METAL);
@@ -97,20 +97,20 @@ public class Chain extends BlockContainer {
 	// -------------------------------------------------- Block Placement --------------------------------------------------
 	
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 
 		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
-		super.neighborChanged(state, worldIn, pos, neighborBlock);
+				super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 	}
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
 
 		if(worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN))
 			return true;
-		else if(worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.CHAIN))
+		else if(worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMBlocks.CHAIN))
 			return true;
 		else
 			return false;
@@ -119,12 +119,12 @@ public class Chain extends BlockContainer {
 	// -------------------------------------------------- Block Events --------------------------------------------------
 	
 	@Override	
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
-			if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.CHAIN)) return Blocks.AIR.getDefaultState();
-			int dir = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+			if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMBlocks.CHAIN)) return Blocks.AIR.getDefaultState();
+			int dir = MathHelper.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 			switch (dir) {
 				case 0:
 					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);

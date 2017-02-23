@@ -1,6 +1,0 @@
-{
-    "variants":{
-        "axis=x":{"model":"drpmedieval:SimpleTables/SimpleTableOak"},
-        "axis=z":{"model":"drpmedieval:SimpleTables/SimpleTableOak", "y":90} 
-    }
-}

@@ -1,11 +1,11 @@
 {
     "textures": {
-		"particle": "#all",
-        "0": "#all"
+		"particle": "drpmedieval:blocks/clean_plank_acacia",
+        "0": "drpmedieval:blocks/clean_plank_acacia"
     },
     "elements": [
         {
-            "name": "Plank1",
+            "name": "plank1",
             "from": [ 5.0, 0.0, -2.0 ], 
             "to": [ 11.0, 1.0, 18.0 ], 
             "faces": {
@@ -18,7 +18,7 @@
             }
         },
         {
-            "name": "Plank2",
+            "name": "plank2",
             "from": [ 5.0, 1.0, -3.0 ], 
             "to": [ 11.0, 2.0, 17.0 ], 
             "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 22.5 },
@@ -32,7 +32,7 @@
             }
         },
         {
-            "name": "Plank3",
+            "name": "plank3",
             "from": [ 5.0, 2.0, -3.0 ], 
             "to": [ 11.0, 3.0, 17.0 ], 
             "faces": {
@@ -45,7 +45,7 @@
             }
         },
         {
-            "name": "Plank4",
+            "name": "plank4",
             "from": [ 6.0, 3.0, -3.0 ], 
             "to": [ 12.0, 4.0, 17.0 ], 
             "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": -22.5 },
@@ -59,7 +59,7 @@
             }
         },
         {
-            "name": "Plank5",
+            "name": "plank5",
             "from": [ -6.0, 4.5999999940395355, 0.0 ], 
             "to": [ 14.0, 5.5999999940395355, 6.0 ], 
             "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "z", "angle": 22.5 },

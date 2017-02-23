@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "drpmedieval:MISSING"
+        "all": "drpmedieval:m_i_s_s_i_n_g"
     }
 }

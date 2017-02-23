@@ -30,7 +30,7 @@ public class MushroomRed extends Block {
 		super(Material.PLANTS);
 		this.setRegistryName("MushroomRed");
 		this.setUnlocalizedName("MushroomRed");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(0.5F);
 		this.setSoundType(SoundType.PLANT);
 		this.setTickRandomly(false);
@@ -46,8 +46,7 @@ public class MushroomRed extends Block {
 
 	@Override
 	@Nullable
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos)
-    {
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos){
         return NULL_AABB;
     }
 	
@@ -119,13 +118,13 @@ public class MushroomRed extends Block {
 	// -------------------------------------------------- Block Placement --------------------------------------------------
 	
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 
 		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
-		super.neighborChanged(state, worldIn, pos, neighborBlock);
+				super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 	}
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
@@ -136,7 +135,7 @@ public class MushroomRed extends Block {
 	// -------------------------------------------------- Block Events --------------------------------------------------
 		
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 
 		EnumFacing face = EnumFacing.NORTH;
 		Random rnd = new Random();

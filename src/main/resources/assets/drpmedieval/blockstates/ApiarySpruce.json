@@ -1,8 +1,0 @@
-{
-    "variants":{
-        "facing=south":{"model":"drpmedieval:Apiaries/ApiarySpruce"},
-        "facing=west":{"model":"drpmedieval:Apiaries/ApiarySpruce", "y":90},
-        "facing=north":{"model":"drpmedieval:Apiaries/ApiarySpruce", "y":180},
-        "facing=east":{"model":"drpmedieval:Apiaries/ApiarySpruce", "y":270}   
-    }
-}

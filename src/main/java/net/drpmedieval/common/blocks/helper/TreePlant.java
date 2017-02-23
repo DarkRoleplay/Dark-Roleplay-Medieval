@@ -127,13 +127,13 @@ public class TreePlant extends Block{
 	// -------------------------------------------------- Block Placement --------------------------------------------------
 	
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block neighborBlock){
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 
 		if(!this.canBlockStay(state,worldIn, pos, EnumFacing.UP)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
-		super.neighborChanged(state, worldIn, pos, neighborBlock);
+				super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 	}
 
 	protected boolean canBlockStay(IBlockState state,World worldIn, BlockPos pos, EnumFacing facing) {
@@ -148,15 +148,15 @@ public class TreePlant extends Block{
 	// -------------------------------------------------- Block Events --------------------------------------------------
 	
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 
 		if(!world.isRemote){
 			if(this.ripe == state.getValue(AGE).intValue()){
-				world.spawnEntityInWorld(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), this.harvest));
+				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), this.harvest));
 				world.setBlockState(pos, state.withProperty(AGE, 0));
 			}
 			else if(this.ripe < state.getValue(AGE).intValue()){
-				world.spawnEntityInWorld(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), this.harvest));
+				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), this.harvest));
 				world.setBlockToAir(pos);
 			}
 		}
@@ -164,7 +164,7 @@ public class TreePlant extends Block{
 	}
 	
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 
 		if(facing.equals(facing.UP) && worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true))
 			return this.getDefaultState().withProperty(AGE, placedBottom);
@@ -185,7 +185,7 @@ public class TreePlant extends Block{
 			if(rand.nextInt((int) growingSpeed) == 0){
 				if(this.ripe == state.getValue(AGE).intValue() && dropWhenRipe){
 
-					worldIn.spawnEntityInWorld(new EntityFallingBlock(worldIn, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, state.withProperty(AGE, this.placedBottom)));
+					worldIn.spawnEntity(new EntityFallingBlock(worldIn, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, state.withProperty(AGE, this.placedBottom)));
 
 				}
 				else{

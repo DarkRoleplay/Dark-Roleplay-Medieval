@@ -1,8 +1,0 @@
-{
-    "variants":{
-        "facing=north":{"model":"drpmedieval:ChoppingBlock/ChoppingBlock"},
-        "facing=east":{"model":"drpmedieval:ChoppingBlock/ChoppingBlock", "y":90},
-        "facing=south":{"model":"drpmedieval:ChoppingBlock/ChoppingBlock", "y":180},
-        "facing=west":{"model":"drpmedieval:ChoppingBlock/ChoppingBlock", "y":270}   
-    }
-}

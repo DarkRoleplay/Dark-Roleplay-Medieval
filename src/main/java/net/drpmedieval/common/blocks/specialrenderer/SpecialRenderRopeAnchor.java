@@ -3,7 +3,7 @@ package net.drpmedieval.common.blocks.specialrenderer;
 import org.lwjgl.opengl.GL11;
 
 import net.drpmedieval.common.DarkRoleplayMedieval;
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public class SpecialRenderRopeAnchor extends TileEntitySpecialRenderer {
 
-	private static final ResourceLocation texture = new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/oldBlocks/blockRopeAnchor.png");
+	private static final ResourceLocation texture = new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/old_blocks/block_rope_anchor.png");
 
 	private ModelRopeAnchor model;
 
@@ -26,7 +26,7 @@ public class SpecialRenderRopeAnchor extends TileEntitySpecialRenderer {
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int i) {
 
-		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMedievalBlocks.ROPE_ANCHOR)){
+		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMBlocks.ROPE_ANCHOR)){
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 			GL11.glRotatef(180, 0F, 0F, 1F);
@@ -38,10 +38,10 @@ public class SpecialRenderRopeAnchor extends TileEntitySpecialRenderer {
 			World worldIn = tileentity.getWorld();
 			BlockPos pos = tileentity.getPos();
 
-			Boolean North = worldIn.getBlockState(pos.add(0, -1, -1)).getBlock().equals(DRPMedievalBlocks.ROPE);
-			Boolean East = worldIn.getBlockState(pos.add(1, -1, 0)).getBlock().equals(DRPMedievalBlocks.ROPE);
-			Boolean South = worldIn.getBlockState(pos.add(0, -1, 1)).getBlock().equals(DRPMedievalBlocks.ROPE);
-			Boolean West = worldIn.getBlockState(pos.add(-1, -1, 0)).getBlock().equals(DRPMedievalBlocks.ROPE);
+			Boolean North = worldIn.getBlockState(pos.add(0, -1, -1)).getBlock().equals(DRPMBlocks.ROPE);
+			Boolean East = worldIn.getBlockState(pos.add(1, -1, 0)).getBlock().equals(DRPMBlocks.ROPE);
+			Boolean South = worldIn.getBlockState(pos.add(0, -1, 1)).getBlock().equals(DRPMBlocks.ROPE);
+			Boolean West = worldIn.getBlockState(pos.add(-1, -1, 0)).getBlock().equals(DRPMBlocks.ROPE);
 
 			if(North){
 				this.model.renderNorth(0.0625F);

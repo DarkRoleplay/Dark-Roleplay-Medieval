@@ -1,9 +1,9 @@
 {
 	"variants": {
-	   "position=0":{"model":"drpmedieval:Ropes/rope_center"},
-	   "position=1":{"model":"drpmedieval:Ropes/rope_side"},
-	   "position=2":{"model":"drpmedieval:Ropes/rope_side","y":90,"uvlock":true},
-	   "position=3":{"model":"drpmedieval:Ropes/rope_side","y":180,"uvlock":true},
-	   "position=4":{"model":"drpmedieval:Ropes/rope_side","y":270,"uvlock":true}
+	   "position=0":{"model":"drpmedieval:ropes/rope_center"},
+	   "position=1":{"model":"drpmedieval:ropes/rope_side"},
+	   "position=2":{"model":"drpmedieval:ropes/rope_side","y":90,"uvlock":true},
+	   "position=3":{"model":"drpmedieval:ropes/rope_side","y":180,"uvlock":true},
+	   "position=4":{"model":"drpmedieval:ropes/rope_side","y":270,"uvlock":true}
 	}
 }

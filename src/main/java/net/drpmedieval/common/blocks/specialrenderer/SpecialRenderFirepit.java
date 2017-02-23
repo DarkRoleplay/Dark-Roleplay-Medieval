@@ -3,7 +3,7 @@ package net.drpmedieval.common.blocks.specialrenderer;
 import org.lwjgl.opengl.GL11;
 
 import net.drpmedieval.common.DarkRoleplayMedieval;
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class SpecialRenderFirepit extends TileEntitySpecialRenderer {
 
-	private static final ResourceLocation texture = new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/oldBlocks/blockLargeFirepit.png");
+	private static final ResourceLocation texture = new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/old_blocks/block_large_firepit.png");
 
 	private ModelSmallFirepit model;
 
@@ -24,7 +24,7 @@ public class SpecialRenderFirepit extends TileEntitySpecialRenderer {
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int i) {
 
-		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMedievalBlocks.FIREPIT)){
+		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMBlocks.FIREPIT)){
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) x + 0.5F, (float) y + 0.77F, (float) z + 0.5F);
 			GL11.glRotatef(180, 0F, 0F, 1F);

@@ -1,0 +1,7 @@
+{
+    "variants":{
+        "axis=x":{"model":"drpmedieval:barrel_tables/barrel_table_birch"},
+        "axis=z":{"model":"drpmedieval:barrel_tables/barrel_table_birch", "y":90},
+		"inventory":{"model":"drpmedieval:barrel_tables/barrel_table_birch"} 
+    }
+}

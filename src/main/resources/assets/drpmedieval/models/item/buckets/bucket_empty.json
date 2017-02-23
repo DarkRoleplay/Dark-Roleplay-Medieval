@@ -1,5 +1,5 @@
 {
-    "parent": "drpmedieval:block/Buckets/BucketEmpty",
+    "parent": "drpmedieval:block/buckets/bucket_empty",
 	"display": {
 		"thirdperson_righthand": {
 			"translation":  [ 0, 2.5, 2 ],

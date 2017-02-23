@@ -13,7 +13,7 @@ public class AppleRed extends TreePlant {
 		super(4, 25F, true, new ItemStack(Items.APPLE, 1));
 		this.setRegistryName("AppleRed");
 		this.setUnlocalizedName("AppleRed");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(0.5F);
 		this.setSoundType(SoundType.PLANT);
 		this.setTickRandomly(true);

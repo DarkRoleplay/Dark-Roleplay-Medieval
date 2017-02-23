@@ -1,6 +1,0 @@
-{
-    "parent": "drpmedieval:block/SimpleChairs/SimpleChair",
-    "textures": {
-        "all": "drpmedieval:blocks/SimpleChairs/SimpleChairPlankJungle"
-    }
-}

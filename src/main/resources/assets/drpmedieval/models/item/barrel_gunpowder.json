@@ -1,5 +1,5 @@
 {
-    "parent": "drpmedieval:block/Barrels/BarrelGunpowder",
+    "parent": "drpmedieval:block/barrels/barrel_gunpowder",
     "display": {
 		"gui": {
             "rotation": [ 30, 45, 0 ],

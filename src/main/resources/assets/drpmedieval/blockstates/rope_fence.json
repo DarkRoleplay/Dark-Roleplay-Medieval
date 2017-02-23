@@ -1,0 +1,51 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "drpmedieval:rope_fence/rope_fence_pole",
+        "textures": {
+            "texture": "drpmedieval:blocks/rope_fence/post_oak",
+			"rope": "drpmedieval:blocks/rope_fence/rope"
+        },
+        "transform": "forge:default-block"
+    },
+    "variants": {
+		"normal": [{
+			"model": "drpmedieval:rope_fence/rope_fence_pole"
+		}],
+		"inventory": [{
+			"model": "drpmedieval:rope_fence/rope_fence_pole"
+		}],
+		"north": {
+            false: {},
+            true: {"submodel": {"rope_n": { "model": "drpmedieval:rope_fence/rope_fence_rope_straight"}}}
+        },
+		"north_east": {
+            false: {},
+            true: {"submodel": {"rope_ne": { "model": "drpmedieval:rope_fence/rope_fence_rope_diagonal"}}}
+        },
+		"east": {
+            false: {},
+            true: {"submodel": {"rope_e": { "model": "drpmedieval:rope_fence/rope_fence_rope_straight", "y": 90 }}}
+        },
+		"south_east": {
+            false: {},
+            true: {"submodel": {"rope_se": { "model": "drpmedieval:rope_fence/rope_fence_rope_diagonal", "y": 90 }}}
+        },
+		"south": {
+            false: {},
+            true: {"submodel": {"rope_s": { "model": "drpmedieval:rope_fence/rope_fence_rope_straight", "y": 180 }}}
+        },
+		"south_west": {
+            false: {},
+            true: {"submodel": {"rope_sw": { "model": "drpmedieval:rope_fence/rope_fence_rope_diagonal", "y": 180 }}}
+        },
+		"west": {
+            false: {},
+            true: {"submodel": {"rope_w": { "model": "drpmedieval:rope_fence/rope_fence_rope_straight", "y": 270 }}}
+        },
+		"north_west": {
+            false: {},
+            true: {"submodel": {"rope_nw": { "model": "drpmedieval:rope_fence/rope_fence_rope_diagonal", "y": 270 }}}
+        }
+    }
+}

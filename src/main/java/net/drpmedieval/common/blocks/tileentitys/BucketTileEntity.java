@@ -36,9 +36,9 @@ public class BucketTileEntity  extends TileEntity {
 		}
 		
 		markDirty();
-		if (worldObj != null) {
-            IBlockState state = worldObj.getBlockState(getPos());
-            worldObj.notifyBlockUpdate(getPos(), state, state, 3);
+		if (world != null) {
+            IBlockState state = world.getBlockState(getPos());
+            world.notifyBlockUpdate(getPos(), state, state, 3);
         }
 	}
 	
@@ -57,9 +57,9 @@ public class BucketTileEntity  extends TileEntity {
 		}
 		
 		markDirty();
-		if (worldObj != null) {
-            IBlockState state = worldObj.getBlockState(getPos());
-            worldObj.notifyBlockUpdate(getPos(), state, state, 3);
+		if (world != null) {
+            IBlockState state = world.getBlockState(getPos());
+            world.notifyBlockUpdate(getPos(), state, state, 3);
         }
 		
 		return flower;

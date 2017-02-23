@@ -2,7 +2,7 @@ package net.drpmedieval.common.worldgen;
 
 import java.util.Random;
 
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.worldgen.feature.GenerateAppleTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -26,7 +26,7 @@ public class GenerateStructure implements IWorldGenerator{
 			
 			boolean hasBiome = false;
 			
-			for(BiomeDictionary.Type type : BiomeDictionary.getTypesForBiome(world.getBiomeForCoordsBody(new BlockPos(x,y,z)))){
+			for(BiomeDictionary.Type type : BiomeDictionary.getTypes(world.getBiomeForCoordsBody(new BlockPos(x,y,z)))){
 				if(type == BiomeDictionary.Type.FOREST)
 					hasBiome = true;
 			}
@@ -34,13 +34,13 @@ public class GenerateStructure implements IWorldGenerator{
 			if(hasBiome){
 				switch(random.nextInt(3)){
 				case 0:
-					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMedievalBlocks.APPLE_GREEN);
+					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMBlocks.APPLE_GREEN);
 					break;
 				case 1:
-					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMedievalBlocks.APPLE_RED);
+					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMBlocks.APPLE_RED);
 					break;
 				case 2:
-					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMedievalBlocks.APPLE_YELLOW);
+					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMBlocks.APPLE_YELLOW);
 					break;
 					
 				}

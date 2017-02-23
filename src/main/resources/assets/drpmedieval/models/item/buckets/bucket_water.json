@@ -1,5 +1,5 @@
 {
-    "parent": "drpmedieval:block/Buckets/BucketWater",
+    "parent": "drpmedieval:block/buckets/bucket_water",
 	"display": {
 		"thirdperson_righthand": {
 			"translation":  [ 0, 2.5, 2 ],

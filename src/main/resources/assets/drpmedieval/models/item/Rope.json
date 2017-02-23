@@ -1,5 +1,5 @@
 {
-    "parent": "drpmedieval:block/Ropes/rope_center",
+    "parent": "drpmedieval:block/ropes/rope_center",
     "display": {
 		"gui": {
             "rotation": [ 30, 45, 0 ],

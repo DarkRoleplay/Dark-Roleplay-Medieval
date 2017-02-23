@@ -1,5 +1,5 @@
 {
-    "parent": "drpmedieval:block/HangingBridge/HangingBridgeDefault",
+    "parent": "drpmedieval:block/hanging_bridge/hanging_bridge_default",
     "display": {
 		"gui": {
             "rotation": [ 30, 45, 0 ],
