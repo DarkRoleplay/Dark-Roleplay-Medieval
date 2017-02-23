@@ -1,6 +1,0 @@
-{
-    "parent": "drpmedieval:block/SimpleTables/SimpleTable",
-    "textures": {
-        "all": "drpmedieval:blocks/SimpleTables/SimpleTableBirch"
-    }
-}

@@ -1,6 +1,6 @@
 package net.drpmedieval.common.blocks.decorative.buckets;
 
-import net.drpmedieval.common.blocks.decorative.simpleTables.SimpleTable;
+import net.drpmedieval.common.blocks.decorative.tables.SimpleTable;
 import net.drpmedieval.common.blocks.helper.EnumAxis;
 import net.drpmedieval.common.blocks.templates.DRPMedievalRotatedBlock;
 import net.drpmedieval.common.blocks.tileentitys.BucketTileEntity;
@@ -204,7 +204,6 @@ public class BucketDirt extends Block implements ITileEntityProvider{
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
         if (!world.isRemote) {
         	BucketTileEntity te = getTE(world, pos);
-        	//world.setBlockState(pos, state.withProperty(FLOWER1, 0));
             if (te.getFlower((byte) 2) == 0) {
                 if (player.getHeldItem(hand) != null) {
                 	if(player.getHeldItem(hand).getItem() == Item.getItemFromBlock(Blocks.YELLOW_FLOWER)){
@@ -250,22 +249,18 @@ public class BucketDirt extends Block implements ITileEntityProvider{
                 }
             }
             if (player.getHeldItem(hand).getItem().getToolClasses(player.getHeldItem(hand)).contains("shovel")) {
-            	System.out.println("Debug");
             	 if(te.getFlower((byte) 2) != 0){
              		giveItem(player, world,pos, (byte) te.getFlower((byte) 2));
              		te.removeFlower();
              		player.getHeldItem(hand).damageItem(1, player);
-             		System.out.println("Debugt1");
             	}else if(te.getFlower((byte) 1) != 0){
             		giveItem(player, world,pos, (byte) te.getFlower((byte) 1));
             		te.removeFlower();
             		player.getHeldItem(hand).damageItem(1, player);
-            		System.out.println("Debugt2");
             	}else if(te.getFlower((byte) 0) != 0){
             		giveItem(player, world,pos, (byte) te.getFlower((byte) 0));
             		te.removeFlower();
             		player.getHeldItem(hand).damageItem(1, player);
-            		System.out.println("Debugt3");
             	}
             }
         }

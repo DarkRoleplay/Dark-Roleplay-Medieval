@@ -26,7 +26,7 @@ public class MugBeer extends Block {
 		super(DRPMedievalMaterials.wood);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(1F);
 		this.setSoundType(SoundType.WOOD);
 	}

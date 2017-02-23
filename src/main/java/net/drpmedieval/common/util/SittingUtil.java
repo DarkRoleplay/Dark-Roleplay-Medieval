@@ -13,11 +13,8 @@ public class SittingUtil {
 	public static boolean sitOnBlock(World par1World, double x, double y, double z, EntityPlayer player, double par6){
 		if (!checkForExistingEntity(par1World, x, y, z, player)){
 			EntitySittable nemb = new EntitySittable(par1World, x, y, z, par6);
-			System.out.println("DEBUG1");
-			if(par1World.spawnEntity(nemb))
-				System.out.println("DEBUG2");
-			if(player.startRiding(nemb))
-				System.out.println("DEBUG3");
+			par1World.spawnEntity(nemb);
+			player.startRiding(nemb);
 		}
 		
 		return true;

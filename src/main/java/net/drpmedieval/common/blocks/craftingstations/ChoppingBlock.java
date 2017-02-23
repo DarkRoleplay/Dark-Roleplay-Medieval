@@ -1,5 +1,7 @@
 package net.drpmedieval.common.blocks.craftingstations;
 
+import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
+import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
@@ -29,7 +31,7 @@ public class ChoppingBlock extends Block {
 		super(DRPMedievalMaterials.wood);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.UTILITY);
 		this.setHardness(2F);
 		this.setHarvestLevel("axe", 0);
 		this.setSoundType(SoundType.WOOD);
@@ -129,7 +131,7 @@ public class ChoppingBlock extends Block {
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(world.isRemote){
-			//TODO FIX CRAFTING BLOCK player.openGui(DarkRoleplayCore.instance,GuiHandler.GUI_CRAFTING_RECIPESELECTION,player.worldObj,pos.getX(),pos.getY(),pos.getZ());
+			player.openGui(DarkRoleplayCore.instance, DRPCoreGuis.DRPCORE_GUI_CRAFTING_RECIPESELECTION, player.world, pos.getX(), pos.getY(), pos.getZ());
 		}
 		return true;
 	}

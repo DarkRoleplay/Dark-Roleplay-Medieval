@@ -30,7 +30,7 @@ public class MushroomRed extends Block {
 		super(Material.PLANTS);
 		this.setRegistryName("MushroomRed");
 		this.setUnlocalizedName("MushroomRed");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(0.5F);
 		this.setSoundType(SoundType.PLANT);
 		this.setTickRandomly(false);

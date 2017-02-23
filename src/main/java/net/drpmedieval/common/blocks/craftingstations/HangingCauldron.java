@@ -1,6 +1,8 @@
 package net.drpmedieval.common.blocks.craftingstations;
 
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
+import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityHangingCauldron;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
@@ -33,9 +35,10 @@ public class HangingCauldron extends BlockContainer {
 		super(DRPMedievalMaterials.iron);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.UTILITY);
 		this.setHardness(5F);
 		this.setHarvestLevel("pickaxe", 0);
+		this.setResistance(2000.0F);
 		this.setSoundType(SoundType.ANVIL);
 	}
 	
@@ -104,13 +107,13 @@ public class HangingCauldron extends BlockContainer {
 	}
 	
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
-		return worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true) || worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.IRON_HOOK);
+		return worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true) || worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMBlocks.IRON_HOOK);
 	}
 	
 	// -------------------------------------------------- Block Events --------------------------------------------------
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 
-		if(!worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.IRON_HOOK)) return Blocks.AIR.getDefaultState();
+		if(!worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMBlocks.IRON_HOOK)) return Blocks.AIR.getDefaultState();
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
 			int dir = MathHelper.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
@@ -130,10 +133,10 @@ public class HangingCauldron extends BlockContainer {
 		return Blocks.AIR.getDefaultState();
 	}
 	
-	@Override
+    @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(world.isRemote){
-			//TODO FIX CRAFTING BLOCK player.openGui(DarkRoleplayCore.instance,GuiHandler.GUI_CRAFTING_RECIPESELECTION,player.worldObj,pos.getX(),pos.getY(),pos.getZ());
+			player.openGui(DarkRoleplayCore.instance, DRPCoreGuis.DRPCORE_GUI_CRAFTING_RECIPESELECTION, player.world, pos.getX(), pos.getY(), pos.getZ());
 		}
 		return true;
 	}

@@ -1,6 +1,6 @@
 package net.drpmedieval.common.items.blocks;
 
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.helper.AdvancedBed;
 import net.drpmedieval.common.blocks.helper.EnumMattressType;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
@@ -29,7 +29,7 @@ public class AdvancedBedItem extends Item{
 		super();
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(unlocalizedName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
     }
 	
 	public void setBed(Block bed){

@@ -1,7 +1,7 @@
 {
     "textures": {
-		"particle": "#all",
-        "0": "#all"
+		"particle": "drpmedieval:blocks/clean_plank_acacia",
+        "0": "drpmedieval:blocks/clean_plank_acacia"
     },
     "elements": [
         {

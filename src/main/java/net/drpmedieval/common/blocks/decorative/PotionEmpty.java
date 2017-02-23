@@ -27,7 +27,7 @@ public class PotionEmpty extends Block {
 		super(Material.GLASS);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(0.1F);
 		this.setSoundType(SoundType.GLASS);
 	}

@@ -1,24 +1,27 @@
 .git/*
-eclipse/*
 .gradle/*
+.settings/*
+bin/*
+build/*
+eclipse/*
 gradle/*
 run/*
-.settings/*
-build/*
-bin/*
 libs/*
+libs_src/*
 
-CREDITS-fml.txt
-gradle.properties
-gradlew
-gradlew.bat
-LICENSE-new.txt
-MinecraftForge-Credits.txt
-Paulscode IBXM Library License.txt
-Paulscode SoundSystem CodecIBXM License.txt
-README.txt
-.project
 .classpath
+.gitignore
+.project
+build.gradle
+gradlew.bat
+
 Dark-Roleplay-Medieval_Client.launch
 Dark-Roleplay-Medieval_Server.launch
-
+Forge Latest_Client.launch
+Forge Latest_Server.launch
+gradle.properties
+gradlew
+greadle.bat
+script_buildCOMP.cmd
+script_buildDECOMP.cmd
+script_setupWorkspace.cmd

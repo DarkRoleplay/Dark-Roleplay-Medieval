@@ -29,7 +29,7 @@ public class Crate extends BlockContainer {
 		super(DRPMedievalMaterials.wood);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.UTILITY);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
 	}
@@ -51,34 +51,9 @@ public class Crate extends BlockContainer {
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-			
-	// -------------------------------------------------- Block Placement --------------------------------------------------
-	
-	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 
-		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
-			this.dropBlockAsItem(worldIn, pos, state, 0);
-			worldIn.setBlockToAir(pos);
-		}
-				super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
-	}
-
-	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
-
-		return worldIn.isSideSolid(pos.offset(facing.getOpposite()), facing, true);
-	}
 	
 	// -------------------------------------------------- Block Events --------------------------------------------------
-
-	@Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
-
-		if(worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true))
-			return this.getDefaultState();
-		else
-			return Blocks.AIR.getDefaultState();
-	}
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){

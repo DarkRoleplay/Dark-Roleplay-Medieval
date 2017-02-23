@@ -2,7 +2,7 @@ package net.drpmedieval.common.events;
 
 import java.util.ArrayList;
 
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod.EventHandler;

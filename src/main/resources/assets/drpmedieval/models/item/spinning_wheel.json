@@ -1,10 +1,9 @@
 {
 	"__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
 	"textures": {
-		"particle": "SpinningWheelPlanksOak",
-		"texture": "SpinningWheelPlanksOak",
-		"log": "blocks/LogChairs/LogChairSideOak",
-		"leather": "blocks/tanned_leather"
+		"texture": "drpmedieval:blocks/spinning_wheel/clean_plank_oak",
+		"log": "drpmedieval:blocks/spinning_wheel/bark_oak",
+		"leather": "drpmedieval:blocks/spinning_wheel/tanned_leather"
 	},
 	"elements": [
 		{

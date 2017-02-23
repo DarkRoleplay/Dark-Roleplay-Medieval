@@ -33,9 +33,9 @@ public class DungeonChest extends BlockContainer {
 
 	public DungeonChest(String registryName) {
 		super(DRPMedievalMaterials.wood);
-		this.setRegistryName("registryName");
-		this.setUnlocalizedName("registryName");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setRegistryName(registryName);
+		this.setUnlocalizedName(registryName);
+		this.setCreativeTab(DRPMedievalCreativeTabs.UTILITY);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
 	}

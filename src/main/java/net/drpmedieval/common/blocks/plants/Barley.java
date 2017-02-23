@@ -1,6 +1,6 @@
 package net.drpmedieval.common.blocks.plants;
 
-import net.drpmedieval.common.items.DRPMedievalItems;
+import net.drpmedieval.common.items.DRPMItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;

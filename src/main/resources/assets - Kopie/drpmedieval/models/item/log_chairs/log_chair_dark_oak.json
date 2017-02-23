@@ -1,8 +1,0 @@
-{
-    "parent": "drpmedieval:block/LogChairs/LogChair",
-    "textures": {
-        "side": "drpmedieval:blocks/LogChairs/LogChairSideDarkOak",
-        "top": "drpmedieval:blocks/LogChairs/LogChairTopDarkOak",
-        "inner": "drpmedieval:blocks/LogChairs/LogChairInnerDarkOak"
-    }
-}

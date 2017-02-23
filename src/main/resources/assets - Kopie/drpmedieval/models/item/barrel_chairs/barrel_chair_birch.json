@@ -1,7 +1,0 @@
-{
-    "parent": "drpmedieval:block/BarrelChairs/BarrelChair",
-    "textures": {
-        "side": "drpmedieval:blocks/Barrels/BarrelSideBirch",
-        "top": "drpmedieval:blocks/Barrels/BarrelTopBirch"
-    }
-}

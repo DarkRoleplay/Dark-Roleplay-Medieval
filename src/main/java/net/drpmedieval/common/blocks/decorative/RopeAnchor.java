@@ -1,6 +1,6 @@
 package net.drpmedieval.common.blocks.decorative;
 
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.helper.RopeFixPoint;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityRopeAnchor;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
@@ -79,10 +79,10 @@ public class RopeAnchor extends BlockContainer implements RopeFixPoint {
 	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
 
-		Boolean North = worldIn.getBlockState(pos.add(0, -1, -1)).getBlock().equals(DRPMedievalBlocks.ROPE);
-		Boolean East = worldIn.getBlockState(pos.add(1, -1, 0)).getBlock().equals(DRPMedievalBlocks.ROPE);
-		Boolean South = worldIn.getBlockState(pos.add(0, -1, 1)).getBlock().equals(DRPMedievalBlocks.ROPE);
-		Boolean West = worldIn.getBlockState(pos.add(-1, -1, 0)).getBlock().equals(DRPMedievalBlocks.ROPE);
+		Boolean North = worldIn.getBlockState(pos.add(0, -1, -1)).getBlock().equals(DRPMBlocks.ROPE);
+		Boolean East = worldIn.getBlockState(pos.add(1, -1, 0)).getBlock().equals(DRPMBlocks.ROPE);
+		Boolean South = worldIn.getBlockState(pos.add(0, -1, 1)).getBlock().equals(DRPMBlocks.ROPE);
+		Boolean West = worldIn.getBlockState(pos.add(-1, -1, 0)).getBlock().equals(DRPMBlocks.ROPE);
 
 		return state.withProperty(NORTH, North).withProperty(EAST, East).withProperty(SOUTH, South).withProperty(WEST, West);
 	}

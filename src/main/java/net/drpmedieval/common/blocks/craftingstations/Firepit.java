@@ -2,6 +2,8 @@ package net.drpmedieval.common.blocks.craftingstations;
 
 import java.util.Random;
 
+import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
+import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityFirepit;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
@@ -30,7 +32,7 @@ public class Firepit extends BlockContainer {
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.setLightLevel(0.875F);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.UTILITY);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
 	}
@@ -63,7 +65,7 @@ public class Firepit extends BlockContainer {
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(world.isRemote){
-			//TODO FIX CRAFTING BLOCK player.openGui(DarkRoleplayCore.instance,GuiHandler.GUI_CRAFTING_RECIPESELECTION,player.worldObj,pos.getX(),pos.getY(),pos.getZ());
+			player.openGui(DarkRoleplayCore.instance, DRPCoreGuis.DRPCORE_GUI_CRAFTING_RECIPESELECTION, player.world, pos.getX(), pos.getY(), pos.getZ());
 		}
 		return true;
 	}

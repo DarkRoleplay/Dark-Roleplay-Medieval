@@ -1,6 +1,6 @@
 package net.drpmedieval.common.blocks.decorative;
 
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.helper.RopeFixPoint;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.drpmedieval.common.util.InventoryHelper;
@@ -131,7 +131,7 @@ public class Rope extends Block {
 			RopeFixPoint fixPoint = (RopeFixPoint) worldIn.getBlockState(pos.offset(facing.getOpposite())).getBlock();
 			pos = fixPoint.getPlacementOffset(worldIn, pos.offset(facing.getOpposite()), pos);
 			if(placer instanceof EntityPlayer && worldIn.getBlockState(pos).getBlock() == Blocks.AIR)
-				if(!((EntityPlayer) placer).capabilities.isCreativeMode) ((EntityPlayer) placer).inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMedievalBlocks.ROPE),  ((EntityPlayer) placer).inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+				if(!((EntityPlayer) placer).capabilities.isCreativeMode) ((EntityPlayer) placer).inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMBlocks.ROPE),  ((EntityPlayer) placer).inventory.mainInventory.toArray(new ItemStack[]{})), 1);
 				
 			worldIn.setBlockState(pos, this.getDefaultState().withProperty(POSITION, dir), 3);
 			//TODO Play Sound
@@ -143,43 +143,40 @@ public class Rope extends Block {
 	
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-
-		if(player.getHeldItem(EnumHand.MAIN_HAND) != null){
-			if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Item.getItemFromBlock(DRPMedievalBlocks.ROPE))){
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+		
+		if(player.getHeldItem(hand) != null){
+			if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Item.getItemFromBlock(DRPMBlocks.ROPE))){
 				for(int i = pos.getY() - 1; i > 0; i--){
 					BlockPos pos2 = new BlockPos(pos.getX(), pos.getY() - (pos.getY() - i), pos.getZ());
-					if(world.getBlockState(pos2).getBlock().equals(DRPMedievalBlocks.ROPE)){
+					if(world.getBlockState(pos2).getBlock().equals(DRPMBlocks.ROPE)){
 						continue;
-					}
-					else if(world.getBlockState(pos2).getBlock().equals(Blocks.AIR)){
-						world.setBlockState(pos2, state);
+					}else if(world.getBlockState(pos2).getBlock().equals(Blocks.AIR)){
+						if(!world.isRemote){
+							world.setBlockState(pos2, state);
+							if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMBlocks.ROPE),  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+						}
 						//TODO PLAY SOUND
 						//world.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), this.stepSound.getPlaceSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, /*this.stepSound.getFrequency()*/1 * 0.8F);
-						if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMedievalBlocks.ROPE),  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
 						return true;
-					}
-					else{
+					}else{
 						return true;
 					}
 				}
-			}
-		}
-		else{
-			if(player.isSneaking()){
-				for(int i = pos.getY() - 1; i > 0; i--){
-					BlockPos pos2 = new BlockPos(pos.getX(), pos.getY() - (pos.getY() - i), pos.getZ());
-					if(world.getBlockState(pos2).getBlock().equals(DRPMedievalBlocks.ROPE)){
-						continue;
-					}
-					else{
-						BlockPos pos3 = new BlockPos(pos2.getX(), pos2.getY() + 1, pos2.getZ());
-						world.setBlockState(pos3, Blocks.AIR.getDefaultState());
-						//TODO PLAY SOUND
-						//worldIn.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), this.stepSound.getBreakSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, this.stepSound.getFrequency() * 0.8F);
-
-						if(!player.getEntityWorld().isRemote) player.getEntityWorld().spawnEntity(new EntityItem(player.getEntityWorld(), player.posX, player.posY, player.posZ, new ItemStack(DRPMedievalBlocks.ROPE, 1)));
-						return true;
+			}else{
+				if(player.isSneaking()){
+					for(int i = pos.getY() - 1; i > 0; i--){
+						BlockPos pos2 = new BlockPos(pos.getX(), pos.getY() - (pos.getY() - i), pos.getZ());
+						if(world.getBlockState(pos2).getBlock().equals(DRPMBlocks.ROPE)){
+							continue;
+						}else{
+							if(!world.isRemote){
+								BlockPos pos3 = new BlockPos(pos2.getX(), pos2.getY() + 1, pos2.getZ());
+								world.setBlockState(pos3, Blocks.AIR.getDefaultState());
+								if(!world.isRemote) world.spawnEntity(new EntityItem(world, player.posX, player.posY, player.posZ, new ItemStack(DRPMBlocks.ROPE, 1)));
+							}
+							return true;
+						}
 					}
 				}
 			}

@@ -1,7 +1,7 @@
 package net.drpmedieval.common.blocks.decorative;
 
 import net.drpmedieval.client.sound.SoundEvents;
-import net.drpmedieval.common.blocks.DRPMedievalBlocks;
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.drpmedieval.common.util.SittingUtil;
@@ -130,8 +130,10 @@ public class GoldenShipsBell   extends Block {
 	}
 	
 	@Override
-	    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-		worldIn.playSound(pos.getX(),pos.getY(),pos.getZ(), SoundEvents.ShipsBell, SoundCategory.BLOCKS, 3F, 1F, true);
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+		if(!worldIn.isRemote){
+			worldIn.playSound(pos.getX(),pos.getY(),pos.getZ(), SoundEvents.ShipsBell, SoundCategory.BLOCKS, 3F, 1F, true);
+		}
 		return true;
 	}
 	

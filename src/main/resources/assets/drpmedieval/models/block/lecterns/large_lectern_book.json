@@ -1,0 +1,108 @@
+{
+	"__comment": "Designed by JTK222",
+	"textures": {
+		"particle": "drpmedieval:blocks/lecterns/clean_plank_spruce",
+		"Wood": "drpmedieval:blocks/lecterns/clean_plank_spruce",
+		"BookCover": "drpmedieval:blocks/lecterns/book_cover",
+		"BookPaper": "drpmedieval:blocks/lecterns/book_paper"
+	},
+	"elements": [
+		{
+			"__comment": "MiddlePole",
+			"from": [ 7, 0, 7 ],
+			"to": [ 9, 4, 9 ],
+			"faces": {
+				"down": { "uv": [ 7, 7, 9, 9 ], "texture": "#Wood" },
+				"up": { "uv": [ 7, 7, 9, 9 ], "texture": "#Wood" },
+				"north": { "uv": [ 7, 12, 9, 16 ], "texture": "#Wood" },
+				"south": { "uv": [ 7, 12, 9, 16 ], "texture": "#Wood" },
+				"west": { "uv": [ 7, 12, 9, 16 ], "texture": "#Wood" },
+				"east": { "uv": [ 7, 12, 9, 16 ], "texture": "#Wood" }
+			}
+		},
+		{
+			"__comment": "MainPiece",
+			"from": [ 0, 1, 1.5 ],
+			"to": [ 16, 2, 15.5 ],
+			"rotation": { "origin": [ 8, 2, 1.5 ], "axis": "x", "angle": -22.5 },
+			"faces": {
+				"down": { "uv": [ 0, 0.1173172, 16, 14.11732 ], "texture": "#Wood" },
+				"up": { "uv": [ 0, 1.882683, 16, 15.88268 ], "texture": "#Wood" },
+				"north": { "uv": [ 0, 13.92388, 16, 14.92388 ], "texture": "#Wood" },
+				"south": { "uv": [ 0, 13.92388, 16, 14.92388 ], "texture": "#Wood" },
+				"west": { "uv": [ 1.882683, 13.92388, 15.88268, 14.92388 ], "texture": "#Wood" },
+				"east": { "uv": [ 0.1173167, 13.92388, 14.11732, 14.92388 ], "texture": "#Wood" }
+			}
+		},
+		{
+			"__comment": "FrontPiece",
+			"from": [ 0, 2, 2 ],
+			"to": [ 16, 3.5, 3 ],
+			"rotation": { "origin": [ 0, 2, 2 ], "axis": "x", "angle": -22.5 },
+			"faces": {
+				"down": { "uv": [ 0, 13, 16, 14 ], "texture": "#Wood" },
+				"up": { "uv": [ 0, 2, 16, 3 ], "texture": "#Wood" },
+				"north": { "uv": [ 0, 12.5, 16, 14 ], "texture": "#Wood" },
+				"south": { "uv": [ 0, 12.5, 16, 14 ], "texture": "#Wood" },
+				"west": { "uv": [ 2, 12.5, 3, 14 ], "texture": "#Wood" },
+				"east": { "uv": [ 13, 12.5, 14, 14 ], "texture": "#Wood" }
+			}
+		},
+		{
+			"__comment": "BookCover",
+			"from": [ 2, 3, 3.5 ],
+			"to": [ 14, 3.5, 13.5 ],
+			"rotation": { "origin": [ 2, 3, 3.5 ], "axis": "x", "angle": -22.5 },
+			"faces": {
+				"down": { "uv": [ 2, 2.5, 14, 12.5 ], "texture": "#BookCover" },
+				"up": { "uv": [ 2, 3.5, 14, 13.5 ], "texture": "#BookCover" },
+				"north": { "uv": [ 2, 12.5, 14, 13 ], "texture": "#BookCover" },
+				"south": { "uv": [ 2, 12.5, 14, 13 ], "texture": "#BookCover" },
+				"west": { "uv": [ 3.5, 12.5, 13.5, 13 ], "texture": "#BookCover" },
+				"east": { "uv": [ 2.5, 12.5, 12.5, 13 ], "texture": "#BookCover" }
+			}
+		},
+		{
+			"__comment": "BookPaperMain",
+			"from": [ 2.5, 3.5, 3.5 ],
+			"to": [ 13.5, 4.5, 12.5 ],
+			"rotation": { "origin": [ 3, 4.5, 3.5 ], "axis": "x", "angle": -22.5 },
+			"faces": {
+				"down": { "uv": [ 2.5, 7, 13.5, 16 ], "texture": "#BookPaper" },
+				"up": { "uv": [ 2.5, 0, 13.5, 9 ], "texture": "#BookPaper" },
+				"north": { "uv": [ 2.5, 15, 13.5, 16 ], "texture": "#BookPaper" },
+				"south": { "uv": [ 2.5, 15, 13.5, 16 ], "texture": "#BookPaper" },
+				"west": { "uv": [ 0, 15, 9, 16 ], "texture": "#BookPaper" },
+				"east": { "uv": [ 7, 15, 16, 16 ], "texture": "#BookPaper" }
+			}
+		},
+		{
+			"__comment": "BookPaperWest",
+			"from": [ 3, 4.5, 3.5 ],
+			"to": [ 7.5, 5, 12.5 ],
+			"rotation": { "origin": [ 3, 4.5, 3.5 ], "axis": "x", "angle": -22.5 },
+			"faces": {
+				"down": { "uv": [ 3, 7, 7.5, 16 ], "texture": "#BookPaper" },
+				"up": { "uv": [ 3, 0, 7.5, 9 ], "texture": "#BookPaper" },
+				"north": { "uv": [ 8.5, 14.5, 13, 15 ], "texture": "#BookPaper" },
+				"south": { "uv": [ 3, 14.5, 7.5, 15 ], "texture": "#BookPaper" },
+				"west": { "uv": [ 0, 14.5, 9, 15 ], "texture": "#BookPaper" },
+				"east": { "uv": [ 7, 14.5, 16, 15 ], "texture": "#BookPaper" }
+			}
+		},
+		{
+			"__comment": "BookPaperEast",
+			"from": [ 8.5, 4.5, 3.5 ],
+			"to": [ 13, 5, 12.5 ],
+			"rotation": { "origin": [ 3, 4.5, 3.5 ], "axis": "x", "angle": -22.5 },
+			"faces": {
+				"down": { "uv": [ 8.5, 7, 13, 16 ], "texture": "#BookPaper" },
+				"up": { "uv": [ 8.5, 0, 13, 9 ], "texture": "#BookPaper" },
+				"north": { "uv": [ 3, 14.5, 7.5, 15 ], "texture": "#BookPaper" },
+				"south": { "uv": [ 8.5, 14.5, 13, 15 ], "texture": "#BookPaper" },
+				"west": { "uv": [ 0, 14.5, 9, 15 ], "texture": "#BookPaper" },
+				"east": { "uv": [ 7, 14.5, 16, 15 ], "texture": "#BookPaper" }
+			}
+		}
+	]
+}

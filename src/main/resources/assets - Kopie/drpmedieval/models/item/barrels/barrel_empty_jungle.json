@@ -1,7 +1,0 @@
-{
-    "parent": "drpmedieval:block/Barrels/BarrelEmpty",
-    "textures": {
-        "side": "drpmedieval:blocks/Barrels/BarrelSideJungle",
-        "top": "drpmedieval:blocks/Barrels/BarrelTopJungle"
-    }
-}

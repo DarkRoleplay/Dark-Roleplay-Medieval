@@ -28,7 +28,7 @@ public class KeyHanging extends BlockContainer {
 		super(DRPMedievalMaterials.iron);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.METAL);
 	}

@@ -27,8 +27,8 @@ public class Apiary  extends Block {
 		super(Material.WOOD);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalBlocksTab);
-		this.setHardness(1F);
+		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
+		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
 	}
 	
