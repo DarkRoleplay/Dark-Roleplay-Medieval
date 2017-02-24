@@ -2,11 +2,9 @@ package net.drpmedieval.common.gui.container;
 
 import net.drpmedieval.common.blocks.tileentitys.TileEntityCrate;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class ContainerCrate extends Container {
@@ -41,20 +39,20 @@ public class ContainerCrate extends Container {
 
 	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
 
-		ItemStack itemstack = new ItemStack(Blocks.AIR, 1, 0);
+		ItemStack itemstack = null;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
-		if(slot != null && !slot.getStack().isEmpty()){
+		if(slot != null && slot.getHasStack()){
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
-			
-			if(index < 15){
-				if(!this.mergeItemStack(itemstack1, 15, this.inventorySlots.size(), true)){ return new ItemStack(Blocks.AIR, 1, 0); }
+
+			if(index < 27){
+				if(!this.mergeItemStack(itemstack1, 27, this.inventorySlots.size(), true)){ return null; }
 			}
-			else if(!this.mergeItemStack(itemstack1, 0, 14, false)){ return new ItemStack(Blocks.AIR, 1, 0); }
+			else if(!this.mergeItemStack(itemstack1, 0, 27, false)){ return null; }
 
 			if(itemstack1.getCount() == 0){
-				slot.putStack(new ItemStack(Blocks.AIR, 1, 0));
+				slot.putStack((ItemStack) null);
 			}
 			else{
 				slot.onSlotChanged();
