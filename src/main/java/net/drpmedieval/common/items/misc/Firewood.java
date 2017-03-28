@@ -21,11 +21,11 @@ public class Firewood extends Item {
 		this.setUnlocalizedName("Firewood");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
-
+	
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list){
+	public void getSubItems(Item itemIn, CreativeTabs tab, List subItems) {
     	for(int i = 0; i < 6; i++){
-			list.add(new ItemStack(itemIn, 1, i));
+    		subItems.add(new ItemStack(itemIn, 1, i));
 		}
     }
 }

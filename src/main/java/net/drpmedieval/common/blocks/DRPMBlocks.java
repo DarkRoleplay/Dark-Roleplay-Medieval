@@ -13,11 +13,15 @@ import net.drpmedieval.common.blocks.decorative.hangingBridges.HangingBridge2;
 import net.drpmedieval.common.blocks.decorative.lecterns.LargeLectern;
 import net.drpmedieval.common.blocks.decorative.ropeFence.RopeFence;
 import net.drpmedieval.common.blocks.decorative.tables.*;
+import net.drpmedieval.common.blocks.minerals.AdvancedOre;
 import net.drpmedieval.common.blocks.other.RegeneratingOre;
+import net.drpmedieval.common.blocks.other.RopeCoil;
 import net.drpmedieval.common.blocks.plants.*;
 import net.drpmedieval.common.blocks.plants.apples.Apple;
 import net.drpmedieval.common.blocks.plants.mushrooms.Mushroom;
 import net.drpmedieval.common.blocks.plants.pears.Pear;
+import net.drpmedieval.common.blocks.plants.sapling.AppleSappling;
+import net.drpmedieval.common.blocks.rotary.Axle;
 import net.drpmedieval.common.blocks.storage.*;
 import net.drpmedieval.common.items.DRPMItems;
 import net.drpmedieval.common.items.blocks.CleanPlankItem;
@@ -42,17 +46,19 @@ public class DRPMBlocks {
 	public static StonePillar ANDESITE_PILLAR = new StonePillar("andesite_pillar");
 	
 	public static Anvil ANVIL = new Anvil("anvil");
-	public static Apiary APIARY_OAK = new Apiary("apiary_oak");
-	public static Apiary APIARY_BIRCH = new Apiary("apiary_birch");
-	public static Apiary APIARY_SPRUCE = new Apiary("apiary_spruce");
-	public static Apiary APIARY_JUNGLE = new Apiary("apiary_jungle");
-	public static Apiary APIARY_ACACIA = new Apiary("apiary_acacia");
-	public static Apiary APIARY_DARK_OAK = new Apiary("apiary_dark_oak");
+//	public static Apiary APIARY_OAK = new Apiary("apiary_oak");
+//	public static Apiary APIARY_BIRCH = new Apiary("apiary_birch");
+//	public static Apiary APIARY_SPRUCE = new Apiary("apiary_spruce");
+//	public static Apiary APIARY_JUNGLE = new Apiary("apiary_jungle");
+//	public static Apiary APIARY_ACACIA = new Apiary("apiary_acacia");
+//	public static Apiary APIARY_DARK_OAK = new Apiary("apiary_dark_oak");
 
 	public static Apple APPLE_GREEN = new Apple("apple_green", new ItemStack(DRPMItems.AppleGreen, 1)); //TODO FIX APPLES
 	public static Apple APPLE_RED = new Apple("apple_red", new ItemStack(Items.APPLE, 1));
 	public static Apple APPLE_YELLOW = new Apple("apple_yellow", new ItemStack(DRPMItems.AppleYellow, 1));
-
+	public static AppleSappling APPLE_SAPPLING = new AppleSappling("apple_sapling");
+	public static Axle AXLE = new Axle("axle");
+	
 	/** B **/
 
 	public static Barley BARLEY = new Barley();
@@ -118,7 +124,9 @@ public class DRPMBlocks {
 	public static ChoppingBlock CHOPPING_BLOCK = new ChoppingBlock("chopping_block");
 	public static CleanPlanks CLEAN_PLANKS = new CleanPlanks("clean_planks");
 	public static Crate CRATE = new Crate("crate");
-
+	public static AdvancedOre COPPER_ORE = new AdvancedOre("copper_ore");
+	
+	
 	/** D **/
 	
 	public static StoneBricks DIORITE_BRICKS = new StoneBricks("diorite_bricks");
@@ -143,6 +151,7 @@ public class DRPMBlocks {
 
 	/** H **/
 
+	public static Hops HOPS = new Hops("hops");
 	public static HangingBridge HANGING_BRIDGE = new HangingBridge("hanging_bridge");
 	public static HangingBridge2 HANGING_BRIDGE_BOTTOM = new HangingBridge2("hanging_bridge_bottom" ,0F); //TODO NEW
 	public static HangingBridge2 HANGING_BRIDGE_TOP = new HangingBridge2("hanging_bridge_top" ,0.5F); //TODO NEW
@@ -159,9 +168,11 @@ public class DRPMBlocks {
 
 	/** L **/
 
-	public static LargeLectern LARGE_LECTERN_SPRUCE = new LargeLectern("large_lectern_spruce");
+	public static Leaves1 LEAVES_1 = new Leaves1("leaves1", "leaves1");//TODO PORT TO WOOD HANDLER
+	public static Logs1 LOGS_1 = new Logs1("logs1", "logs1");//TODO PORT TO WOOD HANDLER
+	public static LargeLectern LARGE_LECTERN_SPRUCE = new LargeLectern("large_lectern_spruce");//TODO PORT TO WOOD HANDLER
 	
-	public static LogChair LOG_CHAIR_OAK = new LogChair("log_chair_oak");
+	public static LogChair LOG_CHAIR_OAK = new LogChair("log_chair_oak");//TODO PORT TO WOOD HANDLER
 	public static LogChair LOG_CHAIR_SPRUCE = new LogChair("log_chair_spruce");
 	public static LogChair LOG_CHAIR_BIRCH = new LogChair("log_chair_birch");
 	public static LogChair LOG_CHAIR_JUNGLE = new LogChair("log_chair_jungle");
@@ -172,7 +183,7 @@ public class DRPMBlocks {
 	/** M **/
 
 	public static Mortar MORTAR = new Mortar("mortar");
-	public static MossyLog MOSSY_LOG_ACACIA = new MossyLog("mossy_log_acacia");
+	public static MossyLog MOSSY_LOG_ACACIA = new MossyLog("mossy_log_acacia");//TODO PORT TO WOOD HANDLER
 	public static MossyLog MOSSY_LOG_BIRCH = new MossyLog("mossy_log_birch");
 	public static MossyLog MOSSY_LOG_DARK_OAK = new MossyLog("mossy_log_dark_oak");
 	public static MossyLog MOSSY_LOG_JUNGLE = new MossyLog("mossy_log_jungle");
@@ -191,6 +202,7 @@ public class DRPMBlocks {
 
 	/** P **/
 
+	public static Planks1 PLANKS_1 = new Planks1("planks1", "planks1");
 	public static PackedIceBricks PACKED_ICE_BRICKS = new PackedIceBricks("packed_ice_bricks");
 	public static Pear PEAR_GREEN = new Pear("pear_green", new ItemStack(DRPMItems.PearGreen, 1)); //TODO FIX PEARS
 	public static Pear PEAR_YELLOW = new Pear("pear_yellow", new ItemStack(DRPMItems.PearYellow, 1));
@@ -202,11 +214,16 @@ public class DRPMBlocks {
 
 	public static RegeneratingOre rgO = new RegeneratingOre("regenOre", DRPMedievalCreativeTabs.drpmedievalMiscTab, 0.4F, 5); //TODO REGENERATING ORES
 	public static Rope ROPE = new Rope("rope");
+	public static RopeCoil ROPE_COIL = new RopeCoil("rope_coil");
 	public static RopeAnchor ROPE_ANCHOR = new RopeAnchor("rope_anchor");
 	public static RopeFence ROPE_FENCE = new RopeFence("rope_fence");
 	
 	/** S **/
 
+	public static AdvancedOre SALPETER_ORE = new AdvancedOre("salpeter_ore");
+	public static AdvancedOre SULFUR_ORE = new AdvancedOre("sulfur_ore");
+	public static AdvancedOre SILVER_ORE = new AdvancedOre("silver_ore");
+	
 	public static SimpleChair SIMPLE_CHAIR_OAK = new SimpleChair("simple_chair_oak");;
 	public static SimpleChair SIMPLE_CHAIR_BIRCH = new SimpleChair("simple_chair_birch");
 	public static SimpleChair SIMPLE_CHAIR_SPRUCE = new SimpleChair("simple_chair_spruce");
@@ -221,6 +238,14 @@ public class DRPMBlocks {
 	public static SimpleTable SIMPLE_TABLE_ACACIA = new SimpleTable("simple_table_acacia");
 	public static SimpleTable SIMPLE_TABLE_DARK_OAK = new SimpleTable("simple_table_dark_oak");
 	
+	public static SidewayBarrel SIDEWAY_BARREL_ACACIA = new SidewayBarrel("sideway_barrel_acacia");
+	public static SidewayBarrel SIDEWAY_BARREL_BIRCH = new SidewayBarrel("sideway_barrel_birch");
+	public static SidewayBarrel SIDEWAY_BARREL_OAK = new SidewayBarrel("sideway_barrel_oak");
+	public static SidewayBarrel SIDEWAY_BARREL_JUNGLE = new SidewayBarrel("sideway_barrel_jungle");
+	public static SidewayBarrel SIDEWAY_BARREL_SPRUCE = new SidewayBarrel("sideway_barrel_spruce");
+	public static SidewayBarrel SIDEWAY_BARREL_DARK_OAK = new SidewayBarrel("sideway_barrel_dark_oak");
+	
+	
 	public static ShipsHelm SHIPS_HELM = new ShipsHelm("ships_helm");
 	
 	public static SnowBricks SNOW_BRICKS = new SnowBricks("snow_bricks");
@@ -229,6 +254,7 @@ public class DRPMBlocks {
 
 	/** T **/
 
+	public static AdvancedOre TIN_ORE = new AdvancedOre("tin_ore");
 	public static Target TARGET = new Target("target");
 	public static TorchHolderEmpty TORCH_HOLDER_EMPTY = new TorchHolderEmpty("torch_holder_empty");
 	public static TorchHolderLit TORCH_HOLDER_LIT = new TorchHolderLit("torch_holder_lit");
@@ -248,8 +274,27 @@ public class DRPMBlocks {
 
 	public static void preInit(FMLPreInitializationEvent event) {
 		//registerBlock(rgO);
+		WoodHelper.init();
 
 		registerBlock(SNOW_BRICKS);
+		//registerBlock(APPLE_SAPPLING);
+		
+		TIN_ORE.setOre(DRPMItems.TIN_ORE_CHUNK);
+		COPPER_ORE.setOre(DRPMItems.COPPER_ORE_CHUNK);
+		SILVER_ORE.setOre(DRPMItems.SILVER_ORE_CHUNK);
+		SULFUR_ORE.setOre(DRPMItems.SULFUR_ORE_CHUNK);
+		SALPETER_ORE.setOre(DRPMItems.SALPETER_ORE_CHUNK);
+		
+		registerBlock(HOPS, null, false);
+		//registerBlock(ROPE_COIL);
+		
+		registerBlock(AXLE);
+		
+		registerBlock(TIN_ORE);
+		registerBlock(COPPER_ORE);
+		registerBlock(SILVER_ORE);
+		registerBlock(SULFUR_ORE);
+		registerBlock(SALPETER_ORE);
 		
 		registerBlock(ANDESITE_PILLAR);
 		registerBlock(ANDESITE_BRICKS);
@@ -307,12 +352,13 @@ public class DRPMBlocks {
 		registerBlock(BED_FRAME_ACACIA, null);
 		registerBlock(BED_FRAME_DARK_OAK, null);
 		
-		registerBlock(APIARY_OAK);
-		registerBlock(APIARY_BIRCH);
-		registerBlock(APIARY_SPRUCE);
-		registerBlock(APIARY_JUNGLE);
-		registerBlock(APIARY_ACACIA);
-		registerBlock(APIARY_DARK_OAK);
+		//TODO FIX APIARYS
+//		REGISTERBLOCK(APIARY_OAK);
+//		REGISTERBLOCK(APIARY_BIRCH);
+//		REGISTERBLOCK(APIARY_SPRUCE);
+//		REGISTERBLOCK(APIARY_JUNGLE);
+//		REGISTERBLOCK(APIARY_ACACIA);
+//		REGISTERBLOCK(APIARY_DARK_OAK);
 
 		registerBlock(BARREL_TABLE_OAK);
 		registerBlock(BARREL_TABLE_BIRCH);
@@ -338,6 +384,12 @@ public class DRPMBlocks {
 		registerBlock(CLEAN_PLANKS, new CleanPlankItem(CLEAN_PLANKS));
 		registerBlock(FLOWER_POT);
 		
+		registerBlock(SIDEWAY_BARREL_ACACIA);
+		registerBlock(SIDEWAY_BARREL_BIRCH);
+		registerBlock(SIDEWAY_BARREL_OAK);
+		registerBlock(SIDEWAY_BARREL_JUNGLE);
+		registerBlock(SIDEWAY_BARREL_SPRUCE);
+		registerBlock(SIDEWAY_BARREL_DARK_OAK);
 		
 		registerBlock(CHOPPING_BLOCK);
 		registerBlock(APPLE_RED, null);
@@ -365,6 +417,10 @@ public class DRPMBlocks {
 		registerBlock(MOSSY_LOG_SPRUCE);
 		registerBlock(MOSSY_LOG_OAK);
 		
+		//TODO FIX UP APPLE TREES
+		//registerBlock(PLANKS_1);
+		//registerBlock(LEAVES_1);
+		//registerBlock(LOGS_1);
 		
 		registerBlock(HANGING_BRIDGE);
 		//TODO FIX UP HANGING BRIDGE

@@ -19,33 +19,33 @@ public class GenerateStructure implements IWorldGenerator{
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,IChunkProvider chunkProvider) {
 		
-		//if(random.nextInt(99) == 0){
-			int x = chunkX * 16 + random.nextInt(16);
-			int z = chunkZ * 16 + random.nextInt(16);
-			int y = getWorldHeightAt(world,x,z);
-			
-			boolean hasBiome = false;
-			
-			for(BiomeDictionary.Type type : BiomeDictionary.getTypes(world.getBiomeForCoordsBody(new BlockPos(x,y,z)))){
-				if(type == BiomeDictionary.Type.FOREST)
-					hasBiome = true;
-			}
-			
-			if(hasBiome){
-				switch(random.nextInt(3)){
-				case 0:
-					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMBlocks.APPLE_GREEN);
-					break;
-				case 1:
-					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMBlocks.APPLE_RED);
-					break;
-				case 2:
-					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMBlocks.APPLE_YELLOW);
-					break;
-					
-				}
-			}
-		//}
+//		if(random.nextInt(50) == 0){
+//			int x = chunkX * 16 + random.nextInt(16);
+//			int z = chunkZ * 16 + random.nextInt(16);
+//			int y = getWorldHeightAt(world,x,z);
+//			
+//			boolean hasBiome = false;
+//			
+//			for(BiomeDictionary.Type type : BiomeDictionary.getTypes(world.getBiomeForCoordsBody(new BlockPos(x,y,z)))){
+//				if(type == BiomeDictionary.Type.FOREST)
+//					hasBiome = true;
+//			}
+//			
+//			if(hasBiome){
+////				switch(random.nextInt(1)){
+////				case 0:
+////					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMBlocks.APPLE_GREEN);
+////					break;
+////				case 1:
+////					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMBlocks.APPLE_RED);
+////					break;
+////				case 2:
+//					GenerateAppleTree.generateTree(world, new BlockPos(x,y,z).add(0,1,0),DRPMBlocks.APPLE_YELLOW);
+////					break;
+////					
+////				}
+//			}
+//		}
 	}
 
 	private static int getWorldHeightAt(World world, int x, int z){

@@ -36,41 +36,47 @@ public class Rope extends Block {
 		this.setHardness(0.5F);
 		this.setSoundType(SoundType.CLOTH);
 	}
-	
-	// -------------------------------------------------- Block Data --------------------------------------------------
+
+	// -------------------------------------------------- Block Data
+	// --------------------------------------------------
 
 	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
-		if(state.getValue(POSITION).intValue() == 0){
-			return new AxisAlignedBB(0.4375F,0F,0.4375F,0.5625F,1F,0.5625F);
-		}else if( state.getValue(POSITION).intValue() == 1){
-			return new AxisAlignedBB(0.4375F,0F,0F,0.5625F,1F,0.125F);
-		}else if( state.getValue(POSITION).intValue() == 2){
-			return new AxisAlignedBB(0.875F,0F,0.4375F,1F,1F,0.5625F);
-		}else if( state.getValue(POSITION).intValue() == 3){
-			return new AxisAlignedBB(0.4375F,0F,0.875F,0.5625F,1F,1F);
-		}else if( state.getValue(POSITION).intValue() == 4){
-			return new AxisAlignedBB(0F,0F,0.4375F,0.125F,1F,0.5625F);
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		if (state.getValue(POSITION).intValue() == 0) {
+			return new AxisAlignedBB(0.4375F, 0F, 0.4375F, 0.5625F, 1F, 0.5625F);
+		} else if (state.getValue(POSITION).intValue() == 1) {
+			return new AxisAlignedBB(0.4375F, 0F, 0F, 0.5625F, 1F, 0.125F);
+		} else if (state.getValue(POSITION).intValue() == 2) {
+			return new AxisAlignedBB(0.875F, 0F, 0.4375F, 1F, 1F, 0.5625F);
+		} else if (state.getValue(POSITION).intValue() == 3) {
+			return new AxisAlignedBB(0.4375F, 0F, 0.875F, 0.5625F, 1F, 1F);
+		} else if (state.getValue(POSITION).intValue() == 4) {
+			return new AxisAlignedBB(0F, 0F, 0.4375F, 0.125F, 1F, 0.5625F);
 		}
 		return null;
-    }
-	
-	@Override
-    public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
-		return true; 
 	}
-	
+
+	@Override
+	public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
+		return true;
+	}
+
 	@Override
 	public boolean canPlaceBlockOnSide(World world, BlockPos pos, EnumFacing facing) {
 
-		if(world.getBlockState(pos.offset(facing.getOpposite())).getBlock() instanceof RopeFixPoint){
+		if (world.getBlockState(pos.offset(facing.getOpposite())).getBlock() instanceof RopeFixPoint) {
 			RopeFixPoint fixPoint = (RopeFixPoint) world.getBlockState(pos.offset(facing.getOpposite())).getBlock();
-			if(fixPoint.isRopeFixable(world, pos.offset(facing), facing)){ return true; }
+			if (fixPoint.isRopeFixable(world, pos.offset(facing), facing)) {
+				return true;
+			}
 		}
+		if( facing == EnumFacing.DOWN && world.isSideSolid(pos.up(), facing)){
+			return true;
+		}
+		
 		return false;
 	}
-	
+
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
@@ -86,94 +92,120 @@ public class Rope extends Block {
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] {POSITION});
+		return new BlockStateContainer(this, new IProperty[] { POSITION });
 	}
-	
+
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-			
-	// -------------------------------------------------- Block Placement --------------------------------------------------
+
+	// -------------------------------------------------- Block Placement
+	// --------------------------------------------------
 
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
 
-		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
+		if (!this.canBlockStay(worldIn, pos, EnumFacing.UP)) {
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockToAir(pos);
 		}
-				super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
+		super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 	}
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
 
 		return true;
 	}
-	// -------------------------------------------------- Block Events --------------------------------------------------
-	
+	// -------------------------------------------------- Block Events
+	// --------------------------------------------------
+
 	@Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
+	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+			float hitZ, int meta, EntityLivingBase placer) {
 
 		int dir = 0;
-		if(facing.equals(facing.UP)) dir = 0;
-		if(facing.equals(facing.SOUTH)) dir = 1;
-		if(facing.equals(facing.WEST)) dir = 2;
-		if(facing.equals(facing.NORTH)) dir = 3;
-		if(facing.equals(facing.EAST)) dir = 4;
+		if (facing.equals(facing.UP))
+			dir = 0;
+		if (facing.equals(facing.SOUTH))
+			dir = 1;
+		if (facing.equals(facing.WEST))
+			dir = 2;
+		if (facing.equals(facing.NORTH))
+			dir = 3;
+		if (facing.equals(facing.EAST))
+			dir = 4;
 
-		if(worldIn.getBlockState(pos.offset(facing.getOpposite())).getBlock() instanceof RopeFixPoint){
+		if (worldIn.getBlockState(pos.offset(facing.getOpposite())).getBlock() instanceof RopeFixPoint) {
 			RopeFixPoint fixPoint = (RopeFixPoint) worldIn.getBlockState(pos.offset(facing.getOpposite())).getBlock();
 			pos = fixPoint.getPlacementOffset(worldIn, pos.offset(facing.getOpposite()), pos);
-			if(placer instanceof EntityPlayer && worldIn.getBlockState(pos).getBlock() == Blocks.AIR)
-				if(!((EntityPlayer) placer).capabilities.isCreativeMode) ((EntityPlayer) placer).inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMBlocks.ROPE),  ((EntityPlayer) placer).inventory.mainInventory.toArray(new ItemStack[]{})), 1);
-				
+			if (placer instanceof EntityPlayer && worldIn.getBlockState(pos).getBlock() == Blocks.AIR)
+				if (!((EntityPlayer) placer).capabilities.isCreativeMode)
+					((EntityPlayer) placer).inventory.decrStackSize(
+							InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMBlocks.ROPE),
+									((EntityPlayer) placer).inventory.mainInventory.toArray(new ItemStack[] {})),
+							1);
+
 			worldIn.setBlockState(pos, this.getDefaultState().withProperty(POSITION, dir), 3);
-			//TODO Play Sound
-			//world.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), this.stepSound.getPlaceSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, /*this.stepSound.getFrequency()*/ 1 * 0.8F);
+			// TODO Play Sound
+			// world.playSoundEffect((double) ((float) pos.getX() + 0.5F),
+			// (double) ((float) pos.getY() + 0.5F), (double) ((float)
+			// pos.getZ() + 0.5F), this.stepSound.getPlaceSound(),
+			// (this.stepSound.getVolume() + 1.0F) / 2.0F,
+			// /*this.stepSound.getFrequency()*/ 1 * 0.8F);
 			return Blocks.AIR.getDefaultState();
 		}
 		return this.getDefaultState().withProperty(POSITION, dir);
 	}
-	
 
 	@Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-		
-		if(player.getHeldItem(hand) != null){
-			if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Item.getItemFromBlock(DRPMBlocks.ROPE))){
-				for(int i = pos.getY() - 1; i > 0; i--){
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+			EnumFacing facing, float hitX, float hitY, float hitZ) {
+
+		if (player.getHeldItem(hand) != null) {
+			if (player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Item.getItemFromBlock(DRPMBlocks.ROPE))) {
+				for (int i = pos.getY() - 1; i > 0; i--) {
 					BlockPos pos2 = new BlockPos(pos.getX(), pos.getY() - (pos.getY() - i), pos.getZ());
-					if(world.getBlockState(pos2).getBlock().equals(DRPMBlocks.ROPE)){
+					if (world.getBlockState(pos2).getBlock().equals(DRPMBlocks.ROPE)) {
 						continue;
-					}else if(world.getBlockState(pos2).getBlock().equals(Blocks.AIR)){
-						if(!world.isRemote){
+					} else if (world.getBlockState(pos2).getBlock().equals(Blocks.AIR)) {
+						if (!world.isRemote) {
 							world.setBlockState(pos2, state);
-							if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMBlocks.ROPE),  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+							if (!player.capabilities.isCreativeMode)
+								player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(
+										Item.getItemFromBlock(DRPMBlocks.ROPE),
+										player.inventory.mainInventory.toArray(new ItemStack[] {})), 1);
 						}
-						//TODO PLAY SOUND
-						//world.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), this.stepSound.getPlaceSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, /*this.stepSound.getFrequency()*/1 * 0.8F);
+						// TODO PLAY SOUND
+						// world.playSoundEffect((double) ((float) pos.getX() +
+						// 0.5F), (double) ((float) pos.getY() + 0.5F), (double)
+						// ((float) pos.getZ() + 0.5F),
+						// this.stepSound.getPlaceSound(),
+						// (this.stepSound.getVolume() + 1.0F) / 2.0F,
+						// /*this.stepSound.getFrequency()*/1 * 0.8F);
 						return true;
-					}else{
+					} else {
 						return true;
 					}
 				}
-			}else{
-				if(player.isSneaking()){
-					for(int i = pos.getY() - 1; i > 0; i--){
+			} else {
+				if (player.isSneaking()) {
+					for (int i = pos.getY() - 1; i > 0; i--) {
 						BlockPos pos2 = new BlockPos(pos.getX(), pos.getY() - (pos.getY() - i), pos.getZ());
-						if(world.getBlockState(pos2).getBlock().equals(DRPMBlocks.ROPE)){
+						if (world.getBlockState(pos2).getBlock().equals(DRPMBlocks.ROPE)) {
 							continue;
-						}else{
-							if(!world.isRemote){
+						} else {
+							if (!world.isRemote) {
 								BlockPos pos3 = new BlockPos(pos2.getX(), pos2.getY() + 1, pos2.getZ());
 								world.setBlockState(pos3, Blocks.AIR.getDefaultState());
-								if(!world.isRemote) world.spawnEntity(new EntityItem(world, player.posX, player.posY, player.posZ, new ItemStack(DRPMBlocks.ROPE, 1)));
+								if (!world.isRemote)
+									world.spawnEntity(new EntityItem(world, player.posX, player.posY, player.posZ,
+											new ItemStack(DRPMBlocks.ROPE, 1)));
 							}
 							return true;
 						}

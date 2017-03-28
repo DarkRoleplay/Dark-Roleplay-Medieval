@@ -1,0 +1,40 @@
+{  
+   "forge_marker":1,
+   "defaults":{  
+      "model":"leaves",
+      "textures":{  
+         "all":"drpmedieval:blocks/trees/apple/leaves"
+      },
+      "transform":"forge:default-block"
+   },
+   "variants":{  
+      "check_decay":{  
+         "true":{  
+
+         },
+         "false":{  
+
+         }
+      },
+      "decayable":{  
+         "true":{  
+
+         },
+         "false":{  
+
+         }
+      },
+      "variant":{  
+         "apple":{  
+            "textures":{  
+               "all":"drpmedieval:blocks/trees/apple/leaves"
+            }
+         },
+         "pear":{  
+            "textures":{  
+               "all":"drpmedieval:blocks/trees/apple/leaves"
+            }
+         }
+      }
+   }
+}

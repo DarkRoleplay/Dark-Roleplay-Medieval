@@ -147,7 +147,6 @@ public class HangingBridge extends Block {
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-
 		return new BlockStateContainer(this, new IProperty[] { AXIS, NORTH, SOUTH, EAST, WEST });
 	}
 

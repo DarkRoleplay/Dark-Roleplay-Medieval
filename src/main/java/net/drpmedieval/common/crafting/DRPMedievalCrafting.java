@@ -37,11 +37,11 @@ public class DRPMedievalCrafting {
 	}
 	
 	private static void registerAirRecipes(){
-		
+
 		//Sittables
 		/*Simple Chairs*/
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "simple_chair_oak"),
-			new ItemStack[]{new ItemStack(DRPMBlocks.SIMPLE_CHAIR_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMItems.Plank, 8, 0)}), true);
+			new ItemStack[]{new ItemStack(DRPMBlocks.SIMPLE_CHAIR_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMItems.Plank, 8, 0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "simple_chair_spruce"),
 			new ItemStack[]{new ItemStack(DRPMBlocks.SIMPLE_CHAIR_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMItems.Plank, 8, 1)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "simple_chair_birch"),
@@ -97,7 +97,9 @@ public class DRPMedievalCrafting {
 			new ItemStack[]{new ItemStack(DRPMItems.Plank, 6, 5)},new ItemStack[]{new ItemStack(Blocks.LOG2, 1, 0)}), false);
 		
 		CraftingRegistry.registerRecipe(Blocks.AIR,"crafting_materials",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "trigger_trap"),
-			new ItemStack[]{new ItemStack(DRPMItems.TriggerTrap, 1, 0)},new ItemStack[]{new ItemStack(Blocks.TRIPWIRE_HOOK,1,0), new ItemStack(Items.STRING, 1, 0)}), false);	
+				new ItemStack[]{new ItemStack(DRPMItems.TriggerTrap, 1, 0)},new ItemStack[]{new ItemStack(Blocks.TRIPWIRE_HOOK,1,0), new ItemStack(Items.STRING, 1, 0)}), false);	
+		CraftingRegistry.registerRecipe(Blocks.AIR,"crafting_materials",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "bark_and_glue"),
+				new ItemStack[]{new ItemStack(DRPMItems.BarkAndGlue, 4, 0), new ItemStack(Blocks.PLANKS, 4, 0)},new ItemStack[]{new ItemStack(Blocks.LOG, 1, 0), new ItemStack(Items.SLIME_BALL, 1, 0)}), false);
 		
 		CraftingRegistry.registerRecipe(Blocks.AIR,"food_ingredients",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "dough_wheat"),
 			new ItemStack[]{new ItemStack(DRPMItems.DoughWheat, 3, 0)},new ItemStack[]{new ItemStack(DRPMItems.FlourWheat,3,0), new ItemStack(Items.WATER_BUCKET, 1, 0)}), false);	
@@ -162,6 +164,19 @@ public class DRPMedievalCrafting {
 			new ItemStack[]{new ItemStack(DRPMBlocks.BARREL_CLOSED_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMItems.Plank, 10, 4)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "barrel_closed_acacia"),
 			new ItemStack[]{new ItemStack(DRPMBlocks.BARREL_CLOSED_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMItems.Plank, 10, 5)}), false);
+		
+		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "sideway_barrel_oak"),
+			new ItemStack[]{new ItemStack(DRPMBlocks.SIDEWAY_BARREL_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMItems.Plank, 10, 0)}), false);
+		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "sideway_barrel_spruce"),
+			new ItemStack[]{new ItemStack(DRPMBlocks.SIDEWAY_BARREL_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMItems.Plank, 10, 1)}), false);
+		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "sideway_barrel_birch"),
+			new ItemStack[]{new ItemStack(DRPMBlocks.SIDEWAY_BARREL_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMItems.Plank, 10, 2)}), false);
+		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "sideway_barrel_jungle"),
+			new ItemStack[]{new ItemStack(DRPMBlocks.SIDEWAY_BARREL_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMItems.Plank, 10, 3)}), false);
+		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "sideway_barrel_dark_oak"),
+			new ItemStack[]{new ItemStack(DRPMBlocks.SIDEWAY_BARREL_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMItems.Plank, 10, 4)}), false);
+		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "sideway_barrel_acacia"),
+			new ItemStack[]{new ItemStack(DRPMBlocks.SIDEWAY_BARREL_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMItems.Plank, 10, 5)}), false);
 		
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "barrel_water_oak"),
 			new ItemStack[]{new ItemStack(DRPMBlocks.BARREL_WATER_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMBlocks.BARREL_EMPTY_OAK,1,0), new ItemStack(Items.WATER_BUCKET)}), false);
@@ -244,6 +259,11 @@ public class DRPMedievalCrafting {
 		CraftingRegistry.registerRecipe(Blocks.AIR,"building",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "pillar_andesite"),
 			new ItemStack[]{new ItemStack(DRPMBlocks.ANDESITE_PILLAR, 3, 0)},new ItemStack[]{new ItemStack(Blocks.STONE, 3, 6)}), false);
 		
+		CraftingRegistry.registerRecipe(Blocks.AIR,"building",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "snow_brick"),
+			new ItemStack[]{new ItemStack(DRPMBlocks.SNOW_BRICKS, 1, 0)},new ItemStack[]{new ItemStack(Blocks.SNOW, 1, 0)}), false);
+		CraftingRegistry.registerRecipe(Blocks.AIR,"building",new SimpleRecipe(new ResourceLocation(DarkRoleplayMedieval.MODID, "packed_ice_brick"),
+			new ItemStack[]{new ItemStack(DRPMBlocks.PACKED_ICE_BRICKS, 1, 0)},new ItemStack[]{new ItemStack(Blocks.PACKED_ICE, 1, 0)}), false);
+		
 		CraftingRegistry.registerRecipe(Blocks.AIR, "crafting_stations",new SimpleRecipe( new ResourceLocation(DarkRoleplayMedieval.MODID, "anvil"),
 			new ItemStack[]{new ItemStack(DRPMBlocks.ANVIL, 1, 0)}, new ItemStack[]{new ItemStack(Items.IRON_INGOT,32,0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "crafting_stations",new SimpleRecipe( new ResourceLocation(DarkRoleplayMedieval.MODID, "mortar"),
@@ -266,9 +286,15 @@ public class DRPMedievalCrafting {
 			new ItemStack[]{new ItemStack(DRPMItems.FlourBarley, 1, 0)}, new ItemStack[]{new ItemStack(DRPMItems.Barley, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(DRPMBlocks.MORTAR, "crafting_materials",new SimpleRecipe( new ResourceLocation(DarkRoleplayMedieval.MODID, "bone_meal"),
 			new ItemStack[]{new ItemStack(Items.DYE, 4, 15)}, new ItemStack[]{new ItemStack(Items.BONE, 1, 0)}), false);
+		CraftingRegistry.registerRecipe(DRPMBlocks.MORTAR, "crafting_materials",new SimpleRecipe( new ResourceLocation(DarkRoleplayMedieval.MODID, "charcoal_powder"),
+			new ItemStack[]{new ItemStack(DRPMItems.CHARCOAL_POWDER, 3, 0)}, new ItemStack[]{new ItemStack(Items.COAL, 1, 1)}), false);
+		CraftingRegistry.registerRecipe(DRPMBlocks.MORTAR, "crafting_materials",new SimpleRecipe( new ResourceLocation(DarkRoleplayMedieval.MODID, "gunpowder"),
+			new ItemStack[]{new ItemStack(Items.GUNPOWDER, 10, 0)}, new ItemStack[]{new ItemStack(DRPMItems.SALPETER_ORE_CHUNK, 7, 0), new ItemStack(DRPMItems.SULFUR_ORE_CHUNK, 1, 0), new ItemStack(DRPMItems.CHARCOAL_POWDER, 2, 0)}), false);
 	}
 	
 	private static void registerAnvilRecipes(){
+		CraftingRegistry.registerRecipe(DRPMBlocks.ANVIL, "crafting_materials",new SimpleRecipe( new ResourceLocation(DarkRoleplayMedieval.MODID, "tap"),
+			new ItemStack[]{new ItemStack(DRPMItems.TAP, 2, 0)}, new ItemStack[]{new ItemStack(Items.IRON_INGOT, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(DRPMBlocks.ANVIL, "decorative",new SimpleRecipe( new ResourceLocation(DarkRoleplayMedieval.MODID, "torch_holder_empty"),
 			new ItemStack[]{new ItemStack(DRPMBlocks.TORCH_HOLDER_EMPTY, 1, 0)}, new ItemStack[]{new ItemStack(Items.IRON_INGOT,1,0)}), false);
 		CraftingRegistry.registerRecipe(DRPMBlocks.ANVIL, "decorative",new SimpleRecipe( new ResourceLocation(DarkRoleplayMedieval.MODID, "iron_chain"),

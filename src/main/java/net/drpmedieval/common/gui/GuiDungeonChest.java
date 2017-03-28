@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiDungeonChest extends GuiContainer {
 
-	public static final ResourceLocation BACKGROUND = new ResourceLocation(DarkRoleplayMedieval.MODID + ":textures/guis/DungeonChest.png");
+	public static final ResourceLocation BACKGROUND = new ResourceLocation(DarkRoleplayMedieval.MODID + ":textures/guis/dungeon_chest.png");
 
 	public GuiDungeonChest(Container container_) {
 		super(container_);

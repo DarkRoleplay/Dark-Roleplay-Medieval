@@ -22,6 +22,7 @@ import net.drpmedieval.common.proxy.CommonProxy;
 import net.drpmedieval.common.util.LoreHelper;
 import net.drpmedieval.common.worldgen.GenerateStructure;
 import net.drpmedieval.common.worldgen.WorldLoot;
+import net.drpmedieval.common.worldgen.feature.OreGen;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -41,13 +42,14 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.VillagerRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = DarkRoleplayMedieval.MODID, version = DarkRoleplayMedieval.VERSION, name = DarkRoleplayMedieval.NAME, acceptedMinecraftVersions = DarkRoleplayMedieval.ACCEPTEDVERSIONS, dependencies = DarkRoleplayMedieval.DEPENDECIES, updateJSON = DarkRoleplayMedieval.UPDATECHECK)
 public class DarkRoleplayMedieval {
 
 	public static final String NAME = "Dark Roleplay Medieval";
-	public static final String VERSION = "0.1.7b";
+	public static final String VERSION = "0.1.8";
 	public static final String MODID = "drpmedieval";
 	public static final String ACCEPTEDVERSIONS = "[1.11.2,)";
 	public static final String DEPENDECIES = "required-after:drpcore@0.1.8,)";
@@ -75,6 +77,8 @@ public class DarkRoleplayMedieval {
 		//TODO DRPMedievalCrafting.preInit(event);
 		
 		proxy.preInit(event);
+
+		registerTileEntitys();
 		
 		GameRegistry.registerFuelHandler(new DarkRoleplayFuelHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
@@ -94,9 +98,9 @@ public class DarkRoleplayMedieval {
 		WorldLoot.registerFishingLoot();
 		WorldLoot.registerGrassLoot();
 
+		GameRegistry.registerWorldGenerator(new OreGen(), 0);
+		GameRegistry.registerWorldGenerator(new GenerateStructure(), 0);
 		EventHelper.registerEvents();
-		
-		registerTileEntitys();
 		
 		registerFurnaceRecipes();
 		
@@ -155,7 +159,7 @@ public class DarkRoleplayMedieval {
 		MissingMappings.registerToRemap(DRPMBlocks.SHIPS_HELM, DarkRoleplayMedieval.MODID + ":" + "blockShipsWheel");
 		MissingMappings.registerToRemap(DRPMBlocks.SHIPS_HELM, DarkRoleplayMedieval.MODID + ":" + "ShipsWheel");
 		MissingMappings.registerToRemap(DRPMBlocks.TARGET, DarkRoleplayMedieval.MODID + ":" + "blockTarget");
-		MissingMappings.registerToRemap(DRPMBlocks.APIARY_OAK, DarkRoleplayMedieval.MODID + ":" + "Apiary");
+//		MissingMappings.registerToRemap(DRPMBlocks.APIARY_OAK, DarkRoleplayMedieval.MODID + ":" + "Apiary");
 		MissingMappings.registerToRemap(DRPMBlocks.TORCH_HOLDER_EMPTY, DarkRoleplayMedieval.MODID + ":" + "blockTorchHolderEmpty");
 		MissingMappings.registerToRemap(DRPMBlocks.TORCH_HOLDER_LIT, DarkRoleplayMedieval.MODID + ":" + "blockTorchHolderLit");
 		MissingMappings.registerToRemap(DRPMBlocks.TORCH_HOLDER_UNLIT, DarkRoleplayMedieval.MODID + ":" + "blockTorchHolderUnlit");
@@ -234,6 +238,7 @@ public class DarkRoleplayMedieval {
 		GameRegistry.registerTileEntity(TileEntityRopeAnchor.class, DarkRoleplayMedieval.MODID + ":" + "TileEntityRopeAnchor");
 		GameRegistry.registerTileEntity(TileEntityFirepit.class, DarkRoleplayMedieval.MODID + ":" + "TileEntityFirepit");
         GameRegistry.registerTileEntity(BucketTileEntity.class, DarkRoleplayMedieval.MODID + "BucketTileEntity");
+        GameRegistry.registerTileEntity(RopeCoilTileEntity.class, DarkRoleplayMedieval.MODID + "rope_coil_tilenentity");
 
 		
 		

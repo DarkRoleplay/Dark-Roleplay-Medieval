@@ -39,6 +39,15 @@ public class RopeFence extends Block{
     public static final AxisAlignedBB NORTH_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.5D, 0.375D);
     public static final AxisAlignedBB EAST_AABB = new AxisAlignedBB(0.625D, 0.0D, 0.375D, 1.0D, 1.5D, 0.625D);
 	
+    //E = X S = Z
+    public static final AxisAlignedBB SE_AABB = new AxisAlignedBB(0.625D, 0.0D, 0.625D, 1.0D, 1.5D, 1.0D);
+    
+    public static final AxisAlignedBB SW_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.625D, 0.375D, 1.5D, 1.0D);
+    
+    public static final AxisAlignedBB NE_AABB = new AxisAlignedBB(0.625D, 0.0D, 0.0D, 1.0D, 1.5D, 0.375D);
+    
+    public static final AxisAlignedBB NW_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.375D, 1.5D, 0.375D);
+    
 	public RopeFence(String registryName) {
 		super(Material.WOOD);
 		this.setRegistryName(registryName);
@@ -65,7 +74,7 @@ public class RopeFence extends Block{
 	
 	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
-	
+		
 		boolean n = false;
 		boolean ne = false;
 		boolean e = false;
@@ -75,29 +84,29 @@ public class RopeFence extends Block{
 		boolean w = false;
 		boolean nw = false;
 		
-		if(world.getBlockState(pos.north()).getBlock() == this)
+		if(world.getBlockState(pos.north()).getBlock() == this || world.isSideSolid(pos.north(), EnumFacing.SOUTH, false))
 			n = true;
 
-		if(world.getBlockState(pos.east()).getBlock() == this)
+		if(world.getBlockState(pos.east()).getBlock() == this || world.isSideSolid(pos.east(), EnumFacing.WEST, false))
 			e = true;
 
-		if(world.getBlockState(pos.south()).getBlock() == this)
+		if(world.getBlockState(pos.south()).getBlock() == this || world.isSideSolid(pos.south(), EnumFacing.NORTH, false))
 			s = true;
 		
-		if(world.getBlockState(pos.west()).getBlock() == this)
+		if(world.getBlockState(pos.west()).getBlock() == this || world.isSideSolid(pos.west(), EnumFacing.EAST, false))
 			w = true;
 		
 		
-		if((!n || !e) && world.getBlockState(pos.north().east()).getBlock() == this)
+		if((!n && !e) && world.getBlockState(pos.north().east()).getBlock() == this)
 			ne = true;
 		
-		if((!s || !e) && world.getBlockState(pos.south().east()).getBlock() == this)
+		if((!s && !e) && world.getBlockState(pos.south().east()).getBlock() == this)
 			se = true;
 		
-		if((!s || !w) && world.getBlockState(pos.south().west()).getBlock() == this)
+		if((!s && !w) && world.getBlockState(pos.south().west()).getBlock() == this)
 			sw = true;
 		
-		if((!n || !w) && world.getBlockState(pos.north().west()).getBlock() == this)
+		if((!n && !w) && world.getBlockState(pos.north().west()).getBlock() == this)
 			nw = true;
 
 		return state.withProperty(NORTH, n).withProperty(NORTH_EAST, ne).withProperty(EAST, e).withProperty(SOUTH_EAST, se).withProperty(SOUTH, s).withProperty(SOUTH_WEST, sw).withProperty(WEST, w).withProperty(NORTH_WEST, nw);
@@ -123,21 +132,30 @@ public class RopeFence extends Block{
 		state = state.getActualState(worldIn, pos);
         addCollisionBoxToList(pos, entityBox, collidingBoxes, PILLAR_AABB);
 
-        if (((Boolean)state.getValue(NORTH)).booleanValue()){
+        if (((Boolean)state.getValue(NORTH)).booleanValue())
             addCollisionBoxToList(pos, entityBox, collidingBoxes, NORTH_AABB);
-        }
 
-        if (((Boolean)state.getValue(EAST)).booleanValue()){
+        if (((Boolean)state.getValue(EAST)).booleanValue())
             addCollisionBoxToList(pos, entityBox, collidingBoxes, EAST_AABB);
-        }
 
-        if (((Boolean)state.getValue(SOUTH)).booleanValue()){
+        if (((Boolean)state.getValue(SOUTH)).booleanValue())
             addCollisionBoxToList(pos, entityBox, collidingBoxes, SOUTH_AABB);
-        }
 
-        if (((Boolean)state.getValue(WEST)).booleanValue()){
+        if (((Boolean)state.getValue(WEST)).booleanValue())
             addCollisionBoxToList(pos, entityBox, collidingBoxes, WEST_AABB);
-        }
+        
+        if (((Boolean)state.getValue(NORTH_EAST)).booleanValue())
+            addCollisionBoxToList(pos, entityBox, collidingBoxes, NE_AABB);
+
+        if (((Boolean)state.getValue(NORTH_WEST)).booleanValue())
+            addCollisionBoxToList(pos, entityBox, collidingBoxes, NW_AABB);
+
+        if (((Boolean)state.getValue(SOUTH_EAST)).booleanValue())
+            addCollisionBoxToList(pos, entityBox, collidingBoxes, SE_AABB);
+
+        if (((Boolean)state.getValue(SOUTH_WEST)).booleanValue())
+            addCollisionBoxToList(pos, entityBox, collidingBoxes, SW_AABB);
+        
     }
 
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)

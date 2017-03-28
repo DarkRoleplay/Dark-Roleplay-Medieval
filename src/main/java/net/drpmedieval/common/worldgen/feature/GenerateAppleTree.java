@@ -3,6 +3,7 @@ package net.drpmedieval.common.worldgen.feature;
 import java.util.Collections;
 import java.util.Random;
 
+import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.helper.TreePlant;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -17,7 +18,7 @@ public class GenerateAppleTree {
 		int height = random.nextInt(3) + 5;
 		
 		for(int i = 0; i < height ; i++){
-			world.setBlockState(pos.add(0,i,0),Blocks.LOG.getStateFromMeta(12));
+			world.setBlockState(pos.add(0,i,0),DRPMBlocks.LOGS_1.getDefaultState());
 		}
 		
 		for(int y = 0; y < 2; y ++){
@@ -27,11 +28,11 @@ public class GenerateAppleTree {
 					if((z == 0 || z == 4) && (x == 0 || x == 4)){
 						if(random.nextBoolean())
 							if(world.getBlockState(pos2).getBlock() == Blocks.AIR){
-								world.setBlockState(pos2, Blocks.LEAVES.getDefaultState());
+								world.setBlockState(pos2, DRPMBlocks.LEAVES_1.getDefaultState());
 							}
 					}else{
 						if(world.getBlockState(pos2).getBlock() == Blocks.AIR){
-							world.setBlockState(pos2, Blocks.LEAVES.getDefaultState());
+							world.setBlockState(pos2, DRPMBlocks.LEAVES_1.getDefaultState());
 						}
 					}
 				}
@@ -45,11 +46,11 @@ public class GenerateAppleTree {
 					if((z == 0 || z == 2) && (x == 0 || x == 2) && y == 0){
 						if(random.nextBoolean())
 							if(world.getBlockState(pos2).getBlock() == Blocks.AIR){
-								world.setBlockState(pos2, Blocks.LEAVES.getDefaultState());
+								world.setBlockState(pos2, DRPMBlocks.LEAVES_1.getDefaultState());
 							}
 					}else if(x == 1 || z == 1){
 						if(world.getBlockState(pos2).getBlock() == Blocks.AIR){
-							world.setBlockState(pos2, Blocks.LEAVES.getDefaultState());
+							world.setBlockState(pos2, DRPMBlocks.LEAVES_1.getDefaultState());
 						}
 					}
 				}
@@ -63,7 +64,7 @@ public class GenerateAppleTree {
 			
 			int trys = 0;
 			
-			while(world.getBlockState(pos.add(x, height  - 1 ,z)).getBlock() != Blocks.LEAVES && world.getBlockState(pos.add(x, height - 2 ,z)).getBlock() != Blocks.AIR && trys != 3){
+			while(world.getBlockState(pos.add(x, height  - 1 ,z)).getBlock() != DRPMBlocks.LEAVES_1 && world.getBlockState(pos.add(x, height - 2 ,z)).getBlock() != Blocks.AIR && trys != 5){
 				x = random.nextInt(5) - 2;
 				z = random.nextInt(5) - 2;
 				trys ++;

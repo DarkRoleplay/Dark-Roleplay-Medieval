@@ -1,0 +1,49 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+	    "model": "drpmedieval:hops/hops",
+        "textures": {
+            "plant": "drpmedieval:blocks/hops/hops_1",
+			"rope": "drpmedieval:blocks/hops/rope"
+        },
+        "transform": "forge:default-block"
+    },
+    "variants": {
+		"inventory":[{}],
+        "age": {
+			0:{
+				"textures": {
+					"plant": "drpmedieval:blocks/hops/hops_0"
+				}
+			},1:{
+				"textures": {
+					"plant": "drpmedieval:blocks/hops/hops_1"
+				}
+			},2:{
+				"textures": {
+					"plant": "drpmedieval:blocks/hops/hops_2"
+				}
+			},3:{
+				"textures": {
+					"plant": "drpmedieval:blocks/hops/hops_3"
+				}
+			},4:{
+				"textures": {
+					"plant": "drpmedieval:blocks/hops/hops_4"
+				}
+			},5:{
+				"textures": {
+					"plant": "drpmedieval:blocks/hops/hops_5"
+				}
+			},6:{
+				"textures": {
+					"plant": "drpmedieval:blocks/hops/hops_6"
+				}
+			},7:{
+				"textures": {
+					"plant": "drpmedieval:blocks/hops/hops_7"
+				}
+			}
+        }
+    }
+}

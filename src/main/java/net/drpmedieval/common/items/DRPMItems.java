@@ -127,6 +127,7 @@ public class DRPMItems {
 
 	/** T **/
 
+	public static Tap TAP = new Tap("tap");
 	public static TannedLeather TannedLeather = new TannedLeather();
 	public static TannedLeatherString TannedLeatherString = new TannedLeatherString();
 	public static TriggerTrap TriggerTrap = new TriggerTrap();
@@ -149,6 +150,17 @@ public class DRPMItems {
 
 	/** Z **/
 
+	
+	public static Hops HOPS = new Hops("hops");
+	public static DRPMMiscItem CHARCOAL_POWDER = new DRPMMiscItem("charcoal_powder");
+	public static DRPMMiscItem SILVER_ORE_CHUNK = new DRPMMiscItem("silver_ore_chunk");
+	public static DRPMMiscItem TIN_ORE_CHUNK = new DRPMMiscItem("tin_ore_chunk");
+	public static DRPMMiscItem COPPER_ORE_CHUNK = new DRPMMiscItem("copper_ore_chunk");
+	public static DRPMMiscItem SULFUR_ORE_CHUNK = new DRPMMiscItem("sulfur_ore_chunk");
+	public static DRPMMiscItem SALPETER_ORE_CHUNK = new DRPMMiscItem("salpeter_ore_chunk");
+
+	
+	
 	public static final void preInit(FMLPreInitializationEvent event) {
 
 		BedFrameOak.setBed(DRPMBlocks.BED_FRAME_OAK);
@@ -163,18 +175,27 @@ public class DRPMItems {
 		// Under Development Items
 		//registerItem(wpg, false); //TODO CHANGE BOOL AND FIX
 		
+		registerItem(HOPS);
+		
+		registerItem(CHARCOAL_POWDER);
+		registerItem(SILVER_ORE_CHUNK);
+		registerItem(TIN_ORE_CHUNK);
+		registerItem(COPPER_ORE_CHUNK);
+		registerItem(SULFUR_ORE_CHUNK);
+		registerItem(SALPETER_ORE_CHUNK);
+		
 		// A
 		registerItem(AppleGreen);
 		registerItem(AppleYellow);
 		// B
-		registerItem(BarkAndGlue, false); //TODO CHANGE BOOL
+		registerItem(BarkAndGlue);
 		//registerItem(bedFrameOak);
 		//registerItem(bedFrameSpruce);
 		//registerItem(bedFrameBirch);
 		//registerItem(bedFrameJungle);
 		//registerItem(bedFrameAcacia);
 		//registerItem(bedFrameDarkOak);
-
+		
 		registerItem(Barley);
 		registerItem(BatEar);
 		registerItem(BronzeCoin);
@@ -225,6 +246,7 @@ public class DRPMItems {
 		registerItem(SilverRing);
 		registerItem(SLEDGE);
 		// T
+		registerItem(TAP);
 		registerItem(TannedLeather);
 		registerItem(TannedLeatherString);
 		registerItem(TriggerTrap);

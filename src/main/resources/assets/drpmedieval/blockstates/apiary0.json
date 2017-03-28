@@ -1,0 +1,47 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model": "drpmedieval:apiaries/apiary",
+        "textures":{
+			"wall": "drpmedieval:blocks/apiaries/apiary_plank_oak",
+			"roof": "drpmedieval:blocks/apiaries/apiary_bark_oak"
+		},
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"facing":{
+			"north":{},
+			"east":{"y": 90},
+			"south":{"y": 180},
+			"west":{"y": 270}
+		},
+		"variant": {
+			"oak":{
+				"textures":{
+					"wall": "drpmedieval:blocks/apiaries/apiary_plank_oak",
+					"roof": "drpmedieval:blocks/apiaries/apiary_bark_oak"
+				}
+			},
+			"birch":{
+				"textures":{
+					"wall": "drpmedieval:blocks/apiaries/apiary_plank_birch",
+					"roof": "drpmedieval:blocks/apiaries/apiary_bark_birch"
+				}
+			},
+			"spruce":{
+				"textures":{
+					"wall": "drpmedieval:blocks/apiaries/apiary_plank_spruce",
+					"roof": "drpmedieval:blocks/apiaries/apiary_bark_spruce"
+				}
+			},
+			"jungle":{
+				"textures":{
+					"wall": "drpmedieval:blocks/apiaries/apiary_plank_jungle",
+					"roof": "drpmedieval:blocks/apiaries/apiary_bark_jungle"
+				}
+			}
+		},
+		"normal": [{}],
+		"inventory":[{}]
+	}
+}

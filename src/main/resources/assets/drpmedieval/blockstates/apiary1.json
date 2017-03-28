@@ -1,0 +1,45 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model": "drpmedieval:apiaries/apiary",
+        "textures":{
+			"wall": "drpmedieval:blocks/apiaries/apiary_plank_oak",
+			"roof": "drpmedieval:blocks/apiaries/apiary_bark_oak"
+		},
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"facing":{
+			"north":{},
+			"east":{"y": 90},
+			"south":{"y": 180},
+			"west":{"y": 270}
+		},
+		"variant": {
+			"acacia":{
+				"textures":{
+					"wall": "drpmedieval:blocks/apiaries/apiary_plank_acacia",
+					"roof": "drpmedieval:blocks/apiaries/apiary_bark_acacia"
+				}
+			},
+			"dark_oak":{
+				"textures":{
+					"wall": "drpmedieval:blocks/apiaries/apiary_plank_dark_oak",
+					"roof": "drpmedieval:blocks/apiaries/apiary_bark_dark_oak"
+				}
+			},
+			"apple":{
+				"textures":{
+					"wall": "drpmedieval:blocks/apiaries/apiary_plank_apple",
+					"roof": "drpmedieval:blocks/apiaries/apiary_bark_apple"
+				}
+			},
+			"pear":{
+				"textures":{
+					"wall": "drpmedieval:blocks/apiaries/apiary_plank_pear",
+					"roof": "drpmedieval:blocks/apiaries/apiary_bark_pear"
+				}
+			}
+		}
+	}
+}

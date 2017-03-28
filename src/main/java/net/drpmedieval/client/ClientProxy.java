@@ -139,12 +139,12 @@ public class ClientProxy extends CommonProxy {
 		registerItemMesh("SimpleTables",DRPMBlocks.SIMPLE_TABLE_ACACIA);
 		registerItemMesh("SimpleTables",DRPMBlocks.SIMPLE_TABLE_DARK_OAK);
 		
-		registerItemMesh("Apiaries",DRPMBlocks.APIARY_OAK);
-		registerItemMesh("Apiaries",DRPMBlocks.APIARY_BIRCH);
-		registerItemMesh("Apiaries",DRPMBlocks.APIARY_SPRUCE);
-		registerItemMesh("Apiaries",DRPMBlocks.APIARY_JUNGLE);
-		registerItemMesh("Apiaries",DRPMBlocks.APIARY_ACACIA);
-		registerItemMesh("Apiaries",DRPMBlocks.APIARY_DARK_OAK);
+//		registerItemMesh("Apiaries",DRPMBlocks.APIARY_OAK);
+//		registerItemMesh("Apiaries",DRPMBlocks.APIARY_BIRCH);
+//		registerItemMesh("Apiaries",DRPMBlocks.APIARY_SPRUCE);
+//		registerItemMesh("Apiaries",DRPMBlocks.APIARY_JUNGLE);
+//		registerItemMesh("Apiaries",DRPMBlocks.APIARY_ACACIA);
+//		registerItemMesh("Apiaries",DRPMBlocks.APIARY_DARK_OAK);
 		
 		registerItemMesh("Barrels",DRPMBlocks.BARREL_EMPTY_OAK);
 		registerItemMesh("Barrels",DRPMBlocks.BARREL_EMPTY_BIRCH);
@@ -202,6 +202,8 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	public void forceAdditionalModels() {
+		ModelBakery.registerItemVariants(DRPMItems.CHARCOAL_POWDER, new ResourceLocation[]{ new ResourceLocation(DarkRoleplayMedieval.MODID, "minerals/charcoal_powder")});
+		ModelBakery.registerItemVariants(DRPMItems.CHARCOAL_POWDER, new ResourceLocation[]{ new ResourceLocation(DarkRoleplayMedieval.MODID, "minerals/charcoal_powder")});
 		ModelBakery.registerItemVariants(DRPMItems.Firewood, new ResourceLocation[] {new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "firewood/firewood_oak"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "firewood/firewood_spruce"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "firewood/firewood_birch"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "firewood/firewood_jungle"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "firewood/firewood_dark_oak"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "firewood/firewood_acacia")});
 		ModelBakery.registerItemVariants(DRPMItems.Plank, new ResourceLocation[] {new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "planks/plank_oak"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "planks/plank_spruce"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "planks/plank_birch"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "planks/plank_jungle"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "planks/plank_dark_oak"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "planks/plank_acacia")});
 		ModelBakery.registerItemVariants(DRPMItems.DoughPumpkin, new ResourceLocation[] {new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "dough_pumpkin_wheat"), new ResourceLocation(DarkRoleplayMedieval.MODID + ":" + "dough_pumpkin_barley")});
