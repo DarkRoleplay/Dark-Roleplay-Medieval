@@ -3,6 +3,7 @@ package net.drpmedieval.client;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import net.drpmedieval.client.entities.fox.Render_Fox;
 import net.drpmedieval.client.events.ItemColorHandler;
 import net.drpmedieval.client.renderer.entity.RenderEntityRopedArrow;
 import net.drpmedieval.client.renderer.entity.RenderEntitySledge;
@@ -11,6 +12,7 @@ import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.specialrenderer.*;
 import net.drpmedieval.common.blocks.tileentitys.*;
+import net.drpmedieval.common.entities.fox.Entity_Fox;
 import net.drpmedieval.common.entity.item.EntitySledge;
 import net.drpmedieval.common.entity.models.TrainingDummyModel;
 import net.drpmedieval.common.entity.projectile.EntityRopedArrow;
@@ -47,6 +49,7 @@ public class ClientProxy extends CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(EntitySledge.class, RenderEntitySledge.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityRopedArrow.class, RenderEntityRopedArrow.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(Entity_Fox.class, Render_Fox.FACTORY);
         //RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, renderer);
 		registerRenders();
 	}

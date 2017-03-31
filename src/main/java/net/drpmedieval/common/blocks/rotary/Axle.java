@@ -12,6 +12,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -113,15 +114,15 @@ public class Axle extends Block{
 				if(source.getValue(AXIS) == state.getValue(AXIS)){
 					switch(source.getValue(AXIS)){
 					case X:
-						if(pos.west() == fromPos || pos.east() == fromPos)
+						if((pos.west().equals(fromPos) || pos.east().equals(fromPos)) && state.getValue(ROTATING) != 0)
 							world.setBlockState(fromPos, source.withProperty(ROTATING, state.getValue(ROTATING)));
 						break;
 					case Y:
-						if(pos.up() == fromPos || pos.down() == fromPos)
+						if((pos.up().equals(fromPos) || pos.down().equals(fromPos)) && state.getValue(ROTATING) != 0)
 							world.setBlockState(fromPos, source.withProperty(ROTATING, state.getValue(ROTATING)));
 						break;
 					case Z:
-						if(pos.north() == fromPos || pos.south() == fromPos)
+						if((pos.south().equals(fromPos) || pos.north().equals(fromPos)) && state.getValue(ROTATING) != 0)
 							world.setBlockState(fromPos, source.withProperty(ROTATING, state.getValue(ROTATING)));
 						break;
 					default:
@@ -130,5 +131,10 @@ public class Axle extends Block{
 				}
 			}
 		}
+    }
+	
+	@Override
+	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
+        return super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(AXIS, facing.getAxis());
     }
 }

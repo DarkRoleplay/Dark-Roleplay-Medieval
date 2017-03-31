@@ -54,7 +54,6 @@ public class RenderEntitySledge extends RenderLiving<EntitySledge>{
 
         if (!this.renderOutlines){
             this.renderLeash(entity, x, y, z, entityYaw, partialTicks);
-    		//this.renderLivingLabel2(entity, "Test", x, y, z, 30);
         }
     }
 	
