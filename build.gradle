@@ -8,8 +8,6 @@ buildscript {
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
-//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-
 
 version = "0.1.8"
 group = "net.dark_roleplay.medieval" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
