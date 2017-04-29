@@ -2,8 +2,8 @@ package net.drpmedieval.common.blocks.tileentitys;
 
 import java.util.List;
 
-import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.other.RopeCoil;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -77,7 +77,7 @@ public class RopeCoilTileEntity extends TileEntity implements ITickable{
 			if(!isDownGoing){
 				BlockPos offsetPos = this.getPos().add(0, -2, 0);
 				for(int i = 0; i < distance + 1; i++){
-					if(world.getBlockState(offsetPos).getBlock() == DRPMBlocks.ROPE){
+					if(world.getBlockState(offsetPos).getBlock() == DRPMedievalBlocks.ROPE){
 						offset++;
 						offsetPos = offsetPos.add(0, -1, 0);
 					}else{
@@ -101,7 +101,7 @@ public class RopeCoilTileEntity extends TileEntity implements ITickable{
 					BlockPos offsetPos = this.getPos().add(0, -1, 0);
 					for(int i = 0; i < distance; i++){
 						IBlockState state = world.getBlockState(offsetPos);
-						if(world.getBlockState(offsetPos).getBlock() == DRPMBlocks.ROPE){
+						if(world.getBlockState(offsetPos).getBlock() == DRPMedievalBlocks.ROPE){
 							offset++;
 							offsetPos = offsetPos.add(0, -1, 0);
 						}else{
@@ -124,7 +124,7 @@ public class RopeCoilTileEntity extends TileEntity implements ITickable{
 	
 	private boolean moveUp(World world, BlockPos centerPos){
 		IBlockState state = world.getBlockState(centerPos);
-		if(world.getBlockState(centerPos.up()).getBlock() == DRPMBlocks.ROPE){
+		if(world.getBlockState(centerPos.up()).getBlock() == DRPMedievalBlocks.ROPE){
 			
 			if(state.getMaterial() == Material.WOOD){
 				
@@ -175,18 +175,18 @@ public class RopeCoilTileEntity extends TileEntity implements ITickable{
 						if(toMove[i][j]){
 							world.setBlockState(centerPos.add(i-2, -1, j-2), world.getBlockState(centerPos.add(i-2, 0, j-2)));
 							world.setBlockState(centerPos.add(i-2, 0, j-2), world.getBlockState(centerPos.add(i-2, 1, j-2)));
-							if(world.getBlockState(centerPos.add(i-2, 1, j-2)).getBlock() != DRPMBlocks.ROPE) world.setBlockToAir(centerPos.add(i-2, 1, j-2));
+							if(world.getBlockState(centerPos.add(i-2, 1, j-2)).getBlock() != DRPMedievalBlocks.ROPE) world.setBlockToAir(centerPos.add(i-2, 1, j-2));
 						}
 					}
 				}
 				world.setBlockState(centerPos.add(0, -1, 0), state);
-				world.setBlockState(centerPos, DRPMBlocks.ROPE.getDefaultState());
+				world.setBlockState(centerPos, DRPMedievalBlocks.ROPE.getDefaultState());
 				return true;
 			}
 			
 		}else{
 			if(world.isAirBlock(centerPos)){
-				world.setBlockState(centerPos, DRPMBlocks.ROPE.getDefaultState());
+				world.setBlockState(centerPos, DRPMedievalBlocks.ROPE.getDefaultState());
 				return true;
 			}
 		}

@@ -3,9 +3,9 @@ package net.drpmedieval.common.blocks.decorative.buckets;
 import net.drpmedieval.common.blocks.decorative.tables.SimpleTable;
 import net.drpmedieval.common.blocks.helper.EnumAxis;
 import net.drpmedieval.common.blocks.templates.DRPMedievalRotatedBlock;
-import net.drpmedieval.common.blocks.tileentitys.BucketTileEntity;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityDungeonChest;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.tileentities.TileEntity_FlowerStorage;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
@@ -62,11 +62,11 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new BucketTileEntity();
+		return new TileEntity_FlowerStorage();
 	}
 	
-	private BucketTileEntity getTE(IBlockAccess world, BlockPos pos) {
-	    return (BucketTileEntity) world.getTileEntity(pos);
+	private TileEntity_FlowerStorage getTE(IBlockAccess world, BlockPos pos) {
+	    return (TileEntity_FlowerStorage) world.getTileEntity(pos);
 	}
 	
 	@Override
@@ -154,8 +154,8 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
 		TileEntity tileEntity = getTE(world, pos);
 
-		if(tileEntity instanceof BucketTileEntity){
-			BucketTileEntity tileEntityBucket = (BucketTileEntity) tileEntity;
+		if(tileEntity instanceof TileEntity_FlowerStorage){
+			TileEntity_FlowerStorage tileEntityBucket = (TileEntity_FlowerStorage) tileEntity;
 			for(int i = 0; i < 3; i++){
 				ItemStack stack;
 				switch(tileEntityBucket.getFlower((byte)i)){
@@ -202,14 +202,16 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 	
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-        if (!world.isRemote) {
-        	BucketTileEntity te = getTE(world, pos);
+
+        	TileEntity_FlowerStorage te = getTE(world, pos);
             if (te.getFlower((byte) 2) == 0) {
                 if (player.getHeldItem(hand) != null) {
                 	if(player.getHeldItem(hand).getItem() == Item.getItemFromBlock(Blocks.YELLOW_FLOWER)){
                 		te.addFlower(1);
-                        player.getHeldItem(hand).shrink(1);
-                        player.openContainer.detectAndSendChanges();
+                        if (!world.isRemote){
+                        	player.getHeldItem(hand).shrink(1);
+                        	player.openContainer.detectAndSendChanges();
+                        }
                 	}else if(player.getHeldItem(hand).getItem() == Item.getItemFromBlock(Blocks.RED_FLOWER)){
                 		switch(player.getHeldItem(hand).getMetadata()){
                 		case 0:
@@ -242,30 +244,37 @@ public class BucketDirt extends Block implements ITileEntityProvider{
                 		default:
                 			break;
                 		}
-                		
-                        player.getHeldItem(hand).shrink(1);
-                        player.openContainer.detectAndSendChanges();
+	                		if (!world.isRemote){
+	                        player.getHeldItem(hand).shrink(1);
+	                        player.openContainer.detectAndSendChanges();
+                		}
                 	}
                 }
             }
             if (player.getHeldItem(hand).getItem().getToolClasses(player.getHeldItem(hand)).contains("shovel")) {
             	 if(te.getFlower((byte) 2) != 0){
-             		giveItem(player, world,pos, (byte) te.getFlower((byte) 2));
-             		te.removeFlower();
-             		player.getHeldItem(hand).damageItem(1, player);
+            		 if (!world.isRemote){
+            			 giveItem(player, world,pos, (byte) te.getFlower((byte) 2));
+	             		 player.getHeldItem(hand).damageItem(1, player);
+            		 }
+            		 te.removeFlower();
             	}else if(te.getFlower((byte) 1) != 0){
-            		giveItem(player, world,pos, (byte) te.getFlower((byte) 1));
-            		te.removeFlower();
-            		player.getHeldItem(hand).damageItem(1, player);
+            		if (!world.isRemote){
+            			giveItem(player, world,pos, (byte) te.getFlower((byte) 1));
+	             		player.getHeldItem(hand).damageItem(1, player);
+           		 	}
+           		 	te.removeFlower();
             	}else if(te.getFlower((byte) 0) != 0){
-            		giveItem(player, world,pos, (byte) te.getFlower((byte) 0));
+            		if (!world.isRemote){
+            			giveItem(player, world,pos, (byte) te.getFlower((byte) 0));
+            			player.getHeldItem(hand).damageItem(1, player);
+            		}
             		te.removeFlower();
-            		player.getHeldItem(hand).damageItem(1, player);
             	}
             }
-        }
         return true;
     }
+	
 	public void giveItem(EntityPlayer player, World world, BlockPos pos, byte item){
 		ItemStack stack;
 		switch(item){

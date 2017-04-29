@@ -1,8 +1,7 @@
 package net.drpmedieval.common.gui.slots;
 
 import net.dark_roleplay.drpcore.api.items.DRPEquip;
-
-import net.drpmedieval.common.items.DRPMItems;
+import net.drpmedieval.common.handler.DRPMedievalItems;
 import net.drpmedieval.common.items.equipment.purses.LeatherPurse;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;

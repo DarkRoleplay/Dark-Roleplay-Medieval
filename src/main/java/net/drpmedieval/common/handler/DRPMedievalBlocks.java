@@ -1,6 +1,7 @@
-package net.drpmedieval.common.blocks;
+package net.drpmedieval.common.handler;
 
 import net.drpmedieval.common.DarkRoleplayMedieval;
+import net.drpmedieval.common.blocks.WoodHelper;
 import net.drpmedieval.common.blocks.building.*;
 import net.drpmedieval.common.blocks.craftingstations.*;
 import net.drpmedieval.common.blocks.decorative.*;
@@ -23,10 +24,8 @@ import net.drpmedieval.common.blocks.plants.pears.Pear;
 import net.drpmedieval.common.blocks.plants.sapling.AppleSappling;
 import net.drpmedieval.common.blocks.rotary.Axle;
 import net.drpmedieval.common.blocks.storage.*;
-import net.drpmedieval.common.items.DRPMItems;
 import net.drpmedieval.common.items.blocks.CleanPlankItem;
 import net.drpmedieval.common.items.seeds.SeedBarley;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.init.Items;
@@ -38,7 +37,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class DRPMBlocks {
+public class DRPMedievalBlocks {
 	
 	/** A **/
 
@@ -53,15 +52,15 @@ public class DRPMBlocks {
 //	public static Apiary APIARY_ACACIA = new Apiary("apiary_acacia");
 //	public static Apiary APIARY_DARK_OAK = new Apiary("apiary_dark_oak");
 
-	public static Apple APPLE_GREEN = new Apple("apple_green", new ItemStack(DRPMItems.AppleGreen, 1)); //TODO FIX APPLES
+	public static Apple APPLE_GREEN = new Apple("apple_green", new ItemStack(DRPMedievalItems.AppleGreen, 1)); //TODO FIX APPLES
 	public static Apple APPLE_RED = new Apple("apple_red", new ItemStack(Items.APPLE, 1));
-	public static Apple APPLE_YELLOW = new Apple("apple_yellow", new ItemStack(DRPMItems.AppleYellow, 1));
+	public static Apple APPLE_YELLOW = new Apple("apple_yellow", new ItemStack(DRPMedievalItems.AppleYellow, 1));
 	public static AppleSappling APPLE_SAPPLING = new AppleSappling("apple_sapling");
 	public static Axle AXLE = new Axle("axle");
 	
 	/** B **/
 
-	public static Barley BARLEY = new Barley();
+	public static Barley BARLEY = new Barley("barley");
 	
 	public static BarrelChair BARREL_CHAIR_OAK = new BarrelChair("barrel_chair_oak");
 	public static BarrelChair BARREL_CHAIR_BIRCH = new BarrelChair("barrel_chair_birch");
@@ -98,12 +97,12 @@ public class DRPMBlocks {
 	public static BarrelFilled BARREL_GUNPOWDER_ACACIA = new BarrelFilled("barrel_gunpowder_acacia");
 	public static BarrelFilled BARREL_GUNPOWDER_DARK_OAK = new BarrelFilled("barrel_gunpowder_dark_oak");
 		
-	public static BedFrame BED_FRAME_OAK = new BedFrame("bed_frame_oak", DRPMItems.BedFrameOak);
-	public static BedFrame BED_FRAME_SPRUCE = new BedFrame("bed_frame_spruce", DRPMItems.BedFrameSpruce);
-	public static BedFrame BED_FRAME_BIRCH = new BedFrame("bed_frame_birch", DRPMItems.BedFrameBirch);
-	public static BedFrame BED_FRAME_JUNGLE = new BedFrame("bed_frame_jungle", DRPMItems.BedFrameJungle);
-	public static BedFrame BED_FRAME_ACACIA = new BedFrame("bed_frame_acacia", DRPMItems.BedFrameAcacia);
-	public static BedFrame BED_FRAME_DARK_OAK = new BedFrame("bed_frame_dark_oak", DRPMItems.BedFrameDarkOak);
+	public static BedFrame BED_FRAME_OAK = new BedFrame("bed_frame_oak", DRPMedievalItems.BedFrameOak);
+	public static BedFrame BED_FRAME_SPRUCE = new BedFrame("bed_frame_spruce", DRPMedievalItems.BedFrameSpruce);
+	public static BedFrame BED_FRAME_BIRCH = new BedFrame("bed_frame_birch", DRPMedievalItems.BedFrameBirch);
+	public static BedFrame BED_FRAME_JUNGLE = new BedFrame("bed_frame_jungle", DRPMedievalItems.BedFrameJungle);
+	public static BedFrame BED_FRAME_ACACIA = new BedFrame("bed_frame_acacia", DRPMedievalItems.BedFrameAcacia);
+	public static BedFrame BED_FRAME_DARK_OAK = new BedFrame("bed_frame_dark_oak", DRPMedievalItems.BedFrameDarkOak);
 	
 	public static BarrelTable BARREL_TABLE_OAK = new BarrelTable("barrel_table_oak");
 	public static BarrelTable BARREL_TABLE_BIRCH = new BarrelTable("barrel_table_birch");
@@ -204,8 +203,8 @@ public class DRPMBlocks {
 
 	public static Planks1 PLANKS_1 = new Planks1("planks1", "planks1");
 	public static PackedIceBricks PACKED_ICE_BRICKS = new PackedIceBricks("packed_ice_bricks");
-	public static Pear PEAR_GREEN = new Pear("pear_green", new ItemStack(DRPMItems.PearGreen, 1)); //TODO FIX PEARS
-	public static Pear PEAR_YELLOW = new Pear("pear_yellow", new ItemStack(DRPMItems.PearYellow, 1));
+	public static Pear PEAR_GREEN = new Pear("pear_green", new ItemStack(DRPMedievalItems.PearGreen, 1)); //TODO FIX PEARS
+	public static Pear PEAR_YELLOW = new Pear("pear_yellow", new ItemStack(DRPMedievalItems.PearYellow, 1));
 	public static PotionEmpty POTION_EMPTY = new PotionEmpty("potion_empty"); //TODO Fix Potions
 
 	/** Q **/
@@ -279,11 +278,13 @@ public class DRPMBlocks {
 		registerBlock(SNOW_BRICKS);
 		//registerBlock(APPLE_SAPPLING);
 		
-		TIN_ORE.setOre(DRPMItems.TIN_ORE_CHUNK);
-		COPPER_ORE.setOre(DRPMItems.COPPER_ORE_CHUNK);
-		SILVER_ORE.setOre(DRPMItems.SILVER_ORE_CHUNK);
-		SULFUR_ORE.setOre(DRPMItems.SULFUR_ORE_CHUNK);
-		SALPETER_ORE.setOre(DRPMItems.SALPETER_ORE_CHUNK);
+		registerBlock(BARLEY, new ItemBlock(BARLEY).setRegistryName(BARLEY.getRegistryName() + "_item"));
+		
+		TIN_ORE.setOre(DRPMedievalItems.TIN_ORE_CHUNK);
+		COPPER_ORE.setOre(DRPMedievalItems.COPPER_ORE_CHUNK);
+		SILVER_ORE.setOre(DRPMedievalItems.SILVER_ORE_CHUNK);
+		SULFUR_ORE.setOre(DRPMedievalItems.SULFUR_ORE_CHUNK);
+		SALPETER_ORE.setOre(DRPMedievalItems.SALPETER_ORE_CHUNK);
 		
 		registerBlock(HOPS, null, false);
 		//registerBlock(ROPE_COIL);
@@ -424,8 +425,9 @@ public class DRPMBlocks {
 		
 		registerBlock(HANGING_BRIDGE);
 		//TODO FIX UP HANGING BRIDGE
-		//registerBlock(HANGING_BRIDGE_BOTTOM);
-		//registerBlock(HANGING_BRIDGE_TOP);
+		
+		registerBlock(HANGING_BRIDGE_BOTTOM);
+		registerBlock(HANGING_BRIDGE_TOP);
 		
 		registerBlock(LARGE_LECTERN_SPRUCE);
 		registerBlock(ROPE_FENCE);
@@ -449,7 +451,7 @@ public class DRPMBlocks {
 		
 		registerBlock(SPINNING_WHEEL);
 		
-		DRPMItems.SeedBarley = new SeedBarley();
+		DRPMedievalItems.SeedBarley = new SeedBarley();
 		//DRPMedievalItems.registerItem(DRPMedievalItems.SeedBarley);
 		
 		registerBlock(GOLDEN_SHIPS_BELL);

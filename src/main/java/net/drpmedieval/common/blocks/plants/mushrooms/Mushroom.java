@@ -4,7 +4,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

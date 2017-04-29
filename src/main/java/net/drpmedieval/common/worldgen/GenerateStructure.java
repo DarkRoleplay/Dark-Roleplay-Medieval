@@ -2,7 +2,7 @@ package net.drpmedieval.common.worldgen;
 
 import java.util.Random;
 
-import net.drpmedieval.common.blocks.DRPMBlocks;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
 import net.drpmedieval.common.worldgen.feature.GenerateAppleTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

@@ -2,7 +2,7 @@ package net.drpmedieval.common.items.misc;
 
 import java.util.List;
 
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

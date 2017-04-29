@@ -2,8 +2,8 @@ package net.drpmedieval.common.blocks.plants;
 
 import java.util.Random;
 
-import net.drpmedieval.common.blocks.DRPMBlocks;
-import net.drpmedieval.common.items.DRPMItems;
+import net.drpmedieval.common.handler.DRPMedievalItems;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -72,7 +72,7 @@ public class Hops extends Block {
     }
 	
 	public Item getItemDropped(IBlockState state, Random rand, int fortune){
-        return Item.getItemFromBlock(DRPMBlocks.ROPE);
+        return Item.getItemFromBlock(DRPMedievalBlocks.ROPE);
     }
 	
 	@Override
@@ -100,7 +100,7 @@ public class Hops extends Block {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(!world.isRemote){
 			if(7 == state.getValue(AGE).intValue()){
-				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMItems.HOPS, 1)));
+				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.HOPS, 1)));
 				world.setBlockState(pos, state.withProperty(AGE, 4));
 			}
 		}
@@ -117,7 +117,7 @@ public class Hops extends Block {
 		if(canGrow(state)){
 			if((i < 4 && rand.nextInt(10) == 0) || (i >= 4 && rand.nextInt(5) == 0)){
 				if(state.getValue(AGE).intValue() == 3){
-					if(worldIn.getBlockState(pos.up()).getBlock() == DRPMBlocks.ROPE){
+					if(worldIn.getBlockState(pos.up()).getBlock() == DRPMedievalBlocks.ROPE){
 						worldIn.setBlockState(pos.up(), state.withProperty(AGE, 0), 2);
 					}
 				}

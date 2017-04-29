@@ -1,7 +1,7 @@
 package net.drpmedieval.common.items.crops;
 
-import net.drpmedieval.common.blocks.DRPMBlocks;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -20,8 +20,8 @@ public class Hops extends Item {
 	}
 	
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-		if((world.getBlockState(pos).getBlock() == Blocks.DIRT || world.getBlockState(pos).getBlock() == Blocks.GRASS) && world.getBlockState(pos.up()).getBlock() == DRPMBlocks.ROPE){
-			world.setBlockState(pos.up(), DRPMBlocks.HOPS.getDefaultState());
+		if((world.getBlockState(pos).getBlock() == Blocks.DIRT || world.getBlockState(pos).getBlock() == Blocks.GRASS) && world.getBlockState(pos.up()).getBlock() == DRPMedievalBlocks.ROPE){
+			world.setBlockState(pos.up(), DRPMedievalBlocks.HOPS.getDefaultState());
 			player.getHeldItem(hand).shrink(1);
 			return EnumActionResult.SUCCESS;
 		}

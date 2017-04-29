@@ -1,9 +1,9 @@
 package net.drpmedieval.common.items.blocks;
 
-import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.helper.AdvancedBed;
 import net.drpmedieval.common.blocks.helper.EnumMattressType;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.block.SoundType;

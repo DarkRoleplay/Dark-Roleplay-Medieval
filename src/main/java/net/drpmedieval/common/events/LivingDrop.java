@@ -2,7 +2,7 @@ package net.drpmedieval.common.events;
 
 import java.util.Random;
 
-import net.drpmedieval.common.items.DRPMItems;
+import net.drpmedieval.common.handler.DRPMedievalItems;
 import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
@@ -19,7 +19,7 @@ public class LivingDrop {
 		if(event.getEntityLiving() instanceof EntityBat){
 			random = new Random();
 			dropped = random.nextInt(3);
-			event.getEntityLiving().dropItem(DRPMItems.BatEar, dropped);
+			event.getEntityLiving().dropItem(DRPMedievalItems.BatEar, dropped);
 		}
 
 		if(event.getEntityLiving() instanceof EntityWolf){
@@ -30,9 +30,9 @@ public class LivingDrop {
 			}else{
 				dropped = 1;
 			}
-			event.getEntityLiving().dropItem(DRPMItems.FurWolf, dropped);
+			event.getEntityLiving().dropItem(DRPMedievalItems.FurWolf, dropped);
 			dropped = random.nextInt(2) + 1;
-			event.getEntityLiving().dropItem(DRPMItems.WolfMeatRaw, dropped);
+			event.getEntityLiving().dropItem(DRPMedievalItems.WolfMeatRaw, dropped);
 		}
 	}
 

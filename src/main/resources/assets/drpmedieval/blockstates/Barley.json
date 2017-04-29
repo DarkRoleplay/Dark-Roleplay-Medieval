@@ -1,20 +1,58 @@
 {
-    "variants": {
-        "age=0,is_crop_controller=true": { "model": "drpmedieval:barley/barley0" },
-        "age=1,is_crop_controller=true": { "model": "drpmedieval:barley/barley1" },
-        "age=2,is_crop_controller=true": { "model": "drpmedieval:barley/barley2" },
-        "age=3,is_crop_controller=true": { "model": "drpmedieval:barley/barley3" },
-        "age=4,is_crop_controller=true": { "model": "drpmedieval:barley/barley4" },
-        "age=5,is_crop_controller=true": { "model": "drpmedieval:barley/barley5" },
-        "age=6,is_crop_controller=true": { "model": "drpmedieval:barley/barley6" },
-        "age=7,is_crop_controller=true": { "model": "drpmedieval:barley/barley7" },
-		"age=0,is_crop_controller=false": { "model": "drpmedieval:barley/barley0" },
-        "age=1,is_crop_controller=false": { "model": "drpmedieval:barley/barley1" },
-        "age=2,is_crop_controller=false": { "model": "drpmedieval:barley/barley2" },
-        "age=3,is_crop_controller=false": { "model": "drpmedieval:barley/barley3" },
-        "age=4,is_crop_controller=false": { "model": "drpmedieval:barley/barley4" },
-        "age=5,is_crop_controller=false": { "model": "drpmedieval:barley/barley5" },
-        "age=6,is_crop_controller=false": { "model": "drpmedieval:barley/barley6" },
-        "age=7,is_crop_controller=false": { "model": "drpmedieval:barley/barley7" }
-    }
+    "forge_marker": 1,
+    "defaults": {
+		"model": "crop",
+        "textures":{
+			"crop": "drpmedieval:blocks/barley0"
+		}
+    },
+	"variants": {
+		"inventory":[{}],
+		"age":{
+			"0":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley0"
+				}
+			},
+			"1":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley1"
+				}
+			},
+			"2":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley2"
+				}
+			},
+			"3":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley3"
+				}
+			},
+			"4":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley4"
+				}
+			},
+			"5":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley5"
+				}
+			},
+			"6":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley6"
+				}
+			},
+			"7":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley7"
+				}
+			}
+		},
+		"provider":{
+			true:{},
+			false:{}
+		}
+	}
 }

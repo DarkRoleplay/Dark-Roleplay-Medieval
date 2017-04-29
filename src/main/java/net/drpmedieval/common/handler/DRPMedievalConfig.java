@@ -1,4 +1,4 @@
-package net.drpmedieval.common.config;
+package net.drpmedieval.common.handler;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

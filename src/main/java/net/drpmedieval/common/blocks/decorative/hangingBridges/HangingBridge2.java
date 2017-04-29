@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.helper.EnumAxis;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -161,8 +161,8 @@ public class HangingBridge2 extends Block {
 	
 	private boolean doesBlockAlign(IBlockAccess world, BlockPos pos){
 		
-		return world.getBlockState(pos).getBlock().equals(DRPMBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos).getBlock().equals(DRPMBlocks.HANGING_BRIDGE_TOP) ||
-				world.getBlockState(pos.up()).getBlock().equals(DRPMBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.up()).getBlock().equals(DRPMBlocks.HANGING_BRIDGE_TOP) ||
-				world.getBlockState(pos.down()).getBlock().equals(DRPMBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.down()).getBlock().equals(DRPMBlocks.HANGING_BRIDGE_TOP);
+		return world.getBlockState(pos).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_TOP) ||
+				world.getBlockState(pos.up()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.up()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_TOP) ||
+				world.getBlockState(pos.down()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.down()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_TOP);
 	}
 }

@@ -1,7 +1,7 @@
 package net.drpmedieval.common.blocks.plants;
 
 import net.drpmedieval.common.blocks.helper.TreePlant;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.init.Items;

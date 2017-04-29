@@ -1,6 +1,6 @@
 package net.drpmedieval.common.capabilities.blocks.bedframe;
 
-import net.drpmedieval.common.capabilities.DRPMCapabilities;
+import net.drpmedieval.common.handler.DRPMedievalCapabilities;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
@@ -28,13 +28,13 @@ public class BedFrameMattressProvider implements ICapabilityProvider {
 	@Override
     public boolean hasCapability(Capability<?> capability, EnumFacing facing)
     {
-        return DRPMCapabilities.MATTRESS != null && capability == DRPMCapabilities.MATTRESS ;
+        return DRPMedievalCapabilities.MATTRESS != null && capability == DRPMedievalCapabilities.MATTRESS ;
     }
 	
     @Override
     public <T> T getCapability(Capability<T> capability, EnumFacing facing)
     {
-        if (DRPMCapabilities.MATTRESS  != null && capability == DRPMCapabilities.MATTRESS ) return (T)mattress;
+        if (DRPMedievalCapabilities.MATTRESS  != null && capability == DRPMedievalCapabilities.MATTRESS ) return (T)mattress;
         return null;
     }
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import net.drpmedieval.common.blocks.building.CleanPlanks;
 import net.drpmedieval.common.blocks.templates.WoodenBlock;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

@@ -4,7 +4,7 @@ import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
 import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityCauldron;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.drpmedieval.common.util.InventoryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;

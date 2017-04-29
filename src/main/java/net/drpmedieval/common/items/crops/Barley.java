@@ -1,6 +1,6 @@
 package net.drpmedieval.common.items.crops;
 
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.item.Item;
 
 public class Barley extends Item {

@@ -3,7 +3,7 @@ package net.drpmedieval.common.blocks.specialrenderer;
 import org.lwjgl.opengl.GL11;
 
 import net.drpmedieval.common.DarkRoleplayMedieval;
-import net.drpmedieval.common.blocks.DRPMBlocks;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
@@ -27,7 +27,7 @@ public class SpecialRenderShipsWheel extends TileEntitySpecialRenderer {
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int i) {
 
-		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMBlocks.SHIPS_HELM)){
+		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMedievalBlocks.SHIPS_HELM)){
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F);
 			GL11.glRotatef(180, 0F, 0F, 1F);

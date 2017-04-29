@@ -1,9 +1,9 @@
 itemGroup.DRPMDecoration=DRPM Decoration
-itemGroup.DRPMBuildingMats=DRPM Building Materials
+itemGroup.DRPMBuildingMats=DRPM Building Mats
 itemGroup.DRPMUtility=DRPM Utility
 itemGroup.DRPMFood=DRPM Food
 itemGroup.DRPEquip=DRPM Equipment
-itemGroup.DRPMMisc=DRPM Miscellaneous
+itemGroup.DRPMMisc=DRPM Misc
 
 crafting.category.sittables.name=Sittables
 crafting.category.building.name=Building Materials

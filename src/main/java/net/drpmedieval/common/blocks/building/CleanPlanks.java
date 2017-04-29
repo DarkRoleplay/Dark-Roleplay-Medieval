@@ -2,7 +2,7 @@ package net.drpmedieval.common.blocks.building;
 
 import java.util.List;
 
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.SoundType;

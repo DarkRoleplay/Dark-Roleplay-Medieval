@@ -12,6 +12,7 @@ import org.objectweb.asm.Type;
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.blocks.decorative.apiaries.Apiary;
 import net.drpmedieval.common.blocks.templates.WoodenBlock;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
 import net.drpmedieval.common.items.blocks.WoodTypeItemBlock;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.MapColor;
@@ -43,7 +44,7 @@ public class WoodHelper {
 				}
 			}
 			Apiaries.put("apiary" + String.valueOf(apiaryAmount), new Apiary("apiary" + String.valueOf(apiaryAmount) ,apiaryTypes));
-			DRPMBlocks.registerBlock(Apiaries.get("apiary" + String.valueOf(apiaryAmount)), new WoodTypeItemBlock(Apiaries.get("apiary" + String.valueOf(apiaryAmount))).setHasSubtypes(true));
+			DRPMedievalBlocks.registerBlock(Apiaries.get("apiary" + String.valueOf(apiaryAmount)), new WoodTypeItemBlock(Apiaries.get("apiary" + String.valueOf(apiaryAmount))).setHasSubtypes(true));
 			apiaryAmount++;
 		}
 	}
@@ -74,7 +75,7 @@ public class WoodHelper {
 				WoodenBlock block = ctor.newInstance(new Object[] { registryName, apiaryTypes});
 				
 				Apiaries.put(registryName + String.valueOf(amount), new Apiary(registryName + String.valueOf(amount) ,apiaryTypes));
-				DRPMBlocks.registerBlock(Apiaries.get(registryName + String.valueOf(amount)), new WoodTypeItemBlock(Apiaries.get(registryName + String.valueOf(amount))).setHasSubtypes(true));
+				DRPMedievalBlocks.registerBlock(Apiaries.get(registryName + String.valueOf(amount)), new WoodTypeItemBlock(Apiaries.get(registryName + String.valueOf(amount))).setHasSubtypes(true));
 				amount++;
 			}
 		} catch (NoSuchMethodException | SecurityException e) {

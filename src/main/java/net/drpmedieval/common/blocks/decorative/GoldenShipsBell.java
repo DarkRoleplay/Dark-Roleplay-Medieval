@@ -1,9 +1,9 @@
 package net.drpmedieval.common.blocks.decorative;
 
 import net.drpmedieval.client.sound.SoundEvents;
-import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.drpmedieval.common.util.SittingUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

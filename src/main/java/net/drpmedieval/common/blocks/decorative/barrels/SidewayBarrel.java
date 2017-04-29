@@ -5,8 +5,8 @@ import java.util.Random;
 
 import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
 import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
-import net.drpmedieval.common.items.DRPMItems;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalItems;
 import net.drpmedieval.common.util.InventoryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -108,7 +108,7 @@ public class SidewayBarrel extends Block {
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(!world.isRemote){
-			if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(DRPMItems.TAP) && !state.getValue(TAP).booleanValue()){
+			if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(DRPMedievalItems.TAP) && !state.getValue(TAP).booleanValue()){
 				world.setBlockState(pos, state.withProperty(TAP,true));		
 				if(!player.capabilities.isCreativeMode) player.getHeldItem(hand).shrink(1);
 				return true;
@@ -132,7 +132,7 @@ public class SidewayBarrel extends Block {
         }
         
         if(state.getValue(TAP)){
-        	ret.add(new ItemStack(DRPMItems.TAP, 1, 0));
+        	ret.add(new ItemStack(DRPMedievalItems.TAP, 1, 0));
         }
         
         return ret;

@@ -2,7 +2,7 @@ package net.drpmedieval.common.blocks.decorative.tables;
 
 import net.drpmedieval.common.blocks.helper.EnumAxis;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.SoundType;

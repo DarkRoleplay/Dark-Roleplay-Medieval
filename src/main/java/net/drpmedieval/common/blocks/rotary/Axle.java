@@ -2,7 +2,7 @@ package net.drpmedieval.common.blocks.rotary;
 
 import net.drpmedieval.common.blocks.WoodHelper;
 import net.drpmedieval.common.blocks.WoodHelper.WoodType;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.SoundType;

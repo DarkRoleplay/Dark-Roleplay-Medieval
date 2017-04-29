@@ -1,38 +1,39 @@
 package net.drpmedieval.common.blocks.plants;
 
-import net.drpmedieval.common.items.DRPMItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockCrops;
+import net.drpmedieval.api.blocks.plants.Block_AdvancedCrop;
+import net.drpmedieval.common.handler.DRPMedievalItems;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 
-public class Barley{// extends AdvancedCrop {
-//
-//	public Barley() {
-//		super(28);
-//		this.setRegistryName("Barley");
-//		this.setUnlocalizedName("Barley");
-//        this.setDefaultState(this.blockState.getBaseState().withProperty(this.AGE, Integer.valueOf(0)));
-//	}
-//
+public class Barley extends Block_AdvancedCrop{
+
+	private static final PropertyInteger AGE = PropertyInteger.create("age", 0, 7);
+	
+	public Barley(String registryName) {
+		super(registryName, AGE, 30);
+	}
+
+	@Override
+	protected Item getSeed() {
+		return DRPMedievalItems.BatEar;
+	}
+
+	@Override
+	protected Item getCrop() {
+		return DRPMedievalItems.Barley;
+	}
+
+	@Override
+	protected PropertyInteger getAgeProperty() {
+		return this.AGE;
+	}
+
 //	protected boolean canPlaceBlockOn(Block ground) {
 //
 //		return ground == Blocks.FARMLAND;
 //	}
-//
-//	protected Item getSeed() {
-//
-//		return DRPMedievalItems.SeedBarley;
-//	}
-//
-//	protected Item getCrop() {
-//		return DRPMedievalItems.Barley;
-//	}
-//
+
 //	// -------------------------------------------------- Block Data --------------------------------------------------
 //
 //	@Override

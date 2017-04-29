@@ -1,7 +1,7 @@
 package net.drpmedieval.common.blocks.helper;
 
 import net.drpmedieval.common.blocks.tileentitys.BedFrameTileEntity;
-import net.drpmedieval.common.capabilities.DRPMCapabilities;
+import net.drpmedieval.common.handler.DRPMedievalCapabilities;
 import net.minecraft.block.BlockBed;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.MapColor;
@@ -65,8 +65,8 @@ public class AdvancedBed extends BlockBed implements ITileEntityProvider{
     	EnumMattressType mattress = EnumMattressType.NONE;
 		if(world.getTileEntity(pos) != null && world.getTileEntity(pos) instanceof BedFrameTileEntity){
 			BedFrameTileEntity te = (BedFrameTileEntity) world.getTileEntity(pos);
-			if(te.hasCapability(DRPMCapabilities.MATTRESS,null)){
-				mattress =	te.getCapability(DRPMCapabilities.MATTRESS,null).getMattress();
+			if(te.hasCapability(DRPMedievalCapabilities.MATTRESS,null)){
+				mattress =	te.getCapability(DRPMedievalCapabilities.MATTRESS,null).getMattress();
 			}
 		}
 		

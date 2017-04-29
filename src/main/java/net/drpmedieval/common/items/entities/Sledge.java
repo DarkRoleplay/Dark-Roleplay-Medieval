@@ -3,7 +3,7 @@ package net.drpmedieval.common.items.entities;
 import java.util.List;
 
 import net.drpmedieval.common.entity.item.EntitySledge;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;

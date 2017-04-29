@@ -1,9 +1,9 @@
 package net.drpmedieval.common.blocks.decorative;
 
-import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityHook;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
@@ -103,7 +103,7 @@ public class Hook extends BlockContainer {
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
 
-		return worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMBlocks.CHAIN);
+		return worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.CHAIN);
 	}
 	
 	// -------------------------------------------------- Block Events --------------------------------------------------
@@ -111,7 +111,7 @@ public class Hook extends BlockContainer {
 	@Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 
-		if(!worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMBlocks.CHAIN)) return Blocks.AIR.getDefaultState();
+		if(!worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.CHAIN)) return Blocks.AIR.getDefaultState();
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
 			int dir = MathHelper.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;

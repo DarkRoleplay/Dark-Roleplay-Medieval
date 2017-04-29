@@ -2,10 +2,10 @@ package net.drpmedieval.common.blocks.craftingstations;
 
 import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
 import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
-import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityHangingCauldron;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
@@ -107,13 +107,13 @@ public class HangingCauldron extends BlockContainer {
 	}
 	
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
-		return worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true) || worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMBlocks.IRON_HOOK);
+		return worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true) || worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.IRON_HOOK);
 	}
 	
 	// -------------------------------------------------- Block Events --------------------------------------------------
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 
-		if(!worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMBlocks.IRON_HOOK)) return Blocks.AIR.getDefaultState();
+		if(!worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.IRON_HOOK)) return Blocks.AIR.getDefaultState();
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
 			int dir = MathHelper.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;

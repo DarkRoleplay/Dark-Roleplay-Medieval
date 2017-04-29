@@ -1,8 +1,8 @@
 package net.drpmedieval.common.blocks.decorative;
 
-import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.helper.RopeFixPoint;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.drpmedieval.common.util.InventoryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -147,7 +147,7 @@ public class Rope extends Block {
 			if (placer instanceof EntityPlayer && worldIn.getBlockState(pos).getBlock() == Blocks.AIR)
 				if (!((EntityPlayer) placer).capabilities.isCreativeMode)
 					((EntityPlayer) placer).inventory.decrStackSize(
-							InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMBlocks.ROPE),
+							InventoryHelper.getInventorySlotContainItem(Item.getItemFromBlock(DRPMedievalBlocks.ROPE),
 									((EntityPlayer) placer).inventory.mainInventory.toArray(new ItemStack[] {})),
 							1);
 
@@ -168,17 +168,17 @@ public class Rope extends Block {
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
 
 		if (player.getHeldItem(hand) != null) {
-			if (player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Item.getItemFromBlock(DRPMBlocks.ROPE))) {
+			if (player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Item.getItemFromBlock(DRPMedievalBlocks.ROPE))) {
 				for (int i = pos.getY() - 1; i > 0; i--) {
 					BlockPos pos2 = new BlockPos(pos.getX(), pos.getY() - (pos.getY() - i), pos.getZ());
-					if (world.getBlockState(pos2).getBlock().equals(DRPMBlocks.ROPE)) {
+					if (world.getBlockState(pos2).getBlock().equals(DRPMedievalBlocks.ROPE)) {
 						continue;
 					} else if (world.getBlockState(pos2).getBlock().equals(Blocks.AIR)) {
 						if (!world.isRemote) {
 							world.setBlockState(pos2, state);
 							if (!player.capabilities.isCreativeMode)
 								player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(
-										Item.getItemFromBlock(DRPMBlocks.ROPE),
+										Item.getItemFromBlock(DRPMedievalBlocks.ROPE),
 										player.inventory.mainInventory.toArray(new ItemStack[] {})), 1);
 						}
 						// TODO PLAY SOUND
@@ -197,7 +197,7 @@ public class Rope extends Block {
 				if (player.isSneaking()) {
 					for (int i = pos.getY() - 1; i > 0; i--) {
 						BlockPos pos2 = new BlockPos(pos.getX(), pos.getY() - (pos.getY() - i), pos.getZ());
-						if (world.getBlockState(pos2).getBlock().equals(DRPMBlocks.ROPE)) {
+						if (world.getBlockState(pos2).getBlock().equals(DRPMedievalBlocks.ROPE)) {
 							continue;
 						} else {
 							if (!world.isRemote) {
@@ -205,7 +205,7 @@ public class Rope extends Block {
 								world.setBlockState(pos3, Blocks.AIR.getDefaultState());
 								if (!world.isRemote)
 									world.spawnEntity(new EntityItem(world, player.posX, player.posY, player.posZ,
-											new ItemStack(DRPMBlocks.ROPE, 1)));
+											new ItemStack(DRPMedievalBlocks.ROPE, 1)));
 							}
 							return true;
 						}

@@ -3,7 +3,7 @@ package net.drpmedieval.common.items.misc;
 import java.awt.Color;
 import java.util.List;
 
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

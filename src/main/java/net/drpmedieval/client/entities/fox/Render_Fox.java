@@ -4,12 +4,19 @@ import org.lwjgl.opengl.GL11;
 
 import net.drpmedieval.common.DarkRoleplayMedieval;
 import net.drpmedieval.common.entities.fox.Entity_Fox;
+import net.drpmedieval.common.entity.item.EntitySledge;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class Render_Fox extends RenderLiving<Entity_Fox>{
@@ -23,10 +30,11 @@ public class Render_Fox extends RenderLiving<Entity_Fox>{
     @Override
     protected void preRenderCallback(Entity_Fox entity, float f){
     	GL11.glScalef(0.75F, 0.75F, 0.75F);
+    	GL11.glTranslatef(0.0F, 0.85F, 0.0F);
     }
 
     @Override
-    public void doRender(Entity_Fox entity, double x, double y, double z, float entityYaw, float partialTicks){
+	public void doRender(Entity_Fox entity, double x, double y, double z, float entityYaw, float partialTicks){
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
     

@@ -3,8 +3,8 @@ package net.drpmedieval.common.blocks.tileentitys;
 import java.io.IOException;
 
 import net.drpmedieval.common.blocks.helper.EnumMattressType;
-import net.drpmedieval.common.capabilities.DRPMCapabilities;
 import net.drpmedieval.common.capabilities.blocks.bedframe.DefaultBedFrameMattress;
+import net.drpmedieval.common.handler.DRPMedievalCapabilities;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.INetHandler;
@@ -44,7 +44,7 @@ public class BedFrameTileEntity extends TileEntity {
 
 	@Override
 	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-		return capability == DRPMCapabilities.MATTRESS;
+		return capability == DRPMedievalCapabilities.MATTRESS;
 	}
 
 	@Override

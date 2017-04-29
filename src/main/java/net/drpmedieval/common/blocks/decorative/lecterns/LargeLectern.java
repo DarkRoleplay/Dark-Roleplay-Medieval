@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import net.drpmedieval.common.blocks.helper.EnumAxis;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -93,7 +93,12 @@ public class LargeLectern extends Block{
 	
 	@Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
-        return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+    }
+	
+	@Override
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos){
+        return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && worldIn.isAirBlock(pos.up()) && worldIn.isSideSolid(pos.down(), EnumFacing.UP);
     }
 	
 	@Override

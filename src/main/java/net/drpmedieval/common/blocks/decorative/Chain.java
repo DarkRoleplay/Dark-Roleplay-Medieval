@@ -1,9 +1,9 @@
 package net.drpmedieval.common.blocks.decorative;
 
-import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.templates.DRPMedievalMaterials;
 import net.drpmedieval.common.blocks.tileentitys.TileEntityChain;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
@@ -110,7 +110,7 @@ public class Chain extends BlockContainer {
 
 		if(worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN))
 			return true;
-		else if(worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMBlocks.CHAIN))
+		else if(worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.CHAIN))
 			return true;
 		else
 			return false;
@@ -123,7 +123,7 @@ public class Chain extends BlockContainer {
 
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
-			if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMBlocks.CHAIN)) return Blocks.AIR.getDefaultState();
+			if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.CHAIN)) return Blocks.AIR.getDefaultState();
 			int dir = MathHelper.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 			switch (dir) {
 				case 0:

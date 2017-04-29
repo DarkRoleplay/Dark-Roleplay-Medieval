@@ -1,7 +1,7 @@
 package net.drpmedieval.common.items.equipment.rings;
 
 import net.dark_roleplay.drpcore.api.items.DRPEquip;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 
 public class GoldenRing extends DRPEquip {
 

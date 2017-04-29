@@ -4,9 +4,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import net.drpmedieval.common.blocks.DRPMBlocks;
+import net.drpmedieval.common.blocks.decorative.hangingBridges.HangingBridge2;
 import net.drpmedieval.common.blocks.helper.EnumAxis;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -26,6 +27,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -140,9 +142,9 @@ public class HangingBridge extends Block {
 	}
 
 	private boolean doesBlockAlign(IBlockAccess world, BlockPos pos) {
-		return world.getBlockState(pos).getBlock().equals(DRPMBlocks.HANGING_BRIDGE)
-				|| world.getBlockState(pos.up()).getBlock().equals(DRPMBlocks.HANGING_BRIDGE)
-				|| world.getBlockState(pos.down()).getBlock().equals(DRPMBlocks.HANGING_BRIDGE);
+		return world.getBlockState(pos).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)
+				|| world.getBlockState(pos.up()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)
+				|| world.getBlockState(pos.down()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE);
 	}
 
 	@Override
@@ -195,56 +197,55 @@ public class HangingBridge extends Block {
 		}
 	}
 
-//	@Override
-//	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-//		if (player.isSneaking()) {
-//			if (world.isRemote) {
-//				int range = 1;
-//				if (state.getValue(AXIS) == EnumAxis.X) {
-//					BlockPos pos2 = pos.north();
-//					while (world.getBlockState(pos2).getBlock().equals(DRPMBlocks.HANGING_BRIDGE)) {
-//						range++;
-//						pos2 = pos2.north();
-//					}
-//					pos2 = pos.south();
-//					while (world.getBlockState(pos2).getBlock().equals(DRPMBlocks.HANGING_BRIDGE)) {
-//						range++;
-//						pos2 = pos2.south();
-//					}
-//				}else if (state.getValue(AXIS) == EnumAxis.Z) {
-//					BlockPos pos2 = pos.east();
-//					while (world.getBlockState(pos2).getBlock().equals(DRPMBlocks.HANGING_BRIDGE)) {
-//						range++;
-//						pos2 = pos2.east();
-//					}
-//					pos2 = pos.west();
-//					while (world.getBlockState(pos2).getBlock().equals(DRPMBlocks.HANGING_BRIDGE)) {
-//						range++;
-//						pos2 = pos2.west();
-//					}
-//
-//				}
-//				
-//				//Change Blocks
-//				int hang = (int) Math.floor(range * 0.2);//TODO FIX EVERYTHING
-//				int decRange = range / 2 / hang;
-//				BlockPos pos2 = pos;
-//				for(int i = 0; i < range; i++){
-//					pos2 = pos2.west();
-//					if((hang / 8 ) % 2 == 0){
-//						world.setBlockState(pos2, DRPMBlocks.HANGING_BRIDGE_TOP.getStateFromMeta(8 + i / decRange));
-//					}else{
-//						world.setBlockState(pos2, DRPMBlocks.HANGING_BRIDGE_BOTTOM.getStateFromMeta(8 + i / decRange));
-//					}
-//					
-//				}
-//				
-//				System.out.println(range);
-//			}
-//			return true;
-//		} else {
-//			return false;
-//		}
-//	}
-
+	@Override
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		if(!world.isRemote){
+			boolean axis = state.getValue(AXIS) == EnumAxis.Z;
+			
+			int length = 1;
+			int offsetThis;
+			BlockPos centerPos = pos;
+			if(axis){
+				BlockPos pos2 = pos;
+				while(world.getBlockState(pos2 = pos2.east()).getBlock() == this){
+					length ++;
+				}
+				offsetThis = length -1;
+				pos2 = pos;
+				while(world.getBlockState(pos2 = pos2.west()).getBlock() == this){
+					length ++;
+				}
+				centerPos = new BlockPos(pos.add(length/2 <= offsetThis ? offsetThis - (length/2) : offsetThis - (length/2), 0, 0));
+			}else{
+				BlockPos pos2 = pos;
+				while(world.getBlockState(pos2 = pos2.north()).getBlock() == this){
+					length ++;
+				}
+				offsetThis = length -1;
+				pos2 = pos;
+				while(world.getBlockState(pos2 = pos2.south()).getBlock() == this){
+					length ++;
+				}
+				centerPos = new BlockPos(pos.add(0, 0, length/2 <= offsetThis ? offsetThis - (length/2) : offsetThis - (length/2)));
+			}
+			 int halfLength = length/2;
+			 
+			for(int i = - halfLength; i <= halfLength; i++){
+				
+				boolean dir = i < 0;
+				int hang;
+				int j = dir ? - i :  i;
+				
+				hang = j;
+				
+				if(axis){
+					world.setBlockState(centerPos.add(i, -Math.ceil((float) hang/16), 0), DRPMedievalBlocks.HANGING_BRIDGE_TOP.getDefaultState().withProperty(HangingBridge2.AXIS, state.getValue(AXIS)).withProperty(HangingBridge2.HEIGHT,(hang % 8)));
+				}
+			}
+			
+		}
+		//x²*0.01 - x²*0.09
+		
+		return true;
+	}
 }

@@ -1,13 +1,13 @@
 package net.drpmedieval.common.blocks.decorative;
 
-import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.blocks.helper.AdvancedBed;
 import net.drpmedieval.common.blocks.helper.EnumMattressType;
 import net.drpmedieval.common.blocks.tileentitys.BedFrameTileEntity;
-import net.drpmedieval.common.capabilities.DRPMCapabilities;
-import net.drpmedieval.common.items.DRPMItems;
+import net.drpmedieval.common.handler.DRPMedievalCapabilities;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalItems;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
 import net.drpmedieval.common.items.blocks.AdvancedBedItem;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
 import net.drpmedieval.common.worldgen.feature.TreeTest;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;

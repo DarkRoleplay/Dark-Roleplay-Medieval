@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 
-import net.drpmedieval.common.blocks.DRPMBlocks;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -28,12 +28,12 @@ public class OreGen implements IWorldGenerator {
 	}
 
 	public void generateOverworld(World world, Random rand, int x, int z) {
-		generateOre(DRPMBlocks.COPPER_ORE, world, rand, x, z, 6, 10, 3, 5, 68, Blocks.STONE);
-		generateOre(DRPMBlocks.TIN_ORE, world, rand, x, z, 4, 6, 5, 5, 68, Blocks.STONE);
-		generateOre(DRPMBlocks.SILVER_ORE, world, rand, x, z, 5, 7, 1, 5, 32, Blocks.STONE);
-		generateOre(DRPMBlocks.SULFUR_ORE, world, rand, x, z, 5, 7, 2, 5, 12, Blocks.STONE);
+		generateOre(DRPMedievalBlocks.COPPER_ORE, world, rand, x, z, 6, 10, 3, 5, 68, Blocks.STONE);
+		generateOre(DRPMedievalBlocks.TIN_ORE, world, rand, x, z, 4, 6, 5, 5, 68, Blocks.STONE);
+		generateOre(DRPMedievalBlocks.SILVER_ORE, world, rand, x, z, 5, 7, 1, 5, 32, Blocks.STONE);
+		generateOre(DRPMedievalBlocks.SULFUR_ORE, world, rand, x, z, 5, 7, 2, 5, 12, Blocks.STONE);
 
-		generateSalpeter(DRPMBlocks.SALPETER_ORE, world, rand, x, z, 8, 12, 1, 60, 68, Blocks.STONE);
+		generateSalpeter(DRPMedievalBlocks.SALPETER_ORE, world, rand, x, z, 8, 12, 1, 60, 68, Blocks.STONE);
 
 	}
 	

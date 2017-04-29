@@ -5,7 +5,7 @@ import javax.annotation.Nullable;
 import com.google.common.base.Predicate;
 
 import net.drpmedieval.common.blocks.templates.DRPMLeaves;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.properties.IProperty;

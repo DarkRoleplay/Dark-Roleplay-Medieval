@@ -1,9 +1,7 @@
-package net.drpmedieval.common.util;
+package net.drpmedieval.common.handler;
 
 import net.dark_roleplay.drpcore.api.items.DRPEquip;
 import net.dark_roleplay.drpcore.api.items.DRPItem;
-import net.drpmedieval.common.blocks.DRPMBlocks;
-import net.drpmedieval.common.items.DRPMItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,17 +15,27 @@ public class DRPMedievalCreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(DRPMBlocks.FLOWER_POT);
+			return new ItemStack(DRPMedievalBlocks.FLOWER_POT);
 			//return Item.getItemFromBlock(DRPMedievalBlocks.SIMPLE_CHAIR_OAK);
 		}
-	};
+		
+		@Override
+		public boolean hasSearchBar(){
+	        return true;
+	    }
+		
+		@Override
+		public int getSearchbarWidth(){
+		    return 75;
+		}
+	}.setBackgroundImageName("drpmedieval.png");;
 	
 	public static CreativeTabs BUILDING_MATS = new CreativeTabs("DRPMBuildingMats") {
 
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(Item.getItemFromBlock(DRPMBlocks.MOSSY_LOG_SPRUCE));
+			return new ItemStack(Item.getItemFromBlock(DRPMedievalBlocks.MOSSY_LOG_SPRUCE));
 		}
 	};
 	
@@ -37,7 +45,7 @@ public class DRPMedievalCreativeTabs {
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 
-			return new ItemStack(Item.getItemFromBlock(DRPMBlocks.CHOPPING_BLOCK));
+			return new ItemStack(Item.getItemFromBlock(DRPMedievalBlocks.CHOPPING_BLOCK));
 		}
 	};
 
@@ -47,7 +55,7 @@ public class DRPMedievalCreativeTabs {
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 
-			return new ItemStack(DRPMItems.CatfishCooked);
+			return new ItemStack(DRPMedievalItems.CatfishCooked);
 		}
 	};
 
@@ -56,7 +64,7 @@ public class DRPMedievalCreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack((Item)((DRPEquip)((DRPItem) DRPMItems.LeatherPurse)));
+			return new ItemStack((Item)((DRPEquip)((DRPItem) DRPMedievalItems.LeatherPurse)));
 		}
 	};
 
@@ -66,7 +74,7 @@ public class DRPMedievalCreativeTabs {
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 
-			return new ItemStack(DRPMItems.Firewood,1,2);
+			return new ItemStack(DRPMedievalItems.Firewood,1,2);
 		}
 	};
 

@@ -1,7 +1,7 @@
 package net.drpmedieval.common.items.seeds;
 
-import net.drpmedieval.common.blocks.DRPMBlocks;
-import net.drpmedieval.common.util.DRPMedievalCreativeTabs;
+import net.drpmedieval.common.handler.DRPMedievalBlocks;
+import net.drpmedieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;

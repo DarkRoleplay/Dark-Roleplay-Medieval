@@ -1,4 +1,6 @@
-package net.drpmedieval.common.blocks.tileentitys;
+package net.drpmedieval.common.tileentities;
+
+import javax.annotation.Nullable;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
@@ -7,7 +9,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
-public class BucketTileEntity  extends TileEntity {
+public class TileEntity_FlowerStorage  extends TileEntity {
 
 	private int flower1 = 0;
 	private int flower2 = 0;
@@ -35,11 +37,10 @@ public class BucketTileEntity  extends TileEntity {
 			flower3 = flowerID;
 		}
 		
+
+        IBlockState state = world.getBlockState(getPos());
+		world.notifyBlockUpdate(getPos(), state, state, 3);
 		markDirty();
-		if (world != null) {
-            IBlockState state = world.getBlockState(getPos());
-            world.notifyBlockUpdate(getPos(), state, state, 3);
-        }
 	}
 	
 	public int removeFlower(){
@@ -73,12 +74,14 @@ public class BucketTileEntity  extends TileEntity {
     }
 
     @Override
+
+    @Nullable
     public SPacketUpdateTileEntity getUpdatePacket() {
         NBTTagCompound nbtTag = new NBTTagCompound();
         this.writeToNBT(nbtTag);
         return new SPacketUpdateTileEntity(getPos(), 1, nbtTag);
     }
-
+    
     @Override
     public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
         this.readFromNBT(packet.getNbtCompound());

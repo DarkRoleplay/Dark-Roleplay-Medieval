@@ -1,7 +1,6 @@
-package net.drpmedieval.common.items;
+package net.drpmedieval.common.handler;
 
 import net.drpmedieval.common.DarkRoleplayMedieval;
-import net.drpmedieval.common.blocks.DRPMBlocks;
 import net.drpmedieval.common.items.blocks.*;
 import net.drpmedieval.common.items.book.WriteablePage;
 import net.drpmedieval.common.items.consumable.*;
@@ -22,7 +21,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class DRPMItems {
+public class DRPMedievalItems {
 
 	/** In Dev Items **/
 	
@@ -163,12 +162,12 @@ public class DRPMItems {
 	
 	public static final void preInit(FMLPreInitializationEvent event) {
 
-		BedFrameOak.setBed(DRPMBlocks.BED_FRAME_OAK);
-		BedFrameSpruce.setBed(DRPMBlocks.BED_FRAME_SPRUCE);
-		BedFrameBirch.setBed(DRPMBlocks.BED_FRAME_BIRCH);
-		BedFrameJungle.setBed(DRPMBlocks.BED_FRAME_JUNGLE);
-		BedFrameAcacia.setBed(DRPMBlocks.BED_FRAME_ACACIA);
-		BedFrameDarkOak.setBed(DRPMBlocks.BED_FRAME_DARK_OAK);
+		BedFrameOak.setBed(DRPMedievalBlocks.BED_FRAME_OAK);
+		BedFrameSpruce.setBed(DRPMedievalBlocks.BED_FRAME_SPRUCE);
+		BedFrameBirch.setBed(DRPMedievalBlocks.BED_FRAME_BIRCH);
+		BedFrameJungle.setBed(DRPMedievalBlocks.BED_FRAME_JUNGLE);
+		BedFrameAcacia.setBed(DRPMedievalBlocks.BED_FRAME_ACACIA);
+		BedFrameDarkOak.setBed(DRPMedievalBlocks.BED_FRAME_DARK_OAK);
 		
 		SeedBarley = new SeedBarley();
 		

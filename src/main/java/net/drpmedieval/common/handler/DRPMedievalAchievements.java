@@ -1,4 +1,4 @@
-package net.drpmedieval.common.achievements;
+package net.drpmedieval.common.handler;
 
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
