@@ -1,6 +1,7 @@
 package net.dark_roleplay.medieval.common.handler;
 
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.common.blocks.BlockTest;
 import net.dark_roleplay.medieval.common.blocks.Upstream;
 import net.dark_roleplay.medieval.common.blocks.WoodHelper;
 import net.dark_roleplay.medieval.common.blocks.building.*;
@@ -261,6 +262,8 @@ public class DRPMedievalBlocks {
 	public static TorchHolderUnlit TORCH_HOLDER_UNLIT = new TorchHolderUnlit("torch_holder_unlit");
 
 	/** U **/
+	
+	public static BlockTest TEST = new BlockTest();
 
 	/** V **/
 
@@ -277,7 +280,7 @@ public class DRPMedievalBlocks {
 	public static void preInit(FMLPreInitializationEvent event) {
 		//registerBlock(rgO);
 		WoodHelper.init();
-
+		registerBlock(TEST);
 		registerBlock(SNOW_BRICKS);
 		registerBlock(UPSTREAM);
 		//registerBlock(APPLE_SAPPLING);
