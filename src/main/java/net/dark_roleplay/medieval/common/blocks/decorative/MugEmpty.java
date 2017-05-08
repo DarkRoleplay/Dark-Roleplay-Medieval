@@ -1,9 +1,9 @@
 package net.dark_roleplay.medieval.common.blocks.decorative;
 
-import net.dark_roleplay.medieval.common.blocks.templates.DRPMedievalMaterials;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
@@ -23,7 +23,7 @@ public class MugEmpty extends Block {
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
 	public MugEmpty(String registryName) {
-		super(DRPMedievalMaterials.wood);
+		super(Material.WOOD);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
@@ -44,22 +44,22 @@ public class MugEmpty extends Block {
 
 		switch (meta) {
 			case 0:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				return this.getDefaultState().withProperty(MugEmpty.FACING, EnumFacing.NORTH);
 			case 1:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+				return this.getDefaultState().withProperty(MugEmpty.FACING, EnumFacing.EAST);
 			case 2:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+				return this.getDefaultState().withProperty(MugEmpty.FACING, EnumFacing.SOUTH);
 			case 3:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
+				return this.getDefaultState().withProperty(MugEmpty.FACING, EnumFacing.WEST);
 			default:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				return this.getDefaultState().withProperty(MugEmpty.FACING, EnumFacing.NORTH);
 		}
 	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
-		EnumFacing facing = (EnumFacing) state.getValue(FACING);
+		EnumFacing facing = state.getValue(MugEmpty.FACING);
 		if(facing.equals(EnumFacing.NORTH)) return 0;
 		if(facing.equals(EnumFacing.EAST)) return 1;
 		if(facing.equals(EnumFacing.SOUTH)) return 2;
@@ -70,7 +70,7 @@ public class MugEmpty extends Block {
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] {FACING});
+		return new BlockStateContainer(this, new IProperty[] {MugEmpty.FACING});
 	}
 	
 	@Override
@@ -107,18 +107,18 @@ public class MugEmpty extends Block {
 		if(!worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true)) return Blocks.AIR.getDefaultState();
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
-			int dir = MathHelper.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+			int dir = MathHelper.floor((entity.rotationYaw * 4.0F) / 360.0F + 0.5D) & 3;
 			switch (dir) {
 				case 0:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+					return this.getDefaultState().withProperty(MugEmpty.FACING, EnumFacing.NORTH);
 				case 1:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+					return this.getDefaultState().withProperty(MugEmpty.FACING, EnumFacing.EAST);
 				case 2:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+					return this.getDefaultState().withProperty(MugEmpty.FACING, EnumFacing.SOUTH);
 				case 3:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
+					return this.getDefaultState().withProperty(MugEmpty.FACING, EnumFacing.WEST);
 				default:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+					return this.getDefaultState().withProperty(MugEmpty.FACING, EnumFacing.NORTH);
 			}
 		}
 		return Blocks.AIR.getDefaultState();

@@ -1,7 +1,5 @@
 package net.dark_roleplay.medieval.common.blocks.building;
 
-import java.util.Random;
-
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

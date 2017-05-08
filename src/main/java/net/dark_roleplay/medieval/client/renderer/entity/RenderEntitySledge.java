@@ -4,12 +4,10 @@ import javax.annotation.Nonnull;
 
 import org.lwjgl.opengl.GL11;
 
+import net.dark_roleplay.medieval.common.DRPInfo;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.entity.item.EntitySledge;
 import net.dark_roleplay.medieval.common.entity.models.SledgeModel;
-import net.dark_roleplay.medieval.common.entity.models.TrainingDummyModel;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -17,7 +15,6 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
@@ -27,7 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderEntitySledge extends RenderLiving<EntitySledge>{
 
-	private static final ResourceLocation sledgeTexture = new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/entitys/Sledge.png");
+	private static final ResourceLocation sledgeTexture = new ResourceLocation(DRPInfo.MODID, "textures/entitys/Sledge.png");
 
 	public static final Factory FACTORY = new Factory();
 	

@@ -1,13 +1,13 @@
 package net.dark_roleplay.medieval.common.gui;
 
-import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.common.DRPInfo;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiCrate extends GuiContainer {
 
-	public static final ResourceLocation BACKGROUND = new ResourceLocation(DarkRoleplayMedieval.MODID + ":textures/guis/Crate.png");
+	public static final ResourceLocation BACKGROUND = new ResourceLocation(DRPInfo.MODID + ":textures/guis/Crate.png");
 
 	public GuiCrate(Container container) {
 		super(container);

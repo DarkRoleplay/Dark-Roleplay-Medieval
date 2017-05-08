@@ -3,7 +3,6 @@ package net.dark_roleplay.medieval.common.blocks.plants;
 import net.dark_roleplay.medieval.api.blocks.plants.Block_AdvancedCrop;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 
 public class Barley extends Block_AdvancedCrop{

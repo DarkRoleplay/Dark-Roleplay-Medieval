@@ -1,8 +1,8 @@
 {
     "__comment": "model generated using mr_crayfish's model creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-		"particle": "drpmedieval:blocks/mug",
-        "0": "drpmedieval:blocks/mug"
+		"particle": "drpmedieval:blocks/mugs/mug",
+        "0": "drpmedieval:blocks/mugs/mug"
     },
     "elements": [
         {

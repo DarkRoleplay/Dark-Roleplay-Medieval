@@ -1,7 +1,7 @@
 {
 	"textures": {
-		"particle":"drpmedieval:blocks/buckets/bucket",
-		"0": "drpmedieval:blocks/buckets/bucket",
+		"particle":"#texture",
+		"0": "#texture",
         "1": "blocks/dirt",
 		"flower1": "#flower_1",
 		"flower2": "#flower_2",

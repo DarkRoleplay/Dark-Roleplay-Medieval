@@ -1,9 +1,6 @@
 package net.dark_roleplay.medieval.common.blocks.decorative.buckets;
 
-import net.dark_roleplay.medieval.common.blocks.decorative.tables.SimpleTable;
 import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
-import net.dark_roleplay.medieval.common.blocks.templates.DRPMedievalRotatedBlock;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityDungeonChest;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.tileentities.TileEntity_FlowerStorage;
 import net.minecraft.block.Block;
@@ -11,7 +8,6 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
@@ -20,7 +16,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -29,7 +24,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -57,7 +51,7 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {AXIS, FLOWER1, FLOWER2, FLOWER3});
+		return new BlockStateContainer(this, new IProperty[] {BucketDirt.AXIS, BucketDirt.FLOWER1, BucketDirt.FLOWER2, BucketDirt.FLOWER3});
 	}
 
 	@Override
@@ -71,7 +65,7 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 	
 	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
-		return state.withProperty(FLOWER1, getTE(world, pos).getFlower((byte)0)).withProperty(FLOWER2, getTE(world, pos).getFlower((byte)1)).withProperty(FLOWER3, getTE(world, pos).getFlower((byte)2));
+		return state.withProperty(BucketDirt.FLOWER1, this.getTE(world, pos).getFlower((byte)0)).withProperty(BucketDirt.FLOWER2, this.getTE(world, pos).getFlower((byte)1)).withProperty(BucketDirt.FLOWER3, this.getTE(world, pos).getFlower((byte)2));
 	}
 	
 	@Override
@@ -88,18 +82,18 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 	public IBlockState getStateFromMeta(int meta) {
 		switch (meta) {
 			case 0:
-				return this.getDefaultState().withProperty(AXIS, EnumAxis.X);
+				return this.getDefaultState().withProperty(BucketDirt.AXIS, EnumAxis.X);
 			case 1:
-				return this.getDefaultState().withProperty(AXIS, EnumAxis.Z);
+				return this.getDefaultState().withProperty(BucketDirt.AXIS, EnumAxis.Z);
 			default:
-				return this.getDefaultState().withProperty(AXIS, EnumAxis.X);
+				return this.getDefaultState().withProperty(BucketDirt.AXIS, EnumAxis.X);
 		}
 	}
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
-		EnumAxis facing = (EnumAxis) state.getValue(AXIS);
+		EnumAxis facing = state.getValue(BucketDirt.AXIS);
 		if(facing.equals(EnumAxis.X)) return 0;
 		if(facing.equals(EnumAxis.Z)) return 1;
 
@@ -113,6 +107,7 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 	
 	// -------------------------------------------------- Rendering --------------------------------------------------
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer(){
 		return BlockRenderLayer.CUTOUT;
@@ -141,18 +136,18 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 		switch(placer.getHorizontalFacing().getOpposite()){
 		case EAST:
 		case WEST:
-			return this.getDefaultState().withProperty(AXIS, EnumAxis.Z);
+			return this.getDefaultState().withProperty(BucketDirt.AXIS, EnumAxis.Z);
 		case NORTH:
 		case SOUTH:
-	        return this.getDefaultState().withProperty(AXIS, EnumAxis.X);
+	        return this.getDefaultState().withProperty(BucketDirt.AXIS, EnumAxis.X);
 	    default:
-	        return this.getDefaultState().withProperty(AXIS, EnumAxis.X);
+	        return this.getDefaultState().withProperty(BucketDirt.AXIS, EnumAxis.X);
 		}
     }
 	
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
-		TileEntity tileEntity = getTE(world, pos);
+		TileEntity tileEntity = this.getTE(world, pos);
 
 		if(tileEntity instanceof TileEntity_FlowerStorage){
 			TileEntity_FlowerStorage tileEntityBucket = (TileEntity_FlowerStorage) tileEntity;
@@ -203,7 +198,7 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 
-        	TileEntity_FlowerStorage te = getTE(world, pos);
+        	TileEntity_FlowerStorage te = this.getTE(world, pos);
             if (te.getFlower((byte) 2) == 0) {
                 if (player.getHeldItem(hand) != null) {
                 	if(player.getHeldItem(hand).getItem() == Item.getItemFromBlock(Blocks.YELLOW_FLOWER)){
@@ -254,19 +249,19 @@ public class BucketDirt extends Block implements ITileEntityProvider{
             if (player.getHeldItem(hand).getItem().getToolClasses(player.getHeldItem(hand)).contains("shovel")) {
             	 if(te.getFlower((byte) 2) != 0){
             		 if (!world.isRemote){
-            			 giveItem(player, world,pos, (byte) te.getFlower((byte) 2));
+            			 this.giveItem(player, world,pos, (byte) te.getFlower((byte) 2));
 	             		 player.getHeldItem(hand).damageItem(1, player);
             		 }
             		 te.removeFlower();
             	}else if(te.getFlower((byte) 1) != 0){
             		if (!world.isRemote){
-            			giveItem(player, world,pos, (byte) te.getFlower((byte) 1));
+            			this.giveItem(player, world,pos, (byte) te.getFlower((byte) 1));
 	             		player.getHeldItem(hand).damageItem(1, player);
            		 	}
            		 	te.removeFlower();
             	}else if(te.getFlower((byte) 0) != 0){
             		if (!world.isRemote){
-            			giveItem(player, world,pos, (byte) te.getFlower((byte) 0));
+            			this.giveItem(player, world,pos, (byte) te.getFlower((byte) 0));
             			player.getHeldItem(hand).damageItem(1, player);
             		}
             		te.removeFlower();

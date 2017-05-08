@@ -2,22 +2,21 @@ package net.dark_roleplay.medieval.common.blocks.craftingstations;
 
 import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
 import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
-import net.dark_roleplay.medieval.common.blocks.templates.DRPMedievalMaterials;
+import net.dark_roleplay.medieval.common.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCauldron;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.util.InventoryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -32,11 +31,10 @@ import net.minecraft.world.World;
 
 public class Cauldron extends BlockContainer {
 
-	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 	public static final PropertyBool FILLED = PropertyBool.create("filled");
 
 	public Cauldron(String registryName) {
-		super(DRPMedievalMaterials.iron);
+		super(Material.IRON);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.UTILITY);
@@ -59,44 +57,54 @@ public class Cauldron extends BlockContainer {
 
 		switch (meta) {
 			case 0:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH).withProperty(FILLED, false);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.NORTH).withProperty(Cauldron.FILLED, false);
 			case 1:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.EAST).withProperty(FILLED, false);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.EAST).withProperty(Cauldron.FILLED, false);
 			case 2:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH).withProperty(FILLED, false);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.SOUTH).withProperty(Cauldron.FILLED, false);
 			case 3:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.WEST).withProperty(FILLED, false);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.WEST).withProperty(Cauldron.FILLED, false);
 			case 4:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH).withProperty(FILLED, true);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.NORTH).withProperty(Cauldron.FILLED, true);
 			case 5:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.EAST).withProperty(FILLED, true);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.EAST).withProperty(Cauldron.FILLED, true);
 			case 6:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH).withProperty(FILLED, true);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.SOUTH).withProperty(Cauldron.FILLED, true);
 			case 7:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.WEST).withProperty(FILLED, true);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.WEST).withProperty(Cauldron.FILLED, true);
 			default:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.NORTH);
 		}
 	}
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
-		EnumFacing facing = (EnumFacing) state.getValue(FACING);
+		EnumFacing facing = state.getValue(BlockProperties.FACING);
 		int dir = 0;
-		if(facing.equals(EnumFacing.NORTH)) dir += 0;
-		if(facing.equals(EnumFacing.EAST)) dir += 1;
-		if(facing.equals(EnumFacing.SOUTH)) dir += 2;
-		if(facing.equals(EnumFacing.WEST)) dir += 3;
+		if(facing.equals(EnumFacing.NORTH)) {
+			dir += 0;
+		}
+		if(facing.equals(EnumFacing.EAST)) {
+			dir += 1;
+		}
+		if(facing.equals(EnumFacing.SOUTH)) {
+			dir += 2;
+		}
+		if(facing.equals(EnumFacing.WEST)) {
+			dir += 3;
+		}
 
-		if((Boolean) state.getValue(FILLED)) dir += 4;
+		if(state.getValue(Cauldron.FILLED)) {
+			dir += 4;
+		}
 
 		return dir;
 	}
 	
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {FACING, FILLED});
+		return new BlockStateContainer(this, new IProperty[] {BlockProperties.FACING, Cauldron.FILLED});
 	}
 	
 	@Override
@@ -133,19 +141,19 @@ public class Cauldron extends BlockContainer {
 
 	@Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
-		Entity entity = (Entity) placer;
-		int dir = MathHelper.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+		Entity entity = placer;
+		int dir = MathHelper.floor((entity.rotationYaw * 4.0F) / 360.0F + 0.5D) & 3;
 		switch (dir) {
 		case 0:
-			return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+			return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.NORTH);
 		case 1:
-			return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+			return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.EAST);
 		case 2:
-			return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+			return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.SOUTH);
 		case 3:
-			return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
+			return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.WEST);
 		default:
-			return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+			return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.NORTH);
 		}
 	}
 	
@@ -153,15 +161,17 @@ public class Cauldron extends BlockContainer {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 
 		if(!world.isRemote){
-			if(!(Boolean) state.getValue(FILLED) && player.getHeldItem(EnumHand.MAIN_HAND) != null){
+			if(!(Boolean) state.getValue(Cauldron.FILLED) && (player.getHeldItem(EnumHand.MAIN_HAND) != null)){
 				if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Items.WATER_BUCKET)){
-					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Items.WATER_BUCKET,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+					if(!player.capabilities.isCreativeMode) {
+						player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Items.WATER_BUCKET,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+					}
 					player.inventory.addItemStackToInventory(new ItemStack(Items.WATER_BUCKET, 1));
-					world.setBlockState(pos, state.withProperty(FILLED, true));
+					world.setBlockState(pos, state.withProperty(Cauldron.FILLED, true));
 					return true;
 				}
 			}				
-		}else if(world.isRemote && (Boolean) state.getValue(FILLED)){
+		}else if(world.isRemote && state.getValue(Cauldron.FILLED)){
 			player.openGui(DarkRoleplayCore.instance, DRPCoreGuis.DRPCORE_GUI_CRAFTING_RECIPESELECTION, player.world, pos.getX(), pos.getY(), pos.getZ());
 		}
 		return true;

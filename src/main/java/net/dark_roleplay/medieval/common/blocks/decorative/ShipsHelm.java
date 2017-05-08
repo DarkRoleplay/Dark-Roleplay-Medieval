@@ -1,11 +1,11 @@
 package net.dark_roleplay.medieval.common.blocks.decorative;
 
-import net.dark_roleplay.medieval.common.blocks.templates.DRPMedievalMaterials;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
@@ -25,7 +25,7 @@ public class ShipsHelm extends BlockContainer {
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
 	public ShipsHelm(String registryName) {
-		super(DRPMedievalMaterials.wood);
+		super(Material.WOOD);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
@@ -38,15 +38,14 @@ public class ShipsHelm extends BlockContainer {
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {
-		if(state.getValue(FACING) == EnumFacing.NORTH){
+		if(state.getValue(ShipsHelm.FACING) == EnumFacing.NORTH)
 			return new AxisAlignedBB(0F, 0F, 0.625F, 1F, 1F, 1F);
-		}else if( state.getValue(FACING) == EnumFacing.EAST ){
+		else if( state.getValue(ShipsHelm.FACING) == EnumFacing.EAST )
 			return new AxisAlignedBB(0F, 0F, 0F, 0.375F, 1F, 1F);
-		}else if( state.getValue(FACING) == EnumFacing.SOUTH ){
+		else if( state.getValue(ShipsHelm.FACING) == EnumFacing.SOUTH )
 			return new AxisAlignedBB(0F, 0F, 0F, 1F, 1F, 0.375F);
-		}else if( state.getValue(FACING) == EnumFacing.WEST ){
+		else if( state.getValue(ShipsHelm.FACING) == EnumFacing.WEST )
 			return new AxisAlignedBB(0.625F, 0F, 0F, 1F, 1F, 1F);
-		}
 		return null;
     }
 	
@@ -55,22 +54,22 @@ public class ShipsHelm extends BlockContainer {
 
 		switch (meta) {
 			case 0:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				return this.getDefaultState().withProperty(ShipsHelm.FACING, EnumFacing.NORTH);
 			case 1:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+				return this.getDefaultState().withProperty(ShipsHelm.FACING, EnumFacing.EAST);
 			case 2:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+				return this.getDefaultState().withProperty(ShipsHelm.FACING, EnumFacing.SOUTH);
 			case 3:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
+				return this.getDefaultState().withProperty(ShipsHelm.FACING, EnumFacing.WEST);
 			default:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				return this.getDefaultState().withProperty(ShipsHelm.FACING, EnumFacing.NORTH);
 		}
 	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
-		EnumFacing facing = (EnumFacing) state.getValue(FACING);
+		EnumFacing facing = state.getValue(ShipsHelm.FACING);
 		if(facing.equals(EnumFacing.NORTH)) return 0;
 		if(facing.equals(EnumFacing.EAST)) return 1;
 		if(facing.equals(EnumFacing.SOUTH)) return 2;
@@ -81,7 +80,7 @@ public class ShipsHelm extends BlockContainer {
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] {FACING});
+		return new BlockStateContainer(this, new IProperty[] {ShipsHelm.FACING});
 	}
 	
 	@Override
@@ -99,7 +98,7 @@ public class ShipsHelm extends BlockContainer {
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 
-		EnumFacing enumfacing = (EnumFacing) state.getValue(FACING);
+		EnumFacing enumfacing = state.getValue(ShipsHelm.FACING);
 
 		if(!this.canBlockStay(worldIn, pos, enumfacing)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
@@ -119,14 +118,14 @@ public class ShipsHelm extends BlockContainer {
 	@Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 
-		if(facing.equals(facing.SOUTH))
-			return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
-		else if(facing.equals(facing.WEST))
-			return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
-		else if(facing.equals(facing.NORTH))
-			return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
-		else if(facing.equals(facing.EAST))
-			return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+		if(facing.equals(EnumFacing.SOUTH))
+			return this.getDefaultState().withProperty(ShipsHelm.FACING, EnumFacing.SOUTH);
+		else if(facing.equals(EnumFacing.WEST))
+			return this.getDefaultState().withProperty(ShipsHelm.FACING, EnumFacing.WEST);
+		else if(facing.equals(EnumFacing.NORTH))
+			return this.getDefaultState().withProperty(ShipsHelm.FACING, EnumFacing.NORTH);
+		else if(facing.equals(EnumFacing.EAST))
+			return this.getDefaultState().withProperty(ShipsHelm.FACING, EnumFacing.EAST);
 		else
 			return Blocks.AIR.getDefaultState();
 

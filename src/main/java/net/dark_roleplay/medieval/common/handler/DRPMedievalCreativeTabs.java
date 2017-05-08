@@ -1,7 +1,6 @@
 package net.dark_roleplay.medieval.common.handler;
 
 import net.dark_roleplay.drpcore.api.items.DRPEquip;
-import net.dark_roleplay.drpcore.api.items.DRPItem;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

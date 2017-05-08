@@ -1,10 +1,8 @@
 package net.dark_roleplay.medieval.common.items.consumable;
 
 import net.dark_roleplay.medieval.common.entity.projectile.EntityRopedArrow;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.entity.projectile.EntityTippedArrow;
 import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

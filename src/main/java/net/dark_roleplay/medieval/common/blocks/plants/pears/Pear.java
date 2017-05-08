@@ -2,7 +2,6 @@ package net.dark_roleplay.medieval.common.blocks.plants.pears;
 
 import net.dark_roleplay.medieval.common.blocks.helper.TreePlant;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.item.ItemStack;

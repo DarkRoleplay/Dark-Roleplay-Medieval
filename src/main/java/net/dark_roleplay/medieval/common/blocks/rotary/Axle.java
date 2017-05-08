@@ -1,10 +1,7 @@
 package net.dark_roleplay.medieval.common.blocks.rotary;
 
-import net.dark_roleplay.medieval.common.blocks.WoodHelper;
-import net.dark_roleplay.medieval.common.blocks.WoodHelper.WoodType;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockLog;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;

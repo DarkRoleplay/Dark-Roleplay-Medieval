@@ -4,18 +4,13 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Random;
 import java.util.Set;
 
 import net.dark_roleplay.medieval.api.blocks.plants.Block_AdvancedCrop;
-import net.dark_roleplay.medieval.common.blocks.other.RopeCoil;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
 public class TileEntity_AdvancedCrop extends TileEntity implements ITickable{
 

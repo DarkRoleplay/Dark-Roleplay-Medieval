@@ -2,17 +2,15 @@ package net.dark_roleplay.medieval.common.blocks.craftingstations;
 
 import java.util.Random;
 
-import net.dark_roleplay.medieval.common.blocks.templates.DRPMedievalMaterials;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityFirepit;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
 import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
+import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityFirepit;
+import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
@@ -28,7 +26,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class Firepit extends BlockContainer {
 
 	public Firepit(String registryName) {
-		super(DRPMedievalMaterials.wood);
+		super(Material.WOOD);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.setLightLevel(0.875F);
@@ -75,12 +73,12 @@ public class Firepit extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand){
-		Double x = (double) pos.getX() + 0.25D;
-		Double y = (double) pos.getY() + 0.1D;
-		Double z = (double) pos.getZ() + 0.25D;
+		Double x = pos.getX() + 0.25D;
+		Double y = pos.getY() + 0.1D;
+		Double z = pos.getZ() + 0.25D;
 		for(int i = 0; i < 3; i++){
-			world.spawnParticle(EnumParticleTypes.FLAME, x + rand.nextDouble() / 2, y + rand.nextDouble() / 2, z + rand.nextDouble() / 2, 0.0D, 0.001D, 0.0D);
-			world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + rand.nextDouble() / 2, y + rand.nextDouble() / 2, z + rand.nextDouble() / 2, 0.0D, 0.1D, 0.0D);
+			world.spawnParticle(EnumParticleTypes.FLAME, x + (rand.nextDouble() / 2), y + (rand.nextDouble() / 2), z + (rand.nextDouble() / 2), 0.0D, 0.001D, 0.0D);
+			world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + (rand.nextDouble() / 2), y + (rand.nextDouble() / 2), z + (rand.nextDouble() / 2), 0.0D, 0.1D, 0.0D);
 		}
 	}
 	

@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.blocks.specialrenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.common.DRPInfo;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
@@ -17,8 +17,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class SpecialRenderCauldron extends TileEntitySpecialRenderer {
 
-	private static final ResourceLocation textureEmpty = new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/old_blocks/block_cauldron_empty.png");
-	private static final ResourceLocation textureFilled = new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/old_blocks/block_cauldron_filled.png");
+	private static final ResourceLocation textureEmpty = new ResourceLocation(DRPInfo.MODID, "textures/old_blocks/block_cauldron_empty.png");
+	private static final ResourceLocation textureFilled = new ResourceLocation(DRPInfo.MODID, "textures/old_blocks/block_cauldron_filled.png");
 
 	private ModelCauldronEmpty modelEmpty;
 	private ModelCauldronFilled modelFilled;

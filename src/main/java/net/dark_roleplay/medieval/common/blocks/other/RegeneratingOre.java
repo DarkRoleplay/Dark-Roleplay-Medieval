@@ -3,8 +3,6 @@ package net.dark_roleplay.medieval.common.blocks.other;
 import java.util.Random;
 
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.common.blocks.templates.DRPMedievalMaterials;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -13,13 +11,9 @@ import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.item.EntityFallingBlock;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -61,22 +55,23 @@ public class RegeneratingOre extends Block{
 	
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(AMOUNT, meta);
+		return this.getDefaultState().withProperty(RegeneratingOre.AMOUNT, meta);
 	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
-		return ((Integer) state.getValue(AMOUNT)).intValue();
+		return state.getValue(RegeneratingOre.AMOUNT).intValue();
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] {AMOUNT});
+		return new BlockStateContainer(this, new IProperty[] {RegeneratingOre.AMOUNT});
 	}
 	
-    @Deprecated
+    @Override
+	@Deprecated
     public EnumBlockRenderType getRenderType(IBlockState state){
         return EnumBlockRenderType.MODEL;
     }
@@ -86,22 +81,25 @@ public class RegeneratingOre extends Block{
 
 		super.updateTick(world, pos, state, rand);
 
-		int i = ((Integer) state.getValue(AMOUNT)).intValue();
+		int i = state.getValue(RegeneratingOre.AMOUNT).intValue();
 		
-		if(rand.nextFloat() < this.regenChance && i < maxOreAmount){
-			world.setBlockState(pos, state.withProperty(AMOUNT, Integer.valueOf(i + 1)), 2);
+		if((rand.nextFloat() < this.regenChance) && (i < this.maxOreAmount)){
+			world.setBlockState(pos, state.withProperty(RegeneratingOre.AMOUNT, Integer.valueOf(i + 1)), 2);
 		}
 	}
 	
+	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune){
         return Item.getItemFromBlock(Blocks.IRON_ORE);
     }
 	
-    public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
-    	int i = ((Integer) state.getValue(AMOUNT)).intValue();
+    @Override
+	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
+    	int i = state.getValue(RegeneratingOre.AMOUNT).intValue();
     	
-    	if(i > 0)
-    		world.setBlockState(pos, state.withProperty(AMOUNT, Integer.valueOf(i - 1)), 2);
+    	if(i > 0) {
+			world.setBlockState(pos, state.withProperty(RegeneratingOre.AMOUNT, Integer.valueOf(i - 1)), 2);
+		}
     }
     
     @Override

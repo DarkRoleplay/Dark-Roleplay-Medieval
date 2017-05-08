@@ -1,22 +1,20 @@
 package net.dark_roleplay.medieval.common.blocks.craftingstations;
 
-import net.dark_roleplay.medieval.common.blocks.templates.DRPMedievalMaterials;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityGrindstone;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
 import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
+import net.dark_roleplay.medieval.common.blocks.BlockProperties;
+import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityGrindstone;
+import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
@@ -29,10 +27,8 @@ import net.minecraft.world.World;
 
 public class Grindstone extends BlockContainer {
 
-	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
-
 	public Grindstone(String registryName) {
-		super(DRPMedievalMaterials.rock);
+		super(Material.ROCK);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.UTILITY);
@@ -53,22 +49,22 @@ public class Grindstone extends BlockContainer {
 	public IBlockState getStateFromMeta(int meta) {
 		switch (meta) {
 			case 0:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.NORTH);
 			case 1:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.EAST);
 			case 2:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.SOUTH);
 			case 3:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.WEST);
 			default:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.NORTH);
 		}
 	}
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
-		EnumFacing facing = (EnumFacing) state.getValue(FACING);
+		EnumFacing facing = state.getValue(BlockProperties.FACING);
 		if(facing.equals(EnumFacing.NORTH)) return 0;
 		if(facing.equals(EnumFacing.EAST)) return 1;
 		if(facing.equals(EnumFacing.SOUTH)) return 2;
@@ -79,7 +75,7 @@ public class Grindstone extends BlockContainer {
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] {FACING});
+		return new BlockStateContainer(this, new IProperty[] {BlockProperties.FACING});
 	}
 	
 	@Override
@@ -127,19 +123,19 @@ public class Grindstone extends BlockContainer {
 	
 	@Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
-		Entity entity = (Entity) placer;
-		int dir = MathHelper.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+		Entity entity = placer;
+		int dir = MathHelper.floor((entity.rotationYaw * 4.0F) / 360.0F + 0.5D) & 3;
 		switch (dir) {
 		case 0:
-			return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+			return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.NORTH);
 		case 1:
-			return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+			return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.EAST);
 		case 2:
-			return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+			return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.SOUTH);
 		case 3:
-			return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
+			return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.WEST);
 		default:
-			return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+			return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.NORTH);
 		}
 	}
 	

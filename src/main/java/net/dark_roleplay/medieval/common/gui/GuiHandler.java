@@ -14,11 +14,11 @@ import net.dark_roleplay.medieval.common.gui.container.ContainerDungeonChest;
 import net.dark_roleplay.medieval.common.inventory.ContainerSledgeInventory;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
-import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GuiHandler implements IGuiHandler {
 

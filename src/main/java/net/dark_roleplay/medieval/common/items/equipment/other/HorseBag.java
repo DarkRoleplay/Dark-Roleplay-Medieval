@@ -1,15 +1,6 @@
 package net.dark_roleplay.medieval.common.items.equipment.other;
 
-import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.passive.EntityHorse;
-import net.minecraft.entity.passive.HorseArmorType;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
 
 public class HorseBag extends Item{
 //

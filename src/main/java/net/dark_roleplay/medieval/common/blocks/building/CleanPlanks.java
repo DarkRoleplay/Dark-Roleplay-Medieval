@@ -1,10 +1,7 @@
 package net.dark_roleplay.medieval.common.blocks.building;
 
-import java.util.List;
-
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -13,15 +10,10 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -33,14 +25,15 @@ public class CleanPlanks extends Block{
         super(Material.WOOD);
         this.setRegistryName(registryName);
         this.setUnlocalizedName(registryName);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, CleanPlanks.EnumType.OAK));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(CleanPlanks.VARIANT, CleanPlanks.EnumType.OAK));
         this.setCreativeTab(DRPMedievalCreativeTabs.BUILDING_MATS);
         this.setHardness(2.0F);
         this.setResistance(5.0F);
         this.setSoundType(SoundType.WOOD);
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list){
     	for(int i = 0; i < 6; i++){
 			list.add(new ItemStack(itemIn, 1, i));
@@ -51,26 +44,30 @@ public class CleanPlanks extends Block{
     @Override
     public int damageDropped(IBlockState state)
     {
-        return ((CleanPlanks.EnumType)state.getValue(VARIANT)).getMetadata();
+        return state.getValue(CleanPlanks.VARIANT).getMetadata();
     }
     
-    public IBlockState getStateFromMeta(int meta)
+    @Override
+	public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(VARIANT, CleanPlanks.EnumType.byMetadata(meta));
+        return this.getDefaultState().withProperty(CleanPlanks.VARIANT, CleanPlanks.EnumType.byMetadata(meta));
     }
 
-    public MapColor getMapColor(IBlockState state)
+    @Override
+	public MapColor getMapColor(IBlockState state)
     {
-        return ((CleanPlanks.EnumType)state.getValue(VARIANT)).getMapColor();
+        return state.getValue(CleanPlanks.VARIANT).getMapColor();
     }
 
-    public int getMetaFromState(IBlockState state)
+    @Override
+	public int getMetaFromState(IBlockState state)
     {
-        return ((CleanPlanks.EnumType)state.getValue(VARIANT)).getMetadata();
+        return state.getValue(CleanPlanks.VARIANT).getMetadata();
     }
 
-    protected BlockStateContainer createBlockState(){
-        return new BlockStateContainer(this, new IProperty[] {VARIANT});
+    @Override
+	protected BlockStateContainer createBlockState(){
+        return new BlockStateContainer(this, new IProperty[] {CleanPlanks.VARIANT});
     }
 
 	public static enum EnumType implements IStringSerializable
@@ -79,10 +76,10 @@ public class CleanPlanks extends Block{
         SPRUCE(1, "spruce", MapColor.OBSIDIAN),
         BIRCH(2, "birch", MapColor.SAND),
         JUNGLE(3, "jungle", MapColor.DIRT),
-        ACACIA(4, "acacia", MapColor.ADOBE),
-        DARK_OAK(5, "dark_oak", MapColor.BROWN);
+        DARK_OAK(4, "dark_oak", MapColor.BROWN),
+        ACACIA(5, "acacia", MapColor.ADOBE);
 
-        private static final CleanPlanks.EnumType[] META_LOOKUP = new CleanPlanks.EnumType[values().length];
+        private static final CleanPlanks.EnumType[] META_LOOKUP = new CleanPlanks.EnumType[EnumType.values().length];
         private final int meta;
         private final String name;
         private final String unlocalizedName;
@@ -111,19 +108,21 @@ public class CleanPlanks extends Block{
             return this.mapColor;
         }
 
-        public String toString(){
+        @Override
+		public String toString(){
             return this.name;
         }
 
         public static CleanPlanks.EnumType byMetadata(int meta){
-            if (meta < 0 || meta >= META_LOOKUP.length){
+            if ((meta < 0) || (meta >= EnumType.META_LOOKUP.length)){
                 meta = 0;
             }
 
-            return META_LOOKUP[meta];
+            return EnumType.META_LOOKUP[meta];
         }
 
-        public String getName(){
+        @Override
+		public String getName(){
             return this.name;
         }
 
@@ -132,8 +131,8 @@ public class CleanPlanks extends Block{
         }
 
         static{
-            for (CleanPlanks.EnumType type : values()){
-                META_LOOKUP[type.getMetadata()] = type;
+            for (CleanPlanks.EnumType type : EnumType.values()){
+                EnumType.META_LOOKUP[type.getMetadata()] = type;
             }
         }
     }

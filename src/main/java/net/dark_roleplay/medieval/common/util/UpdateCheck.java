@@ -5,7 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
-import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.common.DRPInfo;
 
 public class UpdateCheck {
 
@@ -23,10 +23,11 @@ public class UpdateCheck {
 
 		new Thread("Update-Checker") {
 
+			@Override
 			public void run() {
 
 				try{
-					URL url = new URL(UPDATE_URL);
+					URL url = new URL(UpdateCheck.UPDATE_URL);
 					Scanner scanner = new Scanner(url.openStream());
 
 					String[] version = scanner.nextLine().split("~");
@@ -34,12 +35,16 @@ public class UpdateCheck {
 					scanner.close();
 
 					if(version[0].equals("1.8")){
-						if(!DarkRoleplayMedieval.VERSION.equals(version[1])){
-							newVersion = version[1];
-							setNewVersionAvailable();
-							if(!version[2].equals("none")) downloadURL = version[2];
+						if(!DRPInfo.VERSION.equals(version[1])){
+							UpdateCheck.newVersion = version[1];
+							UpdateCheck.setNewVersionAvailable();
+							if(!version[2].equals("none")) {
+								UpdateCheck.downloadURL = version[2];
+							}
 
-							if(!version[3].equals("none")) changelogURL = version[3];
+							if(!version[3].equals("none")) {
+								UpdateCheck.changelogURL = version[3];
+							}
 
 						}
 					}
@@ -58,26 +63,26 @@ public class UpdateCheck {
 
 	private static synchronized void setNewVersionAvailable() {
 
-		newVersionAvailable = true;
+		UpdateCheck.newVersionAvailable = true;
 	}
 
 	public static synchronized boolean isNewVersionAvailable() {
 
-		return newVersionAvailable;
+		return UpdateCheck.newVersionAvailable;
 	}
 
 	public static synchronized String getDownloadURL() {
 
-		return downloadURL;
+		return UpdateCheck.downloadURL;
 	}
 
 	public static synchronized String getChangelogURL() {
 
-		return changelogURL;
+		return UpdateCheck.changelogURL;
 	}
 
 	public static synchronized String getVersion() {
 
-		return newVersion;
+		return UpdateCheck.newVersion;
 	}
 }

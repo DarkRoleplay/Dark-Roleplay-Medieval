@@ -2,8 +2,6 @@ package net.dark_roleplay.medieval.common.worldgen.feature;
 
 import java.util.Random;
 
-import com.google.common.base.Predicate;
-
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

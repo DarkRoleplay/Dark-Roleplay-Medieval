@@ -7,7 +7,6 @@ import net.dark_roleplay.medieval.common.capabilities.blocks.bedframe.DefaultBed
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCapabilities;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.INetHandler;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;

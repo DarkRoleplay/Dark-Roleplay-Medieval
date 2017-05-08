@@ -1,12 +1,12 @@
 package net.dark_roleplay.medieval.common.blocks.decorative;
 
-import net.dark_roleplay.medieval.common.blocks.templates.DRPMedievalMaterials;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityChain;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
@@ -28,7 +28,7 @@ public class Chain extends BlockContainer {
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
 	public Chain(String registryName) {
-		super(DRPMedievalMaterials.iron);
+		super(Material.IRON);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
@@ -55,22 +55,22 @@ public class Chain extends BlockContainer {
 
 		switch (meta) {
 			case 0:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.NORTH);
 			case 1:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+				return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.EAST);
 			case 2:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+				return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.SOUTH);
 			case 3:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
+				return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.WEST);
 			default:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.NORTH);
 		}
 	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
-		EnumFacing facing = (EnumFacing) state.getValue(FACING);
+		EnumFacing facing = state.getValue(Chain.FACING);
 		if(facing.equals(EnumFacing.NORTH)) return 0;
 		if(facing.equals(EnumFacing.EAST)) return 1;
 		if(facing.equals(EnumFacing.SOUTH)) return 2;
@@ -81,7 +81,7 @@ public class Chain extends BlockContainer {
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] {FACING});
+		return new BlockStateContainer(this, new IProperty[] {Chain.FACING});
 	}
 	
 	@Override
@@ -124,18 +124,18 @@ public class Chain extends BlockContainer {
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
 			if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.CHAIN)) return Blocks.AIR.getDefaultState();
-			int dir = MathHelper.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+			int dir = MathHelper.floor((entity.rotationYaw * 4.0F) / 360.0F + 0.5D) & 3;
 			switch (dir) {
 				case 0:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+					return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.NORTH);
 				case 1:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+					return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.EAST);
 				case 2:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+					return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.SOUTH);
 				case 3:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
+					return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.WEST);
 				default:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+					return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.NORTH);
 			}
 		}
 

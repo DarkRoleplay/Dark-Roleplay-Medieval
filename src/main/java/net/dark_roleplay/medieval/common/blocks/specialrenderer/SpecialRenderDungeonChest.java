@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.blocks.specialrenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.common.DRPInfo;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
@@ -18,7 +18,7 @@ public class SpecialRenderDungeonChest extends TileEntitySpecialRenderer {
 
 	public static Object instance;
 
-	private static final ResourceLocation texture = new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/old_blocks/block_dungeon_chest.png");
+	private static final ResourceLocation texture = new ResourceLocation(DRPInfo.MODID, "textures/old_blocks/block_dungeon_chest.png");
 
 	private ModelDungeonChest model;
 

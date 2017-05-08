@@ -9,11 +9,11 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "0.1.8"
-group = "net.dark_roleplay.medieval" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = "0.1.10"
+group = "net.dark_roleplay.medieval"
 archivesBaseName = "drpmedieval"
 
-sourceCompatibility = targetCompatibility = "1.8" // Need this here so eclipse task generates correctly.
+sourceCompatibility = targetCompatibility = "1.8"
 compileJava {
     sourceCompatibility = targetCompatibility = "1.8"
 }

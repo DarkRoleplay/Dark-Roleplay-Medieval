@@ -1,6 +1,5 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

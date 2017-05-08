@@ -2,21 +2,12 @@ package net.dark_roleplay.medieval.client.entities.fox;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.common.DRPInfo;
 import net.dark_roleplay.medieval.common.entities.fox.Entity_Fox;
-import net.dark_roleplay.medieval.common.entity.item.EntitySledge;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class Render_Fox extends RenderLiving<Entity_Fox>{
@@ -40,7 +31,7 @@ public class Render_Fox extends RenderLiving<Entity_Fox>{
     
 	@Override
 	protected ResourceLocation getEntityTexture(Entity_Fox entity) {
-		return new ResourceLocation(DarkRoleplayMedieval.MODID, "textures/entitys/fox/fox.png");
+		return new ResourceLocation(DRPInfo.MODID, "textures/entitys/fox/fox.png");
 	}
 	
 	private static class Factory implements IRenderFactory<Entity_Fox> {

@@ -4,13 +4,10 @@ import javax.annotation.Nullable;
 
 import net.dark_roleplay.medieval.common.entity.item.EntitySledge;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ContainerSledgeInventory  extends Container{
 

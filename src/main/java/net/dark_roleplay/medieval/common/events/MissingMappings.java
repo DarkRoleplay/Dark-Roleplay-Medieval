@@ -2,10 +2,8 @@ package net.dark_roleplay.medieval.common.events;
 
 import java.util.ArrayList;
 
-import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLMissingMappingsEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 

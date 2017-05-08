@@ -1,6 +1,5 @@
 package net.dark_roleplay.medieval.common.util;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 

@@ -1,9 +1,0 @@
-{
-    "parent": "drpmedieval:block/buckets/bucket_dirt",
-    "textures": {
-        "flower_1": "drpmedieval:blocks/invisible",
-		"flower_2": "drpmedieval:blocks/invisible",        
-		"flower_3": "drpmedieval:blocks/invisible"
-
-    }
-}

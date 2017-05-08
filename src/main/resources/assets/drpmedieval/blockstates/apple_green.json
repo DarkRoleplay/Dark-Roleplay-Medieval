@@ -1,10 +1,53 @@
 {
-    "variants":{
-		"age=0":{"model":"drpmedieval:apples/apple_green1"},
-		"age=1":{"model":"drpmedieval:apples/apple_green2"},
-		"age=2":{"model":"drpmedieval:apples/apple_green3"},
-		"age=3":{"model":"drpmedieval:apples/apple_green4"},
-		"age=4":{"model":"drpmedieval:apples/apple_green4"},
-		"age=5":{"model":"drpmedieval:apples/apple_green5"}   
+    "forge_marker": 1,
+    "defaults": {
+	    "model": "drpmedieval:apples/apple5",
+        "textures": {
+            "apple": "drpmedieval:blocks/apple/apple_green_ripe"
+        },
+        "transform": "forge:default-block"
+    },
+    "variants": {
+		"normal": [{
+			"model": "drpmedieval:flower_pot/flower_pot"
+		}],
+        "age":{
+			"0":{
+				"model": "drpmedieval:apples/apple0",
+				"textures": {
+					"apple": "drpmedieval:blocks/apples/apple_green0"
+				}
+			},
+			"1":{
+				"model": "drpmedieval:apples/apple1",
+				"textures": {
+					"apple": "drpmedieval:blocks/apples/apple_green1"
+				}
+			},
+			"2":{
+				"model": "drpmedieval:apples/apple2",
+				"textures": {
+					"apple": "drpmedieval:blocks/apples/apple_green2"
+				}
+			},
+			"3":{
+				"model": "drpmedieval:apples/apple3",
+				"textures": {
+					"apple": "drpmedieval:blocks/apples/apple_green_ripe"
+				}
+			},
+			"4":{
+				"model": "drpmedieval:apples/apple3",
+				"textures": {
+					"apple": "drpmedieval:blocks/apples/apple_green_ripe"
+				}
+			},
+			"5":{
+				"model": "drpmedieval:apples/apple5",
+				"textures": {
+					"apple": "drpmedieval:blocks/apples/apple_green_ripe"
+				}
+			}
+		}
     }
 }

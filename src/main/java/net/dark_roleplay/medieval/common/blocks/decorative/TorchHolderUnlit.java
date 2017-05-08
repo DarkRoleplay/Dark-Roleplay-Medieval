@@ -2,13 +2,13 @@ package net.dark_roleplay.medieval.common.blocks.decorative;
 
 import java.util.Random;
 
-import net.dark_roleplay.medieval.common.blocks.templates.DRPMedievalMaterials;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.dark_roleplay.medieval.common.util.InventoryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
@@ -35,7 +35,7 @@ public class TorchHolderUnlit extends Block {
 	public static final PropertyBool POWERED = PropertyBool.create("powered");
 	
 	public TorchHolderUnlit(String registryName) {
-		super(DRPMedievalMaterials.iron);
+		super(Material.IRON);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
@@ -49,15 +49,15 @@ public class TorchHolderUnlit extends Block {
 	@Override
 	public int getWeakPower(IBlockState state, IBlockAccess blockAccess, BlockPos pos, EnumFacing side){
 
-		return ((Boolean) state.getValue(POWERED)).booleanValue() ? 15 : 0;
+		return state.getValue(TorchHolderUnlit.POWERED).booleanValue() ? 15 : 0;
 	}
 	
 	@Override
 	public int getStrongPower(IBlockState state, IBlockAccess blockAccess, BlockPos pos, EnumFacing side){
 		EnumFacing Facing = EnumFacing.SOUTH;
-		Facing = ((EnumFacing) state.getValue(FACING));
+		Facing = (state.getValue(TorchHolderUnlit.FACING));
 
-		return !((Boolean) state.getValue(POWERED)).booleanValue() ? 0 : (Facing == side ? 15 : 0);
+		return !state.getValue(TorchHolderUnlit.POWERED).booleanValue() ? 0 : (Facing == side ? 15 : 0);
 	}
 
 	@Override
@@ -70,15 +70,14 @@ public class TorchHolderUnlit extends Block {
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {
-		if(state.getValue(FACING) == EnumFacing.NORTH){
+		if(state.getValue(TorchHolderUnlit.FACING) == EnumFacing.NORTH)
 			return new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F);
-		}else if( state.getValue(FACING) == EnumFacing.EAST ){
+		else if( state.getValue(TorchHolderUnlit.FACING) == EnumFacing.EAST )
 			return new AxisAlignedBB(0.0F, 0.2F, 0.375F, 0.25F, 0.8F, 0.625F);
-		}else if( state.getValue(FACING) == EnumFacing.SOUTH ){
+		else if( state.getValue(TorchHolderUnlit.FACING) == EnumFacing.SOUTH )
 			return new AxisAlignedBB(0.375F, 0.2F, 0.0F, 0.625F, 0.8F, 0.25F);
-		}else if( state.getValue(FACING) == EnumFacing.WEST ){
+		else if( state.getValue(TorchHolderUnlit.FACING) == EnumFacing.WEST )
 			return new AxisAlignedBB(0.75F, 0.2F, 0.375F, 1.0F, 0.8F, 0.625F);
-		}
 		return null;
     }
 	
@@ -88,64 +87,66 @@ public class TorchHolderUnlit extends Block {
 		int i = meta;
 		if(i < 4){
 			if(i == 0)
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH).withProperty(AddonLighter, false).withProperty(AddonTrap, false).withProperty(POWERED, false);
+				return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.NORTH).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, false).withProperty(TorchHolderUnlit.POWERED, false);
 			else if(i == 1)
-				return this.getDefaultState().withProperty(FACING, EnumFacing.EAST).withProperty(AddonLighter, false).withProperty(AddonTrap, false).withProperty(POWERED, false);
+				return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.EAST).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, false).withProperty(TorchHolderUnlit.POWERED, false);
 			else if(i == 2)
-				return this.getDefaultState().withProperty(FACING, EnumFacing.WEST).withProperty(AddonLighter, false).withProperty(AddonTrap, false).withProperty(POWERED, false);
-			else if(i == 3) return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH).withProperty(AddonLighter, false).withProperty(AddonTrap, false).withProperty(POWERED, false);
+				return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.WEST).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, false).withProperty(TorchHolderUnlit.POWERED, false);
+			else if(i == 3) return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.SOUTH).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, false).withProperty(TorchHolderUnlit.POWERED, false);
 		}
-		else if(i >= 4 && i < 8){
+		else if((i >= 4) && (i < 8)){
 			i -= 4;
 			if(i == 0)
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH).withProperty(AddonLighter, true).withProperty(AddonTrap, false).withProperty(POWERED, false);
+				return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.NORTH).withProperty(TorchHolderUnlit.AddonLighter, true).withProperty(TorchHolderUnlit.AddonTrap, false).withProperty(TorchHolderUnlit.POWERED, false);
 			else if(i == 1)
-				return this.getDefaultState().withProperty(FACING, EnumFacing.EAST).withProperty(AddonLighter, true).withProperty(AddonTrap, false).withProperty(POWERED, false);
+				return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.EAST).withProperty(TorchHolderUnlit.AddonLighter, true).withProperty(TorchHolderUnlit.AddonTrap, false).withProperty(TorchHolderUnlit.POWERED, false);
 			else if(i == 2)
-				return this.getDefaultState().withProperty(FACING, EnumFacing.WEST).withProperty(AddonLighter, true).withProperty(AddonTrap, false).withProperty(POWERED, false);
-			else if(i == 3) return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH).withProperty(AddonLighter, true).withProperty(AddonTrap, false).withProperty(POWERED, false);
+				return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.WEST).withProperty(TorchHolderUnlit.AddonLighter, true).withProperty(TorchHolderUnlit.AddonTrap, false).withProperty(TorchHolderUnlit.POWERED, false);
+			else if(i == 3) return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.SOUTH).withProperty(TorchHolderUnlit.AddonLighter, true).withProperty(TorchHolderUnlit.AddonTrap, false).withProperty(TorchHolderUnlit.POWERED, false);
 		}
-		else if(i >= 8 && i < 12){
+		else if((i >= 8) && (i < 12)){
 			i -= 8;
 			if(i == 0)
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH).withProperty(AddonLighter, false).withProperty(AddonTrap, true).withProperty(POWERED, false);
+				return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.NORTH).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, true).withProperty(TorchHolderUnlit.POWERED, false);
 			else if(i == 1)
-				return this.getDefaultState().withProperty(FACING, EnumFacing.EAST).withProperty(AddonLighter, false).withProperty(AddonTrap, true).withProperty(POWERED, false);
+				return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.EAST).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, true).withProperty(TorchHolderUnlit.POWERED, false);
 			else if(i == 2)
-				return this.getDefaultState().withProperty(FACING, EnumFacing.WEST).withProperty(AddonLighter, false).withProperty(AddonTrap, true).withProperty(POWERED, false);
-			else if(i == 3) return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH).withProperty(AddonLighter, false).withProperty(AddonTrap, true).withProperty(POWERED, false);
+				return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.WEST).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, true).withProperty(TorchHolderUnlit.POWERED, false);
+			else if(i == 3) return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.SOUTH).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, true).withProperty(TorchHolderUnlit.POWERED, false);
 		}
 		else if(i >= 12){
 			i -= 12;
 			if(i == 0)
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH).withProperty(AddonLighter, false).withProperty(AddonTrap, true).withProperty(POWERED, true);
+				return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.NORTH).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, true).withProperty(TorchHolderUnlit.POWERED, true);
 			else if(i == 1)
-				return this.getDefaultState().withProperty(FACING, EnumFacing.EAST).withProperty(AddonLighter, false).withProperty(AddonTrap, true).withProperty(POWERED, true);
+				return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.EAST).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, true).withProperty(TorchHolderUnlit.POWERED, true);
 			else if(i == 2)
-				return this.getDefaultState().withProperty(FACING, EnumFacing.WEST).withProperty(AddonLighter, false).withProperty(AddonTrap, true).withProperty(POWERED, true);
-			else if(i == 3) return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH).withProperty(AddonLighter, false).withProperty(AddonTrap, true).withProperty(POWERED, true);
+				return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.WEST).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, true).withProperty(TorchHolderUnlit.POWERED, true);
+			else if(i == 3) return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.SOUTH).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, true).withProperty(TorchHolderUnlit.POWERED, true);
 		}
 
-		return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+		return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.NORTH);
 	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
 		int i = 0;
-		if(state.getValue(FACING).equals(EnumFacing.NORTH))
+		if(state.getValue(TorchHolderUnlit.FACING).equals(EnumFacing.NORTH)) {
 			i += 0;
-		else if(state.getValue(FACING).equals(EnumFacing.EAST))
+		} else if(state.getValue(TorchHolderUnlit.FACING).equals(EnumFacing.EAST)) {
 			i += 1;
-		else if(state.getValue(FACING).equals(EnumFacing.SOUTH))
+		} else if(state.getValue(TorchHolderUnlit.FACING).equals(EnumFacing.SOUTH)) {
 			i += 2;
-		else if(state.getValue(FACING).equals(EnumFacing.WEST)) i += 3;
-		if((Boolean) state.getValue(AddonLighter)){
+		} else if(state.getValue(TorchHolderUnlit.FACING).equals(EnumFacing.WEST)) {
+			i += 3;
+		}
+		if(state.getValue(TorchHolderUnlit.AddonLighter)){
 			i += 4;
 		}
-		else if((Boolean) state.getValue(AddonTrap)){
+		else if(state.getValue(TorchHolderUnlit.AddonTrap)){
 			i += 8;
-			if((Boolean) state.getValue(POWERED)){
+			if(state.getValue(TorchHolderUnlit.POWERED)){
 				i = i + 4;
 			}
 		}
@@ -155,7 +156,7 @@ public class TorchHolderUnlit extends Block {
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] {FACING, AddonLighter, AddonTrap, POWERED});
+		return new BlockStateContainer(this, new IProperty[] {TorchHolderUnlit.FACING, TorchHolderUnlit.AddonLighter, TorchHolderUnlit.AddonTrap, TorchHolderUnlit.POWERED});
 	}
 	
 	@Override
@@ -173,17 +174,17 @@ public class TorchHolderUnlit extends Block {
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 
-		EnumFacing enumfacing = (EnumFacing) state.getValue(FACING);
+		EnumFacing enumfacing = state.getValue(TorchHolderUnlit.FACING);
 		if(!this.canBlockStay(worldIn, pos, enumfacing)){
 			this.dropBlockAsItem(worldIn, pos, state, 0);
 			worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
 			return;
 		}
 
-		if((Boolean) state.getValue(AddonLighter)){
+		if(state.getValue(TorchHolderUnlit.AddonLighter)){
 			if(!worldIn.isRemote){
 				if(worldIn.isBlockPowered(pos)){
-					worldIn.setBlockState(pos, DRPMedievalBlocks.TORCH_HOLDER_LIT.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(AddonLighter, state.getValue(AddonLighter)).withProperty(AddonTrap, state.getValue(AddonTrap)).withProperty(POWERED, state.getValue(POWERED)), 2);
+					worldIn.setBlockState(pos, DRPMedievalBlocks.TORCH_HOLDER_LIT.getDefaultState().withProperty(TorchHolderUnlit.FACING, state.getValue(TorchHolderUnlit.FACING)).withProperty(TorchHolderUnlit.AddonLighter, state.getValue(TorchHolderUnlit.AddonLighter)).withProperty(TorchHolderUnlit.AddonTrap, state.getValue(TorchHolderUnlit.AddonTrap)).withProperty(TorchHolderUnlit.POWERED, state.getValue(TorchHolderUnlit.POWERED)), 2);
 				}
 			}
 		}
@@ -206,14 +207,14 @@ public class TorchHolderUnlit extends Block {
 	@Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 
-		if(facing.equals(facing.SOUTH))
-			return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH).withProperty(AddonLighter, false).withProperty(AddonTrap, false).withProperty(POWERED, false);
-		else if(facing.equals(facing.WEST))
-			return this.getDefaultState().withProperty(FACING, EnumFacing.WEST).withProperty(AddonLighter, false).withProperty(AddonTrap, false).withProperty(POWERED, false);
-		else if(facing.equals(facing.NORTH))
-			return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH).withProperty(AddonLighter, false).withProperty(AddonTrap, false).withProperty(POWERED, false);
-		else if(facing.equals(facing.EAST))
-			return this.getDefaultState().withProperty(FACING, EnumFacing.EAST).withProperty(AddonLighter, false).withProperty(AddonTrap, false).withProperty(POWERED, false);
+		if(facing.equals(EnumFacing.SOUTH))
+			return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.SOUTH).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, false).withProperty(TorchHolderUnlit.POWERED, false);
+		else if(facing.equals(EnumFacing.WEST))
+			return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.WEST).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, false).withProperty(TorchHolderUnlit.POWERED, false);
+		else if(facing.equals(EnumFacing.NORTH))
+			return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.NORTH).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, false).withProperty(TorchHolderUnlit.POWERED, false);
+		else if(facing.equals(EnumFacing.EAST))
+			return this.getDefaultState().withProperty(TorchHolderUnlit.FACING, EnumFacing.EAST).withProperty(TorchHolderUnlit.AddonLighter, false).withProperty(TorchHolderUnlit.AddonTrap, false).withProperty(TorchHolderUnlit.POWERED, false);
 		else
 			return Blocks.AIR.getDefaultState();
 	}
@@ -222,11 +223,11 @@ public class TorchHolderUnlit extends Block {
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
 
 		if(!worldIn.isRemote){
-			worldIn.setBlockState(pos, state.withProperty(POWERED, Boolean.valueOf(false)), 3);
+			worldIn.setBlockState(pos, state.withProperty(TorchHolderUnlit.POWERED, Boolean.valueOf(false)), 3);
 			worldIn.notifyNeighborsOfStateChange(pos, this, false);
 			//TODO PLAY SOUND
 			//worldIn.playSoundEffect((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, "random.click", 0.3F, ((Boolean) state.getValue(POWERED)).booleanValue() ? 0.6F : 0.5F);
-			EnumFacing Facing = (EnumFacing) state.getValue(FACING);
+			EnumFacing Facing = state.getValue(TorchHolderUnlit.FACING);
 			worldIn.notifyNeighborsOfStateChange(pos.offset(Facing.getOpposite()), state.getBlock(),false);
 		}
 
@@ -237,68 +238,76 @@ public class TorchHolderUnlit extends Block {
 
 		if(!world.isRemote){
 			if(player.getHeldItem(EnumHand.MAIN_HAND) == null){
-				if((Boolean) state.getValue(AddonTrap) && !(Boolean) state.getValue(POWERED)){
-					state = state.cycleProperty(POWERED);
+				if(state.getValue(TorchHolderUnlit.AddonTrap) && !(Boolean) state.getValue(TorchHolderUnlit.POWERED)){
+					state = state.cycleProperty(TorchHolderUnlit.POWERED);
 					world.setBlockState(pos, state, 3);
 					world.scheduleUpdate(pos, this, 60);
 					world.scheduleUpdate(pos, DRPMedievalBlocks.TORCH_HOLDER_LIT, 60);
 					//TODO PLAY SOUND
 					//worldIn.playSoundEffect((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, "random.click", 0.3F, ((Boolean) state.getValue(POWERED)).booleanValue() ? 0.6F : 0.5F);
 
-					EnumFacing Facing = (EnumFacing) state.getValue(FACING);
+					EnumFacing Facing = state.getValue(TorchHolderUnlit.FACING);
 
 					world.notifyNeighborsOfStateChange(pos.offset(Facing.getOpposite()), state.getBlock(),false);
 
 				}
 			}
 			else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(DRPMedievalItems.TriggerTrap)){
-				if((Boolean) state.getValue(AddonLighter)){
-					state = state.cycleProperty(AddonLighter);
-					state = state.cycleProperty(AddonTrap);
+				if(state.getValue(TorchHolderUnlit.AddonLighter)){
+					state = state.cycleProperty(TorchHolderUnlit.AddonLighter);
+					state = state.cycleProperty(TorchHolderUnlit.AddonTrap);
 					world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
 					world.setBlockState(pos, state, 3);
-					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TriggerTrap,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+					if(!player.capabilities.isCreativeMode) {
+						player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TriggerTrap,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+					}
 				}
-				else if((Boolean) state.getValue(AddonTrap)){
+				else if(state.getValue(TorchHolderUnlit.AddonTrap)){
 
 				}
 				else{
-					state = state.cycleProperty(AddonTrap);
+					state = state.cycleProperty(TorchHolderUnlit.AddonTrap);
 					world.setBlockState(pos, state, 3);
-					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TriggerTrap,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+					if(!player.capabilities.isCreativeMode) {
+						player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TriggerTrap,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+					}
 				}
 			}
 			else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Items.FLINT)){
-				if((Boolean) state.getValue(AddonTrap)){
+				if(state.getValue(TorchHolderUnlit.AddonTrap)){
 					world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TriggerTrap, 1)));
-					state = state.cycleProperty(AddonTrap);
-					state = state.cycleProperty(AddonLighter);
+					state = state.cycleProperty(TorchHolderUnlit.AddonTrap);
+					state = state.cycleProperty(TorchHolderUnlit.AddonLighter);
 					world.setBlockState(pos, state, 3);
-					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Items.FLINT,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+					if(!player.capabilities.isCreativeMode) {
+						player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Items.FLINT,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+					}
 				}
-				else if((Boolean) state.getValue(AddonLighter)){
+				else if(state.getValue(TorchHolderUnlit.AddonLighter)){
 
 				}
 				else{
-					state = state.cycleProperty(AddonLighter);
+					state = state.cycleProperty(TorchHolderUnlit.AddonLighter);
 					world.setBlockState(pos, state, 3);
-					if(!player.capabilities.isCreativeMode) player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Items.FLINT,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+					if(!player.capabilities.isCreativeMode) {
+						player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(Items.FLINT,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+					}
 				}
 			}
 			else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Items.FLINT_AND_STEEL)){
-				world.setBlockState(pos, DRPMedievalBlocks.TORCH_HOLDER_LIT.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(AddonLighter, state.getValue(AddonLighter)).withProperty(AddonTrap, state.getValue(AddonTrap)).withProperty(POWERED, state.getValue(POWERED)));
+				world.setBlockState(pos, DRPMedievalBlocks.TORCH_HOLDER_LIT.getDefaultState().withProperty(TorchHolderUnlit.FACING, state.getValue(TorchHolderUnlit.FACING)).withProperty(TorchHolderUnlit.AddonLighter, state.getValue(TorchHolderUnlit.AddonLighter)).withProperty(TorchHolderUnlit.AddonTrap, state.getValue(TorchHolderUnlit.AddonTrap)).withProperty(TorchHolderUnlit.POWERED, state.getValue(TorchHolderUnlit.POWERED)));
 				player.getHeldItem(EnumHand.MAIN_HAND).attemptDamageItem(1, new Random());
 			}
 			else{
-				if((Boolean) state.getValue(AddonTrap) && !(Boolean) state.getValue(POWERED)){
-					state = state.cycleProperty(POWERED);
+				if(state.getValue(TorchHolderUnlit.AddonTrap) && !(Boolean) state.getValue(TorchHolderUnlit.POWERED)){
+					state = state.cycleProperty(TorchHolderUnlit.POWERED);
 					world.setBlockState(pos, state, 3);
 					world.scheduleUpdate(pos, this, 60);
 					world.scheduleUpdate(pos, DRPMedievalBlocks.TORCH_HOLDER_LIT, 60);
 					//TODO PLAY SOUND
 					//worldIn.playSoundEffect((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, "random.click", 0.3F, ((Boolean) state.getValue(POWERED)).booleanValue() ? 0.6F : 0.5F);
 
-					EnumFacing Facing = (EnumFacing) state.getValue(FACING);
+					EnumFacing Facing = state.getValue(TorchHolderUnlit.FACING);
 
 					world.notifyNeighborsOfStateChange(pos.offset(Facing.getOpposite()), state.getBlock(), false);
 
@@ -312,10 +321,10 @@ public class TorchHolderUnlit extends Block {
 	@Override
 	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
 		if(!world.isRemote){
-			if(state.getValue(AddonLighter)){
+			if(state.getValue(TorchHolderUnlit.AddonLighter)){
 				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
 			}
-			if(state.getValue(AddonTrap)){
+			if(state.getValue(TorchHolderUnlit.AddonTrap)){
 				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TriggerTrap, 1)));
 			}
 		}

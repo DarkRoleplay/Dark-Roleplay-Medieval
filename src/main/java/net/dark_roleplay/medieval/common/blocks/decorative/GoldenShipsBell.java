@@ -1,22 +1,18 @@
 package net.dark_roleplay.medieval.common.blocks.decorative;
 
 import net.dark_roleplay.medieval.client.sound.SoundEvents;
-import net.dark_roleplay.medieval.common.blocks.templates.DRPMedievalMaterials;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
-import net.dark_roleplay.medieval.common.util.SittingUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.audio.SoundManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
@@ -31,7 +27,7 @@ public class GoldenShipsBell   extends Block {
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
 	public GoldenShipsBell(String registryName) {
-		super(DRPMedievalMaterials.iron);
+		super(Material.IRON);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
@@ -51,22 +47,22 @@ public class GoldenShipsBell   extends Block {
 	public IBlockState getStateFromMeta(int meta) {
 		switch (meta) {
 			case 0:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				return this.getDefaultState().withProperty(GoldenShipsBell.FACING, EnumFacing.NORTH);
 			case 1:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+				return this.getDefaultState().withProperty(GoldenShipsBell.FACING, EnumFacing.EAST);
 			case 2:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+				return this.getDefaultState().withProperty(GoldenShipsBell.FACING, EnumFacing.SOUTH);
 			case 3:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
+				return this.getDefaultState().withProperty(GoldenShipsBell.FACING, EnumFacing.WEST);
 			default:
-				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+				return this.getDefaultState().withProperty(GoldenShipsBell.FACING, EnumFacing.NORTH);
 		}
 	}
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
-		EnumFacing facing = (EnumFacing) state.getValue(FACING);
+		EnumFacing facing = state.getValue(GoldenShipsBell.FACING);
 		if(facing.equals(EnumFacing.NORTH)) return 0;
 		if(facing.equals(EnumFacing.EAST)) return 1;
 		if(facing.equals(EnumFacing.SOUTH)) return 2;
@@ -77,7 +73,7 @@ public class GoldenShipsBell   extends Block {
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] {FACING});
+		return new BlockStateContainer(this, new IProperty[] {GoldenShipsBell.FACING});
 	}
 
 	@Override
@@ -112,18 +108,18 @@ public class GoldenShipsBell   extends Block {
 		if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN, true)) return Blocks.AIR.getDefaultState();
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
-			int dir = MathHelper.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+			int dir = MathHelper.floor((entity.rotationYaw * 4.0F) / 360.0F + 0.5D) & 3;
 			switch (dir) {
 				case 0:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+					return this.getDefaultState().withProperty(GoldenShipsBell.FACING, EnumFacing.NORTH);
 				case 1:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
+					return this.getDefaultState().withProperty(GoldenShipsBell.FACING, EnumFacing.EAST);
 				case 2:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+					return this.getDefaultState().withProperty(GoldenShipsBell.FACING, EnumFacing.SOUTH);
 				case 3:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
+					return this.getDefaultState().withProperty(GoldenShipsBell.FACING, EnumFacing.WEST);
 				default:
-					return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
+					return this.getDefaultState().withProperty(GoldenShipsBell.FACING, EnumFacing.NORTH);
 			}
 		}
 		return Blocks.AIR.getDefaultState();
