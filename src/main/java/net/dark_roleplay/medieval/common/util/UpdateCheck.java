@@ -5,7 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
-import net.dark_roleplay.medieval.common.DRPInfo;
+import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 
 public class UpdateCheck {
 
@@ -35,7 +35,7 @@ public class UpdateCheck {
 					scanner.close();
 
 					if(version[0].equals("1.8")){
-						if(!DRPInfo.VERSION.equals(version[1])){
+						if(!DRPMedievalInfo.VERSION.equals(version[1])){
 							UpdateCheck.newVersion = version[1];
 							UpdateCheck.setNewVersionAvailable();
 							if(!version[2].equals("none")) {

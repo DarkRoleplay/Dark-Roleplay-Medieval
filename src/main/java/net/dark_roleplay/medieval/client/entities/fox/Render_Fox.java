@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.client.entities.fox;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.common.DRPInfo;
+import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.dark_roleplay.medieval.common.entities.fox.Entity_Fox;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -31,7 +31,7 @@ public class Render_Fox extends RenderLiving<Entity_Fox>{
     
 	@Override
 	protected ResourceLocation getEntityTexture(Entity_Fox entity) {
-		return new ResourceLocation(DRPInfo.MODID, "textures/entitys/fox/fox.png");
+		return new ResourceLocation(DRPMedievalInfo.MODID, "textures/entitys/fox/fox.png");
 	}
 	
 	private static class Factory implements IRenderFactory<Entity_Fox> {

@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.entity.renders;
 
-import net.dark_roleplay.medieval.common.DRPInfo;
+import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.dark_roleplay.medieval.common.entity.item.EntitySledge;
 import net.dark_roleplay.medieval.common.entity.models.TrainingDummyModel;
 import net.minecraft.client.Minecraft;
@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderTrainingDummy<T extends EntitySledge> extends Render<T> {
 
-	private static final ResourceLocation trainingDummyTextures = new ResourceLocation(DRPInfo.MODID, "textures/entitys/TrainingDummy.png");
+	private static final ResourceLocation trainingDummyTextures = new ResourceLocation(DRPMedievalInfo.MODID, "textures/entitys/TrainingDummy.png");
 
     protected ModelBase modelDummy = new TrainingDummyModel();
 	

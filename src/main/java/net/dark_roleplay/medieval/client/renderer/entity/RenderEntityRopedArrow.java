@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.client.renderer.entity;
 
-import net.dark_roleplay.medieval.common.DRPInfo;
+import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.dark_roleplay.medieval.common.entity.projectile.EntityRopedArrow;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -107,7 +107,7 @@ public class RenderEntityRopedArrow extends Render<EntityRopedArrow>{
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityRopedArrow entity) {
-		return new ResourceLocation(DRPInfo.MODID, "textures/entitys/TrainingDummy.png");
+		return new ResourceLocation(DRPMedievalInfo.MODID, "textures/entitys/TrainingDummy.png");
 	}
 	
 	public static class Factory implements IRenderFactory<EntityRopedArrow> {

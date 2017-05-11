@@ -1,13 +1,13 @@
 package net.dark_roleplay.medieval.common.gui;
 
-import net.dark_roleplay.medieval.common.DRPInfo;
+import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiDungeonChest extends GuiContainer {
 
-	public static final ResourceLocation BACKGROUND = new ResourceLocation(DRPInfo.MODID + ":textures/guis/dungeon_chest.png");
+	public static final ResourceLocation BACKGROUND = new ResourceLocation(DRPMedievalInfo.MODID + ":textures/guis/dungeon_chest.png");
 
 	public GuiDungeonChest(Container container_) {
 		super(container_);

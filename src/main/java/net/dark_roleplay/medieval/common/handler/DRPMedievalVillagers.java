@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.medieval.common.DRPInfo;
+import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.dark_roleplay.medieval.common.villager.EmeraldsForStacks;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
@@ -13,8 +13,8 @@ import net.minecraftforge.fml.common.registry.VillagerRegistry;
 
 public class DRPMedievalVillagers {
 
-	protected static final VillagerRegistry.VillagerProfession PROFESSION_CARPENTER = DRPMedievalVillagers.createProf(new ResourceLocation(DRPInfo.MODID, "carpenter"), new ResourceLocation(DRPInfo.MODID, "textures/entities/villager/carpenter.png"), new ResourceLocation(DRPInfo.MODID, "textures/entities/villager/zombie/carpenter.png") );
-    protected static final VillagerRegistry.VillagerCareer CAREER_CARPENTER = DRPMedievalVillagers.createCarrer(DRPMedievalVillagers.PROFESSION_CARPENTER, new ResourceLocation(DRPInfo.MODID, "carpenter"));
+	protected static final VillagerRegistry.VillagerProfession PROFESSION_CARPENTER = DRPMedievalVillagers.createProf(new ResourceLocation(DRPMedievalInfo.MODID, "carpenter"), new ResourceLocation(DRPMedievalInfo.MODID, "textures/entities/villager/carpenter.png"), new ResourceLocation(DRPMedievalInfo.MODID, "textures/entities/villager/zombie/carpenter.png") );
+    protected static final VillagerRegistry.VillagerCareer CAREER_CARPENTER = DRPMedievalVillagers.createCarrer(DRPMedievalVillagers.PROFESSION_CARPENTER, new ResourceLocation(DRPMedievalInfo.MODID, "carpenter"));
 //	.addTrade(3, new ListItemForEmeralds(MoDropsItems.adaptive_egg, new PriceInfo(26, 33)))
 //	.addTrade(1, new EmeraldForItems(Items.GOLD_INGOT, new PriceInfo(8, 9)))
 //	.addTrade(1, new ListItemForEmeralds(MoDropsItems.biomatter, new PriceInfo(1, 1)))

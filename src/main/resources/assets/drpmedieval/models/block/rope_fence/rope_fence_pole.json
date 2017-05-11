@@ -1,9 +1,9 @@
 {
 	"__comment": "Designed by JTK222",
 	"textures": {
-		"particle": "#texture",
-		"texture": "#texture",
-		"rope": "#rope"
+		"particle": "drpmedieval:blocks/rope_fence/post_oak",
+		"texture": "drpmedieval:blocks/rope_fence/post_oak",
+		"rope": "drpmedieval:blocks/rope_fence/rope"
 	},
 	"elements": [
 		{

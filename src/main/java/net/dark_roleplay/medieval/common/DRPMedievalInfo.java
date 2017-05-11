@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common;
 
-public class DRPInfo {
+public class DRPMedievalInfo {
 
 	public static final String NAME = "Dark Roleplay Medieval";
 	public static final String VERSION = "0.1.10";

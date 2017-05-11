@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.blocks.specialrenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.common.DRPInfo;
+import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class SpecialRenderFirepit extends TileEntitySpecialRenderer {
 
-	private static final ResourceLocation texture = new ResourceLocation(DRPInfo.MODID, "textures/old_blocks/block_large_firepit.png");
+	private static final ResourceLocation texture = new ResourceLocation(DRPMedievalInfo.MODID, "textures/old_blocks/block_large_firepit.png");
 
 	private ModelSmallFirepit model;
 

@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.client.sound;
 
-import net.dark_roleplay.medieval.common.DRPInfo;
+import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -24,7 +24,7 @@ public class SoundEvents {
 	 * @return The SoundEvent
 	 */
 	private static SoundEvent registerSound(String soundName) {
-		final ResourceLocation soundID = new ResourceLocation(DRPInfo.MODID, soundName);
+		final ResourceLocation soundID = new ResourceLocation(DRPMedievalInfo.MODID, soundName);
 		return GameRegistry.register(new SoundEvent(soundID).setRegistryName(soundID));
 	}
 	

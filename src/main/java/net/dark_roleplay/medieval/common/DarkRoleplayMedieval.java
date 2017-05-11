@@ -57,17 +57,17 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
-@Mod(modid = DRPInfo.MODID, version = DRPInfo.VERSION, name = DRPInfo.NAME, acceptedMinecraftVersions = DRPInfo.ACCEPTEDVERSIONS, dependencies = DRPInfo.DEPENDECIES, updateJSON = DRPInfo.UPDATECHECK)
+@Mod(modid = DRPMedievalInfo.MODID, version = DRPMedievalInfo.VERSION, name = DRPMedievalInfo.NAME, acceptedMinecraftVersions = DRPMedievalInfo.ACCEPTEDVERSIONS, dependencies = DRPMedievalInfo.DEPENDECIES, updateJSON = DRPMedievalInfo.UPDATECHECK)
 public class DarkRoleplayMedieval {
 
-    public static final Logger LOGGER = LogManager.getLogger(DRPInfo.MODID);
+    public static final Logger LOGGER = LogManager.getLogger(DRPMedievalInfo.MODID);
 	
 	public static boolean isOnServer = false;
 	
 	@SidedProxy(serverSide = "net.dark_roleplay.medieval.common.proxy.CommonProxy", clientSide = "net.dark_roleplay.medieval.client.ClientProxy")
 	public static CommonProxy proxy;
 
-	@net.minecraftforge.fml.common.Mod.Instance(DRPInfo.MODID)
+	@net.minecraftforge.fml.common.Mod.Instance(DRPMedievalInfo.MODID)
 	public static DarkRoleplayMedieval instance;
 
 	@EventHandler
@@ -141,129 +141,129 @@ public class DarkRoleplayMedieval {
 		
 		LoreHelper.registerItemDesc(DRPMedievalItems.TriggerTrap, new ArrayList<String>(){{this.add(TextFormatting.WHITE + "Usage:");this.add(TextFormatting.GRAY + "Apply it to a Torch Holder");this.add(TextFormatting.GRAY + "and use the Torch Holder as a Lever.");}});
 		
-		MissingMappings.registerToRemap(DRPMedievalBlocks.ANVIL, DRPInfo.MODID + ":" + "blockAnvil");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.CAULDRON, DRPInfo.MODID + ":" + "blockCauldron");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.CHOPPING_BLOCK, DRPInfo.MODID + ":" + "blockChoppingBlock");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.FIREPIT, DRPInfo.MODID + ":" + "blockFirepit");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.GRINDSTONE, DRPInfo.MODID + ":" + "blockGrindstone");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.HANGING_CAULDRON, DRPInfo.MODID + ":" + "blockHangingCauldron");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.MORTAR, DRPInfo.MODID + ":" + "blockMortar");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_CLOSED_SPRUCE, DRPInfo.MODID + ":" + "blockBarrelClosed");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_CLOSED_SPRUCE, DRPInfo.MODID + ":" + "BarrelClosed");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_EMPTY_SPRUCE, DRPInfo.MODID + ":" + "blockBarrelEmpty");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_EMPTY_SPRUCE, DRPInfo.MODID + ":" + "BarrelEmpty");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_GUNPOWDER_SPRUCE, DRPInfo.MODID + ":" + "blockBarrelGunpowder");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_GUNPOWDER_SPRUCE, DRPInfo.MODID + ":" + "BarrelGunpowder");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_OAK, DRPInfo.MODID + ":" + "bedFrameOak");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_SPRUCE, DRPInfo.MODID + ":" + "bedFrameSpruce");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_BIRCH, DRPInfo.MODID + ":" + "bedFrameBirch");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_JUNGLE, DRPInfo.MODID + ":" + "bedFrameJungle");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_ACACIA, DRPInfo.MODID + ":" + "bedFrameAcacia");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_DARK_OAK, DRPInfo.MODID + ":" + "bedFrameDarkOak");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.bookOne, DRPInfo.MODID + ":" + "blockBookOne");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BUCKET_EMPTY, DRPInfo.MODID + ":" + "blockBucketEmpty");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BUCKET_WATER, DRPInfo.MODID + ":" + "blockBucketWater");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BUCKET_DIRT, DRPInfo.MODID + ":" + "blockBucketDirt");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.CHAIN, DRPInfo.MODID + ":" + "blockChain");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.CLEAN_PLANKS, DRPInfo.MODID + ":" + "cleanPlanks");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.HANGING_BRIDGE, DRPInfo.MODID + ":" + "blockHangingBridge");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.IRON_HOOK, DRPInfo.MODID + ":" + "blockHook");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.KEY_HANGING, DRPInfo.MODID + ":" + "blockKeyHanging");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.MUG_BEER, DRPInfo.MODID + ":" + "blockMugBeer");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.MUG_EMPTY, DRPInfo.MODID + ":" + "blockMugEmpty");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.ROPE, DRPInfo.MODID + ":" + "blockRope");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.ROPE_ANCHOR, DRPInfo.MODID + ":" + "blockRopeAnchor");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.SHIPS_HELM, DRPInfo.MODID + ":" + "blockShipsWheel");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.SHIPS_HELM, DRPInfo.MODID + ":" + "ShipsWheel");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.TARGET, DRPInfo.MODID + ":" + "blockTarget");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.ANVIL, DRPMedievalInfo.MODID + ":" + "blockAnvil");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.CAULDRON, DRPMedievalInfo.MODID + ":" + "blockCauldron");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.CHOPPING_BLOCK, DRPMedievalInfo.MODID + ":" + "blockChoppingBlock");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.FIREPIT, DRPMedievalInfo.MODID + ":" + "blockFirepit");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.GRINDSTONE, DRPMedievalInfo.MODID + ":" + "blockGrindstone");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.HANGING_CAULDRON, DRPMedievalInfo.MODID + ":" + "blockHangingCauldron");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.MORTAR, DRPMedievalInfo.MODID + ":" + "blockMortar");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_CLOSED_SPRUCE, DRPMedievalInfo.MODID + ":" + "blockBarrelClosed");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_CLOSED_SPRUCE, DRPMedievalInfo.MODID + ":" + "BarrelClosed");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_EMPTY_SPRUCE, DRPMedievalInfo.MODID + ":" + "blockBarrelEmpty");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_EMPTY_SPRUCE, DRPMedievalInfo.MODID + ":" + "BarrelEmpty");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_GUNPOWDER_SPRUCE, DRPMedievalInfo.MODID + ":" + "blockBarrelGunpowder");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_GUNPOWDER_SPRUCE, DRPMedievalInfo.MODID + ":" + "BarrelGunpowder");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_OAK, DRPMedievalInfo.MODID + ":" + "bedFrameOak");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_SPRUCE, DRPMedievalInfo.MODID + ":" + "bedFrameSpruce");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_BIRCH, DRPMedievalInfo.MODID + ":" + "bedFrameBirch");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_JUNGLE, DRPMedievalInfo.MODID + ":" + "bedFrameJungle");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_ACACIA, DRPMedievalInfo.MODID + ":" + "bedFrameAcacia");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BED_FRAME_DARK_OAK, DRPMedievalInfo.MODID + ":" + "bedFrameDarkOak");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.bookOne, DRPMedievalInfo.MODID + ":" + "blockBookOne");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BUCKET_EMPTY, DRPMedievalInfo.MODID + ":" + "blockBucketEmpty");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BUCKET_WATER, DRPMedievalInfo.MODID + ":" + "blockBucketWater");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BUCKET_DIRT, DRPMedievalInfo.MODID + ":" + "blockBucketDirt");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.CHAIN, DRPMedievalInfo.MODID + ":" + "blockChain");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.CLEAN_PLANKS, DRPMedievalInfo.MODID + ":" + "cleanPlanks");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.HANGING_BRIDGE, DRPMedievalInfo.MODID + ":" + "blockHangingBridge");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.IRON_HOOK, DRPMedievalInfo.MODID + ":" + "blockHook");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.KEY_HANGING, DRPMedievalInfo.MODID + ":" + "blockKeyHanging");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.MUG_BEER, DRPMedievalInfo.MODID + ":" + "blockMugBeer");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.MUG_EMPTY, DRPMedievalInfo.MODID + ":" + "blockMugEmpty");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.ROPE, DRPMedievalInfo.MODID + ":" + "blockRope");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.ROPE_ANCHOR, DRPMedievalInfo.MODID + ":" + "blockRopeAnchor");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.SHIPS_HELM, DRPMedievalInfo.MODID + ":" + "blockShipsWheel");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.SHIPS_HELM, DRPMedievalInfo.MODID + ":" + "ShipsWheel");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.TARGET, DRPMedievalInfo.MODID + ":" + "blockTarget");
 //		MissingMappings.registerToRemap(DRPMBlocks.APIARY_OAK, DRPInfo.MODID + ":" + "Apiary");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.TORCH_HOLDER_EMPTY, DRPInfo.MODID + ":" + "blockTorchHolderEmpty");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.TORCH_HOLDER_LIT, DRPInfo.MODID + ":" + "blockTorchHolderLit");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.TORCH_HOLDER_UNLIT, DRPInfo.MODID + ":" + "blockTorchHolderUnlit");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.APPLE_GREEN, DRPInfo.MODID + ":" + "blockAppleGreen");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.APPLE_RED, DRPInfo.MODID + ":" + "blockAppleRed");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.APPLE_YELLOW, DRPInfo.MODID + ":" + "blockAppleYellow");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.TORCH_HOLDER_EMPTY, DRPMedievalInfo.MODID + ":" + "blockTorchHolderEmpty");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.TORCH_HOLDER_LIT, DRPMedievalInfo.MODID + ":" + "blockTorchHolderLit");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.TORCH_HOLDER_UNLIT, DRPMedievalInfo.MODID + ":" + "blockTorchHolderUnlit");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.APPLE_GREEN, DRPMedievalInfo.MODID + ":" + "blockAppleGreen");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.APPLE_RED, DRPMedievalInfo.MODID + ":" + "blockAppleRed");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.APPLE_YELLOW, DRPMedievalInfo.MODID + ":" + "blockAppleYellow");
 		//MissingMappings.registerToRemap(DRPMedievalBlocks.BARLEY, DRPInfo.MODID + ":" + "blockBarley");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.MUSHROOM_BROWN, DRPInfo.MODID + ":" + "blockMushroomBrown");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.MUSHROOM_RED, DRPInfo.MODID + ":" + "blockMushroomRed");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.PEAR_GREEN, DRPInfo.MODID + ":" + "blockPearGreen");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.PEAR_YELLOW, DRPInfo.MODID + ":" + "blockPearYellow");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.CRATE, DRPInfo.MODID + ":" + "blockCrate");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.DUNGEON_CHEST, DRPInfo.MODID + ":" + "blockDungeonChest");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_OAK, DRPInfo.MODID + ":" + "logChairOak");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_SPRUCE, DRPInfo.MODID + ":" + "logChairSpruce");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_BIRCH, DRPInfo.MODID + ":" + "logChairBirch");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_JUNGLE, DRPInfo.MODID + ":" + "logChairJungle");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_ACACIA, DRPInfo.MODID + ":" + "logChairAcacia");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_DARK_OAK, DRPInfo.MODID + ":" + "logChairDarkOak");
-		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_CHAIR_SPRUCE, DRPInfo.MODID + ":" + "BarrelChair");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.MUSHROOM_BROWN, DRPMedievalInfo.MODID + ":" + "blockMushroomBrown");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.MUSHROOM_RED, DRPMedievalInfo.MODID + ":" + "blockMushroomRed");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.PEAR_GREEN, DRPMedievalInfo.MODID + ":" + "blockPearGreen");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.PEAR_YELLOW, DRPMedievalInfo.MODID + ":" + "blockPearYellow");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.CRATE, DRPMedievalInfo.MODID + ":" + "blockCrate");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.DUNGEON_CHEST, DRPMedievalInfo.MODID + ":" + "blockDungeonChest");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_OAK, DRPMedievalInfo.MODID + ":" + "logChairOak");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_SPRUCE, DRPMedievalInfo.MODID + ":" + "logChairSpruce");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_BIRCH, DRPMedievalInfo.MODID + ":" + "logChairBirch");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_JUNGLE, DRPMedievalInfo.MODID + ":" + "logChairJungle");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_ACACIA, DRPMedievalInfo.MODID + ":" + "logChairAcacia");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.LOG_CHAIR_DARK_OAK, DRPMedievalInfo.MODID + ":" + "logChairDarkOak");
+		MissingMappings.registerToRemap(DRPMedievalBlocks.BARREL_CHAIR_SPRUCE, DRPMedievalInfo.MODID + ":" + "BarrelChair");
 		
-		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameOak, DRPInfo.MODID + ":" + "bedFrameOak");
-		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameSpruce, DRPInfo.MODID + ":" + "bedFrameSpruce");
-		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameBirch, DRPInfo.MODID + ":" + "bedFrameBirch");
-		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameJungle, DRPInfo.MODID + ":" + "bedFrameJungle");
-		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameAcacia, DRPInfo.MODID + ":" + "bedFrameAcacia");
-		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameDarkOak, DRPInfo.MODID + ":" + "bedFrameDarkOak");
-		MissingMappings.registerToRemap(DRPMedievalItems.Barley, DRPInfo.MODID + ":" + "itemBarley");
-		MissingMappings.registerToRemap(DRPMedievalItems.Turnip, DRPInfo.MODID + ":" + "itemTurnip");
-		MissingMappings.registerToRemap(DRPMedievalItems.BronzeCoin, DRPInfo.MODID + ":" + "itemBronzeCoin");
-		MissingMappings.registerToRemap(DRPMedievalItems.GoldenCoin, DRPInfo.MODID + ":" + "itemGoldenCoin");
-		MissingMappings.registerToRemap(DRPMedievalItems.SilverCoin, DRPInfo.MODID + ":" + "itemSilverCoin");
+		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameOak, DRPMedievalInfo.MODID + ":" + "bedFrameOak");
+		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameSpruce, DRPMedievalInfo.MODID + ":" + "bedFrameSpruce");
+		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameBirch, DRPMedievalInfo.MODID + ":" + "bedFrameBirch");
+		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameJungle, DRPMedievalInfo.MODID + ":" + "bedFrameJungle");
+		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameAcacia, DRPMedievalInfo.MODID + ":" + "bedFrameAcacia");
+		MissingMappings.registerToRemap(DRPMedievalItems.BedFrameDarkOak, DRPMedievalInfo.MODID + ":" + "bedFrameDarkOak");
+		MissingMappings.registerToRemap(DRPMedievalItems.Barley, DRPMedievalInfo.MODID + ":" + "itemBarley");
+		MissingMappings.registerToRemap(DRPMedievalItems.Turnip, DRPMedievalInfo.MODID + ":" + "itemTurnip");
+		MissingMappings.registerToRemap(DRPMedievalItems.BronzeCoin, DRPMedievalInfo.MODID + ":" + "itemBronzeCoin");
+		MissingMappings.registerToRemap(DRPMedievalItems.GoldenCoin, DRPMedievalInfo.MODID + ":" + "itemGoldenCoin");
+		MissingMappings.registerToRemap(DRPMedievalItems.SilverCoin, DRPMedievalInfo.MODID + ":" + "itemSilverCoin");
 //		MissingMappings.registerToRemap(DRPMedievalItems.Quiver, DRPInfo.MODID + ":" + "itemQuiver");
 //		MissingMappings.registerToRemap(DRPMedievalItems.LeatherPurse, DRPInfo.MODID + ":" + "itemLeatherPurse");
 //		MissingMappings.registerToRemap(DRPMedievalItems.BronzeRing, DRPInfo.MODID + ":" + "itemBronzeRing");
 //		MissingMappings.registerToRemap(DRPMedievalItems.GoldenRing, DRPInfo.MODID + ":" + "itemGoldenRing");
 //		MissingMappings.registerToRemap(DRPMedievalItems.SilverRing, DRPInfo.MODID + ":" + "itemSilverRing");
-		MissingMappings.registerToRemap(DRPMedievalItems.AppleGreen, DRPInfo.MODID + ":" + "itemAppleGreen");
-		MissingMappings.registerToRemap(DRPMedievalItems.AppleYellow, DRPInfo.MODID + ":" + "itemAppleYellow");
-		MissingMappings.registerToRemap(DRPMedievalItems.CatfishCooked, DRPInfo.MODID + ":" + "itemCatfishCooked");
-		MissingMappings.registerToRemap(DRPMedievalItems.CatfishRaw, DRPInfo.MODID + ":" + "itemCatfishRaw");
-		MissingMappings.registerToRemap(DRPMedievalItems.ChickenStew, DRPInfo.MODID + ":" + "itemChickenStew");
-		MissingMappings.registerToRemap(DRPMedievalItems.CodStew, DRPInfo.MODID + ":" + "itemCodStew");
-		MissingMappings.registerToRemap(DRPMedievalItems.PearGreen, DRPInfo.MODID + ":" + "itemPearGreen");
-		MissingMappings.registerToRemap(DRPMedievalItems.PearYellow, DRPInfo.MODID + ":" + "itemPearYellow");
-		MissingMappings.registerToRemap(DRPMedievalItems.PumpkinBread, DRPInfo.MODID + ":" + "itemPumpkinBread");
-		MissingMappings.registerToRemap(DRPMedievalItems.PumpkinStew, DRPInfo.MODID + ":" + "itemPumpkinStew");
-		MissingMappings.registerToRemap(DRPMedievalItems.VegieStew, DRPInfo.MODID + ":" + "itemVegieStew");
-		MissingMappings.registerToRemap(DRPMedievalItems.WolfMeatCooked, DRPInfo.MODID + ":" + "itemWolfMeatCooked");
-		MissingMappings.registerToRemap(DRPMedievalItems.WolfMeatRaw, DRPInfo.MODID + ":" + "itemWolfMeatRaw");
-		MissingMappings.registerToRemap(DRPMedievalItems.BatEar, DRPInfo.MODID + ":" + "itemBatEar");
-		MissingMappings.registerToRemap(DRPMedievalItems.DoughBarley, DRPInfo.MODID + ":" + "itemDoughBarley");
-		MissingMappings.registerToRemap(DRPMedievalItems.DoughPumpkin, DRPInfo.MODID + ":" + "itemDoughPumpkin");
-		MissingMappings.registerToRemap(DRPMedievalItems.DoughWheat, DRPInfo.MODID + ":" + "itemDoughWheat");
-		MissingMappings.registerToRemap(DRPMedievalItems.Firewood, DRPInfo.MODID + ":" + "itemFirewood");
-		MissingMappings.registerToRemap(DRPMedievalItems.FlourBarley, DRPInfo.MODID + ":" + "itemFlourBarley");
-		MissingMappings.registerToRemap(DRPMedievalItems.FlourWheat, DRPInfo.MODID + ":" + "itemFlourWheat");
-		MissingMappings.registerToRemap(DRPMedievalItems.FurWolf, DRPInfo.MODID + ":" + "itemFurWolf");
-		MissingMappings.registerToRemap(DRPMedievalItems.TriggerTrap, DRPInfo.MODID + ":" + "itemTriggerTrap");
+		MissingMappings.registerToRemap(DRPMedievalItems.AppleGreen, DRPMedievalInfo.MODID + ":" + "itemAppleGreen");
+		MissingMappings.registerToRemap(DRPMedievalItems.AppleYellow, DRPMedievalInfo.MODID + ":" + "itemAppleYellow");
+		MissingMappings.registerToRemap(DRPMedievalItems.CatfishCooked, DRPMedievalInfo.MODID + ":" + "itemCatfishCooked");
+		MissingMappings.registerToRemap(DRPMedievalItems.CatfishRaw, DRPMedievalInfo.MODID + ":" + "itemCatfishRaw");
+		MissingMappings.registerToRemap(DRPMedievalItems.ChickenStew, DRPMedievalInfo.MODID + ":" + "itemChickenStew");
+		MissingMappings.registerToRemap(DRPMedievalItems.CodStew, DRPMedievalInfo.MODID + ":" + "itemCodStew");
+		MissingMappings.registerToRemap(DRPMedievalItems.PearGreen, DRPMedievalInfo.MODID + ":" + "itemPearGreen");
+		MissingMappings.registerToRemap(DRPMedievalItems.PearYellow, DRPMedievalInfo.MODID + ":" + "itemPearYellow");
+		MissingMappings.registerToRemap(DRPMedievalItems.PumpkinBread, DRPMedievalInfo.MODID + ":" + "itemPumpkinBread");
+		MissingMappings.registerToRemap(DRPMedievalItems.PumpkinStew, DRPMedievalInfo.MODID + ":" + "itemPumpkinStew");
+		MissingMappings.registerToRemap(DRPMedievalItems.VegieStew, DRPMedievalInfo.MODID + ":" + "itemVegieStew");
+		MissingMappings.registerToRemap(DRPMedievalItems.WolfMeatCooked, DRPMedievalInfo.MODID + ":" + "itemWolfMeatCooked");
+		MissingMappings.registerToRemap(DRPMedievalItems.WolfMeatRaw, DRPMedievalInfo.MODID + ":" + "itemWolfMeatRaw");
+		MissingMappings.registerToRemap(DRPMedievalItems.BatEar, DRPMedievalInfo.MODID + ":" + "itemBatEar");
+		MissingMappings.registerToRemap(DRPMedievalItems.DoughBarley, DRPMedievalInfo.MODID + ":" + "itemDoughBarley");
+		MissingMappings.registerToRemap(DRPMedievalItems.DoughPumpkin, DRPMedievalInfo.MODID + ":" + "itemDoughPumpkin");
+		MissingMappings.registerToRemap(DRPMedievalItems.DoughWheat, DRPMedievalInfo.MODID + ":" + "itemDoughWheat");
+		MissingMappings.registerToRemap(DRPMedievalItems.Firewood, DRPMedievalInfo.MODID + ":" + "itemFirewood");
+		MissingMappings.registerToRemap(DRPMedievalItems.FlourBarley, DRPMedievalInfo.MODID + ":" + "itemFlourBarley");
+		MissingMappings.registerToRemap(DRPMedievalItems.FlourWheat, DRPMedievalInfo.MODID + ":" + "itemFlourWheat");
+		MissingMappings.registerToRemap(DRPMedievalItems.FurWolf, DRPMedievalInfo.MODID + ":" + "itemFurWolf");
+		MissingMappings.registerToRemap(DRPMedievalItems.TriggerTrap, DRPMedievalInfo.MODID + ":" + "itemTriggerTrap");
 		//MissingMappings.registerToRemap(DRPMedievalItems.SeedBarley, DRPInfo.MODID + ":" + "itemSeedBarley");
 	}
 
 	public void registerTileEntitys() {
 
-		GameRegistry.registerTileEntity(TileEntityAnvil.class, DRPInfo.MODID + ":" + "TileEntityAnvil");
-		GameRegistry.registerTileEntity(TileEntityMortar.class, DRPInfo.MODID + ":" + "TileEntityMortar");
-		GameRegistry.registerTileEntity(TileEntityGrindstone.class, DRPInfo.MODID + ":" + "TileEntityGrindstone");
-		GameRegistry.registerTileEntity(TileEntityHangingCauldron.class, DRPInfo.MODID + ":" + "TileEntityHangingCauldron");
-		GameRegistry.registerTileEntity(TileEntityBookOne.class, DRPInfo.MODID + ":" + "TileEntityBookOne");
-		GameRegistry.registerTileEntity(TileEntityCauldron.class, DRPInfo.MODID + ":" + "TileEntityCauldron");
-		GameRegistry.registerTileEntity(TileEntityChain.class, DRPInfo.MODID + ":" + "TileEntityChain");
-		GameRegistry.registerTileEntity(TileEntityHook.class, DRPInfo.MODID + ":" + "TileEntityHook");
-		GameRegistry.registerTileEntity(TileEntityKeyHanging.class, DRPInfo.MODID + ":" + "TileEntityKeyHanging");
-		GameRegistry.registerTileEntity(TileEntityShipsWheel.class, DRPInfo.MODID + ":" + "TileEntityShipsWheel");
-		GameRegistry.registerTileEntity(TileEntityTarget.class, DRPInfo.MODID + ":" + "TileEntityTarget");
-		GameRegistry.registerTileEntity(TileEntityRopeAnchor.class, DRPInfo.MODID + ":" + "TileEntityRopeAnchor");
-		GameRegistry.registerTileEntity(TileEntityFirepit.class, DRPInfo.MODID + ":" + "TileEntityFirepit");
-        GameRegistry.registerTileEntity(TileEntity_FlowerStorage.class, DRPInfo.MODID + "BucketTileEntity");
-        GameRegistry.registerTileEntity(RopeCoilTileEntity.class, DRPInfo.MODID + "rope_coil_tilenentity");
+		GameRegistry.registerTileEntity(TileEntityAnvil.class, DRPMedievalInfo.MODID + ":" + "TileEntityAnvil");
+		GameRegistry.registerTileEntity(TileEntityMortar.class, DRPMedievalInfo.MODID + ":" + "TileEntityMortar");
+		GameRegistry.registerTileEntity(TileEntityGrindstone.class, DRPMedievalInfo.MODID + ":" + "TileEntityGrindstone");
+		GameRegistry.registerTileEntity(TileEntityHangingCauldron.class, DRPMedievalInfo.MODID + ":" + "TileEntityHangingCauldron");
+		GameRegistry.registerTileEntity(TileEntityBookOne.class, DRPMedievalInfo.MODID + ":" + "TileEntityBookOne");
+		GameRegistry.registerTileEntity(TileEntityCauldron.class, DRPMedievalInfo.MODID + ":" + "TileEntityCauldron");
+		GameRegistry.registerTileEntity(TileEntityChain.class, DRPMedievalInfo.MODID + ":" + "TileEntityChain");
+		GameRegistry.registerTileEntity(TileEntityHook.class, DRPMedievalInfo.MODID + ":" + "TileEntityHook");
+		GameRegistry.registerTileEntity(TileEntityKeyHanging.class, DRPMedievalInfo.MODID + ":" + "TileEntityKeyHanging");
+		GameRegistry.registerTileEntity(TileEntityShipsWheel.class, DRPMedievalInfo.MODID + ":" + "TileEntityShipsWheel");
+		GameRegistry.registerTileEntity(TileEntityTarget.class, DRPMedievalInfo.MODID + ":" + "TileEntityTarget");
+		GameRegistry.registerTileEntity(TileEntityRopeAnchor.class, DRPMedievalInfo.MODID + ":" + "TileEntityRopeAnchor");
+		GameRegistry.registerTileEntity(TileEntityFirepit.class, DRPMedievalInfo.MODID + ":" + "TileEntityFirepit");
+        GameRegistry.registerTileEntity(TileEntity_FlowerStorage.class, DRPMedievalInfo.MODID + "BucketTileEntity");
+        GameRegistry.registerTileEntity(RopeCoilTileEntity.class, DRPMedievalInfo.MODID + "rope_coil_tilenentity");
 
 		
 		
 		// Storage Blocks
-		GameRegistry.registerTileEntity(TileEntityCrate.class, DRPInfo.MODID + ":" + "TilEntityCrate");
-		GameRegistry.registerTileEntity(TileEntityDungeonChest.class, DRPInfo.MODID + ":" + "TileEntityDungeonChest");
+		GameRegistry.registerTileEntity(TileEntityCrate.class, DRPMedievalInfo.MODID + ":" + "TilEntityCrate");
+		GameRegistry.registerTileEntity(TileEntityDungeonChest.class, DRPMedievalInfo.MODID + ":" + "TileEntityDungeonChest");
 		GameRegistry.registerTileEntity(BedFrameTileEntity.class, "BedFrameTileEntity");
-		GameRegistry.registerTileEntity(TileEntity_AdvancedCrop.class, DRPInfo.MODID + ":" + "tile_entity_advanced_crop");
+		GameRegistry.registerTileEntity(TileEntity_AdvancedCrop.class, DRPMedievalInfo.MODID + ":" + "tile_entity_advanced_crop");
 	}
 
 	public void registerFurnaceRecipes() {

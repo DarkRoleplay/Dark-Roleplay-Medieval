@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.common.DRPInfo;
+import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.entity.item.EntitySledge;
 import net.dark_roleplay.medieval.common.entity.models.SledgeModel;
@@ -24,7 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderEntitySledge extends RenderLiving<EntitySledge>{
 
-	private static final ResourceLocation sledgeTexture = new ResourceLocation(DRPInfo.MODID, "textures/entitys/Sledge.png");
+	private static final ResourceLocation sledgeTexture = new ResourceLocation(DRPMedievalInfo.MODID, "textures/entitys/Sledge.png");
 
 	public static final Factory FACTORY = new Factory();
 	
