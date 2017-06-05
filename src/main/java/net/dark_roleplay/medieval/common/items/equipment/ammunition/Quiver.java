@@ -6,10 +6,7 @@ import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 public class Quiver extends DRPEquip {
 
 	public Quiver() {
-		super("quiver", DRPEquip.DRPEquip_TYPE.TYPE_AMMO_STORAGE);
-		this.setRegistryName("Quiver");
-		this.setUnlocalizedName("Quiver");
-		this.setMaxStackSize(1);
+		super("quiver", "quivers", DRPEquip.DRPEquip_TYPE.TYPE_AMMO_STORAGE);
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalEquipTab);
 	}
 

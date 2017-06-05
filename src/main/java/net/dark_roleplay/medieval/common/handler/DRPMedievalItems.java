@@ -2,6 +2,7 @@ package net.dark_roleplay.medieval.common.handler;
 
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.items.blocks.AdvancedBedItem;
+import net.dark_roleplay.medieval.common.items.blocks.HangingBridge;
 import net.dark_roleplay.medieval.common.items.book.WriteablePage;
 import net.dark_roleplay.medieval.common.items.consumable.BarkAndGlue;
 import net.dark_roleplay.medieval.common.items.consumable.RopedArrow;
@@ -15,6 +16,7 @@ import net.dark_roleplay.medieval.common.items.entities.Sledge;
 import net.dark_roleplay.medieval.common.items.equipment.ammunition.Quiver;
 import net.dark_roleplay.medieval.common.items.equipment.other.HorseBag;
 import net.dark_roleplay.medieval.common.items.equipment.other.SaddleHorse;
+import net.dark_roleplay.medieval.common.items.equipment.other.Telescope;
 import net.dark_roleplay.medieval.common.items.equipment.purses.LeatherPurse;
 import net.dark_roleplay.medieval.common.items.equipment.rings.BronzeRing;
 import net.dark_roleplay.medieval.common.items.equipment.rings.GoldenRing;
@@ -79,7 +81,7 @@ public class DRPMedievalItems {
 	public static AdvancedBedItem BedFrameAcacia = new AdvancedBedItem("BedFrameAcacia", "BedFrameAcacia");
 	public static AdvancedBedItem BedFrameDarkOak = new AdvancedBedItem("BedFrameDarkOak", "BedFrameDarkOak");
 
-	public static Barley Barley = new Barley();
+	public static Barley BARLEY;
 	public static BatEar BatEar = new BatEar();
 	public static BronzeCoin BronzeCoin = new BronzeCoin();
 	public static BronzeRing BronzeRing = new BronzeRing();
@@ -113,6 +115,7 @@ public class DRPMedievalItems {
 
 	/** H **/
 
+	public static HangingBridge HANGING_BRIDGE = new HangingBridge("hanging_bridge");
 	public static HorseBag HorseBag = new HorseBag();
 
 	/** I **/
@@ -166,6 +169,7 @@ public class DRPMedievalItems {
 	public static Tap TAP = new Tap("tap");
 	public static TannedLeather TannedLeather = new TannedLeather();
 	public static TannedLeatherString TannedLeatherString = new TannedLeatherString();
+	public static Telescope TELESCOPE = new Telescope("golden_telescope", "telescope");
 	public static TriggerTrap TriggerTrap = new TriggerTrap();
 	public static Turnip Turnip = new Turnip();
 
@@ -190,108 +194,111 @@ public class DRPMedievalItems {
 	public static Hops HOPS = new Hops("hops");
 	public static DRPMMiscItem CHARCOAL_POWDER = new DRPMMiscItem("charcoal_powder");
 	public static DRPMMiscItem SILVER_ORE_CHUNK = new DRPMMiscItem("silver_ore_chunk");
-	public static DRPMMiscItem TIN_ORE_CHUNK = new DRPMMiscItem("tin_ore_chunk");
+	public static DRPMMiscItem TIN_ORE_CHUNK;
 	public static DRPMMiscItem COPPER_ORE_CHUNK = new DRPMMiscItem("copper_ore_chunk");
 	public static DRPMMiscItem SULFUR_ORE_CHUNK = new DRPMMiscItem("sulfur_ore_chunk");
 	public static DRPMMiscItem SALPETER_ORE_CHUNK = new DRPMMiscItem("salpeter_ore_chunk");
 
 	
 	
-	public static final void preInit(FMLPreInitializationEvent event) {
+	public static final void init(FMLPreInitializationEvent event) {
 
-		BedFrameOak.setBed(DRPMedievalBlocks.BED_FRAME_OAK);
-		BedFrameSpruce.setBed(DRPMedievalBlocks.BED_FRAME_SPRUCE);
-		BedFrameBirch.setBed(DRPMedievalBlocks.BED_FRAME_BIRCH);
-		BedFrameJungle.setBed(DRPMedievalBlocks.BED_FRAME_JUNGLE);
-		BedFrameAcacia.setBed(DRPMedievalBlocks.BED_FRAME_ACACIA);
-		BedFrameDarkOak.setBed(DRPMedievalBlocks.BED_FRAME_DARK_OAK);
+		DRPMedievalItems.BedFrameOak.setBed(DRPMedievalBlocks.BED_FRAME_OAK);
+		DRPMedievalItems.BedFrameSpruce.setBed(DRPMedievalBlocks.BED_FRAME_SPRUCE);
+		DRPMedievalItems.BedFrameBirch.setBed(DRPMedievalBlocks.BED_FRAME_BIRCH);
+		DRPMedievalItems.BedFrameJungle.setBed(DRPMedievalBlocks.BED_FRAME_JUNGLE);
+		DRPMedievalItems.BedFrameAcacia.setBed(DRPMedievalBlocks.BED_FRAME_ACACIA);
+		DRPMedievalItems.BedFrameDarkOak.setBed(DRPMedievalBlocks.BED_FRAME_DARK_OAK);
 		
-		SeedBarley = new SeedBarley();
+		DRPMedievalItems.SeedBarley = new SeedBarley();
 		
 		// Under Development Items
-		//registerItem(wpg, false); //TODO CHANGE BOOL AND FIX
+		//register(wpg, false); //TODO CHANGE BOOL AND FIX
 		
-		registerItem(HOPS);
+		DRPMedievalItems.register(DRPMedievalItems.HOPS);
 		
-		registerItem(CHARCOAL_POWDER);
-		registerItem(SILVER_ORE_CHUNK);
-		registerItem(TIN_ORE_CHUNK);
-		registerItem(COPPER_ORE_CHUNK);
-		registerItem(SULFUR_ORE_CHUNK);
-		registerItem(SALPETER_ORE_CHUNK);
+		DRPMedievalItems.register(DRPMedievalItems.HANGING_BRIDGE);
+		
+		DRPMedievalItems.register(DRPMedievalItems.CHARCOAL_POWDER);
+		DRPMedievalItems.register(DRPMedievalItems.SILVER_ORE_CHUNK);
+		DRPMedievalItems.register(DRPMedievalItems.TIN_ORE_CHUNK = new DRPMMiscItem("tin_ore_chunk"));
+		DRPMedievalItems.register(DRPMedievalItems.COPPER_ORE_CHUNK);
+		DRPMedievalItems.register(DRPMedievalItems.SULFUR_ORE_CHUNK);
+		DRPMedievalItems.register(DRPMedievalItems.SALPETER_ORE_CHUNK);
 		
 		// A
-		registerItem(AppleGreen);
-		registerItem(AppleYellow);
+		DRPMedievalItems.register(DRPMedievalItems.AppleGreen);
+		DRPMedievalItems.register(DRPMedievalItems.AppleYellow);
 		// B
-		registerItem(BarkAndGlue);
-		//registerItem(bedFrameOak);
-		//registerItem(bedFrameSpruce);
-		//registerItem(bedFrameBirch);
-		//registerItem(bedFrameJungle);
-		//registerItem(bedFrameAcacia);
-		//registerItem(bedFrameDarkOak);
+		DRPMedievalItems.register(DRPMedievalItems.BarkAndGlue);
+		//register(bedFrameOak);
+		//register(bedFrameSpruce);
+		//register(bedFrameBirch);
+		//register(bedFrameJungle);
+		//register(bedFrameAcacia);
+		//register(bedFrameDarkOak);
 		
-		registerItem(Barley);
-		registerItem(BatEar);
-		registerItem(BronzeCoin);
-		registerItem((Item) BronzeRing);
+		DRPMedievalItems.register(DRPMedievalItems.BARLEY = new Barley("barley"));
+		DRPMedievalItems.register(DRPMedievalItems.BatEar);
+		DRPMedievalItems.register(DRPMedievalItems.BronzeCoin);
+		DRPMedievalItems.register(DRPMedievalItems.BronzeRing);
 		// C
-		registerItem(CatfishCooked);
-		registerItem(CatfishRaw);
-		registerItem(ChickenStew);
-		registerItem(CodStew);
+		DRPMedievalItems.register(DRPMedievalItems.CatfishCooked);
+		DRPMedievalItems.register(DRPMedievalItems.CatfishRaw);
+		DRPMedievalItems.register(DRPMedievalItems.ChickenStew);
+		DRPMedievalItems.register(DRPMedievalItems.CodStew);
 		// D
-		registerItem(DoughBarley);
-		registerItem(DoughPumpkin,false);
-		registerItem(DoughWheat);
+		DRPMedievalItems.register(DRPMedievalItems.DoughBarley);
+		DRPMedievalItems.register(DRPMedievalItems.DoughPumpkin,false);
+		DRPMedievalItems.register(DRPMedievalItems.DoughWheat);
 		// E
 		// F
-		registerItem(Firewood);
-		registerItem(FlourBarley);
-		registerItem(FlourWheat);
-		registerItem(FurWolf);
+		DRPMedievalItems.register(DRPMedievalItems.Firewood);
+		DRPMedievalItems.register(DRPMedievalItems.FlourBarley);
+		DRPMedievalItems.register(DRPMedievalItems.FlourWheat);
+		DRPMedievalItems.register(DRPMedievalItems.FurWolf);
 		// G
-		registerItem(GoldenCoin);
-		registerItem((Item) GoldenRing);
+		DRPMedievalItems.register(DRPMedievalItems.GoldenCoin);
+		DRPMedievalItems.register(DRPMedievalItems.GoldenRing);
 		// H
 		// I
 		// J
 		// K
 		// L
-		registerItem(LeatherBookCover);
-		registerItem(LeatherBookCoverThik);
-		registerItem(LeatherBookCoverThin);
-		registerItem((Item) LeatherPurse);
-		registerItem(LeatherString);
+		DRPMedievalItems.register(DRPMedievalItems.LeatherBookCover);
+		DRPMedievalItems.register(DRPMedievalItems.LeatherBookCoverThik);
+		DRPMedievalItems.register(DRPMedievalItems.LeatherBookCoverThin);
+		DRPMedievalItems.register(DRPMedievalItems.LeatherPurse);
+		DRPMedievalItems.register(DRPMedievalItems.LeatherString);
 		// M
 		// N
 		// O
 		// P
-		registerItem(PearGreen);
-		registerItem(PearYellow);
-		registerItem(Plank);
-		registerItem(PumpkinBread);
-		registerItem(PumpkinStew);
+		DRPMedievalItems.register(DRPMedievalItems.PearGreen);
+		DRPMedievalItems.register(DRPMedievalItems.PearYellow);
+		DRPMedievalItems.register(DRPMedievalItems.Plank);
+		DRPMedievalItems.register(DRPMedievalItems.PumpkinBread);
+		DRPMedievalItems.register(DRPMedievalItems.PumpkinStew);
 		// Q
-		registerItem(Quiver);
+		DRPMedievalItems.register(DRPMedievalItems.Quiver);
 		// R
-		registerItem(ROPED_ARROW);
+		DRPMedievalItems.register(DRPMedievalItems.ROPED_ARROW);
 		// S
-		registerItem(SilverCoin);
-		registerItem(SilverRing);
-		registerItem(SLEDGE);
+		DRPMedievalItems.register(DRPMedievalItems.SilverCoin);
+		DRPMedievalItems.register(DRPMedievalItems.SilverRing);
+		DRPMedievalItems.register(DRPMedievalItems.SLEDGE);
 		// T
-		registerItem(TAP);
-		registerItem(TannedLeather);
-		registerItem(TannedLeatherString);
-		registerItem(TriggerTrap);
-		registerItem(Turnip);
+		DRPMedievalItems.register(DRPMedievalItems.TELESCOPE);
+		DRPMedievalItems.register(DRPMedievalItems.TAP);
+		DRPMedievalItems.register(DRPMedievalItems.TannedLeather);
+		DRPMedievalItems.register(DRPMedievalItems.TannedLeatherString);
+		DRPMedievalItems.register(DRPMedievalItems.TriggerTrap);
+		DRPMedievalItems.register(DRPMedievalItems.Turnip);
 		// V
-		registerItem(VegieStew);
+		DRPMedievalItems.register(DRPMedievalItems.VegieStew);
 		// W
-		registerItem(WolfMeatCooked);
-		registerItem(WolfMeatRaw);
+		DRPMedievalItems.register(DRPMedievalItems.WolfMeatCooked);
+		DRPMedievalItems.register(DRPMedievalItems.WolfMeatRaw);
 		// X
 		// Y
 		// Z
@@ -300,15 +307,16 @@ public class DRPMedievalItems {
 
 	public static final void init(FMLInitializationEvent event) {}
 
-	public static final void postInit(FMLPostInitializationEvent event) {}
+	public static final void init(FMLPostInitializationEvent event) {}
 
-	public static final void registerItem(Item item){
-		registerItem(item,true);
+	public static final void register(Item item){
+		DRPMedievalItems.register(item,true);
 	}
 	
-	public static final void registerItem(Item item, boolean registerModel) {
+	public static final void register(Item item, boolean registerModel) {
 		GameRegistry.register(item);
-		if(registerModel)
+		if(registerModel) {
 			DarkRoleplayMedieval.proxy.addItemToRegisterMesh(item);
+		}
 	}
 }

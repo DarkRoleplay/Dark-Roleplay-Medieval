@@ -3,7 +3,6 @@ package net.dark_roleplay.medieval.client;
 import java.util.ArrayList;
 
 import net.dark_roleplay.medieval.client.entities.fox.Render_Fox;
-import net.dark_roleplay.medieval.client.model_baking.DelayedBakedModel;
 import net.dark_roleplay.medieval.client.renderer.entity.RenderEntityRopedArrow;
 import net.dark_roleplay.medieval.client.renderer.entity.RenderEntitySledge;
 import net.dark_roleplay.medieval.client.sound.SoundEvents;
@@ -51,7 +50,6 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -62,10 +60,14 @@ public class ClientProxy extends CommonProxy {
 	
 	ArrayList<Item> toRegisterMeshes = new ArrayList<Item>();
 	
+	public static float previewsFOV = -1;
+	
 	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		ModelLoaderRegistry.registerLoader(new DelayedBakedModel());
-        RenderingRegistry.registerEntityRenderingHandler(EntitySledge.class, RenderEntitySledge.FACTORY);
+	public void init(FMLPreInitializationEvent event) {
+		//ModelLoaderRegistry.registerLoader(new DelayedBakedModel());
+       
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntitySledge.class, RenderEntitySledge.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityRopedArrow.class, RenderEntityRopedArrow.FACTORY);
 
 		RenderingRegistry.registerEntityRenderingHandler(Entity_Fox.class, Render_Fox.FACTORY);
@@ -112,7 +114,7 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void postInit(FMLPostInitializationEvent event) {}
+	public void init(FMLPostInitializationEvent event) {}
 
 
 	public void registerRenders() {		

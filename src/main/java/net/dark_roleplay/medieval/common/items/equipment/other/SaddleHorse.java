@@ -10,8 +10,6 @@ import net.minecraft.util.EnumHand;
 public class SaddleHorse extends ItemSaddle{
 
 	public SaddleHorse() {
-		this.setRegistryName("SaddleHorse");
-		this.setUnlocalizedName("SaddleHorse");
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalEquipTab);
 	}
 	

@@ -10,7 +10,7 @@ public class Barley extends Block_AdvancedCrop{
 	private static final PropertyInteger AGE = PropertyInteger.create("age", 0, 7);
 	
 	public Barley(String registryName) {
-		super(registryName, AGE, 30);
+		super(registryName, Barley.AGE, 30);
 	}
 
 	@Override
@@ -20,12 +20,12 @@ public class Barley extends Block_AdvancedCrop{
 
 	@Override
 	protected Item getCrop() {
-		return DRPMedievalItems.Barley;
+		return DRPMedievalItems.BARLEY;
 	}
 
 	@Override
 	protected PropertyInteger getAgeProperty() {
-		return this.AGE;
+		return Barley.AGE;
 	}
 
 //	protected boolean canPlaceBlockOn(Block ground) {

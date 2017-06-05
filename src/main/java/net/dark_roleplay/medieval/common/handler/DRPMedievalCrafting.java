@@ -7,18 +7,17 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class DRPMedievalCrafting {
 
-//	//Used to do all Crafting stuff (Registration)
-//	public static void preInit(FMLPreInitializationEvent event) {}
-//	
-//	public static void init(FMLInitializationEvent event) {}
+	public static void init(FMLPreInitializationEvent event) {}
 
-	public static void postInit(FMLPostInitializationEvent event) {
-		//Decorative Stuff
-		
+	public static void init(FMLInitializationEvent event) {}
+
+	public static void init(FMLPostInitializationEvent event) {
 		DRPMedievalCrafting.registerAirRecipes();
 		DRPMedievalCrafting.registerSpinningWheelRecipes();
 		DRPMedievalCrafting.registerMortarRecipes();
@@ -197,7 +196,7 @@ public class DRPMedievalCrafting {
 			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_GUNPOWDER_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_ACACIA,1,0), new ItemStack(Items.GUNPOWDER, 9, 0)}), false);
 		
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "hanging_bridge"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.HANGING_BRIDGE, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.Plank,3,0), new ItemStack(DRPMedievalBlocks.ROPE, 2)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.HANGING_BRIDGE, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.Plank,3,0), new ItemStack(DRPMedievalBlocks.ROPE, 2)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "rope_fence"),
 			new ItemStack[]{new ItemStack(DRPMedievalBlocks.ROPE_FENCE, 4, 0)}, new ItemStack[]{new ItemStack(Blocks.LOG,1,0), new ItemStack(DRPMedievalBlocks.ROPE, 4)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "mug_empty"),
@@ -275,7 +274,7 @@ public class DRPMedievalCrafting {
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.MORTAR, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "wheat_flour"),
 			new ItemStack[]{new ItemStack(DRPMedievalItems.FlourWheat, 1, 0)}, new ItemStack[]{new ItemStack(Items.WHEAT, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.MORTAR, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "wheat_barley"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.FlourBarley, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.Barley, 1, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.FlourBarley, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.BARLEY, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.MORTAR, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "bone_meal"),
 			new ItemStack[]{new ItemStack(Items.DYE, 4, 15)}, new ItemStack[]{new ItemStack(Items.BONE, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.MORTAR, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "charcoal_powder"),

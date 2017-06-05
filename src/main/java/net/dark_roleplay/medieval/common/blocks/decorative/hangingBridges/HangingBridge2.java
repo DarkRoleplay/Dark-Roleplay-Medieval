@@ -1,11 +1,13 @@
 package net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.Nullable;
 
 import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -17,6 +19,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -45,6 +48,11 @@ public class HangingBridge2 extends Block {
 		this.setSoundType(SoundType.WOOD);
 		this.initialOffset = initialOffset;
 	}
+	
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune){
+        return DRPMedievalItems.HANGING_BRIDGE;
+    }
 	
 	@Override
 	public boolean isFullCube(IBlockState state) {

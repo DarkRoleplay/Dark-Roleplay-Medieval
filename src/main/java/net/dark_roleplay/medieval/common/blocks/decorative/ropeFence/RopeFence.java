@@ -83,7 +83,10 @@ public class RopeFence extends Block{
 		boolean w = false;
 		boolean nw = false;
 
-		if((world.getBlockState(pos.north()).getBlock() == this) || world.isSideSolid(pos.north(), EnumFacing.SOUTH, false)) {
+		if((world.getBlockState(pos.north()).getBlock() == this)){
+			n = true;
+		}
+		if(world.isSideSolid(pos.north(), EnumFacing.SOUTH, false)){
 			n = true;
 		}
 
@@ -217,9 +220,6 @@ public class RopeFence extends Block{
         return RopeFence.BOUNDING_BOXES[RopeFence.getBoundingBoxIdx(state)];
     }
 
-    /**
-     * Returns the correct index into boundingBoxes, based on what the fence is connected to.
-     */
     private static int getBoundingBoxIdx(IBlockState state){
         int i = 0;
 

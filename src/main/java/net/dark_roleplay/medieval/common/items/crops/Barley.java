@@ -5,9 +5,9 @@ import net.minecraft.item.Item;
 
 public class Barley extends Item {
 
-	public Barley() {
-		this.setRegistryName("Barley");
-		this.setUnlocalizedName("Barley");
+	public Barley(String registryName) {
+		this.setRegistryName(registryName);
+		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
 

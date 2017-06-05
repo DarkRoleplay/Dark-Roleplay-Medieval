@@ -14,15 +14,9 @@ import net.minecraftforge.fml.common.registry.VillagerRegistry;
 public class DRPMedievalVillagers {
 
 	protected static final VillagerRegistry.VillagerProfession PROFESSION_CARPENTER = DRPMedievalVillagers.createProf(new ResourceLocation(DRPMedievalInfo.MODID, "carpenter"), new ResourceLocation(DRPMedievalInfo.MODID, "textures/entities/villager/carpenter.png"), new ResourceLocation(DRPMedievalInfo.MODID, "textures/entities/villager/zombie/carpenter.png") );
-    protected static final VillagerRegistry.VillagerCareer CAREER_CARPENTER = DRPMedievalVillagers.createCarrer(DRPMedievalVillagers.PROFESSION_CARPENTER, new ResourceLocation(DRPMedievalInfo.MODID, "carpenter"));
-//	.addTrade(3, new ListItemForEmeralds(MoDropsItems.adaptive_egg, new PriceInfo(26, 33)))
-//	.addTrade(1, new EmeraldForItems(Items.GOLD_INGOT, new PriceInfo(8, 9)))
-//	.addTrade(1, new ListItemForEmeralds(MoDropsItems.biomatter, new PriceInfo(1, 1)))
-//	.addTrade(2, new ListItemForEmeralds(MoDropsItems.compressed_biomatter, new PriceInfo(8, 10)))
-//  		.addTrade(2, new ListItemForEmeralds(Charcoal, new PriceInfo(1, 3)));   
-  
+    protected static final VillagerRegistry.VillagerCareer CAREER_CARPENTER = DRPMedievalVillagers.createCarrer(DRPMedievalVillagers.PROFESSION_CARPENTER, new ResourceLocation(DRPMedievalInfo.MODID, "carpenter"));  
 	
-	public static void preInit(FMLPreInitializationEvent event) {
+	public static void init(FMLPreInitializationEvent event) {
 
 	}
 	
@@ -33,14 +27,11 @@ public class DRPMedievalVillagers {
 				new EmeraldsForStacks(new ItemStack(Blocks.LOG, 16, 3), new EntityVillager.PriceInfo(1,2)),
 				new EmeraldsForStacks(new ItemStack(Blocks.LOG2, 16, 0), new EntityVillager.PriceInfo(1,2)),
 				new EmeraldsForStacks(new ItemStack(Blocks.LOG2, 16, 1), new EntityVillager.PriceInfo(1,2)));
-
-
-		
 		
         VillagerRegistry.instance().register(DRPMedievalVillagers.PROFESSION_CARPENTER);
 	}
 	
-	public static void postInit(FMLPostInitializationEvent event) {
+	public static void init(FMLPostInitializationEvent event) {
 		
 	}
 

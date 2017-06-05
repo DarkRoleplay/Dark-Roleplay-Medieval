@@ -1,7 +1,7 @@
 {
 	"__comment": "Designed by JTK222",
 	"textures": {
-		"rope": "#rope"
+		"rope": "drpmedieval:blocks/rope_fence/rope"
 	},
 	"elements": [
 		{

@@ -1,6 +1,5 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.drpcore.api.items.DRPEquip;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -10,12 +9,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class DRPMedievalCreativeTabs {
 
 	public static CreativeTabs DECORATION = new CreativeTabs("DRPMDecoration") {
-
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 			return new ItemStack(DRPMedievalBlocks.FLOWER_POT);
-			//return Item.getItemFromBlock(DRPMedievalBlocks.SIMPLE_CHAIR_OAK);
 		}
 		
 		@Override
@@ -27,7 +24,7 @@ public class DRPMedievalCreativeTabs {
 		public int getSearchbarWidth(){
 		    return 75;
 		}
-	}.setBackgroundImageName("drpmedieval.png");;
+	}.setBackgroundImageName("drpmedieval.png");
 	
 	public static CreativeTabs BUILDING_MATS = new CreativeTabs("DRPMBuildingMats") {
 
@@ -36,7 +33,17 @@ public class DRPMedievalCreativeTabs {
 		public ItemStack getTabIconItem() {
 			return new ItemStack(Item.getItemFromBlock(DRPMedievalBlocks.MOSSY_LOG_SPRUCE));
 		}
-	};
+		
+		@Override
+		public boolean hasSearchBar(){
+	        return true;
+	    }
+		
+		@Override
+		public int getSearchbarWidth(){
+		    return 75;
+		}
+	}.setBackgroundImageName("drpmedieval.png");
 	
 	public static CreativeTabs UTILITY = new CreativeTabs("DRPMUtility") {
 
@@ -46,7 +53,17 @@ public class DRPMedievalCreativeTabs {
 
 			return new ItemStack(Item.getItemFromBlock(DRPMedievalBlocks.CHOPPING_BLOCK));
 		}
-	};
+		
+		@Override
+		public boolean hasSearchBar(){
+	        return true;
+	    }
+		
+		@Override
+		public int getSearchbarWidth(){
+		    return 75;
+		}
+	}.setBackgroundImageName("drpmedieval.png");
 
 	public static CreativeTabs drpmedievalFoodTab = new CreativeTabs("DRPMFood") {
 
@@ -56,16 +73,36 @@ public class DRPMedievalCreativeTabs {
 
 			return new ItemStack(DRPMedievalItems.CatfishCooked);
 		}
-	};
+		
+		@Override
+		public boolean hasSearchBar(){
+	        return true;
+	    }
+		
+		@Override
+		public int getSearchbarWidth(){
+		    return 75;
+		}
+	}.setBackgroundImageName("drpmedieval.png");
 
 	public static CreativeTabs drpmedievalEquipTab = new CreativeTabs("DRPEquip") {
 
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack((Item)((DRPEquip)DRPMedievalItems.LeatherPurse));
+			return new ItemStack((DRPMedievalItems.LeatherPurse));
 		}
-	};
+		
+		@Override
+		public boolean hasSearchBar(){
+	        return true;
+	    }
+		
+		@Override
+		public int getSearchbarWidth(){
+		    return 75;
+		}
+	}.setBackgroundImageName("drpmedieval.png");
 
 	public static CreativeTabs drpmedievalMiscTab = new CreativeTabs("DRPMMisc") {
 
@@ -75,6 +112,16 @@ public class DRPMedievalCreativeTabs {
 
 			return new ItemStack(DRPMedievalItems.Firewood,1,2);
 		}
-	};
+		
+		@Override
+		public boolean hasSearchBar(){
+	        return true;
+	    }
+		
+		@Override
+		public int getSearchbarWidth(){
+		    return 75;
+		}
+	}.setBackgroundImageName("drpmedieval.png");
 
 }

@@ -6,8 +6,6 @@ import java.util.List;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.blocks.WoodHelper;
 import net.dark_roleplay.medieval.common.blocks.building.CleanPlanks;
-import net.dark_roleplay.medieval.common.blocks.building.Leaves1;
-import net.dark_roleplay.medieval.common.blocks.building.Logs1;
 import net.dark_roleplay.medieval.common.blocks.building.MossyLog;
 import net.dark_roleplay.medieval.common.blocks.building.PackedIceBricks;
 import net.dark_roleplay.medieval.common.blocks.building.Planks1;
@@ -20,6 +18,7 @@ import net.dark_roleplay.medieval.common.blocks.craftingstations.ChoppingBlock;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.Firepit;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.Grindstone;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.HangingCauldron;
+import net.dark_roleplay.medieval.common.blocks.craftingstations.JuicePress;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.Mortar;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.PotteryTurntable;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.SpinningWheel;
@@ -27,7 +26,6 @@ import net.dark_roleplay.medieval.common.blocks.decorative.BedFrame;
 import net.dark_roleplay.medieval.common.blocks.decorative.BookOne;
 import net.dark_roleplay.medieval.common.blocks.decorative.Chain;
 import net.dark_roleplay.medieval.common.blocks.decorative.GoldenShipsBell;
-import net.dark_roleplay.medieval.common.blocks.decorative.HangingBridge;
 import net.dark_roleplay.medieval.common.blocks.decorative.Hook;
 import net.dark_roleplay.medieval.common.blocks.decorative.KeyHanging;
 import net.dark_roleplay.medieval.common.blocks.decorative.MugBeer;
@@ -58,6 +56,7 @@ import net.dark_roleplay.medieval.common.blocks.decorative.tables.SimpleTable;
 import net.dark_roleplay.medieval.common.blocks.minerals.AdvancedOre;
 import net.dark_roleplay.medieval.common.blocks.other.RegeneratingOre;
 import net.dark_roleplay.medieval.common.blocks.other.RopeCoil;
+import net.dark_roleplay.medieval.common.blocks.other.gunpowder_trail.GunpowderTrail;
 import net.dark_roleplay.medieval.common.blocks.plants.Barley;
 import net.dark_roleplay.medieval.common.blocks.plants.Hops;
 import net.dark_roleplay.medieval.common.blocks.plants.apples.Apple;
@@ -67,6 +66,7 @@ import net.dark_roleplay.medieval.common.blocks.plants.sapling.AppleSappling;
 import net.dark_roleplay.medieval.common.blocks.rotary.Axle;
 import net.dark_roleplay.medieval.common.blocks.storage.Crate;
 import net.dark_roleplay.medieval.common.blocks.storage.DungeonChest;
+import net.dark_roleplay.medieval.common.blocks.storage.SimpleChest;
 import net.dark_roleplay.medieval.common.items.blocks.CleanPlankItem;
 import net.dark_roleplay.medieval.common.items.seeds.SeedBarley;
 import net.minecraft.block.Block;
@@ -87,12 +87,6 @@ public class DRPMedievalBlocks {
 	public static StonePillar ANDESITE_PILLAR = new StonePillar("andesite_pillar");
 	
 	public static Anvil ANVIL = new Anvil("anvil");
-//	public static Apiary APIARY_OAK = new Apiary("apiary_oak");
-//	public static Apiary APIARY_BIRCH = new Apiary("apiary_birch");
-//	public static Apiary APIARY_SPRUCE = new Apiary("apiary_spruce");
-//	public static Apiary APIARY_JUNGLE = new Apiary("apiary_jungle");
-//	public static Apiary APIARY_ACACIA = new Apiary("apiary_acacia");
-//	public static Apiary APIARY_DARK_OAK = new Apiary("apiary_dark_oak");
 
 	public static Apple APPLE_GREEN = new Apple("apple_green", new ItemStack(DRPMedievalItems.AppleGreen, 1)); //TODO FIX APPLES
 	public static Apple APPLE_RED = new Apple("apple_red", new ItemStack(Items.APPLE, 1));
@@ -183,6 +177,7 @@ public class DRPMedievalBlocks {
 	
 	/** G **/
 
+	public static GunpowderTrail GUNPOWDER_TRAIL = new GunpowderTrail("gunpowder_trail");
 	public static GoldenShipsBell GOLDEN_SHIPS_BELL = new GoldenShipsBell("golden_ship_bell");
 	
 	public static StoneBricks GRANITE_BRICKS = new StoneBricks("granite_bricks");
@@ -193,7 +188,7 @@ public class DRPMedievalBlocks {
 	/** H **/
 
 	public static Hops HOPS = new Hops("hops");
-	public static HangingBridge HANGING_BRIDGE = new HangingBridge("hanging_bridge");
+	//public static HangingBridge HANGING_BRIDGE = new HangingBridge("hanging_bridge");
 	public static HangingBridge2 HANGING_BRIDGE_BOTTOM = new HangingBridge2("hanging_bridge_bottom" ,0F); //TODO NEW
 	public static HangingBridge2 HANGING_BRIDGE_TOP = new HangingBridge2("hanging_bridge_top" ,0.5F); //TODO NEW
 	public static HangingCauldron HANGING_CAULDRON = new HangingCauldron("hanging_cauldron");
@@ -202,15 +197,14 @@ public class DRPMedievalBlocks {
 	public static Hook IRON_HOOK = new Hook("iron_hook");
 	
 	/** J **/
+	
+	public static JuicePress JUICE_PRESS = new JuicePress("juice_press");
 
 	/** K **/
 
 	public static KeyHanging KEY_HANGING = new KeyHanging("key_hanging");
 
 	/** L **/
-
-	public static Leaves1 LEAVES_1 = new Leaves1("leaves1", "leaves1");//TODO PORT TO WOOD HANDLER
-	public static Logs1 LOGS_1 = new Logs1("logs1", "logs1");//TODO PORT TO WOOD HANDLER
 	public static LargeLectern LARGE_LECTERN_SPRUCE = new LargeLectern("large_lectern_spruce");//TODO PORT TO WOOD HANDLER
 	
 	public static LogChair LOG_CHAIR_OAK = new LogChair("log_chair_oak");//TODO PORT TO WOOD HANDLER
@@ -294,7 +288,7 @@ public class DRPMedievalBlocks {
 	public static SnowBricks SNOW_BRICKS = new SnowBricks("snow_bricks");
 	
 	public static SpinningWheel SPINNING_WHEEL = new SpinningWheel("spinning_wheel");
-
+	
 	/** T **/
 
 	public static AdvancedOre TIN_ORE = new AdvancedOre("tin_ore");
@@ -314,10 +308,12 @@ public class DRPMedievalBlocks {
 	/** Y **/
 
 	/** Z **/
+	
+	public static SimpleChest CHEST_TEST = new SimpleChest("simple_chest");
 
 	static List<Block> blocks = new ArrayList<Block>();
 	
-	public static void preInit(FMLPreInitializationEvent event) {
+	public static void init(FMLPreInitializationEvent event) {
 
 		WoodHelper.init();
 
@@ -335,9 +331,12 @@ public class DRPMedievalBlocks {
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.HOPS, null, false);
 		//registerBlock(ROPE_COIL);
 		
+		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.JUICE_PRESS);
+		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.POTTERY_TURNTABLE);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.AXLE);
 		
+		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.CHEST_TEST);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.TIN_ORE);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.COPPER_ORE);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.SILVER_ORE);
@@ -385,6 +384,7 @@ public class DRPMedievalBlocks {
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_CLOSED_JUNGLE);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_CLOSED_ACACIA);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_CLOSED_DARK_OAK);
+		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.GUNPOWDER_TRAIL);
 		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_GUNPOWDER_OAK);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_GUNPOWDER_BIRCH);
@@ -470,11 +470,10 @@ public class DRPMedievalBlocks {
 		//registerBlock(LEAVES_1);
 		//registerBlock(LOGS_1);
 		
-		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.HANGING_BRIDGE);
 		//TODO FIX UP HANGING BRIDGE
 		
-		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM);
-		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.HANGING_BRIDGE_TOP);
+		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM, null);
+		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.HANGING_BRIDGE_TOP, null);
 		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.LARGE_LECTERN_SPRUCE);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.ROPE_FENCE);
@@ -510,7 +509,7 @@ public class DRPMedievalBlocks {
 
 	public static final void init(FMLInitializationEvent event) {}
 
-	public static final void postInit(FMLPostInitializationEvent event) {}
+	public static final void init(FMLPostInitializationEvent event) {}
 
 	//public static final void registerBlockOld(Block block) {
 

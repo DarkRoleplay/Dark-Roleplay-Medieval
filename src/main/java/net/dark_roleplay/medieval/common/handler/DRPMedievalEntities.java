@@ -16,12 +16,12 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class DRPMedievalEntities {
 	
-	public static final void preInit(FMLPreInitializationEvent event) {
+	public static final void init(FMLPreInitializationEvent event) {
 		
-		EntityRegistry.registerModEntity(new ResourceLocation(DRPMedievalInfo.MODID,"mountable"), EntitySittable.class, "Mountable", id++, DarkRoleplayMedieval.instance, 10, 1, false);
-		EntityRegistry.registerModEntity(new ResourceLocation(DRPMedievalInfo.MODID,"sledge"), EntitySledge.class, "Sledge", id++, DarkRoleplayMedieval.instance, 32, 3, true);
-		EntityRegistry.registerModEntity(new ResourceLocation(DRPMedievalInfo.MODID,"roped_arrow"), EntityRopedArrow.class, "RopedArrow", id++, DarkRoleplayMedieval.instance, 0, 3, true);
-		EntityRegistry.registerModEntity(new ResourceLocation(DRPMedievalInfo.MODID, "fox"), Entity_Fox.class, "fox", id++, DarkRoleplayMedieval.instance, 32, 3, true, new Color(255, 100, 0).getRGB(), new Color(200, 200, 200).getRGB());
+		EntityRegistry.registerModEntity(new ResourceLocation(DRPMedievalInfo.MODID,"mountable"), EntitySittable.class, "Mountable", DRPMedievalEntities.id++, DarkRoleplayMedieval.instance, 10, 1, false);
+		EntityRegistry.registerModEntity(new ResourceLocation(DRPMedievalInfo.MODID,"sledge"), EntitySledge.class, "Sledge", DRPMedievalEntities.id++, DarkRoleplayMedieval.instance, 32, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DRPMedievalInfo.MODID,"roped_arrow"), EntityRopedArrow.class, "RopedArrow", DRPMedievalEntities.id++, DarkRoleplayMedieval.instance, 0, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DRPMedievalInfo.MODID, "fox"), Entity_Fox.class, "fox", DRPMedievalEntities.id++, DarkRoleplayMedieval.instance, 32, 3, true, new Color(255, 100, 0).getRGB(), new Color(200, 200, 200).getRGB());
 		
 	}
 	
@@ -31,5 +31,5 @@ public class DRPMedievalEntities {
 
 	}
 	
-	public static final void postInit(FMLPostInitializationEvent event) {}
+	public static final void init(FMLPostInitializationEvent event) {}
 }

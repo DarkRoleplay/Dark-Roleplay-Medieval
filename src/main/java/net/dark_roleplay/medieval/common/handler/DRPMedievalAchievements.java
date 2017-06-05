@@ -6,11 +6,9 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class DRPMedievalAchievements {
 	
-	public static final void preInit(FMLPreInitializationEvent event) {}
+	public static final void init(FMLPreInitializationEvent event) {}
 	
-	public static final void init(FMLInitializationEvent event) {
-		//AchievementPage.registerAchievementPage(new Achievements().DarkRoleplay);
-	}
+	public static final void init(FMLInitializationEvent event) {}
 
-	public static final void postInit(FMLPostInitializationEvent event) {}
+	public static final void init(FMLPostInitializationEvent event) {}
 }

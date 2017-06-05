@@ -1,12 +1,13 @@
-package net.dark_roleplay.medieval.common.blocks.decorative;
+package net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.Nullable;
 
 import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
+import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -18,6 +19,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -46,7 +48,12 @@ public class HangingBridge extends Block {
 
 	// -------------------------------------------------- Block Data
 	// --------------------------------------------------
-
+	
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune){
+        return DRPMedievalItems.HANGING_BRIDGE;
+    }
+	
 	@Override
 	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox,
 			List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean p_185477_7_) {
@@ -98,49 +105,49 @@ public class HangingBridge extends Block {
 		return 0;
 	}
 
-	@Override
-	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+//	@Override
+//	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+//
+//		boolean north = true;
+//		boolean east = true;
+//		boolean south = true;
+//		boolean west = true;
+//		if (state.getValue(HangingBridge.AXIS).equals(EnumAxis.X)) {
+//			if (this.doesBlockAlign(worldIn, pos.north())) {
+//				north = false;
+//			}
+//			if (this.doesBlockAlign(worldIn, pos.east())) {
+//				east = false;
+//			}
+//			if (this.doesBlockAlign(worldIn, pos.south())) {
+//				south = false;
+//			}
+//			if (this.doesBlockAlign(worldIn, pos.west())) {
+//				west = false;
+//			}
+//		} else if (state.getValue(HangingBridge.AXIS).equals(EnumAxis.Z)) {
+//			if (this.doesBlockAlign(worldIn, pos.east())) {
+//				north = false;
+//			}
+//			if (this.doesBlockAlign(worldIn, pos.south())) {
+//				east = false;
+//			}
+//			if (this.doesBlockAlign(worldIn, pos.west())) {
+//				south = false;
+//			}
+//			if (this.doesBlockAlign(worldIn, pos.north())) {
+//				west = false;
+//			}
+//		}
+//		return state.withProperty(HangingBridge.NORTH, north).withProperty(HangingBridge.EAST, east).withProperty(HangingBridge.SOUTH, south).withProperty(HangingBridge.WEST,
+//				west);
+//	}
 
-		boolean north = true;
-		boolean east = true;
-		boolean south = true;
-		boolean west = true;
-		if (state.getValue(HangingBridge.AXIS).equals(EnumAxis.X)) {
-			if (this.doesBlockAlign(worldIn, pos.north())) {
-				north = false;
-			}
-			if (this.doesBlockAlign(worldIn, pos.east())) {
-				east = false;
-			}
-			if (this.doesBlockAlign(worldIn, pos.south())) {
-				south = false;
-			}
-			if (this.doesBlockAlign(worldIn, pos.west())) {
-				west = false;
-			}
-		} else if (state.getValue(HangingBridge.AXIS).equals(EnumAxis.Z)) {
-			if (this.doesBlockAlign(worldIn, pos.east())) {
-				north = false;
-			}
-			if (this.doesBlockAlign(worldIn, pos.south())) {
-				east = false;
-			}
-			if (this.doesBlockAlign(worldIn, pos.west())) {
-				south = false;
-			}
-			if (this.doesBlockAlign(worldIn, pos.north())) {
-				west = false;
-			}
-		}
-		return state.withProperty(HangingBridge.NORTH, north).withProperty(HangingBridge.EAST, east).withProperty(HangingBridge.SOUTH, south).withProperty(HangingBridge.WEST,
-				west);
-	}
-
-	private boolean doesBlockAlign(IBlockAccess world, BlockPos pos) {
-		return world.getBlockState(pos).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)
-				|| world.getBlockState(pos.up()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)
-				|| world.getBlockState(pos.down()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE);
-	}
+//	private boolean doesBlockAlign(IBlockAccess world, BlockPos pos) {
+//		return world.getBlockState(pos).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)
+//				|| world.getBlockState(pos.up()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE)
+//				|| world.getBlockState(pos.down()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE);
+//	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
