@@ -48,7 +48,7 @@ import net.dark_roleplay.medieval.common.blocks.decorative.chairs.BarrelChair;
 import net.dark_roleplay.medieval.common.blocks.decorative.chairs.LogChair;
 import net.dark_roleplay.medieval.common.blocks.decorative.chairs.SimpleChair;
 import net.dark_roleplay.medieval.common.blocks.decorative.flowerPot.FlowerPot;
-import net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges.HangingBridge2;
+import net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges.HangingBridge;
 import net.dark_roleplay.medieval.common.blocks.decorative.lecterns.LargeLectern;
 import net.dark_roleplay.medieval.common.blocks.decorative.ropeFence.RopeFence;
 import net.dark_roleplay.medieval.common.blocks.decorative.tables.BarrelTable;
@@ -189,8 +189,8 @@ public class DRPMedievalBlocks {
 
 	public static Hops HOPS = new Hops("hops");
 	//public static HangingBridge HANGING_BRIDGE = new HangingBridge("hanging_bridge");
-	public static HangingBridge2 HANGING_BRIDGE_BOTTOM = new HangingBridge2("hanging_bridge_bottom" ,0F); //TODO NEW
-	public static HangingBridge2 HANGING_BRIDGE_TOP = new HangingBridge2("hanging_bridge_top" ,0.5F); //TODO NEW
+	public static HangingBridge HANGING_BRIDGE_BOTTOM = new HangingBridge("hanging_bridge_bottom" ,0F); //TODO NEW
+	public static HangingBridge HANGING_BRIDGE_TOP = new HangingBridge("hanging_bridge_top" ,0.5F); //TODO NEW
 	public static HangingCauldron HANGING_CAULDRON = new HangingCauldron("hanging_cauldron");
 
 	/** I **/

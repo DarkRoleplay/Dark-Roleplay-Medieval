@@ -10,6 +10,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -22,13 +23,14 @@ import net.minecraft.world.World;
 
 public class RopeFence extends Block{
 	
-	public static final PropertyBool NORTH = PropertyBool.create("north");
+	public static final PropertyInteger NORTH = PropertyInteger.create("north", 0, 3);
+	public static final PropertyInteger EAST = PropertyInteger.create("east", 0, 3);
+	public static final PropertyInteger SOUTH = PropertyInteger.create("south", 0, 3);
+	public static final PropertyInteger WEST = PropertyInteger.create("west", 0, 3);
+	
 	public static final PropertyBool NORTH_EAST = PropertyBool.create("north_east");
-	public static final PropertyBool EAST = PropertyBool.create("east");
 	public static final PropertyBool SOUTH_EAST = PropertyBool.create("south_east");
-	public static final PropertyBool SOUTH = PropertyBool.create("south");
 	public static final PropertyBool SOUTH_WEST = PropertyBool.create("south_west");
-	public static final PropertyBool WEST = PropertyBool.create("west");
 	public static final PropertyBool NORTH_WEST = PropertyBool.create("north_west");
 	
     protected static final AxisAlignedBB[] BOUNDING_BOXES = new AxisAlignedBB[] {new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D), new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D), new AxisAlignedBB(0.0D, 0.0D, 0.375D, 0.625D, 1.0D, 1.0D), new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 0.625D), new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.625D, 1.0D, 0.625D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D), new AxisAlignedBB(0.375D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D), new AxisAlignedBB(0.375D, 0.0D, 0.375D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D), new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.375D, 0.0D, 0.0D, 1.0D, 1.0D, 0.625D), new AxisAlignedBB(0.375D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 0.625D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D)};
@@ -74,48 +76,68 @@ public class RopeFence extends Block{
 	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
 		
-		boolean n = false;
+		int n = 3;
+		int e = 3;
+		int s = 3;
+		int w = 3;
 		boolean ne = false;
-		boolean e = false;
 		boolean se = false;
-		boolean s = false;
 		boolean sw = false;
-		boolean w = false;
 		boolean nw = false;
 
 		if((world.getBlockState(pos.north()).getBlock() == this)){
-			n = true;
-		}
-		if(world.isSideSolid(pos.north(), EnumFacing.SOUTH, false)){
-			n = true;
-		}
-
-		if((world.getBlockState(pos.east()).getBlock() == this) || world.isSideSolid(pos.east(), EnumFacing.WEST, false)) {
-			e = true;
-		}
-
-		if((world.getBlockState(pos.south()).getBlock() == this) || world.isSideSolid(pos.south(), EnumFacing.NORTH, false)) {
-			s = true;
+			n = 1;
+		} else if((world.getBlockState(pos.north().up()).getBlock() == this) && world.isAirBlock(pos.up())){
+			n = 2;
+		} else if((world.getBlockState(pos.north().down()).getBlock() == this)){
+			n = 0;
+		}else if(world.isSideSolid(pos.north(), EnumFacing.SOUTH, false)){
+			n = 1;
 		}
 		
-		if((world.getBlockState(pos.west()).getBlock() == this) || world.isSideSolid(pos.west(), EnumFacing.EAST, false)) {
-			w = true;
+		if((world.getBlockState(pos.east()).getBlock() == this)) {
+			e = 1;
+		} else if((world.getBlockState(pos.east().up()).getBlock() == this) && world.isAirBlock(pos.up())){
+			e = 2;
+		} else if((world.getBlockState(pos.east().down()).getBlock() == this)){
+			e = 0;
+		}else if(world.isSideSolid(pos.east(), EnumFacing.WEST, false)){
+			e = 1;
 		}
 		
+		if((world.getBlockState(pos.south()).getBlock() == this)) {
+			s = 1;
+		} else if((world.getBlockState(pos.south().up()).getBlock() == this) && world.isAirBlock(pos.up())){
+			s = 2;
+		} else if((world.getBlockState(pos.south().down()).getBlock() == this)){
+			s = 0;
+		}else if(world.isSideSolid(pos.south(), EnumFacing.NORTH, false)){
+			s = 1;
+		}
 		
-		if((!n && !e) && (world.getBlockState(pos.north().east()).getBlock() == this)) {
+		if((world.getBlockState(pos.west()).getBlock() == this)) {
+			w = 1;
+		} else if((world.getBlockState(pos.west().up()).getBlock() == this) && world.isAirBlock(pos.up())){
+			w = 2;
+		} else if((world.getBlockState(pos.west().down()).getBlock() == this)){
+			w = 0;
+		}else if(world.isSideSolid(pos.west(), EnumFacing.EAST, false)){
+			w = 1;
+		}
+		
+		if(((n == 3) && (e == 3)) && (world.getBlockState(pos.north().east()).getBlock() == this)) {
 			ne = true;
 		}
 		
-		if((!s && !e) && (world.getBlockState(pos.south().east()).getBlock() == this)) {
+		if(((s == 3) && (e ==3)) && (world.getBlockState(pos.south().east()).getBlock() == this)) {
 			se = true;
 		}
 		
-		if((!s && !w) && (world.getBlockState(pos.south().west()).getBlock() == this)) {
+		if(((s == 3) && (w == 3)) && (world.getBlockState(pos.south().west()).getBlock() == this)) {
 			sw = true;
 		}
 		
-		if((!n && !w) && (world.getBlockState(pos.north().west()).getBlock() == this)) {
+		if(((n == 3) && (w == 3)) && (world.getBlockState(pos.north().west()).getBlock() == this)) {
 			nw = true;
 		}
 
@@ -144,19 +166,19 @@ public class RopeFence extends Block{
 			state = state.getActualState(worldIn, pos);
 	        Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.PILLAR_AABB.contract(0D, 0.5D, 0D));
 
-	        if (state.getValue(RopeFence.NORTH).booleanValue()) {
+	        if (state.getValue(RopeFence.NORTH) != 3) {
 				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.NORTH_AABB.contract(0D, 0.5D, 0D));
 			}
 
-	        if (state.getValue(RopeFence.EAST).booleanValue()) {
+	        if (state.getValue(RopeFence.EAST) != 3) {
 				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.EAST_AABB.contract(0D, 0.5D, 0D));
 			}
 
-	        if (state.getValue(RopeFence.SOUTH).booleanValue()) {
+	        if (state.getValue(RopeFence.SOUTH) != 3) {
 				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.SOUTH_AABB.contract(0D, 0.5D, 0D));
 			}
 
-	        if (state.getValue(RopeFence.WEST).booleanValue()) {
+	        if (state.getValue(RopeFence.WEST) != 3) {
 				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.WEST_AABB.contract(0D, 0.5D, 0D));
 			}
 	        
@@ -179,19 +201,19 @@ public class RopeFence extends Block{
 			state = state.getActualState(worldIn, pos);
 	        Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.PILLAR_AABB);
 
-	        if (state.getValue(RopeFence.NORTH).booleanValue()) {
+	        if (state.getValue(RopeFence.NORTH) != 3) {
 				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.NORTH_AABB);
 			}
 
-	        if (state.getValue(RopeFence.EAST).booleanValue()) {
+	        if (state.getValue(RopeFence.EAST) != 3) {
 				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.EAST_AABB);
 			}
 
-	        if (state.getValue(RopeFence.SOUTH).booleanValue()) {
+	        if (state.getValue(RopeFence.SOUTH) != 3) {
 				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.SOUTH_AABB);
 			}
 
-	        if (state.getValue(RopeFence.WEST).booleanValue()) {
+	        if (state.getValue(RopeFence.WEST) != 3) {
 				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.WEST_AABB);
 			}
 	        
@@ -223,22 +245,22 @@ public class RopeFence extends Block{
     private static int getBoundingBoxIdx(IBlockState state){
         int i = 0;
 
-        if (state.getValue(RopeFence.NORTH).booleanValue())
+        if (state.getValue(RopeFence.NORTH) != 3)
         {
             i |= 1 << EnumFacing.NORTH.getHorizontalIndex();
         }
 
-        if (state.getValue(RopeFence.EAST).booleanValue())
+        if (state.getValue(RopeFence.EAST) != 3)
         {
             i |= 1 << EnumFacing.EAST.getHorizontalIndex();
         }
 
-        if (state.getValue(RopeFence.SOUTH).booleanValue())
+        if (state.getValue(RopeFence.SOUTH) != 3)
         {
             i |= 1 << EnumFacing.SOUTH.getHorizontalIndex();
         }
 
-        if (state.getValue(RopeFence.WEST).booleanValue())
+        if (state.getValue(RopeFence.WEST) != 3)
         {
             i |= 1 << EnumFacing.WEST.getHorizontalIndex();
         }

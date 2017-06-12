@@ -1,7 +1,6 @@
 package net.dark_roleplay.medieval.common.tileentities.storage;
 
-import javax.annotation.Nullable;
-
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -11,35 +10,57 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class TileEntity_SimpleStorage  extends TileEntity {
 
-	private ItemStackHandler inventory = new ItemStackHandler(1);
+	private int size;
 
-	public TileEntity_SimpleStorage(){}
+
+	
+    private ItemStackHandler itemStackHandler;
 	
 	public TileEntity_SimpleStorage(int size){
-		this.inventory =  new ItemStackHandler(size);
+		this.size = size;
+		this.itemStackHandler =  new ItemStackHandler(this.size) {
+	        @Override
+	        protected void onContentsChanged(int slot) {
+	        	TileEntity_SimpleStorage.this.markDirty();
+	        }
+		};
 	}
-	
-	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-		compound.setTag("inventory", this.inventory.serializeNBT());
-		return super.writeToNBT(compound);
-	}
-	
-	@Override
-	public void readFromNBT(NBTTagCompound compound) {
-		this.inventory.deserializeNBT(compound.getCompoundTag("inventory"));
-		super.readFromNBT(compound);
-	}
-	
-	@Override
-	public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing) {
-		return (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) || super.hasCapability(capability, facing);
-	}
-	
-	@Nullable
-	@Override
-	public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
-		return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ? (T)this.inventory : super.getCapability(capability, facing);
+
+    @Override
+    public void readFromNBT(NBTTagCompound compound) {
+        super.readFromNBT(compound);
+        if (compound.hasKey("items")) {
+            this.itemStackHandler.deserializeNBT((NBTTagCompound) compound.getTag("items"));
+        }
+    }
+
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        super.writeToNBT(compound);
+        compound.setTag("items", this.itemStackHandler.serializeNBT());
+        return compound;
+    }
+
+    public boolean canInteractWith(EntityPlayer playerIn) {
+        return !this.isInvalid() && (playerIn.getDistanceSq(this.pos.add(0.5D, 0.5D, 0.5D)) <= 7D);
+    }
+
+    @Override
+    public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
+        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+			return true;
+        return super.hasCapability(capability, facing);
+    }
+
+    @Override
+    public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+			return (T) this.itemStackHandler;
+        return super.getCapability(capability, facing);
+    }
+
+	public int getSize() {
+		return this.size;
 	}
 
 }

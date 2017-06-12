@@ -116,6 +116,10 @@ public class DarkRoleplayMedieval {
 		DRPMedievalLores.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
 				
+		MissingMappings.registerToRemap(DRPMedievalItems.BronzeRing, DRPMedievalInfo.MODID + ":" + "bronzering");
+		MissingMappings.registerToRemap(DRPMedievalItems.SilverRing, DRPMedievalInfo.MODID + ":" + "silverring");
+		MissingMappings.registerToRemap(DRPMedievalItems.GoldenRing, DRPMedievalInfo.MODID + ":" + "goldenring");
+		MissingMappings.registerToRemap(DRPMedievalItems.LeatherPurse, DRPMedievalInfo.MODID + ":" + "leatherpurse");
 		MissingMappings.registerToRemap(DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM, DRPMedievalInfo.MODID + ":" + "hanging_bridge");
 	}
 

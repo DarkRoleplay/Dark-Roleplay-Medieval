@@ -30,10 +30,28 @@ public class DRPMedievalLores {
 		//CRAFT MATS
 		DRPMedievalLores.registerCRAFT_MAT(DRPMedievalItems.TannedLeatherString);
 		DRPMedievalLores.registerCRAFT_MAT(DRPMedievalItems.TannedLeather);
+		DRPMedievalLores.registerCRAFT_MAT(DRPMedievalItems.LeatherString);
+		DRPMedievalLores.registerCRAFT_MAT(DRPMedievalItems.Plank);
+		DRPMedievalLores.registerCRAFT_MAT(DRPMedievalItems.FlourWheat);
+		DRPMedievalLores.registerCRAFT_MAT(DRPMedievalItems.FlourBarley);
+		DRPMedievalLores.registerCRAFT_MAT(DRPMedievalItems.CHARCOAL_POWDER);
+		DRPMedievalLores.registerCRAFT_MAT(DRPMedievalItems.SILVER_ORE_CHUNK);
+		DRPMedievalLores.registerCRAFT_MAT(DRPMedievalItems.COPPER_ORE_CHUNK);
+		DRPMedievalLores.registerCRAFT_MAT(DRPMedievalItems.SALPETER_ORE_CHUNK);
+		DRPMedievalLores.registerCRAFT_MAT(DRPMedievalItems.SULFUR_ORE_CHUNK);
+		DRPMedievalLores.registerCRAFT_MAT(DRPMedievalItems.TIN_ORE_CHUNK);
+		DRPMedievalLores.registerCRAFT_MAT(DRPMedievalItems.BatEar);
+
+
+
+		
 		
 		//WIP's
 		DRPMedievalLores.registerWIP(DRPMedievalItems.LeatherBookCover);
 		DRPMedievalLores.registerWIP(DRPMedievalItems.LeatherBookCoverThik);
+		DRPMedievalLores.registerWIP(Item.getItemFromBlock(DRPMedievalBlocks.AXLE));
+		DRPMedievalLores.registerWIP(Item.getItemFromBlock(DRPMedievalBlocks.CHEST_TEST));
+
 		DRPMedievalLores.registerWIP(DRPMedievalItems.LeatherBookCoverThin);
 		DRPMedievalLores.registerWIP(DRPMedievalItems.Quiver);
 		DRPMedievalLores.registerWIP(DRPMedievalItems.BronzeRing);

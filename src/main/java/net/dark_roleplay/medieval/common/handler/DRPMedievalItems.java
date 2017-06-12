@@ -1,8 +1,9 @@
 package net.dark_roleplay.medieval.common.handler;
 
+import net.dark_roleplay.drpcore.api.items.DRPFood;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.items.blocks.AdvancedBedItem;
-import net.dark_roleplay.medieval.common.items.blocks.HangingBridge;
+import net.dark_roleplay.medieval.common.items.blocks.HangingBridge_Item;
 import net.dark_roleplay.medieval.common.items.book.WriteablePage;
 import net.dark_roleplay.medieval.common.items.consumable.BarkAndGlue;
 import net.dark_roleplay.medieval.common.items.consumable.RopedArrow;
@@ -115,7 +116,7 @@ public class DRPMedievalItems {
 
 	/** H **/
 
-	public static HangingBridge HANGING_BRIDGE = new HangingBridge("hanging_bridge");
+	public static HangingBridge_Item HANGING_BRIDGE = new HangingBridge_Item("hanging_bridge");
 	public static HorseBag HorseBag = new HorseBag();
 
 	/** I **/
@@ -200,6 +201,12 @@ public class DRPMedievalItems {
 	public static DRPMMiscItem SALPETER_ORE_CHUNK = new DRPMMiscItem("salpeter_ore_chunk");
 
 	
+
+	public static DRPFood BLUE_BERRY;
+	public static DRPFood GRAPE;
+	public static DRPFood GARLIC;
+	public static DRPFood ONION;
+	public static DRPFood CAULIFLOWER;
 	
 	public static final void init(FMLPreInitializationEvent event) {
 
@@ -214,6 +221,13 @@ public class DRPMedievalItems {
 		
 		// Under Development Items
 		//register(wpg, false); //TODO CHANGE BOOL AND FIX
+		
+		DRPMedievalItems.register(DRPMedievalItems.BLUE_BERRY = (DRPFood) new DRPFood(1, 0.1F, "blue_berrys", "fruits", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab), false);
+		DRPMedievalItems.register(DRPMedievalItems.GRAPE = (DRPFood) new DRPFood(2, 0.2F,"grapes", "fruits", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab), false);
+		DRPMedievalItems.register(DRPMedievalItems.GARLIC = (DRPFood) new DRPFood(2, 0.4F,"garlic", "vegetables", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab), false);
+		DRPMedievalItems.register(DRPMedievalItems.ONION = (DRPFood) new DRPFood(2, 0.4F,"onion", "vegetables", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab), false);
+		DRPMedievalItems.register(DRPMedievalItems.CAULIFLOWER = (DRPFood) new DRPFood(4, 0.4F,"cauliflower", "vegetables", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab), false);
+		
 		
 		DRPMedievalItems.register(DRPMedievalItems.HOPS);
 		

@@ -33,7 +33,7 @@ public class ChoppingBlock extends FacedBlock {
 	@Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {
-        return new AxisAlignedBB(0.0625F, 0F, 0.0625F, 0.9375F, 1F, 0.9375F);
+        return new AxisAlignedBB(0.0625F, 0F, 0.0625F, 0.9375F, 0.75F, 0.9375F);
     }
 
 	@Override

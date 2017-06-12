@@ -11,7 +11,9 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -81,7 +83,30 @@ public class JuicePress  extends FacedBlock {
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-
 		return new BlockStateContainer(this, new IProperty[] {BlockProperties.FACING, JuicePress.TOP});
 	}
+	
+	@Override
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos){
+        return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && worldIn.isAirBlock(pos.up()) && worldIn.isSideSolid(pos.down(), EnumFacing.UP);
+    }
+	
+	@Override
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
+		return this.getDefaultState().withProperty(BlockProperties.FACING, placer.getHorizontalFacing().getOpposite()).withProperty(JuicePress.TOP, false);
+    }
+	
+	@Override
+	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack){
+		worldIn.setBlockState(pos.add(0,1,0), state.withProperty(JuicePress.TOP, true));
+    }
+	
+	@Override
+	public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state){
+		if(worldIn.getBlockState(pos.add(0,1,0)).getBlock() == this){
+			worldIn.setBlockToAir(pos.add(0,1,0));
+		}else if(worldIn.getBlockState(pos.add(0,-1,0)).getBlock() == this){
+			worldIn.setBlockToAir(pos.add(0,-1,0));
+		}
+    }
 }

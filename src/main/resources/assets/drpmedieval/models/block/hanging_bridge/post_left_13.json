@@ -8,8 +8,8 @@
 	"elements": [
 		{
 			"__comment": "Cube8",
-			"from": [ 15, 13, -4.5 ],
-			"to": [ 19, 30, -0.5 ],
+			"from": [ -3, 13, -4.5 ],
+			"to": [ 1, 30, -0.5 ],
 			"faces": {
 				"down": { "uv": [ 0, 8, 4, 12 ], "texture": "#texture" },
 				"up": { "uv": [ 0, 12, 4, 16 ], "texture": "#texture" },
@@ -21,8 +21,8 @@
 		},
 		{
 			"__comment": "Cube9",
-			"from": [ 14.5, 27, -5 ],
-			"to": [ 19.5, 29, 0 ],
+			"from": [ -3.5, 27, -5 ],
+			"to": [ 1.5, 29, 0 ],
 			"faces": {
 				"down": { "uv": [ 0, 5, 5, 10 ], "texture": "#rope" },
 				"up": { "uv": [ 0, 0, 5, 5 ], "texture": "#rope" },

@@ -13,6 +13,22 @@ crafting.category.decorative.name=Decoration
 crafting.category.crafting_materials.name=Crafting Materials
 crafting.category.storage.name=Storage
 
+tile.sideway_barrel_acacia.name=Sideway Acacia Barrel
+tile.sideway_barrel_birch.name=Sideway Birch Barrel
+tile.sideway_barrel_jungle.name=Sideway Jungle Barrel
+tile.sideway_barrel_spruce.name=Sideway Spruce Barrel
+tile.sideway_barrel_oak.name=Sideway Oak Barrel
+tile.sideway_barrel_dark_oak.name=Sideway Dark Oak Barrel
+
+tile.tin_ore.name=Tin Ore
+tile.copper_ore.name=Copper Ore
+tile.silver_ore.name=Silver Ore
+tile.sulfur_ore.name=Sulfur Ore
+tile.salpeter_ore.name=Salpeter Ore
+tile.axle.name=Wooden Axle
+tile.juice_press.name=Juice Press
+tile.pottery_turntable.name=Pottery Turntable
+
 
 tile.simple_chair_oak.name=Simple Oak Chair
 tile.simple_chair_birch.name=Simple Birch Chair
@@ -121,6 +137,22 @@ tile.crate.name=Crate
 tile.dungeon_chest.name=Dungeon Chest
 tile.firepit_lit.name=Lit Firepit
 tile.spinning_wheel.name=Spinning Wheel
+
+item.bronze_ring.name=Bronze Ring
+item.golden_ring.name=Golden Ring
+item.leather_purse.name=Leather Purse
+item.quiver.name=Quiver
+item.silver_ring.name=Silver Ring
+item.hops.name=Hops
+item.charcoal_powder.name=Charcoal Powder
+item.silver_ore_chunk.name=Silver Ore Chunk
+item.tin_ore_chunk.name=Tin Ore Chunk
+item.copper_ore_chunk.name=Copper Ore Chunk
+item.sulfur_ore_chunk.name=Sulfur Ore Chunk
+item.salpeter_ore_chunk.name=Salpeter Ore Chunk
+item.barley.name=Barley
+item.tap.name=Tap
+item.hanging_bridge.name=Hanging Bridge
 item.AppleGreen.name=Green Apple
 item.AppleYellow.name=Yellow Apple
 item.CatfishCooked.name=Cooked Catfish
@@ -162,3 +194,35 @@ item.Sledge.name=Sledge
 item.TannedLeather.name=Tanned Leather
 item.TannedLeatherString.name=Tanned Leather String
 item.TriggerTrap.name=Trigger Trap
+item.blue_berrys.name=Blue Berrys
+item.grapes.name=Grapes (Placeholder Texture)
+item.cauliflower.name=Cauliflower
+item.onion.name=Onion
+item.garlic.name=Garlic
+
+
+drpmedieval:basic_tree_cutting=Basic Tree Cutting
+drpmedieval:basic_tree_cutting.desc=PROFESSION STARTER (LUMBERJACK)! Choose your professions wisely! Grands you a 5% chance to cut a whole tree at once. (W.I.P.)
+
+drpmedieval:basic_stews=Basic Stews
+drpmedieval:basic_stews.desc=PROFESSION STARTER (COOK)! Choose your professions wisely! Unlocks a few new Cooking recipes, mainly Stews. (W.I.P.)
+
+drpmedieval:basic_seed_knowledge=Basic Seed Knowledge
+drpmedieval:basic_seed_knowledge.desc=PROFESSION STARTER (FARMER)! Choose your professions wisely! You can now obtains new seeds from grass. (W.I.P.) And also see how long a seed takes to grow mature. (W.I.P.)
+
+drpmedieval:basic_carpenting=Basic Carpenting
+drpmedieval:basic_carpenting.desc=PROFESSION STARTER (CARPENTER)! Choose your professions wisely! Unlocks a few new Crafting recipes. (W.I.P.)
+
+drpmedieval:basic_mining=Basic Mining
+drpmedieval:basic_mining.desc=PROFESSION STARTER (MINER)! Choose your professions wisely! Your newly acquired knowledge about ores increases your yield by 1 ore chunk. (W.I.P.)
+
+drpmedieval:basic_stone_cutting=Basic Stone Cutting
+drpmedieval:basic_stone_cutting.desc=PROFESSION STARTER (MASON)! Choose your professions wisely! Now you know how to process stones without breaking them. (W.I.P.)
+
+drpmedieval:basic_ore_processing=Basic Ore Processing
+drpmedieval:basic_ore_processing.desc=PROFESSION STARTER (SMITH)! Choose your professions wisely! Now you understand that ores aren't just colorful stones but can be cleaned into shiny metal ingots. (W.I.P.)
+
+drpmedieval:basic_anatomy=Basic Anatomy
+drpmedieval:basic_anatomy.desc=PROFESSION STARTER (HUNTER)! Choose your professions wisely! While observing animals you learned a lot about their anatomy and can now obtain more meat and other goods from them. (W.I.P.)
+
+drpmedieval:profession_point=Profession Point
