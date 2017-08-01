@@ -24,8 +24,8 @@ public class SpecialRenderAnvil extends TileEntitySpecialRenderer {
 		this.model = new ModelAnvil();
 	}
 
-	@Override
-	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int i) {
+	@Override  
+	public void render(TileEntity tileentity, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
 
 		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMedievalBlocks.ANVIL)){
 			GL11.glPushMatrix();

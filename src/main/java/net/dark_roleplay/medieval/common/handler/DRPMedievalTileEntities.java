@@ -20,6 +20,7 @@ import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityShipsWheel
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityTarget;
 import net.dark_roleplay.medieval.common.tileentities.TileEntity_AdvancedCrop;
 import net.dark_roleplay.medieval.common.tileentities.TileEntity_FlowerStorage;
+import net.dark_roleplay.medieval.common.tileentities.lectern.TileEntity_Lectern;
 import net.dark_roleplay.medieval.common.tileentities.storage.TileEntity_SimpleStorage;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -48,7 +49,8 @@ public class DRPMedievalTileEntities {
 		
 		// Storage Blocks
         //New Storage
-        GameRegistry.registerTileEntity(TileEntity_SimpleStorage.class, DRPMedievalInfo.MODID + ":" + "tile_entity_storage_crate");
+        GameRegistry.registerTileEntity(TileEntity_SimpleStorage.class, DRPMedievalInfo.MODID + ":" + "tile_entity_simple_storage");
+        GameRegistry.registerTileEntity(TileEntity_Lectern.class, DRPMedievalInfo.MODID + ":" + "tile_entity_lectern");
         
         //Old Storage
 		GameRegistry.registerTileEntity(TileEntityCrate.class, DRPMedievalInfo.MODID + ":" + "TilEntityCrate");

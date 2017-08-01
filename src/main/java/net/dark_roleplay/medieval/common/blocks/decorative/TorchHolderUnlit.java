@@ -17,6 +17,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -252,14 +253,14 @@ public class TorchHolderUnlit extends Block {
 
 				}
 			}
-			else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(DRPMedievalItems.TriggerTrap)){
+			else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(DRPMedievalItems.TRIGGER_TRAP)){
 				if(state.getValue(TorchHolderUnlit.AddonLighter)){
 					state = state.cycleProperty(TorchHolderUnlit.AddonLighter);
 					state = state.cycleProperty(TorchHolderUnlit.AddonTrap);
 					world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
 					world.setBlockState(pos, state, 3);
 					if(!player.capabilities.isCreativeMode) {
-						player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TriggerTrap,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+						player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TRIGGER_TRAP,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
 					}
 				}
 				else if(state.getValue(TorchHolderUnlit.AddonTrap)){
@@ -269,13 +270,13 @@ public class TorchHolderUnlit extends Block {
 					state = state.cycleProperty(TorchHolderUnlit.AddonTrap);
 					world.setBlockState(pos, state, 3);
 					if(!player.capabilities.isCreativeMode) {
-						player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TriggerTrap,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+						player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TRIGGER_TRAP,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
 					}
 				}
 			}
 			else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Items.FLINT)){
 				if(state.getValue(TorchHolderUnlit.AddonTrap)){
-					world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TriggerTrap, 1)));
+					world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TRIGGER_TRAP, 1)));
 					state = state.cycleProperty(TorchHolderUnlit.AddonTrap);
 					state = state.cycleProperty(TorchHolderUnlit.AddonLighter);
 					world.setBlockState(pos, state, 3);
@@ -296,7 +297,7 @@ public class TorchHolderUnlit extends Block {
 			}
 			else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Items.FLINT_AND_STEEL)){
 				world.setBlockState(pos, DRPMedievalBlocks.TORCH_HOLDER_LIT.getDefaultState().withProperty(TorchHolderUnlit.FACING, state.getValue(TorchHolderUnlit.FACING)).withProperty(TorchHolderUnlit.AddonLighter, state.getValue(TorchHolderUnlit.AddonLighter)).withProperty(TorchHolderUnlit.AddonTrap, state.getValue(TorchHolderUnlit.AddonTrap)).withProperty(TorchHolderUnlit.POWERED, state.getValue(TorchHolderUnlit.POWERED)));
-				player.getHeldItem(EnumHand.MAIN_HAND).attemptDamageItem(1, new Random());
+				player.getHeldItem(EnumHand.MAIN_HAND).attemptDamageItem(1, new Random(), (EntityPlayerMP) player);
 			}
 			else{
 				if(state.getValue(TorchHolderUnlit.AddonTrap) && !(Boolean) state.getValue(TorchHolderUnlit.POWERED)){
@@ -325,7 +326,7 @@ public class TorchHolderUnlit extends Block {
 				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
 			}
 			if(state.getValue(TorchHolderUnlit.AddonTrap)){
-				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TriggerTrap, 1)));
+				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TRIGGER_TRAP, 1)));
 			}
 		}
     }

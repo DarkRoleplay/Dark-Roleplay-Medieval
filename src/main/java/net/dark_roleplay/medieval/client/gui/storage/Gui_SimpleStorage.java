@@ -20,6 +20,9 @@ public class Gui_SimpleStorage extends GuiContainer {
     
     private String containerName;
     
+
+    
+    
     public Gui_SimpleStorage(TileEntity_SimpleStorage te, Container_SimpleStorage container) {
         super(container);
 
@@ -45,8 +48,9 @@ public class Gui_SimpleStorage extends GuiContainer {
         	this.drawTexturedModalRect((posX + slot.xPos) - 1, (posY + slot.yPos) - 1, 0, 238, 18, 18);
         }
         
-        this.fontRendererObj.drawString("Container", posX + 9, posY + 9, new Color(55, 55, 55).getRGB());
-        this.fontRendererObj.drawString("Inventory", posX + 9, posY + 19 + (int)(Math.ceil((this.size)/9D) * 18), new Color(55, 55, 55).getRGB());
+        this.fontRenderer.drawString("Container", posX + 9, posY + 6, new Color(55, 55, 55).getRGB());
+        this.fontRenderer.drawString("Inventory", posX + 9, posY + 19 + (int)(Math.ceil((this.size)/9D) * 18), new Color(55, 55, 55).getRGB());
+ 
 
     }
 }

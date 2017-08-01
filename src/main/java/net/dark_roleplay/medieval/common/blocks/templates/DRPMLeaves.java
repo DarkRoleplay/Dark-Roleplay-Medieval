@@ -155,7 +155,7 @@ public abstract class DRPMLeaves extends Block implements net.minecraftforge.com
 
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		if (worldIn.isRainingAt(pos.up()) && !worldIn.getBlockState(pos.down()).isFullyOpaque() && rand.nextInt(15) == 1) {
+		if (worldIn.isRainingAt(pos.up()) && !worldIn.getBlockState(pos.down()).isFullCube() && rand.nextInt(15) == 1) {
 			double d0 = (double) ((float) pos.getX() + rand.nextFloat());
 			double d1 = (double) pos.getY() - 0.05D;
 			double d2 = (double) ((float) pos.getZ() + rand.nextFloat());

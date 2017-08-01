@@ -6,7 +6,9 @@ import java.util.List;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.blocks.WoodHelper;
 import net.dark_roleplay.medieval.common.blocks.building.CleanPlanks;
+import net.dark_roleplay.medieval.common.blocks.building.DryClay;
 import net.dark_roleplay.medieval.common.blocks.building.MossyLog;
+import net.dark_roleplay.medieval.common.blocks.building.ObsidianGlass;
 import net.dark_roleplay.medieval.common.blocks.building.PackedIceBricks;
 import net.dark_roleplay.medieval.common.blocks.building.Planks1;
 import net.dark_roleplay.medieval.common.blocks.building.SnowBricks;
@@ -44,16 +46,19 @@ import net.dark_roleplay.medieval.common.blocks.decorative.barrels.BarrelFilled;
 import net.dark_roleplay.medieval.common.blocks.decorative.barrels.SidewayBarrel;
 import net.dark_roleplay.medieval.common.blocks.decorative.buckets.Bucket;
 import net.dark_roleplay.medieval.common.blocks.decorative.buckets.BucketDirt;
+import net.dark_roleplay.medieval.common.blocks.decorative.candles.BeesWaxCandle;
 import net.dark_roleplay.medieval.common.blocks.decorative.chairs.BarrelChair;
 import net.dark_roleplay.medieval.common.blocks.decorative.chairs.LogChair;
 import net.dark_roleplay.medieval.common.blocks.decorative.chairs.SimpleChair;
 import net.dark_roleplay.medieval.common.blocks.decorative.flowerPot.FlowerPot;
 import net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges.HangingBridge;
 import net.dark_roleplay.medieval.common.blocks.decorative.lecterns.LargeLectern;
+import net.dark_roleplay.medieval.common.blocks.decorative.pottery.UnfiredVase;
 import net.dark_roleplay.medieval.common.blocks.decorative.ropeFence.RopeFence;
 import net.dark_roleplay.medieval.common.blocks.decorative.tables.BarrelTable;
 import net.dark_roleplay.medieval.common.blocks.decorative.tables.SimpleTable;
 import net.dark_roleplay.medieval.common.blocks.minerals.AdvancedOre;
+import net.dark_roleplay.medieval.common.blocks.other.BeeHive;
 import net.dark_roleplay.medieval.common.blocks.other.RegeneratingOre;
 import net.dark_roleplay.medieval.common.blocks.other.RopeCoil;
 import net.dark_roleplay.medieval.common.blocks.other.gunpowder_trail.GunpowderTrail;
@@ -74,11 +79,17 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.registries.IForgeRegistry;
 
+@Mod.EventBusSubscriber
 public class DRPMedievalBlocks {
 	
 	/** A **/
@@ -88,9 +99,9 @@ public class DRPMedievalBlocks {
 	
 	public static Anvil ANVIL = new Anvil("anvil");
 
-	public static Apple APPLE_GREEN = new Apple("apple_green", new ItemStack(DRPMedievalItems.AppleGreen, 1)); //TODO FIX APPLES
+	public static Apple APPLE_GREEN = new Apple("apple_green", new ItemStack(DRPMedievalItems.APPLE_GREEN, 1)); //TODO FIX APPLES
 	public static Apple APPLE_RED = new Apple("apple_red", new ItemStack(Items.APPLE, 1));
-	public static Apple APPLE_YELLOW = new Apple("apple_yellow", new ItemStack(DRPMedievalItems.AppleYellow, 1));
+	public static Apple APPLE_YELLOW = new Apple("apple_yellow", new ItemStack(DRPMedievalItems.APPLE_YELLOW, 1));
 	public static AppleSappling APPLE_SAPPLING = new AppleSappling("apple_sapling");
 	public static Axle AXLE = new Axle("axle");
 	
@@ -133,12 +144,12 @@ public class DRPMedievalBlocks {
 	public static BarrelFilled BARREL_GUNPOWDER_ACACIA = new BarrelFilled("barrel_gunpowder_acacia");
 	public static BarrelFilled BARREL_GUNPOWDER_DARK_OAK = new BarrelFilled("barrel_gunpowder_dark_oak");
 		
-	public static BedFrame BED_FRAME_OAK = new BedFrame("bed_frame_oak", DRPMedievalItems.BedFrameOak);
-	public static BedFrame BED_FRAME_SPRUCE = new BedFrame("bed_frame_spruce", DRPMedievalItems.BedFrameSpruce);
-	public static BedFrame BED_FRAME_BIRCH = new BedFrame("bed_frame_birch", DRPMedievalItems.BedFrameBirch);
-	public static BedFrame BED_FRAME_JUNGLE = new BedFrame("bed_frame_jungle", DRPMedievalItems.BedFrameJungle);
-	public static BedFrame BED_FRAME_ACACIA = new BedFrame("bed_frame_acacia", DRPMedievalItems.BedFrameAcacia);
-	public static BedFrame BED_FRAME_DARK_OAK = new BedFrame("bed_frame_dark_oak", DRPMedievalItems.BedFrameDarkOak);
+//	public static BedFrame BED_FRAME_OAK = new BedFrame("bed_frame_oak", Items.BED);
+//	public static BedFrame BED_FRAME_SPRUCE = new BedFrame("bed_frame_spruce", Items.BED);
+//	public static BedFrame BED_FRAME_BIRCH = new BedFrame("bed_frame_birch", Items.BED);
+//	public static BedFrame BED_FRAME_JUNGLE = new BedFrame("bed_frame_jungle", Items.BED);
+//	public static BedFrame BED_FRAME_ACACIA = new BedFrame("bed_frame_acacia", Items.BED);
+//	public static BedFrame BED_FRAME_DARK_OAK = new BedFrame("bed_frame_dark_oak", Items.BED);
 	
 	public static BarrelTable BARREL_TABLE_OAK = new BarrelTable("barrel_table_oak");
 	public static BarrelTable BARREL_TABLE_BIRCH = new BarrelTable("barrel_table_birch");
@@ -167,7 +178,8 @@ public class DRPMedievalBlocks {
 	public static StoneBricks DIORITE_BRICKS = new StoneBricks("diorite_bricks");
 	public static StonePillar DIORITE_PILLAR = new StonePillar("diorite_pillar");
 	public static DungeonChest DUNGEON_CHEST = new DungeonChest("dungeon_chest");
-
+	public static DryClay DRY_CLAY;
+	
 	/** E **/
 
 	/** F **/
@@ -188,9 +200,8 @@ public class DRPMedievalBlocks {
 	/** H **/
 
 	public static Hops HOPS = new Hops("hops");
-	//public static HangingBridge HANGING_BRIDGE = new HangingBridge("hanging_bridge");
-	public static HangingBridge HANGING_BRIDGE_BOTTOM = new HangingBridge("hanging_bridge_bottom" ,0F); //TODO NEW
-	public static HangingBridge HANGING_BRIDGE_TOP = new HangingBridge("hanging_bridge_top" ,0.5F); //TODO NEW
+	public static HangingBridge HANGING_BRIDGE_BOTTOM = new HangingBridge("hanging_bridge_bottom" ,0F);
+	public static HangingBridge HANGING_BRIDGE_TOP = new HangingBridge("hanging_bridge_top" ,0.5F);
 	public static HangingCauldron HANGING_CAULDRON = new HangingCauldron("hanging_cauldron");
 
 	/** I **/
@@ -234,13 +245,15 @@ public class DRPMedievalBlocks {
 	/** N **/
 
 	/** O **/
+	
+	public static ObsidianGlass OBSIDIAN_GLASS = new ObsidianGlass("obsidian_glass");
 
 	/** P **/
 
 	public static Planks1 PLANKS_1 = new Planks1("planks1", "planks1");
 	public static PackedIceBricks PACKED_ICE_BRICKS = new PackedIceBricks("packed_ice_bricks");
-	public static Pear PEAR_GREEN = new Pear("pear_green", new ItemStack(DRPMedievalItems.PearGreen, 1)); //TODO FIX PEARS
-	public static Pear PEAR_YELLOW = new Pear("pear_yellow", new ItemStack(DRPMedievalItems.PearYellow, 1));
+	public static Pear PEAR_GREEN = new Pear("pear_green", new ItemStack(DRPMedievalItems.PEAR_GREEN, 1)); //TODO FIX PEARS
+	public static Pear PEAR_YELLOW = new Pear("pear_yellow", new ItemStack(DRPMedievalItems.PEAR_YELLOW, 1));
 	public static PotteryTurntable POTTERY_TURNTABLE = new PotteryTurntable("pottery_turntable");
 	public static PotionEmpty POTION_EMPTY = new PotionEmpty("potion_empty"); //TODO Fix Potions
 	
@@ -311,27 +324,49 @@ public class DRPMedievalBlocks {
 	
 	public static SimpleChest CHEST_TEST = new SimpleChest("simple_chest");
 
+	public static UnfiredVase UNFIRED_VASE;
+	public static BeeHive BEE_HIVE;
+	public static BeesWaxCandle BEESWAX_CANDLE;
+	
+	
+	
+	
 	static List<Block> blocks = new ArrayList<Block>();
 	
-	public static void init(FMLPreInitializationEvent event) {
+	private static IForgeRegistry<Block> reg;
+	
+	@SubscribeEvent
+	public static final void register(RegistryEvent.Register<Block> event) {
+		reg = event.getRegistry();
+		
 
 		WoodHelper.init();
 
+//		public static UnfiredVase UNFIRED_VASE;
+//		public static BeeHive BEE_HIVE;
+//		public static BeesWaxCandle BEESWAX_CANDLE;
+		
+		registerBlock(UNFIRED_VASE = new UnfiredVase("unfired_vase"));
+		registerBlock(BEE_HIVE = new BeeHive("bee_hive"));
+		registerBlock(BEESWAX_CANDLE = new BeesWaxCandle("beeswax_candle"));
+		
+		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.DRY_CLAY = new DryClay("dry_clay"));
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.SNOW_BRICKS);
 		//registerBlock(APPLE_SAPPLING);
 		
-		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARLEY, new ItemBlock(DRPMedievalBlocks.BARLEY).setRegistryName(DRPMedievalBlocks.BARLEY.getRegistryName() + "_item"));
+		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARLEY, (ItemBlock) new ItemBlock(DRPMedievalBlocks.BARLEY).setRegistryName(DRPMedievalBlocks.BARLEY.getRegistryName() + "_item"));
 		
-		DRPMedievalBlocks.TIN_ORE.setOre(DRPMedievalItems.TIN_ORE_CHUNK);
-		DRPMedievalBlocks.COPPER_ORE.setOre(DRPMedievalItems.COPPER_ORE_CHUNK);
-		DRPMedievalBlocks.SILVER_ORE.setOre(DRPMedievalItems.SILVER_ORE_CHUNK);
-		DRPMedievalBlocks.SULFUR_ORE.setOre(DRPMedievalItems.SULFUR_ORE_CHUNK);
-		DRPMedievalBlocks.SALPETER_ORE.setOre(DRPMedievalItems.SALPETER_ORE_CHUNK);
+		DRPMedievalBlocks.TIN_ORE.setOre(DRPMedievalItems.ORE_CHUNK_TIN);
+		DRPMedievalBlocks.COPPER_ORE.setOre(DRPMedievalItems.ORE_CHUNK_COPPER);
+		DRPMedievalBlocks.SILVER_ORE.setOre(DRPMedievalItems.ORE_CHUNK_SILVER);
+		DRPMedievalBlocks.SULFUR_ORE.setOre(DRPMedievalItems.ORE_CHUNK_SULFUR);
+		DRPMedievalBlocks.SALPETER_ORE.setOre(DRPMedievalItems.ORE_CHUNK_SALPETER);
 		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.HOPS, null, false);
 		//registerBlock(ROPE_COIL);
 		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.JUICE_PRESS);
+		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.OBSIDIAN_GLASS);
 		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.POTTERY_TURNTABLE);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.AXLE);
@@ -393,20 +428,12 @@ public class DRPMedievalBlocks {
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_GUNPOWDER_ACACIA);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_GUNPOWDER_DARK_OAK);
 		
-		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_OAK, null);
-		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_BIRCH, null);
-		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_SPRUCE, null);
-		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_JUNGLE, null);
-		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_ACACIA, null);
-		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_DARK_OAK, null);
-		
-		//TODO FIX APIARYS
-//		REGISTERBLOCK(APIARY_OAK);
-//		REGISTERBLOCK(APIARY_BIRCH);
-//		REGISTERBLOCK(APIARY_SPRUCE);
-//		REGISTERBLOCK(APIARY_JUNGLE);
-//		REGISTERBLOCK(APIARY_ACACIA);
-//		REGISTERBLOCK(APIARY_DARK_OAK);
+//		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_OAK, null);
+//		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_BIRCH, null);
+//		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_SPRUCE, null);
+//		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_JUNGLE, null);
+//		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_ACACIA, null);
+//		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_DARK_OAK, null);
 
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_TABLE_OAK);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_TABLE_BIRCH);
@@ -465,13 +492,6 @@ public class DRPMedievalBlocks {
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.MOSSY_LOG_SPRUCE);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.MOSSY_LOG_OAK);
 		
-		//TODO FIX UP APPLE TREES
-		//registerBlock(PLANKS_1);
-		//registerBlock(LEAVES_1);
-		//registerBlock(LOGS_1);
-		
-		//TODO FIX UP HANGING BRIDGE
-		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM, null);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.HANGING_BRIDGE_TOP, null);
 		
@@ -492,47 +512,34 @@ public class DRPMedievalBlocks {
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.TORCH_HOLDER_UNLIT);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.TORCH_HOLDER_LIT);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.FIREPIT);
-		//registerBlock(BARLEY,null);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.PACKED_ICE_BRICKS);
 		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.SPINNING_WHEEL);
 		
 		DRPMedievalItems.SeedBarley = new SeedBarley();
-		//DRPMedievalItems.registerItem(DRPMedievalItems.SeedBarley);
 		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.GOLDEN_SHIPS_BELL);
 		
-		for(Block p : DRPMedievalBlocks.blocks){
-			DarkRoleplayMedieval.LOGGER.error(p.getRegistryName());
-		}
+		reg = null;
 	}
-
-	public static final void init(FMLInitializationEvent event) {}
-
-	public static final void init(FMLPostInitializationEvent event) {}
-
-	//public static final void registerBlockOld(Block block) {
-
-		//GameRegistry.registerBlock(block, (block.getUnlocalizedName().split("[.]"))[1]);
-	//}
 	
 	public static final void registerBlock(Block block) {
-		DRPMedievalBlocks.registerBlock(block,new ItemBlock(block).setRegistryName(block.getRegistryName()),true);
+		DRPMedievalBlocks.registerBlock(block,(ItemBlock) new ItemBlock(block).setRegistryName(block.getRegistryName()),true);
 	}
 	
 	public static final void registerBlock(Block block, boolean registerMesh) {
-		DRPMedievalBlocks.registerBlock(block,new ItemBlock(block).setRegistryName(block.getRegistryName()), registerMesh);
+		DRPMedievalBlocks.registerBlock(block,(ItemBlock) new ItemBlock(block).setRegistryName(block.getRegistryName()), registerMesh);
 	}
 
-	public static final void registerBlock(Block block, Item item) {
+	public static final void registerBlock(Block block, ItemBlock item) {
 		DRPMedievalBlocks.registerBlock(block, item, true);
 
 	}
 	
-	public static final void registerBlock(Block block, Item item, boolean registerMesh) {
-		GameRegistry.register(block);
+	public static final void registerBlock(Block block, ItemBlock item, boolean registerMesh) {
+		reg.register(block);
 		if(item != null){
-			GameRegistry.register(item);
+			DRPMedievalItems.addBlockItem(item);
 			if(registerMesh) {
 				DarkRoleplayMedieval.proxy.addItemToRegisterMesh(item);
 			}

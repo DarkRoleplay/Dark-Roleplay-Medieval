@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.handler;
 
+import net.dark_roleplay.drpcore.api.crafting.simple_recipe.SimpleRecipe;
 import net.dark_roleplay.drpcore.common.crafting.CraftingRegistry;
-import net.dark_roleplay.drpcore.common.crafting.SimpleRecipe;
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -24,6 +24,7 @@ public class DRPMedievalCrafting {
 		DRPMedievalCrafting.registerAnvilRecipes();
 		DRPMedievalCrafting.registerCauldronRecipes();
 		DRPMedievalCrafting.registerChoppingBlockRecipes();
+		DRPMedievalCrafting.registerPotteryTurntableRecipes();
 		
 	}
 	
@@ -32,31 +33,31 @@ public class DRPMedievalCrafting {
 		//Sittables
 		/*Simple Chairs*/
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "simple_chair_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_CHAIR_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_CHAIR_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "simple_chair_spruce"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_CHAIR_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_CHAIR_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 1)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "simple_chair_birch"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_CHAIR_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 2)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_CHAIR_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 2)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "simple_chair_jungle"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_CHAIR_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 3)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_CHAIR_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 3)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "simple_chair_dark_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_CHAIR_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 4)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_CHAIR_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 4)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "simple_chair_acacia"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_CHAIR_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 5)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_CHAIR_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 5)}), false);
 		
 		/*Barrel Chairs*/
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_chair_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CHAIR_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CHAIR_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_chair_spruce"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CHAIR_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CHAIR_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 1)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_chair_birch"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CHAIR_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 2)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CHAIR_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 2)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_chair_jungle"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CHAIR_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 3)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CHAIR_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 3)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_chair_dark_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CHAIR_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 4)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CHAIR_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 4)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_chair_acacia"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CHAIR_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 5)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CHAIR_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 5)}), false);
 		
 		/*Barrel Chairs*/
 		CraftingRegistry.registerRecipe(Blocks.AIR,"sittables",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "log_chair_oak"),
@@ -75,41 +76,41 @@ public class DRPMedievalCrafting {
 		//Crafting Materials
 		/*Planks Different Types*/
 		CraftingRegistry.registerRecipe(Blocks.AIR,"crafting_materials",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "plank_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 6, 0)},new ItemStack[]{new ItemStack(Blocks.LOG, 1, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 6, 0)},new ItemStack[]{new ItemStack(Blocks.LOG, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"crafting_materials",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "plank_spruce"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 6, 1)},new ItemStack[]{new ItemStack(Blocks.LOG, 1, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 6, 1)},new ItemStack[]{new ItemStack(Blocks.LOG, 1, 1)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"crafting_materials",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "plank_birch"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 6, 2)},new ItemStack[]{new ItemStack(Blocks.LOG, 1, 2)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 6, 2)},new ItemStack[]{new ItemStack(Blocks.LOG, 1, 2)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"crafting_materials",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "plank_jungle"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 6, 3)},new ItemStack[]{new ItemStack(Blocks.LOG, 1, 3)}), false);	
+			new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 6, 3)},new ItemStack[]{new ItemStack(Blocks.LOG, 1, 3)}), false);	
 		CraftingRegistry.registerRecipe(Blocks.AIR,"crafting_materials",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "plank_dark_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 6, 4)},new ItemStack[]{new ItemStack(Blocks.LOG2, 1, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 6, 4)},new ItemStack[]{new ItemStack(Blocks.LOG2, 1, 1)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"crafting_materials",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "plank_acacia"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 6, 5)},new ItemStack[]{new ItemStack(Blocks.LOG2, 1, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 6, 5)},new ItemStack[]{new ItemStack(Blocks.LOG2, 1, 0)}), false);
 		
 		CraftingRegistry.registerRecipe(Blocks.AIR,"crafting_materials",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "trigger_trap"),
-				new ItemStack[]{new ItemStack(DRPMedievalItems.TriggerTrap, 1, 0)},new ItemStack[]{new ItemStack(Blocks.TRIPWIRE_HOOK,1,0), new ItemStack(Items.STRING, 1, 0)}), false);	
+				new ItemStack[]{new ItemStack(DRPMedievalItems.TRIGGER_TRAP, 1, 0)},new ItemStack[]{new ItemStack(Blocks.TRIPWIRE_HOOK,1,0), new ItemStack(Items.STRING, 1, 0)}), false);	
 		CraftingRegistry.registerRecipe(Blocks.AIR,"crafting_materials",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "bark_and_glue"),
-				new ItemStack[]{new ItemStack(DRPMedievalItems.BarkAndGlue, 4, 0), new ItemStack(Blocks.PLANKS, 4, 0)},new ItemStack[]{new ItemStack(Blocks.LOG, 1, 0), new ItemStack(Items.SLIME_BALL, 1, 0)}), false);
+				new ItemStack[]{new ItemStack(DRPMedievalItems.BARK_AND_GLUE, 4, 0), new ItemStack(Blocks.PLANKS, 4, 0)},new ItemStack[]{new ItemStack(Blocks.LOG, 1, 0), new ItemStack(Items.SLIME_BALL, 1, 0)}), false);
 		
 		CraftingRegistry.registerRecipe(Blocks.AIR,"food_ingredients",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "dough_wheat"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.DoughWheat, 3, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.FlourWheat,3,0), new ItemStack(Items.WATER_BUCKET, 1, 0)}), false);	
+			new ItemStack[]{new ItemStack(DRPMedievalItems.DOUGH, 3, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.FLOUR, 3, 0), new ItemStack(Items.WATER_BUCKET, 1, 0)}), false);	
 		CraftingRegistry.registerRecipe(Blocks.AIR,"food_ingredients",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "dough_barley"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.DoughBarley, 3, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.FlourBarley,3,0), new ItemStack(Items.WATER_BUCKET, 1, 0)}), false);	
+			new ItemStack[]{new ItemStack(DRPMedievalItems.DOUGH, 3, 1)},new ItemStack[]{new ItemStack(DRPMedievalItems.FLOUR, 3, 1), new ItemStack(Items.WATER_BUCKET, 1, 0)}), false);	
 		CraftingRegistry.registerRecipe(Blocks.AIR,"food_ingredients",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "dough_wheat_pumpkin"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.DoughPumpkin, 3, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.FlourWheat,3,0), new ItemStack(Items.WATER_BUCKET, 1, 0), new ItemStack(Items.PUMPKIN_SEEDS,9,0)}), false);	
+			new ItemStack[]{new ItemStack(DRPMedievalItems.DOUGH_PUMPKIN, 3, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.FLOUR, 3, 0), new ItemStack(Items.WATER_BUCKET, 1, 0), new ItemStack(Items.PUMPKIN_SEEDS,9,0)}), false);	
 		CraftingRegistry.registerRecipe(Blocks.AIR,"food_ingredients",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "dough_barley_pumpkin"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.DoughPumpkin, 3, 1)},new ItemStack[]{new ItemStack(DRPMedievalItems.FlourBarley,3,0), new ItemStack(Items.WATER_BUCKET, 1, 0), new ItemStack(Items.PUMPKIN_SEEDS,9,0)}), false);	
+			new ItemStack[]{new ItemStack(DRPMedievalItems.DOUGH_PUMPKIN, 3, 1)},new ItemStack[]{new ItemStack(DRPMedievalItems.FLOUR, 3, 1), new ItemStack(Items.WATER_BUCKET, 1, 0), new ItemStack(Items.PUMPKIN_SEEDS,9,0)}), false);	
 		
 		/*Empty Bucket Spruce*/
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative", new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "empty_bucket_spruce"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BUCKET_EMPTY, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 3, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BUCKET_EMPTY, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 3, 1)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative", new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "water_bucket_spruce"),
 			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BUCKET_WATER, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalBlocks.BUCKET_EMPTY, 1, 0), new ItemStack(Items.WATER_BUCKET, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative", new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "dirt_bucket_spruce"),
 			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BUCKET_DIRT, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalBlocks.BUCKET_EMPTY, 1, 0), new ItemStack(Blocks.DIRT, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative", new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "flower_pot_spruce"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.FLOWER_POT, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.Plank,2,1), new ItemStack(Blocks.DIRT)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.FLOWER_POT, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS,2,1), new ItemStack(Blocks.DIRT)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "rope"),
 			new ItemStack[]{new ItemStack(DRPMedievalBlocks.ROPE, 1, 0)}, new ItemStack[]{new ItemStack(Items.STRING,3,0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "rope_anchor"),
@@ -117,57 +118,57 @@ public class DRPMedievalCrafting {
 		
 		/*SimpleTables*/
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "simple_table_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_TABLE_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_TABLE_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "simple_table_spruce"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_TABLE_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_TABLE_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 1)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "simple_table_birch"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_TABLE_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 2)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_TABLE_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 2)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "simple_table_jungle"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_TABLE_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 3)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_TABLE_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 3)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "simple_table_dark_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_TABLE_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 4)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_TABLE_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 4)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "simple_table_acacia"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_TABLE_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 5)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIMPLE_TABLE_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 5)}), false);
 		
 		/*Barrels*/
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_empty_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_empty_spruce"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 1)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_empty_birch"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 2)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 2)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_empty_jungle"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 3)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 3)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_empty_dark_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 4)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 4)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_empty_acacia"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 8, 5)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 8, 5)}), false);
 		
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_closed_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 10, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 10, 0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_closed_spruce"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 10, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 10, 1)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_closed_birch"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 10, 2)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 10, 2)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_closed_jungle"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 10, 3)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 10, 3)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_closed_dark_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 10, 4)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 10, 4)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_closed_acacia"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 10, 5)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_CLOSED_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 10, 5)}), false);
 		
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "sideway_barrel_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIDEWAY_BARREL_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 10, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIDEWAY_BARREL_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 10, 0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "sideway_barrel_spruce"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIDEWAY_BARREL_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 10, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIDEWAY_BARREL_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 10, 1)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "sideway_barrel_birch"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIDEWAY_BARREL_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 10, 2)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIDEWAY_BARREL_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 10, 2)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "sideway_barrel_jungle"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIDEWAY_BARREL_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 10, 3)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIDEWAY_BARREL_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 10, 3)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "sideway_barrel_dark_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIDEWAY_BARREL_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 10, 4)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIDEWAY_BARREL_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 10, 4)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "sideway_barrel_acacia"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIDEWAY_BARREL_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 10, 5)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SIDEWAY_BARREL_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 10, 5)}), false);
 		
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_water_oak"),
 			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_WATER_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_OAK,1,0), new ItemStack(Items.WATER_BUCKET)}), false);
@@ -196,33 +197,33 @@ public class DRPMedievalCrafting {
 			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_GUNPOWDER_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_EMPTY_ACACIA,1,0), new ItemStack(Items.GUNPOWDER, 9, 0)}), false);
 		
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "hanging_bridge"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.HANGING_BRIDGE, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.Plank,3,0), new ItemStack(DRPMedievalBlocks.ROPE, 2)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.HANGING_BRIDGE, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS,3,0), new ItemStack(DRPMedievalBlocks.ROPE, 2)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "rope_fence"),
 			new ItemStack[]{new ItemStack(DRPMedievalBlocks.ROPE_FENCE, 4, 0)}, new ItemStack[]{new ItemStack(Blocks.LOG,1,0), new ItemStack(DRPMedievalBlocks.ROPE, 4)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "mug_empty"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.MUG_EMPTY, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 1, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.MUG_EMPTY, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "ships_helm"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SHIPS_HELM, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 4, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SHIPS_HELM, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 4, 1)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "large_target"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.TARGET, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 6, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.TARGET, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 6, 1)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "decorative",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "book"),
 			new ItemStack[]{new ItemStack(DRPMedievalBlocks.bookOne, 1, 0)}, new ItemStack[]{new ItemStack(Items.BOOK, 1, 0)}), false);
 		
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_table_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_TABLE_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 2, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_TABLE_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 2, 0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_table_spruce"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_TABLE_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 2, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_TABLE_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 2, 1)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_table_birch"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_TABLE_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 2, 2)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_TABLE_BIRCH, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 2, 2)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_table_jungle"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_TABLE_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 2, 3)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_TABLE_JUNGLE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 2, 3)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_table_dark_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_TABLE_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 2, 4)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_TABLE_DARK_OAK, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 2, 4)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "barrel_table_acacia"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_TABLE_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 2, 5)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.BARREL_TABLE_ACACIA, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 2, 5)}), false);
 		
 		CraftingRegistry.registerRecipe(Blocks.AIR,"decorative",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "lectern_spruce"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.LARGE_LECTERN_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 6, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.LARGE_LECTERN_SPRUCE, 1, 0)},new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 6, 1)}), false);
 		
 		CraftingRegistry.registerRecipe(Blocks.AIR,"building",new SimpleRecipe(new ResourceLocation(DRPMedievalInfo.MODID, "clean_plank_oak"),
 			new ItemStack[]{new ItemStack(DRPMedievalBlocks.CLEAN_PLANKS, 1, 0)},new ItemStack[]{new ItemStack(Blocks.PLANKS, 1, 0)}), false);
@@ -262,7 +263,10 @@ public class DRPMedievalCrafting {
 		CraftingRegistry.registerRecipe(Blocks.AIR, "crafting_stations",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "chopping_block"),
 			new ItemStack[]{new ItemStack(DRPMedievalBlocks.CHOPPING_BLOCK, 1, 0)}, new ItemStack[]{new ItemStack(Blocks.LOG,1,0), new ItemStack(Items.IRON_AXE,1,0)}), false);
 		CraftingRegistry.registerRecipe(Blocks.AIR, "crafting_stations",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "spinning_wheel"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SPINNING_WHEEL, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.Plank, 20, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.SPINNING_WHEEL, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 20, 0)}), false);
+		CraftingRegistry.registerRecipe(Blocks.AIR, "crafting_stations",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "pottery_turntable"),
+				new ItemStack[]{new ItemStack(DRPMedievalBlocks.POTTERY_TURNTABLE, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.PLANKS, 14, 0), new ItemStack(Items.IRON_INGOT, 1)}), false);
+		
 	}
 	
 	private static void registerSpinningWheelRecipes(){
@@ -272,15 +276,15 @@ public class DRPMedievalCrafting {
 	
 	private static void registerMortarRecipes(){
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.MORTAR, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "wheat_flour"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.FlourWheat, 1, 0)}, new ItemStack[]{new ItemStack(Items.WHEAT, 1, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.FLOUR, 1, 0)}, new ItemStack[]{new ItemStack(Items.WHEAT, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.MORTAR, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "wheat_barley"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.FlourBarley, 1, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.BARLEY, 1, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.FLOUR, 1, 1)}, new ItemStack[]{new ItemStack(DRPMedievalItems.BARLEY, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.MORTAR, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "bone_meal"),
 			new ItemStack[]{new ItemStack(Items.DYE, 4, 15)}, new ItemStack[]{new ItemStack(Items.BONE, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.MORTAR, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "charcoal_powder"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.CHARCOAL_POWDER, 3, 0)}, new ItemStack[]{new ItemStack(Items.COAL, 1, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.POWDER_CHARCOAL, 3, 0)}, new ItemStack[]{new ItemStack(Items.COAL, 1, 1)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.MORTAR, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "gunpowder"),
-			new ItemStack[]{new ItemStack(Items.GUNPOWDER, 10, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.SALPETER_ORE_CHUNK, 7, 0), new ItemStack(DRPMedievalItems.SULFUR_ORE_CHUNK, 1, 0), new ItemStack(DRPMedievalItems.CHARCOAL_POWDER, 2, 0)}), false);
+			new ItemStack[]{new ItemStack(Items.GUNPOWDER, 10, 0)}, new ItemStack[]{new ItemStack(DRPMedievalItems.ORE_CHUNK_SALPETER, 7, 0), new ItemStack(DRPMedievalItems.ORE_CHUNK_SULFUR, 1, 0), new ItemStack(DRPMedievalItems.POWDER_CHARCOAL, 2, 0)}), false);
 	}
 	
 	private static void registerAnvilRecipes(){
@@ -297,33 +301,33 @@ public class DRPMedievalCrafting {
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.ANVIL, "crafting_stations",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "cauldron_firepit"),
 			new ItemStack[]{new ItemStack(DRPMedievalBlocks.CAULDRON, 1, 0)}, new ItemStack[]{new ItemStack(Items.IRON_INGOT,16,0)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.ANVIL, "storage",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "crate_spruce"),
-			new ItemStack[]{new ItemStack(DRPMedievalBlocks.CRATE, 2, 0)}, new ItemStack[]{new ItemStack(Items.IRON_INGOT,1,0), new ItemStack(DRPMedievalItems.Plank, 12, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalBlocks.CRATE, 2, 0)}, new ItemStack[]{new ItemStack(Items.IRON_INGOT,1,0), new ItemStack(DRPMedievalItems.PLANKS, 12, 1)}), false);
 	}
 	
 	private static void registerChoppingBlockRecipes(){
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.CHOPPING_BLOCK, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "firewood_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.Firewood, 4, 0)}, new ItemStack[]{new ItemStack(Blocks.LOG, 1, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.FIREWOOD, 4, 0)}, new ItemStack[]{new ItemStack(Blocks.LOG, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.CHOPPING_BLOCK, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "firewood_spruce"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.Firewood, 4, 1)}, new ItemStack[]{new ItemStack(Blocks.LOG, 1, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.FIREWOOD, 4, 1)}, new ItemStack[]{new ItemStack(Blocks.LOG, 1, 1)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.CHOPPING_BLOCK, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "firewood_birch"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.Firewood, 4, 2)}, new ItemStack[]{new ItemStack(Blocks.LOG, 1, 2)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.FIREWOOD, 4, 2)}, new ItemStack[]{new ItemStack(Blocks.LOG, 1, 2)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.CHOPPING_BLOCK, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "firewood_jungle"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.Firewood, 4, 3)}, new ItemStack[]{new ItemStack(Blocks.LOG, 1, 3)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.FIREWOOD, 4, 3)}, new ItemStack[]{new ItemStack(Blocks.LOG, 1, 3)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.CHOPPING_BLOCK, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "firewood_dark_oak"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.Firewood, 4, 4)}, new ItemStack[]{new ItemStack(Blocks.LOG2, 1, 1)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.FIREWOOD, 4, 4)}, new ItemStack[]{new ItemStack(Blocks.LOG2, 1, 1)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.CHOPPING_BLOCK, "crafting_materials",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "firewood_acacia"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.Firewood, 4, 5)}, new ItemStack[]{new ItemStack(Blocks.LOG2, 1, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.FIREWOOD, 4, 5)}, new ItemStack[]{new ItemStack(Blocks.LOG2, 1, 0)}), false);
 	}
 	
 	private static void registerCauldronRecipes(){
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.CAULDRON, "soups",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "chicken_stew"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.ChickenStew, 3, 0)}, new ItemStack[]{new ItemStack(Items.BOWL, 3, 0), new ItemStack(Items.WATER_BUCKET, 1, 0), new ItemStack(Items.CHICKEN, 1, 0), new ItemStack(Items.CARROT, 1, 0)}), false);
+			new ItemStack[]{new ItemStack(DRPMedievalItems.CHICKEN_STEW, 3, 0)}, new ItemStack[]{new ItemStack(Items.BOWL, 3, 0), new ItemStack(Items.WATER_BUCKET, 1, 0), new ItemStack(Items.CHICKEN, 1, 0), new ItemStack(Items.CARROT, 1, 0)}), false);
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.CAULDRON, "soups",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "cod_stew"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.CodStew, 3, 0)}, new ItemStack[]{new ItemStack(Items.BOWL, 3, 0), new ItemStack(Items.WATER_BUCKET, 1, 0), new ItemStack(Items.FISH, 1, 0), new ItemStack(Items.CARROT, 1, 0)}), false);		
+			new ItemStack[]{new ItemStack(DRPMedievalItems.COD_STEW, 3, 0)}, new ItemStack[]{new ItemStack(Items.BOWL, 3, 0), new ItemStack(Items.WATER_BUCKET, 1, 0), new ItemStack(Items.FISH, 1, 0), new ItemStack(Items.CARROT, 1, 0)}), false);		
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.CAULDRON, "soups",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "veggie_stew"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.VegieStew, 3, 0)}, new ItemStack[]{new ItemStack(Items.BOWL, 3, 0), new ItemStack(Items.WATER_BUCKET, 1, 0), new ItemStack(Items.POTATO, 1, 0), new ItemStack(Items.CARROT, 1, 0)}), false);	
+			new ItemStack[]{new ItemStack(DRPMedievalItems.VEGIE_STEW, 3, 0)}, new ItemStack[]{new ItemStack(Items.BOWL, 3, 0), new ItemStack(Items.WATER_BUCKET, 1, 0), new ItemStack(Items.POTATO, 1, 0), new ItemStack(Items.CARROT, 1, 0)}), false);	
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.CAULDRON, "soups",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "pumpkin_stew"),
-			new ItemStack[]{new ItemStack(DRPMedievalItems.PumpkinStew, 3, 0)}, new ItemStack[]{new ItemStack(Items.BOWL, 3, 0), new ItemStack(Items.WATER_BUCKET, 1, 0), new ItemStack(Blocks.PUMPKIN, 1, 0), new ItemStack(Items.CARROT, 1, 0)}), false);	
+			new ItemStack[]{new ItemStack(DRPMedievalItems.PUMPKIN_STEW, 3, 0)}, new ItemStack[]{new ItemStack(Items.BOWL, 3, 0), new ItemStack(Items.WATER_BUCKET, 1, 0), new ItemStack(Blocks.PUMPKIN, 1, 0), new ItemStack(Items.CARROT, 1, 0)}), false);	
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.CAULDRON, "soups",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "rabbit_stew"),
 			new ItemStack[]{new ItemStack(Items.RABBIT_STEW, 3, 0)}, new ItemStack[]{new ItemStack(Items.BOWL, 3, 0), new ItemStack(Items.WATER_BUCKET, 1, 0),  new ItemStack(Items.RABBIT, 2, 0), new ItemStack(Items.CARROT, 3, 0), new ItemStack(Items.POTATO, 3, 0), new ItemStack(Blocks.BROWN_MUSHROOM, 3, 0)}), false);	
 		CraftingRegistry.registerRecipe(DRPMedievalBlocks.CAULDRON, "soups",new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "beetroot_stew"),
@@ -333,5 +337,9 @@ public class DRPMedievalCrafting {
 		
 	}
 	
+	private static void registerPotteryTurntableRecipes(){
+		CraftingRegistry.registerRecipe(DRPMedievalBlocks.POTTERY_TURNTABLE, "decoration", new SimpleRecipe( new ResourceLocation(DRPMedievalInfo.MODID, "unfired_vase"),
+				new ItemStack[]{new ItemStack(DRPMedievalBlocks.UNFIRED_VASE, 1, 0)}, new ItemStack[]{new ItemStack(Items.CLAY_BALL, 4, 0)}), false);
+	}
 }
 

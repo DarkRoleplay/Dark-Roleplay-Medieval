@@ -1,12 +1,11 @@
 package net.dark_roleplay.medieval.common.items.blocks;
 
+import net.dark_roleplay.drpcore.api.items.DRPItem;
 import net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges.HangingBridge;
 import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumActionResult;
@@ -16,13 +15,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
-public class HangingBridge_Item extends Item{
-
-	public HangingBridge_Item(String registryName) {
-		this.setRegistryName(registryName);
-		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
+public class HangingBridge_Item extends DRPItem{
+	
+	public HangingBridge_Item(String name, String itemFolder, int stackSize, String... subNames){
+		super(name, itemFolder, stackSize, subNames);
 	}
+
 	
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){

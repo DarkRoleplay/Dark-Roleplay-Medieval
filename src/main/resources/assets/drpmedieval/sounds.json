@@ -1,11 +1,67 @@
 {
-	"block.ships_bell":{
+	"block_ships_bell":{
 		"category": "block",
-		"sounds": [
-			{
-				"name": "drpmedieval:blocks/ships_bell/ships_bell",
-				"stream": true
-			}
-		]
-	}
+		"subtitle": "drpmedieval.sounds.ships_bell",
+		"sounds": [ "drpmedieval:blocks/ships_bell/ships_bell" ]
+	},
+	"instrument_guitar_01":{
+        "category": "records",
+        "subtitle": "drpmedieval.sounds.guitar",
+        "sounds": [ "drpmedieval:instruments/guitar/guitar_01" ]
+    },
+    "instrument_guitar_02":{
+        "category": "records",
+        "subtitle": "drpmedieval.sounds.guitar",
+        "sounds": [ "drpmedieval:instruments/guitar/guitar_02" ]
+    },
+    "instrument_guitar_03":{
+        "category": "records",
+        "subtitle": "drpmedieval.sounds.guitar",
+        "sounds": [ "drpmedieval:instruments/guitar/guitar_03" ]
+    },
+    "instrument_guitar_04":{
+        "category": "records",
+        "subtitle": "drpmedieval.sounds.guitar",
+        "sounds": [ "drpmedieval:instruments/guitar/guitar_04" ]
+    },
+    "instrument_guitar_05":{
+        "category": "records",
+        "subtitle": "drpmedieval.sounds.guitar",
+        "sounds": [ "drpmedieval:instruments/guitar/guitar_05" ]
+    },
+    "instrument_guitar_06":{
+        "category": "records",
+        "subtitle": "drpmedieval.sounds.guitar",
+        "sounds": [ "drpmedieval:instruments/guitar/guitar_06" ]
+    },
+    "instrument_guitar_07":{
+        "category": "records",
+        "subtitle": "drpmedieval.sounds.guitar",
+        "sounds": [ "drpmedieval:instruments/guitar/guitar_07" ]
+    },
+    "instrument_guitar_08":{
+        "category": "records",
+        "subtitle": "drpmedieval.sounds.guitar",
+        "sounds": [ "drpmedieval:instruments/guitar/guitar_08" ]
+    },
+    "instrument_guitar_09":{
+        "category": "records",
+        "subtitle": "drpmedieval.sounds.guitar",
+        "sounds": [ "drpmedieval:instruments/guitar/guitar_09" ]
+    },
+    "instrument_guitar_10":{
+        "category": "records",
+        "subtitle": "drpmedieval.sounds.guitar",
+        "sounds": [ "drpmedieval:instruments/guitar/guitar_10" ]
+    },
+    "instrument_guitar_11":{
+        "category": "records",
+        "subtitle": "drpmedieval.sounds.guitar",
+        "sounds": [ "drpmedieval:instruments/guitar/guitar_11" ]
+    },
+    "instrument_guitar_12":{
+        "category": "records",
+        "subtitle": "drpmedieval.sounds.guitar",
+        "sounds": [ "drpmedieval:instruments/guitar/guitar_12" ]
+    }
 }

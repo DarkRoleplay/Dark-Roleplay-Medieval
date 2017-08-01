@@ -25,7 +25,7 @@ public class SpecialRenderShipsWheel extends TileEntitySpecialRenderer {
 	}
 
 	@Override
-	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int i) {
+	public void render(TileEntity tileentity, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
 
 		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMedievalBlocks.SHIPS_HELM)){
 			GL11.glPushMatrix();

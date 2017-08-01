@@ -2,8 +2,8 @@ package net.dark_roleplay.medieval.client.model_baking;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Function;
 
-import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.state.IBlockState;

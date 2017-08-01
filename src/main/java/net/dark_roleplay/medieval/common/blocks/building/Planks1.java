@@ -34,9 +34,9 @@ public class Planks1 extends Block{
     }
 
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list){
+    public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items){
         for (Planks1.EnumType Planks1$enumtype : Planks1.EnumType.values()){
-            list.add(new ItemStack(itemIn, 1, Planks1$enumtype.getMetadata()));
+        	items.add(new ItemStack(this, 1, Planks1$enumtype.getMetadata()));
         }
     }
 

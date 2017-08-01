@@ -1,0 +1,6 @@
+{
+    "parent": "drpmedieval:block/simple_chairs/simple_chair",
+    "textures": {
+        "all": "drpmedieval:blocks/simple_chairs/simple_chair_plank_oak"
+    }
+}

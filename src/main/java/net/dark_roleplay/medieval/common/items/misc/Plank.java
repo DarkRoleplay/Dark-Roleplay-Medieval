@@ -21,9 +21,9 @@ public class Plank extends Item {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-    public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems){
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items){
 		for(int i = 0; i < 6; i++){
-			subItems.add(new ItemStack(itemIn, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 

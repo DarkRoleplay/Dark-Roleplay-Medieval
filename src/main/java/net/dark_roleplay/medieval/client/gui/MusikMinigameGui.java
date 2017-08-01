@@ -113,7 +113,7 @@ public class MusikMinigameGui extends DRPGuiScreen implements ITimedGui{
 			    this.drawTexturedModalRect(bX + (int)((nt.getLane()+ 0.5) * noteWidth) - 3, h,120,0, 10, 16);
 		    }
 	    }
-	    this.fontRendererObj.drawStringWithShadow("Fails: " + this.fails, 5, 5, getIntFromColor(255,255,255,255));
+	    this.fontRenderer.drawStringWithShadow("Fails: " + this.fails, 5, 5, getIntFromColor(255,255,255,255));
 
 	}
 	

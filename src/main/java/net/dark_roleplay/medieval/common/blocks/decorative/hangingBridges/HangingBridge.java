@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import net.dark_roleplay.medieval.api.blocks.properties.UnlistedPropertyBool;
 import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
@@ -26,16 +27,19 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.property.ExtendedBlockState;
+import net.minecraftforge.common.property.IExtendedBlockState;
+import net.minecraftforge.common.property.IUnlistedProperty;
 
 public class HangingBridge extends Block {
 
 	public static final PropertyEnum<EnumAxis> AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class);
 	public static final PropertyInteger HEIGHT = PropertyInteger.create("height", 0, 7);
 	
-	public static final PropertyBool NORTH = PropertyBool.create("north");
-	public static final PropertyBool SOUTH = PropertyBool.create("south");
-	public static final PropertyBool WEST = PropertyBool.create("west");
-	public static final PropertyBool EAST = PropertyBool.create("east");
+	public static final UnlistedPropertyBool NORTH = UnlistedPropertyBool.create("north");
+	public static final UnlistedPropertyBool SOUTH = UnlistedPropertyBool.create("south");
+	public static final UnlistedPropertyBool WEST = UnlistedPropertyBool.create("west");
+	public static final UnlistedPropertyBool EAST = UnlistedPropertyBool.create("east");
 	
 	public static final AxisAlignedBB BOTTOM_AABB = new AxisAlignedBB(0F, 0F, 0F, 1F, 0.125F, 1F);
 
@@ -67,28 +71,28 @@ public class HangingBridge extends Block {
 	@Override
 	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean p_185477_7_){
         state = state.getActualState(worldIn, pos);
-        Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, HangingBridge.BOTTOM_AABB.move(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
+        Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, HangingBridge.BOTTOM_AABB.offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
 
-        if((state.getValue(HangingBridge.AXIS) == EnumAxis.X) && state.getValue(HangingBridge.WEST).booleanValue()){
-        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0f,0.0625f,1f,1f).move(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
-        }
-        
-        if((state.getValue(HangingBridge.AXIS) == EnumAxis.X) && state.getValue(HangingBridge.EAST).booleanValue()){
-        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0.9375f,0.875f,0f,1f,1f,1f).move(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
-        }
-        
-        if((state.getValue(HangingBridge.AXIS) == EnumAxis.Z) && state.getValue(HangingBridge.EAST).booleanValue()){
-        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0.9375f,1f,1f,1f).move(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
-        }
-        
-        if((state.getValue(HangingBridge.AXIS) == EnumAxis.Z) && state.getValue(HangingBridge.WEST).booleanValue()){
-        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0f,1f,1f,0.0625f).move(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
-        }
+//        if((state.getValue(HangingBridge.AXIS) == EnumAxis.X) && state.getValue(HangingBridge.WEST).booleanValue()){
+//        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0f,0.0625f,1f,1f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
+//        }
+//        
+//        if((state.getValue(HangingBridge.AXIS) == EnumAxis.X) && state.getValue(HangingBridge.EAST).booleanValue()){
+//        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0.9375f,0.875f,0f,1f,1f,1f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
+//        }
+//        
+//        if((state.getValue(HangingBridge.AXIS) == EnumAxis.Z) && state.getValue(HangingBridge.EAST).booleanValue()){
+//        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0.9375f,1f,1f,1f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
+//        }
+//        
+//        if((state.getValue(HangingBridge.AXIS) == EnumAxis.Z) && state.getValue(HangingBridge.WEST).booleanValue()){
+//        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0f,1f,1f,0.0625f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
+//        }
     }
 	
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos){
-        return  HangingBridge.BOTTOM_AABB.move(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F));
+        return  HangingBridge.BOTTOM_AABB.offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F));
     }
 	
 	@Override
@@ -111,7 +115,7 @@ public class HangingBridge extends Block {
 	
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {HangingBridge.AXIS, HangingBridge.HEIGHT, HangingBridge.NORTH, HangingBridge.SOUTH, HangingBridge.EAST, HangingBridge.WEST});
+		return new ExtendedBlockState(this, new IProperty[] {HangingBridge.AXIS, HangingBridge.HEIGHT}, new IUnlistedProperty[]{HangingBridge.NORTH, HangingBridge.SOUTH, HangingBridge.EAST, HangingBridge.WEST});
 	}
 	
 	
@@ -130,40 +134,49 @@ public class HangingBridge extends Block {
     }
 	
 	@Override
-	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-
-		boolean north = true;
-		boolean east = true;
-		boolean south = true;
-		boolean west = true;
-		if(state.getValue(HangingBridge.AXIS).equals(EnumAxis.X)){
-			if(this.doesBlockAlign(worldIn, pos.north())){
-				north = false;
+	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+		
+		state = super.getExtendedState(state, world, pos);
+		
+		if (state instanceof IExtendedBlockState){
+	
+			IExtendedBlockState ext = (IExtendedBlockState) state;
+			
+			boolean north = true;
+			boolean east = true;
+			boolean south = true;
+			boolean west = true;
+			if(state.getValue(HangingBridge.AXIS).equals(EnumAxis.X)){
+				if(this.doesBlockAlign(world, pos.north())){
+					north = false;
+				}
+				if(this.doesBlockAlign(world, pos.east())){
+					east = false;
+				}
+				if(this.doesBlockAlign(world, pos.south())){
+					south = false;
+				}
+				if(this.doesBlockAlign(world, pos.west())){
+					west = false;
+				}
+			}else if(state.getValue(HangingBridge.AXIS).equals(EnumAxis.Z)){
+				if(this.doesBlockAlign(world, pos.east())){
+					north = false;
+				}
+				if(this.doesBlockAlign(world, pos.south())){
+					east = false;
+				}
+				if(this.doesBlockAlign(world, pos.west())){
+					south = false;
+				}
+				if(this.doesBlockAlign(world, pos.north())){
+					west = false;
+				}
 			}
-			if(this.doesBlockAlign(worldIn, pos.east())){
-				east = false;
-			}
-			if(this.doesBlockAlign(worldIn, pos.south())){
-				south = false;
-			}
-			if(this.doesBlockAlign(worldIn, pos.west())){
-				west = false;
-			}
-		}else if(state.getValue(HangingBridge.AXIS).equals(EnumAxis.Z)){
-			if(this.doesBlockAlign(worldIn, pos.east())){
-				north = false;
-			}
-			if(this.doesBlockAlign(worldIn, pos.south())){
-				east = false;
-			}
-			if(this.doesBlockAlign(worldIn, pos.west())){
-				south = false;
-			}
-			if(this.doesBlockAlign(worldIn, pos.north())){
-				west = false;
-			}
+			ext = ext.withProperty(HangingBridge.NORTH, north).withProperty(HangingBridge.EAST, east).withProperty(HangingBridge.SOUTH, south).withProperty(HangingBridge.WEST, west);
+			state = ext;
 		}
-		return state.withProperty(HangingBridge.NORTH, north).withProperty(HangingBridge.EAST, east).withProperty(HangingBridge.SOUTH, south).withProperty(HangingBridge.WEST, west);
+		return state;
 	}
 	
 	private boolean doesBlockAlign(IBlockAccess world, BlockPos pos){

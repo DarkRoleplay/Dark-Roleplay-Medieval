@@ -17,10 +17,13 @@
 			"south":{"y":180},
 			"west":{"y":270}
 		},
-		"type":{
-			0:{"model":"drpmedieval:lecterns/large_lectern_bottom"},
-			1:{"model":"drpmedieval:lecterns/large_lectern_top"},
-			2:{"model":"drpmedieval:lecterns/large_lectern_book"}
+		"top":{
+			false: {"model":"drpmedieval:lecterns/large_lectern_bottom"},
+			true : {"model":"drpmedieval:lecterns/large_lectern_top"}
+		},
+		"book":{
+			false: {},
+			true:  {"model":"drpmedieval:lecterns/large_lectern_book"}
 		}
 	}
 }

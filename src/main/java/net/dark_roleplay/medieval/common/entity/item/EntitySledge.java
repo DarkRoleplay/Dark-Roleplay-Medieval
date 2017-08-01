@@ -204,7 +204,7 @@ public class EntitySledge extends EntityLiving implements IWorldNameable, IInven
             	
                 float f = (float)this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue() * 1F;
                 this.setAIMoveSpeed(f);
-                super.moveEntityWithHeading(0.0F, forward);
+                super.moveRelative(0F, 0F, forward, 0F);
             }else{
                 this.motionX = 0.0D;
                 this.motionY = 0.0D;
@@ -213,7 +213,7 @@ public class EntitySledge extends EntityLiving implements IWorldNameable, IInven
         } else{
             this.stepHeight = 1F;
             this.jumpMovementFactor = 0.02F;
-            super.moveEntityWithHeading(strafe, forward);
+            super.moveRelative(strafe, 0F, forward, 0F);
         }
         prevHeight = this.posY;
     }

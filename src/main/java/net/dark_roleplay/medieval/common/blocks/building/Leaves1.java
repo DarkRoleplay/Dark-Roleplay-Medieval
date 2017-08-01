@@ -38,9 +38,9 @@ public class Leaves1 extends DRPMLeaves {
 	 * returns 4 blocks)
 	 */
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
-		list.add(new ItemStack(itemIn, 1, Planks1.EnumType.APPLE.getMetadata()));
-		list.add(new ItemStack(itemIn, 1, Planks1.EnumType.PEAR.getMetadata()));
+	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
+		items.add(new ItemStack(this, 1, Planks1.EnumType.APPLE.getMetadata()));
+		items.add(new ItemStack(this, 1, Planks1.EnumType.PEAR.getMetadata()));
 	}
 
 	protected ItemStack getSilkTouchDrop(IBlockState state) {

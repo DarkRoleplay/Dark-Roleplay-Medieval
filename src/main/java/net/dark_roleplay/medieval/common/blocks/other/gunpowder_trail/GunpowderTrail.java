@@ -1,5 +1,6 @@
 package net.dark_roleplay.medieval.common.blocks.other.gunpowder_trail;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Set;
 
@@ -11,6 +12,7 @@ import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.BlockHorizontal;
+import net.minecraft.block.BlockTNT;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -138,7 +140,7 @@ public class GunpowderTrail extends Block {
 
 	@Override
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-		return worldIn.getBlockState(pos.down()).isFullyOpaque() || (worldIn.getBlockState(pos.down()).getBlock() == Blocks.GLOWSTONE);
+		return worldIn.getBlockState(pos.down()).isFullCube() || (worldIn.getBlockState(pos.down()).getBlock() == Blocks.GLOWSTONE);
 	}
 
 	@Override
@@ -193,39 +195,22 @@ public class GunpowderTrail extends Block {
 
 			if(state.getValue(GunpowderTrail.POWER) == 3){
 				BlockPos currentPos;
-				if(world.getBlockState((currentPos = pos.north())).getBlock() == DRPMedievalBlocks.GUNPOWDER_TRAIL){
-					this.ingiteNeighbor(world, currentPos);
-				}else if(world.getBlockState((currentPos = pos.north().up())).getBlock() == DRPMedievalBlocks.GUNPOWDER_TRAIL){
-					this.ingiteNeighbor(world, currentPos);
-				}else if(world.getBlockState((currentPos = pos.north().down())).getBlock() == DRPMedievalBlocks.GUNPOWDER_TRAIL){
-					this.ingiteNeighbor(world, currentPos);
-				}
-				
-				if(world.getBlockState((currentPos = pos.east())).getBlock() == DRPMedievalBlocks.GUNPOWDER_TRAIL){
-					this.ingiteNeighbor(world, currentPos);
-				}else if(world.getBlockState((currentPos = pos.east().up())).getBlock() == DRPMedievalBlocks.GUNPOWDER_TRAIL){
-					this.ingiteNeighbor(world, currentPos);
-				}else if(world.getBlockState((currentPos = pos.east().down())).getBlock() == DRPMedievalBlocks.GUNPOWDER_TRAIL){
-					this.ingiteNeighbor(world, currentPos);
-				}
-				
-				if(world.getBlockState((currentPos = pos.south())).getBlock() == DRPMedievalBlocks.GUNPOWDER_TRAIL){
-					this.ingiteNeighbor(world, currentPos);
-				}else if(world.getBlockState((currentPos = pos.south().up())).getBlock() == DRPMedievalBlocks.GUNPOWDER_TRAIL){
-					this.ingiteNeighbor(world, currentPos);
-				}else if(world.getBlockState((currentPos = pos.south().down())).getBlock() == DRPMedievalBlocks.GUNPOWDER_TRAIL){
-					this.ingiteNeighbor(world, currentPos);
-				}
-				
-				if(world.getBlockState((currentPos = pos.west())).getBlock() == DRPMedievalBlocks.GUNPOWDER_TRAIL){
-					this.ingiteNeighbor(world, currentPos);
-				}else if(world.getBlockState((currentPos = pos.west().up())).getBlock() == DRPMedievalBlocks.GUNPOWDER_TRAIL){
-					this.ingiteNeighbor(world, currentPos);
-				}else if(world.getBlockState((currentPos = pos.west().down())).getBlock() == DRPMedievalBlocks.GUNPOWDER_TRAIL){
-					this.ingiteNeighbor(world, currentPos);
-				}
+				this.ingiteNeighbor(world, pos.add(1,0,0));
+				this.ingiteNeighbor(world, pos.add(1,1,0));
+				this.ingiteNeighbor(world, pos.add(1,-1,0));
+				this.ingiteNeighbor(world, pos.add(-1,0,0));
+				this.ingiteNeighbor(world, pos.add(-1,1,0));
+				this.ingiteNeighbor(world, pos.add(-1,-1,0));
+				this.ingiteNeighbor(world, pos.add(0,0,1));
+				this.ingiteNeighbor(world, pos.add(0,1,1));
+				this.ingiteNeighbor(world, pos.add(0,-1,1));
+				this.ingiteNeighbor(world, pos.add(0,0,-1));
+				this.ingiteNeighbor(world, pos.add(0,1,-1));
+				this.ingiteNeighbor(world, pos.add(0,-1,-1));
 				world.scheduleUpdate(pos, this, 5);
 			}else if(state.getValue(GunpowderTrail.POWER) == 0){
+				world.setBlockToAir(pos);
+				igniteExplosives(world, pos);
 				world.createExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 0.1f, true);
 			}else{
 				world.scheduleUpdate(pos, this, 5);
@@ -234,10 +219,30 @@ public class GunpowderTrail extends Block {
     }
 	
 	private void ingiteNeighbor(World world, BlockPos pos){
-		if(world.getBlockState(pos).getValue(GunpowderTrail.POWER) == 0){
-			world.setBlockState(pos, world.getBlockState(pos).withProperty(GunpowderTrail.POWER, 4));
-			world.scheduleUpdate(pos, this, 5);
+		if(world.getBlockState(pos).getBlock() == DRPMedievalBlocks.GUNPOWDER_TRAIL){
+			if(world.getBlockState(pos).getValue(GunpowderTrail.POWER) == 0){
+				world.setBlockState(pos, world.getBlockState(pos).withProperty(GunpowderTrail.POWER, 4));
+				world.scheduleUpdate(pos, this, 5);
+			}
 		}
+	}
+	
+	
+	private void igniteExplosives(World world, BlockPos pos){
+		relativeIgnition(world, pos.up());
+		relativeIgnition(world, pos.down());
+		relativeIgnition(world, pos.east());
+		relativeIgnition(world, pos.west());
+		relativeIgnition(world, pos.north());
+		relativeIgnition(world, pos.south());
+	}
+	
+	private void relativeIgnition(World world, BlockPos pos){
+		IBlockState expl;
+		if((expl = world.getBlockState(pos)).getBlock() == Blocks.TNT){
+			((BlockTNT)expl.getBlock()).explode(world, pos, expl.withProperty(BlockTNT.EXPLODE, Boolean.valueOf(true)), null);
+            world.setBlockState(pos, Blocks.AIR.getDefaultState(), 11);
+        }
 	}
 	
 	@Override

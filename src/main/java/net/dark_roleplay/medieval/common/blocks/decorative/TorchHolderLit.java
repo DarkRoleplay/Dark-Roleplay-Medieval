@@ -259,14 +259,14 @@ public class TorchHolderLit extends Block {
 
 				}
 			}
-			else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(DRPMedievalItems.TriggerTrap)){
+			else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(DRPMedievalItems.TRIGGER_TRAP)){
 				if(state.getValue(TorchHolderLit.AddonLighter)){
 					state = state.cycleProperty(TorchHolderLit.AddonLighter);
 					state = state.cycleProperty(TorchHolderLit.AddonTrap);
 					world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
 					world.setBlockState(pos, state, 3);
 					if(!player.capabilities.isCreativeMode) {
-						player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TriggerTrap,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+						player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TRIGGER_TRAP,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
 					}
 				}
 				else if(state.getValue(TorchHolderLit.AddonTrap)){
@@ -276,13 +276,13 @@ public class TorchHolderLit extends Block {
 					state = state.cycleProperty(TorchHolderLit.AddonTrap);
 					world.setBlockState(pos, state, 3);
 					if(!player.capabilities.isCreativeMode) {
-						player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TriggerTrap,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
+						player.inventory.decrStackSize(InventoryHelper.getInventorySlotContainItem(DRPMedievalItems.TRIGGER_TRAP,  player.inventory.mainInventory.toArray(new ItemStack[]{})), 1);
 					}
 				}
 			}
 			else if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(Items.FLINT)){
 				if(state.getValue(TorchHolderLit.AddonTrap)){
-					world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TriggerTrap, 1)));
+					world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TRIGGER_TRAP, 1)));
 					state = state.cycleProperty(TorchHolderLit.AddonTrap);
 					state = state.cycleProperty(TorchHolderLit.AddonLighter);
 					world.setBlockState(pos, state, 3);
@@ -345,7 +345,7 @@ public class TorchHolderLit extends Block {
 				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
 			}
 			if(state.getValue(TorchHolderLit.AddonTrap)){
-				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TriggerTrap, 1)));
+				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TRIGGER_TRAP, 1)));
 			}
 		}
     }

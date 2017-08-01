@@ -17,22 +17,22 @@ public class LivingDrop {
 	public void onEntityDrop(LivingDropsEvent event) {
 
 		if(event.getEntityLiving() instanceof EntityBat){
-			random = new Random();
-			dropped = random.nextInt(3);
-			event.getEntityLiving().dropItem(DRPMedievalItems.BatEar, dropped);
+			LivingDrop.random = new Random();
+			LivingDrop.dropped = LivingDrop.random.nextInt(3);
+			event.getEntityLiving().dropItem(DRPMedievalItems.BAT_EAR, LivingDrop.dropped);
 		}
 
 		if(event.getEntityLiving() instanceof EntityWolf){
-			random = new Random();
-			dropped = 0;
+			LivingDrop.random = new Random();
+			LivingDrop.dropped = 0;
 			if(event.getSource().isProjectile()){
-				dropped = Math.abs(1/(random.nextInt(5)+1));
+				LivingDrop.dropped = Math.abs(1/(LivingDrop.random.nextInt(5)+1));
 			}else{
-				dropped = 1;
+				LivingDrop.dropped = 1;
 			}
-			event.getEntityLiving().dropItem(DRPMedievalItems.FurWolf, dropped);
-			dropped = random.nextInt(2) + 1;
-			event.getEntityLiving().dropItem(DRPMedievalItems.WolfMeatRaw, dropped);
+			event.getEntityLiving().dropItem(DRPMedievalItems.FUR_WOLF, LivingDrop.dropped);
+			LivingDrop.dropped = LivingDrop.random.nextInt(2) + 1;
+			event.getEntityLiving().dropItem(DRPMedievalItems.MEAT_RAW_WOLF, LivingDrop.dropped);
 		}
 	}
 

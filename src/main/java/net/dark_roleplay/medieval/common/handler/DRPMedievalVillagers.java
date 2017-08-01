@@ -28,7 +28,7 @@ public class DRPMedievalVillagers {
 				new EmeraldsForStacks(new ItemStack(Blocks.LOG2, 16, 0), new EntityVillager.PriceInfo(1,2)),
 				new EmeraldsForStacks(new ItemStack(Blocks.LOG2, 16, 1), new EntityVillager.PriceInfo(1,2)));
 		
-        VillagerRegistry.instance().register(DRPMedievalVillagers.PROFESSION_CARPENTER);
+        //VillagerRegistry.instance().register(DRPMedievalVillagers.PROFESSION_CARPENTER);
 	}
 	
 	public static void init(FMLPostInitializationEvent event) {

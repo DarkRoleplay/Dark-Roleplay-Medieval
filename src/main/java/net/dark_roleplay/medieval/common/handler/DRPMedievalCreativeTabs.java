@@ -8,7 +8,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class DRPMedievalCreativeTabs {
 
-	public static CreativeTabs DECORATION = new CreativeTabs("DRPMDecoration") {
+	public static CreativeTabs DECORATION = (new CreativeTabs("drpm_deco") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
@@ -24,9 +24,9 @@ public class DRPMedievalCreativeTabs {
 		public int getSearchbarWidth(){
 		    return 75;
 		}
-	}.setBackgroundImageName("drpmedieval.png");
+	}.setBackgroundImageName("drpmedieval.png"));
 	
-	public static CreativeTabs BUILDING_MATS = new CreativeTabs("DRPMBuildingMats") {
+	public static CreativeTabs BUILDING_MATS = (new CreativeTabs("drpm_build_mats") {
 
 		@Override
 		@SideOnly(Side.CLIENT)
@@ -43,9 +43,9 @@ public class DRPMedievalCreativeTabs {
 		public int getSearchbarWidth(){
 		    return 75;
 		}
-	}.setBackgroundImageName("drpmedieval.png");
+	}.setBackgroundImageName("drpmedieval.png"));
 	
-	public static CreativeTabs UTILITY = new CreativeTabs("DRPMUtility") {
+	public static CreativeTabs UTILITY = new CreativeTabs("drpm_utility") {
 
 		@Override
 		@SideOnly(Side.CLIENT)
@@ -65,13 +65,13 @@ public class DRPMedievalCreativeTabs {
 		}
 	}.setBackgroundImageName("drpmedieval.png");
 
-	public static CreativeTabs drpmedievalFoodTab = new CreativeTabs("DRPMFood") {
+	public static CreativeTabs drpmedievalFoodTab = new CreativeTabs("drpm_food") {
 
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 
-			return new ItemStack(DRPMedievalItems.CatfishCooked);
+			return new ItemStack(DRPMedievalItems.FISH_COOKED_CATFISH);
 		}
 		
 		@Override
@@ -85,12 +85,12 @@ public class DRPMedievalCreativeTabs {
 		}
 	}.setBackgroundImageName("drpmedieval.png");
 
-	public static CreativeTabs drpmedievalEquipTab = new CreativeTabs("DRPEquip") {
+	public static CreativeTabs drpmedievalEquipTab = new CreativeTabs("drpm_equip") {
 
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack((DRPMedievalItems.LeatherPurse));
+			return new ItemStack((DRPMedievalItems.LEATHER_PURSE));
 		}
 		
 		@Override
@@ -104,13 +104,13 @@ public class DRPMedievalCreativeTabs {
 		}
 	}.setBackgroundImageName("drpmedieval.png");
 
-	public static CreativeTabs drpmedievalMiscTab = new CreativeTabs("DRPMMisc") {
+	public static CreativeTabs drpmedievalMiscTab = new CreativeTabs("drpm_misc") {
 
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 
-			return new ItemStack(DRPMedievalItems.Firewood,1,2);
+			return new ItemStack(DRPMedievalItems.FIREWOOD, 1, 2);
 		}
 		
 		@Override

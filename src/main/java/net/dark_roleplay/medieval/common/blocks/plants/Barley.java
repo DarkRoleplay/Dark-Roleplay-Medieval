@@ -15,7 +15,7 @@ public class Barley extends Block_AdvancedCrop{
 
 	@Override
 	protected Item getSeed() {
-		return DRPMedievalItems.BatEar;
+		return DRPMedievalItems.BAT_EAR;
 	}
 
 	@Override

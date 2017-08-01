@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 public class AppleYellow extends TreePlant {
 
 	public AppleYellow() {
-		super(4, 25F, true, new ItemStack(DRPMedievalItems.AppleYellow, 1));
+		super(4, 25F, true, new ItemStack(DRPMedievalItems.APPLE_YELLOW, 1));
 		this.setRegistryName("AppleYellow");
 		this.setUnlocalizedName("AppleYellow");
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
@@ -20,6 +20,6 @@ public class AppleYellow extends TreePlant {
 	}
 
 	static { 
-		AGE = PropertyInteger.create("age", 0, 5);
+		TreePlant.AGE = PropertyInteger.create("age", 0, 5);
 	}
 }

@@ -1,5 +1,6 @@
 package net.dark_roleplay.medieval.common.items.consumable;
 
+import net.dark_roleplay.drpcore.api.items.DRPItem;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.BlockLog;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,11 +11,10 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BarkAndGlue extends Item{
+public class BarkAndGlue extends DRPItem{
 
-	public BarkAndGlue() {
-		this.setRegistryName("BarkAndGlue");
-		this.setUnlocalizedName("BarkAndGlue");
+	public BarkAndGlue(String registryName, int stackSize) {
+		super(registryName, stackSize);
 		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
 	

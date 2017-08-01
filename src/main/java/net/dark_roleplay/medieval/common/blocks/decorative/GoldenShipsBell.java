@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.blocks.decorative;
 
-import net.dark_roleplay.medieval.client.sound.SoundEvents;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
+import net.dark_roleplay.medieval.common.handler.DRPMedievalSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -108,7 +108,7 @@ public class GoldenShipsBell   extends Block {
 		if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN, true)) return Blocks.AIR.getDefaultState();
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
-			int dir = MathHelper.floor((entity.rotationYaw * 4.0F) / 360.0F + 0.5D) & 3;
+			int dir = MathHelper.floor(((entity.rotationYaw * 4.0F) / 360.0F) + 0.5D) & 3;
 			switch (dir) {
 				case 0:
 					return this.getDefaultState().withProperty(GoldenShipsBell.FACING, EnumFacing.NORTH);
@@ -126,16 +126,14 @@ public class GoldenShipsBell   extends Block {
 	}
 	
 	@Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-		if(!worldIn.isRemote){
-			worldIn.playSound(pos.getX(),pos.getY(),pos.getZ(), SoundEvents.ShipsBell, SoundCategory.BLOCKS, 3F, 1F, true);
-		}
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+		worldIn.playSound(player, pos, DRPMedievalSounds.SHIPS_BELL, SoundCategory.BLOCKS, 1F, 1.1F);
 		return true;
 	}
 	
 	@Override
-    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn){
-		worldIn.playSound(pos.getX(),pos.getY(),pos.getZ(), SoundEvents.ShipsBell, SoundCategory.BLOCKS, 3F, 1F, true);
+    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entity){
+		worldIn.playSound(null, pos, DRPMedievalSounds.SHIPS_BELL, SoundCategory.BLOCKS, 1F, 1.1F);
 	}
 
 }

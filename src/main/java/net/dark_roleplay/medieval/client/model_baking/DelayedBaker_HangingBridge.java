@@ -26,6 +26,7 @@ import net.minecraftforge.client.model.ICustomModelLoader;
 import net.minecraftforge.client.model.IModel;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.model.IModelState;
+import net.minecraftforge.common.property.IExtendedBlockState;
 
 public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomModelLoader{
 
@@ -49,29 +50,34 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 		
 		int yRot = state.getValue(HangingBridge.AXIS) == EnumAxis.Z ? 90 : 0;
 		int height = state.getValue(HangingBridge.HEIGHT) + (state.getBlock().getRegistryName().getResourcePath().contains("top") ? 8 : 0);
-		boolean north = state.getValue(HangingBridge.NORTH); 
-		boolean east = state.getValue(HangingBridge.EAST); 
-		boolean south = state.getValue(HangingBridge.SOUTH); 
-		boolean west = state.getValue(HangingBridge.WEST);
 		
-		this.addQuads(result, DelayedBaker_HangingBridge.planks[height], yRot, 0, state, side, rand);
-		
-		if(east){
-			this.addQuads(result, DelayedBaker_HangingBridge.rope_side[height], yRot + 180, 0, state, side, rand);
-			if(north){
-				this.addQuads(result, DelayedBaker_HangingBridge.post_right[height], yRot, 0, state, side, rand);
+		if(state instanceof IExtendedBlockState){
+			IExtendedBlockState ext = (IExtendedBlockState) state;
+			
+			boolean north = ext.getValue(HangingBridge.NORTH); 
+			boolean east = ext.getValue(HangingBridge.EAST); 
+			boolean south = ext.getValue(HangingBridge.SOUTH); 
+			boolean west = ext.getValue(HangingBridge.WEST);
+			
+			this.addQuads(result, DelayedBaker_HangingBridge.planks[height], yRot, 0, state, side, rand);
+			
+			if(east){
+				this.addQuads(result, DelayedBaker_HangingBridge.rope_side[height], yRot + 180, 0, state, side, rand);
+				if(north){
+					this.addQuads(result, DelayedBaker_HangingBridge.post_right[height], yRot, 0, state, side, rand);
+				}
+				if(south){
+					this.addQuads(result, DelayedBaker_HangingBridge.post_left[height], yRot + 180, 0, state, side, rand);
+				}
 			}
-			if(south){
-				this.addQuads(result, DelayedBaker_HangingBridge.post_left[height], yRot + 180, 0, state, side, rand);
-			}
-		}
-		if(west){
-			this.addQuads(result, DelayedBaker_HangingBridge.rope_side[height], yRot, 0, state, side, rand);
-			if(north){
-				this.addQuads(result, DelayedBaker_HangingBridge.post_left[height], yRot, 0, state, side, rand);
-			}
-			if(south){
-				this.addQuads(result, DelayedBaker_HangingBridge.post_right[height], yRot + 180, 0, state, side, rand);
+			if(west){
+				this.addQuads(result, DelayedBaker_HangingBridge.rope_side[height], yRot, 0, state, side, rand);
+				if(north){
+					this.addQuads(result, DelayedBaker_HangingBridge.post_left[height], yRot, 0, state, side, rand);
+				}
+				if(south){
+					this.addQuads(result, DelayedBaker_HangingBridge.post_right[height], yRot + 180, 0, state, side, rand);
+				}
 			}
 		}
 		
@@ -83,7 +89,7 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 	public Collection<ResourceLocation> getTextures() { return DelayedBaker_HangingBridge.textures; }
 
 	@Override
-	public IBakedModel bake(IModelState state, VertexFormat format, Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
+	public IBakedModel bake(IModelState state, VertexFormat format, java.util.function.Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
 		this.bakeInfo(format, bakedTextureGetter, new ResourceLocation(DRPMedievalInfo.MODID, "blocks/clean_plank_spruce"));
 		return this;
 	}

@@ -154,7 +154,7 @@ public class RenderEntitySledge extends RenderLiving<EntitySledge>{
             GlStateManager.disableRescaleNormal();
         }
         catch (Exception exception){
-            DarkRoleplayMedieval.LOGGER.error((String)"Couldn\'t render entity", (Throwable)exception);
+            DRPMedievalInfo.LOGGER.error((String)"Couldn\'t render entity", (Throwable)exception);
         }
 
         GlStateManager.setActiveTexture(OpenGlHelper.lightmapTexUnit);
