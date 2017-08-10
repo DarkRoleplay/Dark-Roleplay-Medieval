@@ -15,9 +15,10 @@ public class TileEntityFirepit extends TileEntity implements ILightProvider, ITi
 	float flicker = 0F;
 	int wait = 3;
 	
+	@Optional.Method(modid="albedo")
 	@Override
 	public Light provideLight() {
-//		update();
+		update();
 		return Light.builder()
 				.pos(this.getPos())
 				.color(0.8F + this.flicker, 0.6F + this.flicker, 0F)

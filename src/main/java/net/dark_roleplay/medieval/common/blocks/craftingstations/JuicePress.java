@@ -1,5 +1,6 @@
 package net.dark_roleplay.medieval.common.blocks.craftingstations;
 
+import net.dark_roleplay.drpcore.api.crafting.Crafting_Util;
 import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
 import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
 import net.dark_roleplay.medieval.common.blocks.BlockProperties;
@@ -45,7 +46,7 @@ public class JuicePress  extends FacedBlock {
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(world.isRemote){
-			player.openGui(DarkRoleplayCore.instance, DRPCoreGuis.DRPCORE_GUI_CRAFTING_RECIPESELECTION, player.world, pos.getX(), pos.getY(), pos.getZ());
+			Crafting_Util.openRecipeSelection(this);
 		}
 		return true;
 	}

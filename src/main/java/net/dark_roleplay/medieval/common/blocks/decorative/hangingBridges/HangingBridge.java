@@ -69,25 +69,28 @@ public class HangingBridge extends Block {
 	}
 	
 	@Override
-	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean p_185477_7_){
-        state = state.getActualState(worldIn, pos);
+	public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean p_185477_7_){
         Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, HangingBridge.BOTTOM_AABB.offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
 
-//        if((state.getValue(HangingBridge.AXIS) == EnumAxis.X) && state.getValue(HangingBridge.WEST).booleanValue()){
-//        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0f,0.0625f,1f,1f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
-//        }
-//        
-//        if((state.getValue(HangingBridge.AXIS) == EnumAxis.X) && state.getValue(HangingBridge.EAST).booleanValue()){
-//        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0.9375f,0.875f,0f,1f,1f,1f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
-//        }
-//        
-//        if((state.getValue(HangingBridge.AXIS) == EnumAxis.Z) && state.getValue(HangingBridge.EAST).booleanValue()){
-//        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0.9375f,1f,1f,1f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
-//        }
-//        
-//        if((state.getValue(HangingBridge.AXIS) == EnumAxis.Z) && state.getValue(HangingBridge.WEST).booleanValue()){
-//        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0f,1f,1f,0.0625f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
-//        }
+        if(state instanceof IExtendedBlockState){
+        	
+			IExtendedBlockState ext = (IExtendedBlockState) this.getExtendedState(state, world, pos);;
+			
+			boolean east = ext.getValue(HangingBridge.EAST) == null ? false : ext.getValue(HangingBridge.EAST); 
+			boolean west = ext.getValue(HangingBridge.WEST) == null ? false : ext.getValue(HangingBridge.WEST); 
+			
+			if(state.getValue(HangingBridge.AXIS) == EnumAxis.X ){
+				if(west)
+		        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0f,0.0625f,1f,1f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
+				if(east)
+		        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0.9375f,0.875f,0f,1f,1f,1f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
+			}else if(state.getValue(HangingBridge.AXIS) == EnumAxis.Z){
+				if(east)
+		        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0.9375f,1f,1f,1f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
+				if(west)
+		        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0f,1f,1f,0.0625f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
+			}
+        }
     }
 	
 	@Override

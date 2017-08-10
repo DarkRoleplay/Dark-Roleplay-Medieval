@@ -143,13 +143,6 @@ public class DRPMedievalBlocks {
 	public static BarrelFilled BARREL_GUNPOWDER_JUNGLE = new BarrelFilled("barrel_gunpowder_jungle");
 	public static BarrelFilled BARREL_GUNPOWDER_ACACIA = new BarrelFilled("barrel_gunpowder_acacia");
 	public static BarrelFilled BARREL_GUNPOWDER_DARK_OAK = new BarrelFilled("barrel_gunpowder_dark_oak");
-		
-//	public static BedFrame BED_FRAME_OAK = new BedFrame("bed_frame_oak", Items.BED);
-//	public static BedFrame BED_FRAME_SPRUCE = new BedFrame("bed_frame_spruce", Items.BED);
-//	public static BedFrame BED_FRAME_BIRCH = new BedFrame("bed_frame_birch", Items.BED);
-//	public static BedFrame BED_FRAME_JUNGLE = new BedFrame("bed_frame_jungle", Items.BED);
-//	public static BedFrame BED_FRAME_ACACIA = new BedFrame("bed_frame_acacia", Items.BED);
-//	public static BedFrame BED_FRAME_DARK_OAK = new BedFrame("bed_frame_dark_oak", Items.BED);
 	
 	public static BarrelTable BARREL_TABLE_OAK = new BarrelTable("barrel_table_oak");
 	public static BarrelTable BARREL_TABLE_BIRCH = new BarrelTable("barrel_table_birch");
@@ -427,13 +420,6 @@ public class DRPMedievalBlocks {
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_GUNPOWDER_JUNGLE);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_GUNPOWDER_ACACIA);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_GUNPOWDER_DARK_OAK);
-		
-//		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_OAK, null);
-//		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_BIRCH, null);
-//		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_SPRUCE, null);
-//		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_JUNGLE, null);
-//		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_ACACIA, null);
-//		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BED_FRAME_DARK_OAK, null);
 
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_TABLE_OAK);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARREL_TABLE_BIRCH);
@@ -541,7 +527,7 @@ public class DRPMedievalBlocks {
 		if(item != null){
 			DRPMedievalItems.addBlockItem(item);
 			if(registerMesh) {
-				DarkRoleplayMedieval.proxy.addItemToRegisterMesh(item);
+				DRPMedievalModels.addItemToRegisterMesh(item);
 			}
 		}
 	}

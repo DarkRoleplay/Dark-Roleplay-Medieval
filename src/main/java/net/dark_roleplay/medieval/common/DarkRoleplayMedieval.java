@@ -31,10 +31,13 @@ import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.ForgeVersion;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.IFuelHandler;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -100,12 +103,12 @@ public class DarkRoleplayMedieval {
 		EventHelper.registerEvents();
 		
 		if(event.getSide() == Side.CLIENT){
-			RenderPlayer steve = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("default"));
-			RenderPlayer alex = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("slim"));
+//			RenderPlayer steve = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("default"));
+//			RenderPlayer alex = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("slim"));
 //			steve.addLayer(new RenderLayerPremium());
 //			alex.addLayer(new RenderLayerPremium());
-			steve.addLayer(new RenderLayer_Guild());
-			alex.addLayer(new RenderLayer_Guild());
+//			steve.addLayer(new RenderLayer_Guild());
+//			alex.addLayer(new RenderLayer_Guild());
 		}
 		
 		this.registerFurnaceRecipes();
@@ -127,6 +130,11 @@ public class DarkRoleplayMedieval {
 		DRPMedievalLores.init(event);
 		DRPMedievalMappings.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
+		
+		ModContainer mod = Loader.instance().activeModContainer();
+		if(mod.getModId().equals(DRPMedievalInfo.MODID)){
+			DRPMedievalInfo.VERSION_STATUS = ForgeVersion.getResult(mod);
+		}
 	}
 
 	public void registerFurnaceRecipes() {

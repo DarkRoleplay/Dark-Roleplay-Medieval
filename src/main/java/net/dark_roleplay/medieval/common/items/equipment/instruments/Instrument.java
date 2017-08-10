@@ -27,11 +27,11 @@ public class Instrument extends DRPItem{
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand){
-		Random rnd = new Random();
-		this.instrument.playInstrument(world, player, player.getPosition(), rnd.nextInt(12));
-		this.instrument.playInstrument(world, player, player.getPosition(), rnd.nextInt(12));
-		this.instrument.playInstrument(world, player, player.getPosition(), rnd.nextInt(12));
-
+//		Random rnd = new Random();
+//		this.instrument.playInstrument(world, player, player.getPosition(), rnd.nextInt(12));
+//		this.instrument.playInstrument(world, player, player.getPosition(), rnd.nextInt(12));
+//		this.instrument.playInstrument(world, player, player.getPosition(), rnd.nextInt(12));
+//
 		return new ActionResult(EnumActionResult.SUCCESS, player.getHeldItem(hand));
 	}
 }

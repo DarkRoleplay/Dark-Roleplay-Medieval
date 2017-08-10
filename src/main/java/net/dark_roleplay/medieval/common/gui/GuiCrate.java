@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiCrate extends GuiContainer {
 
-	public static final ResourceLocation BACKGROUND = new ResourceLocation(DRPMedievalInfo.MODID + ":textures/guis/Crate.png");
+	public static final ResourceLocation BACKGROUND = new ResourceLocation(DRPMedievalInfo.MODID + ":textures/guis/crate.png");
 
 	public GuiCrate(Container container) {
 		super(container);

@@ -12,6 +12,4 @@ public class CommonProxy {
 	public void init(FMLInitializationEvent event) {}
 
 	public void init(FMLPostInitializationEvent event) {}
-	
-	public void addItemToRegisterMesh(Item item){}
 }
