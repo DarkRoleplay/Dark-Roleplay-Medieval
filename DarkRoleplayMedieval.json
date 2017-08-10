@@ -8,7 +8,9 @@
     "1.10-recomended" : "0.1.6",
 	"1.10.2-latest"     : "0.1.6",
     "1.10.2-recomended" : "0.1.6",
-	"1.11.2-latest"		: "0.1.7b"
+	"1.11.2-latest"		: "0.1.8",
+	"1.12-recomended"	: "0.2.0.1",
+	"1.12.1-recomended"	: "0.2.0.1"
   },
   "1.9" : {
     "0.1.4" : "* 1.9.4 Port, \n* Wolfs drop less fur if killed with bow",
@@ -24,5 +26,14 @@
     "0.1.4" : "* 1.9.4 Port, \n* Wolfs drop less fur if killed with bow",
 	"0.1.4b" : "Fixed forgoten example mod files",
 	"0.1.5" : "Fixed a few bugs \n Added a Ships Bell"
+  },
+  "1.11.2" : {
+    "0.1.8" : "Added a few blocks, try it out :P At least you have the mod already installed :P"
+  },
+  "1.12.1" : {
+	"0.2.0.1" : "* fixed missing localizations \n (0.2.0)\n + added beeswax candle\n+ added bee hive\n+ added Unvired Vase\n* done more things i forgot about"
+  },
+  "1.12.1" : {
+  	"0.2.0.1" : "* fixed missing localizations \n (0.2.0)\n + added beeswax candle\n+ added bee hive\n+ added Unvired Vase\n* done more things i forgot about"
   }
 }

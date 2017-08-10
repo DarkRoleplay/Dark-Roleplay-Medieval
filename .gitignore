@@ -25,3 +25,4 @@ greadle.bat
 script_buildCOMP.cmd
 script_buildDECOMP.cmd
 script_setupWorkspace.cmd
+*.launch

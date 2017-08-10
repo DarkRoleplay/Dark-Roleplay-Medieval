@@ -3,6 +3,7 @@
         "facing=north":{"model":"drpmedieval:log_chairs/log_chair_spruce"},
         "facing=east":{"model":"drpmedieval:log_chairs/log_chair_spruce", "y":90},
         "facing=south":{"model":"drpmedieval:log_chairs/log_chair_spruce", "y":180},
-        "facing=west":{"model":"drpmedieval:log_chairs/log_chair_spruce", "y":270}   
+        "facing=west":{"model":"drpmedieval:log_chairs/log_chair_spruce", "y":270},
+		"inventory":{"model":"drpmedieval:log_chairs/log_chair_spruce"}
     }
 }

@@ -1,0 +1,7 @@
+{
+    "parent": "drpmedieval:block/barrel_chairs/barrel_chair",
+    "textures": {
+        "side": "drpmedieval:blocks/barrels/barrel_side_acacia",
+        "top": "drpmedieval:blocks/barrels/barrel_top_acacia"
+    }
+}

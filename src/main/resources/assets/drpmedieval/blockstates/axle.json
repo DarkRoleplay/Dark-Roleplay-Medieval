@@ -1,0 +1,30 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model": "drpmedieval:axle/axle",
+        "textures": {
+			"texture": "drpmedieval:blocks/axle/axle",
+			"top": "drpmedieval:blocks/axle/axle"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{"model":"drpmedieval:axle/axle"}],
+		"axis":{
+			"z":{"x":90},
+			"y":{},
+			"x":{"x":90, "y":90}
+		},
+		"rotating":{
+			"0":{"textures": {
+				"texture": "drpmedieval:blocks/axle/axle"
+			}},
+			"1":{"textures": {
+				"texture": "drpmedieval:blocks/axle/axle_left"
+			}},
+			"2":{"textures": {
+				"texture": "drpmedieval:blocks/axle/axle_right"
+			}}
+		}
+	}
+}

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "drpmedieval:items/item_flour_wheat"
+        "layer0": "drpmedieval:items/bark_and_glue"
     }
 }

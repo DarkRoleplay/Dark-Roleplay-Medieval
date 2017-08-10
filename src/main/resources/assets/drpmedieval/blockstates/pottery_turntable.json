@@ -1,0 +1,24 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+	    "model": "drpmedieval:pottery_turntable/pottery_turntable",
+        "textures": {
+            "wood": "drpmedieval:blocks/pottery_turntable/clean_plank_spruce",
+			"metal": "drpmedieval:blocks/pottery_turntable/metal",
+			"bottom": "drpmedieval:blocks/pottery_turntable/clean_plank_dark_oak",
+			"top": "minecraft:blocks/stone"
+        },
+        "transform": "forge:default-block"
+    },
+    "variants": {
+		"normal": [{}],
+		"inventory":[{}],
+        "facing":{
+			"north": {},
+			"east": {"y" : 90},
+			"south": {"y" : 180},
+			"west": {"y" : 270}
+		
+		}
+    }
+}
