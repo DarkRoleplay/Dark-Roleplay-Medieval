@@ -3,6 +3,7 @@ package net.dark_roleplay.medieval.common;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.dark_roleplay.medieval.client.events.Event_GuiOpen;
 import net.dark_roleplay.medieval.client.renderer.premium.RenderLayerPremium;
 import net.dark_roleplay.medieval.client.renderer.premium.RenderLayer_Guild;
 import net.dark_roleplay.medieval.common.events.EventHelper;
@@ -103,6 +104,7 @@ public class DarkRoleplayMedieval {
 		EventHelper.registerEvents();
 		
 		if(event.getSide() == Side.CLIENT){
+			MinecraftForge.EVENT_BUS.register(new Event_GuiOpen());
 //			RenderPlayer steve = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("default"));
 //			RenderPlayer alex = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("slim"));
 //			steve.addLayer(new RenderLayerPremium());
