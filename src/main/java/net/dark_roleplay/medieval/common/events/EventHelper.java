@@ -10,7 +10,6 @@ public class EventHelper {
 
 		MinecraftForge.EVENT_BUS.register(new Event_PlayerCraftDRP());
 		MinecraftForge.EVENT_BUS.register(new LivingDrop());
-		MinecraftForge.EVENT_BUS.register(new ItemTooltip());
 		MinecraftForge.EVENT_BUS.register(new Event_WorldChange());
 	}
 

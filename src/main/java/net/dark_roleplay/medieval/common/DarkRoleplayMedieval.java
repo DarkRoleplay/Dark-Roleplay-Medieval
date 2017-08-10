@@ -7,6 +7,7 @@ import net.dark_roleplay.medieval.client.events.Event_GuiOpen;
 import net.dark_roleplay.medieval.client.renderer.premium.RenderLayerPremium;
 import net.dark_roleplay.medieval.client.renderer.premium.RenderLayer_Guild;
 import net.dark_roleplay.medieval.common.events.EventHelper;
+import net.dark_roleplay.medieval.common.events.ItemTooltip;
 import net.dark_roleplay.medieval.common.events.MissingMappings;
 import net.dark_roleplay.medieval.common.events.capabilities.Event_CapabilityTileEntity;
 import net.dark_roleplay.medieval.common.gui.GuiHandler;
@@ -105,6 +106,7 @@ public class DarkRoleplayMedieval {
 		
 		if(event.getSide() == Side.CLIENT){
 			MinecraftForge.EVENT_BUS.register(new Event_GuiOpen());
+			MinecraftForge.EVENT_BUS.register(new ItemTooltip());
 //			RenderPlayer steve = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("default"));
 //			RenderPlayer alex = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("slim"));
 //			steve.addLayer(new RenderLayerPremium());

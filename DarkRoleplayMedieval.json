@@ -9,8 +9,8 @@
 	"1.10.2-latest"     : "0.1.6",
     "1.10.2-recomended" : "0.1.6",
 	"1.11.2-latest"		: "0.1.8",
-	"1.12-recomended"	: "0.2.0.1",
-	"1.12.1-recomended"	: "0.2.0.1"
+	"1.12-recomended"	: "0.2.0.2",
+	"1.12.1-recomended"	: "0.2.0.2"
   },
   "1.9" : {
     "0.1.4" : "* 1.9.4 Port, \n* Wolfs drop less fur if killed with bow",

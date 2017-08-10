@@ -14,6 +14,7 @@ public class Event_GuiOpen {
 	
 	@SubscribeEvent
 	public void onEvent(GuiOpenEvent  event) {
+		System.out.println(DRPMedievalInfo.VERSION_STATUS.status);
 		if(!hasOpened && event.getGui() instanceof GuiMainMenu){
 			if(DRPCoreConfigs.GENERAL.UPDATE_GUI && DRPMedievalInfo.VERSION_STATUS.status == Status.OUTDATED || DRPMedievalInfo.VERSION_STATUS.status == Status.BETA_OUTDATED){
 				event.setGui(new Gui_UpdateAvailable());
