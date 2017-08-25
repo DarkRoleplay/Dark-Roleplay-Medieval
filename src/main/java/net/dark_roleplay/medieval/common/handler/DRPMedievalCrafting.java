@@ -70,6 +70,8 @@ public class DRPMedievalCrafting {
 			new SimpleRecipe(new ResourceLocation(MODID, "plank_dark_oak"), new StackList(new ItemStack(DRPMedievalItems.PLANKS, 6, 4)).asArr(), new StackList(new ItemStack(Blocks.LOG2, 1, 1)).asArr()),
 			new SimpleRecipe(new ResourceLocation(MODID, "plank_acacia"), new StackList(new ItemStack(DRPMedievalItems.PLANKS, 6, 5)).asArr(), new StackList(new ItemStack(Blocks.LOG2, 1, 0)).asArr()),
 			new SimpleRecipe(new ResourceLocation(MODID, "trigger_trap"), new StackList(new ItemStack(DRPMedievalItems.TRIGGER_TRAP, 1, 0)).asArr(), new StackList(new ItemStack(Blocks.TRIPWIRE_HOOK,1,0), new ItemStack(Items.STRING, 1, 0)).asArr()),
+			new SimpleRecipe(new ResourceLocation(MODID, "clean_paintbrush"), new StackList(new ItemStack(DRPMedievalItems.CLEAN_PAINTBRUSH, 1, 0)).asArr(), new StackList(new ItemStack(Items.STICK,1,0), new ItemStack(Items.STRING, 5, 0)).asArr()),
+			new SimpleRecipe(new ResourceLocation(MODID, "black_paintbrush"), new StackList(new ItemStack(DRPMedievalItems.BLACK_PAINTBRUSH, 1, 0)).asArr(), new StackList(new ItemStack(DRPMedievalItems.CLEAN_PAINTBRUSH,1,0), new ItemStack(Items.DYE, 1, 0)).asArr()),
 			new SimpleRecipe(new ResourceLocation(MODID, "bark_and_glue"), new StackList(new ItemStack(DRPMedievalItems.BARK_AND_GLUE, 4, 0), new ItemStack(Blocks.PLANKS, 4, 0)).asArr(), new StackList(new ItemStack(Blocks.LOG, 1, 0), new ItemStack(Items.SLIME_BALL, 1, 0)).asArr())
 		);
 		
@@ -135,7 +137,9 @@ public class DRPMedievalCrafting {
 			new SimpleRecipe(new ResourceLocation(MODID, "barrel_table_jungle"), new StackList(new ItemStack(DRPMedievalBlocks.BARREL_TABLE_JUNGLE, 1, 0)).asArr(),new StackList(new ItemStack(DRPMedievalItems.PLANKS, 2, 3)).asArr()),
 			new SimpleRecipe(new ResourceLocation(MODID, "barrel_table_dark_oak"), new StackList(new ItemStack(DRPMedievalBlocks.BARREL_TABLE_DARK_OAK, 1, 0)).asArr(),new StackList(new ItemStack(DRPMedievalItems.PLANKS, 2, 4)).asArr()),
 			new SimpleRecipe(new ResourceLocation(MODID, "barrel_table_acacia"), new StackList(new ItemStack(DRPMedievalBlocks.BARREL_TABLE_ACACIA, 1, 0)).asArr(),new StackList(new ItemStack(DRPMedievalItems.PLANKS, 2, 5)).asArr()),
-			new SimpleRecipe(new ResourceLocation(MODID, "lectern_spruce"), new StackList(new ItemStack(DRPMedievalBlocks.LARGE_LECTERN_SPRUCE, 1, 0)).asArr(),new StackList(new ItemStack(DRPMedievalItems.PLANKS, 6, 1)).asArr())
+			new SimpleRecipe(new ResourceLocation(MODID, "lectern_spruce"), new StackList(new ItemStack(DRPMedievalBlocks.LARGE_LECTERN_SPRUCE, 1, 0)).asArr(),new StackList(new ItemStack(DRPMedievalItems.PLANKS, 6, 1)).asArr()),
+			new SimpleRecipe(new ResourceLocation(MODID, "beeswax_candle"), new StackList(new ItemStack(DRPMedievalBlocks.BEESWAX_CANDLE, 1, 0)).asArr(), new StackList(new ItemStack(Items.STRING, 1, 0), new ItemStack(Items.ROTTEN_FLESH, 3, 0)).asArr()),
+			new SimpleRecipe(new ResourceLocation(MODID, "worktable"), new StackList(new ItemStack(DRPMedievalBlocks.WORK_TABLE, 1, 0)).asArr(), new StackList(new ItemStack(DRPMedievalItems.PLANKS, 6, 0)).asArr())
 		);
 
 		BUILDING.add(
@@ -224,6 +228,9 @@ public class DRPMedievalCrafting {
 			new SimpleRecipe(new ResourceLocation(MODID, "torch_holder_empty"), new StackList(new ItemStack(DRPMedievalBlocks.TORCH_HOLDER_EMPTY, 1, 0)).asArr(), new StackList(new ItemStack(Items.IRON_INGOT,1,0)).asArr()),
 			new SimpleRecipe(new ResourceLocation(MODID, "iron_chain"), new StackList(new ItemStack(DRPMedievalBlocks.CHAIN, 1, 0)).asArr(), new StackList(new ItemStack(Items.IRON_INGOT,1,0)).asArr()),
 			new SimpleRecipe(new ResourceLocation(MODID, "iron_hook"),new StackList(new ItemStack(DRPMedievalBlocks.IRON_HOOK, 1, 0)).asArr(), new StackList(new ItemStack(Items.IRON_INGOT,1,0)).asArr()),
+			new SimpleRecipe(new ResourceLocation(MODID, "candle_holder_empty"),new StackList(new ItemStack(DRPMedievalBlocks.CANDLE_HOLDER_EMPTY, 1, 0)).asArr(), new StackList(new ItemStack(Items.IRON_INGOT,1,0)).asArr()),
+			new SimpleRecipe(new ResourceLocation(MODID, "lantern"),new StackList(new ItemStack(DRPMedievalBlocks.LANTERN, 1, 0)).asArr(), new StackList(new ItemStack(Items.IRON_INGOT,2,0), new ItemStack(Blocks.GLASS_PANE, 1, 0)).asArr()),
+			new SimpleRecipe(new ResourceLocation(MODID, "shop_sign"),new StackList(new ItemStack(DRPMedievalBlocks.SHOP_SIGN, 1, 0)).asArr(), new StackList(new ItemStack(Items.IRON_INGOT,2,0), new ItemStack(DRPMedievalItems.PLANKS, 3, 0)).asArr()),
 			new SimpleRecipe(new ResourceLocation(MODID, "golden_ship_bell"), new StackList(new ItemStack(DRPMedievalBlocks.GOLDEN_SHIPS_BELL, 1, 0)).asArr(), new StackList(new ItemStack(Items.GOLD_INGOT,4,0), new ItemStack(DRPMedievalBlocks.ROPE,1,0)).asArr())
 		);
 		

@@ -1,0 +1,13 @@
+{
+    "variants":{
+        "axis=x,east=false,west=false":{"model":"drpmedieval:work_table/work_table_single"},
+		"axis=x,east=true,west=false":{"model":"drpmedieval:work_table/work_table_side", "y":180},
+		"axis=x,east=false,west=true":{"model":"drpmedieval:work_table/work_table_side"},
+		"axis=x,east=true,west=true":{"model":"drpmedieval:work_table/work_table_center"},
+		
+        "axis=z,east=false,west=false":{"model":"drpmedieval:work_table/work_table_single", "y":90},
+		"axis=z,east=true,west=false":{"model":"drpmedieval:work_table/work_table_side", "y":270},
+		"axis=z,east=false,west=true":{"model":"drpmedieval:work_table/work_table_side", "y":90},
+		"axis=z,east=true,west=true":{"model":"drpmedieval:work_table/work_table_center", "y":90}		
+    }
+}

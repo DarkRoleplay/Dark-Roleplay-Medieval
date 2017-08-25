@@ -188,4 +188,45 @@ public class HangingBridge extends Block {
 				world.getBlockState(pos.up()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.up()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_TOP) ||
 				world.getBlockState(pos.down()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.down()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_TOP);
 	}
+	
+	@Override
+	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
+		EnumAxis axis = state.getValue(AXIS);
+		if(axis == EnumAxis.Z){
+			if(world.getBlockState(pos.add(1, 0, 0)).getBlock() == this && world.getBlockState(pos.add(-1, 0, 0)).getBlock() == this){
+				int offset = loopTroughBlocks(world, pos, axis, 1);
+				loopTroughBlocks(world, pos.add(offset - 1, 1, 0), axis, 1);
+				loopTroughBlocks(world, pos.add(offset - 1, -1, 0), axis, 1);
+
+				offset = loopTroughBlocks(world, pos, axis, -1);
+				loopTroughBlocks(world, pos.add(offset - 1, 1, 0), axis, -1);
+				loopTroughBlocks(world, pos.add(offset - 1, -1, 0), axis, -1);
+			}
+		}else if(axis == EnumAxis.X){
+			if(world.getBlockState(pos.add(0, 0, 1)).getBlock() == this && world.getBlockState(pos.add(0, 0, -1)).getBlock() == this){
+				loopTroughBlocks(world, pos, axis, 1);
+				loopTroughBlocks(world, pos, axis, -1);
+				loopTroughBlocks(world, pos.up(), axis, 1);
+				loopTroughBlocks(world, pos.up(), axis, -1);
+				loopTroughBlocks(world, pos.down(), axis, 1);
+				loopTroughBlocks(world, pos.down(), axis, -1);
+			}
+		}
+    }
+	
+	private int loopTroughBlocks(World world, BlockPos pos, EnumAxis axis, int calc){
+		int i = calc;
+		if(axis == EnumAxis.Z){
+			while(world.getBlockState(pos.add(i,0,0)).getBlock() == this){
+				world.destroyBlock(pos.add(i,0,0), true);
+				i += calc;
+			}
+		}else if(axis == EnumAxis.X){
+			while(world.getBlockState(pos.add(0,0,i)).getBlock() == this){
+				world.destroyBlock(pos.add(0,0,i), true);
+				i += calc;
+			}
+		}
+		return i;
+	}
 }

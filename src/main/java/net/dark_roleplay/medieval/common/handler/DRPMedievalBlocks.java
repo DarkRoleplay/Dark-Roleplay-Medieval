@@ -5,81 +5,45 @@ import java.util.List;
 
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.blocks.WoodHelper;
-import net.dark_roleplay.medieval.common.blocks.building.CleanPlanks;
-import net.dark_roleplay.medieval.common.blocks.building.DryClay;
-import net.dark_roleplay.medieval.common.blocks.building.MossyLog;
-import net.dark_roleplay.medieval.common.blocks.building.ObsidianGlass;
-import net.dark_roleplay.medieval.common.blocks.building.PackedIceBricks;
-import net.dark_roleplay.medieval.common.blocks.building.Planks1;
-import net.dark_roleplay.medieval.common.blocks.building.SnowBricks;
-import net.dark_roleplay.medieval.common.blocks.building.StoneBricks;
-import net.dark_roleplay.medieval.common.blocks.building.StonePillar;
-import net.dark_roleplay.medieval.common.blocks.craftingstations.Anvil;
-import net.dark_roleplay.medieval.common.blocks.craftingstations.Cauldron;
-import net.dark_roleplay.medieval.common.blocks.craftingstations.ChoppingBlock;
-import net.dark_roleplay.medieval.common.blocks.craftingstations.Firepit;
-import net.dark_roleplay.medieval.common.blocks.craftingstations.Grindstone;
-import net.dark_roleplay.medieval.common.blocks.craftingstations.HangingCauldron;
-import net.dark_roleplay.medieval.common.blocks.craftingstations.JuicePress;
-import net.dark_roleplay.medieval.common.blocks.craftingstations.Mortar;
-import net.dark_roleplay.medieval.common.blocks.craftingstations.PotteryTurntable;
-import net.dark_roleplay.medieval.common.blocks.craftingstations.SpinningWheel;
-import net.dark_roleplay.medieval.common.blocks.decorative.BedFrame;
-import net.dark_roleplay.medieval.common.blocks.decorative.BookOne;
-import net.dark_roleplay.medieval.common.blocks.decorative.Chain;
-import net.dark_roleplay.medieval.common.blocks.decorative.GoldenShipsBell;
-import net.dark_roleplay.medieval.common.blocks.decorative.Hook;
-import net.dark_roleplay.medieval.common.blocks.decorative.KeyHanging;
-import net.dark_roleplay.medieval.common.blocks.decorative.MugBeer;
-import net.dark_roleplay.medieval.common.blocks.decorative.MugEmpty;
-import net.dark_roleplay.medieval.common.blocks.decorative.PotionEmpty;
-import net.dark_roleplay.medieval.common.blocks.decorative.Rope;
-import net.dark_roleplay.medieval.common.blocks.decorative.RopeAnchor;
-import net.dark_roleplay.medieval.common.blocks.decorative.ShipsHelm;
-import net.dark_roleplay.medieval.common.blocks.decorative.Target;
-import net.dark_roleplay.medieval.common.blocks.decorative.TorchHolderEmpty;
-import net.dark_roleplay.medieval.common.blocks.decorative.TorchHolderLit;
-import net.dark_roleplay.medieval.common.blocks.decorative.TorchHolderUnlit;
-import net.dark_roleplay.medieval.common.blocks.decorative.barrels.BarrelClosed;
-import net.dark_roleplay.medieval.common.blocks.decorative.barrels.BarrelEmpty;
-import net.dark_roleplay.medieval.common.blocks.decorative.barrels.BarrelFilled;
-import net.dark_roleplay.medieval.common.blocks.decorative.barrels.SidewayBarrel;
-import net.dark_roleplay.medieval.common.blocks.decorative.buckets.Bucket;
-import net.dark_roleplay.medieval.common.blocks.decorative.buckets.BucketDirt;
-import net.dark_roleplay.medieval.common.blocks.decorative.candles.BeesWaxCandle;
-import net.dark_roleplay.medieval.common.blocks.decorative.chairs.BarrelChair;
-import net.dark_roleplay.medieval.common.blocks.decorative.chairs.LogChair;
-import net.dark_roleplay.medieval.common.blocks.decorative.chairs.SimpleChair;
-import net.dark_roleplay.medieval.common.blocks.decorative.flowerPot.FlowerPot;
-import net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges.HangingBridge;
-import net.dark_roleplay.medieval.common.blocks.decorative.lecterns.LargeLectern;
-import net.dark_roleplay.medieval.common.blocks.decorative.pottery.UnfiredVase;
-import net.dark_roleplay.medieval.common.blocks.decorative.ropeFence.RopeFence;
-import net.dark_roleplay.medieval.common.blocks.decorative.tables.BarrelTable;
-import net.dark_roleplay.medieval.common.blocks.decorative.tables.SimpleTable;
-import net.dark_roleplay.medieval.common.blocks.minerals.AdvancedOre;
-import net.dark_roleplay.medieval.common.blocks.other.BeeHive;
-import net.dark_roleplay.medieval.common.blocks.other.RegeneratingOre;
-import net.dark_roleplay.medieval.common.blocks.other.RopeCoil;
-import net.dark_roleplay.medieval.common.blocks.other.gunpowder_trail.GunpowderTrail;
-import net.dark_roleplay.medieval.common.blocks.plants.Barley;
-import net.dark_roleplay.medieval.common.blocks.plants.Hops;
+import net.dark_roleplay.medieval.common.blocks.building.*;
+import net.dark_roleplay.medieval.common.blocks.craftingstations.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.barrels.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.buckets.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.candles.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.chairs.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.flowerPot.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.lanterns.Lantern;
+import net.dark_roleplay.medieval.common.blocks.decorative.lecterns.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.pottery.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.ropeFence.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.tables.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.wall_mounted.*;
+import net.dark_roleplay.medieval.common.blocks.minerals.*;
+import net.dark_roleplay.medieval.common.blocks.other.*;
+import net.dark_roleplay.medieval.common.blocks.other.gunpowder_trail.*;
+import net.dark_roleplay.medieval.common.blocks.plants.*;
 import net.dark_roleplay.medieval.common.blocks.plants.apples.Apple;
 import net.dark_roleplay.medieval.common.blocks.plants.mushrooms.Mushroom;
 import net.dark_roleplay.medieval.common.blocks.plants.pears.Pear;
 import net.dark_roleplay.medieval.common.blocks.plants.sapling.AppleSappling;
-import net.dark_roleplay.medieval.common.blocks.rotary.Axle;
-import net.dark_roleplay.medieval.common.blocks.storage.Crate;
-import net.dark_roleplay.medieval.common.blocks.storage.DungeonChest;
-import net.dark_roleplay.medieval.common.blocks.storage.SimpleChest;
-import net.dark_roleplay.medieval.common.items.blocks.CleanPlankItem;
-import net.dark_roleplay.medieval.common.items.seeds.SeedBarley;
+import net.dark_roleplay.medieval.common.blocks.rotary.*;
+import net.dark_roleplay.medieval.common.blocks.storage.*;
+import net.dark_roleplay.medieval.common.blocks.util.shop_sign.ShopSign;
+import net.dark_roleplay.medieval.common.items.blocks.*;
+import net.dark_roleplay.medieval.common.items.seeds.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -163,7 +127,7 @@ public class DRPMedievalBlocks {
 	public static ChoppingBlock CHOPPING_BLOCK = new ChoppingBlock("chopping_block");
 	public static CleanPlanks CLEAN_PLANKS = new CleanPlanks("clean_planks");
 	public static Crate CRATE = new Crate("crate");
-	public static AdvancedOre COPPER_ORE = new AdvancedOre("copper_ore");
+	public static AdvancedOre COPPER_ORE = new AdvancedOre("copper_ore", 1);
 	
 	
 	/** D **/
@@ -263,9 +227,9 @@ public class DRPMedievalBlocks {
 	
 	/** S **/
 
-	public static AdvancedOre SALPETER_ORE = new AdvancedOre("salpeter_ore");
-	public static AdvancedOre SULFUR_ORE = new AdvancedOre("sulfur_ore");
-	public static AdvancedOre SILVER_ORE = new AdvancedOre("silver_ore");
+	public static AdvancedOre SALPETER_ORE = new AdvancedOre("salpeter_ore", 1);
+	public static AdvancedOre SULFUR_ORE = new AdvancedOre("sulfur_ore", 1);
+	public static AdvancedOre SILVER_ORE = new AdvancedOre("silver_ore", 2);
 	
 	public static SimpleChair SIMPLE_CHAIR_OAK = new SimpleChair("simple_chair_oak");;
 	public static SimpleChair SIMPLE_CHAIR_BIRCH = new SimpleChair("simple_chair_birch");
@@ -297,12 +261,17 @@ public class DRPMedievalBlocks {
 	
 	/** T **/
 
-	public static AdvancedOre TIN_ORE = new AdvancedOre("tin_ore");
+	public static AdvancedOre TIN_ORE = new AdvancedOre("tin_ore", 1);
 	public static Target TARGET = new Target("target");
-	public static TorchHolderEmpty TORCH_HOLDER_EMPTY = new TorchHolderEmpty("torch_holder_empty");
-	public static TorchHolderLit TORCH_HOLDER_LIT = new TorchHolderLit("torch_holder_lit");
-	public static TorchHolderUnlit TORCH_HOLDER_UNLIT = new TorchHolderUnlit("torch_holder_unlit");
+	
+	public static EmptyWallMount TORCH_HOLDER_EMPTY = new EmptyWallMount("torch_holder_empty", new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F));
+	public static LitWallMount TORCH_HOLDER_LIT = new LitWallMount("torch_holder_lit", new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F), 0.23D, 0.82D);
+	public static UnlitWallMount TORCH_HOLDER_UNLIT = new UnlitWallMount("torch_holder_unlit", new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F));
 
+	public static EmptyWallMount CANDLE_HOLDER_EMPTY = new EmptyWallMount("candle_holder_empty", new AxisAlignedBB(0.3125F, 0F, 0.5F, 0.6875F, 0.9375F, 1.0F));
+	public static LitWallMount CANDLE_HOLDER_LIT = new LitWallMount("candle_holder_lit",         new AxisAlignedBB(0.3125F, 0F, 0.5F, 0.6875F, 0.9375F, 1.0F), 0.19D, 1.05D);
+	public static UnlitWallMount CANDLE_HOLDER_UNLIT = new UnlitWallMount("candle_holder_unlit", new AxisAlignedBB(0.3125F, 0F, 0.5F, 0.6875F, 0.9375F, 1.0F));
+	
 	/** U **/
 
 	/** V **/
@@ -317,12 +286,18 @@ public class DRPMedievalBlocks {
 	
 	public static SimpleChest CHEST_TEST = new SimpleChest("simple_chest");
 
-	public static UnfiredVase UNFIRED_VASE;
+	public static UnfiredPottery UNFIRED_VASE;
+	public static FiredPottery FIRED_VASE;
+
 	public static BeeHive BEE_HIVE;
 	public static BeesWaxCandle BEESWAX_CANDLE;
 	
+	public static WorkTable WORK_TABLE;
+	public static ButterChurn BUTTER_CHURN;
 	
+	public static Lantern LANTERN;
 	
+	public static ShopSign SHOP_SIGN;
 	
 	static List<Block> blocks = new ArrayList<Block>();
 	
@@ -331,29 +306,28 @@ public class DRPMedievalBlocks {
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Block> event) {
 		reg = event.getRegistry();
-		
 
 		WoodHelper.init();
-
-//		public static UnfiredVase UNFIRED_VASE;
-//		public static BeeHive BEE_HIVE;
-//		public static BeesWaxCandle BEESWAX_CANDLE;
 		
-		registerBlock(UNFIRED_VASE = new UnfiredVase("unfired_vase"));
+		registerBlock(LANTERN = (Lantern) new Lantern("lantern", Material.IRON, new AxisAlignedBB(0.25F, 0F, 0.25F, 0.75F, 0.5F, 0.75F)).setCreativeTab(DRPMedievalCreativeTabs.DECORATION));
+		registerBlock(WORK_TABLE = new WorkTable("work_table"));
+		registerBlock(BUTTER_CHURN = new ButterChurn("butter_churn"));
+		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.CANDLE_HOLDER_EMPTY);
+		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.CANDLE_HOLDER_UNLIT);
+		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.CANDLE_HOLDER_LIT);
+		
+		registerBlock(UNFIRED_VASE = new UnfiredPottery("unfired_vase", new AxisAlignedBB(0.3125F, 0F, 0.3125F, 0.6875F, 0.5815F, 0.6875F)));
+		registerBlock(FIRED_VASE = new FiredPottery("fired_vase", new AxisAlignedBB(0.3125F, 0F, 0.3125F, 0.6875F, 0.5815F, 0.6875F)));
 		registerBlock(BEE_HIVE = new BeeHive("bee_hive"));
 		registerBlock(BEESWAX_CANDLE = new BeesWaxCandle("beeswax_candle"));
+		
+		registerBlock(SHOP_SIGN = (ShopSign) new ShopSign("wall_shop_sign").setCreativeTab(DRPMedievalCreativeTabs.DECORATION));
 		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.DRY_CLAY = new DryClay("dry_clay"));
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.SNOW_BRICKS);
 		//registerBlock(APPLE_SAPPLING);
 		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.BARLEY, (ItemBlock) new ItemBlock(DRPMedievalBlocks.BARLEY).setRegistryName(DRPMedievalBlocks.BARLEY.getRegistryName() + "_item"));
-		
-		DRPMedievalBlocks.TIN_ORE.setOre(DRPMedievalItems.ORE_CHUNK_TIN);
-		DRPMedievalBlocks.COPPER_ORE.setOre(DRPMedievalItems.ORE_CHUNK_COPPER);
-		DRPMedievalBlocks.SILVER_ORE.setOre(DRPMedievalItems.ORE_CHUNK_SILVER);
-		DRPMedievalBlocks.SULFUR_ORE.setOre(DRPMedievalItems.ORE_CHUNK_SULFUR);
-		DRPMedievalBlocks.SALPETER_ORE.setOre(DRPMedievalItems.ORE_CHUNK_SALPETER);
 		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.HOPS, null, false);
 		//registerBlock(ROPE_COIL);

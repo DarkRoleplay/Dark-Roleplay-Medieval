@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.client.gui.storage;
 
 import java.awt.Color;
 
-import net.dark_roleplay.drpcore.api.gui.utility.ModularBackground;
+import net.dark_roleplay.drpcore.api.gui.utility.dynamic.ModularBackground;
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.dark_roleplay.medieval.common.gui.container.Container_SimpleStorage;
 import net.dark_roleplay.medieval.common.tileentities.storage.TileEntity_SimpleStorage;
@@ -42,7 +42,7 @@ public class Gui_SimpleStorage extends GuiContainer {
     	int posY = (this.height - this.ySize)/2;
 
         this.mc.getTextureManager().bindTexture(Gui_SimpleStorage.background);
-        ModularBackground.drawModular(this, posX, posY, this.xSize, this.ySize, 6, 22, 6, 22, 28, 28);
+        ModularBackground.drawModular(this, posX, posY, this.xSize, this.ySize);
                 
         for(Slot slot : this.inventorySlots.inventorySlots){
         	this.drawTexturedModalRect((posX + slot.xPos) - 1, (posY + slot.yPos) - 1, 0, 238, 18, 18);

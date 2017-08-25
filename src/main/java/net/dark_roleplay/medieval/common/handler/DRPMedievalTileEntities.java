@@ -18,6 +18,7 @@ import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityMortar;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityRopeAnchor;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityTarget;
+import net.dark_roleplay.medieval.common.blocks.util.shop_sign.TE_ShopSign;
 import net.dark_roleplay.medieval.common.tileentities.TileEntity_AdvancedCrop;
 import net.dark_roleplay.medieval.common.tileentities.TileEntity_FlowerStorage;
 import net.dark_roleplay.medieval.common.tileentities.lectern.TileEntity_Lectern;
@@ -31,6 +32,7 @@ public class DRPMedievalTileEntities {
 
 	public static final void init(FMLPreInitializationEvent event) {
 		
+		GameRegistry.registerTileEntity(TE_ShopSign.class, DRPMedievalInfo.MODID + ":te_shop_sign");
 		GameRegistry.registerTileEntity(TileEntityAnvil.class, DRPMedievalInfo.MODID + ":" + "TileEntityAnvil");
 		GameRegistry.registerTileEntity(TileEntityMortar.class, DRPMedievalInfo.MODID + ":" + "TileEntityMortar");
 		GameRegistry.registerTileEntity(TileEntityGrindstone.class, DRPMedievalInfo.MODID + ":" + "TileEntityGrindstone");

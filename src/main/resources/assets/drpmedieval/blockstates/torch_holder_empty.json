@@ -1,24 +1,24 @@
 {
     "variants":{
-       "addonlighter=false,addontrap=false,facing=north":{"model":"drpmedieval:torch_holder/torch_holder_empty"},
-	   "addonlighter=false,addontrap=false,facing=east":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":90,"uvlock":true},
-	   "addonlighter=false,addontrap=false,facing=south":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":180,"uvlock":true},
-	   "addonlighter=false,addontrap=false,facing=west":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":270,"uvlock":true},
+       "addon_lighter=false,addon_trap=false,facing=north":{"model":"drpmedieval:torch_holder/torch_holder_empty"},
+	   "addon_lighter=false,addon_trap=false,facing=east":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":90,"uvlock":true},
+	   "addon_lighter=false,addon_trap=false,facing=south":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":180,"uvlock":true},
+	   "addon_lighter=false,addon_trap=false,facing=west":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":270,"uvlock":true},
 	   
-	   "addonlighter=true,addontrap=false,facing=north":{"model":"drpmedieval:torch_holder/torch_holder_empty"},
-	   "addonlighter=true,addontrap=false,facing=east":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":90,"uvlock":true},
-	   "addonlighter=true,addontrap=false,facing=south":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":180,"uvlock":true},
-	   "addonlighter=true,addontrap=false,facing=west":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":270,"uvlock":true},
+	   "addon_lighter=true,addon_trap=false,facing=north":{"model":"drpmedieval:torch_holder/torch_holder_empty"},
+	   "addon_lighter=true,addon_trap=false,facing=east":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":90,"uvlock":true},
+	   "addon_lighter=true,addon_trap=false,facing=south":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":180,"uvlock":true},
+	   "addon_lighter=true,addon_trap=false,facing=west":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":270,"uvlock":true},
 	   
-	   "addonlighter=false,addontrap=true,facing=north":{"model":"drpmedieval:torch_holder/torch_holder_empty"},
-	   "addonlighter=false,addontrap=true,facing=east":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":90,"uvlock":true},
-	   "addonlighter=false,addontrap=true,facing=south":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":180,"uvlock":true},
-	   "addonlighter=false,addontrap=true,facing=west":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":270,"uvlock":true},
+	   "addon_lighter=false,addon_trap=true,facing=north":{"model":"drpmedieval:torch_holder/torch_holder_empty"},
+	   "addon_lighter=false,addon_trap=true,facing=east":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":90,"uvlock":true},
+	   "addon_lighter=false,addon_trap=true,facing=south":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":180,"uvlock":true},
+	   "addon_lighter=false,addon_trap=true,facing=west":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":270,"uvlock":true},
 	   
-	   "addonlighter=true,addontrap=true,facing=north":{"model":"drpmedieval:torch_holder/torch_holder_empty"},
-	   "addonlighter=true,addontrap=true,facing=east":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":90,"uvlock":true},
-	   "addonlighter=true,addontrap=true,facing=south":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":180,"uvlock":true},
-	   "addonlighter=true,addontrap=true,facing=west":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":270,"uvlock":true}
+	   "addon_lighter=true,addon_trap=true,facing=north":{"model":"drpmedieval:torch_holder/torch_holder_empty"},
+	   "addon_lighter=true,addon_trap=true,facing=east":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":90,"uvlock":true},
+	   "addon_lighter=true,addon_trap=true,facing=south":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":180,"uvlock":true},
+	   "addon_lighter=true,addon_trap=true,facing=west":{"model":"drpmedieval:torch_holder/torch_holder_empty","y":270,"uvlock":true}
 
 	}
 }

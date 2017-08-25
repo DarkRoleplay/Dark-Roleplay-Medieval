@@ -3,6 +3,7 @@ package net.dark_roleplay.medieval.common.worldgen.feature;
 import java.util.Random;
 
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.DRPMedievalConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -26,12 +27,16 @@ public class OreGen implements IWorldGenerator {
 	}
 
 	public void generateOverworld(World world, Random rand, int x, int z) {
-		generateOre(DRPMedievalBlocks.COPPER_ORE, world, rand, x, z, 6, 10, 3, 5, 68, Blocks.STONE);
-		generateOre(DRPMedievalBlocks.TIN_ORE, world, rand, x, z, 4, 6, 5, 5, 68, Blocks.STONE);
-		generateOre(DRPMedievalBlocks.SILVER_ORE, world, rand, x, z, 5, 7, 1, 5, 32, Blocks.STONE);
-		generateOre(DRPMedievalBlocks.SULFUR_ORE, world, rand, x, z, 5, 7, 2, 5, 12, Blocks.STONE);
-
-		generateSalpeter(DRPMedievalBlocks.SALPETER_ORE, world, rand, x, z, 8, 12, 1, 60, 68, Blocks.STONE);
+		if(DRPMedievalConfig.WORLD_GEN.GENERATE_COPPER)
+			generateOre(DRPMedievalBlocks.COPPER_ORE, world, rand, x, z, 6, 10, 3, 5, 68, Blocks.STONE);
+		if(DRPMedievalConfig.WORLD_GEN.GENERATE_TIN)
+			generateOre(DRPMedievalBlocks.TIN_ORE, world, rand, x, z, 4, 6, 5, 5, 68, Blocks.STONE);
+		if(DRPMedievalConfig.WORLD_GEN.GENERATE_SILVER)
+			generateOre(DRPMedievalBlocks.SILVER_ORE, world, rand, x, z, 5, 7, 1, 5, 32, Blocks.STONE);
+		if(DRPMedievalConfig.WORLD_GEN.GENERATE_SULFUR)
+			generateOre(DRPMedievalBlocks.SULFUR_ORE, world, rand, x, z, 5, 7, 2, 5, 12, Blocks.STONE);
+		if(DRPMedievalConfig.WORLD_GEN.GENERATE_SALPETER)
+			generateSalpeter(DRPMedievalBlocks.SALPETER_ORE, world, rand, x, z, 8, 12, 1, 60, 68, Blocks.STONE);
 
 	}
 	

@@ -1,0 +1,49 @@
+{
+	"__comment": "Designed by JTK222",
+	"textures": {
+		"particle": "drpmedieval:blocks/work_table/work_table_legs",
+		"plates": "drpmedieval:blocks/work_table/work_table_top",
+		"legs": "drpmedieval:blocks/work_table/work_table_legs"
+	},
+	"elements": [ 	 
+		{
+			"__comment": "Box1",
+			"from": [ 0, 15, 0 ],
+			"to": [ 16, 16, 16 ],
+			"faces": {
+				"down": { "uv": [ 0, 0, 16, 16 ], "texture": "#plates", "rotation": 270 },
+				"up": { "uv": [ 0, 0, 16, 16 ], "texture": "#plates", "rotation": 90 },
+				"north": { "uv": [ 0, 0, 16, 1 ], "texture": "#plates" },
+				"south": { "uv": [ 0, 0, 16, 1 ], "texture": "#plates" },
+				"west": { "uv": [ 0, 0, 16, 1 ], "texture": "#plates" },
+				"east": { "uv": [ 0, 0, 16, 1 ], "texture": "#plates" }
+			}
+		},
+		{
+			"__comment": "Box7",
+			"from": [ 0, 14.5, 0.5 ],
+			"to": [ 16, 15, 15.5 ],
+			"faces": {
+				"down": { "uv": [ 0.5, 0.5, 15.5, 15.5 ], "texture": "#plates", "rotation": 270 },
+				"up": { "uv": [ 0.5, 0.5, 15.5, 15.5 ], "texture": "#plates", "rotation": 90 },
+				"north": { "uv": [ 0.5, 1, 15.5, 1.5 ], "texture": "#plates" },
+				"south": { "uv": [ 0.5, 1, 15.5, 1.5 ], "texture": "#plates" },
+				"west": { "uv": [ 0.5, 1, 15.5, 1.5 ], "texture": "#plates" },
+				"east": { "uv": [ 0.5, 1, 15.5, 1.5 ], "texture": "#plates" }
+			}
+		},
+		{
+			"__comment": "Box9",
+			"from": [ 0, 8, 1.5 ],
+			"to": [ 16, 9, 14.5 ],
+			"faces": {
+				"down": { "uv": [ 1.5, 0.5, 14.5, 15.5 ], "texture": "#plates", "rotation": 270 },
+				"up": { "uv": [ 1.5, 0.5, 14.5, 15.5 ], "texture": "#plates", "rotation": 90 },
+				"north": { "uv": [ 0.5, 7, 15.5, 8 ], "texture": "#plates" },
+				"south": { "uv": [ 0.5, 7, 15.5, 8 ], "texture": "#plates" },
+				"west": { "uv": [ 1.5, 7, 14.5, 8 ], "texture": "#plates" },
+				"east": { "uv": [ 1.5, 7, 14.5, 8 ], "texture": "#plates" }
+			}
+		}
+	]
+}

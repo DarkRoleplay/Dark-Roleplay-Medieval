@@ -1,0 +1,14 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model": "drpmedieval:pottery/vase",
+        "textures":{
+			"texture": "drpmedieval:blocks/pottery/fired_pottery"
+		},
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"normal":[{}]
+	}
+}

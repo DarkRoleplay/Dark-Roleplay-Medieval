@@ -2,8 +2,9 @@ package net.dark_roleplay.medieval.common.blocks.decorative.candles;
 
 import java.util.Random;
 
+import elucent.albedo.lighting.ILightProvider;
+import elucent.albedo.lighting.Light;
 import net.dark_roleplay.medieval.common.blocks.BlockProperties;
-import net.dark_roleplay.medieval.common.blocks.decorative.TorchHolderLit;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -21,19 +22,18 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BeesWaxCandle extends Block{
 	
-	
-	
 	public BeesWaxCandle(String registryName) {
-		super(Material.CLAY);
+		super(Material.WOOD);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
-		this.setSoundType(SoundType.GROUND);
+		this.setSoundType(SoundType.CLOTH);
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -46,7 +46,7 @@ public class BeesWaxCandle extends Block{
 		double d1 = pos.getY() + 0.65D;
 		double d2 = pos.getZ() + 0.5D;
 
-		world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0, d1 + 0.3F, d2, 0.0D, 0.0095D, 0.0D);
+		world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0, d1, d2, 0.0D, 0.0095D, 0.0D);
 		world.spawnParticle(EnumParticleTypes.FLAME, d0, d1, d2, 0.0D, 0.0D, 0.0D);
 	}
 	
@@ -63,15 +63,17 @@ public class BeesWaxCandle extends Block{
 				return true;
 			}
 		}
-		
-		return false;
+		if(player.getHeldItem(hand).getItem() == Items.FLINT_AND_STEEL){
+			return true;
+		}
+		return true;
 	}
 	
 	// -------------------------------------------------- Block Data --------------------------------------------------
 	
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos){
-        return new AxisAlignedBB(0.1875F, 0F, 0.1875F, 0.8125F, 0.625F, 0.8125F);
+        return new AxisAlignedBB(0.375F, 0F, 0.375F, 0.625F, 0.5F, 0.625F);
     }
 	
 	@Override

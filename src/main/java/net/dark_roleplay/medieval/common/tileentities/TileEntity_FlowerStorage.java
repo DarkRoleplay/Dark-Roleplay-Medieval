@@ -68,6 +68,7 @@ public class TileEntity_FlowerStorage  extends TileEntity {
     @Override
     public NBTTagCompound getUpdateTag() {
     	NBTTagCompound nbtTag = new NBTTagCompound();
+
         this.writeToNBT(nbtTag);
         return writeToNBT(nbtTag);
     }
@@ -76,6 +77,7 @@ public class TileEntity_FlowerStorage  extends TileEntity {
 
     @Nullable
     public SPacketUpdateTileEntity getUpdatePacket() {
+
         NBTTagCompound nbtTag = new NBTTagCompound();
         this.writeToNBT(nbtTag);
         return new SPacketUpdateTileEntity(getPos(), 1, nbtTag);

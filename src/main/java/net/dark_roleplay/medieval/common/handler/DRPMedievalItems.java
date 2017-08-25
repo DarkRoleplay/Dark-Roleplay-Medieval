@@ -29,6 +29,7 @@ import net.dark_roleplay.medieval.common.items.misc.Plank;
 import net.dark_roleplay.medieval.common.items.misc.StringCoil;
 import net.dark_roleplay.medieval.common.items.seeds.SeedBarley;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
@@ -100,7 +101,10 @@ public class DRPMedievalItems {
 	public static DRPItem LEATHER_BOOK_COVER;
 	public static DRPItem LEATHER_BOOK_COVER_THIK;
 	public static DRPItem LEATHER_BOOK_COVER_THIN;
-	
+
+	public static DRPItem CLEAN_PAINTBRUSH;
+	public static DRPItem BLACK_PAINTBRUSH;
+
 	public static Telescope GOLDEN_TELESCOPE;
 	public static Telescope SILVER_TELESCOPE;
 	
@@ -167,7 +171,8 @@ public class DRPMedievalItems {
 		reg.register(ORE_CHUNK_SALPETER = (DRPItem) new DRPItem("ore_chunk_salpeter", "misc", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
 		reg.register(FIREWOOD = (DRPItem) new DRPItem("firewood", "firewood", 64, "oak", "birch", "spruce", "jungle", "acacia", "dark_oak").setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
 		reg.register(PLANKS = (DRPItem) new DRPItem("planks", "planks", 64, "oak", "spruce", "birch", "jungle", "dark_oak", "acacia").setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
-
+		reg.register(CLEAN_PAINTBRUSH = (DRPItem) new DRPItem("clean_paintbrush", "paintbrushes", 1).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalEquipTab));
+		reg.register(BLACK_PAINTBRUSH = (DRPItem) new DRPItem("black_paintbrush", "paintbrushes", 1).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalEquipTab));
 		
 		reg.register(BRONZE_COIN = (DRPItem) new DRPItem("coin_bronze", "misc/currency", 50).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
 		reg.register(SILVER_COIN = (DRPItem) new DRPItem("coin_silver", "misc/currency", 50).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
@@ -202,7 +207,7 @@ public class DRPMedievalItems {
 		reg.register(LEATHER_BOOK_COVER = (DRPItem) new DRPItem("leather_book_cover", "misc/books", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
 		reg.register(LEATHER_BOOK_COVER_THIK = (DRPItem) new DRPItem("leather_book_cover_thik", "misc/books", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
 		reg.register(LEATHER_BOOK_COVER_THIN = (DRPItem) new DRPItem("leather_book_cover_thin", "misc/books", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
-
+		
 		DRPMedievalItems.SeedBarley = new SeedBarley();
 		reg.register(DRPMedievalItems.ROPED_ARROW);
 		reg.register(DRPMedievalItems.SLEDGE);
@@ -210,5 +215,20 @@ public class DRPMedievalItems {
 		for(ItemBlock block : blockItems){
 			reg.register(block);
 		}
+		
+		DRPMedievalBlocks.TIN_ORE.setOre(DRPMedievalItems.ORE_CHUNK_TIN);
+		DRPMedievalBlocks.COPPER_ORE.setOre(DRPMedievalItems.ORE_CHUNK_COPPER);
+		DRPMedievalBlocks.SILVER_ORE.setOre(DRPMedievalItems.ORE_CHUNK_SILVER);
+		DRPMedievalBlocks.SULFUR_ORE.setOre(DRPMedievalItems.ORE_CHUNK_SULFUR);
+		DRPMedievalBlocks.SALPETER_ORE.setOre(DRPMedievalItems.ORE_CHUNK_SALPETER);
+		
+		
+		DRPMedievalBlocks.TORCH_HOLDER_UNLIT.init(DRPMedievalBlocks.TORCH_HOLDER_LIT);
+		DRPMedievalBlocks.TORCH_HOLDER_LIT.init(DRPMedievalBlocks.TORCH_HOLDER_UNLIT);
+		DRPMedievalBlocks.TORCH_HOLDER_EMPTY.init(DRPMedievalBlocks.TORCH_HOLDER_UNLIT, Item.getItemFromBlock(Blocks.TORCH));
+		
+		DRPMedievalBlocks.CANDLE_HOLDER_UNLIT.init(DRPMedievalBlocks.CANDLE_HOLDER_LIT);
+		DRPMedievalBlocks.CANDLE_HOLDER_LIT.init(DRPMedievalBlocks.CANDLE_HOLDER_UNLIT);
+		DRPMedievalBlocks.CANDLE_HOLDER_EMPTY.init(DRPMedievalBlocks.CANDLE_HOLDER_UNLIT, Item.getItemFromBlock(DRPMedievalBlocks.BEESWAX_CANDLE));
 	}
 }

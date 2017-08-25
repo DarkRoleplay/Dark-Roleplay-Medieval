@@ -1,15 +1,28 @@
 package net.dark_roleplay.medieval.common.blocks.specialrenderer;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.DataBufferInt;
+import java.util.Arrays;
+
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
@@ -45,8 +58,7 @@ public class SpecialRenderAnvil extends TileEntitySpecialRenderer {
 
 			GL11.glRotatef((facing) * 90, 0.0F, 1.0F, 0.0F);
 			this.bindTexture(texture);
-
-			// this.model.renderModel(0.0625F);
+			
 			this.model.renderModel(0.08333333333333333333333333333333F);
 
 			GL11.glPopMatrix();

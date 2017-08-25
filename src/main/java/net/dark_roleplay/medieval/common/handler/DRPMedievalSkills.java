@@ -27,14 +27,14 @@ public class DRPMedievalSkills {
 	private static SkillTree FARMER;
 	private static SkillTree COOK;
 	
-	private static Skill BASIC_TREE_CUTTING;
-	private static Skill BASIC_CARPENTING;
-	private static Skill BASIC_MINING;
-	private static Skill BASIC_STONE_CUTTING;
-	private static Skill BASIC_ORE_PROCESSING;
-	private static Skill BASIC_ANATOMY;
-	private static Skill BASIC_SEED_KNOWLEDGE;
-	private static Skill BASIC_STEWS;
+	public static Skill BASIC_TREE_CUTTING;
+	public static Skill BASIC_CARPENTING;
+	public static Skill BASIC_MINING;
+	public static Skill BASIC_STONE_CUTTING;
+	public static Skill BASIC_ORE_PROCESSING;
+	public static Skill BASIC_ANATOMY;
+	public static Skill BASIC_SEED_KNOWLEDGE;
+	public static Skill BASIC_STEWS;
 	
 	
 	private static Skill TEST_SKILL_1;

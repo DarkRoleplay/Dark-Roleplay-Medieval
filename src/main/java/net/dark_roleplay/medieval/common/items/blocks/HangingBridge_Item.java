@@ -76,7 +76,7 @@ public class HangingBridge_Item extends DRPItem{
 			}else if((pos.getX() != pos2.getX()) && (pos.getZ() != pos2.getZ())) {
 				player.sendMessage(new TextComponentString("Hanging Bridges cannot be placed diagonally!"));
 				return EnumActionResult.SUCCESS;
-			}else if(stack.getCount() < (dist -1)){
+			}else if(stack.getCount() < (dist -1) && !player.capabilities.isCreativeMode){
 				player.sendMessage(new TextComponentString("You are missing " + (dist-1 - stack.getCount()) + " Hangingbridges!"));
 				return EnumActionResult.SUCCESS;
 			}else{

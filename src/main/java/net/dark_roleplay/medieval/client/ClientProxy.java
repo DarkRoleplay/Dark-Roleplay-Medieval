@@ -43,6 +43,8 @@ import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityMortar;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityRopeAnchor;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityTarget;
+import net.dark_roleplay.medieval.common.blocks.util.shop_sign.TESR_ShopSign;
+import net.dark_roleplay.medieval.common.blocks.util.shop_sign.TE_ShopSign;
 import net.dark_roleplay.medieval.common.entities.fox.Entity_Fox;
 import net.dark_roleplay.medieval.common.entity.item.EntitySledge;
 import net.dark_roleplay.medieval.common.entity.projectile.EntityRopedArrow;
@@ -104,7 +106,8 @@ public class ClientProxy extends CommonProxy {
 	public void init(FMLPostInitializationEvent event) {}
 
 
-	public void registerRenders() {				
+	public void registerRenders() {		
+		ClientRegistry.bindTileEntitySpecialRenderer(TE_ShopSign.class, new TESR_ShopSign());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAnvil.class, new SpecialRenderAnvil());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMortar.class, new SpecialRenderMortar());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrindstone.class, new SpecialRenderGrindstone());

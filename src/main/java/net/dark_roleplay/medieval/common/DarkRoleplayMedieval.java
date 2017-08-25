@@ -4,11 +4,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.dark_roleplay.medieval.client.events.Event_GuiOpen;
+import net.dark_roleplay.medieval.client.events.config.Event_ConfigChange;
 import net.dark_roleplay.medieval.client.renderer.premium.RenderLayerPremium;
 import net.dark_roleplay.medieval.client.renderer.premium.RenderLayer_Guild;
 import net.dark_roleplay.medieval.common.events.EventHelper;
 import net.dark_roleplay.medieval.common.events.ItemTooltip;
 import net.dark_roleplay.medieval.common.events.MissingMappings;
+import net.dark_roleplay.medieval.common.events.blocks.Event_BlockBreak;
 import net.dark_roleplay.medieval.common.events.capabilities.Event_CapabilityTileEntity;
 import net.dark_roleplay.medieval.common.gui.GuiHandler;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalAchievements;
@@ -19,6 +21,7 @@ import net.dark_roleplay.medieval.common.handler.DRPMedievalEntities;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalLores;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalMappings;
+import net.dark_roleplay.medieval.common.handler.DRPMedievalPackets;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalSkills;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalSounds;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalTileEntities;
@@ -69,7 +72,6 @@ public class DarkRoleplayMedieval {
 		DRPMedievalEntities.init(event);
 		DRPMedievalVillagers.init(event);
 		DRPMedievalTileEntities.init(event);
-		DRPMedievalConfig.init(event);
 		DRPMedievalSkills.init(event);
 		DRPMedievalAchievements.init(event);
 		DRPMedievalCrafting.init(event);
@@ -88,7 +90,6 @@ public class DarkRoleplayMedieval {
 		DRPMedievalEntities.init(event);
 		DRPMedievalVillagers.init(event);
 		DRPMedievalTileEntities.init(event);
-		DRPMedievalConfig.init(event);
 		DRPMedievalSkills.init(event);
 		DRPMedievalAchievements.init(event);
 		DRPMedievalCrafting.init(event);
@@ -100,13 +101,17 @@ public class DarkRoleplayMedieval {
 		WorldLoot.registerFishingLoot();
 		WorldLoot.registerGrassLoot();
 
-		GameRegistry.registerWorldGenerator(new OreGen(), 0);
-		GameRegistry.registerWorldGenerator(new GenerateStructure(), 0);
+
+			GameRegistry.registerWorldGenerator(new OreGen(), 0);
+//			GameRegistry.registerWorldGenerator(new GenerateStructure(), 0);
+
 		EventHelper.registerEvents();
+		DRPMedievalPackets.init();
 		
 		if(event.getSide() == Side.CLIENT){
 			MinecraftForge.EVENT_BUS.register(new Event_GuiOpen());
 			MinecraftForge.EVENT_BUS.register(new ItemTooltip());
+			MinecraftForge.EVENT_BUS.register(new Event_ConfigChange());
 //			RenderPlayer steve = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("default"));
 //			RenderPlayer alex = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("slim"));
 //			steve.addLayer(new RenderLayerPremium());
@@ -115,9 +120,12 @@ public class DarkRoleplayMedieval {
 //			alex.addLayer(new RenderLayer_Guild());
 		}
 		
+
+		MinecraftForge.EVENT_BUS.register(new Event_BlockBreak());
+		
 		this.registerFurnaceRecipes();
 
-		GameRegistry.registerWorldGenerator(new GenHandler_Trees(), 0);
+//		GameRegistry.registerWorldGenerator(new GenHandler_Trees(), 0);
 		
 		MinecraftForge.EVENT_BUS.register(new Event_CapabilityTileEntity());
 	}
@@ -127,7 +135,6 @@ public class DarkRoleplayMedieval {
 		DRPMedievalEntities.init(event);
 		DRPMedievalVillagers.init(event);
 		DRPMedievalTileEntities.init(event);
-		DRPMedievalConfig.init(event);
 		DRPMedievalAchievements.init(event);
 		DRPMedievalSkills.init(event);
 		DRPMedievalCrafting.init(event);

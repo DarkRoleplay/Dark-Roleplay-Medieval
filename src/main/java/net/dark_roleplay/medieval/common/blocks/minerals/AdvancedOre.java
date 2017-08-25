@@ -13,25 +13,27 @@ public class AdvancedOre extends Block{
 	
 	private Item ore;
 	
-    public AdvancedOre(String registryName){
+    public AdvancedOre(String registryName, int harvestLevel){
         super(Material.ROCK);
         this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
         this.setCreativeTab(DRPMedievalCreativeTabs.BUILDING_MATS);
         this.setSoundType(SoundType.STONE);
         this.setHardness(3.0F);
+		this.setHarvestLevel("pickaxe", harvestLevel);
         this.setResistance(5.0F);
     }
     
+    @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune){
+    	System.out.println(ore);
     	return ore;
     }
 
-    public int quantityDropped(Random random){
-        return 2 + random.nextInt(3);
-    }
+    @Override
+    public int quantityDropped(IBlockState state, int fortune, Random random){
 
-    public int quantityDroppedWithBonus(int fortune, Random random){
+    	System.out.println("DEBUG1");
         if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped((IBlockState)this.getBlockState().getValidStates().iterator().next(), random, fortune)){
             int i = random.nextInt(fortune + 2) - 1;
 
@@ -39,14 +41,19 @@ public class AdvancedOre extends Block{
                 i = 0;
             }
 
-            return this.quantityDropped(random) * (i + 1);
+        	System.out.println("DEBUG3");
+            return (2 + random.nextInt(3)) * (i + 1);
         }else {
-            return this.quantityDropped(random);
+
+
+        	System.out.println("DEBUG4");
+            return 2 + random.nextInt(3);
         }
     }
  
-    public void setOre(Item ore){
+    public AdvancedOre setOre(Item ore){
     	this.ore = ore;
+    	return this;
     }
     
 }
