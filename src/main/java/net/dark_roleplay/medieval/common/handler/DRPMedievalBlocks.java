@@ -7,6 +7,7 @@ import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.blocks.WoodHelper;
 import net.dark_roleplay.medieval.common.blocks.building.*;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.*;
+import net.dark_roleplay.medieval.common.blocks.craftingstations.forge.Forge;
 import net.dark_roleplay.medieval.common.blocks.decorative.*;
 import net.dark_roleplay.medieval.common.blocks.decorative.barrels.*;
 import net.dark_roleplay.medieval.common.blocks.decorative.buckets.*;
@@ -141,6 +142,7 @@ public class DRPMedievalBlocks {
 
 	/** F **/
 
+	public static Forge FORGE;
 	public static Firepit FIREPIT = new Firepit("firepit_lit");
 	public static FlowerPot FLOWER_POT = new FlowerPot("flower_pot");
 	
@@ -203,7 +205,7 @@ public class DRPMedievalBlocks {
 
 	/** O **/
 	
-	public static ObsidianGlass OBSIDIAN_GLASS = new ObsidianGlass("obsidian_glass");
+	public static ObsidianGlass OBSIDIAN_GLASS = (ObsidianGlass) new ObsidianGlass("obsidian_glass").setCreativeTab(DRPMedievalCreativeTabs.BUILDING_MATS);
 
 	/** P **/
 
@@ -322,6 +324,8 @@ public class DRPMedievalBlocks {
 		registerBlock(BEESWAX_CANDLE = new BeesWaxCandle("beeswax_candle"));
 		
 		registerBlock(SHOP_SIGN = (ShopSign) new ShopSign("wall_shop_sign").setCreativeTab(DRPMedievalCreativeTabs.DECORATION));
+		
+		registerBlock(FORGE = new Forge("forge"));
 		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.DRY_CLAY = new DryClay("dry_clay"));
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.SNOW_BRICKS);

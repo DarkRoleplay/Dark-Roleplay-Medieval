@@ -7,7 +7,6 @@ import net.dark_roleplay.drpcore.api.items.DRPEquip;
 import net.dark_roleplay.drpcore.api.items.DRPFood;
 import net.dark_roleplay.drpcore.api.items.DRPItem;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.common.items.blocks.AdvancedBedItem;
 import net.dark_roleplay.medieval.common.items.blocks.HangingBridge_Item;
 import net.dark_roleplay.medieval.common.items.book.WriteablePage;
 import net.dark_roleplay.medieval.common.items.consumable.BarkAndGlue;

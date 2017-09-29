@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.handler;
 
 import java.util.Arrays;
 
-import net.dark_roleplay.medieval.common.util.LoreHelper;
+import net.dark_roleplay.drpcore.api.util.lore.LoreUtil;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -51,7 +51,10 @@ public class DRPMedievalLores {
 		DRPMedievalLores.registerWIP(DRPMedievalItems.LEATHER_BOOK_COVER_THIN);
 		DRPMedievalLores.registerWIP(Item.getItemFromBlock(DRPMedievalBlocks.AXLE));
 		DRPMedievalLores.registerWIP(Item.getItemFromBlock(DRPMedievalBlocks.CHEST_TEST));
+		DRPMedievalLores.registerWIP(Item.getItemFromBlock(DRPMedievalBlocks.FORGE));
 
+		DRPMedievalLores.registerWIP(DRPMedievalItems.LUTE);
+		DRPMedievalLores.registerWIP(DRPMedievalItems.HALBERD);
 		DRPMedievalLores.registerWIP(DRPMedievalItems.QUIVER);
 		DRPMedievalLores.registerWIP(DRPMedievalItems.BRONZE_RING);
 		DRPMedievalLores.registerWIP(DRPMedievalItems.SILVER_RING);
@@ -61,16 +64,16 @@ public class DRPMedievalLores {
 	}
 	
 	private static void registerSHIFT(Item item, String desc){
-		LoreHelper.registerSHIFT_DESC(item, Arrays.asList(desc.split("\n")));
+		LoreUtil.registerSHIFT(item, Arrays.asList(desc.split("\n")));
 	}
 	
 	private static void registerWIP(Item item){
-		LoreHelper.registerPERM_DESC(item, Arrays.asList((TextFormatting.YELLOW + "WARNING! Item is still W.I.P.").split("\n")));
-		LoreHelper.registerALT_DESC(item, Arrays.asList(("It is recomended to not use it in any case! \nThe Item might just disapear in a \nfuture version of the mod, \nor it could destroy your world! \nEven though most of the time this \nmeans that the functions aren't done.").split("\n")));
+		LoreUtil.registerPERM(item, Arrays.asList((TextFormatting.YELLOW + "WARNING! Item is still W.I.P.").split("\n")));
+		LoreUtil.registerALT(item, Arrays.asList(("It is recomended to not use it in any case! \nThe Item might just disapear in a \nfuture version of the mod, \nor it could destroy your world! \nEven though most of the time this \nmeans that the functions aren't done.").split("\n")));
 	}
 	
 	private static void registerCRAFT_MAT(Item item){
-		LoreHelper.registerSHIFT_DESC(item, Arrays.asList("Just a simple Item used for crafting.".split("\n")));
+		LoreUtil.registerSHIFT(item, Arrays.asList("Just a simple Item used for crafting.".split("\n")));
 
 	}
 }

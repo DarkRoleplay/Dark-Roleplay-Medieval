@@ -36,6 +36,25 @@ repositories {
 dependencies {
 	compile 'elucent:albedo:2.0-SNAPSHOT'
 }
+
+repositories {
+  maven {
+    name = "Progwml6 maven"
+    url = "http://dvs1.progwml6.com/files/maven"
+  }
+  maven {
+    name = "ModMaven"
+    url = "modmaven.k-4u.nl"
+  }
+}
+
+dependencies {
+  // compile against the JEI API but do not include it at runtime
+  deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
+  // at runtime, use the full JEI jar
+  runtime "mezz.jei:jei_${mc_version}:${jei_version}"
+}
+
 processResources {
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version

@@ -1,0 +1,12 @@
+{
+    "variants":{
+        "facing=north,north=false":{"model":"drpmedieval:forge/forge_north"},
+        "facing=east,north=false":{"model":"drpmedieval:forge/forge_north", "y":90},
+        "facing=south,north=false":{"model":"drpmedieval:forge/forge_north", "y":180},
+        "facing=west,north=false":{"model":"drpmedieval:forge/forge_north", "y":270},
+		"facing=north,north=true":{"model":"drpmedieval:forge/forge_south"},
+        "facing=east,north=true":{"model":"drpmedieval:forge/forge_south", "y":90},
+        "facing=south,north=true":{"model":"drpmedieval:forge/forge_south", "y":180},
+        "facing=west,north=true":{"model":"drpmedieval:forge/forge_south", "y":270} 
+    }
+}

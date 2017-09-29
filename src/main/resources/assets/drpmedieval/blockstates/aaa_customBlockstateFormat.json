@@ -1,0 +1,50 @@
+{
+	"drp_marker": 1,
+	"models":{
+		
+	},
+	"model_groups":{
+		{
+			"drpmedieval:hanging_bridge/planks_0",
+			"drpmedieval:hanging_bridge/rope_side_0",
+			"drpmedieval:hanging_bridge/post_left_0"
+		},
+		{
+			"drpmedieval:hanging_bridge/planks_1",
+			"drpmedieval:hanging_bridge/rope_side_1",
+			"drpmedieval:hanging_bridge/post_left_1"
+		}
+	}
+
+    "variants":{
+        "height":{
+			"0":{
+				"group" : "0",
+				"model" : "0"
+			}
+			"1":{
+				"group" : "1",
+				"model" : "0"
+			}
+		},
+		"axis":{
+			"x":{
+				"y":90
+			},
+			"z":{}
+		},
+		"east":{
+			"true":{
+				"submodel": "1"
+			}
+		},
+		"west":{
+			"true":{
+				"submodel":{
+					"model": "1",
+					"y": 180
+				}
+			}
+		}
+    }
+}

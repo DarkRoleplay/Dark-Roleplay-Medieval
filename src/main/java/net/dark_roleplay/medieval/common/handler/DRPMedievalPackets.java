@@ -9,8 +9,10 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class DRPMedievalPackets {
 
-	public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel("dark_roleplay_medieval".toLowerCase());
+	public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel("drp99_medieval".toLowerCase());
 
+	
+	
 	public static void init() {
 		int i = 0;
 		INSTANCE.registerMessage(SyncPacket_ShopSign.class, SyncPacket_ShopSign.class , i++, Side.SERVER);

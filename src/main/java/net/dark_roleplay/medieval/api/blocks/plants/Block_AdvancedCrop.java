@@ -5,7 +5,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import net.dark_roleplay.medieval.common.tileentities.TileEntity_AdvancedCrop;
+import net.dark_roleplay.medieval.common.blocks.tileentities.TileEntity_AdvancedCrop;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;

@@ -1,8 +1,8 @@
 package net.dark_roleplay.medieval.common.blocks.decorative.flowerPot;
 
 import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
+import net.dark_roleplay.medieval.common.blocks.tileentities.TileEntity_FlowerStorage;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
-import net.dark_roleplay.medieval.common.tileentities.TileEntity_FlowerStorage;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;

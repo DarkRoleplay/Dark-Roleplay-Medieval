@@ -1,6 +1,10 @@
 package net.dark_roleplay.medieval.common.handler;
 
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.blocks.tileentities.TileEntity_AdvancedCrop;
+import net.dark_roleplay.medieval.common.blocks.tileentities.TileEntity_FlowerStorage;
+import net.dark_roleplay.medieval.common.blocks.tileentities.lectern.TileEntity_Lectern;
+import net.dark_roleplay.medieval.common.blocks.tileentities.storage.TileEntity_SimpleStorage;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.BedFrameTileEntity;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.RopeCoilTileEntity;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityAnvil;
@@ -19,10 +23,6 @@ import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityRopeAnchor
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityTarget;
 import net.dark_roleplay.medieval.common.blocks.util.shop_sign.TE_ShopSign;
-import net.dark_roleplay.medieval.common.tileentities.TileEntity_AdvancedCrop;
-import net.dark_roleplay.medieval.common.tileentities.TileEntity_FlowerStorage;
-import net.dark_roleplay.medieval.common.tileentities.lectern.TileEntity_Lectern;
-import net.dark_roleplay.medieval.common.tileentities.storage.TileEntity_SimpleStorage;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

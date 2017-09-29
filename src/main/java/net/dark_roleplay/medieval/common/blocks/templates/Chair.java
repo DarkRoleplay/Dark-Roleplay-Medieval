@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.blocks.templates;
 
-import net.dark_roleplay.medieval.common.util.SittingUtil;
+import net.dark_roleplay.drpcore.api.util.sitting.SittingUtil;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;

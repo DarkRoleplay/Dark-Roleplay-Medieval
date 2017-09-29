@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import net.dark_roleplay.medieval.common.blocks.tileentities.lectern.TileEntity_Lectern;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
-import net.dark_roleplay.medieval.common.tileentities.lectern.TileEntity_Lectern;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;

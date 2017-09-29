@@ -5,10 +5,9 @@ import org.apache.logging.log4j.Logger;
 
 import net.dark_roleplay.medieval.client.events.Event_GuiOpen;
 import net.dark_roleplay.medieval.client.events.config.Event_ConfigChange;
-import net.dark_roleplay.medieval.client.renderer.premium.RenderLayerPremium;
-import net.dark_roleplay.medieval.client.renderer.premium.RenderLayer_Guild;
+import net.dark_roleplay.medieval.client.premium.RenderLayerPremium;
+import net.dark_roleplay.medieval.client.premium.RenderLayer_Guild;
 import net.dark_roleplay.medieval.common.events.EventHelper;
-import net.dark_roleplay.medieval.common.events.ItemTooltip;
 import net.dark_roleplay.medieval.common.events.MissingMappings;
 import net.dark_roleplay.medieval.common.events.blocks.Event_BlockBreak;
 import net.dark_roleplay.medieval.common.events.capabilities.Event_CapabilityTileEntity;
@@ -26,13 +25,13 @@ import net.dark_roleplay.medieval.common.handler.DRPMedievalSkills;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalSounds;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalTileEntities;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalVillagers;
-import net.dark_roleplay.medieval.common.proxy.CommonProxy;
 import net.dark_roleplay.medieval.common.world_generation.GenHandler_Trees;
-import net.dark_roleplay.medieval.common.worldgen.GenerateStructure;
-import net.dark_roleplay.medieval.common.worldgen.WorldLoot;
-import net.dark_roleplay.medieval.common.worldgen.feature.OreGen;
+import net.dark_roleplay.medieval.common.world_generation.GenerateStructure;
+import net.dark_roleplay.medieval.common.world_generation.WorldLoot;
+import net.dark_roleplay.medieval.common.world_generation.feature.OreGen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -57,7 +56,7 @@ public class DarkRoleplayMedieval {
 	
 	public static boolean isOnServer = false;
 	
-	@SidedProxy(serverSide = "net.dark_roleplay.medieval.common.proxy.CommonProxy", clientSide = "net.dark_roleplay.medieval.client.ClientProxy")
+	@SidedProxy(serverSide = "net.dark_roleplay.medieval.common.CommonProxy", clientSide = "net.dark_roleplay.medieval.client.ClientProxy")
 	public static CommonProxy proxy;
 
 	@net.minecraftforge.fml.common.Mod.Instance(DRPMedievalInfo.MODID)
@@ -74,7 +73,6 @@ public class DarkRoleplayMedieval {
 		DRPMedievalTileEntities.init(event);
 		DRPMedievalSkills.init(event);
 		DRPMedievalAchievements.init(event);
-		DRPMedievalCrafting.init(event);
 		DRPMedievalLores.init(event);
 		DRPMedievalMappings.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
@@ -92,7 +90,6 @@ public class DarkRoleplayMedieval {
 		DRPMedievalTileEntities.init(event);
 		DRPMedievalSkills.init(event);
 		DRPMedievalAchievements.init(event);
-		DRPMedievalCrafting.init(event);
 		DRPMedievalLores.init(event);
 		DRPMedievalMappings.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
@@ -110,7 +107,6 @@ public class DarkRoleplayMedieval {
 		
 		if(event.getSide() == Side.CLIENT){
 			MinecraftForge.EVENT_BUS.register(new Event_GuiOpen());
-			MinecraftForge.EVENT_BUS.register(new ItemTooltip());
 			MinecraftForge.EVENT_BUS.register(new Event_ConfigChange());
 //			RenderPlayer steve = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("default"));
 //			RenderPlayer alex = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("slim"));
@@ -154,6 +150,7 @@ public class DarkRoleplayMedieval {
 //		GameRegistry.addSmelting(DRPMedievalItems.DoughBarley, new ItemStack(Items.BREAD), 0.1f);
 		GameRegistry.addSmelting(DRPMedievalItems.MEAT_RAW_WOLF, new ItemStack(DRPMedievalItems.MEAT_COOKED_WOLF), 0.1f);
 		GameRegistry.addSmelting(DRPMedievalItems.DOUGH_PUMPKIN, new ItemStack(DRPMedievalItems.PUMPKIN_BREAD), 0.1f);
+		GameRegistry.addSmelting(Item.getItemFromBlock(Blocks.OBSIDIAN), new ItemStack(DRPMedievalBlocks.OBSIDIAN_GLASS), 0.1f);
 	}
 }
 

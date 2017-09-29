@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import net.dark_roleplay.medieval.client.gui.carving.Gui_CarveSign;
 import net.dark_roleplay.medieval.common.blocks.decorative.wall_mounted.WallMounted;
+import net.dark_roleplay.medieval.common.gui.GuiUtil;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.dark_roleplay.medieval.common.util.nbt.ImageConversion;
 import net.minecraft.block.ITileEntityProvider;
@@ -42,7 +43,7 @@ public class ShopSign extends WallMounted implements ITileEntityProvider{
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(world.isRemote && player.getHeldItem(hand).getItem() == DRPMedievalItems.BLACK_PAINTBRUSH){
-			Minecraft.getMinecraft().displayGuiScreen(new Gui_CarveSign((TE_ShopSign) world.getTileEntity(pos)));
+			GuiUtil.openShopSignGui(world, pos);
 		}
 		return true;
 	}

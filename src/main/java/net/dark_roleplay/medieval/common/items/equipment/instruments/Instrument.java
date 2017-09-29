@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.common.items.equipment.instruments;
 import java.util.Random;
 
 import net.dark_roleplay.drpcore.api.items.DRPItem;
-import net.dark_roleplay.medieval.common.music.InstrumentSounds;
+import net.dark_roleplay.medieval.common.testing.music.InstrumentSounds;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;

@@ -9,17 +9,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class DRPMedievalCrafting {
 
-	public static void init(FMLPreInitializationEvent event) {}
-
-	public static void init(FMLInitializationEvent event) {}
-
 	public static void init(FMLPostInitializationEvent event) {
+		System.out.println("DEBUG");
 		DRPMedievalCrafting.registerAirRecipes();
 		DRPMedievalCrafting.registerSpinningWheelRecipes();
 		DRPMedievalCrafting.registerMortarRecipes();

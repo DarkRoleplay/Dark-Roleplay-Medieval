@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.items.entities;
 
 import java.util.List;
 
-import net.dark_roleplay.medieval.common.entity.item.EntitySledge;
+import net.dark_roleplay.medieval.common.entities.entity.item.EntitySledge;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

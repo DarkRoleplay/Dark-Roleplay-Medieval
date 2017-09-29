@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.handler;
 
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
-import net.dark_roleplay.medieval.common.music.InstrumentSounds;
+import net.dark_roleplay.medieval.common.testing.music.InstrumentSounds;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;

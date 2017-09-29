@@ -2,8 +2,8 @@ package net.dark_roleplay.medieval.client.entities.fox;
 
 import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelRenderer;
+import net.dark_roleplay.medieval.api.advanced_model.AdvancedModel;
+import net.dark_roleplay.medieval.api.advanced_model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class Model_Fox extends ModelBase {
+public class Model_Fox extends AdvancedModel {
     public ModelRenderer BodyCenter;
     public ModelRenderer BodyBack;
     public ModelRenderer Tail1;
@@ -108,16 +108,16 @@ public class Model_Fox extends ModelBase {
         this.BodyFront.addChild(this.HeadMain);
         this.EarL1 = new ModelRenderer(this, 32, 41);
         this.EarL1.setRotationPoint(-3.0F, -4.5F, -1.0F);
-        this.EarL1.addBox(-1.5F, -2.0F, -0.5F, 3, 2, 1);
+        this.EarL1.addBox(-1.5F, -2.0F, -0.5F, 3, 2, 0.5F);
         this.setRotationAngles(this.EarL1, 0.08726646259971647F, 0.0F, 0.0F);
         this.HeadMain.addChild(this.EarL1);
         this.EarL2 = new ModelRenderer(this, 32, 44);
         this.EarL2.setRotationPoint(0.0F, 0.0F, 0.0F);
-        this.EarL2.addBox(-1.0F, 0.0F, -0.5F, 1, 1, 1);
+        this.EarL2.addBox(-1.0F, 0.0F, -0.5F, 1, 1, 0.5F);
         this.EarL1.addChild(this.EarL2);
         this.EarL3 = new ModelRenderer(this, 33, 39);
         this.EarL3.setRotationPoint(0.5F, -2.0F, 0.0F);
-        this.EarL3.addBox(-2.0F, -1.0F, -0.5F, 2, 1, 1);
+        this.EarL3.addBox(-2.0F, -1.0F, -0.5F, 2, 1, 0.5F);
         this.setRotationAngles(this.EarL3, 0.17453292519943295F, 0.0F, 0.0F);
         this.EarL1.addChild(this.EarL3);
         this.EarR1 = new ModelRenderer(this, 0, 41);

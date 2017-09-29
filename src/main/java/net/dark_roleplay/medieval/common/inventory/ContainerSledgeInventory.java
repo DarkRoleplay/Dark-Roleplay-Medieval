@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.inventory;
 
 import javax.annotation.Nullable;
 
-import net.dark_roleplay.medieval.common.entity.item.EntitySledge;
+import net.dark_roleplay.medieval.common.entities.entity.item.EntitySledge;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;

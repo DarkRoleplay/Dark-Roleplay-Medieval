@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.handler;
 
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
-import net.dark_roleplay.medieval.common.villager.EmeraldsForStacks;
+import net.dark_roleplay.medieval.common.entities.villager.EmeraldsForStacks;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
