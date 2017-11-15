@@ -51,6 +51,8 @@ public class Lantern extends Block{
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.northBB = northBB;
+		this.setHardness(1F);
+		this.setHarvestLevel("pickaxe", 0);
 	}
 	
 	@Override

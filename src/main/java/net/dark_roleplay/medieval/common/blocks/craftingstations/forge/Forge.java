@@ -28,7 +28,7 @@ public class Forge extends FacedBlock {
 		super(Material.ROCK);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.UTILITY);
+//		this.setCreativeTab(DRPMedievalCreativeTabs.UTILITY);
 		this.setHardness(2F);
 		this.setHarvestLevel("pickaxe", 0);
 		this.setSoundType(SoundType.STONE);
@@ -91,7 +91,7 @@ public class Forge extends FacedBlock {
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(world.isRemote){
-			Minecraft.getMinecraft().displayGuiScreen(new MeltingOres());
+//			Minecraft.getMinecraft().displayGuiScreen(new MeltingOres());
 		}
 		return true;
 	}

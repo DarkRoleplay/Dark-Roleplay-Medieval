@@ -1,6 +1,7 @@
 {
 	"__comment": "Designed by JTK222 with Cubik Studio - https://cubik.studio",
 	"textures": {
+		"particle": "drpmedieval:blocks/lantern/metal",
 		"wax": "drpmedieval:blocks/lantern/beeswax",
 		"wick": "drpmedieval:blocks/lantern/wick",
 		"metal": "drpmedieval:blocks/lantern/metal",

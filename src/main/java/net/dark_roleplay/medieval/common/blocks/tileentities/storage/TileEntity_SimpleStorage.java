@@ -1,5 +1,7 @@
 package net.dark_roleplay.medieval.common.blocks.tileentities.storage;
 
+import net.dark_roleplay.medieval.api.storage.LockStackHandler;
+import net.dark_roleplay.medieval.common.handler.DRPMedievalCapabilities;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -13,6 +15,7 @@ public class TileEntity_SimpleStorage  extends TileEntity {
 	private int size;
 
     private ItemStackHandler itemStackHandler;
+    private LockStackHandler lockHandler;
 	
     public TileEntity_SimpleStorage(){
     	this(32);
@@ -26,6 +29,7 @@ public class TileEntity_SimpleStorage  extends TileEntity {
 	        	TileEntity_SimpleStorage.this.markDirty();
 	        }
 		};
+		this.lockHandler = new LockStackHandler();
 	}
 
     @Override
@@ -39,9 +43,13 @@ public class TileEntity_SimpleStorage  extends TileEntity {
 	        	TileEntity_SimpleStorage.this.markDirty();
 	        }
 		};
-        
+        this.lockHandler = new LockStackHandler();
+		
         if (compound.hasKey("items")) {
             this.itemStackHandler.deserializeNBT((NBTTagCompound) compound.getTag("items"));
+        }
+        if(compound.hasKey("lock")){
+        	this.lockHandler.deserializeNBT((NBTTagCompound) compound.getTag("lock"));
         }
     }
 
@@ -50,6 +58,7 @@ public class TileEntity_SimpleStorage  extends TileEntity {
         super.writeToNBT(compound);
         compound.setInteger("size", this.size);
         compound.setTag("items", this.itemStackHandler.serializeNBT());
+        compound.setTag("lock", this.lockHandler.serializeNBT());
         return compound;
     }
 
@@ -59,7 +68,7 @@ public class TileEntity_SimpleStorage  extends TileEntity {
 
     @Override
     public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || capability == DRPMedievalCapabilities.LOCK_HANDLER_CAPABILITY)
 			return true;
         return super.hasCapability(capability, facing);
     }
@@ -68,6 +77,8 @@ public class TileEntity_SimpleStorage  extends TileEntity {
     public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
         if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
 			return (T) this.itemStackHandler;
+        if(capability == DRPMedievalCapabilities.LOCK_HANDLER_CAPABILITY)
+        	return (T) this.lockHandler;
         return super.getCapability(capability, facing);
     }
 

@@ -26,27 +26,19 @@ public class AdvancedOre extends Block{
     
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune){
-    	System.out.println(ore);
     	return ore;
     }
 
     @Override
     public int quantityDropped(IBlockState state, int fortune, Random random){
-
-    	System.out.println("DEBUG1");
         if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped((IBlockState)this.getBlockState().getValidStates().iterator().next(), random, fortune)){
             int i = random.nextInt(fortune + 2) - 1;
 
             if (i < 0){
                 i = 0;
             }
-
-        	System.out.println("DEBUG3");
             return (2 + random.nextInt(3)) * (i + 1);
         }else {
-
-
-        	System.out.println("DEBUG4");
             return 2 + random.nextInt(3);
         }
     }

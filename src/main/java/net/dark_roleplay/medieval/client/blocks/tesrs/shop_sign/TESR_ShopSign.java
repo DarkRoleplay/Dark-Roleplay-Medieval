@@ -3,6 +3,7 @@ package net.dark_roleplay.medieval.client.blocks.tesrs.shop_sign;
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.blocks.decorative.clocks.TE_ClockCore;
 import net.dark_roleplay.medieval.common.blocks.util.shop_sign.ShopSign;
 import net.dark_roleplay.medieval.common.blocks.util.shop_sign.TE_ShopSign;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
@@ -25,6 +26,8 @@ public class TESR_ShopSign extends TileEntitySpecialRenderer {
 
 	@Override  
 	public void render(TileEntity te, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
+			if(!(te instanceof TE_ShopSign))
+				return;
 			TE_ShopSign tes = (TE_ShopSign) te;
 			
 			if(tes.getDrawing() == null)
@@ -35,8 +38,6 @@ public class TESR_ShopSign extends TileEntitySpecialRenderer {
 			Tessellator tessellator = Tessellator.getInstance();
 		    BufferBuilder buff = tessellator.getBuffer();
 		    buff.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX); 
-
-		    EntityPlayer player = Minecraft.getMinecraft().player;
 
 		    EnumFacing facing = te.getWorld().getBlockState(te.getPos()).getValue(ShopSign.FACING);
 		

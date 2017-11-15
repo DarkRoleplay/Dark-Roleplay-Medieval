@@ -218,7 +218,7 @@
 		"ground": {
 			"rotation":  [ 90, 0, 90 ],
 			"translation":  [ 0, -3, 0 ],
-			"scale":  [ 2, 2, 2 ]
+			"scale":  [ 0.8, 0.8, 0.8]
 		},
 		"fixed": {
 			"rotation":  [ 0, 0, 45 ],

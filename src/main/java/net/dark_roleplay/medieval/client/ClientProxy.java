@@ -20,6 +20,7 @@ import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderMortar;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderRopeAnchor;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderShipsWheel;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderTarget;
+import net.dark_roleplay.medieval.client.blocks.tesrs.clock.TESR_ClockCore;
 import net.dark_roleplay.medieval.client.blocks.tesrs.shop_sign.TESR_ShopSign;
 import net.dark_roleplay.medieval.client.entities.RenderEntityRopedArrow;
 import net.dark_roleplay.medieval.client.entities.RenderEntitySledge;
@@ -31,6 +32,7 @@ import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_RopeFence;
 import net.dark_roleplay.medieval.client.model_baking.advanced.CustomBlockstateLoader;
 import net.dark_roleplay.medieval.common.CommonProxy;
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.blocks.decorative.clocks.TE_ClockCore;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityAnvil;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityBookOne;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCauldron;
@@ -108,7 +110,8 @@ public class ClientProxy extends CommonProxy {
 	public void init(FMLPostInitializationEvent event) {}
 
 
-	public void registerRenders() {		
+	public void registerRenders() {				
+		ClientRegistry.bindTileEntitySpecialRenderer(TE_ClockCore.class, new TESR_ClockCore());
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_ShopSign.class, new TESR_ShopSign());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAnvil.class, new SpecialRenderAnvil());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMortar.class, new SpecialRenderMortar());

@@ -24,7 +24,7 @@ public class Sledge extends Item{
 	public Sledge() {
 		this.setRegistryName("Sledge");
 		this.setUnlocalizedName("Sledge");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
+//		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
 	
 	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)

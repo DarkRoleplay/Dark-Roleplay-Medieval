@@ -14,6 +14,7 @@ import net.dark_roleplay.medieval.common.events.capabilities.Event_CapabilityTil
 import net.dark_roleplay.medieval.common.gui.GuiHandler;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalAchievements;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.DRPMedievalCapabilities;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalConfig;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCrafting;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalEntities;
@@ -68,6 +69,7 @@ public class DarkRoleplayMedieval {
 			DarkRoleplayMedieval.isOnServer = true;
 		}
 
+		DRPMedievalCapabilities.register();
 		DRPMedievalEntities.init(event);
 		DRPMedievalVillagers.init(event);
 		DRPMedievalTileEntities.init(event);

@@ -62,6 +62,7 @@ public class HangingBridge_Item extends DRPItem{
 			
 			if(pos.getY() != pos2.getY()){
 				player.sendMessage(new TextComponentString("Booth ends of the Hangingbridge need to be on the same level!"));
+				stack.setTagCompound(null);
 				return EnumActionResult.SUCCESS;
 			}
 			
@@ -72,12 +73,15 @@ public class HangingBridge_Item extends DRPItem{
 				comp.removeTag("pos1Z");
 				stack.setTagCompound(comp);
 				player.sendMessage(new TextComponentString("The Distance is to big! (maximum 64 blocks yours is: " + dist + "Blocks"));
+				stack.setTagCompound(null);
 				return EnumActionResult.SUCCESS;
 			}else if((pos.getX() != pos2.getX()) && (pos.getZ() != pos2.getZ())) {
 				player.sendMessage(new TextComponentString("Hanging Bridges cannot be placed diagonally!"));
+				stack.setTagCompound(null);
 				return EnumActionResult.SUCCESS;
 			}else if(stack.getCount() < (dist -1) && !player.capabilities.isCreativeMode){
 				player.sendMessage(new TextComponentString("You are missing " + (dist-1 - stack.getCount()) + " Hangingbridges!"));
+				stack.setTagCompound(null);
 				return EnumActionResult.SUCCESS;
 			}else{
 				int posX1 = pos.getX();
@@ -124,6 +128,7 @@ public class HangingBridge_Item extends DRPItem{
 					}
 					if(!world.isAirBlock(placePos)){
 						player.sendMessage(new TextComponentString("Path is Obstructed! Cannot place Bridge here!"));
+						stack.setTagCompound(null);
 						return EnumActionResult.SUCCESS;
 					}
 				}
@@ -155,11 +160,7 @@ public class HangingBridge_Item extends DRPItem{
 				}
 			
 				stack.shrink(dist-1);
-				
-				comp.removeTag("pos1X");
-				comp.removeTag("pos1Y");
-				comp.removeTag("pos1Z");
-				stack.setTagCompound(comp);
+				stack.setTagCompound(null);
 			}
 		}
 

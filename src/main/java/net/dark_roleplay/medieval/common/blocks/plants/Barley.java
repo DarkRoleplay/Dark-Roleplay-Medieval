@@ -3,6 +3,7 @@ package net.dark_roleplay.medieval.common.blocks.plants;
 import net.dark_roleplay.medieval.api.blocks.plants.Block_AdvancedCrop;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
 public class Barley extends Block_AdvancedCrop{
@@ -15,7 +16,7 @@ public class Barley extends Block_AdvancedCrop{
 
 	@Override
 	protected Item getSeed() {
-		return DRPMedievalItems.BAT_EAR;
+		return Items.WHEAT_SEEDS;
 	}
 
 	@Override

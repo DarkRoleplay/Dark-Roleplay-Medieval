@@ -1,8 +1,5 @@
 package net.dark_roleplay.medieval.common.events.capabilities;
 
-import net.dark_roleplay.medieval.common.blocks.tileentitys.BedFrameTileEntity;
-import net.dark_roleplay.medieval.common.capabilities.blocks.bedframe.BedFrameMattressProvider;
-import net.dark_roleplay.medieval.common.capabilities.blocks.bedframe.DefaultBedFrameMattress;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCapabilities;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
@@ -13,9 +10,6 @@ public class Event_CapabilityTileEntity {
 
 	@SubscribeEvent
     public void attachCapability(AttachCapabilitiesEvent<TileEntity> event){
-		if(event.getObject() instanceof BedFrameTileEntity && !event.getObject().hasCapability(DRPMedievalCapabilities.MATTRESS, null) )
-			event.addCapability(new ResourceLocation("drpmedieval_mattress"), new BedFrameMattressProvider(new DefaultBedFrameMattress()));
-	
        // if (!(event.getEntity() instanceof EntityPlayer)) return;
 
 //		event.addCapability(DRPMedievalInfo.MODID + "inventory", CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);

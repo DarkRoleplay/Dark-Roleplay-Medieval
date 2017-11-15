@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
 public class Chair extends FacedBlock {
@@ -35,9 +36,11 @@ public class Chair extends FacedBlock {
 	// -------------------------------------------------- Block Events --------------------------------------------------
 	
 	@Override
-	    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-		if(!worldIn.isRemote)
-			return SittingUtil.sitOnBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), playerIn, yOffset);
-		return false;
+	    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+		if(!worldIn.isRemote){
+			boolean result = SittingUtil.sitOnBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), player, yOffset);
+			return result;
+		}
+		return true;
 	}
 }

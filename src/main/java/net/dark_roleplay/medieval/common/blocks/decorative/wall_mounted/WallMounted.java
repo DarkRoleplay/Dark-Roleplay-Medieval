@@ -62,11 +62,10 @@ public class WallMounted extends Block{
 	
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos){
-		EnumFacing enumfacing = state.getValue(FACING);
-		if(!this.canBlockStay(world, pos, enumfacing)){
-			this.dropBlockAsItem(world, pos, state, 0);
-			world.setBlockToAir(pos);
-		}
+//		EnumFacing enumfacing = state.getValue(FACING);
+//		if(!this.canBlockStay(world, pos, enumfacing)){
+//			world.setBlockToAir(pos);
+//		}
 		super.neighborChanged(state, world, pos, block, fromPos);
 	}
 

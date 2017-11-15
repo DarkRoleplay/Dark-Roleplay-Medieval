@@ -13,8 +13,12 @@ import net.dark_roleplay.medieval.common.blocks.decorative.barrels.*;
 import net.dark_roleplay.medieval.common.blocks.decorative.buckets.*;
 import net.dark_roleplay.medieval.common.blocks.decorative.candles.*;
 import net.dark_roleplay.medieval.common.blocks.decorative.chairs.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.clocks.ClockCore;
+import net.dark_roleplay.medieval.common.blocks.decorative.clocks.ClockDial;
+import net.dark_roleplay.medieval.common.blocks.decorative.firewood_pile.FirewoodPile;
 import net.dark_roleplay.medieval.common.blocks.decorative.flowerPot.*;
 import net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges.*;
+import net.dark_roleplay.medieval.common.blocks.decorative.head_cutting_block.HeadCuttingBlock;
 import net.dark_roleplay.medieval.common.blocks.decorative.lanterns.Lantern;
 import net.dark_roleplay.medieval.common.blocks.decorative.lecterns.*;
 import net.dark_roleplay.medieval.common.blocks.decorative.pottery.*;
@@ -35,6 +39,7 @@ import net.dark_roleplay.medieval.common.blocks.util.shop_sign.ShopSign;
 import net.dark_roleplay.medieval.common.items.blocks.*;
 import net.dark_roleplay.medieval.common.items.seeds.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -129,6 +134,8 @@ public class DRPMedievalBlocks {
 	public static CleanPlanks CLEAN_PLANKS = new CleanPlanks("clean_planks");
 	public static Crate CRATE = new Crate("crate");
 	public static AdvancedOre COPPER_ORE = new AdvancedOre("copper_ore", 1);
+	public static ClockCore CLOCK_CORE = new ClockCore("clock_core");
+	public static ClockDial CLOCK_DIAL = new ClockDial("clock_dial", new AxisAlignedBB(0.0F, 0.0F, 0.875F, 1.0, 1.0F, 1.0F));
 	
 	
 	/** D **/
@@ -301,6 +308,9 @@ public class DRPMedievalBlocks {
 	
 	public static ShopSign SHOP_SIGN;
 	
+	public static FirewoodPile FIREWOOD_PILE;
+	public static HeadCuttingBlock HEAD_CUTTING_BLOCK;
+	
 	static List<Block> blocks = new ArrayList<Block>();
 	
 	private static IForgeRegistry<Block> reg;
@@ -310,13 +320,17 @@ public class DRPMedievalBlocks {
 		reg = event.getRegistry();
 
 		WoodHelper.init();
+		registerBlock(FIREWOOD_PILE = new FirewoodPile("firewood_pile"), null);
+		registerBlock(HEAD_CUTTING_BLOCK = new HeadCuttingBlock("head_cutting_block"));
 		
-		registerBlock(LANTERN = (Lantern) new Lantern("lantern", Material.IRON, new AxisAlignedBB(0.25F, 0F, 0.25F, 0.75F, 0.5F, 0.75F)).setCreativeTab(DRPMedievalCreativeTabs.DECORATION));
+		registerBlock(LANTERN = (Lantern) new Lantern("lantern", new Material(MapColor.IRON), new AxisAlignedBB(0.25F, 0F, 0.25F, 0.75F, 0.5F, 0.75F)).setCreativeTab(DRPMedievalCreativeTabs.DECORATION));
 		registerBlock(WORK_TABLE = new WorkTable("work_table"));
 		registerBlock(BUTTER_CHURN = new ButterChurn("butter_churn"));
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.CANDLE_HOLDER_EMPTY);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.CANDLE_HOLDER_UNLIT);
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.CANDLE_HOLDER_LIT);
+	
+		registerBlock(CLOCK_CORE);
 		
 		registerBlock(UNFIRED_VASE = new UnfiredPottery("unfired_vase", new AxisAlignedBB(0.3125F, 0F, 0.3125F, 0.6875F, 0.5815F, 0.6875F)));
 		registerBlock(FIRED_VASE = new FiredPottery("fired_vase", new AxisAlignedBB(0.3125F, 0F, 0.3125F, 0.6875F, 0.5815F, 0.6875F)));
@@ -326,6 +340,7 @@ public class DRPMedievalBlocks {
 		registerBlock(SHOP_SIGN = (ShopSign) new ShopSign("wall_shop_sign").setCreativeTab(DRPMedievalCreativeTabs.DECORATION));
 		
 		registerBlock(FORGE = new Forge("forge"));
+		registerBlock(CLOCK_DIAL);
 		
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.DRY_CLAY = new DryClay("dry_clay"));
 		DRPMedievalBlocks.registerBlock(DRPMedievalBlocks.SNOW_BRICKS);

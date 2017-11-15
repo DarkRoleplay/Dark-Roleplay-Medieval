@@ -7,12 +7,15 @@ import net.dark_roleplay.drpcore.api.items.DRPEquip;
 import net.dark_roleplay.drpcore.api.items.DRPFood;
 import net.dark_roleplay.drpcore.api.items.DRPItem;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.common.items.Key;
+import net.dark_roleplay.medieval.common.items.Lock;
 import net.dark_roleplay.medieval.common.items.blocks.HangingBridge_Item;
 import net.dark_roleplay.medieval.common.items.book.WriteablePage;
 import net.dark_roleplay.medieval.common.items.consumable.BarkAndGlue;
 import net.dark_roleplay.medieval.common.items.consumable.RopedArrow;
 import net.dark_roleplay.medieval.common.items.entities.Sledge;
 import net.dark_roleplay.medieval.common.items.equipment.instruments.Instrument;
+import net.dark_roleplay.medieval.common.items.equipment.other.ItemRope;
 import net.dark_roleplay.medieval.common.items.equipment.other.Telescope;
 import net.dark_roleplay.medieval.common.items.equipment.weapons.PoleWeapon;
 import net.dark_roleplay.medieval.common.items.food.DRPMStew;
@@ -89,7 +92,7 @@ public class DRPMedievalItems {
 	public static DRPItem ORE_CHUNK_SULFUR;
 	public static DRPItem ORE_CHUNK_SALPETER;
 	public static DRPItem DRY_CLAY_CHUNK;
-	public static DRPItem FIREWOOD;
+	public static Firewood FIREWOOD;
 	public static DRPItem PLANKS;
 	public static DRPItem DOUGH;
 	public static DRPItem DOUGH_PUMPKIN;
@@ -124,16 +127,51 @@ public class DRPMedievalItems {
 	public static DRPMStew VEGIE_STEW;
 	public static DRPMStew PUMPKIN_STEW;
 
+	//NEW FINISH THAT SHIAT
+	public static ItemRope VINE_ROPE;
+	public static ItemRope THIN_ROPE;
+	public static ItemRope ROPE;
+	public static ItemRope THICK_ROPE;
+	public static ItemRope THIN_CHAIN;
+	public static ItemRope CHAIN;
+	public static ItemRope THICK_CHAIN;
+
+	public static DRPItem GRASS;
+	public static DRPItem HAY;
+	public static DRPItem FLINT_KNIFE;
+	
+	public static DRPItem METAL_KNIFE;//TODO WAY TO MUCH FOR NOW
+	public static DRPItem WOODEN_WRENCH;
+	
 	//OLD SYSTEM
 	public static BarkAndGlue BARK_AND_GLUE;
 	public static RopedArrow ROPED_ARROW = new RopedArrow();
 	public static SeedBarley SeedBarley;
 	public static StringCoil StringCoil = new StringCoil();
 	public static Sledge SLEDGE = new Sledge();
+	
+	public static Lock WOODEN_LOCK;
+	public static Key WOODEN_KEY;
 
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Item> event) {
 		IForgeRegistry<Item> reg = event.getRegistry();
+		
+		reg.registerAll(
+//			VINE_ROPE = (ItemRope) new ItemRope("vine_rope", "ropes").setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab),
+//			THIN_ROPE = (ItemRope) new ItemRope("thin_rope", "ropes").setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab),
+//			ROPE = (ItemRope) new ItemRope("normal_rope", "ropes").setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab),
+//			THICK_ROPE = (ItemRope) new ItemRope("thick_rope", "ropes").setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab),
+//			THIN_CHAIN = (ItemRope) new ItemRope("thin_chain", "ropes").setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab),
+//			CHAIN = (ItemRope) new ItemRope("normal_chain", "ropes").setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab),
+//			THICK_CHAIN = (ItemRope) new ItemRope("thick_chain", "ropes").setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab),
+			GRASS = (DRPItem) new DRPItem("grass", "misc", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab),
+			HAY = (DRPItem) new DRPItem("hay", "misc", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab),
+			FLINT_KNIFE = (DRPItem) new DRPItem("flint_knife", "equipment/tools", 1),//.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalEquipTab),
+			WOODEN_WRENCH = (DRPItem) new DRPItem("wooden_wrench", "equipment/tools", 1).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalEquipTab),
+			WOODEN_LOCK = (Lock) new Lock("wooden_lock", "misc/locks", 16),//.setCreativeTab(DRPMedievalCreativeTabs.UTILITY),
+			WOODEN_KEY = (Key) new Key("wooden_key", "misc/keys", 16)//.setCreativeTab(DRPMedievalCreativeTabs.UTILITY)
+		);
 		
 		reg.register(APPLE_GREEN = (DRPFood) new DRPFood(4, 0.3F, "apple_green", "food/fruits", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab));
 		reg.register(APPLE_YELLOW = (DRPFood) new DRPFood(4, 0.3F, "apple_yellow", "food/fruits", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab));
@@ -168,7 +206,7 @@ public class DRPMedievalItems {
 		reg.register(ORE_CHUNK_COPPER = (DRPItem) new DRPItem("ore_chunk_copper", "misc", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
 		reg.register(ORE_CHUNK_SULFUR = (DRPItem) new DRPItem("ore_chunk_sulfur", "misc", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
 		reg.register(ORE_CHUNK_SALPETER = (DRPItem) new DRPItem("ore_chunk_salpeter", "misc", 64).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
-		reg.register(FIREWOOD = (DRPItem) new DRPItem("firewood", "firewood", 64, "oak", "birch", "spruce", "jungle", "acacia", "dark_oak").setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
+		reg.register(FIREWOOD = (Firewood) new Firewood("firewood", "firewood", 64, "oak", "birch", "spruce", "jungle", "acacia", "dark_oak").setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
 		reg.register(PLANKS = (DRPItem) new DRPItem("planks", "planks", 64, "oak", "spruce", "birch", "jungle", "dark_oak", "acacia").setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab));
 		reg.register(CLEAN_PAINTBRUSH = (DRPItem) new DRPItem("clean_paintbrush", "paintbrushes", 1).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalEquipTab));
 		reg.register(BLACK_PAINTBRUSH = (DRPItem) new DRPItem("black_paintbrush", "paintbrushes", 1).setCreativeTab(DRPMedievalCreativeTabs.drpmedievalEquipTab));

@@ -1,11 +1,11 @@
 package net.dark_roleplay.medieval.common.handler;
 
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.blocks.decorative.clocks.TE_ClockCore;
 import net.dark_roleplay.medieval.common.blocks.tileentities.TileEntity_AdvancedCrop;
 import net.dark_roleplay.medieval.common.blocks.tileentities.TileEntity_FlowerStorage;
 import net.dark_roleplay.medieval.common.blocks.tileentities.lectern.TileEntity_Lectern;
 import net.dark_roleplay.medieval.common.blocks.tileentities.storage.TileEntity_SimpleStorage;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.BedFrameTileEntity;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.RopeCoilTileEntity;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityAnvil;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityBookOne;
@@ -32,6 +32,7 @@ public class DRPMedievalTileEntities {
 
 	public static final void init(FMLPreInitializationEvent event) {
 		
+		GameRegistry.registerTileEntity(TE_ClockCore.class, DRPMedievalInfo.MODID + ":te_clock_core");
 		GameRegistry.registerTileEntity(TE_ShopSign.class, DRPMedievalInfo.MODID + ":te_shop_sign");
 		GameRegistry.registerTileEntity(TileEntityAnvil.class, DRPMedievalInfo.MODID + ":" + "TileEntityAnvil");
 		GameRegistry.registerTileEntity(TileEntityMortar.class, DRPMedievalInfo.MODID + ":" + "TileEntityMortar");
@@ -57,7 +58,6 @@ public class DRPMedievalTileEntities {
         //Old Storage
 		GameRegistry.registerTileEntity(TileEntityCrate.class, DRPMedievalInfo.MODID + ":" + "TilEntityCrate");
 		GameRegistry.registerTileEntity(TileEntityDungeonChest.class, DRPMedievalInfo.MODID + ":" + "TileEntityDungeonChest");
-		GameRegistry.registerTileEntity(BedFrameTileEntity.class, "BedFrameTileEntity");
 		GameRegistry.registerTileEntity(TileEntity_AdvancedCrop.class, DRPMedievalInfo.MODID + ":" + "tile_entity_advanced_crop");
 		
 	}

@@ -98,7 +98,7 @@ public class RopeFence extends Block{
 				n = 1;
 			} else if((world.getBlockState(pos.north().up()).getBlock() == this) && world.isAirBlock(pos.up())){
 				n = 2;
-			} else if((world.getBlockState(pos.north().down()).getBlock() == this)){
+			} else if((world.getBlockState(pos.north().down()).getBlock() == this) && world.isAirBlock(pos.down())){
 				n = 0;
 			}else if(world.isSideSolid(pos.north(), EnumFacing.SOUTH, false)){
 				n = 1;
@@ -108,7 +108,7 @@ public class RopeFence extends Block{
 				e = 1;
 			} else if((world.getBlockState(pos.east().up()).getBlock() == this) && world.isAirBlock(pos.up())){
 				e = 2;
-			} else if((world.getBlockState(pos.east().down()).getBlock() == this)){
+			} else if((world.getBlockState(pos.east().down()).getBlock() == this) && world.isAirBlock(pos.down())){
 				e = 0;
 			}else if(world.isSideSolid(pos.east(), EnumFacing.WEST, false)){
 				e = 1;
@@ -118,7 +118,7 @@ public class RopeFence extends Block{
 				s = 1;
 			} else if((world.getBlockState(pos.south().up()).getBlock() == this) && world.isAirBlock(pos.up())){
 				s = 2;
-			} else if((world.getBlockState(pos.south().down()).getBlock() == this)){
+			} else if((world.getBlockState(pos.south().down()).getBlock() == this) && world.isAirBlock(pos.down())){
 				s = 0;
 			}else if(world.isSideSolid(pos.south(), EnumFacing.NORTH, false)){
 				s = 1;
@@ -128,7 +128,7 @@ public class RopeFence extends Block{
 				w = 1;
 			} else if((world.getBlockState(pos.west().up()).getBlock() == this) && world.isAirBlock(pos.up())){
 				w = 2;
-			} else if((world.getBlockState(pos.west().down()).getBlock() == this)){
+			} else if((world.getBlockState(pos.west().down()).getBlock() == this) && world.isAirBlock(pos.down())){
 				w = 0;
 			}else if(world.isSideSolid(pos.west(), EnumFacing.EAST, false)){
 				w = 1;
@@ -155,9 +155,7 @@ public class RopeFence extends Block{
 				state = ext;
 		}
 
-		
-		return state;// ext.withProperty(RopeFence.NORTH, n).withProperty(RopeFence.EAST, e).withProperty(RopeFence.SOUTH, s).withProperty(RopeFence.WEST, w).withProperty(RopeFence.NORTH_EAST, ne).withProperty(RopeFence.SOUTH_WEST, sw).withProperty(RopeFence.SOUTH_EAST, se).withProperty(RopeFence.NORTH_WEST, nw);
-
+		return state;
 	}
 
 	@Override
@@ -177,29 +175,47 @@ public class RopeFence extends Block{
 	
 	@Override
 	public void addCollisionBoxToList(IBlockState unextended, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entity, boolean p_185477_7_){
+		unextended = getExtendedState(unextended, worldIn, pos);
+		
 		IExtendedBlockState state;
-		if(unextended instanceof IExtendedBlockState)
+		if(unextended instanceof IExtendedBlockState){
 			state = (IExtendedBlockState) unextended;
-		else return;
-		if(entity instanceof EntityPlayer){
-			//state = state.getActualState(worldIn, pos);
-	        Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.PILLAR_AABB.contract(0D, 0.5D, 0D));
+		}else{
+			return;
+		}
+		
+		int north = 3;
+		int east = 3;
+		int south = 3;
+		int west = 3;
 
-//	        if (state.getValue(RopeFence.NORTH) != 3) {
-//				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.NORTH_AABB.contract(0D, 0.5D, 0D));
-//			}
-//
-//	        if (state.getValue(RopeFence.EAST) != 3) {
-//				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.EAST_AABB.contract(0D, 0.5D, 0D));
-//			}
-//
-//	        if (state.getValue(RopeFence.SOUTH) != 3) {
-//				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.SOUTH_AABB.contract(0D, 0.5D, 0D));
-//			}
-//
-//	        if (state.getValue(RopeFence.WEST) != 3) {
-//				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.WEST_AABB.contract(0D, 0.5D, 0D));
-//			}
+		if (state.getUnlistedNames().contains(RopeFence.NORTH))
+			north = state.getValue(RopeFence.NORTH);
+		if (state.getUnlistedNames().contains(RopeFence.EAST))
+			east = state.getValue(RopeFence.EAST);
+		if (state.getUnlistedNames().contains(RopeFence.SOUTH))
+			south = state.getValue(RopeFence.SOUTH);
+		if (state.getUnlistedNames().contains(RopeFence.WEST))
+			west = state.getValue(RopeFence.WEST);
+		
+		if(entity instanceof EntityPlayer){
+	        Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.PILLAR_AABB.contract(0D, 0.5D, 0D));
+	        
+	        if (north != 3){
+				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.NORTH_AABB.contract(0D, 0.5D, 0D));
+	        }
+	        
+	        if (east != 3){
+				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.EAST_AABB.contract(0D, 0.5D, 0D));
+	        }
+	        
+	        if (south != 3){
+				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.SOUTH_AABB.contract(0D, 0.5D, 0D));
+	        }
+	        
+	        if (west != 3){
+				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.WEST_AABB.contract(0D, 0.5D, 0D));
+	        }
 	        
 	        if (state.getValue(RopeFence.NORTH_EAST).booleanValue()) {
 				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.NE_AABB.contract(0D, 0.5D, 0D));
@@ -217,24 +233,23 @@ public class RopeFence extends Block{
 				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.SW_AABB.contract(0D, 0.5D, 0D));
 			}
 		}else{
-			//state = state.getActualState(worldIn, pos);
-//	        Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.PILLAR_AABB);
-//
-//	        if (state.getValue(RopeFence.NORTH) != 3) {
-//				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.NORTH_AABB);
-//			}
-//
-//	        if (state.getValue(RopeFence.EAST) != 3) {
-//				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.EAST_AABB);
-//			}
-//
-//	        if (state.getValue(RopeFence.SOUTH) != 3) {
-//				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.SOUTH_AABB);
-//			}
-//
-//	        if (state.getValue(RopeFence.WEST) != 3) {
-//				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.WEST_AABB);
-//			}
+	        Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.PILLAR_AABB);
+			
+			if (north != 3){
+				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.NORTH_AABB);
+	        }
+	        
+	        if (east != 3){
+				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.EAST_AABB);
+	        }
+	        
+	        if (south != 3){
+				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.SOUTH_AABB);
+	        }
+	        
+	        if (west != 3){
+				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.WEST_AABB);
+	        }
 	        
 	        if (state.getValue(RopeFence.NORTH_EAST).booleanValue()) {
 				Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, RopeFence.NE_AABB);
@@ -267,22 +282,6 @@ public class RopeFence extends Block{
         if(!(state instanceof IExtendedBlockState)){
         	return 0;
         }
-        
-//        if (((IExtendedBlockState) state).getValue(RopeFence.NORTH) != 3){
-//            i |= 1 << EnumFacing.NORTH.getHorizontalIndex();
-//        }
-//
-//        if (((IExtendedBlockState) state).getValue(RopeFence.EAST) != 3){
-//            i |= 1 << EnumFacing.EAST.getHorizontalIndex();
-//        }
-//
-//        if (((IExtendedBlockState) state).getValue(RopeFence.SOUTH) != 3){
-//            i |= 1 << EnumFacing.SOUTH.getHorizontalIndex();
-//        }
-//
-//        if (((IExtendedBlockState) state).getValue(RopeFence.WEST) != 3){
-//            i |= 1 << EnumFacing.WEST.getHorizontalIndex();
-//        }
 
         return i;
     }
