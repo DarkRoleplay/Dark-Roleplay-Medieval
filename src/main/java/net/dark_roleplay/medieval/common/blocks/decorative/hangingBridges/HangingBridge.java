@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import ibxm.Player;
 import net.dark_roleplay.medieval.api.blocks.properties.UnlistedPropertyBool;
 import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
@@ -50,6 +51,7 @@ public class HangingBridge extends Block {
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.setSoundType(SoundType.WOOD);
+		this.setHardness(1F);
 		this.initialOffset = initialOffset;
 	}
 	
@@ -194,39 +196,39 @@ public class HangingBridge extends Block {
 		EnumAxis axis = state.getValue(AXIS);
 		if(axis == EnumAxis.Z){
 			if(world.getBlockState(pos.add(1, 0, 0)).getBlock() == this && world.getBlockState(pos.add(-1, 0, 0)).getBlock() == this){
-				int offset = loopTroughBlocks(world, pos, axis, 1);
-				loopTroughBlocks(world, pos.add(offset - 1, 1, 0), axis, 1);
-				loopTroughBlocks(world, pos.add(offset - 1, -1, 0), axis, 1);
-
-				offset = loopTroughBlocks(world, pos, axis, -1);
-				loopTroughBlocks(world, pos.add(offset - 1, 1, 0), axis, -1);
-				loopTroughBlocks(world, pos.add(offset - 1, -1, 0), axis, -1);
+				breakBridge(world, pos.add(1, 0, 0), pos, axis);
+				breakBridge(world, pos.add(1, -1, 0), pos, axis);
+				breakBridge(world, pos.add(1, 1, 0), pos, axis);
+				breakBridge(world, pos.add(-1, 0, 0), pos, axis);
+				breakBridge(world, pos.add(-1, -1, 0), pos, axis);
+				breakBridge(world, pos.add(-1, 1, 0), pos, axis);
 			}
 		}else if(axis == EnumAxis.X){
 			if(world.getBlockState(pos.add(0, 0, 1)).getBlock() == this && world.getBlockState(pos.add(0, 0, -1)).getBlock() == this){
-				loopTroughBlocks(world, pos, axis, 1);
-				loopTroughBlocks(world, pos, axis, -1);
-				loopTroughBlocks(world, pos.up(), axis, 1);
-				loopTroughBlocks(world, pos.up(), axis, -1);
-				loopTroughBlocks(world, pos.down(), axis, 1);
-				loopTroughBlocks(world, pos.down(), axis, -1);
+				breakBridge(world, pos.add(0, 0, 10), pos, axis);
+				breakBridge(world, pos.add(0, -1, 1), pos, axis);
+				breakBridge(world, pos.add(0, 1, 1), pos, axis);
+				breakBridge(world, pos.add(0, 0, -1), pos, axis);
+				breakBridge(world, pos.add(0, -1, -1), pos, axis);
+				breakBridge(world, pos.add(01, 1, -1), pos, axis);
 			}
 		}
     }
 	
-	private int loopTroughBlocks(World world, BlockPos pos, EnumAxis axis, int calc){
-		int i = calc;
-		if(axis == EnumAxis.Z){
-			while(world.getBlockState(pos.add(i,0,0)).getBlock() == this){
-				world.destroyBlock(pos.add(i,0,0), true);
-				i += calc;
-			}
-		}else if(axis == EnumAxis.X){
-			while(world.getBlockState(pos.add(0,0,i)).getBlock() == this){
-				world.destroyBlock(pos.add(0,0,i), true);
-				i += calc;
+	private void breakBridge(World world, BlockPos pos, BlockPos prevPos, EnumAxis axis){
+		if(world.getBlockState(pos).getBlock() instanceof HangingBridge){
+			world.destroyBlock(pos, true);
+			if(axis == EnumAxis.X){
+				boolean dir = pos.getZ() > prevPos.getZ();
+				this.breakBridge(world, pos.add(0, 0, dir ? 1 : -1), pos, axis);
+				this.breakBridge(world, pos.add(0, 1, dir ? 1 : -1), pos, axis);
+				this.breakBridge(world, pos.add(0, -1, dir ? 1 : -1), pos, axis);
+			}else{
+				boolean dir = pos.getX() > prevPos.getX();
+				this.breakBridge(world, pos.add(dir ? 1 : -1, 0, 0), pos, axis);
+				this.breakBridge(world, pos.add(dir ? 1 : -1, 1, 0), pos, axis);
+				this.breakBridge(world, pos.add(dir ? 1 : -1, -1, 0), pos, axis);
 			}
 		}
-		return i;
 	}
 }

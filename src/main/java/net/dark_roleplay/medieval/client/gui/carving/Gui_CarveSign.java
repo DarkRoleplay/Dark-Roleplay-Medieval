@@ -23,6 +23,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.settings.GameSettings;
 import net.minecraft.util.ResourceLocation;
 
 public class Gui_CarveSign extends GuiScreen{
@@ -86,6 +87,7 @@ public class Gui_CarveSign extends GuiScreen{
 	
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks){
+		
 		super.drawScreen(mouseX, mouseY, partialTicks);
 
 		//Update Image
@@ -105,6 +107,13 @@ public class Gui_CarveSign extends GuiScreen{
 		//Draw Lines
 		GlStateManager.color(255, 255, 255);
 		drawLines(this.posX, this.posY, sizeX, sizeY);
+		
+		if(leftDown){
+			mouseDragged(mouseX, mouseY, 0);
+		}else if(rightDown){
+			mouseDragged(mouseX, mouseY, 1);
+		}
+		
     }
 	
 	private void drawLines(int posX, int posY, int sizeX, int sizeY){
@@ -134,8 +143,10 @@ public class Gui_CarveSign extends GuiScreen{
 	private void drawVerLine(int posX, int posY, int length){
 		GL11.glBegin(GL11.GL_LINE_STRIP);GL11.glVertex2f(posX, posY);GL11.glVertex2f(posX, posY + length);GL11.glEnd();
 	}
-
 	
+	private boolean leftDown = false;
+	private boolean rightDown = false;
+
 	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException{
         	int posX = (mouseX - this.posX) / scaleFactor;
         	int posY = (mouseY - this.posY) / scaleFactor;
@@ -146,8 +157,34 @@ public class Gui_CarveSign extends GuiScreen{
             		this.imgChanged = true;
         		}
         	}
+        	if(mouseButton == 0){
+        		leftDown = true;
+        	}else{
+        		rightDown = true;
+        	}
         super.mouseClicked(mouseX, mouseY, mouseButton);
     }
+	
+	protected void mouseReleased(int mouseX, int mouseY, int state){
+		super.mouseReleased(mouseX, mouseY, state);
+		if(state == 0){
+    		leftDown = false;
+    	}else{
+    		rightDown = false;
+    	}
+    }
+	
+	protected void mouseDragged(int mouseX, int mouseY, int mouseButton){
+		int posX = (mouseX - this.posX) / scaleFactor;
+    	int posY = (mouseY - this.posY) / scaleFactor;
+    	if(posX >= 0 && posX < this.drawWidth){
+    		if(posY >= 0 && posY < this.drawHeight){
+    			imgBuf[posX + (drawWidth * posY)] = mouseButton == 0 ? COLOR_DRAWING_1 : COLOR_INVISIBLE;
+        		img = ImageConversion.intArToBuf(drawWidth, drawHeight, imgBuf);
+        		this.imgChanged = true;
+    		}
+    	}
+	}
 	
 	public static void drawFullTextureScaled(int x, int y,int width, int height){
         Tessellator tessellator = Tessellator.getInstance();
