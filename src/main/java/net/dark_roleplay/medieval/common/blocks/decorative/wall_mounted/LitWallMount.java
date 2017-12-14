@@ -65,30 +65,15 @@ public class LitWallMount extends WallMounted {
 	@Override
 	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand){
 		EnumFacing enumfacing = state.getValue(FACING);
-//		Vec3d offset = state.getValue(POWERED) ? particleOffsetPowered : particleOffset;
-//		switch(enumfacing.getOpposite()){
-//		case NORTH:
-//			offset = rotatePos(offset, 0);
-//			break;
-//		case EAST:
-//			offset = rotatePos(offset, 1);
-//			break;
-//		case SOUTH:
-//			offset = rotatePos(offset, 2);
-//			break;
-//		case WEST:
-//			offset = rotatePos(offset, 3);
-//			break;
-//		default:
-//			break;
-//		}
 		double offsetX = pos.getX() + 0.5D;
 		double offsetY = pos.getY() + this.yOffset;
 		double offsetZ = pos.getZ() + 0.5D;
 
+		boolean powered = state.getValue(POWERED);
+		
 		EnumFacing enumfacing1 = enumfacing.getOpposite();
-		world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, offsetX + (this.centerOffset * enumfacing1.getFrontOffsetX()), offsetY, offsetZ + (this.centerOffset * enumfacing1.getFrontOffsetZ()), 0.0D, 0.0D, 0.0D); //d0 + (d4 * enumfacing1.getFrontOffsetX()), d1 + d3, d2 + (d4 * enumfacing1.getFrontOffsetZ())
-		world.spawnParticle(EnumParticleTypes.FLAME, 		offsetX + (this.centerOffset * enumfacing1.getFrontOffsetX()), offsetY, offsetZ + (this.centerOffset * enumfacing1.getFrontOffsetZ()), 0.0D, 0.0D, 0.0D);//d0 + (d4 * enumfacing1.getFrontOffsetX()), d1 + d3, d2 + (d4 * enumfacing1.getFrontOffsetZ())
+		world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, offsetX + (this.centerOffset * enumfacing1.getFrontOffsetX()), offsetY, offsetZ + (this.centerOffset * enumfacing1.getFrontOffsetZ()), 0.0D, 0.0D, 0.0D); 
+		world.spawnParticle(EnumParticleTypes.FLAME, 		offsetX + (this.centerOffset * enumfacing1.getFrontOffsetX()), offsetY, offsetZ + (this.centerOffset * enumfacing1.getFrontOffsetZ()), 0.0D, 0.0D, 0.0D);
 	}
 	
 	@Override

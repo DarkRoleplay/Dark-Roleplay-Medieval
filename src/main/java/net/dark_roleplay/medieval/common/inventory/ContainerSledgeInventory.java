@@ -31,7 +31,7 @@ public class ContainerSledgeInventory  extends Container{
     }
 
     public boolean canInteractWith(EntityPlayer playerIn){
-        return this.sledgeInventory.isUsableByPlayer(playerIn) && this.theSledge.isEntityAlive() && this.theSledge.getDistanceToEntity(playerIn) < 8.0F;
+        return this.sledgeInventory.isUsableByPlayer(playerIn) && this.theSledge.isEntityAlive() && this.theSledge.getDistance(playerIn) < 8.0F;
     }
 
     /**

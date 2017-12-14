@@ -171,7 +171,7 @@ public class RenderEntitySledge extends RenderLiving<EntitySledge>{
     }
 	
 	protected void renderLivingLabel2(EntitySledge entityIn, String str, double x, double y, double z, int maxDistance){
-        double d0 = entityIn.getDistanceSqToEntity(this.renderManager.renderViewEntity);
+        double d0 = entityIn.getDistanceSq(this.renderManager.renderViewEntity);
 
         if (d0 <= (double)(maxDistance * maxDistance)){
             boolean flag = entityIn.isSneaking();

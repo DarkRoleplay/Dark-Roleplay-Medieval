@@ -26,7 +26,7 @@ public class RopeCoil extends BlockContainer{
 	    this.setCreativeTab(DRPMedievalCreativeTabs.BUILDING_MATS);
 	    this.setHardness(2.0F);
 	    this.setSoundType(SoundType.WOOD);
-        this.isBlockContainer = true;
+//        this.isBlockContainer = true;
     }	
 
 	@Override

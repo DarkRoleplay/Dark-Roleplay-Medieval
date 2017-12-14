@@ -18,7 +18,7 @@ public class RenderLayer_Guild implements LayerRenderer<EntityPlayer> {
 	@Override
 	public void doRenderLayer(EntityPlayer entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		RenderManager renderManager = Minecraft.getMinecraft().getRenderManager();
-		double d0 = entity.getDistanceSqToEntity(renderManager.renderViewEntity);
+		double d0 = entity.getDistanceSq(renderManager.renderViewEntity);
 
 		String str = "DEBUG";
 		
