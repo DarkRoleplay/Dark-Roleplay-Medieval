@@ -1,7 +1,0 @@
-{
-    "variants":{
-        "axis=x":{"model":"drpmedieval:barrel_tables/barrel_table_acacia"},
-        "axis=z":{"model":"drpmedieval:barrel_tables/barrel_table_acacia", "y":90} ,
-		"inventory":{"model":"drpmedieval:barrel_tables/barrel_table_acacia"}
-    }
-}

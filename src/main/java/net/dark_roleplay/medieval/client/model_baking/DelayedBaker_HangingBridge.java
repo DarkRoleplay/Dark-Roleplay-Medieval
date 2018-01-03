@@ -49,7 +49,7 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 		List<BakedQuad> result = Lists.newArrayList();
 		
 		int yRot = state.getValue(HangingBridge.AXIS) == EnumAxis.Z ? 90 : 0;
-		int height = state.getValue(HangingBridge.HEIGHT) + (state.getBlock().getRegistryName().getResourcePath().contains("top") ? 8 : 0);
+		int height = state.getValue(HangingBridge.HEIGHT) + (((HangingBridge)state.getBlock()).getRegistryName().getResourcePath().contains("top") ? 8 : 0);
 		
 		if(state instanceof IExtendedBlockState){
 			IExtendedBlockState ext = (IExtendedBlockState) state;
@@ -99,7 +99,7 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 
 	@Override
 	public boolean accepts(ResourceLocation modelLocation) {
-		return ((modelLocation instanceof ModelResourceLocation) && DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM.getRegistryName().equals(modelLocation)) || DRPMedievalBlocks.HANGING_BRIDGE_TOP.getRegistryName().equals(modelLocation);
+		return ((modelLocation instanceof ModelResourceLocation) && (DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM.getRegistryName().equals(modelLocation)) || DRPMedievalBlocks.HANGING_BRIDGE_TOP.getRegistryName().equals(modelLocation));
 	}
 
 	@Override

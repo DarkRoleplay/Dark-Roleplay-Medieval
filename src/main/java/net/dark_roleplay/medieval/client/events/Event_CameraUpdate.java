@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.client.events;
 
 import net.dark_roleplay.medieval.client.ClientProxy;
 import net.dark_roleplay.medieval.client.gui.telescope.Gui_Telescope;
-import net.dark_roleplay.medieval.common.items.equipment.other.Telescope;
+import net.dark_roleplay.medieval.common.objects.items.Telescope;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.EntityViewRenderEvent;

@@ -21,7 +21,6 @@ public class StringCoil extends Item {
 	public StringCoil() {
 		this.setRegistryName("StringCoil");
 		this.setUnlocalizedName("StringCoil");
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
 
 	public boolean hasColor(ItemStack stack) {

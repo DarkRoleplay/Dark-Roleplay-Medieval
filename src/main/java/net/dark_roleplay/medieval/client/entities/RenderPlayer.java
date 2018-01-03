@@ -1,10 +1,6 @@
 package net.dark_roleplay.medieval.client.entities;
 
 import net.dark_roleplay.medieval.client.premium.ModelBox;
-import net.dark_roleplay.medieval.common.entities.entity.item.EntitySledge;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.player.EntityPlayer;

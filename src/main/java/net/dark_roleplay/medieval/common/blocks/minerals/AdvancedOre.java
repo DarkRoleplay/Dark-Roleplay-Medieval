@@ -13,7 +13,7 @@ public class AdvancedOre extends Block{
 	
 	private Item ore;
 	
-    public AdvancedOre(String registryName, int harvestLevel){
+    public AdvancedOre(String registryName, int harvestLevel, Item ore){
         super(Material.ROCK);
         this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
@@ -22,6 +22,7 @@ public class AdvancedOre extends Block{
         this.setHardness(3.0F);
 		this.setHarvestLevel("pickaxe", harvestLevel);
         this.setResistance(5.0F);
+        this.ore = ore;
     }
     
     @Override
@@ -42,10 +43,4 @@ public class AdvancedOre extends Block{
             return 2 + random.nextInt(3);
         }
     }
- 
-    public AdvancedOre setOre(Item ore){
-    	this.ore = ore;
-    	return this;
-    }
-    
 }

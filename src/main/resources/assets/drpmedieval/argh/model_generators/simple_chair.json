@@ -1,0 +1,8 @@
+{
+	"models":[
+		{
+			"model" : "drpmedieval:argh/models/block/simple_chair.json",
+			"output" : "drpmedieval:models/block/simple_chair/simple_%wood%_chair.json"
+		}
+	]
+}

@@ -31,7 +31,7 @@ public class DRPMedievalCreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(Item.getItemFromBlock(DRPMedievalBlocks.MOSSY_LOG_SPRUCE));
+			return new ItemStack(Item.getItemFromBlock(DRPMedievalBlocks.MOSSY_SPRUCE_LOG));
 		}
 		
 		@Override
@@ -65,7 +65,7 @@ public class DRPMedievalCreativeTabs {
 		}
 	}.setBackgroundImageName("drpmedieval.png");
 
-	public static CreativeTabs drpmedievalFoodTab = new CreativeTabs("drpm_food") {
+	public static CreativeTabs FOOD = new CreativeTabs("drpm_food") {
 
 		@Override
 		@SideOnly(Side.CLIENT)
@@ -85,7 +85,7 @@ public class DRPMedievalCreativeTabs {
 		}
 	}.setBackgroundImageName("drpmedieval.png");
 
-	public static CreativeTabs drpmedievalEquipTab = new CreativeTabs("drpm_equip") {
+	public static CreativeTabs EQUIPMENT = new CreativeTabs("drpm_equip") {
 
 		@Override
 		@SideOnly(Side.CLIENT)
@@ -104,7 +104,7 @@ public class DRPMedievalCreativeTabs {
 		}
 	}.setBackgroundImageName("drpmedieval.png");
 
-	public static CreativeTabs drpmedievalMiscTab = new CreativeTabs("drpm_misc") {
+	public static CreativeTabs MISCELLANEOUS = new CreativeTabs("drpm_misc") {
 
 		@Override
 		@SideOnly(Side.CLIENT)

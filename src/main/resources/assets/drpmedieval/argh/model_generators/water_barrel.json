@@ -1,0 +1,8 @@
+{
+	"models":[
+		{
+			"model" : "drpmedieval:argh/models/block/water_barrel.json",
+			"output" : "drpmedieval:models/block/barrels/%wood%_water_barrel.json"
+		}
+	]
+}

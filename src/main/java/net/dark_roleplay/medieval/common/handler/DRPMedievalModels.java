@@ -28,25 +28,9 @@ public class DRPMedievalModels {
 			registerItemMesh(item);
 		}
 		toRegisterMeshes = null;
-		
-		registerItemMesh("simple_chairs", DRPMedievalBlocks.SIMPLE_CHAIR_OAK);
-		registerItemMesh("simple_chairs", DRPMedievalBlocks.SIMPLE_CHAIR_BIRCH);
-		registerItemMesh("simple_chairs", DRPMedievalBlocks.SIMPLE_CHAIR_SPRUCE);
-		registerItemMesh("simple_chairs", DRPMedievalBlocks.SIMPLE_CHAIR_JUNGLE);
-		registerItemMesh("simple_chairs", DRPMedievalBlocks.SIMPLE_CHAIR_ACACIA);
-		registerItemMesh("simple_chairs", DRPMedievalBlocks.SIMPLE_CHAIR_DARK_OAK);
-	 	
-		registerItemMesh("simple_tables", DRPMedievalBlocks.SIMPLE_TABLE_OAK);
-		registerItemMesh("simple_tables", DRPMedievalBlocks.SIMPLE_TABLE_BIRCH);
-		registerItemMesh("simple_tables", DRPMedievalBlocks.SIMPLE_TABLE_SPRUCE);
-		registerItemMesh("simple_tables", DRPMedievalBlocks.SIMPLE_TABLE_JUNGLE);
-		registerItemMesh("simple_tables", DRPMedievalBlocks.SIMPLE_TABLE_ACACIA);
-		registerItemMesh("simple_tables", DRPMedievalBlocks.SIMPLE_TABLE_DARK_OAK);
-		
-		registerItemMesh("buckets",DRPMedievalBlocks.BUCKET_DIRT);
+
 		
 		// Old Blocks
-		registerItemMesh(DRPMedievalBlocks.bookOne);
 		registerItemMesh(DRPMedievalBlocks.ANVIL);
 		registerItemMesh(DRPMedievalBlocks.GRINDSTONE);
 		registerItemMesh(DRPMedievalBlocks.HANGING_CAULDRON);
@@ -109,14 +93,6 @@ public class DRPMedievalModels {
 	}
 	
 	public static void forceAdditionalModels() {
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(DRPMedievalBlocks.CLEAN_PLANKS), new ResourceLocation[] {new ResourceLocation(DRPMedievalInfo.MODID + ":" + "clean_planks/clean_plank_oak"), new ResourceLocation(DRPMedievalInfo.MODID + ":" + "clean_planks/clean_plank_spruce"), new ResourceLocation(DRPMedievalInfo.MODID + ":" + "clean_planks/clean_plank_birch"), new ResourceLocation(DRPMedievalInfo.MODID + ":" + "clean_planks/clean_plank_jungle"), new ResourceLocation(DRPMedievalInfo.MODID + ":" + "clean_planks/clean_plank_dark_oak"), new ResourceLocation(DRPMedievalInfo.MODID + ":" + "clean_planks/clean_plank_acacia")});
-	
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(DRPMedievalBlocks.CLEAN_PLANKS), 0, new ModelResourceLocation(DRPMedievalInfo.MODID + ":" + "clean_planks/clean_plank_oak", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(DRPMedievalBlocks.CLEAN_PLANKS), 1, new ModelResourceLocation(DRPMedievalInfo.MODID + ":" + "clean_planks/clean_plank_spruce", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(DRPMedievalBlocks.CLEAN_PLANKS), 2, new ModelResourceLocation(DRPMedievalInfo.MODID + ":" + "clean_planks/clean_plank_birch", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(DRPMedievalBlocks.CLEAN_PLANKS), 3, new ModelResourceLocation(DRPMedievalInfo.MODID + ":" + "clean_planks/clean_plank_jungle", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(DRPMedievalBlocks.CLEAN_PLANKS), 4, new ModelResourceLocation(DRPMedievalInfo.MODID + ":" + "clean_planks/clean_plank_dark_oak", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(DRPMedievalBlocks.CLEAN_PLANKS), 5, new ModelResourceLocation(DRPMedievalInfo.MODID + ":" + "clean_planks/clean_plank_acacia", "inventory"));
 
 	}
 }

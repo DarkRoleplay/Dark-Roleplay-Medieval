@@ -8,6 +8,5 @@ public class DRPMMiscItem extends Item {
 	public DRPMMiscItem(String registryName) {
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalMiscTab);
 	}
 }

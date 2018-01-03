@@ -27,7 +27,7 @@ public class AppleSappling extends BlockBush{
     	this.setRegistryName(registryName);
     	this.setUnlocalizedName(registryName);
 //        this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, WoodHelper.EnumDRPMType.APPLE));
-        this.setCreativeTab(DRPMedievalCreativeTabs.drpmedievalFoodTab);
+        this.setCreativeTab(DRPMedievalCreativeTabs.FOOD);
     }
 
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {

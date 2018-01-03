@@ -130,4 +130,8 @@ public class Lantern extends Block{
 		}
 		return true;
 	}
+	
+	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer){
+        return layer == BlockRenderLayer.SOLID || layer == BlockRenderLayer.TRANSLUCENT;
+    }
 }

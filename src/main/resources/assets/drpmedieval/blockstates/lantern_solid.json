@@ -1,0 +1,8 @@
+{
+    "variants":{
+       "candle=false,lit=false":{"model":"drpmedieval:lantern/lantern_empty_solid"},
+	   "candle=false,lit=true":{"model":"drpmedieval:lantern/lantern_empty_solid"},
+	   "candle=true,lit=false":{"model":"drpmedieval:lantern/lantern_solid"},
+	   "candle=true,lit=true":{"model":"drpmedieval:lantern/lantern_solid"}
+	}
+}

@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.blocks.craftingstations;
 
 import net.dark_roleplay.drpcore.api.crafting.Crafting_Util;
 import net.dark_roleplay.drpcore.client.gui.crafting.recipe_selection.RecipeSelection;
-import net.dark_roleplay.drpcore.common.DRPCoreInfo;
+import net.dark_roleplay.drpcore.common.DRPCoreReferences;
 import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
 import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
 import net.dark_roleplay.medieval.client.gui.crafting.cooking.CookingMinigame;
@@ -178,7 +178,7 @@ public class Cauldron extends BlockContainer {
 			}				
 		}else if(world.isRemote && state.getValue(Cauldron.FILLED)){
 //			Crafting_Util.openRecipeSelection(this);
-			if(DRPCoreInfo.SIDE.isClient())
+			if(DRPCoreReferences.SIDE.isClient())
 				Crafting_Util.openRecipeSelection(this);
 //				Minecraft.getMinecraft().displayGuiScreen(new CookingMinigame());
 		}

@@ -1,12 +1,5 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.drpcore.api.skills.Skill;
-import net.dark_roleplay.drpcore.api.skills.SkillPoint;
-import net.dark_roleplay.drpcore.api.skills.SkillTree;
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

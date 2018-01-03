@@ -1,5 +1,7 @@
 package net.dark_roleplay.medieval.common;
 
+import java.io.File;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -63,6 +65,11 @@ public class DarkRoleplayMedieval {
 	@net.minecraftforge.fml.common.Mod.Instance(DRPMedievalInfo.MODID)
 	public static DarkRoleplayMedieval instance;
 
+	public DarkRoleplayMedieval(){
+		File resourcesFolder = new File(Minecraft.getMinecraft().mcDataDir.getPath() + "/dark roleplay/argh/assets/drpmedieval");
+		resourcesFolder.mkdirs();
+	}
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		if(event.getSide() == Side.SERVER) {
@@ -76,10 +83,8 @@ public class DarkRoleplayMedieval {
 		DRPMedievalSkills.init(event);
 		DRPMedievalAchievements.init(event);
 		DRPMedievalLores.init(event);
-		DRPMedievalMappings.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
-		
-		
+
 		GameRegistry.registerFuelHandler(new DarkRoleplayFuelHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(DarkRoleplayMedieval.instance, new GuiHandler());
 	}
@@ -93,7 +98,6 @@ public class DarkRoleplayMedieval {
 		DRPMedievalSkills.init(event);
 		DRPMedievalAchievements.init(event);
 		DRPMedievalLores.init(event);
-		DRPMedievalMappings.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
 		
 		WorldLoot.registerChestLoot();
@@ -117,7 +121,8 @@ public class DarkRoleplayMedieval {
 //			steve.addLayer(new RenderLayer_Guild());
 //			alex.addLayer(new RenderLayer_Guild());
 		}
-		
+
+		DRPMedievalMappings.init(event);
 
 		MinecraftForge.EVENT_BUS.register(new Event_BlockBreak());
 		
@@ -137,7 +142,6 @@ public class DarkRoleplayMedieval {
 		DRPMedievalSkills.init(event);
 		DRPMedievalCrafting.init(event);
 		DRPMedievalLores.init(event);
-		DRPMedievalMappings.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
 		
 		ModContainer mod = Loader.instance().activeModContainer();
@@ -149,7 +153,6 @@ public class DarkRoleplayMedieval {
 	public void registerFurnaceRecipes() {
 
 		GameRegistry.addSmelting(DRPMedievalItems.DOUGH, new ItemStack(Items.BREAD), 0.1f);
-//		GameRegistry.addSmelting(DRPMedievalItems.DoughBarley, new ItemStack(Items.BREAD), 0.1f);
 		GameRegistry.addSmelting(DRPMedievalItems.MEAT_RAW_WOLF, new ItemStack(DRPMedievalItems.MEAT_COOKED_WOLF), 0.1f);
 		GameRegistry.addSmelting(DRPMedievalItems.DOUGH_PUMPKIN, new ItemStack(DRPMedievalItems.PUMPKIN_BREAD), 0.1f);
 		GameRegistry.addSmelting(Item.getItemFromBlock(Blocks.OBSIDIAN), new ItemStack(DRPMedievalBlocks.OBSIDIAN_GLASS), 0.1f);

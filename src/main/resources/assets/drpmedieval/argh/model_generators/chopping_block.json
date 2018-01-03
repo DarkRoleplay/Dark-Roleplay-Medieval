@@ -1,0 +1,8 @@
+{
+	"models":[
+		{
+			"model" : "drpmedieval:argh/models/block/chopping_block.json",
+			"output" : "drpmedieval:models/block/chopping_block/%wood%_chopping_block.json"
+		}
+	]
+}

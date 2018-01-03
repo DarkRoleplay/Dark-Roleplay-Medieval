@@ -1,0 +1,6 @@
+{
+    "variants":{
+        "axis=x":{"model":"drpmedieval:firewood_pile/%wood%_firewood_pile"},
+        "axis=z":{"model":"drpmedieval:firewood_pile/%wood%_firewood_pile", "y":90} 
+    }
+}

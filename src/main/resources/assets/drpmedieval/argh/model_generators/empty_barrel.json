@@ -1,0 +1,8 @@
+{
+	"models":[
+		{
+			"model" : "drpmedieval:argh/models/block/empty_barrel.json",
+			"output" : "drpmedieval:models/block/barrels/%wood%_empty_barrel.json"
+		}
+	]
+}

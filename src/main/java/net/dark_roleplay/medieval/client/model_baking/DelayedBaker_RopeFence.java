@@ -11,7 +11,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
-import net.dark_roleplay.medieval.common.blocks.decorative.ropeFence.RopeFence;
+import net.dark_roleplay.medieval.common.blocks.decorative.rope_fence.RopeFence;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;

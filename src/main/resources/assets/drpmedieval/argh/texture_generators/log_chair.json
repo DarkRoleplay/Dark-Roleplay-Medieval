@@ -1,0 +1,14 @@
+{
+	"required_textures":[],
+	"textures":[
+		{
+			"base":"bark",
+			"manipulations":[],
+			"output":"drpmedieval:textures/blocks/log_chair/%wood%_log_chair_bark"
+		},{
+			"base":"log_top",
+			"manipulations":[],
+			"output":"drpmedieval:textures/blocks/log_chair/%wood%_log_chair_top"
+		}
+	]
+}
