@@ -1,14 +1,17 @@
 package net.dark_roleplay.medieval.client.model_baking;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.blocks.decorative.buckets.BucketDirt;
 import net.dark_roleplay.medieval.common.blocks.decorative.flowerPot.FlowerPot;
 import net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges.HangingBridge;
 import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
@@ -28,10 +31,10 @@ import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.model.IModelState;
 import net.minecraftforge.common.property.IExtendedBlockState;
 
-public class DelayedBaker_FlowerPot extends DelayedBaker implements ICustomModelLoader{
+public class DelayedBaker_FlowerPot extends DelayedBaker implements ICustomModelLoader {
 
 	protected static final Map<IBlockState, List<BakedQuad>> CACHE = Maps.newHashMap();
-	
+
 	private static final String[] flowers = new String[]{
 			"drpmedieval:blocks/invisible",
 			"blocks/flower_dandelion",
@@ -46,45 +49,69 @@ public class DelayedBaker_FlowerPot extends DelayedBaker implements ICustomModel
 			"blocks/flower_oxeye_daisy"};
 	
 	protected static ImmutableList<ResourceLocation> textures;
-	
-	protected static IModel baseModel;
-	
+
+	protected static IModel bucket;
+
+	@Override
+	public void onResourceManagerReload(IResourceManager resourceManager) {
+		DelayedBaker_DirtBucket.CACHE.clear();
+		DelayedBaker_DirtBucket.bucket = null;
+		DelayedBaker_DirtBucket.textures = null;
+	}
+
+	@Override
+	public Collection<ResourceLocation> getTextures() {
+		return DelayedBaker_DirtBucket.textures;
+	}
+
 	@Override
 	public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
 		side = null;
-		
-		if(this.CACHE.containsKey(state))
-			return this.CACHE.get(state);
-		
+
+		if (state == null)
+			return Collections.EMPTY_LIST;
+
+		if (DelayedBaker_DirtBucket.CACHE.containsKey(state))
+			return DelayedBaker_DirtBucket.CACHE.get(state);
+
 		List<BakedQuad> result = Lists.newArrayList();
-		
-		int yRot = state.getValue(HangingBridge.AXIS) == EnumAxis.Z ? 90 : 0;
-		
-		if(state instanceof IExtendedBlockState){
-			IExtendedBlockState ext = (IExtendedBlockState) state;
-			
-			int flower1 = ext.getValue(FlowerPot.FLOWER1); 
-			int flower2 = ext.getValue(FlowerPot.FLOWER2);  
-			int flower3 = ext.getValue(FlowerPot.FLOWER3);
-			
-			this.addQuads(result, this.baseModel, yRot, 0, state, side, rand);
-			
-			ImmutableList.Builder<ResourceLocation> builder = ImmutableList.builder();
-			
-				builder.addAll(this.baseModel.getTextures());
-			
-			this.textures = builder.build();
-			
-			for(int i = 0; i < 100; i++)
-			System.out.println(baseModel.getTextures());
-		}
-		
-		this.CACHE.put(state, result);
+
+		EnumAxis axis = state.getValue(BucketDirt.AXIS);
+		int flower1 = state.getValue(BucketDirt.FLOWER1);
+		int flower2 = state.getValue(BucketDirt.FLOWER2);
+		int flower3 = state.getValue(BucketDirt.FLOWER3);
+
+		String wood = state.getBlock().getRegistryName().getResourcePath().replace("_bucket_dirt", "");
+
+		this.addQuads(result, 
+				DelayedBaker_DirtBucket.bucket.retexture(
+						ImmutableMap.<String, String>of(
+								"0","drpmedieval:blocks/bucket/" + wood + "_bucket",
+								"1","blocks/dirt",
+								"flower1", flowers[flower1],
+								"flower2", flowers[flower2],
+								"flower3", flowers[flower3])), axis == EnumAxis.Z ? 90 : 0, 0, state, side, rand);
+
+		DelayedBaker_HangingBridge.CACHE.put(state, result);
 		return result;
 	}
 
 	@Override
-	public Collection<ResourceLocation> getTextures() { return this.textures; }
+	public IModel loadModel(ResourceLocation modelLocation) throws Exception {
+		if (DelayedBaker_DirtBucket.bucket == null) {
+			DelayedBaker_DirtBucket.bucket = DelayedBaker_DirtBucket.getModel("bucket_dirt");
+		}
+
+		if (DelayedBaker_DirtBucket.textures == null) {
+			ImmutableList.Builder<ResourceLocation> builder = ImmutableList.builder();
+
+			builder.addAll(DelayedBaker_DirtBucket.bucket.getTextures());
+
+			DelayedBaker_DirtBucket.textures = builder.build();
+		}
+
+		return this;
+	}
 
 	@Override
 	public IBakedModel bake(IModelState state, VertexFormat format, java.util.function.Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
@@ -93,31 +120,15 @@ public class DelayedBaker_FlowerPot extends DelayedBaker implements ICustomModel
 	}
 
 	@Override
-	public void onResourceManagerReload(IResourceManager resourceManager) { this.CACHE.clear(); }
-
-	@Override
 	public boolean accepts(ResourceLocation modelLocation) {
-		return false;
-//		return ((modelLocation instanceof ModelResourceLocation) && DRPMedievalBlocks.FLOWER_POT.getRegistryName().equals(modelLocation));
+		return ((modelLocation instanceof ModelResourceLocation)
+				&& modelLocation.getResourcePath().endsWith("_dirt_bucket")
+				&& !((ModelResourceLocation)modelLocation).getVariant().contains("inventory"));
 	}
 
-	@Override
-	public IModel loadModel(ResourceLocation modelLocation) throws Exception {
-		if(this.baseModel == null){
-			this.baseModel = this.getModel("flower_pot");
-		}
-		
-		if(this.textures == null){
-			ImmutableList.Builder<ResourceLocation> builder = ImmutableList.builder();
-			builder.addAll(this.baseModel.getTextures());
-			
-			this.textures = builder.build();
-		}
-		
-		return this;
-	}
-
-	protected static IModel getModel(String modelName){
-		return ModelLoaderRegistry.getModelOrLogError(new ResourceLocation(DRPMedievalInfo.MODID, "block/flower_pot/" + modelName), "A problem occured while trying to load: " + DRPMedievalInfo.MODID + ":block/flower_pot/" + modelName);
+	protected static IModel getModel(String modelName) {
+		return ModelLoaderRegistry.getModelOrLogError(
+				new ResourceLocation(DRPMedievalInfo.MODID, "block/buckets/" + modelName),
+				"A problem occured while trying to load: " + DRPMedievalInfo.MODID + ":block/buckets/" + modelName);
 	}
 }

@@ -1,0 +1,106 @@
+{
+	"credit": "Made with Blockbench, a free, modern block model editor by JannisX11",
+	"textures": {
+		"1": "#wood",
+		"particle": "#wood"
+	},
+	"elements": [
+		{
+			"name": "cube",
+			"from": [
+				4.4852813742385695,
+				-0.17157287525380838,
+				6.0024999999999995
+			],
+			"to": [
+				8.48528137423857,
+				11.378427124746192,
+				9.997499999999999
+			],
+			"faces": {
+				"north": {"uv": [8, 2, 4, 13], "texture": "#1"},
+				"east": {"uv": [8, 2, 4, 13], "texture": "#1"},
+				"south": {"uv": [8, 1, 4, 12], "texture": "#1"},
+				"west": {"uv": [8, 5, 4, 16], "texture": "#1"},
+				"up": {
+					"uv": [8, 0, 4, 11],
+					"texture": "#1",
+					"rotation": 90
+				},
+				"down": {
+					"uv": [8, 0, 4, 11],
+					"texture": "#1",
+					"rotation": 90
+				}
+			},
+			"rotation": {
+				"origin": [
+					12.48528137423857,
+					7.828427124746191,
+					8.0025
+				],
+				"axis": "z",
+				"angle": -45
+			},
+			"type": "cube"
+		},
+		{
+			"name": "cube",
+			"from": [
+				9.342083322704624,
+				13.167083322704626,
+				6.025
+			],
+			"to": [
+				12.167083322704624,
+				15.988883322704625,
+				9.975
+			],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 3.2218], "texture": "#1"},
+				"east": {
+					"uv": [4, 0, 8, 3.22109375],
+					"texture": "#1"
+				},
+				"south": {
+					"uv": [0, 0, 4, 3.22109375],
+					"texture": "#1"
+				},
+				"west": {"uv": [0, 0, 4, 3.2218], "texture": "#1"},
+				"up": {
+					"uv": [0, 0, 4, 4],
+					"texture": "#1",
+					"rotation": 90
+				},
+				"down": {
+					"uv": [0, 0, 4, 4],
+					"texture": "#1",
+					"rotation": 90
+				}
+			},
+			"type": "cube"
+		},
+		{
+			"name": "cube",
+			"from": [0, 0, 6],
+			"to": [4, 16, 10],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 16], "texture": "#1"},
+				"east": {"uv": [4, 0, 8, 16], "texture": "#1"},
+				"south": {"uv": [0, 0, 4, 16], "texture": "#1"},
+				"west": {"uv": [4, 0, 8, 16], "texture": "#1"},
+				"up": {
+					"uv": [0, 0, 4, 4],
+					"texture": "#1",
+					"rotation": 90
+				},
+				"down": {
+					"uv": [0, 0, 4, 4],
+					"texture": "#1",
+					"rotation": 90
+				}
+			},
+			"type": "cube"
+		}
+	]
+}

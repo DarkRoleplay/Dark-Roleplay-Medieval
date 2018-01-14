@@ -1,11 +1,11 @@
 {
 	"textures": {
-		"particle":"#texture",
-		"0": "#texture",
+		"particle":"drpmedieval:blocks/bucket/spruce_bucket",
+		"0": "drpmedieval:blocks/bucket/spruce_bucket",
         "1": "blocks/dirt",
-		"flower1": "#flower_1",
-		"flower2": "#flower_2",
-		"flower3": "#flower_3"
+		"flower1": "blocks/flower_tulip_red",
+		"flower2": "blocks/flower_houstonia",
+		"flower3": "blocks/flower_blue_orchid"
 	},
 	"elements": [
 		{

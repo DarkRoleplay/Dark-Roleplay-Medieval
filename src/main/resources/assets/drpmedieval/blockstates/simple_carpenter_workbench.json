@@ -7,6 +7,7 @@
 		"facing=north,left=true":{"model":"drpmedieval:carpenter/workbench/simple_workbench_left"},
         "facing=east,left=true":{"model":"drpmedieval:carpenter/workbench/simple_workbench_left", "y":90},
         "facing=south,left=true":{"model":"drpmedieval:carpenter/workbench/simple_workbench_left", "y":180},
-        "facing=west,left=true":{"model":"drpmedieval:carpenter/workbench/simple_workbench_left", "y":270} 
+        "facing=west,left=true":{"model":"drpmedieval:carpenter/workbench/simple_workbench_left", "y":270},
+        "inventory":{"model":"drpmedieval:carpenter/workbench/simple_workbench_right"}
     }
 }

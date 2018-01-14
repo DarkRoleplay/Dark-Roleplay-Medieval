@@ -61,9 +61,9 @@ public class AppleSappling extends BlockBush{
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
-		for (BlockPlanks.EnumType blockplanks$enumtype : BlockPlanks.EnumType.values()) {
-			items.add(new ItemStack(this, 1, blockplanks$enumtype.getMetadata()));
+	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items) {
+		if(item == this.getCreativeTabToDisplayOn()){
+			items.add(new ItemStack(this, 1, 0));
 		}
 	}
 

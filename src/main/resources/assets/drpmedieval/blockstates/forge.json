@@ -1,12 +1,13 @@
 {
     "variants":{
-        "facing=north,north=false":{"model":"drpmedieval:forge/forge_north"},
-        "facing=east,north=false":{"model":"drpmedieval:forge/forge_north", "y":90},
-        "facing=south,north=false":{"model":"drpmedieval:forge/forge_north", "y":180},
-        "facing=west,north=false":{"model":"drpmedieval:forge/forge_north", "y":270},
-		"facing=north,north=true":{"model":"drpmedieval:forge/forge_south"},
-        "facing=east,north=true":{"model":"drpmedieval:forge/forge_south", "y":90},
-        "facing=south,north=true":{"model":"drpmedieval:forge/forge_south", "y":180},
-        "facing=west,north=true":{"model":"drpmedieval:forge/forge_south", "y":270} 
+        "facing=north,left=false":{"model":"drpmedieval:forge/forge_north", "y":90},
+        "facing=east,left=false":{"model":"drpmedieval:forge/forge_north", "y":180},
+        "facing=south,left=false":{"model":"drpmedieval:forge/forge_north", "y":270},
+        "facing=west,left=false":{"model":"drpmedieval:forge/forge_north"},
+		"facing=north,left=true":{"model":"drpmedieval:forge/forge_south", "y":90},
+        "facing=east,left=true":{"model":"drpmedieval:forge/forge_south", "y":180},
+        "facing=south,left=true":{"model":"drpmedieval:forge/forge_south", "y":270},
+        "facing=west,left=true":{"model":"drpmedieval:forge/forge_south"},
+        "inventory":{"model":"drpmedieval:forge/forge_north"}
     }
 }

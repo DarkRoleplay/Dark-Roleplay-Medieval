@@ -1,127 +1,102 @@
 package net.dark_roleplay.medieval.common.handler;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import net.dark_roleplay.drpcore.api.Modules;
+import net.dark_roleplay.drpcore.modules.wood.Wood;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class DRPMedievalCreativeTabs {
 
-	public static CreativeTabs DECORATION = (new CreativeTabs("drpm_deco") {
-		@Override
+	public static DRPCreativeTab DECORATION = new DRPCreativeTab("drpm_deco") {
 		@SideOnly(Side.CLIENT)
-		public ItemStack getTabIconItem() {
-			return new ItemStack(DRPMedievalBlocks.FLOWER_POT);
-		}
-		
-		@Override
-		public boolean hasSearchBar(){
-	        return true;
+	    public void displayAllRelevantItems(NonNullList<ItemStack> items){
+			NonNullList<ItemStack> cache = NonNullList.<ItemStack>create();
+	        for (Item item : Item.REGISTRY){
+	        	if(isWooden(item)){
+		            item.getSubItems(this, cache);
+	        	}else{
+		            item.getSubItems(this, items);
+	        	}
+	        }
+	        for(Wood wood : Modules.WOODS.getWoods()){
+	        	String name = wood.getName();
+	        	for(ItemStack stack : cache){
+	        		if(stack.getItem().getRegistryName().getResourcePath().contains(name)){
+	        			items.add(stack);
+	        		}
+	        	}
+	        }
 	    }
-		
-		@Override
-		public int getSearchbarWidth(){
-		    return 75;
-		}
-	}.setBackgroundImageName("drpmedieval.png"));
+	};
 	
-	public static CreativeTabs BUILDING_MATS = (new CreativeTabs("drpm_build_mats") {
-
-		@Override
-		@SideOnly(Side.CLIENT)
-		public ItemStack getTabIconItem() {
-			return new ItemStack(Item.getItemFromBlock(DRPMedievalBlocks.MOSSY_SPRUCE_LOG));
-		}
-		
-		@Override
-		public boolean hasSearchBar(){
-	        return true;
-	    }
-		
-		@Override
-		public int getSearchbarWidth(){
-		    return 75;
-		}
-	}.setBackgroundImageName("drpmedieval.png"));
+	private static boolean isWooden(Item item){
+		 for(Wood wood : Modules.WOODS.getWoods()){
+	        String name = wood.getName();
+	        if(item.getRegistryName().getResourcePath().contains(name)){
+    			return true;
+    		}
+		 }
+		return false;
+	}
 	
-	public static CreativeTabs UTILITY = new CreativeTabs("drpm_utility") {
+	public static DRPCreativeTab BUILDING_MATS = new DRPCreativeTab("drpm_build_mats");
+	
+	public static DRPCreativeTab UTILITY = new DRPCreativeTab("drpm_utility");
 
+	public static DRPCreativeTab FOOD = new DRPCreativeTab("drpm_food");
+
+	public static DRPCreativeTab EQUIPMENT = new DRPCreativeTab("drpm_equip");
+
+	public static DRPCreativeTab MISCELLANEOUS = new DRPCreativeTab("drpm_misc");
+
+	private static class DRPCreativeTab extends CreativeTabs{
+		
+		protected ItemStack previewStack;
+		
+		public DRPCreativeTab(String label) {
+			super(label);
+			this.setBackgroundImageName("drpmedieval.png");
+		}
+		
 		@Override
-		@SideOnly(Side.CLIENT)
-		public ItemStack getTabIconItem() {
-
-			return new ItemStack(Item.getItemFromBlock(DRPMedievalBlocks.CHOPPING_BLOCK));
+		public int getSearchbarWidth(){
+		    return 75;
 		}
 		
 		@Override
 		public boolean hasSearchBar(){
 	        return true;
 	    }
-		
-		@Override
-		public int getSearchbarWidth(){
-		    return 75;
-		}
-	}.setBackgroundImageName("drpmedieval.png");
-
-	public static CreativeTabs FOOD = new CreativeTabs("drpm_food") {
 
 		@Override
-		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-
-			return new ItemStack(DRPMedievalItems.FISH_COOKED_CATFISH);
+			return previewStack;
 		}
 		
-		@Override
-		public boolean hasSearchBar(){
-	        return true;
-	    }
-		
-		@Override
-		public int getSearchbarWidth(){
-		    return 75;
+		public CreativeTabs setPreviewStack(ItemStack stack){
+			this.previewStack = stack;
+			return this;
 		}
-	}.setBackgroundImageName("drpmedieval.png");
-
-	public static CreativeTabs EQUIPMENT = new CreativeTabs("drpm_equip") {
-
-		@Override
-		@SideOnly(Side.CLIENT)
-		public ItemStack getTabIconItem() {
-			return new ItemStack((DRPMedievalItems.LEATHER_PURSE));
-		}
-		
-		@Override
-		public boolean hasSearchBar(){
-	        return true;
-	    }
-		
-		@Override
-		public int getSearchbarWidth(){
-		    return 75;
-		}
-	}.setBackgroundImageName("drpmedieval.png");
-
-	public static CreativeTabs MISCELLANEOUS = new CreativeTabs("drpm_misc") {
-
-		@Override
-		@SideOnly(Side.CLIENT)
-		public ItemStack getTabIconItem() {
-
-			return new ItemStack(DRPMedievalItems.FIREWOOD, 1, 2);
-		}
-		
-		@Override
-		public boolean hasSearchBar(){
-	        return true;
-	    }
-		
-		@Override
-		public int getSearchbarWidth(){
-		    return 75;
-		}
-	}.setBackgroundImageName("drpmedieval.png");
-
+	}
+	
+	@EventHandler
+	public static void init(FMLInitializationEvent event) {
+		MISCELLANEOUS.setPreviewStack(new ItemStack(DRPMedievalItems.FIREWOOD, 1, 2));
+		EQUIPMENT.setPreviewStack(new ItemStack(DRPMedievalItems.LEATHER_PURSE));
+		FOOD.setPreviewStack(new ItemStack(DRPMedievalItems.FISH_COOKED_CATFISH));
+		UTILITY.setPreviewStack(new ItemStack(Item.getItemFromBlock(DRPMedievalBlocks.OAK_CHOPPING_BLOCK)));
+		BUILDING_MATS.setPreviewStack(new ItemStack(Item.getItemFromBlock(DRPMedievalBlocks.MOSSY_SPRUCE_LOG)));
+		DECORATION.setPreviewStack(new ItemStack(DRPMedievalBlocks.FLOWER_POT));
+	}
 }

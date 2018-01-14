@@ -1,5 +1,15 @@
 {
-    "variants":{
-        "normal":{"model":"drpmedieval:barrels/%wood%_water_barrel"}   
-    }
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:wood_blocks/water_barrel",
+        "textures": {
+			"side": "drpmedieval:blocks/barrels/%wood%_barrel_side",
+			"top": "drpmedieval:blocks/barrels/%wood%_barrel_top"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"normal":[{}]
+	}
 }

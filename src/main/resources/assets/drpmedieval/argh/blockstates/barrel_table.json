@@ -1,7 +1,18 @@
 {
-    "variants":{
-        "axis=x":{"model":"drpmedieval:barrel_table/%wood%_barrel_table"},
-        "axis=z":{"model":"drpmedieval:barrel_table/%wood%_barrel_table", "y":90} ,
-		"inventory":{"model":"drpmedieval:barrel_table/%wood%_barrel_table"}
-    }
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:wood_blocks/barrel_table",
+        "textures": {
+			"side": "drpmedieval:blocks/barrels/%wood%_barrel_side",
+			"top": "drpmedieval:blocks/barrels/%wood%_barrel_top"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"axis":{
+			"x":{},
+			"z":{"y":90}
+		}
+	}
 }

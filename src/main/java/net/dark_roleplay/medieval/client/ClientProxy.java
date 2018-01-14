@@ -16,6 +16,7 @@ import net.dark_roleplay.medieval.client.blocks.tesrs.clock.TESR_ClockCore;
 import net.dark_roleplay.medieval.client.blocks.tesrs.shop_sign.TESR_ShopSign;
 import net.dark_roleplay.medieval.client.entities.fox.Render_Fox;
 import net.dark_roleplay.medieval.client.events.Event_CameraUpdate;
+import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_DirtBucket;
 import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_FlowerPot;
 import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_HangingBridge;
 import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_RopeFence;
@@ -59,8 +60,9 @@ public class ClientProxy extends CommonProxy {
 		//ModelLoaderRegistry.registerLoader(new DelayedBakedModel());
 		ModelLoaderRegistry.registerLoader(new DelayedBaker_HangingBridge());
 		ModelLoaderRegistry.registerLoader(new DelayedBaker_RopeFence());
-		ModelLoaderRegistry.registerLoader(new DelayedBaker_FlowerPot());
+//		ModelLoaderRegistry.registerLoader(new DelayedBaker_FlowerPot());
 		ModelLoaderRegistry.registerLoader(new CustomBlockstateLoader());
+		ModelLoaderRegistry.registerLoader(new DelayedBaker_DirtBucket());
 		ModelLoaderRegistry.registerLoader(new MultiLayerModelLoader());
 
 		RenderingRegistry.registerEntityRenderingHandler(Entity_Fox.class, Render_Fox.FACTORY);

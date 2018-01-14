@@ -19,6 +19,7 @@ import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCapabilities;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalConfig;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCrafting;
+import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalEntities;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalLores;
@@ -71,7 +72,7 @@ public class DarkRoleplayMedieval {
 	}
 	
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
+	public static void preInit(FMLPreInitializationEvent event) {
 		if(event.getSide() == Side.SERVER) {
 			DarkRoleplayMedieval.isOnServer = true;
 		}
@@ -90,7 +91,7 @@ public class DarkRoleplayMedieval {
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent event) {
+	public static void init(FMLInitializationEvent event) {
 		
 		DRPMedievalEntities.init(event);
 		DRPMedievalVillagers.init(event);
@@ -99,7 +100,7 @@ public class DarkRoleplayMedieval {
 		DRPMedievalAchievements.init(event);
 		DRPMedievalLores.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
-		
+		DRPMedievalCreativeTabs.init(event);
 		WorldLoot.registerChestLoot();
 		WorldLoot.registerFishingLoot();
 		WorldLoot.registerGrassLoot();
@@ -126,7 +127,7 @@ public class DarkRoleplayMedieval {
 
 		MinecraftForge.EVENT_BUS.register(new Event_BlockBreak());
 		
-		this.registerFurnaceRecipes();
+		registerFurnaceRecipes();
 
 //		GameRegistry.registerWorldGenerator(new GenHandler_Trees(), 0);
 		
@@ -134,7 +135,7 @@ public class DarkRoleplayMedieval {
 	}
 
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
+	public static void postInit(FMLPostInitializationEvent event) {
 		DRPMedievalEntities.init(event);
 		DRPMedievalVillagers.init(event);
 		DRPMedievalTileEntities.init(event);
@@ -150,7 +151,7 @@ public class DarkRoleplayMedieval {
 		}
 	}
 
-	public void registerFurnaceRecipes() {
+	public static void registerFurnaceRecipes() {
 
 		GameRegistry.addSmelting(DRPMedievalItems.DOUGH, new ItemStack(Items.BREAD), 0.1f);
 		GameRegistry.addSmelting(DRPMedievalItems.MEAT_RAW_WOLF, new ItemStack(DRPMedievalItems.MEAT_COOKED_WOLF), 0.1f);

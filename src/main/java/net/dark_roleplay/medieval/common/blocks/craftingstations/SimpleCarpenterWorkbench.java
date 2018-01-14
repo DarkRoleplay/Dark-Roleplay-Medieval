@@ -10,6 +10,7 @@ import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -78,6 +79,21 @@ public class SimpleCarpenterWorkbench extends FacedBlock{
 
 	@Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
-        return this.getDefaultState().withProperty(BlockProperties.FACING, placer.getHorizontalFacing().getOpposite()).withProperty(LEFT, true);
+        return this.getDefaultState().withProperty(BlockProperties.FACING, placer.getHorizontalFacing().getOpposite()).withProperty(LEFT, false);
+    }
+
+	@Override
+	public boolean canPlaceBlockAt(World world, BlockPos pos){
+        return world.getBlockState(pos).getBlock().isReplaceable(world, pos);
+    }
+
+	@Override
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack){
+		world.setBlockState(pos.offset(state.getValue(LEFT) ? state.getValue(BlockProperties.FACING).rotateY() : state.getValue(BlockProperties.FACING).rotateYCCW()), state.withProperty(LEFT, !state.getValue(LEFT)));
+	}
+
+	@Override
+	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
+		world.setBlockToAir(pos.offset(state.getValue(LEFT) ? state.getValue(BlockProperties.FACING).rotateY() : state.getValue(BlockProperties.FACING).rotateYCCW()));
     }
 }

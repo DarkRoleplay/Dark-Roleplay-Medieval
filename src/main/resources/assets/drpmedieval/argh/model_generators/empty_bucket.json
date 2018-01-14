@@ -1,0 +1,8 @@
+{
+	"models":[
+		{
+			"model" : "drpmedieval:argh/models/block/empty_bucket.json",
+			"output" : "drpmedieval:models/block/bucket/%wood%_empty_bucket.json"
+		}
+	]
+}

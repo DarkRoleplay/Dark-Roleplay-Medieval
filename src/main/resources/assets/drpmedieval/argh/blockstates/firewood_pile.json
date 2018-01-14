@@ -1,6 +1,18 @@
 {
-    "variants":{
-        "axis=x":{"model":"drpmedieval:firewood_pile/%wood%_firewood_pile"},
-        "axis=z":{"model":"drpmedieval:firewood_pile/%wood%_firewood_pile", "y":90} 
-    }
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:wood_blocks/firewood_pile",
+        "textures": {
+			"side": "drpmedieval:blocks/firewood/%wood%_firewood_pile_sides",
+			"top": "drpmedieval:blocks/firewood/%wood%_firewood_pile_top"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"axis":{
+			"x":{},
+			"z":{"y":90}
+		}
+	}
 }

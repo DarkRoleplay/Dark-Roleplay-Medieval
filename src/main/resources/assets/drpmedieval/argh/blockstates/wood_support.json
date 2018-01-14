@@ -1,0 +1,27 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:wooden_supports/bottom_support_center",
+		"textures": {
+			"wood": "drpmedieval:blocks/wood_support/%wood%_wood_support"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{"model":"drpmedieval:wooden_supports/bottom_support_center"}],
+		"type":{
+            0:{"model":"drpmedieval:wooden_supports/bottom_support_center"},
+            1:{"model":"drpmedieval:wooden_supports/bottom_support_wall"},
+            2:{"model":"drpmedieval:wooden_supports/bottom_support_corner"},
+            3:{"model":"drpmedieval:wooden_supports/top_support_center"},
+            4:{"model":"drpmedieval:wooden_supports/top_support_wall"},
+            5:{"model":"drpmedieval:wooden_supports/top_support_corner"}
+        },
+		"facing":{
+			"north":{"y":90},
+			"east":{"y":180},
+			"south":{"y":270},
+			"west":{}
+		}
+	}
+}

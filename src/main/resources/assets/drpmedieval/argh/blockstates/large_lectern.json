@@ -9,7 +9,7 @@
         "transform": "forge:default-block"
     },
 	"variants": {
-		"inventory":[{"model":"drpmedieval:lecterns/large_lectern_book"}],
+		"inventory":[{"model":"drpmedieval:wood_blocks/large_lectern_book"}],
 		"facing":{
 			"north":{},
 			"east":{"y":90},
@@ -17,12 +17,12 @@
 			"west":{"y":270}
 		},
 		"top":{
-			false: {"model":"drpmedieval:lecterns/large_lectern_bottom"},
-			true : {"model":"drpmedieval:lecterns/large_lectern_top"}
+			false: {"model":"drpmedieval:wood_blocks/large_lectern_bottom"},
+			true : {"model":"drpmedieval:wood_blocks/large_lectern_top"}
 		},
 		"book":{
 			false: {},
-			true:  {"model":"drpmedieval:lecterns/large_lectern_book"}
+			true:  {"model":"drpmedieval:wood_blocks/large_lectern_book"}
 		}
 	}
 }

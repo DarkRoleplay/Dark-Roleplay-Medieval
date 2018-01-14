@@ -1,6 +1,7 @@
 package net.dark_roleplay.medieval.common.blocks.storage;
 
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCrate;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityDungeonChest;
 import net.dark_roleplay.medieval.common.gui.GuiHandler;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
@@ -26,7 +27,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class DungeonChest extends BlockContainer {
+public class DungeonChest extends Block {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
@@ -98,29 +99,11 @@ public class DungeonChest extends BlockContainer {
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-			
-	// -------------------------------------------------- Block Placement --------------------------------------------------
-	
-	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
-
-		if(!this.canBlockStay(worldIn, pos, EnumFacing.UP)){
-			this.dropBlockAsItem(worldIn, pos, state, 0);
-			worldIn.setBlockToAir(pos);
-		}
-				super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
-	}
-
-	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
-
-		return worldIn.isSideSolid(pos.offset(facing.getOpposite()), facing, true);
-	}
 	
 	// -------------------------------------------------- Block Events --------------------------------------------------
 
 	@Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
-
 		if(!worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true)) return Blocks.AIR.getDefaultState();
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
@@ -165,24 +148,15 @@ public class DungeonChest extends BlockContainer {
 
 		super.breakBlock(worldIn, pos, state);
 	}
-	
-	// -------------------------------------------------- Old Rendering System --------------------------------------------------
-	// TODO Old Rendering System
-	
-	@Override
-	public EnumBlockRenderType getRenderType(IBlockState state){
-		return EnumBlockRenderType.INVISIBLE;
-	}
-	
+
 	@Override
 	public boolean hasTileEntity(IBlockState state) {
 		return true;
 	}
-	
-	@Override
-	public TileEntity createNewTileEntity(World world, int meta) {
 
+	@Override
+	public TileEntity createTileEntity(World world, IBlockState state) {
 		return new TileEntityDungeonChest();
-	}
+    }
 	
 }

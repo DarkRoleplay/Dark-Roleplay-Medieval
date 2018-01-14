@@ -1,10 +1,14 @@
 package net.dark_roleplay.medieval.common.blocks.storage;
 
+import javax.annotation.Nullable;
+
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCrate;
 import net.dark_roleplay.medieval.common.gui.GuiHandler;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -19,7 +23,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class Crate extends BlockContainer {
+public class Crate extends Block {
 
 	public Crate(String registryName) {
 		super(Material.WOOD);
@@ -33,8 +37,7 @@ public class Crate extends BlockContainer {
 	// -------------------------------------------------- Block Data --------------------------------------------------
 	
 	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-	{
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos){
 		return new AxisAlignedBB(0F, 0F, 0F, 1F, 1F, 1F);
 	}
 
@@ -77,23 +80,13 @@ public class Crate extends BlockContainer {
 		super.breakBlock(worldIn, pos, state);
 	}
 	
-	// -------------------------------------------------- Old Rendering System --------------------------------------------------
-	// TODO Old Rendering System
-	
-	@Override
-	public EnumBlockRenderType getRenderType(IBlockState state){
-		return EnumBlockRenderType.INVISIBLE;
-	}
-	
 	@Override
 	public boolean hasTileEntity(IBlockState state) {
 		return true;
 	}
-	
-	@Override
-	public TileEntity createNewTileEntity(World world, int meta) {
 
+	@Override
+	public TileEntity createTileEntity(World world, IBlockState state) {
 		return new TileEntityCrate();
-	}
-	
+    }
 }
