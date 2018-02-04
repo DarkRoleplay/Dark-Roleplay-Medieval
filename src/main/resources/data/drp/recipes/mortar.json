@@ -1,0 +1,21 @@
+{
+    "station":"minecraft:air",
+    "category":"handheld",
+    "name":"mortar",
+    "outputs":[
+        {
+            "item":"drpmedieval:mortar",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"minecraft:stone",
+			"count":"1"
+        },
+        {
+            "item":"minecraft:stick",
+			"count":"1"
+        }
+    ]
+}

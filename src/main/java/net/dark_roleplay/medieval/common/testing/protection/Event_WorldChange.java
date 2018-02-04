@@ -1,8 +1,10 @@
 package net.dark_roleplay.medieval.common.testing.protection;
 
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+@EventBusSubscriber
 public class Event_WorldChange {
 
 	@SubscribeEvent

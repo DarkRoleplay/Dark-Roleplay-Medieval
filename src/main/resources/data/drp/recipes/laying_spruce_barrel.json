@@ -1,0 +1,15 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decoration",
+  "name": "laying_spruce_barrel",
+  "outputs": [
+    {
+      "item": "drpmedieval:laying_spruce_barrel"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:spruce_closed_barrel"
+    }
+  ]
+}

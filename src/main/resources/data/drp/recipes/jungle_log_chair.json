@@ -1,0 +1,18 @@
+{
+    "station":"drpmedieval:simple_carpenter_workbench",
+    "category":"sittables",
+    "name":"jungle_log_chair",
+    "outputs":[
+        {
+            "item":"drpmedieval:jungle_log_chair",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"minecraft:log",
+			"data":"3",
+			"count":"1"
+        }
+    ]
+}

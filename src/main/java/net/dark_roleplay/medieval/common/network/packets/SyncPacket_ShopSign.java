@@ -14,7 +14,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class SyncPacket_ShopSign extends PacketBase<SyncPacket_ShopSign>{
+public class SyncPacket_ShopSign extends PacketBase.Server<SyncPacket_ShopSign>{
 
 	BufferedImage img;
 	BlockPos pos;
@@ -59,9 +59,6 @@ public class SyncPacket_ShopSign extends PacketBase<SyncPacket_ShopSign>{
 			buf.writeInt(imageBytes[i]);
 		}
 	}
-
-	@Override
-	public void handleClientSide(SyncPacket_ShopSign message, EntityPlayer player) {}
 
 	@Override
 	public void handleServerSide(SyncPacket_ShopSign message, EntityPlayer player) {

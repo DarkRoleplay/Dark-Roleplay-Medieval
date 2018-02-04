@@ -1,5 +1,6 @@
 package net.dark_roleplay.medieval.common.blocks.craftingstations;
 
+import net.dark_roleplay.drpcore.api.crafting.Crafting_Util;
 import net.dark_roleplay.medieval.common.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.blocks.templates.FacedBlock;
 import net.minecraft.block.Block;
@@ -10,8 +11,10 @@ import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -96,4 +99,12 @@ public class SimpleCarpenterWorkbench extends FacedBlock{
 	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
 		world.setBlockToAir(pos.offset(state.getValue(LEFT) ? state.getValue(BlockProperties.FACING).rotateY() : state.getValue(BlockProperties.FACING).rotateYCCW()));
     }
+	
+	@Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+		if(world.isRemote){
+			Crafting_Util.openRecipeSelection(this);
+		}
+		return true;
+	}
 }

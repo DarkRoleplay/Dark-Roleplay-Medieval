@@ -13,6 +13,7 @@ import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderRopeAnchor;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderShipsWheel;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderTarget;
 import net.dark_roleplay.medieval.client.blocks.tesrs.clock.TESR_ClockCore;
+import net.dark_roleplay.medieval.client.blocks.tesrs.shelf.TESR_Shelf;
 import net.dark_roleplay.medieval.client.blocks.tesrs.shop_sign.TESR_ShopSign;
 import net.dark_roleplay.medieval.client.entities.fox.Render_Fox;
 import net.dark_roleplay.medieval.client.events.Event_CameraUpdate;
@@ -24,6 +25,7 @@ import net.dark_roleplay.medieval.client.model_baking.MultiLayerModelLoader;
 import net.dark_roleplay.medieval.client.model_baking.advanced.CustomBlockstateLoader;
 import net.dark_roleplay.medieval.common.CommonProxy;
 import net.dark_roleplay.medieval.common.blocks.decorative.clocks.TE_ClockCore;
+import net.dark_roleplay.medieval.common.blocks.storage.shelf.TE_Shelf;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityAnvil;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCauldron;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityChain;
@@ -86,6 +88,8 @@ public class ClientProxy extends CommonProxy {
 	public void registerRenders() {				
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_ClockCore.class, new TESR_ClockCore());
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_ShopSign.class, new TESR_ShopSign());
+		ClientRegistry.bindTileEntitySpecialRenderer(TE_Shelf.class, new TESR_Shelf(Minecraft.getMinecraft().getRenderItem()));
+
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAnvil.class, new SpecialRenderAnvil());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMortar.class, new SpecialRenderMortar());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrindstone.class, new SpecialRenderGrindstone());

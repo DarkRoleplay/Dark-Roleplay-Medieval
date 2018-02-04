@@ -6,6 +6,7 @@ import java.util.List;
 import net.dark_roleplay.drpcore.api.items.DRPEquip;
 import net.dark_roleplay.drpcore.api.items.DRPFood;
 import net.dark_roleplay.drpcore.api.items.DRPItem;
+import net.dark_roleplay.drpcore.api.items.Seed;
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.dark_roleplay.medieval.common.blocks.plants.apples.Apple;
 import net.dark_roleplay.medieval.common.blocks.plants.pears.Pear;
@@ -168,7 +169,8 @@ public class DRPMedievalItems {
 			new DRPMStew(8, 0.5F, "chicken_stew"),
 			new DRPMStew(7, 0.5F, "cod_stew"),
 			new DRPMStew(6, 0.3F, "vegie_stew"),
-			new DRPMStew(6, 0.3F, "pumpkin_stew")
+			new DRPMStew(6, 0.3F, "pumpkin_stew"),
+			new Seed("barley_seed", 64, DRPMedievalBlocks.BARLEY)
 			
 		);
 		

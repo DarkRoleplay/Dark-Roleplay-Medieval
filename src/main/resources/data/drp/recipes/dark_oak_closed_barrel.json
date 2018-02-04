@@ -1,0 +1,21 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "storage",
+  "name": "dark_oak_closed_barrel",
+  "outputs": [
+    {
+      "item": "drpmedieval:dark_oak_closed_barrel"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:planks",
+      "count": 10,
+      "data": 4
+    },
+    {
+      "item": "minecraft:iron_nugget",
+      "count": 4
+    }
+  ]
+}

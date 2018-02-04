@@ -1,0 +1,26 @@
+{
+    "station":"minecraft:air",
+    "category":"handheld",
+    "name":"pottery_turntable",
+    "outputs":[
+        {
+            "item":"drpmedieval:pottery_turntable",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"drpmedieval:planks",
+			"data":"0",
+			"count":"14"
+        },
+		 {
+            "item":"minecraft:iron_ingot",
+			"count":"1"
+        },
+		{
+            "item":"minecraft:stone",
+			"count":"1"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "station":"minecraft:air",
+    "category":"crafting_station",
+    "name":"spinning_wheel",
+    "outputs":[
+        {
+            "item":"drpmedieval:spinning_wheel",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"drpmedieval:planks",
+			"data":"0",
+			"count":"20"
+        },
+		 {
+            "item":"drpmedieval:leather_string",
+			"count":"1"
+        }
+    ]
+}

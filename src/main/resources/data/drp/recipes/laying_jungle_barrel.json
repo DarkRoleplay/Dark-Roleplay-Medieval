@@ -1,0 +1,21 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decoration",
+  "name": "laying_jungle_barrel",
+  "outputs": [
+    {
+      "item": "drpmedieval:laying_jungle_barrel"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:planks",
+      "count": 10,
+      "data": 3
+    },
+    {
+      "item": "minecraft:iron_nugget",
+      "count": 4
+    }
+  ]
+}

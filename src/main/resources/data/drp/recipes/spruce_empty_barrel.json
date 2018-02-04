@@ -1,0 +1,21 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decoration",
+  "name": "spruce_empty_barrel",
+  "outputs": [
+    {
+      "item": "drpmedieval:spruce_empty_barrel"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:planks",
+      "count": 8,
+      "data": 1
+    },
+    {
+      "item": "minecraft:iron_nugget",
+      "count": 4
+    }
+  ]
+}

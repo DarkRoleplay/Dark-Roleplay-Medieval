@@ -1,0 +1,19 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "building",
+  "name": "mossy_spruce_log",
+  "outputs": [
+    {
+      "item": "drpmedieval:mossy_spruce_log"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log",
+      "data": 1
+    },
+    {
+      "item": "minecraft:vine"
+    }
+  ]
+}

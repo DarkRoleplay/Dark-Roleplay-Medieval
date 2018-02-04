@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decoration",
+  "name": "large_acacia_lectern",
+  "outputs": [
+    {
+      "item": "drpmedieval:large_acacia_lectern"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:planks",
+      "count": 6,
+      "data": 5
+    }
+  ]
+}

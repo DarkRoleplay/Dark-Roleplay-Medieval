@@ -1,0 +1,21 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "storage",
+  "name": "acacia_empty_bucket",
+  "outputs": [
+    {
+      "item": "drpmedieval:acacia_empty_bucket"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:planks",
+      "count": 4,
+      "data": 5
+    },
+    {
+      "item": "minecraft:iron_nugget",
+      "count": 2
+    }
+  ]
+}

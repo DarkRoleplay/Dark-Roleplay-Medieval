@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.dark_roleplay.drpcore.api.Modules;
+import net.dark_roleplay.drpcore.api.blocks.Crop;
 import net.dark_roleplay.drpcore.modules.wood.Event_AddBlocks;
 import net.dark_roleplay.drpcore.modules.wood.Wood;
 import net.dark_roleplay.drpcore.modules.wood.WoodenBlock;
@@ -57,9 +58,11 @@ import net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges.Hangin
 import net.dark_roleplay.medieval.common.blocks.decorative.head_cutting_block.HeadCuttingBlock;
 import net.dark_roleplay.medieval.common.blocks.decorative.lanterns.Lantern;
 import net.dark_roleplay.medieval.common.blocks.decorative.lecterns.LargeLectern;
+import net.dark_roleplay.medieval.common.blocks.decorative.minecart_stopper.MinecartStopper;
 import net.dark_roleplay.medieval.common.blocks.decorative.pottery.FiredPottery;
 import net.dark_roleplay.medieval.common.blocks.decorative.pottery.UnfiredPottery;
 import net.dark_roleplay.medieval.common.blocks.decorative.rope_fence.RopeFence;
+import net.dark_roleplay.medieval.common.blocks.decorative.scales.Scale;
 import net.dark_roleplay.medieval.common.blocks.decorative.support.WoodSupport;
 import net.dark_roleplay.medieval.common.blocks.decorative.tables.BarrelTable;
 import net.dark_roleplay.medieval.common.blocks.decorative.tables.SimpleTable;
@@ -80,6 +83,7 @@ import net.dark_roleplay.medieval.common.blocks.plants.sapling.AppleSappling;
 import net.dark_roleplay.medieval.common.blocks.rotary.Axle;
 import net.dark_roleplay.medieval.common.blocks.storage.Crate;
 import net.dark_roleplay.medieval.common.blocks.storage.DungeonChest;
+import net.dark_roleplay.medieval.common.blocks.storage.shelf.Shelf;
 import net.dark_roleplay.medieval.common.blocks.util.shop_sign.ShopSign;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -136,6 +140,8 @@ public class DRPMedievalBlocks {
 	public static final Block TIN_ORE = null;
 	public static final Block SULFUR_ORE = null;
 	public static final Block SALPETER_ORE = null;
+
+	public static final Crop BARLEY = null;
 	
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Block> event) {
@@ -169,7 +175,8 @@ public class DRPMedievalBlocks {
 				new ChoppingBlock(wood.getName() + "_chopping_block"),
 				new Crate(wood.getName() + "_crate"),
 				new DungeonChest("simple_" + wood.getName() + "_chest"),
-				new LargeLectern("large_" + wood.getName() + "_lectern")
+				new LargeLectern("large_" + wood.getName() + "_lectern"),
+				new Shelf("simple_" + wood.getName() + "_shelf")
 			);
 		}
 		
@@ -200,7 +207,9 @@ public class DRPMedievalBlocks {
 			new MugEmpty("mug_empty"),
 			new RopeFence("rope_fence"),
 			new ShipsHelm("ships_helm"),
-			new SpinningWheel("spinning_wheel")
+			new SpinningWheel("spinning_wheel"),
+			new MinecartStopper("minecart_stopper"),
+			new Scale("golden_scale")
 		);
 		
 		register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
@@ -229,7 +238,6 @@ public class DRPMedievalBlocks {
 			new Axle("axle"),
 			new Cauldron("cauldron"),
 			new Firepit("firepit_lit"),
-			new GunpowderTrail("gunpowder_trail"),
 			new Grindstone("grindstone"),
 			new HangingCauldron("hanging_cauldron"),
 			new JuicePress("juice_press"),
@@ -239,6 +247,7 @@ public class DRPMedievalBlocks {
 //			new RopeCoil("rope_coil"),
 			new RopeAnchor("rope_anchor"),
 			new SimpleCarpenterWorkbench("simple_carpenter_workbench"),
+			
 			
 			//TODO MOVE TO OWN TAB
 //			new AppleSappling("apple_sapling"),
@@ -254,6 +263,7 @@ public class DRPMedievalBlocks {
 			new Pear("pear_green", new ItemStack(DRPMedievalItems.PEAR_GREEN, 1)),
 			new Pear("pear_yellow", new ItemStack(DRPMedievalItems.PEAR_YELLOW, 1)),
 			new Hops("hops"),
+			new GunpowderTrail("gunpowder_trail"),
 			new HangingBridge("hanging_bridge_bottom" ,0F),
 			new HangingBridge("hanging_bridge_top" ,0.5F)
 		);
@@ -264,6 +274,11 @@ public class DRPMedievalBlocks {
 //		new BucketDirt(wood.getName() + "_dirt_bucket"),
 //		new DungeonChest("simple_" + wood.getName() + "_chest"),
 
+		Modules.WOODS.addWoodenBlock(new WoodenBlock(new ResourceLocation(DRPMedievalInfo.MODID, "simple_%wood%_shelf"))
+			.setBaseBlockState(new ResourceLocation(DRPMedievalInfo.MODID, "argh/blockstates/simple_shelf.json"))
+			.setTextureGenerator(new ResourceLocation(DRPMedievalInfo.MODID, "argh/texture_generators/simple_shelf.json"))
+			.setModelGenerator(new ResourceLocation(DRPMedievalInfo.MODID, "argh/model_generators/simple_shelf.json"))
+		);
 
 		Modules.WOODS.addWoodenBlock(new WoodenBlock(new ResourceLocation(DRPMedievalInfo.MODID, "%wood%_dirt_bucket"))
 			.setBaseBlockState(new ResourceLocation(DRPMedievalInfo.MODID, "argh/blockstates/dirt_bucket.json"))

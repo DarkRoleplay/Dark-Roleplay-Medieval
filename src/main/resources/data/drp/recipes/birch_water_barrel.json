@@ -1,0 +1,18 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decoration",
+  "name": "birch_water_barrel",
+  "outputs": [
+    {
+      "item": "drpmedieval:birch_water_barrel"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:birch_empty_barrel"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ]
+}

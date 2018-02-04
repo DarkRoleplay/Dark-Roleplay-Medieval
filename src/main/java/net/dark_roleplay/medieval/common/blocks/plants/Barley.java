@@ -1,44 +1,19 @@
 package net.dark_roleplay.medieval.common.blocks.plants;
 
+import net.dark_roleplay.drpcore.api.blocks.Crop;
+import net.dark_roleplay.drpcore.modules.time.Season;
 import net.dark_roleplay.medieval.api.blocks.plants.Block_AdvancedCrop;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
-public class Barley extends Block_AdvancedCrop{
+public class Barley extends Crop{
 
 	private static final PropertyInteger AGE = PropertyInteger.create("age", 0, 7);
 	
 	public Barley(String registryName) {
-		super(registryName, Barley.AGE, 30);
+		super(30, Season.LATE_SPRING, Season.EARLY_SUMMER, Season.MIDDLE_SUMMER, Season.LATE_SUMMER, Season.EARLY_AUTUMN);
+		this.setRegistryName(registryName);
 	}
-
-	@Override
-	protected Item getSeed() {
-		return Items.WHEAT_SEEDS;
-	}
-
-	@Override
-	protected Item getCrop() {
-		return DRPMedievalItems.BARLEY;
-	}
-
-	@Override
-	protected PropertyInteger getAgeProperty() {
-		return Barley.AGE;
-	}
-
-//	protected boolean canPlaceBlockOn(Block ground) {
-//
-//		return ground == Blocks.FARMLAND;
-//	}
-
-//	// -------------------------------------------------- Block Data --------------------------------------------------
-//
-//	@Override
-//	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-//    {
-//        return new AxisAlignedBB(0F,0F,0F,1F,0.25F,1F);
-//    }
 }

@@ -5,11 +5,11 @@ import java.io.File;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.dark_roleplay.drpcore.api.Modules;
 import net.dark_roleplay.medieval.client.events.Event_GuiOpen;
 import net.dark_roleplay.medieval.client.events.config.Event_ConfigChange;
 import net.dark_roleplay.medieval.client.premium.RenderLayerPremium;
 import net.dark_roleplay.medieval.client.premium.RenderLayer_Guild;
-import net.dark_roleplay.medieval.common.events.EventHelper;
 import net.dark_roleplay.medieval.common.events.MissingMappings;
 import net.dark_roleplay.medieval.common.events.blocks.Event_BlockBreak;
 import net.dark_roleplay.medieval.common.events.capabilities.Event_CapabilityTileEntity;
@@ -86,6 +86,7 @@ public class DarkRoleplayMedieval {
 		DRPMedievalLores.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
 
+		Modules.CRAFTING2.addMod("drpmedieval");
 		GameRegistry.registerFuelHandler(new DarkRoleplayFuelHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(DarkRoleplayMedieval.instance, new GuiHandler());
 	}
@@ -109,7 +110,6 @@ public class DarkRoleplayMedieval {
 			GameRegistry.registerWorldGenerator(new OreGen(), 0);
 //			GameRegistry.registerWorldGenerator(new GenerateStructure(), 0);
 
-		EventHelper.registerEvents();
 		DRPMedievalPackets.init();
 		
 		if(event.getSide() == Side.CLIENT){

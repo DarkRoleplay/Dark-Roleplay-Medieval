@@ -1,0 +1,17 @@
+{
+    "station":"minecraft:air",
+    "category":"handheld",
+    "name":"anvil",
+    "outputs":[
+        {
+            "item":"drpmedieval:anvil",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"minecraft:iron_ingot",
+			"count":"32"
+        }
+    ]
+}

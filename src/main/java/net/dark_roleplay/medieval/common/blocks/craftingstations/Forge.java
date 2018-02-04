@@ -102,4 +102,12 @@ public class Forge extends FacedBlock {
 	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
 		world.setBlockToAir(pos.offset(state.getValue(LEFT) ? state.getValue(BlockProperties.FACING).rotateY() : state.getValue(BlockProperties.FACING).rotateYCCW()));
     }
+	
+	@Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+		if(world.isRemote){
+			Crafting_Util.openRecipeSelection(this);
+		}
+		return true;
+	}
 }

@@ -1,0 +1,22 @@
+{
+    "station":"drpmedieval:simple_carpenter_workbench",
+    "category":"sittables",
+    "name":"oak_barrel_chair",
+    "outputs":[
+        {
+            "item":"drpmedieval:oak_barrel_chair",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"drpmedieval:planks",
+			"data":"0",
+			"count":"8"
+        },
+		{
+            "item":"minecraft:iron_nugget",
+			"count":"2"
+        }
+    ]
+}

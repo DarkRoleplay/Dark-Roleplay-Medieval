@@ -1,0 +1,19 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "building",
+  "name": "mossy_birch_log",
+  "outputs": [
+    {
+      "item": "drpmedieval:mossy_birch_log"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log",
+      "data": 2
+    },
+    {
+      "item": "minecraft:vine"
+    }
+  ]
+}

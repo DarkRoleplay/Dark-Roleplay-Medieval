@@ -1,0 +1,18 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decoration",
+  "name": "spruce_dirt_bucket",
+  "outputs": [
+    {
+      "item": "drpmedieval:spruce_dirt_bucket"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:spruce_empty_bucket"
+    },
+    {
+      "item": "minecraft:dirt"
+    }
+  ]
+}

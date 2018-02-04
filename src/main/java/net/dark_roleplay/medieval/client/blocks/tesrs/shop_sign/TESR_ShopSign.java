@@ -34,7 +34,7 @@ public class TESR_ShopSign extends TileEntitySpecialRenderer {
 				return;
 			
 			GL11.glPushMatrix();
-
+			
 			Tessellator tessellator = Tessellator.getInstance();
 		    BufferBuilder buff = tessellator.getBuffer();
 		    buff.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX); 

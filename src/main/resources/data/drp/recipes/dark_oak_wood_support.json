@@ -1,0 +1,18 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "storage",
+  "name": "dark_oak_wood_support",
+  "outputs": [
+    {
+      "item": "drpmedieval:dark_oak_wood_support",
+      "count": 2
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:planks",
+      "count": 4,
+      "data": 4
+    }
+  ]
+}

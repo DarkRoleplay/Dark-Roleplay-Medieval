@@ -1,0 +1,18 @@
+{
+    "station":"drpmedieval:simple_carpenter_workbench",
+    "category":"sittables",
+    "name":"simple_dark_oak_chair",
+    "outputs":[
+        {
+            "item":"drpmedieval:simple_dark_oak_chair",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"drpmedieval:planks",
+			"data":"4",
+			"count":"8"
+        }
+    ]
+}

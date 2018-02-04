@@ -1,0 +1,18 @@
+{
+    "station":"drpmedieval:simple_carpenter_workbench",
+    "category":"sittables",
+    "name":"simple_acacia_chair",
+    "outputs":[
+        {
+            "item":"drpmedieval:simple_acacia_chair",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"drpmedieval:planks",
+			"data":"5",
+			"count":"8"
+        }
+    ]
+}

@@ -14,10 +14,10 @@ public class Chair extends FacedBlock {
 	private float yOffset;
 	
 	
-	public Chair(Material mat, String registreName,String unlocalizedName, float yOffset) {
+	public Chair(Material mat, String registryName,String unlocalizedName, float yOffset) {
 		super(mat);
 		this.yOffset = yOffset;
-		this.setRegistryName(registreName);
+		this.setRegistryName(registryName);
 		this.setUnlocalizedName(unlocalizedName);
 	}
 	
