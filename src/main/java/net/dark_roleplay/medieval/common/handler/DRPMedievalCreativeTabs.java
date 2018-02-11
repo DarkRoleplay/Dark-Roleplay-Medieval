@@ -1,12 +1,7 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 import net.dark_roleplay.drpcore.api.Modules;
-import net.dark_roleplay.drpcore.modules.wood.Wood;
+import net.dark_roleplay.drpcore.modules.materials.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -29,8 +24,8 @@ public class DRPMedievalCreativeTabs {
 		            item.getSubItems(this, items);
 	        	}
 	        }
-	        for(Wood wood : Modules.WOODS.getWoods()){
-	        	String name = wood.getName();
+	        for(Material mat : Modules.MATERIALS.getMaterials(Modules.MATERIALS.WOOD_KEY)){
+	        	String name = mat.getFormatValue();
 	        	for(ItemStack stack : cache){
 	        		if(stack.getItem().getRegistryName().getResourcePath().contains(name)){
 	        			items.add(stack);
@@ -41,8 +36,8 @@ public class DRPMedievalCreativeTabs {
 	};
 	
 	private static boolean isWooden(Item item){
-		 for(Wood wood : Modules.WOODS.getWoods()){
-	        String name = wood.getName();
+        for(Material mat : Modules.MATERIALS.getMaterials(Modules.MATERIALS.WOOD_KEY)){
+        	String name = mat.getFormatValue();
 	        if(item.getRegistryName().getResourcePath().contains(name)){
     			return true;
     		}

@@ -1,6 +1,8 @@
 package net.dark_roleplay.medieval.common;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,12 +35,15 @@ import net.dark_roleplay.medieval.common.world_generation.GenHandler_Trees;
 import net.dark_roleplay.medieval.common.world_generation.GenerateStructure;
 import net.dark_roleplay.medieval.common.world_generation.WorldLoot;
 import net.dark_roleplay.medieval.common.world_generation.feature.OreGen;
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderPlayer;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ForgeVersion;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.IFuelHandler;
@@ -65,11 +70,6 @@ public class DarkRoleplayMedieval {
 
 	@net.minecraftforge.fml.common.Mod.Instance(DRPMedievalInfo.MODID)
 	public static DarkRoleplayMedieval instance;
-
-	public DarkRoleplayMedieval(){
-		File resourcesFolder = new File(Minecraft.getMinecraft().mcDataDir.getPath() + "/dark roleplay/argh/assets/drpmedieval");
-		resourcesFolder.mkdirs();
-	}
 	
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
@@ -107,8 +107,8 @@ public class DarkRoleplayMedieval {
 		WorldLoot.registerGrassLoot();
 
 
-			GameRegistry.registerWorldGenerator(new OreGen(), 0);
-//			GameRegistry.registerWorldGenerator(new GenerateStructure(), 0);
+		GameRegistry.registerWorldGenerator(new OreGen(), 0);
+//		GameRegistry.registerWorldGenerator(new GenerateStructure(), 0);
 
 		DRPMedievalPackets.init();
 		

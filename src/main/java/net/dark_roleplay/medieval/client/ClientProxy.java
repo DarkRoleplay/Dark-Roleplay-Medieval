@@ -1,5 +1,7 @@
 package net.dark_roleplay.medieval.client;
 
+import java.io.File;
+
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderAnvil;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderCauldron;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderChain;
@@ -56,6 +58,11 @@ public class ClientProxy extends CommonProxy {
 	
 	
 	public static int telescopeLevel = 0;
+	
+	public ClientProxy(){
+		File resourcesFolder = new File(Minecraft.getMinecraft().mcDataDir.getPath() + "/dark roleplay/argh/assets/drpmedieval");
+		resourcesFolder.mkdirs();
+	}
 	
 	@Override
 	public void init(FMLPreInitializationEvent event) {

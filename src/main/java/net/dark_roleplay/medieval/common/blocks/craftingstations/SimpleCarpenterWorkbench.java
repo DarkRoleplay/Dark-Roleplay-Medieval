@@ -12,6 +12,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -82,6 +83,8 @@ public class SimpleCarpenterWorkbench extends FacedBlock{
 
 	@Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
+		if(worldIn.isAirBlock(pos.offset(state.getValue(LEFT) ? state.getValue(BlockProperties.FACING).rotateY() : state.getValue(BlockProperties.FACING).rotateYCCW()))
+				return Blocks.AIR.getDefaultState();
         return this.getDefaultState().withProperty(BlockProperties.FACING, placer.getHorizontalFacing().getOpposite()).withProperty(LEFT, false);
     }
 
