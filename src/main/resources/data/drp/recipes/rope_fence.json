@@ -1,0 +1,19 @@
+{
+  "category": "decorations",
+  "name": "rope_fence",
+  "outputs": [
+    {
+      "item": "drpmedieval:rope_fence",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log"
+    },
+    {
+      "item": "drpmedieval:rope",
+      "count": 2
+    }
+  ]
+}

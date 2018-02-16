@@ -1,0 +1,15 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "decorations",
+  "name": "iron_hook",
+  "outputs": [
+    {
+      "item": "drpmedieval:iron_hook"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ]
+}

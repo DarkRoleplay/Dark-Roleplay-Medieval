@@ -1,6 +1,5 @@
 {
-    "station":"minecraft:air",
-    "category":"handheld",
+    "category": "crafting_stations",
     "name":"pottery_turntable",
     "outputs":[
         {

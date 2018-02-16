@@ -1,0 +1,19 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "decorations",
+  "name": "clock_core",
+  "outputs": [
+    {
+      "item": "drpmedieval:clock_core"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log"
+    },
+    {
+      "item": "minecraft:iron_ingot",
+      "count": 6
+    }
+  ]
+}

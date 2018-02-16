@@ -1,0 +1,16 @@
+{
+  "category": "materials",
+  "name": "planks",
+  "outputs": [
+    {
+      "item": "drpmedieval:planks",
+      "count": 4,
+      "data": 5
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log2"
+    }
+  ]
+}

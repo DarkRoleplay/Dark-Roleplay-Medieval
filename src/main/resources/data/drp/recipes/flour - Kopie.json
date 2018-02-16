@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:mortar",
+  "category": "materials",
+  "name": "flour",
+  "outputs": [
+    {
+      "item": "drpmedieval:flour",
+      "count": 2,
+	  "data": 1
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:barley"
+    }
+  ]
+}

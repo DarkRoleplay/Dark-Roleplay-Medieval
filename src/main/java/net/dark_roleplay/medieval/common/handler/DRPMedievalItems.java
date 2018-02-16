@@ -11,6 +11,7 @@ import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.dark_roleplay.medieval.common.blocks.plants.apples.Apple;
 import net.dark_roleplay.medieval.common.blocks.plants.pears.Pear;
 import net.dark_roleplay.medieval.common.items.blocks.HangingBridge_Item;
+import net.dark_roleplay.medieval.common.items.blocks.ItemMultiBlock;
 import net.dark_roleplay.medieval.common.objects.items.BarkAndGlue;
 import net.dark_roleplay.medieval.common.objects.items.DRPMStew;
 import net.dark_roleplay.medieval.common.objects.items.Instrument;
@@ -47,9 +48,10 @@ public class DRPMedievalItems {
 	public static final Item ORE_CHUNK_SALPETER = null;
 	public static final Item FIREWOOD = null;
 	public static final Item DOUGH = null;
-	public static final Item MEAT_RAW_WOLF = null;
-	public static final Item DOUGH_PUMPKIN = null;
-	public static final Item MEAT_COOKED_WOLF = null;
+	public static final Item RAW_WOLF = null;
+	public static final Item RAW_CATFISH = null;
+	public static final Item PUMPKIN_DOUGH = null;
+	public static final Item COOKED_WOLF = null;
 	public static final Item PUMPKIN_BREAD = null;
 	public static final Item CHARCOAL_POWDER = null;
 	public static final Item PEAR_GREEN = null;
@@ -57,7 +59,7 @@ public class DRPMedievalItems {
 	public static final Item APPLE_GREEN = null;
 	public static final Item APPLE_YELLOW = null;
 	public static final Item LEATHER_PURSE = null;
-	public static final Item FISH_COOKED_CATFISH = null;
+	public static final Item COOKED_CATFISH = null;
 	public static final Item WOODEN_WRENCH = null;
 	public static final Item DRY_CLAY_CHUNK = null;
 	public static final Item TAP = null;
@@ -178,6 +180,11 @@ public class DRPMedievalItems {
 
 		register(reg, DRPMedievalCreativeTabs.DECORATION,
 				new HangingBridge_Item("hanging_bridge", "blocks", 64)
+		);
+		
+		register(reg, DRPMedievalCreativeTabs.UTILITY,
+				new ItemMultiBlock(DRPMedievalBlocks.SIMPLE_CARPENTER_WORKBENCH).setRegistryName("simple_carpenter_workbench"),
+				new ItemMultiBlock(DRPMedievalBlocks.FORGE).setRegistryName("forge")
 		);
 	
 		for(ItemBlock block : blockItems){

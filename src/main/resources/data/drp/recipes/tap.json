@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "materials",
+  "name": "tap",
+  "outputs": [
+    {
+      "item": "drpmedieval:tap",
+      "count": 2
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ]
+}

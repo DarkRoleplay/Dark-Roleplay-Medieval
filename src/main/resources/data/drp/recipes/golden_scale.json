@@ -1,0 +1,19 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "decorations",
+  "name": "golden_scale",
+  "outputs": [
+    {
+      "item": "drpmedieval:golden_scale"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:gold_ingot",
+      "count": 2
+    },
+    {
+      "item": "drpmedieval:rope"
+    }
+  ]
+}

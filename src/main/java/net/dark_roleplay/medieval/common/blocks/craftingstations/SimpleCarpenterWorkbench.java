@@ -82,9 +82,7 @@ public class SimpleCarpenterWorkbench extends FacedBlock{
 	}
 
 	@Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
-		if(worldIn.isAirBlock(pos.offset(state.getValue(LEFT) ? state.getValue(BlockProperties.FACING).rotateY() : state.getValue(BlockProperties.FACING).rotateYCCW()))
-				return Blocks.AIR.getDefaultState();
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
         return this.getDefaultState().withProperty(BlockProperties.FACING, placer.getHorizontalFacing().getOpposite()).withProperty(LEFT, false);
     }
 

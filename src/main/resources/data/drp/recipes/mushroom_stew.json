@@ -1,0 +1,28 @@
+{
+  "station": "drpmedieval:cauldron",
+  "category": "stews",
+  "name": "mushroom_stew",
+  "outputs": [
+    {
+      "item": "minecraft:mushroom_stew",
+	  "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:bowl",
+      "count": 4
+    },
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "minecraft:brown_mushroom",
+      "count": 5
+    },
+    {
+      "item": "minecraft:red_mushroom",
+      "count": 3
+    }
+  ]
+}

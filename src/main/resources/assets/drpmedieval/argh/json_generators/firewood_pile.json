@@ -1,0 +1,8 @@
+{
+	"jsons":[
+		{
+			"input" : "drpmedieval:argh/models/block/firewood_pile.json",
+			"output" : "drpmedieval:models/block/firewood_pile/%wood%_firewood_pile.json"
+		}
+	]
+}

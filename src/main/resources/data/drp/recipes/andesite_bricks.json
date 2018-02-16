@@ -1,0 +1,15 @@
+{
+  "category": "building_blocks",
+  "name": "andesite_bricks",
+  "outputs": [
+    {
+      "item": "drpmedieval:andesite_bricks"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:stone",
+      "data": 5
+    }
+  ]
+}

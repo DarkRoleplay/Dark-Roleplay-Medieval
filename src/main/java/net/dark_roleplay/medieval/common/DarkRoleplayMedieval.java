@@ -154,9 +154,12 @@ public class DarkRoleplayMedieval {
 	public static void registerFurnaceRecipes() {
 
 		GameRegistry.addSmelting(DRPMedievalItems.DOUGH, new ItemStack(Items.BREAD), 0.1f);
-		GameRegistry.addSmelting(DRPMedievalItems.MEAT_RAW_WOLF, new ItemStack(DRPMedievalItems.MEAT_COOKED_WOLF), 0.1f);
-		GameRegistry.addSmelting(DRPMedievalItems.DOUGH_PUMPKIN, new ItemStack(DRPMedievalItems.PUMPKIN_BREAD), 0.1f);
-		GameRegistry.addSmelting(Item.getItemFromBlock(Blocks.OBSIDIAN), new ItemStack(DRPMedievalBlocks.OBSIDIAN_GLASS), 0.1f);
+		GameRegistry.addSmelting(DRPMedievalItems.RAW_WOLF, new ItemStack(DRPMedievalItems.COOKED_WOLF), 0.1f);
+		GameRegistry.addSmelting(DRPMedievalItems.RAW_CATFISH, new ItemStack(DRPMedievalItems.COOKED_CATFISH), 0.1f);
+		GameRegistry.addSmelting(DRPMedievalItems.PUMPKIN_DOUGH, new ItemStack(DRPMedievalItems.PUMPKIN_BREAD), 0.1f);
+		GameRegistry.addSmelting(Item.getItemFromBlock(Blocks.OBSIDIAN), new ItemStack(DRPMedievalBlocks.OBSIDIAN_GLASS), 0.1f);		
+		GameRegistry.addSmelting(Item.getItemFromBlock(DRPMedievalBlocks.UNFIRED_VASE), new ItemStack(DRPMedievalBlocks.FIRED_VASE), 0.1f);
+
 	}
 }
 

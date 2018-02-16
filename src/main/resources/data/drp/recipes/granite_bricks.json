@@ -1,0 +1,15 @@
+{
+  "category": "building_blocks",
+  "name": "granite_bricks",
+  "outputs": [
+    {
+      "item": "drpmedieval:granite_bricks"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:stone",
+      "data": 1
+    }
+  ]
+}

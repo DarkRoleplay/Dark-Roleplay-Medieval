@@ -1,0 +1,19 @@
+{
+  "category": "decorations",
+  "name": "flower_pot",
+  "outputs": [
+    {
+      "item": "drpmedieval:flower_pot"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:planks",
+      "count": 2,
+      "data": 1
+    },
+    {
+      "item": "minecraft:dirt"
+    }
+  ]
+}

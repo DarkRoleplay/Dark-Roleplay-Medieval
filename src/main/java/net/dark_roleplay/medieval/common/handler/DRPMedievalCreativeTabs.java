@@ -89,7 +89,7 @@ public class DRPMedievalCreativeTabs {
 	public static void init(FMLInitializationEvent event) {
 		MISCELLANEOUS.setPreviewStack(new ItemStack(DRPMedievalItems.FIREWOOD, 1, 2));
 		EQUIPMENT.setPreviewStack(new ItemStack(DRPMedievalItems.LEATHER_PURSE));
-		FOOD.setPreviewStack(new ItemStack(DRPMedievalItems.FISH_COOKED_CATFISH));
+		FOOD.setPreviewStack(new ItemStack(DRPMedievalItems.COOKED_CATFISH));
 		UTILITY.setPreviewStack(new ItemStack(Item.getItemFromBlock(DRPMedievalBlocks.OAK_CHOPPING_BLOCK)));
 		BUILDING_MATS.setPreviewStack(new ItemStack(Item.getItemFromBlock(DRPMedievalBlocks.MOSSY_SPRUCE_LOG)));
 		DECORATION.setPreviewStack(new ItemStack(DRPMedievalBlocks.FLOWER_POT));

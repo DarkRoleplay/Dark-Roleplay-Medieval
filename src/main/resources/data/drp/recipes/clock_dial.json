@@ -1,0 +1,20 @@
+{
+  "category": "decorations",
+  "name": "clock_dial",
+  "outputs": [
+    {
+      "item": "drpmedieval:clock_dial"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:planks",
+      "count": 16
+    },
+    {
+      "item": "minecraft:dye",
+      "count": 4,
+      "data": 15
+    }
+  ]
+}

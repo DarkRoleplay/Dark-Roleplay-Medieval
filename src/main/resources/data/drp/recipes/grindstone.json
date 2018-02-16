@@ -1,0 +1,19 @@
+{
+  "category": "crafting_stations",
+  "name": "grindstone",
+  "outputs": [
+    {
+      "item": "drpmedieval:grindstone"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "item": "drpmedieval:planks",
+      "count": 2,
+      "data": 1
+    }
+  ]
+}

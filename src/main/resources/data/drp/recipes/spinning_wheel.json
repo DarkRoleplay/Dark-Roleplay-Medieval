@@ -1,6 +1,6 @@
 {
     "station":"minecraft:air",
-    "category":"crafting_station",
+    "category":"crafting_stations",
     "name":"spinning_wheel",
     "outputs":[
         {

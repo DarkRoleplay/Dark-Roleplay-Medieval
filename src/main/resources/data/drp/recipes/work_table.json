@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decoration",
+  "name": "work_table",
+  "outputs": [
+    {
+      "item": "drpmedieval:work_table"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:planks",
+      "count": 8,
+      "data": 1
+    }
+  ]
+}

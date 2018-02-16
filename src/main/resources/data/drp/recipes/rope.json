@@ -1,0 +1,15 @@
+{
+  "category": "decorations",
+  "name": "rope",
+  "outputs": [
+    {
+      "item": "drpmedieval:rope"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:string",
+      "count": 4
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "crafting_stations",
+  "name": "forge",
+  "outputs": [
+    {
+      "item": "drpmedieval:forge"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:monster_egg",
+      "count": 2,
+      "data": 2
+    },
+    {
+      "item": "minecraft:iron_ingot",
+      "count": 4
+    }
+  ]
+}

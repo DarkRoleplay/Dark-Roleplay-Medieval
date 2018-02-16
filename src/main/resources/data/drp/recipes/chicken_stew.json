@@ -1,0 +1,28 @@
+{
+  "station": "drpmedieval:cauldron",
+  "category": "stews",
+  "name": "chicken_stew",
+  "outputs": [
+    {
+      "item": "drpmedieval:chicken_stew",
+	  "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:bowl",
+      "count": 4
+    },
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "minecraft:chicken",
+      "count": 2
+    },
+    {
+      "item": "minecraft:carrot",
+      "count": 2
+    }
+  ]
+}

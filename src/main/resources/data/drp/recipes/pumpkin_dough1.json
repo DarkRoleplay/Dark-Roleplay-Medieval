@@ -1,0 +1,26 @@
+{
+  "category": "materials",
+  "name": "pumpkin_dough",
+  "outputs": [
+    {
+      "item": "drpmedieval:pumpkin_dough",
+      "data": 1
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "drpmedieval:flour",
+      "data": 1
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:pumpkin_seeds",
+      "count": 3
+    }
+  ]
+}

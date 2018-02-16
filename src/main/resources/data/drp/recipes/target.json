@@ -1,0 +1,19 @@
+{
+  "category": "decorations",
+  "name": "target",
+  "outputs": [
+    {
+      "item": "drpmedieval:target"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:planks",
+      "count": 10
+    },
+    {
+      "item": "drpmedieval:rope",
+      "count": 8
+    }
+  ]
+}

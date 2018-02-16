@@ -1,0 +1,18 @@
+{
+  "category": "decorations",
+  "name": "beeswax_candle",
+  "outputs": [
+    {
+      "item": "drpmedieval:beeswax_candle"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:rotten_flesh",
+      "count": 2
+    },
+    {
+      "item": "minecraft:string"
+    }
+  ]
+}

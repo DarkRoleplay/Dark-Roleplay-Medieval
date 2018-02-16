@@ -137,7 +137,11 @@ public class DRPMedievalBlocks {
 	public static final Block TIN_ORE = null;
 	public static final Block SULFUR_ORE = null;
 	public static final Block SALPETER_ORE = null;
-
+	public static final Block UNFIRED_VASE = null;
+	public static final Block FIRED_VASE = null;
+	public static final Block SIMPLE_CARPENTER_WORKBENCH = null;
+	public static final Block FORGE = null;
+	
 	public static final Crop BARLEY = null;
 	
 	@SubscribeEvent
@@ -230,7 +234,6 @@ public class DRPMedievalBlocks {
 		register(reg, DRPMedievalCreativeTabs.UTILITY,
 			new ButterChurn("butter_churn"),
 			new ShopSign("wall_shop_sign"),
-			new Forge("forge"),
 			new Anvil("anvil"),
 			new Axle("axle"),
 			new Cauldron("cauldron"),
@@ -242,9 +245,7 @@ public class DRPMedievalBlocks {
 			new PotteryTurntable("pottery_turntable"),
 			new Rope("rope"),
 //			new RopeCoil("rope_coil"),
-			new RopeAnchor("rope_anchor"),
-			new SimpleCarpenterWorkbench("simple_carpenter_workbench"),
-			
+			new RopeAnchor("rope_anchor"),			
 			
 			//TODO MOVE TO OWN TAB
 //			new AppleSappling("apple_sapling"),
@@ -252,7 +253,10 @@ public class DRPMedievalBlocks {
 			new Mushroom("mushroom_red")
 		);
 		
+		
 		registerNoItems(reg,
+			new Forge("forge"),
+			new SimpleCarpenterWorkbench("simple_carpenter_workbench"),
 			new Barley("barley"),
 			new Apple("apple_green", new ItemStack(DRPMedievalItems.APPLE_GREEN, 1)),
 			new Apple("apple_red", new ItemStack(Items.APPLE, 1)),
@@ -269,28 +273,32 @@ public class DRPMedievalBlocks {
 	@SubscribeEvent
 	public static void addBlocks(AddResourceGenerators event){
 		String texGens = DRPMedievalInfo.MODID + ":argh/texture_generators/"; 
-		String modGens = DRPMedievalInfo.MODID + ":argh/model_generators/"; 
+		String modGens = DRPMedievalInfo.MODID + ":argh/json_generators/"; 
 		
 		event.addAll(
 			new ResourceGenerator(
 				"wood",
-				new ResourceLocation(modGens + "simple_shelf.json"),
+				new ResourceLocation(modGens + "wooden_blockstates.json"),
+				null
+			), new ResourceGenerator(
+				"wood",
+				null,
 				new ResourceLocation(texGens + "simple_shelf.json")
 			), new ResourceGenerator(
 				"wood",
-				new ResourceLocation(modGens + "dirt_bucket.json"),
+				null,
 				new ResourceLocation(texGens + "dirt_bucket.json")
 			), new ResourceGenerator(
 				"wood",
-				new ResourceLocation(modGens + "simple_chest.json"),
+				null,
 				new ResourceLocation(texGens + "simple_chest.json")
 			), new ResourceGenerator(
 				"wood",
-				new ResourceLocation(modGens + "crate.json"),
+				null,
 				new ResourceLocation(texGens + "crate.json")
 			), new ResourceGenerator(
 				"wood",
-				new ResourceLocation(modGens + "wood_support.json"),
+				null,
 				new ResourceLocation(texGens + "wood_support.json")
 			), new ResourceGenerator(
 				"wood",
@@ -306,11 +314,11 @@ public class DRPMedievalBlocks {
 				new ResourceLocation(texGens + "chopping_block.json")
 			), new ResourceGenerator(
 				"wood",
-				new ResourceLocation(modGens + "large_lectern.json"),
+				null,
 				new ResourceLocation(texGens + "large_lectern.json")
 			), new ResourceGenerator(
 				"wood",
-				new ResourceLocation(modGens + "clean_plank.json"),
+				null,
 				new ResourceLocation(texGens + "clean_plank.json")
 			), new ResourceGenerator(
 				"wood",
@@ -318,11 +326,11 @@ public class DRPMedievalBlocks {
 				new ResourceLocation(texGens + "log_chair.json")
 			), new ResourceGenerator(
 				"wood",
-				new ResourceLocation(modGens + "mossy_log.json"),
+				null,
 				new ResourceLocation(texGens + "mossy_log.json")
 			), new ResourceGenerator(
 				"wood",
-				new ResourceLocation(modGens + "simple_chair.json"),
+				null,
 				new ResourceLocation(texGens + "simple_chair.json")
 			), new ResourceGenerator(
 				"wood",
@@ -334,7 +342,7 @@ public class DRPMedievalBlocks {
 				new ResourceLocation(texGens + "firewood_pile.json")
 			), new ResourceGenerator(
 				"wood",
-				new ResourceLocation(modGens + "barrel_chair.json"),
+				null,
 				new ResourceLocation(texGens + "barrel_chair.json")
 			), new ResourceGenerator(
 				"wood",

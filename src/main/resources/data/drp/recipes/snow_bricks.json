@@ -1,0 +1,14 @@
+{
+  "category": "building_blocks",
+  "name": "snow_bricks",
+  "outputs": [
+    {
+      "item": "drpmedieval:snow_bricks"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:snow"
+    }
+  ]
+}

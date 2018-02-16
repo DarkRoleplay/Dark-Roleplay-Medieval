@@ -1,0 +1,8 @@
+{
+	"jsons":[
+		{
+			"input" : "drpmedieval:argh/models/block/simple_table.json",
+			"output" : "drpmedieval:models/block/simple_table/simple_%wood%_table.json"
+		}
+	]
+}

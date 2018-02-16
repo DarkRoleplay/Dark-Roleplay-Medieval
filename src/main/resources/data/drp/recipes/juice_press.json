@@ -1,0 +1,21 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decoration",
+  "name": "juice_press",
+  "outputs": [
+    {
+      "item": "drpmedieval:juice_press"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:planks",
+      "count": 8,
+      "data": 1
+    },
+    {
+      "item": "minecraft:iron_ingot",
+      "count": 2
+    }
+  ]
+}

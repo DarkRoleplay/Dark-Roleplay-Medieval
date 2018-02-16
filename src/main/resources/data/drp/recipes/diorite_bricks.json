@@ -1,0 +1,15 @@
+{
+  "category": "building_blocks",
+  "name": "diorite_bricks",
+  "outputs": [
+    {
+      "item": "drpmedieval:diorite_bricks"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:stone",
+      "data": 3
+    }
+  ]
+}
