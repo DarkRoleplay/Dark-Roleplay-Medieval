@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.items.blocks;
 
 import net.dark_roleplay.drpcore.api.items.DRPItem;
-import net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges.HangingBridge;
+import net.dark_roleplay.medieval.common.blocks.decorative.hanging_bridges.HangingBridge;
 import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.state.IBlockState;

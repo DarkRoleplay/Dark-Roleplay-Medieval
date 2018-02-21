@@ -13,7 +13,15 @@ public class Barley extends Crop{
 	private static final PropertyInteger AGE = PropertyInteger.create("age", 0, 7);
 	
 	public Barley(String registryName) {
-		super(30, Season.LATE_SPRING, Season.EARLY_SUMMER, Season.MIDDLE_SUMMER, Season.LATE_SUMMER, Season.EARLY_AUTUMN);
+		super(30, null, null , Season.LATE_SPRING, Season.EARLY_SUMMER, Season.MIDDLE_SUMMER, Season.LATE_SUMMER, Season.EARLY_AUTUMN);
 		this.setRegistryName(registryName);
+	}
+	
+	public Item getCrop() {
+		return DRPMedievalItems.BARLEY;
+	}
+
+	public Item getSeed() {
+		return DRPMedievalItems.BARLEY_SEED;
 	}
 }

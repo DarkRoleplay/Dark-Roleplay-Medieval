@@ -1,4 +1,4 @@
-package net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges;
+package net.dark_roleplay.medieval.common.blocks.decorative.hanging_bridges;
 
 import java.util.List;
 import java.util.Random;
@@ -21,10 +21,13 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -93,6 +96,10 @@ public class HangingBridge extends Block {
 		        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0f,1f,1f,0.0625f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
 			}
         }
+    }
+	
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player){
+        return DRPMedievalItems.HANGING_BRIDGE.getDefaultInstance().copy();
     }
 	
 	@Override

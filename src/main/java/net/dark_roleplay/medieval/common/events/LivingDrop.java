@@ -34,7 +34,7 @@ public class LivingDrop {
 			}
 			event.getEntityLiving().dropItem(DRPMedievalItems.FUR_WOLF, LivingDrop.dropped);
 			LivingDrop.dropped = LivingDrop.random.nextInt(2) + 1;
-			event.getEntityLiving().dropItem(DRPMedievalItems.MEAT_RAW_WOLF, LivingDrop.dropped);
+			event.getEntityLiving().dropItem(DRPMedievalItems.RAW_WOLF, LivingDrop.dropped);
 		}
 	}
 

@@ -4,8 +4,12 @@ import java.util.ArrayList;
 
 import com.google.common.collect.ImmutableList;
 
+import net.dark_roleplay.drpcore.modules.work_in_progress.skill.Skill;
+import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.RegistryEvent.MissingMappings.Mapping;
 import net.minecraftforge.fml.common.Mod;
@@ -16,12 +20,23 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 @Mod.EventBusSubscriber
 public class MissingMappings {
 	
-	public static ArrayList<IForgeRegistryEntry.Impl> toRemap = new ArrayList<IForgeRegistryEntry.Impl>();
-	public static ArrayList<String> oldName = new ArrayList<String>();
+	public static ArrayList<Block> remapBlocks = new ArrayList<Block>();
+	public static ArrayList<String> blockNames = new ArrayList<String>();
+	public static ArrayList<Item> remapItems = new ArrayList<Item>();
+	public static ArrayList<String> itemNames = new ArrayList<String>();
 	
-	public static void registerToRemap(IForgeRegistryEntry.Impl obj, String oldName2){
-		toRemap.add(obj);
-		oldName.add(oldName2.toUpperCase());
+	public static void registerToRemapB(String block, String oldName2){
+		if(Block.REGISTRY.containsKey(new ResourceLocation(DRPMedievalInfo.MODID, block))){
+			remapBlocks.add(Block.REGISTRY.getObject(new ResourceLocation(DRPMedievalInfo.MODID, block)));
+			blockNames.add(oldName2.toUpperCase());
+		}
+	}
+	
+	public static void registerToRemapI(String item, String oldName2){
+		if(Item.REGISTRY.containsKey(new ResourceLocation(DRPMedievalInfo.MODID, item))){
+			remapItems.add(Item.REGISTRY.getObject(new ResourceLocation(DRPMedievalInfo.MODID, item)));
+			itemNames.add(oldName2.toUpperCase());
+		}
 	}
 	
 	@SubscribeEvent
@@ -29,10 +44,10 @@ public class MissingMappings {
 		ImmutableList<Mapping<Block>> mappings = event.getAllMappings();
 		for(RegistryEvent.MissingMappings.Mapping mapping : mappings){
 			String name = mapping.key.toString().toUpperCase();
-			if(MissingMappings.oldName.contains(name)){
-				for(int i = 0; i < MissingMappings.oldName.size(); i++){
-					if(MissingMappings.oldName.get(i).equals(name) && toRemap.get(i) instanceof Block){
-						mapping.remap(toRemap.get(i));
+			if(MissingMappings.blockNames.contains(name)){
+				for(int i = 0; i < MissingMappings.blockNames.size(); i++){
+					if(MissingMappings.blockNames.get(i).equals(name)){
+						mapping.remap(remapBlocks.get(i));
 					}
 				}
 			}
@@ -44,19 +59,25 @@ public class MissingMappings {
 		ImmutableList<Mapping<Item>> mappings = event.getAllMappings();
 		for(RegistryEvent.MissingMappings.Mapping mapping : mappings){
 			String name = mapping.key.toString().toUpperCase();
-			if(MissingMappings.oldName.contains(name)){
-				for(int i = 0; i < MissingMappings.oldName.size(); i++){
-					if(MissingMappings.oldName.get(i).equals(name)){
-						if(toRemap.get(i) instanceof Item){
-							mapping.remap(toRemap.get(i));
-						}else if(toRemap.get(i) instanceof Block){
-							if(Item.getItemFromBlock((Block) toRemap.get(i)) != null){
-								mapping.remap(Item.getItemFromBlock((Block) toRemap.get(i)));
-							}
-						}
+			if(MissingMappings.itemNames.contains(name)){
+				for(int i = 0; i < MissingMappings.itemNames.size(); i++){
+					if(MissingMappings.itemNames.get(i).equals(name)){
+						mapping.remap(remapItems.get(i));
 					}
 				}
+			}else if(name.equals("DRPMEDIEVAL:SLEDGE") ||
+					name.equals("DRPMEDIEVAL:ROPEDARROW") ||
+					name.equals("DRPMEDIEVAL:GUNPOWDER_TRAIL")){
+				mapping.ignore();
 			}
+		}
+	}
+	
+	@SubscribeEvent
+	public static void MissingMappingsEntities(RegistryEvent.MissingMappings<Skill> event){
+		ImmutableList<Mapping<Skill>> mappings = event.getAllMappings();
+		for(RegistryEvent.MissingMappings.Mapping mapping : mappings){
+			mapping.ignore();
 		}
 	}
 	

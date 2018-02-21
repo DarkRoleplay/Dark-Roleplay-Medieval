@@ -13,37 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class DRPMedievalCreativeTabs {
 
-	public static DRPCreativeTab DECORATION = new DRPCreativeTab("drpm_deco") {
-		@SideOnly(Side.CLIENT)
-	    public void displayAllRelevantItems(NonNullList<ItemStack> items){
-			NonNullList<ItemStack> cache = NonNullList.<ItemStack>create();
-	        for (Item item : Item.REGISTRY){
-	        	if(isWooden(item)){
-		            item.getSubItems(this, cache);
-	        	}else{
-		            item.getSubItems(this, items);
-	        	}
-	        }
-	        for(Material mat : Modules.MATERIALS.getMaterials(Modules.MATERIALS.WOOD_KEY)){
-	        	String name = mat.getFormatValue();
-	        	for(ItemStack stack : cache){
-	        		if(stack.getItem().getRegistryName().getResourcePath().contains(name)){
-	        			items.add(stack);
-	        		}
-	        	}
-	        }
-	    }
-	};
-	
-	private static boolean isWooden(Item item){
-        for(Material mat : Modules.MATERIALS.getMaterials(Modules.MATERIALS.WOOD_KEY)){
-        	String name = mat.getFormatValue();
-	        if(item.getRegistryName().getResourcePath().contains(name)){
-    			return true;
-    		}
-		 }
-		return false;
-	}
+	public static DRPCreativeTab DECORATION = new DRPCreativeTab("drpm_deco");
 	
 	public static DRPCreativeTab BUILDING_MATS = new DRPCreativeTab("drpm_build_mats");
 	
@@ -82,6 +52,39 @@ public class DRPMedievalCreativeTabs {
 		public CreativeTabs setPreviewStack(ItemStack stack){
 			this.previewStack = stack;
 			return this;
+		}
+		
+		@SideOnly(Side.CLIENT)
+	    public void displayAllRelevantItems(NonNullList<ItemStack> items){
+			NonNullList<ItemStack> cache = NonNullList.<ItemStack>create();
+	        for (Item item : Item.REGISTRY){
+	        	if(isWooden(item)){
+		            item.getSubItems(this, cache);
+	        	}else{
+		            item.getSubItems(this, items);
+	        	}
+	        }
+	        for(Material mat : Modules.MATERIALS.getMaterials(Modules.MATERIALS.WOOD_KEY)){
+	        	String name = mat.getFormatValue();
+	        	for(ItemStack stack : cache){
+	        		if(stack.getItem().getRegistryName().getResourcePath().contains(name)){
+	        			if(items.contains(stack)){
+	        				items.remove(stack);
+	        			}
+	        			items.add(stack);
+	        		}
+	        	}
+	        }
+	    }
+		
+		private static boolean isWooden(Item item){
+	        for(Material mat : Modules.MATERIALS.getMaterials(Modules.MATERIALS.WOOD_KEY)){
+	        	String name = mat.getFormatValue();
+		        if(item.getRegistryName().getResourcePath().contains(name)){
+	    			return true;
+	    		}
+			 }
+			return false;
 		}
 	}
 	

@@ -68,6 +68,7 @@ public class DRPMedievalItems {
 	public static final Item BAT_EAR = null;
 	public static final Item FUR_WOLF = null;
 	public static final Item BARLEY = null;
+	public static final Item BARLEY_SEED = null;
 	public static final Item HOPS = null;
 	public static final Item BLACK_PAINTBRUSH = null;
 	

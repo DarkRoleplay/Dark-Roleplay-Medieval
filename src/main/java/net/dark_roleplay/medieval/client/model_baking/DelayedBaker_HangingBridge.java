@@ -10,7 +10,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
-import net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges.HangingBridge;
+import net.dark_roleplay.medieval.common.blocks.decorative.hanging_bridges.HangingBridge;
 import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.state.IBlockState;

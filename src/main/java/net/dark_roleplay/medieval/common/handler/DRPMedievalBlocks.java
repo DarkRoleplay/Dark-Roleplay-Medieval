@@ -54,7 +54,7 @@ import net.dark_roleplay.medieval.common.blocks.decorative.clocks.ClockCore;
 import net.dark_roleplay.medieval.common.blocks.decorative.clocks.ClockDial;
 import net.dark_roleplay.medieval.common.blocks.decorative.firewood_pile.FirewoodPile;
 import net.dark_roleplay.medieval.common.blocks.decorative.flowerPot.FlowerPot;
-import net.dark_roleplay.medieval.common.blocks.decorative.hangingBridges.HangingBridge;
+import net.dark_roleplay.medieval.common.blocks.decorative.hanging_bridges.HangingBridge;
 import net.dark_roleplay.medieval.common.blocks.decorative.head_cutting_block.HeadCuttingBlock;
 import net.dark_roleplay.medieval.common.blocks.decorative.lanterns.Lantern;
 import net.dark_roleplay.medieval.common.blocks.decorative.lecterns.LargeLectern;
