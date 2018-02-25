@@ -5,10 +5,12 @@ import java.util.Random;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -33,6 +35,11 @@ public class AppleSappling extends BlockBush{
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return SAPLING_AABB;
 	}
+
+	@Override
+	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing){
+        return BlockFaceShape.UNDEFINED;
+    }
 
 //	public String getLocalizedName() {
 //		return I18n.translateToLocal(this.getUnlocalizedName() + "." + WoodHelper.EnumDRPMType.APPLE.getUnlocalizedName() + ".name");

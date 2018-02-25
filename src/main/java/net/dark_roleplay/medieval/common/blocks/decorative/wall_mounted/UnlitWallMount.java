@@ -54,7 +54,16 @@ public class UnlitWallMount extends WallMounted {
 	
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return super.getStateFromMeta(meta % 4).withProperty(EmptyWallMount.ADDON_LIGHTER, (meta -= 4) > 0 ? true : false).withProperty(EmptyWallMount.ADDON_TRAP, (meta -= 4) > 0 ? true : false).withProperty(POWERED , (meta -= 4) > 0 ? true : false);
+		IBlockState state = super.getStateFromMeta(meta % 4);
+		if(meta > 3 && meta < 8){
+			return state.withProperty(EmptyWallMount.ADDON_LIGHTER, true).withProperty(EmptyWallMount.ADDON_TRAP, false).withProperty(POWERED, false);
+		}else if(meta > 7 && meta < 12){
+			return state.withProperty(EmptyWallMount.ADDON_LIGHTER, false).withProperty(EmptyWallMount.ADDON_TRAP, true).withProperty(POWERED, false);
+		}else if(meta > 12){
+			return state.withProperty(EmptyWallMount.ADDON_LIGHTER, false).withProperty(EmptyWallMount.ADDON_TRAP, true).withProperty(POWERED, true);
+		}else{
+			return state.withProperty(EmptyWallMount.ADDON_LIGHTER, false).withProperty(EmptyWallMount.ADDON_TRAP, false).withProperty(POWERED, false);
+		}
 	}
 
 	@Override
@@ -62,12 +71,10 @@ public class UnlitWallMount extends WallMounted {
 		int i = super.getMetaFromState(state);
 		if(state.getValue(EmptyWallMount.ADDON_LIGHTER)){
 			i += 4;
-		}
-		else if(state.getValue(EmptyWallMount.ADDON_TRAP)){
+			if(state.getValue(POWERED))
+				i+= 8;
+		}else if(state.getValue(EmptyWallMount.ADDON_TRAP)){
 			i += 8;
-			if(state.getValue(UnlitWallMount.POWERED)){
-				i += 4;
-			}
 		}
 		return i;
 	}
@@ -92,7 +99,13 @@ public class UnlitWallMount extends WallMounted {
 			this.dropBlockAsItem(world, pos, state, 0);
 			world.setBlockToAir(pos);
 			this.spawnAddons(world, pos, state);
+		}else if(state.getValue(EmptyWallMount.ADDON_LIGHTER) && world.isBlockPowered(fromPos)){
+			world.setBlockState(pos, this.lit.getDefaultState()
+				.withProperty(FACING, state.getValue(FACING)).withProperty(EmptyWallMount.ADDON_TRAP, state.getValue(EmptyWallMount.ADDON_TRAP))
+				.withProperty(EmptyWallMount.ADDON_LIGHTER, state.getValue(EmptyWallMount.ADDON_LIGHTER)).withProperty(POWERED, state.getValue(POWERED))
+			);
 		}
+		
 		super.neighborChanged(state, world, pos, block, fromPos);
 	}
 	

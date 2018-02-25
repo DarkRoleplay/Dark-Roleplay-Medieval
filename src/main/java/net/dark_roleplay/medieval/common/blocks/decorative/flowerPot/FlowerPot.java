@@ -10,6 +10,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -47,6 +48,11 @@ public class FlowerPot extends Block implements ITileEntityProvider{
 		this.setSoundType(SoundType.WOOD);
 	}
 
+	@Override
+	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing){
+        return BlockFaceShape.UNDEFINED;
+    }
+	
 	// -------------------------------------------------- Block Data --------------------------------------------------
 
 	@Override

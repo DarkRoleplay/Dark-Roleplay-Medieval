@@ -8,6 +8,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -47,6 +48,11 @@ public class KeyHanging extends BlockContainer {
 		else if( state.getValue(KeyHanging.FACING) == EnumFacing.WEST )
 			return new AxisAlignedBB(0.8125F, 0.125F, 0.3125F, 1F, 0.875F, 0.6875F);
 		return null;
+    }
+
+	@Override
+	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing){
+        return BlockFaceShape.UNDEFINED;
     }
 	
 	@Override

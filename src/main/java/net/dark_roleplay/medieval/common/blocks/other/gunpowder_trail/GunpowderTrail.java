@@ -17,6 +17,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -52,6 +53,11 @@ public class GunpowderTrail extends Block {
 		this.setUnlocalizedName(registryName);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(GunpowderTrail.NORTH, GunpowderTrail.EnumAttachPosition.NONE).withProperty(GunpowderTrail.EAST, GunpowderTrail.EnumAttachPosition.NONE).withProperty(GunpowderTrail.SOUTH, GunpowderTrail.EnumAttachPosition.NONE).withProperty(GunpowderTrail.WEST, GunpowderTrail.EnumAttachPosition.NONE).withProperty(GunpowderTrail.POWER, Integer.valueOf(0)));
 	}
+
+	@Override
+	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing){
+        return BlockFaceShape.UNDEFINED;
+    }
 
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {

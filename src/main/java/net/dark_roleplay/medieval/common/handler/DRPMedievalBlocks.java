@@ -119,14 +119,14 @@ public class DRPMedievalBlocks {
 	public static final Block SHIPS_HELM = null;
 	public static final Block TARGET = null;
 	public static final Block CLOCK_CORE = null;
-	public static final Block COPPER_ORE = null;
+	public static final AdvancedOre COPPER_ORE = null;
 	public static final Block DRY_CLAY_CHUNK = null;
 	public static final Block GUNPOWDER_TRAIL = null;
 	public static final Block HANGING_BRIDGE_BOTTOM = null;
 	public static final Block HANGING_BRIDGE_TOP = null;
 	public static final Block ROPE = null;
 	public static final Block IRON_HOOK = null;
-	public static final Block SILVER_ORE = null;
+	public static final AdvancedOre SILVER_ORE = null;
 	public static final Block OBSIDIAN_GLASS = null;
 	public static final Block ROPE_ANCHOR = null;
 	public static final Block ROPE_FENCE = null;
@@ -134,13 +134,20 @@ public class DRPMedievalBlocks {
 	public static final Block FLOWER_POT = null;
 	public static final Block MOSSY_SPRUCE_LOG = null;
 	public static final Block OAK_CHOPPING_BLOCK = null;
-	public static final Block TIN_ORE = null;
-	public static final Block SULFUR_ORE = null;
-	public static final Block SALPETER_ORE = null;
+	public static final AdvancedOre TIN_ORE = null;
+	public static final AdvancedOre SULFUR_ORE = null;
+	public static final AdvancedOre SALPETER_ORE = null;
 	public static final Block UNFIRED_VASE = null;
 	public static final Block FIRED_VASE = null;
 	public static final Block SIMPLE_CARPENTER_WORKBENCH = null;
 	public static final Block FORGE = null;
+	public static final UnlitWallMount CANDLE_HOLDER_UNLIT = null;
+	public static final LitWallMount CANDLE_HOLDER_LIT = null;
+	public static final UnlitWallMount TORCH_HOLDER_UNLIT = null;
+	public static final LitWallMount TORCH_HOLDER_LIT = null;
+	public static final EmptyWallMount CANDLE_HOLDER_EMPTY = null;
+	public static final EmptyWallMount TORCH_HOLDER_EMPTY = null;
+	
 	
 	public static final Crop BARLEY = null;
 	
@@ -214,20 +221,20 @@ public class DRPMedievalBlocks {
 		);
 		
 		register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
-			new AdvancedOre("tin_ore", 1, DRPMedievalItems.ORE_CHUNK_TIN),
+			new AdvancedOre("tin_ore", 1),
 			new DryClay("dry_clay"),
 			new StoneBricks("andesite_bricks"),
 			new StonePillar("andesite_pillar"),
-			new AdvancedOre("copper_ore", 1, DRPMedievalItems.ORE_CHUNK_COPPER),
+			new AdvancedOre("copper_ore", 1),
 			new StoneBricks("diorite_bricks"),
 			new StonePillar("diorite_pillar"),
 			new StoneBricks("granite_bricks"),
 			new StonePillar("granite_pillar"),
 			new ObsidianGlass("obsidian_glass"),
 			new PackedIceBricks("packed_ice_bricks"),
-			new AdvancedOre("salpeter_ore", 1, DRPMedievalItems.ORE_CHUNK_SALPETER),
-			new AdvancedOre("sulfur_ore", 1, DRPMedievalItems.ORE_CHUNK_SULFUR),
-			new AdvancedOre("silver_ore", 2, DRPMedievalItems.ORE_CHUNK_SILVER),
+			new AdvancedOre("salpeter_ore", 1),
+			new AdvancedOre("sulfur_ore", 1),
+			new AdvancedOre("silver_ore", 2),
 			new SnowBricks("snow_bricks")
 		);
 		

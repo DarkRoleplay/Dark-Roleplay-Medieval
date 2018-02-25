@@ -11,9 +11,9 @@ import net.minecraft.item.Item;
 
 public class AdvancedOre extends Block{
 	
-	private Item ore;
+	private Item ore = null;
 	
-    public AdvancedOre(String registryName, int harvestLevel, Item ore){
+    public AdvancedOre(String registryName, int harvestLevel){
         super(Material.ROCK);
         this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
@@ -22,7 +22,6 @@ public class AdvancedOre extends Block{
         this.setHardness(3.0F);
 		this.setHarvestLevel("pickaxe", harvestLevel);
         this.setResistance(5.0F);
-        this.ore = ore;
     }
     
     @Override
@@ -42,5 +41,9 @@ public class AdvancedOre extends Block{
         }else {
             return 2 + random.nextInt(3);
         }
+    }
+    
+    public void init(Item ore){
+    	this.ore = ore;
     }
 }

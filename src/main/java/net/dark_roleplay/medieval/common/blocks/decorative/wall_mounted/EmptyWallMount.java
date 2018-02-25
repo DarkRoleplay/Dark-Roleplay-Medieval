@@ -54,7 +54,14 @@ public class EmptyWallMount extends WallMounted {
 	
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return super.getStateFromMeta(meta % 4).withProperty(ADDON_LIGHTER, (meta -= 4) > 0 ? true : false).withProperty(ADDON_TRAP, (meta -= 4) > 0 ? true : false);
+		IBlockState state = super.getStateFromMeta(meta % 4);
+		if(meta > 3 && meta < 8){
+			return state.withProperty(ADDON_LIGHTER, true).withProperty(ADDON_TRAP, false);
+		}else if(meta >= 8){
+			return state.withProperty(ADDON_LIGHTER, false).withProperty(ADDON_TRAP, true);
+		}else{
+			return state.withProperty(ADDON_LIGHTER, false).withProperty(ADDON_TRAP, false);
+		}
 	}
 
 	@Override
@@ -108,7 +115,7 @@ public class EmptyWallMount extends WallMounted {
 				}
 				world.setBlockState(pos, state.withProperty(ADDON_LIGHTER, true).withProperty(ADDON_TRAP, false));
 			}else if(heldStack.getItem() == mountObject){
-				if(consumeItems){
+				if(!consumeItems){
 					player.getHeldItem(hand).shrink(1);
 				}
 				world.setBlockState(pos, this.unlit.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP)).withProperty(UnlitWallMount.POWERED, false));
