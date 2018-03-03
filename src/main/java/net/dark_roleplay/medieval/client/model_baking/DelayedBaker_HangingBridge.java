@@ -43,8 +43,8 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 	public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
 		side = null;
 		
-		if(DelayedBaker_HangingBridge.CACHE.containsKey(state))
-			return DelayedBaker_HangingBridge.CACHE.get(state);
+		if(CACHE.containsKey(state))
+			return CACHE.get(state);
 		
 		List<BakedQuad> result = Lists.newArrayList();
 		
@@ -59,34 +59,34 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 			boolean south = ext.getValue(HangingBridge.SOUTH); 
 			boolean west = ext.getValue(HangingBridge.WEST);
 			
-			this.addQuads(result, DelayedBaker_HangingBridge.planks[height], yRot, 0, state, side, rand);
+			this.addQuads(result, planks[height], yRot, 0, state, side, rand);
 			
 			if(east){
-				this.addQuads(result, DelayedBaker_HangingBridge.rope_side[height], yRot + 180, 0, state, side, rand);
+				this.addQuads(result, rope_side[height], yRot + 180, 0, state, side, rand);
 				if(north){
-					this.addQuads(result, DelayedBaker_HangingBridge.post_right[height], yRot, 0, state, side, rand);
+					this.addQuads(result, post_right[height], yRot, 0, state, side, rand);
 				}
 				if(south){
-					this.addQuads(result, DelayedBaker_HangingBridge.post_left[height], yRot + 180, 0, state, side, rand);
+					this.addQuads(result, post_left[height], yRot + 180, 0, state, side, rand);
 				}
 			}
 			if(west){
-				this.addQuads(result, DelayedBaker_HangingBridge.rope_side[height], yRot, 0, state, side, rand);
+				this.addQuads(result, rope_side[height], yRot, 0, state, side, rand);
 				if(north){
-					this.addQuads(result, DelayedBaker_HangingBridge.post_left[height], yRot, 0, state, side, rand);
+					this.addQuads(result, post_left[height], yRot, 0, state, side, rand);
 				}
 				if(south){
-					this.addQuads(result, DelayedBaker_HangingBridge.post_right[height], yRot + 180, 0, state, side, rand);
+					this.addQuads(result, post_right[height], yRot + 180, 0, state, side, rand);
 				}
 			}
 		}
 		
-		DelayedBaker_HangingBridge.CACHE.put(state, result);
+		CACHE.put(state, result);
 		return result;
 	}
 
 	@Override
-	public Collection<ResourceLocation> getTextures() { return DelayedBaker_HangingBridge.textures; }
+	public Collection<ResourceLocation> getTextures() { return textures; }
 
 	@Override
 	public IBakedModel bake(IModelState state, VertexFormat format, java.util.function.Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
@@ -95,7 +95,7 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 	}
 
 	@Override
-	public void onResourceManagerReload(IResourceManager resourceManager) { DelayedBaker_HangingBridge.CACHE.clear(); }
+	public void onResourceManagerReload(IResourceManager resourceManager) { CACHE.clear(); }
 
 	@Override
 	public boolean accepts(ResourceLocation modelLocation) {
@@ -104,42 +104,42 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 
 	@Override
 	public IModel loadModel(ResourceLocation modelLocation) throws Exception {
-		if(DelayedBaker_HangingBridge.planks == null){
-			DelayedBaker_HangingBridge.planks = new IModel[16];
+		if(planks == null){
+			planks = new IModel[16];
 			for(int i = 0; i < 16; i++){
-				DelayedBaker_HangingBridge.planks[i] = DelayedBaker_HangingBridge.getModel("planks_" + i);
+				planks[i] = getModel("planks_" + i);
 			}
 		}
-		if(DelayedBaker_HangingBridge.post_left == null){
-			DelayedBaker_HangingBridge.post_left = new IModel[16];
+		if(post_left == null){
+			post_left = new IModel[16];
 			for(int i = 0; i < 16; i++){
-				DelayedBaker_HangingBridge.post_left[i] = DelayedBaker_HangingBridge.getModel("post_left_" + i);
+				post_left[i] = getModel("post_left_" + i);
 			}
 		}
-		if(DelayedBaker_HangingBridge.post_right == null){
-			DelayedBaker_HangingBridge.post_right = new IModel[16];
+		if(post_right == null){
+			post_right = new IModel[16];
 			for(int i = 0; i < 16; i++){
-				DelayedBaker_HangingBridge.post_right[i] = DelayedBaker_HangingBridge.getModel("post_right_" + i);
+				post_right[i] = getModel("post_right_" + i);
 			}
 		}
-		if(DelayedBaker_HangingBridge.rope_side == null){
-			DelayedBaker_HangingBridge.rope_side = new IModel[16];
+		if(rope_side == null){
+			rope_side = new IModel[16];
 			for(int i = 0; i < 16; i++){
-				DelayedBaker_HangingBridge.rope_side[i] = DelayedBaker_HangingBridge.getModel("rope_side_" + i);
+				rope_side[i] = getModel("rope_side_" + i);
 			}
 		}
 		
-		if(DelayedBaker_HangingBridge.textures == null){
+		if(textures == null){
 			ImmutableList.Builder<ResourceLocation> builder = ImmutableList.builder();
 			
 			for(int i = 0; i < 16; i++){
-				builder.addAll(DelayedBaker_HangingBridge.planks[i].getTextures());
-				builder.addAll(DelayedBaker_HangingBridge.post_left[i].getTextures());
-				builder.addAll(DelayedBaker_HangingBridge.post_right[i].getTextures());
-				builder.addAll(DelayedBaker_HangingBridge.rope_side[i].getTextures());
+				builder.addAll(planks[i].getTextures());
+				builder.addAll(post_left[i].getTextures());
+				builder.addAll(post_right[i].getTextures());
+				builder.addAll(rope_side[i].getTextures());
 
 			}
-			DelayedBaker_HangingBridge.textures = builder.build();
+			textures = builder.build();
 		}
 		
 		return this;

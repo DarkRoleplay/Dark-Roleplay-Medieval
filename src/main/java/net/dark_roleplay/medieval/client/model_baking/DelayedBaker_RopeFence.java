@@ -42,18 +42,18 @@ public class DelayedBaker_RopeFence extends DelayedBaker implements ICustomModel
 
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {
-		DelayedBaker_RopeFence.CACHE.clear();
-		DelayedBaker_RopeFence.pole = null;
-		DelayedBaker_RopeFence.straight_rope0 = null;
-		DelayedBaker_RopeFence.straight_rope1 = null;
-		DelayedBaker_RopeFence.straight_rope2 = null;
-		DelayedBaker_RopeFence.diagonal_rope = null;
-		DelayedBaker_RopeFence.textures = null;
+		CACHE.clear();
+		pole = null;
+		straight_rope0 = null;
+		straight_rope1 = null;
+		straight_rope2 = null;
+		diagonal_rope = null;
+		textures = null;
 	}
 
 	@Override
 	public Collection<ResourceLocation> getTextures() {
-		return DelayedBaker_RopeFence.textures;
+		return textures;
 	}
 
 	@Override
@@ -68,8 +68,8 @@ public class DelayedBaker_RopeFence extends DelayedBaker implements ICustomModel
 		//
 		// IExtendedBlockState state = (IExtendedBlockState) st;
 
-		if (DelayedBaker_RopeFence.CACHE.containsKey(state))
-			return DelayedBaker_RopeFence.CACHE.get(state);
+		if (CACHE.containsKey(state))
+			return CACHE.get(state);
 
 		List<BakedQuad> result = Lists.newArrayList();
 
@@ -83,7 +83,7 @@ public class DelayedBaker_RopeFence extends DelayedBaker implements ICustomModel
 		boolean south_west = state.getValue(RopeFence.SOUTH_WEST);
 		boolean north_west = state.getValue(RopeFence.NORTH_WEST);
 
-		this.addQuads(result, DelayedBaker_RopeFence.pole, 0, 0, state, side, rand);
+		this.addQuads(result, pole, 0, 0, state, side, rand);
 
 		if (state instanceof IExtendedBlockState) {
 			IExtendedBlockState exState = (IExtendedBlockState) state;
@@ -98,81 +98,81 @@ public class DelayedBaker_RopeFence extends DelayedBaker implements ICustomModel
 		}
 
 		if (north == 2) {
-			this.addQuads(result, DelayedBaker_RopeFence.straight_rope2, 180, 0, state, side, rand);
+			this.addQuads(result, straight_rope2, 180, 0, state, side, rand);
 		} else if (north == 1) {
-			this.addQuads(result, DelayedBaker_RopeFence.straight_rope1, 0, 0, state, side, rand);
+			this.addQuads(result, straight_rope1, 0, 0, state, side, rand);
 		} else if (north == 0) {
-			this.addQuads(result, DelayedBaker_RopeFence.straight_rope0, 0, 0, state, side, rand);
+			this.addQuads(result, straight_rope0, 0, 0, state, side, rand);
 		}
 		if (east == 2) {
-			this.addQuads(result, DelayedBaker_RopeFence.straight_rope2, 270, 0, state, side, rand);
+			this.addQuads(result, straight_rope2, 270, 0, state, side, rand);
 		} else if (east == 1) {
-			this.addQuads(result, DelayedBaker_RopeFence.straight_rope1, 90, 0, state, side, rand);
+			this.addQuads(result, straight_rope1, 90, 0, state, side, rand);
 		} else if (east == 0) {
-			this.addQuads(result, DelayedBaker_RopeFence.straight_rope0, 90, 0, state, side, rand);
+			this.addQuads(result, straight_rope0, 90, 0, state, side, rand);
 		}
 		if (south == 2) {
-			this.addQuads(result, DelayedBaker_RopeFence.straight_rope2, 0, 0, state, side, rand);
+			this.addQuads(result, straight_rope2, 0, 0, state, side, rand);
 		} else if (south == 1) {
-			this.addQuads(result, DelayedBaker_RopeFence.straight_rope1, 180, 0, state, side, rand);
+			this.addQuads(result, straight_rope1, 180, 0, state, side, rand);
 		} else if (south == 0) {
-			this.addQuads(result, DelayedBaker_RopeFence.straight_rope0, 180, 0, state, side, rand);
+			this.addQuads(result, straight_rope0, 180, 0, state, side, rand);
 		}
 		if (west == 2) {
-			this.addQuads(result, DelayedBaker_RopeFence.straight_rope2, 90, 0, state, side, rand);
+			this.addQuads(result, straight_rope2, 90, 0, state, side, rand);
 		} else if (west == 1) {
-			this.addQuads(result, DelayedBaker_RopeFence.straight_rope1, 270, 0, state, side, rand);
+			this.addQuads(result, straight_rope1, 270, 0, state, side, rand);
 		} else if (west == 0) {
-			this.addQuads(result, DelayedBaker_RopeFence.straight_rope0, 270, 0, state, side, rand);
+			this.addQuads(result, straight_rope0, 270, 0, state, side, rand);
 		}
 
 		if (north_east) {
-			this.addQuads(result, DelayedBaker_RopeFence.diagonal_rope, 0, 0, state, side, rand);
+			this.addQuads(result, diagonal_rope, 0, 0, state, side, rand);
 		}
 		if (south_east) {
-			this.addQuads(result, DelayedBaker_RopeFence.diagonal_rope, 90, 0, state, side, rand);
+			this.addQuads(result, diagonal_rope, 90, 0, state, side, rand);
 		}
 		if (south_west) {
-			this.addQuads(result, DelayedBaker_RopeFence.diagonal_rope, 180, 0, state, side, rand);
+			this.addQuads(result, diagonal_rope, 180, 0, state, side, rand);
 		}
 		if (north_west) {
-			this.addQuads(result, DelayedBaker_RopeFence.diagonal_rope, 270, 0, state, side, rand);
+			this.addQuads(result, diagonal_rope, 270, 0, state, side, rand);
 		}
 
-		DelayedBaker_HangingBridge.CACHE.put(state, result);
+		CACHE.put(state, result);
 		return result;
 	}
 
 	@Override
 	public IModel loadModel(ResourceLocation modelLocation) throws Exception {
-		if (DelayedBaker_RopeFence.pole == null) {
-			DelayedBaker_RopeFence.pole = DelayedBaker_RopeFence.getModel("rope_fence_pole");
+		if (pole == null) {
+			pole = getModel("rope_fence_pole");
 		}
 
-		if (DelayedBaker_RopeFence.straight_rope0 == null) {
-			DelayedBaker_RopeFence.straight_rope0 = DelayedBaker_RopeFence.getModel("rope_fence_rope_straight_0");
+		if (straight_rope0 == null) {
+			straight_rope0 = getModel("rope_fence_rope_straight_0");
 		}
 
-		if (DelayedBaker_RopeFence.straight_rope1 == null) {
-			DelayedBaker_RopeFence.straight_rope1 = DelayedBaker_RopeFence.getModel("rope_fence_rope_straight_1");
+		if (straight_rope1 == null) {
+			straight_rope1 = getModel("rope_fence_rope_straight_1");
 		}
 
-		if (DelayedBaker_RopeFence.straight_rope2 == null) {
-			DelayedBaker_RopeFence.straight_rope2 = DelayedBaker_RopeFence.getModel("rope_fence_rope_straight_2");
+		if (straight_rope2 == null) {
+			straight_rope2 = getModel("rope_fence_rope_straight_2");
 		}
 
-		if (DelayedBaker_RopeFence.diagonal_rope == null) {
-			DelayedBaker_RopeFence.diagonal_rope = DelayedBaker_RopeFence.getModel("rope_fence_rope_diagonal");
+		if (diagonal_rope == null) {
+			diagonal_rope = getModel("rope_fence_rope_diagonal");
 		}
 
-		if (DelayedBaker_RopeFence.textures == null) {
+		if (textures == null) {
 			ImmutableList.Builder<ResourceLocation> builder = ImmutableList.builder();
 
-			builder.addAll(DelayedBaker_RopeFence.pole.getTextures());
-			builder.addAll(DelayedBaker_RopeFence.straight_rope1.getTextures());
-			builder.addAll(DelayedBaker_RopeFence.diagonal_rope.getTextures());
+			builder.addAll(pole.getTextures());
+			builder.addAll(straight_rope1.getTextures());
+			builder.addAll(diagonal_rope.getTextures());
 
-			DelayedBaker_RopeFence.textures = builder.build();
+			textures = builder.build();
 		}
 
 		return this;

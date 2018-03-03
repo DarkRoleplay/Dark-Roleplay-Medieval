@@ -23,10 +23,13 @@ import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_DirtBucket;
 import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_FlowerPot;
 import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_HangingBridge;
 import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_RopeFence;
+import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_Timbering;
 import net.dark_roleplay.medieval.client.model_baking.MultiLayerModelLoader;
 import net.dark_roleplay.medieval.client.model_baking.advanced.CustomBlockstateLoader;
 import net.dark_roleplay.medieval.common.CommonProxy;
 import net.dark_roleplay.medieval.common.blocks.decorative.clocks.TE_ClockCore;
+import net.dark_roleplay.medieval.common.blocks.storage.barrels.TESR_FluidBarrel;
+import net.dark_roleplay.medieval.common.blocks.storage.barrels.TE_FluidBarrel;
 import net.dark_roleplay.medieval.common.blocks.storage.shelf.TE_Shelf;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityAnvil;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCauldron;
@@ -71,7 +74,8 @@ public class ClientProxy extends CommonProxy {
 		ModelLoaderRegistry.registerLoader(new DelayedBaker_RopeFence());
 //		ModelLoaderRegistry.registerLoader(new DelayedBaker_FlowerPot());
 		ModelLoaderRegistry.registerLoader(new CustomBlockstateLoader());
-		ModelLoaderRegistry.registerLoader(new DelayedBaker_DirtBucket());
+		ModelLoaderRegistry.registerLoader(new DelayedBaker_DirtBucket());		
+		ModelLoaderRegistry.registerLoader(new DelayedBaker_Timbering());
 		ModelLoaderRegistry.registerLoader(new MultiLayerModelLoader());
 
 		RenderingRegistry.registerEntityRenderingHandler(Entity_Fox.class, Render_Fox.FACTORY);
@@ -96,6 +100,7 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_ClockCore.class, new TESR_ClockCore());
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_ShopSign.class, new TESR_ShopSign());
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_Shelf.class, new TESR_Shelf(Minecraft.getMinecraft().getRenderItem()));
+		ClientRegistry.bindTileEntitySpecialRenderer(TE_FluidBarrel.class, new TESR_FluidBarrel());
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAnvil.class, new SpecialRenderAnvil());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMortar.class, new SpecialRenderMortar());

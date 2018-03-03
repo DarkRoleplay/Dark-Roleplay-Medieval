@@ -71,16 +71,8 @@ public class BarrelFilled extends Block {
 		return worldIn.isSideSolid(pos.offset(facing.getOpposite()), facing, true);
 	}
 
-	// -------------------------------------------------- Rendering
-	// --------------------------------------------------
 
-	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer() {
-		return BlockRenderLayer.TRANSLUCENT;
-	}
-
-	// -------------------------------------------------- Block Events
-	// --------------------------------------------------
+	// -------------------------------------------------- Block Events --------------------------------------------------
 
 	@Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
@@ -90,8 +82,4 @@ public class BarrelFilled extends Block {
 		else
 			return Blocks.AIR.getDefaultState();
 	}
-	
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-        return false;
-    }
 }

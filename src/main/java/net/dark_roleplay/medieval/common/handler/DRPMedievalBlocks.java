@@ -58,6 +58,7 @@ import net.dark_roleplay.medieval.common.blocks.decorative.hanging_bridges.Hangi
 import net.dark_roleplay.medieval.common.blocks.decorative.head_cutting_block.HeadCuttingBlock;
 import net.dark_roleplay.medieval.common.blocks.decorative.lanterns.Lantern;
 import net.dark_roleplay.medieval.common.blocks.decorative.lecterns.LargeLectern;
+import net.dark_roleplay.medieval.common.blocks.decorative.lumbering.Lumbering;
 import net.dark_roleplay.medieval.common.blocks.decorative.minecart_stopper.MinecartStopper;
 import net.dark_roleplay.medieval.common.blocks.decorative.pottery.FiredPottery;
 import net.dark_roleplay.medieval.common.blocks.decorative.pottery.UnfiredPottery;
@@ -81,6 +82,7 @@ import net.dark_roleplay.medieval.common.blocks.plants.pears.Pear;
 import net.dark_roleplay.medieval.common.blocks.rotary.Axle;
 import net.dark_roleplay.medieval.common.blocks.storage.Crate;
 import net.dark_roleplay.medieval.common.blocks.storage.DungeonChest;
+import net.dark_roleplay.medieval.common.blocks.storage.barrels.FluidBarrel;
 import net.dark_roleplay.medieval.common.blocks.storage.shelf.Shelf;
 import net.dark_roleplay.medieval.common.blocks.util.shop_sign.ShopSign;
 import net.minecraft.block.Block;
@@ -160,7 +162,6 @@ public class DRPMedievalBlocks {
 				new FirewoodPile(mat.getFormatValue() + "_firewood_pile"),
 				new BarrelChair(mat.getFormatValue() + "_barrel_chair"),
 				new BarrelEmpty(mat.getFormatValue() + "_empty_barrel"),
-				new BarrelFilled(mat.getFormatValue() + "_water_barrel"),
 				new BarrelClosed(mat.getFormatValue() + "_closed_barrel"),
 				new BarrelFilled(mat.getFormatValue() + "_gunpowder_barrel"),
 				new BarrelTable(mat.getFormatValue() + "_barrel_table"),
@@ -185,6 +186,28 @@ public class DRPMedievalBlocks {
 				new DungeonChest("simple_" + mat.getFormatValue() + "_chest"),
 				new LargeLectern("large_" + mat.getFormatValue() + "_lectern"),
 				new Shelf("simple_" + mat.getFormatValue() + "_shelf")
+			);
+			
+			registerNoItems(reg,
+				new Lumbering(mat.getFormatValue() + "_timbering_clean"),
+				new Lumbering(mat.getFormatValue() + "_timbering_diagonal_bt"),
+				new Lumbering(mat.getFormatValue() + "_timbering_diagonal_tb"),
+				new Lumbering(mat.getFormatValue() + "_timbering_cross"),
+				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_t_bt"),
+				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_b_bt"),
+				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_t_tb"),
+				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_b_tb"),
+				new Lumbering(mat.getFormatValue() + "_timbering_arrow_b"),
+				new Lumbering(mat.getFormatValue() + "_timbering_arrow_t"),
+				new Lumbering(mat.getFormatValue() + "_timbering_arrow_r"),
+				new Lumbering(mat.getFormatValue() + "_timbering_arrow_l"),
+				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_l_lr"),
+				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_r_lr"),
+				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_l_rl"),
+				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_r_rl"),
+				new Lumbering(mat.getFormatValue() + "_timbering_vertical"),
+				new Lumbering(mat.getFormatValue() + "_timbering_horizontal"),
+				new FluidBarrel(mat.getFormatValue() + "_fluid_barrel")
 			);
 		}
 		
@@ -252,7 +275,7 @@ public class DRPMedievalBlocks {
 			new PotteryTurntable("pottery_turntable"),
 			new Rope("rope"),
 //			new RopeCoil("rope_coil"),
-			new RopeAnchor("rope_anchor"),			
+			new RopeAnchor("rope_anchor"),
 			
 			//TODO MOVE TO OWN TAB
 //			new AppleSappling("apple_sapling"),
@@ -373,8 +396,20 @@ public class DRPMedievalBlocks {
 				new ResourceLocation(texGens + "laying_barrel.json")
 			), new ResourceGenerator(
 				"wood",
-				new ResourceLocation(modGens + "water_barrel.json"),
-				new ResourceLocation(texGens + "water_barrel.json")
+				new ResourceLocation(modGens + "fluid_barrel.json"),
+				new ResourceLocation(texGens + "fluid_barrel.json")
+			), new ResourceGenerator(
+				"wood", null, new ResourceLocation(texGens + "timbering/timbering.json")
+			), new ResourceGenerator(
+				"wood", null, new ResourceLocation(texGens + "timbering/timbering_diagonal.json")
+			), new ResourceGenerator(
+				"wood", null, new ResourceLocation(texGens + "timbering/timbering_double_diagonal_h.json")
+			), new ResourceGenerator(
+				"wood", null, new ResourceLocation(texGens + "timbering/timbering_double_diagonal_v.json")
+			), new ResourceGenerator(
+				"wood", null, new ResourceLocation(texGens + "timbering/timbering_arrows.json")
+			), new ResourceGenerator(
+				"wood", null, new ResourceLocation(texGens + "timbering/timbering_straight.json")
 			)
 		);
 	}

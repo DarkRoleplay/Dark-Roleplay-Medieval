@@ -54,21 +54,21 @@ public class DelayedBaker_DirtBucket extends DelayedBaker implements ICustomMode
 
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {
-		DelayedBaker_DirtBucket.CACHE.clear();
-		DelayedBaker_DirtBucket.bucket = null;
-		DelayedBaker_DirtBucket.textures = null;
+		CACHE.clear();
+		bucket = null;
+		textures = null;
 	}
 
 	@Override
 	public Collection<ResourceLocation> getTextures() {
-		return DelayedBaker_DirtBucket.textures;
+		return textures;
 	}
 
 	@Override
 	public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
 		side = null;
-		if (DelayedBaker_DirtBucket.CACHE.containsKey(state))
-			return DelayedBaker_DirtBucket.CACHE.get(state);
+		if (CACHE.containsKey(state))
+			return CACHE.get(state);
 
 		List<BakedQuad> result = Lists.newArrayList();
 
@@ -82,11 +82,9 @@ public class DelayedBaker_DirtBucket extends DelayedBaker implements ICustomMode
 			int flower3 = state.getValue(BucketDirt.FLOWER3);
 	
 			String wood = state.getBlock().getRegistryName().getResourcePath().replace("_dirt_bucket", "");
-			
-			System.out.println(wood);
-			
+						
 			this.addQuads(result, 
-					DelayedBaker_DirtBucket.bucket.retexture(
+					bucket.retexture(
 							ImmutableMap.<String, String>of(
 									"0","drpmedieval:blocks/bucket/" + wood + "_bucket",
 									"1","blocks/dirt",
@@ -94,22 +92,22 @@ public class DelayedBaker_DirtBucket extends DelayedBaker implements ICustomMode
 									"flower2", flowers[flower2],
 									"flower3", flowers[flower3])), axis == EnumAxis.Z ? 90 : 0, 0, state, side, rand);
 		}
-		DelayedBaker_DirtBucket.CACHE.put(state, result);
+		CACHE.put(state, result);
 		return result;
 	}
 
 	@Override
 	public IModel loadModel(ResourceLocation modelLocation) throws Exception {
-		if (DelayedBaker_DirtBucket.bucket == null) {
-			DelayedBaker_DirtBucket.bucket = DelayedBaker_DirtBucket.getModel("bucket_dirt");
+		if (bucket == null) {
+			bucket = getModel("bucket_dirt");
 		}
 
-		if (DelayedBaker_DirtBucket.textures == null) {
+		if (textures == null) {
 			ImmutableList.Builder<ResourceLocation> builder = ImmutableList.builder();
 
-			builder.addAll(DelayedBaker_DirtBucket.bucket.getTextures());
+			builder.addAll(bucket.getTextures());
 
-			DelayedBaker_DirtBucket.textures = builder.build();
+			textures = builder.build();
 		}
 
 		return this;

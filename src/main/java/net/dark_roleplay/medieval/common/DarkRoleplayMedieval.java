@@ -121,6 +121,7 @@ public class DarkRoleplayMedieval {
 		DRPMedievalBlocks.TORCH_HOLDER_LIT.init(DRPMedievalBlocks.TORCH_HOLDER_UNLIT);
 		DRPMedievalBlocks.CANDLE_HOLDER_EMPTY.init(DRPMedievalBlocks.CANDLE_HOLDER_UNLIT, Item.getItemFromBlock(DRPMedievalBlocks.BEESWAX_CANDLE));
 		DRPMedievalBlocks.TORCH_HOLDER_EMPTY.init(DRPMedievalBlocks.TORCH_HOLDER_UNLIT, Item.getItemFromBlock(Blocks.TORCH));
+		
 		DRPMedievalBlocks.SALPETER_ORE.init(DRPMedievalItems.ORE_CHUNK_SALPETER);
 		DRPMedievalBlocks.SILVER_ORE.init(DRPMedievalItems.ORE_CHUNK_SILVER);
 		DRPMedievalBlocks.TIN_ORE.init(DRPMedievalItems.ORE_CHUNK_TIN);

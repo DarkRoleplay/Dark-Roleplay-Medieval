@@ -1,7 +1,7 @@
 {
     "forge_marker": 1,
     "defaults": {
-		"model":"drpmedieval:wood_blocks/water_barrel",
+		"model":"drpmedieval:wood_blocks/empty_barrel",
         "textures": {
 			"side": "drpmedieval:blocks/barrels/%wood%_barrel_side",
 			"top": "drpmedieval:blocks/barrels/%wood%_barrel_top"

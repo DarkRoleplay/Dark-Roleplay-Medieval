@@ -58,8 +58,8 @@
 			"input" : "drpmedieval:argh/blockstates/simple_table.json",
 			"output" : "drpmedieval:blockstates/simple_%wood%_table.json"
 		},{
-			"input" : "drpmedieval:argh/blockstates/water_barrel.json",
-			"output" : "drpmedieval:blockstates/%wood%_water_barrel.json"
+			"input" : "drpmedieval:argh/blockstates/fluid_barrel.json",
+			"output" : "drpmedieval:blockstates/%wood%_fluid_barrel.json"
 		},{
 			"input" : "drpmedieval:argh/blockstates/water_bucket.json",
 			"output" : "drpmedieval:blockstates/%wood%_water_bucket.json"

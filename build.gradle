@@ -32,16 +32,8 @@ repositories {
 		url 'https://repo.elytradev.com/'
 	}
 	maven {
-		url = "http://dark-roleplay.net/maven/"
+		url = "http://dark-roleplay.net/files/maven/"
   }
-}
-
-dependencies {
-	compile 'elucent:albedo:2.0-SNAPSHOT'
-	deobfProvided "darkroleplay.core:drpcore_1.12:0.3.5"
-}
-
-repositories {
   maven {
     name = "Progwml6 maven"
     url = "http://dvs1.progwml6.com/files/maven"
@@ -53,6 +45,7 @@ repositories {
 }
 
 dependencies {
+	compile 'elucent:albedo:2.0-SNAPSHOT'
   // compile against the JEI API but do not include it at runtime
   deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
   // at runtime, use the full JEI jar

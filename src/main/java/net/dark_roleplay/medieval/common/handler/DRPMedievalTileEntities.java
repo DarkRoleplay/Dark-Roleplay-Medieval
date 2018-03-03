@@ -2,6 +2,7 @@ package net.dark_roleplay.medieval.common.handler;
 
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.dark_roleplay.medieval.common.blocks.decorative.clocks.TE_ClockCore;
+import net.dark_roleplay.medieval.common.blocks.storage.barrels.TE_FluidBarrel;
 import net.dark_roleplay.medieval.common.blocks.storage.shelf.TE_Shelf;
 import net.dark_roleplay.medieval.common.blocks.tileentities.TileEntity_AdvancedCrop;
 import net.dark_roleplay.medieval.common.blocks.tileentities.TileEntity_FlowerStorage;
@@ -56,7 +57,8 @@ public class DRPMedievalTileEntities {
         //New Storage
         GameRegistry.registerTileEntity(TileEntity_SimpleStorage.class, DRPMedievalInfo.MODID + ":" + "tile_entity_simple_storage");
         GameRegistry.registerTileEntity(TileEntity_Lectern.class, DRPMedievalInfo.MODID + ":" + "tile_entity_lectern");
-        
+        GameRegistry.registerTileEntity(TE_FluidBarrel.class, DRPMedievalInfo.MODID + ":" + "tile_entity_fluid_barrel");
+
         //Old Storage
 		GameRegistry.registerTileEntity(TileEntityCrate.class, DRPMedievalInfo.MODID + ":" + "TilEntityCrate");
 		GameRegistry.registerTileEntity(TileEntityDungeonChest.class, DRPMedievalInfo.MODID + ":" + "TileEntityDungeonChest");
