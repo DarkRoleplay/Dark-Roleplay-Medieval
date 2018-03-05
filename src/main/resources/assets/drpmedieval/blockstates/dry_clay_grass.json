@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "snowy=false": [
+            { "model": "drpmedieval:dry_clay/dry_clay_grass" },
+            { "model": "drpmedieval:dry_clay/dry_clay_grass", "y": 90 },
+            { "model": "drpmedieval:dry_clay/dry_clay_grass", "y": 180 },
+            { "model": "drpmedieval:dry_clay/dry_clay_grass", "y": 270 }
+        ],
+        "snowy=true":  { "model": "drpmedieval:dry_clay/dry_clay_snowed" }
+    }
+}

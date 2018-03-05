@@ -3,10 +3,12 @@ package net.dark_roleplay.medieval.common.handler;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.dark_roleplay.drpcore.api.Modules;
 import net.dark_roleplay.drpcore.api.items.DRPEquip;
 import net.dark_roleplay.drpcore.api.items.DRPFood;
 import net.dark_roleplay.drpcore.api.items.DRPItem;
 import net.dark_roleplay.drpcore.api.items.Seed;
+import net.dark_roleplay.drpcore.modules.materials.Material;
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.dark_roleplay.medieval.common.blocks.plants.apples.Apple;
 import net.dark_roleplay.medieval.common.blocks.plants.pears.Pear;
@@ -188,6 +190,12 @@ public class DRPMedievalItems {
 				new ItemMultiBlock(DRPMedievalBlocks.FORGE).setRegistryName("forge")
 		);
 	
+		for(Material mat : Modules.MATERIALS.getMaterials(Modules.MATERIALS.WOOD_KEY)){
+			register(reg, DRPMedievalCreativeTabs.MISCELLANEOUS,
+					new DRPItem(mat.getFormatValue() + "_wood_beam", "wood_beams", 64)
+			);
+		}
+		
 		for(ItemBlock block : blockItems){
 			reg.register(block);
 		}

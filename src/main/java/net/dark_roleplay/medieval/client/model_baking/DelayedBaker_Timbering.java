@@ -14,8 +14,8 @@ import com.google.common.collect.Maps;
 import net.dark_roleplay.drpcore.api.Modules;
 import net.dark_roleplay.drpcore.modules.materials.Material;
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.blocks.building.Timbering;
 import net.dark_roleplay.medieval.common.blocks.decorative.buckets.BucketDirt;
-import net.dark_roleplay.medieval.common.blocks.decorative.lumbering.Lumbering;
 import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -63,10 +63,10 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 
 		List<BakedQuad> result = Lists.newArrayList();
 
-		boolean top = state.getValue(Lumbering.UP);
-		boolean right = state.getValue(Lumbering.RIGHT);
-		boolean bottom = state.getValue(Lumbering.DOWN);
-		boolean left = state.getValue(Lumbering.LEFT);
+		boolean top = state.getValue(Timbering.UP);
+		boolean right = state.getValue(Timbering.RIGHT);
+		boolean bottom = state.getValue(Timbering.DOWN);
+		boolean left = state.getValue(Timbering.LEFT);
 
 		String bitCode = (top ? "1" : "0") + (right ? "1" : "0") + (bottom ? "1" : "0") + (left ? "1" : "0");
 		

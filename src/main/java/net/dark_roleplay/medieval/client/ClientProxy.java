@@ -2,6 +2,7 @@ package net.dark_roleplay.medieval.client;
 
 import java.io.File;
 
+import net.dark_roleplay.medieval.client.blocks.colors.DryClayGrassColor;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderAnvil;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderCauldron;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderChain;
@@ -45,6 +46,7 @@ import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityShipsWheel
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityTarget;
 import net.dark_roleplay.medieval.common.blocks.util.shop_sign.TE_ShopSign;
 import net.dark_roleplay.medieval.common.entities.fox.Entity_Fox;
+import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.resources.IReloadableResourceManager;
@@ -89,6 +91,9 @@ public class ClientProxy extends CommonProxy {
 		if(manager instanceof IReloadableResourceManager) {
 //		    ((IReloadableResourceManager)manager).registerReloadListener(new RecipeFromJSON());
 		}
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new DryClayGrassColor(), DRPMedievalBlocks.DRY_CLAY_GRASS);
+
+		
 		MinecraftForge.EVENT_BUS.register(new Event_CameraUpdate());
 	}
 

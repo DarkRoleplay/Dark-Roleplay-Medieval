@@ -20,6 +20,7 @@ import net.dark_roleplay.medieval.common.handler.DRPMedievalSkills;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalTileEntities;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalVillagers;
 import net.dark_roleplay.medieval.common.world_generation.WorldLoot;
+import net.dark_roleplay.medieval.common.world_generation.feature.DryClayGenerator;
 import net.dark_roleplay.medieval.common.world_generation.feature.OreGen;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -89,6 +90,7 @@ public class DarkRoleplayMedieval {
 
 
 		GameRegistry.registerWorldGenerator(new OreGen(), 0);
+		GameRegistry.registerWorldGenerator(new DryClayGenerator(), 500);
 //		GameRegistry.registerWorldGenerator(new GenerateStructure(), 0);
 
 		DRPMedievalPackets.init();

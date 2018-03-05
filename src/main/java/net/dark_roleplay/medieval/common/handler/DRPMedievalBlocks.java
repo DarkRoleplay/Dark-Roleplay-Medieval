@@ -10,12 +10,14 @@ import net.dark_roleplay.drpcore.modules.materials.Material;
 import net.dark_roleplay.drpcore.modules.materials.ResourceGenerator;
 import net.dark_roleplay.medieval.common.DRPMedievalInfo;
 import net.dark_roleplay.medieval.common.blocks.building.DryClay;
+import net.dark_roleplay.medieval.common.blocks.building.DryClayGrass;
 import net.dark_roleplay.medieval.common.blocks.building.MossyLog;
 import net.dark_roleplay.medieval.common.blocks.building.ObsidianGlass;
 import net.dark_roleplay.medieval.common.blocks.building.PackedIceBricks;
 import net.dark_roleplay.medieval.common.blocks.building.SnowBricks;
 import net.dark_roleplay.medieval.common.blocks.building.StoneBricks;
 import net.dark_roleplay.medieval.common.blocks.building.StonePillar;
+import net.dark_roleplay.medieval.common.blocks.building.Timbering;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.Anvil;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.ButterChurn;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.Cauldron;
@@ -58,7 +60,6 @@ import net.dark_roleplay.medieval.common.blocks.decorative.hanging_bridges.Hangi
 import net.dark_roleplay.medieval.common.blocks.decorative.head_cutting_block.HeadCuttingBlock;
 import net.dark_roleplay.medieval.common.blocks.decorative.lanterns.Lantern;
 import net.dark_roleplay.medieval.common.blocks.decorative.lecterns.LargeLectern;
-import net.dark_roleplay.medieval.common.blocks.decorative.lumbering.Lumbering;
 import net.dark_roleplay.medieval.common.blocks.decorative.minecart_stopper.MinecartStopper;
 import net.dark_roleplay.medieval.common.blocks.decorative.pottery.FiredPottery;
 import net.dark_roleplay.medieval.common.blocks.decorative.pottery.UnfiredPottery;
@@ -122,7 +123,8 @@ public class DRPMedievalBlocks {
 	public static final Block TARGET = null;
 	public static final Block CLOCK_CORE = null;
 	public static final AdvancedOre COPPER_ORE = null;
-	public static final Block DRY_CLAY_CHUNK = null;
+	public static final Block DRY_CLAY = null;
+	public static final Block DRY_CLAY_GRASS = null;
 	public static final Block GUNPOWDER_TRAIL = null;
 	public static final Block HANGING_BRIDGE_BOTTOM = null;
 	public static final Block HANGING_BRIDGE_TOP = null;
@@ -177,7 +179,8 @@ public class DRPMedievalBlocks {
 			
 			register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
 				new Block(net.minecraft.block.material.Material.WOOD).setRegistryName(mat.getFormatValue() + "_clean_plank").setUnlocalizedName(mat.getFormatValue() + "_clean_plank"),
-				new MossyLog("mossy_" + mat.getFormatValue() + "_log")
+				new MossyLog("mossy_" + mat.getFormatValue() + "_log"),
+				new Timbering(mat.getFormatValue() + "_timbering_clean")
 			);
 			
 			register(reg, DRPMedievalCreativeTabs.UTILITY,
@@ -189,24 +192,23 @@ public class DRPMedievalBlocks {
 			);
 			
 			registerNoItems(reg,
-				new Lumbering(mat.getFormatValue() + "_timbering_clean"),
-				new Lumbering(mat.getFormatValue() + "_timbering_diagonal_bt"),
-				new Lumbering(mat.getFormatValue() + "_timbering_diagonal_tb"),
-				new Lumbering(mat.getFormatValue() + "_timbering_cross"),
-				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_t_bt"),
-				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_b_bt"),
-				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_t_tb"),
-				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_b_tb"),
-				new Lumbering(mat.getFormatValue() + "_timbering_arrow_b"),
-				new Lumbering(mat.getFormatValue() + "_timbering_arrow_t"),
-				new Lumbering(mat.getFormatValue() + "_timbering_arrow_r"),
-				new Lumbering(mat.getFormatValue() + "_timbering_arrow_l"),
-				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_l_lr"),
-				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_r_lr"),
-				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_l_rl"),
-				new Lumbering(mat.getFormatValue() + "_timbering_double_diagonal_r_rl"),
-				new Lumbering(mat.getFormatValue() + "_timbering_vertical"),
-				new Lumbering(mat.getFormatValue() + "_timbering_horizontal"),
+				new Timbering(mat.getFormatValue() + "_timbering_diagonal_bt"),
+				new Timbering(mat.getFormatValue() + "_timbering_diagonal_tb"),
+				new Timbering(mat.getFormatValue() + "_timbering_cross"),
+				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_t_bt"),
+				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_b_bt"),
+				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_t_tb"),
+				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_b_tb"),
+				new Timbering(mat.getFormatValue() + "_timbering_arrow_b"),
+				new Timbering(mat.getFormatValue() + "_timbering_arrow_t"),
+				new Timbering(mat.getFormatValue() + "_timbering_arrow_r"),
+				new Timbering(mat.getFormatValue() + "_timbering_arrow_l"),
+				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_l_lr"),
+				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_r_lr"),
+				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_l_rl"),
+				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_r_rl"),
+				new Timbering(mat.getFormatValue() + "_timbering_vertical"),
+				new Timbering(mat.getFormatValue() + "_timbering_horizontal"),
 				new FluidBarrel(mat.getFormatValue() + "_fluid_barrel")
 			);
 		}
@@ -246,6 +248,7 @@ public class DRPMedievalBlocks {
 		register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
 			new AdvancedOre("tin_ore", 1),
 			new DryClay("dry_clay"),
+			new DryClayGrass("dry_clay_grass"),
 			new StoneBricks("andesite_bricks"),
 			new StonePillar("andesite_pillar"),
 			new AdvancedOre("copper_ore", 1),
