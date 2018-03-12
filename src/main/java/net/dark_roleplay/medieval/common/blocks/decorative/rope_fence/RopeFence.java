@@ -183,7 +183,7 @@ public class RopeFence extends Block{
 	
 	
 	@Override
-	public void addCollisionBoxToList(IBlockState unextended, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entity, boolean p_185477_7_){
+	public void addCollisionBoxToList(IBlockState unextended, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entity, boolean isActualState){
 		unextended = getExtendedState(unextended, worldIn, pos);
 		
 		IExtendedBlockState state;

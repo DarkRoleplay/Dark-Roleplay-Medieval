@@ -179,8 +179,7 @@ public class DRPMedievalBlocks {
 			
 			register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
 				new Block(net.minecraft.block.material.Material.WOOD).setRegistryName(mat.getFormatValue() + "_clean_plank").setUnlocalizedName(mat.getFormatValue() + "_clean_plank"),
-				new MossyLog("mossy_" + mat.getFormatValue() + "_log"),
-				new Timbering(mat.getFormatValue() + "_timbering_clean")
+				new MossyLog("mossy_" + mat.getFormatValue() + "_log")
 			);
 			
 			register(reg, DRPMedievalCreativeTabs.UTILITY,
@@ -192,23 +191,24 @@ public class DRPMedievalBlocks {
 			);
 			
 			registerNoItems(reg,
-				new Timbering(mat.getFormatValue() + "_timbering_diagonal_bt"),
-				new Timbering(mat.getFormatValue() + "_timbering_diagonal_tb"),
-				new Timbering(mat.getFormatValue() + "_timbering_cross"),
-				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_t_bt"),
-				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_b_bt"),
-				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_t_tb"),
-				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_b_tb"),
-				new Timbering(mat.getFormatValue() + "_timbering_arrow_b"),
-				new Timbering(mat.getFormatValue() + "_timbering_arrow_t"),
-				new Timbering(mat.getFormatValue() + "_timbering_arrow_r"),
-				new Timbering(mat.getFormatValue() + "_timbering_arrow_l"),
-				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_l_lr"),
-				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_r_lr"),
-				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_l_rl"),
-				new Timbering(mat.getFormatValue() + "_timbering_double_diagonal_r_rl"),
-				new Timbering(mat.getFormatValue() + "_timbering_vertical"),
-				new Timbering(mat.getFormatValue() + "_timbering_horizontal"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_clean"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_diagonal_bt"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_diagonal_tb"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_cross"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_t_bt"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_b_bt"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_t_tb"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_b_tb"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_arrow_b"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_arrow_t"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_arrow_r"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_arrow_l"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_l_lr"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_r_lr"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_l_rl"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_r_rl"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_vertical"),
+				new Timbering(mat.getFormatValue() + "_timbered_clay_horizontal"),
 				new FluidBarrel(mat.getFormatValue() + "_fluid_barrel")
 			);
 		}

@@ -70,13 +70,13 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 
 		String bitCode = (top ? "1" : "0") + (right ? "1" : "0") + (bottom ? "1" : "0") + (left ? "1" : "0");
 		
-		String[] textures = state.getBlock().getRegistryName().getResourcePath().split("_timbering_");
+		String[] textures = state.getBlock().getRegistryName().getResourcePath().split("_timbered_clay_");
 
 		this.addQuads(result, 
 			timbering.retexture(
 				ImmutableMap.<String, String>of(
-					"end","drpmedieval:blocks/timbering/timbering",
-					"side","drpmedieval:blocks/timbering/" + textures[1] + "/" + textures[0] + "_timbering_" + bitCode
+					"end","drpmedieval:blocks/timbered_clay/timbered_clay",
+					"side","drpmedieval:blocks/timbered_clay/" + textures[1] + "/" + textures[0] + "_timbered_clay_" + bitCode
 				)
 			), 
 			0, 0, state, side, rand
@@ -107,30 +107,30 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 			
 			List<Material> mats = Modules.MATERIALS.getMaterials("wood");
 
-			locations.add(new ResourceLocation("drpmedieval:blocks/timbering/timbering"));
+			locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/timbered_clay"));
 			
 			for(int i = 0; i < 16; i ++) {
 				String bitCode = ((i & 1) == 1 ? "1" : "0") + ((i & 2) == 2 ? "1" : "0") + ((i & 4) == 4 ? "1" : "0") + ((i & 8) == 8 ? "1" : "0");
 
 				for(Material mat : mats) {
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/clean/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/diagonal_bt/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/diagonal_tb/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/cross/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/double_diagonal_t_bt/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/double_diagonal_b_bt/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/double_diagonal_t_tb/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/double_diagonal_b_tb/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/arrow_b/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/arrow_t/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/arrow_r/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/arrow_l/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/double_diagonal_l_lr/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/double_diagonal_r_lr/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/double_diagonal_l_rl/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/double_diagonal_r_rl/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/vertical/" + mat.getFormatValue() + "_timbering_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbering/horizontal/" + mat.getFormatValue() + "_timbering_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/clean/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/diagonal_bt/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/diagonal_tb/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/cross/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_t_bt/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_b_bt/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_t_tb/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_b_tb/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/arrow_b/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/arrow_t/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/arrow_r/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/arrow_l/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_l_lr/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_r_lr/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_l_rl/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_r_rl/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/vertical/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
+					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/horizontal/" + mat.getFormatValue() + "_timbered_clay_" + bitCode));
 
 				}
 			}
@@ -144,13 +144,13 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 
 	@Override
 	public IBakedModel bake(IModelState state, VertexFormat format, java.util.function.Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
-		this.bakeInfo(format, bakedTextureGetter, new ResourceLocation(DRPMedievalInfo.MODID, "blocks/clean_plank_spruce"));
+		this.bakeInfo(format, bakedTextureGetter, new ResourceLocation(DRPMedievalInfo.MODID, "blocks/timbered_clay/timbered_clay"));
 		return this;
 	}
 
 	@Override
 	public boolean accepts(ResourceLocation modelLocation) {
-		return ((modelLocation instanceof ModelResourceLocation) && (modelLocation.toString().contains("_timbering_")));
+		return ((modelLocation instanceof ModelResourceLocation) && (modelLocation.toString().contains("_timbered_clay_")));
 
 	}
 
