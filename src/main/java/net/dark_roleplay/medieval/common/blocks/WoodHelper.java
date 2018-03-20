@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.templates.WoodenBlock2;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -43,7 +43,7 @@ public class WoodHelper {
         DARK_OAK("minecraft", "dark_oak", "big_oak", MapColor.BROWN),
 		
         //Dark Roleplay Medieval
-		APPLE(DRPMedievalInfo.MODID, "apple", MapColor.WOOD);
+		APPLE(References.MODID, "apple", MapColor.WOOD);
 		
 		private final String modid;
 		private final String name;

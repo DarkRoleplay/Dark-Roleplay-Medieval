@@ -1,13 +1,13 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Config(modid = DRPMedievalInfo.MODID, name = "Dark Roleplay Medieval/Dark Roleplay Medieval", category = "drpmedieval")
+@Config(modid = References.MODID, name = "Dark Roleplay Medieval/Dark Roleplay Medieval", category = "drpmedieval")
 public class DRPMedievalConfig {
 	
 	@Config.Comment("This category contains all ot")

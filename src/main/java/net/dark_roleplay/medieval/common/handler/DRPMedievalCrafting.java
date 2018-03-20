@@ -4,7 +4,7 @@ import net.dark_roleplay.drpcore.api.crafting.simple_recipe.RecipeCategory;
 import net.dark_roleplay.drpcore.api.crafting.simple_recipe.SimpleRecipe;
 import net.dark_roleplay.drpcore.api.crafting.simple_recipe.StackList;
 import net.dark_roleplay.drpcore.common.crafting.CraftingRegistry;
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.crafting.LockKeyCrafter;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;

@@ -9,7 +9,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.decorative.hanging_bridges.HangingBridge;
 import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
@@ -90,7 +90,7 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 
 	@Override
 	public IBakedModel bake(IModelState state, VertexFormat format, java.util.function.Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
-		this.bakeInfo(format, bakedTextureGetter, new ResourceLocation(DRPMedievalInfo.MODID, "blocks/clean_plank_spruce"));
+		this.bakeInfo(format, bakedTextureGetter, new ResourceLocation(References.MODID, "blocks/clean_plank_spruce"));
 		return this;
 	}
 
@@ -146,6 +146,6 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 	}
 
 	protected static IModel getModel(String modelName){
-		return ModelLoaderRegistry.getModelOrLogError(new ResourceLocation(DRPMedievalInfo.MODID, "block/hanging_bridge/" + modelName), "A problem occured while trying to load: " + DRPMedievalInfo.MODID + ":block/hanging_bridge/" + modelName);
+		return ModelLoaderRegistry.getModelOrLogError(new ResourceLocation(References.MODID, "block/hanging_bridge/" + modelName), "A problem occured while trying to load: " + References.MODID + ":block/hanging_bridge/" + modelName);
 	}
 }

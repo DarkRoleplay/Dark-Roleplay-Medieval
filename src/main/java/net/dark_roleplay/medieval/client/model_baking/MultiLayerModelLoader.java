@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import com.google.common.collect.ImmutableMap;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.BlockRenderLayer;

@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.events.MissingMappings;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -177,18 +177,18 @@ public class DRPMedievalMappings {
 	}
 
 	private static void registerMapping(Item item, String oldName) {
-		MissingMappings.registerToRemapI(item.getRegistryName().getResourcePath(), DRPMedievalInfo.MODID + ":" + oldName);
+		MissingMappings.registerToRemapI(item.getRegistryName().getResourcePath(), References.MODID + ":" + oldName);
 	}
 
 	private static void registerMapping(Block block, String oldName) {
-		MissingMappings.registerToRemapB(block.getRegistryName().getResourcePath(), DRPMedievalInfo.MODID + ":" + oldName);
+		MissingMappings.registerToRemapB(block.getRegistryName().getResourcePath(), References.MODID + ":" + oldName);
 	}
 	
 	private static void registerMappingB(String block, String oldName) {
-		MissingMappings.registerToRemapB(block, DRPMedievalInfo.MODID + ":" + oldName);
+		MissingMappings.registerToRemapB(block, References.MODID + ":" + oldName);
 	}
 	
 	private static void registerMappingI(String item, String oldName) {
-		MissingMappings.registerToRemapI(item, DRPMedievalInfo.MODID + ":" + oldName);
+		MissingMappings.registerToRemapI(item, References.MODID + ":" + oldName);
 	}
 }

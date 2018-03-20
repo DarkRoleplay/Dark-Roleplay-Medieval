@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.client.blocks.tesrs;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class SpecialRenderChain extends TileEntitySpecialRenderer {
 
-	private static final ResourceLocation texture = new ResourceLocation(DRPMedievalInfo.MODID, "textures/old_blocks/block_chain.png");
+	private static final ResourceLocation texture = new ResourceLocation(References.MODID, "textures/old_blocks/block_chain.png");
 
 	private ModelChain model;
 

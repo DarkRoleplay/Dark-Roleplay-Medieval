@@ -13,7 +13,7 @@ import com.google.common.collect.Maps;
 
 import net.dark_roleplay.drpcore.api.Modules;
 import net.dark_roleplay.drpcore.modules.materials.Material;
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.building.Timbering;
 import net.dark_roleplay.medieval.common.blocks.decorative.buckets.BucketDirt;
 import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
@@ -144,7 +144,7 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 
 	@Override
 	public IBakedModel bake(IModelState state, VertexFormat format, java.util.function.Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
-		this.bakeInfo(format, bakedTextureGetter, new ResourceLocation(DRPMedievalInfo.MODID, "blocks/timbered_clay/timbered_clay"));
+		this.bakeInfo(format, bakedTextureGetter, new ResourceLocation(References.MODID, "blocks/timbered_clay/timbered_clay"));
 		return this;
 	}
 

@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.client.blocks.tesrs;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public class SpecialRenderRopeAnchor extends TileEntitySpecialRenderer {
 
-	private static final ResourceLocation texture = new ResourceLocation(DRPMedievalInfo.MODID, "textures/old_blocks/block_rope_anchor.png");
+	private static final ResourceLocation texture = new ResourceLocation(References.MODID, "textures/old_blocks/block_rope_anchor.png");
 
 	private ModelRopeAnchor model;
 

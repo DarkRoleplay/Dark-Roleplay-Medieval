@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.testing.music.InstrumentSounds;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -22,8 +22,8 @@ public class DRPMedievalSounds {
 	@SubscribeEvent
 	public static void register(RegistryEvent.Register<SoundEvent> event){
 		ResourceLocation loc;
-		DRPMedievalSounds.SHIPS_BELL = new SoundEvent(loc = new ResourceLocation(DRPMedievalInfo.MODID, "block_ships_bell")).setRegistryName(loc);
-		DRPMedievalSounds.GUITAR = new InstrumentSounds(DRPMedievalInfo.MODID, "guitar");
+		DRPMedievalSounds.SHIPS_BELL = new SoundEvent(loc = new ResourceLocation(References.MODID, "block_ships_bell")).setRegistryName(loc);
+		DRPMedievalSounds.GUITAR = new InstrumentSounds(References.MODID, "guitar");
 
 		event.getRegistry().register(DRPMedievalSounds.SHIPS_BELL);
 		DRPMedievalSounds.GUITAR.register(event.getRegistry());

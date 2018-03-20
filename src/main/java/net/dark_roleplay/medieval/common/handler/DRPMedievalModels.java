@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import net.dark_roleplay.drpcore.api.items.DRPItem;
 import net.dark_roleplay.drpcore.api.items.ItemApi;
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -66,9 +66,9 @@ public class DRPMedievalModels {
 	    String path = stringParseName(item.getUnlocalizedName().toString().substring(item.getUnlocalizedName().toString().indexOf(".") + 1, item.getUnlocalizedName().toString().length()));
 		if(folder != null){
 			path = stringParseName(folder) + "/" + path;
-			ModelBakery.registerItemVariants(item,new ResourceLocation(DRPMedievalInfo.MODID + ":" + path));
+			ModelBakery.registerItemVariants(item,new ResourceLocation(References.MODID + ":" + path));
 		}
-		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(DRPMedievalInfo.MODID + ":" + path, "inventory"));
+		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(References.MODID + ":" + path, "inventory"));
 	}
 	
 	private static String stringParseName(String name){

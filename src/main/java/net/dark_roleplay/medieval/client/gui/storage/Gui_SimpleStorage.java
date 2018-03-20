@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.client.gui.storage;
 import java.awt.Color;
 
 import net.dark_roleplay.drpcore.api.gui.modular.ModularGui_Drawer;
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.tileentities.storage.TileEntity_SimpleStorage;
 import net.dark_roleplay.medieval.common.gui.container.Container_SimpleStorage;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -14,7 +14,7 @@ import net.minecraftforge.items.IItemHandler;
 
 public class Gui_SimpleStorage extends GuiContainer {
 	
-    private static final ResourceLocation background = new ResourceLocation(DRPMedievalInfo.MODID, "textures/guis/storage/dynamic_storage.png");
+    private static final ResourceLocation background = new ResourceLocation(References.MODID, "textures/guis/storage/dynamic_storage.png");
 
     private int size;
     

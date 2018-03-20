@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraftforge.common.ForgeVersion.CheckResult;
 
-public class DRPMedievalInfo {
+public class References {
 
 	public static final String NAME = "Dark Roleplay Medieval";
 	public static final String VERSION = "0.2.4.3";
@@ -18,7 +18,7 @@ public class DRPMedievalInfo {
 	public static final String UPDATECHECK = "http://dark-roleplay.net/version_files/DarkRoleplayMedieval.json";
 	public static final List<String> AUTHORS = Arrays.asList("JTK222", "Rolfaal", "Kanno");
 	public static final String CREDITS = "Lead Programmer: JTK222, Artists: Rolfaal & Kanno";
-    public static final Logger LOGGER = LogManager.getLogger(DRPMedievalInfo.MODID);
+    public static final Logger LOGGER = LogManager.getLogger(References.MODID);
     
 	public static CheckResult VERSION_STATUS;
 

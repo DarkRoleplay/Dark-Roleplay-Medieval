@@ -5,7 +5,7 @@ import java.awt.Color;
 import org.lwjgl.util.Point;
 
 import net.dark_roleplay.drpcore.api.gui.advanced.Gui_Screen;
-import net.dark_roleplay.medieval.client.gui.crafting.cooking.parts.Gui_RoundPanel;import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.client.gui.crafting.cooking.parts.Gui_RoundPanel;import net.dark_roleplay.medieval.common.References;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -22,7 +22,7 @@ public class MeltingOres extends Gui_Screen{
 	private float scaleFactor = 0.75F;
 	
 	public MeltingOres(){
-		this.forge = new ResourceLocation(DRPMedievalInfo.MODID + ":textures/guis/forge_background.png");
+		this.forge = new ResourceLocation(References.MODID + ":textures/guis/forge_background.png");
 	}
 	
 	public void initGui(){

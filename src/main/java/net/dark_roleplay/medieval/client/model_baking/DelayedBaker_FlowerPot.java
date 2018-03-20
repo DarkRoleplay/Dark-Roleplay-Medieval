@@ -10,7 +10,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.decorative.buckets.BucketDirt;
 import net.dark_roleplay.medieval.common.blocks.decorative.flowerPot.FlowerPot;
 import net.dark_roleplay.medieval.common.blocks.decorative.hanging_bridges.HangingBridge;
@@ -115,7 +115,7 @@ public class DelayedBaker_FlowerPot extends DelayedBaker implements ICustomModel
 
 	@Override
 	public IBakedModel bake(IModelState state, VertexFormat format, java.util.function.Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
-		this.bakeInfo(format, bakedTextureGetter, new ResourceLocation(DRPMedievalInfo.MODID, "blocks/clean_plank_spruce"));
+		this.bakeInfo(format, bakedTextureGetter, new ResourceLocation(References.MODID, "blocks/clean_plank_spruce"));
 		return this;
 	}
 
@@ -128,7 +128,7 @@ public class DelayedBaker_FlowerPot extends DelayedBaker implements ICustomModel
 
 	protected static IModel getModel(String modelName) {
 		return ModelLoaderRegistry.getModelOrLogError(
-				new ResourceLocation(DRPMedievalInfo.MODID, "block/buckets/" + modelName),
-				"A problem occured while trying to load: " + DRPMedievalInfo.MODID + ":block/buckets/" + modelName);
+				new ResourceLocation(References.MODID, "block/buckets/" + modelName),
+				"A problem occured while trying to load: " + References.MODID + ":block/buckets/" + modelName);
 	}
 }

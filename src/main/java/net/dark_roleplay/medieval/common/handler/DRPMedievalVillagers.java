@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.entities.villager.EmeraldsForStacks;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
@@ -13,8 +13,8 @@ import net.minecraftforge.fml.common.registry.VillagerRegistry;
 
 public class DRPMedievalVillagers {
 
-	protected static final VillagerRegistry.VillagerProfession PROFESSION_CARPENTER = DRPMedievalVillagers.createProf(new ResourceLocation(DRPMedievalInfo.MODID, "carpenter"), new ResourceLocation(DRPMedievalInfo.MODID, "textures/entities/villager/carpenter.png"), new ResourceLocation(DRPMedievalInfo.MODID, "textures/entities/villager/zombie/carpenter.png") );
-    protected static final VillagerRegistry.VillagerCareer CAREER_CARPENTER = DRPMedievalVillagers.createCarrer(DRPMedievalVillagers.PROFESSION_CARPENTER, new ResourceLocation(DRPMedievalInfo.MODID, "carpenter"));  
+	protected static final VillagerRegistry.VillagerProfession PROFESSION_CARPENTER = DRPMedievalVillagers.createProf(new ResourceLocation(References.MODID, "carpenter"), new ResourceLocation(References.MODID, "textures/entities/villager/carpenter.png"), new ResourceLocation(References.MODID, "textures/entities/villager/zombie/carpenter.png") );
+    protected static final VillagerRegistry.VillagerCareer CAREER_CARPENTER = DRPMedievalVillagers.createCarrer(DRPMedievalVillagers.PROFESSION_CARPENTER, new ResourceLocation(References.MODID, "carpenter"));  
 	
 	public static void init(FMLPreInitializationEvent event) {
 

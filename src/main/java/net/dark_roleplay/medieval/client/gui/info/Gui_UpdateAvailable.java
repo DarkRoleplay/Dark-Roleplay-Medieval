@@ -6,7 +6,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiConfirmOpenLink;
@@ -39,10 +39,10 @@ public class Gui_UpdateAvailable extends GuiScreen{
 		FontRenderer font;
 		font = this.fontRenderer;
 		
-		CheckResult status = DRPMedievalInfo.VERSION_STATUS;
+		CheckResult status = References.VERSION_STATUS;
 		
-		String updateMessage = "There is a new update for \"" + DRPMedievalInfo.NAME + "\" available!\n\n";
-		updateMessage += "v" + DRPMedievalInfo.VERSION + " ---> v" + status.target.toString() + "\n\n";
+		String updateMessage = "There is a new update for \"" + References.NAME + "\" available!\n\n";
+		updateMessage += "v" + References.VERSION + " ---> v" + status.target.toString() + "\n\n";
 		
 		Map<ComparableVersion, String> changes = status.changes;
 		
@@ -91,7 +91,7 @@ public class Gui_UpdateAvailable extends GuiScreen{
             oclass.getMethod("browse", URI.class).invoke(object, url);
         }catch (Throwable throwable1){
             Throwable throwable = throwable1.getCause();
-            DRPMedievalInfo.LOGGER.error("Couldn't open link: {}", (Object)(throwable == null ? "<UNKNOWN>" : throwable.getMessage()));
+            References.LOGGER.error("Couldn't open link: {}", (Object)(throwable == null ? "<UNKNOWN>" : throwable.getMessage()));
         }
     }
 }

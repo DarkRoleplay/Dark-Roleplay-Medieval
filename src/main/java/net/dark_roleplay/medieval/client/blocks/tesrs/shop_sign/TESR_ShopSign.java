@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.client.blocks.tesrs.shop_sign;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.decorative.clocks.TE_ClockCore;
 import net.dark_roleplay.medieval.common.blocks.util.shop_sign.ShopSign;
 import net.dark_roleplay.medieval.common.blocks.util.shop_sign.TE_ShopSign;

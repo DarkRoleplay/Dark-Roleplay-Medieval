@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.google.common.collect.ImmutableList;
 
 import net.dark_roleplay.drpcore.modules.work_in_progress.skill.Skill;
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
@@ -26,15 +26,15 @@ public class MissingMappings {
 	public static ArrayList<String> itemNames = new ArrayList<String>();
 	
 	public static void registerToRemapB(String block, String oldName2){
-		if(Block.REGISTRY.containsKey(new ResourceLocation(DRPMedievalInfo.MODID, block))){
-			remapBlocks.add(Block.REGISTRY.getObject(new ResourceLocation(DRPMedievalInfo.MODID, block)));
+		if(Block.REGISTRY.containsKey(new ResourceLocation(References.MODID, block))){
+			remapBlocks.add(Block.REGISTRY.getObject(new ResourceLocation(References.MODID, block)));
 			blockNames.add(oldName2.toUpperCase());
 		}
 	}
 	
 	public static void registerToRemapI(String item, String oldName2){
-		if(Item.REGISTRY.containsKey(new ResourceLocation(DRPMedievalInfo.MODID, item))){
-			remapItems.add(Item.REGISTRY.getObject(new ResourceLocation(DRPMedievalInfo.MODID, item)));
+		if(Item.REGISTRY.containsKey(new ResourceLocation(References.MODID, item))){
+			remapItems.add(Item.REGISTRY.getObject(new ResourceLocation(References.MODID, item)));
 			itemNames.add(oldName2.toUpperCase());
 		}
 	}

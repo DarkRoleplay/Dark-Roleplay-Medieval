@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.decorative.clocks.TE_ClockCore;
 import net.dark_roleplay.medieval.common.blocks.storage.barrels.TE_FluidBarrel;
 import net.dark_roleplay.medieval.common.blocks.storage.shelf.TE_Shelf;
@@ -34,35 +34,35 @@ public class DRPMedievalTileEntities {
 
 	public static final void init(FMLPreInitializationEvent event) {
 		
-		GameRegistry.registerTileEntity(TE_ClockCore.class, DRPMedievalInfo.MODID + ":te_clock_core");
-		GameRegistry.registerTileEntity(TE_ShopSign.class, DRPMedievalInfo.MODID + ":te_shop_sign");
-        GameRegistry.registerTileEntity(TE_Shelf.class, DRPMedievalInfo.MODID + ":te_shelf");
-		GameRegistry.registerTileEntity(TileEntityAnvil.class, DRPMedievalInfo.MODID + ":" + "TileEntityAnvil");
-		GameRegistry.registerTileEntity(TileEntityMortar.class, DRPMedievalInfo.MODID + ":" + "TileEntityMortar");
-		GameRegistry.registerTileEntity(TileEntityGrindstone.class, DRPMedievalInfo.MODID + ":" + "TileEntityGrindstone");
-		GameRegistry.registerTileEntity(TileEntityHangingCauldron.class, DRPMedievalInfo.MODID + ":" + "TileEntityHangingCauldron");
-		GameRegistry.registerTileEntity(TileEntityBookOne.class, DRPMedievalInfo.MODID + ":" + "TileEntityBookOne");
-		GameRegistry.registerTileEntity(TileEntityCauldron.class, DRPMedievalInfo.MODID + ":" + "TileEntityCauldron");
-		GameRegistry.registerTileEntity(TileEntityChain.class, DRPMedievalInfo.MODID + ":" + "TileEntityChain");
-		GameRegistry.registerTileEntity(TileEntityHook.class, DRPMedievalInfo.MODID + ":" + "TileEntityHook");
-		GameRegistry.registerTileEntity(TileEntityKeyHanging.class, DRPMedievalInfo.MODID + ":" + "TileEntityKeyHanging");
-		GameRegistry.registerTileEntity(TileEntityShipsWheel.class, DRPMedievalInfo.MODID + ":" + "TileEntityShipsWheel");
-		GameRegistry.registerTileEntity(TileEntityTarget.class, DRPMedievalInfo.MODID + ":" + "TileEntityTarget");
-		GameRegistry.registerTileEntity(TileEntityRopeAnchor.class, DRPMedievalInfo.MODID + ":" + "TileEntityRopeAnchor");
-		GameRegistry.registerTileEntity(TileEntityFirepit.class, DRPMedievalInfo.MODID + ":" + "TileEntityFirepit");
-        GameRegistry.registerTileEntity(TileEntity_FlowerStorage.class, DRPMedievalInfo.MODID + "BucketTileEntity");
-        GameRegistry.registerTileEntity(RopeCoilTileEntity.class, DRPMedievalInfo.MODID + "rope_coil_tilenentity");
+		GameRegistry.registerTileEntity(TE_ClockCore.class, References.MODID + ":te_clock_core");
+		GameRegistry.registerTileEntity(TE_ShopSign.class, References.MODID + ":te_shop_sign");
+        GameRegistry.registerTileEntity(TE_Shelf.class, References.MODID + ":te_shelf");
+		GameRegistry.registerTileEntity(TileEntityAnvil.class, References.MODID + ":" + "TileEntityAnvil");
+		GameRegistry.registerTileEntity(TileEntityMortar.class, References.MODID + ":" + "TileEntityMortar");
+		GameRegistry.registerTileEntity(TileEntityGrindstone.class, References.MODID + ":" + "TileEntityGrindstone");
+		GameRegistry.registerTileEntity(TileEntityHangingCauldron.class, References.MODID + ":" + "TileEntityHangingCauldron");
+		GameRegistry.registerTileEntity(TileEntityBookOne.class, References.MODID + ":" + "TileEntityBookOne");
+		GameRegistry.registerTileEntity(TileEntityCauldron.class, References.MODID + ":" + "TileEntityCauldron");
+		GameRegistry.registerTileEntity(TileEntityChain.class, References.MODID + ":" + "TileEntityChain");
+		GameRegistry.registerTileEntity(TileEntityHook.class, References.MODID + ":" + "TileEntityHook");
+		GameRegistry.registerTileEntity(TileEntityKeyHanging.class, References.MODID + ":" + "TileEntityKeyHanging");
+		GameRegistry.registerTileEntity(TileEntityShipsWheel.class, References.MODID + ":" + "TileEntityShipsWheel");
+		GameRegistry.registerTileEntity(TileEntityTarget.class, References.MODID + ":" + "TileEntityTarget");
+		GameRegistry.registerTileEntity(TileEntityRopeAnchor.class, References.MODID + ":" + "TileEntityRopeAnchor");
+		GameRegistry.registerTileEntity(TileEntityFirepit.class, References.MODID + ":" + "TileEntityFirepit");
+        GameRegistry.registerTileEntity(TileEntity_FlowerStorage.class, References.MODID + "BucketTileEntity");
+        GameRegistry.registerTileEntity(RopeCoilTileEntity.class, References.MODID + "rope_coil_tilenentity");
 		
 		// Storage Blocks
         //New Storage
-        GameRegistry.registerTileEntity(TileEntity_SimpleStorage.class, DRPMedievalInfo.MODID + ":" + "tile_entity_simple_storage");
-        GameRegistry.registerTileEntity(TileEntity_Lectern.class, DRPMedievalInfo.MODID + ":" + "tile_entity_lectern");
-        GameRegistry.registerTileEntity(TE_FluidBarrel.class, DRPMedievalInfo.MODID + ":" + "tile_entity_fluid_barrel");
+        GameRegistry.registerTileEntity(TileEntity_SimpleStorage.class, References.MODID + ":" + "tile_entity_simple_storage");
+        GameRegistry.registerTileEntity(TileEntity_Lectern.class, References.MODID + ":" + "tile_entity_lectern");
+        GameRegistry.registerTileEntity(TE_FluidBarrel.class, References.MODID + ":" + "tile_entity_fluid_barrel");
 
         //Old Storage
-		GameRegistry.registerTileEntity(TileEntityCrate.class, DRPMedievalInfo.MODID + ":" + "TilEntityCrate");
-		GameRegistry.registerTileEntity(TileEntityDungeonChest.class, DRPMedievalInfo.MODID + ":" + "TileEntityDungeonChest");
-		GameRegistry.registerTileEntity(TileEntity_AdvancedCrop.class, DRPMedievalInfo.MODID + ":" + "tile_entity_advanced_crop");
+		GameRegistry.registerTileEntity(TileEntityCrate.class, References.MODID + ":" + "TilEntityCrate");
+		GameRegistry.registerTileEntity(TileEntityDungeonChest.class, References.MODID + ":" + "TileEntityDungeonChest");
+		GameRegistry.registerTileEntity(TileEntity_AdvancedCrop.class, References.MODID + ":" + "tile_entity_advanced_crop");
 		
 	}
 	

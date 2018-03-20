@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.client.gui.telescope;
 
 import java.awt.Color;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class Gui_Telescope extends Gui{
 	
-	private static final ResourceLocation SCOPE = new ResourceLocation(DRPMedievalInfo.MODID, "textures/guis/telescope_limitation.png");
+	private static final ResourceLocation SCOPE = new ResourceLocation(References.MODID, "textures/guis/telescope_limitation.png");
 	
 	private static final int BLACK = new Color(0,0,0).getRGB();
 	

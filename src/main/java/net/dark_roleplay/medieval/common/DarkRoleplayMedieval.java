@@ -41,7 +41,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
-@Mod(modid = DRPMedievalInfo.MODID, version = DRPMedievalInfo.VERSION, name = DRPMedievalInfo.NAME, acceptedMinecraftVersions = DRPMedievalInfo.ACCEPTEDVERSIONS, dependencies = DRPMedievalInfo.DEPENDECIES, updateJSON = DRPMedievalInfo.UPDATECHECK)
+@Mod(modid = References.MODID, version = References.VERSION, name = References.NAME, acceptedMinecraftVersions = References.ACCEPTEDVERSIONS, dependencies = References.DEPENDECIES, updateJSON = References.UPDATECHECK)
 public class DarkRoleplayMedieval {
 
 	
@@ -50,7 +50,7 @@ public class DarkRoleplayMedieval {
 	@SidedProxy(serverSide = "net.dark_roleplay.medieval.common.CommonProxy", clientSide = "net.dark_roleplay.medieval.client.ClientProxy")
 	public static CommonProxy proxy;
 
-	@net.minecraftforge.fml.common.Mod.Instance(DRPMedievalInfo.MODID)
+	@net.minecraftforge.fml.common.Mod.Instance(References.MODID)
 	public static DarkRoleplayMedieval instance;
 	
 	@EventHandler
@@ -60,7 +60,6 @@ public class DarkRoleplayMedieval {
 		}
 
 		DRPMedievalCapabilities.register();
-		DRPMedievalEntities.init(event);
 		DRPMedievalVillagers.init(event);
 		DRPMedievalTileEntities.init(event);
 		DRPMedievalSkills.init(event);
@@ -76,7 +75,6 @@ public class DarkRoleplayMedieval {
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
 		
-		DRPMedievalEntities.init(event);
 		DRPMedievalVillagers.init(event);
 		DRPMedievalTileEntities.init(event);
 		DRPMedievalSkills.init(event);
@@ -134,7 +132,6 @@ public class DarkRoleplayMedieval {
 
 	@EventHandler
 	public static void postInit(FMLPostInitializationEvent event) {
-		DRPMedievalEntities.init(event);
 		DRPMedievalVillagers.init(event);
 		DRPMedievalTileEntities.init(event);
 		DRPMedievalAchievements.init(event);
@@ -144,8 +141,8 @@ public class DarkRoleplayMedieval {
 		DarkRoleplayMedieval.proxy.init(event);
 		
 		ModContainer mod = Loader.instance().activeModContainer();
-		if(mod.getModId().equals(DRPMedievalInfo.MODID)){
-			DRPMedievalInfo.VERSION_STATUS = ForgeVersion.getResult(mod);
+		if(mod.getModId().equals(References.MODID)){
+			References.VERSION_STATUS = ForgeVersion.getResult(mod);
 		}
 		
 		MinecraftForge.addGrassSeed(new ItemStack(DRPMedievalItems.BARLEY_SEED, 1), 1);

@@ -10,7 +10,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.decorative.rope_fence.RopeFence;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.state.IBlockState;
@@ -182,7 +182,7 @@ public class DelayedBaker_RopeFence extends DelayedBaker implements ICustomModel
 	public IBakedModel bake(IModelState state, VertexFormat format,
 			java.util.function.Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
 		this.bakeInfo(format, bakedTextureGetter,
-				new ResourceLocation(DRPMedievalInfo.MODID, "blocks/clean_plank_spruce"));
+				new ResourceLocation(References.MODID, "blocks/clean_plank_spruce"));
 		return this;
 	}
 
@@ -195,7 +195,7 @@ public class DelayedBaker_RopeFence extends DelayedBaker implements ICustomModel
 
 	protected static IModel getModel(String modelName) {
 		return ModelLoaderRegistry.getModelOrLogError(
-				new ResourceLocation(DRPMedievalInfo.MODID, "block/rope_fence/" + modelName),
-				"A problem occured while trying to load: " + DRPMedievalInfo.MODID + ":block/rope_fence/" + modelName);
+				new ResourceLocation(References.MODID, "block/rope_fence/" + modelName),
+				"A problem occured while trying to load: " + References.MODID + ":block/rope_fence/" + modelName);
 	}
 }

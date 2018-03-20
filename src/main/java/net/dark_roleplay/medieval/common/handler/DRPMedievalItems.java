@@ -9,7 +9,7 @@ import net.dark_roleplay.drpcore.api.items.DRPFood;
 import net.dark_roleplay.drpcore.api.items.DRPItem;
 import net.dark_roleplay.drpcore.api.items.Seed;
 import net.dark_roleplay.drpcore.modules.materials.Material;
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.plants.apples.Apple;
 import net.dark_roleplay.medieval.common.blocks.plants.pears.Pear;
 import net.dark_roleplay.medieval.common.items.blocks.HangingBridge_Item;
@@ -34,7 +34,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod.EventBusSubscriber
-@ObjectHolder(DRPMedievalInfo.MODID)
+@ObjectHolder(References.MODID)
 public class DRPMedievalItems {
 
 	private static List<ItemBlock> blockItems = new ArrayList<ItemBlock>();

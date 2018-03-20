@@ -21,7 +21,6 @@ import net.dark_roleplay.medieval.client.blocks.tesrs.shop_sign.TESR_ShopSign;
 import net.dark_roleplay.medieval.client.entities.fox.Render_Fox;
 import net.dark_roleplay.medieval.client.events.Event_CameraUpdate;
 import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_DirtBucket;
-import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_FlowerPot;
 import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_HangingBridge;
 import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_RopeFence;
 import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_Timbering;
@@ -45,10 +44,11 @@ import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityRopeAnchor
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityTarget;
 import net.dark_roleplay.medieval.common.blocks.util.shop_sign.TE_ShopSign;
+import net.dark_roleplay.medieval.common.entities.Wheelbarrel;
+import net.dark_roleplay.medieval.common.entities.WheelbarrelRenderer;
 import net.dark_roleplay.medieval.common.entities.fox.Entity_Fox;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
@@ -80,8 +80,9 @@ public class ClientProxy extends CommonProxy {
 		ModelLoaderRegistry.registerLoader(new DelayedBaker_Timbering());
 		ModelLoaderRegistry.registerLoader(new MultiLayerModelLoader());
 
-		RenderingRegistry.registerEntityRenderingHandler(Entity_Fox.class, Render_Fox.FACTORY);
-        		
+		RenderingRegistry.<Entity_Fox>registerEntityRenderingHandler(Entity_Fox.class, Render_Fox.FACTORY);
+		RenderingRegistry.<Wheelbarrel>registerEntityRenderingHandler(Wheelbarrel.class, WheelbarrelRenderer.FACTORY);
+
 		this.registerRenders();	
 	}
 	

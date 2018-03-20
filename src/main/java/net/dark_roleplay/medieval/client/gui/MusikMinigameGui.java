@@ -7,7 +7,7 @@ import org.lwjgl.input.Keyboard;
 
 import net.dark_roleplay.drpcore.api.gui.DRPGuiScreen;
 import net.dark_roleplay.drpcore.api.gui.ITimedGui;
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.init.SoundEvents;
@@ -32,7 +32,7 @@ public class MusikMinigameGui extends DRPGuiScreen implements ITimedGui{
 	
 	
 	public MusikMinigameGui(ArrayList<Note> notes) {
-		super(new ResourceLocation(DRPMedievalInfo.MODID + ":textures/guis/MusikMinigame.png"), 0, 0);
+		super(new ResourceLocation(References.MODID + ":textures/guis/MusikMinigame.png"), 0, 0);
 		this.notes = notes;
 		for(int i=0; i < this.notes.size(); i++){
 			Note nt = this.notes.get(i);

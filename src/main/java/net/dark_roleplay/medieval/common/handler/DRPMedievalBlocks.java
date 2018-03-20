@@ -8,7 +8,7 @@ import net.dark_roleplay.drpcore.api.blocks.Crop;
 import net.dark_roleplay.drpcore.modules.materials.AddResourceGenerators;
 import net.dark_roleplay.drpcore.modules.materials.Material;
 import net.dark_roleplay.drpcore.modules.materials.ResourceGenerator;
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.building.DryClay;
 import net.dark_roleplay.medieval.common.blocks.building.DryClayGrass;
 import net.dark_roleplay.medieval.common.blocks.building.MossyLog;
@@ -100,7 +100,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 
-@ObjectHolder(DRPMedievalInfo.MODID)
+@ObjectHolder(References.MODID)
 @Mod.EventBusSubscriber
 public class DRPMedievalBlocks {
 
@@ -305,8 +305,8 @@ public class DRPMedievalBlocks {
 	
 	@SubscribeEvent
 	public static void addBlocks(AddResourceGenerators event){
-		String texGens = DRPMedievalInfo.MODID + ":argh/texture_generators/"; 
-		String modGens = DRPMedievalInfo.MODID + ":argh/json_generators/"; 
+		String texGens = References.MODID + ":argh/texture_generators/"; 
+		String modGens = References.MODID + ":argh/json_generators/"; 
 		
 		event.addAll(
 			new ResourceGenerator(

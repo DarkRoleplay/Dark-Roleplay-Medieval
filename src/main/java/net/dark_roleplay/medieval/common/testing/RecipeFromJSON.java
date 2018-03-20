@@ -13,7 +13,7 @@ import com.google.gson.JsonObject;
 
 import net.dark_roleplay.drpcore.api.crafting.simple_recipe.SimpleRecipe;
 import net.dark_roleplay.drpcore.common.crafting.CraftingRegistry;
-import net.dark_roleplay.medieval.common.DRPMedievalInfo;
+import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IResourceManager;
@@ -28,17 +28,17 @@ public class RecipeFromJSON implements IResourceManagerReloadListener {
 	
 	@Override
 	public void onResourceManagerReload(IResourceManager manager) {	
-		DRPMedievalInfo.LOGGER.info("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
-		DRPMedievalInfo.LOGGER.info("Starting to load Dark Roleplay crafting recipes");
-		DRPMedievalInfo.LOGGER.info("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
+		References.LOGGER.info("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
+		References.LOGGER.info("Starting to load Dark Roleplay crafting recipes");
+		References.LOGGER.info("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
 		
 //		SimpleRecipe rec = readRecipe(new ResourceLocation("drpmedieval:drpcore/recipes/test.json"));
 //
 //		if(rec != null)
 //			CraftingRegistry.registerRecipe(rec.getStation(), rec.getCategory(), rec, false);
 
-		DRPMedievalInfo.LOGGER.info("Finished loading of Dark Roleplay crafting recipes");
-		DRPMedievalInfo.LOGGER.info("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
+		References.LOGGER.info("Finished loading of Dark Roleplay crafting recipes");
+		References.LOGGER.info("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
 	}
 	
 	public static SimpleRecipe readRecipe(ResourceLocation loc){
@@ -113,11 +113,11 @@ public class RecipeFromJSON implements IResourceManagerReloadListener {
 				printLoadError(loc, "The recipe type: " + type + " is unknown and cannot be loaded!");
 			}
 			
-			DRPMedievalInfo.LOGGER.info("Search me !  "+ type + "  =  " + registryName);
+			References.LOGGER.info("Search me !  "+ type + "  =  " + registryName);
 			
 			
 		} catch (IOException e) {
-			DRPMedievalInfo.LOGGER.catching(e);
+			References.LOGGER.catching(e);
 		}
 		return null;
 	}
@@ -126,11 +126,11 @@ public class RecipeFromJSON implements IResourceManagerReloadListener {
 		JsonObject jsonStack = element.getAsJsonObject();
 		JsonElement reg = jsonStack.get("item");
 		if(reg == null){
-			DRPMedievalInfo.LOGGER.warn("An itemstack in the following recipe is missing an item (really now?) " + loc.toString());
+			References.LOGGER.warn("An itemstack in the following recipe is missing an item (really now?) " + loc.toString());
 			return null;
 		}else{
 			if(!GameRegistry.findRegistry(Item.class).containsKey(new ResourceLocation(reg.getAsString()))){
-				DRPMedievalInfo.LOGGER.warn("An itemstack in the following recipe is missing an item (really now?) " + loc.toString());
+				References.LOGGER.warn("An itemstack in the following recipe is missing an item (really now?) " + loc.toString());
 				return null;
 			}
 		}
@@ -143,7 +143,7 @@ public class RecipeFromJSON implements IResourceManagerReloadListener {
 	private static void printLoadError(ResourceLocation loc, String reason){
 		String errMsg = "Unable to load recipe " + loc.getResourcePath() + " from " + loc.getResourceDomain() + ", because of the following reason:";
 		
-		DRPMedievalInfo.LOGGER.warn(errMsg);
-		DRPMedievalInfo.LOGGER.warn(reason);
+		References.LOGGER.warn(errMsg);
+		References.LOGGER.warn(reason);
 	}
 }

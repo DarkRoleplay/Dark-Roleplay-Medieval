@@ -1,7 +1,6 @@
 {
 	"__comment": "Designed by JTK222",
 	"textures": {
-		"particle": "items/e_particle",
 		"texture": "drpmedieval:items/equipment/weapons/pole_weapons/halberd/iron",
 		"wood": "drpmedieval:items/equipment/weapons/pole_weapons/halberd/handle"
 	},
