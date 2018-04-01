@@ -145,7 +145,7 @@ public class Timbering extends Block{
 				clicks.remove(player);				
 				ClickLoc pos1 = info.getLoc();
 				ClickLoc pos2 = ClickLoc.getLoc(facing, hitX, hitY, hitZ);
-				String[] types = state.getBlock().getRegistryName().getResourcePath().split("_timbering_");
+				String[] types = state.getBlock().getRegistryName().getResourcePath().split("_timbered_clay_");
 				String[] itemTypes = player.getHeldItem(hand).getItem().getRegistryName().getResourcePath().split("_wood_beam");
 				
 				if(this.getRegistryName().getResourcePath().contains("clean") && (!state.getValue(UP) && !state.getValue(DOWN) && !state.getValue(RIGHT) && !state.getValue(LEFT))) {

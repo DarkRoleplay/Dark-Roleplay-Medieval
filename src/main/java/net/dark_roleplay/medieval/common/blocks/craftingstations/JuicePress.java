@@ -63,6 +63,8 @@ public class JuicePress  extends FacedBlock {
 
 		boolean top = (meta / 4) == 1 ? true : false;
 		
+		meta %= 4;
+		
 		switch (meta) {
 			case 0:
 				return this.getDefaultState().withProperty(BlockProperties.FACING, EnumFacing.NORTH).withProperty(JuicePress.TOP, top);

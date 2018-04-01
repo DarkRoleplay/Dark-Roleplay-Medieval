@@ -8,7 +8,9 @@ import net.dark_roleplay.drpcore.api.items.DRPEquip;
 import net.dark_roleplay.drpcore.api.items.DRPFood;
 import net.dark_roleplay.drpcore.api.items.DRPItem;
 import net.dark_roleplay.drpcore.api.items.Seed;
+import net.dark_roleplay.drpcore.modules.materials.AddResourceGenerators;
 import net.dark_roleplay.drpcore.modules.materials.Material;
+import net.dark_roleplay.drpcore.modules.materials.ResourceGenerator;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.plants.apples.Apple;
 import net.dark_roleplay.medieval.common.blocks.plants.pears.Pear;
@@ -27,6 +29,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -100,6 +103,13 @@ public class DRPMedievalItems {
 			new DRPItem("ore_chunk_copper", "misc", 64),
 			new DRPItem("ore_chunk_sulfur", "misc", 64),
 			new DRPItem("ore_chunk_salpeter", "misc", 64),
+			new DRPItem("stone_brick", "misc", 64),
+			new DRPItem("beeswax", "misc", 64),
+			new DRPItem("empty_frame", "misc/apiary_frames", 1),
+			new DRPItem("honey_frame", "misc/apiary_frames", 1),
+			new DRPItem("brute_frame", "misc/apiary_frames", 1),
+			new DRPItem("sugar_frame", "misc/apiary_frames", 1),
+			new DRPItem("wax_frame", "misc/apiary_frames", 1),
 			new DRPItem("planks", "planks", 64, "oak", "spruce", "birch", "jungle", "dark_oak", "acacia"),
 			new DRPItem("leather_book_cover", "misc/books", 64),
 			new DRPItem("leather_book_cover_thik", "misc/books", 64),
@@ -160,17 +170,18 @@ public class DRPMedievalItems {
 			new DRPFood(6, 0.6F, "cooked_catfish", "food/fish", 64),
 			new DRPFood(2, 0.3F, "raw_catfish", "food/fish", 64),
 			new DRPFood(1, 0.1F, "blue_berries", "food/fruits", 64),
-			new DRPFood(2, 0.2F,"grapes", "food/fruits", 64),
-			new DRPFood(2, 0.4F,"garlic", "food/vegetables", 64),
-			new DRPFood(2, 0.4F,"onion", "food/vegetables", 64),
-			new DRPFood(4, 0.4F,"cauliflower", "food/vegetables", 64),
-			new DRPFood(6, 0.4F,"cooked_wolf", "food/meat", 64),
-			new DRPFood(2, 0.15F,"raw_wolf", "food/meat", 64),
-			new DRPFood(4, 0.3F,"pear_green", "food/fruits", 64),
-			new DRPFood(4, 0.3F,"pear_yellow", "food/fruits", 64),
-			new DRPFood(2, 0.4F,"turnip", "food/vegetables", 64),
-			new DRPFood(2, 0.4F,"hops", "food/vegetables", 64),
-			new DRPFood(6, 0.5F,"pumpkin_bread", "food/bakewares", 64),
+			new DRPFood(2, 0.2F, "grapes", "food/fruits", 64),
+			new DRPFood(2, 0.4F, "garlic", "food/vegetables", 64),
+			new DRPFood(2, 0.4F, "onion", "food/vegetables", 64),
+			new DRPFood(4, 0.4F, "cauliflower", "food/vegetables", 64),
+			new DRPFood(6, 0.4F, "cooked_wolf", "food/meat", 64),
+			new DRPFood(2, 0.15F, "raw_wolf", "food/meat", 64),
+			new DRPFood(4, 0.3F, "pear_green", "food/fruits", 64),
+			new DRPFood(4, 0.3F, "pear_yellow", "food/fruits", 64),
+			new DRPFood(2, 0.4F, "turnip", "food/vegetables", 64),
+			new DRPFood(2, 0.4F, "hops", "food/vegetables", 64),
+			new DRPFood(6, 0.5F, "pumpkin_bread", "food/bakewares", 64),
+			new DRPFood(6, 0.5F, "honey_comb", "food", 64),
 			new DRPMStew(8, 0.5F, "chicken_stew"),
 			new DRPMStew(7, 0.5F, "cod_stew"),
 			new DRPMStew(6, 0.3F, "vegie_stew"),
@@ -199,6 +210,20 @@ public class DRPMedievalItems {
 		for(ItemBlock block : blockItems){
 			reg.register(block);
 		}
+	}
+	
+	@SubscribeEvent
+	public static void addResources(AddResourceGenerators event){
+		String texGens = References.MODID + ":argh/texture_generators/"; 
+		String modGens = References.MODID + ":argh/json_generators/"; 
+		
+		event.addAll(
+			new ResourceGenerator(
+				"wood",
+				new ResourceLocation(modGens + "wood_beam.json"),
+				null
+			)
+		);
 	}
 	
 	protected static void register(IForgeRegistry<Item> reg, CreativeTabs creativeTab, Item... items){

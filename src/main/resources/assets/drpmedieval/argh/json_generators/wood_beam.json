@@ -1,0 +1,8 @@
+{
+	"jsons":[
+		{
+			"input" : "drpmedieval:argh/models/item/wood_beam.json",
+			"output" : "drpmedieval:models/item/wood_beams/%wood%_wood_beam.json"
+		}
+	]
+}
