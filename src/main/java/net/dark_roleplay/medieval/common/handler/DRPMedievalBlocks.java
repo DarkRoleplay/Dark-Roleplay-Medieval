@@ -9,6 +9,7 @@ import net.dark_roleplay.drpcore.modules.materials.AddResourceGenerators;
 import net.dark_roleplay.drpcore.modules.materials.Material;
 import net.dark_roleplay.drpcore.modules.materials.ResourceGenerator;
 import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.common.blocks.building.DirtStairs;
 import net.dark_roleplay.medieval.common.blocks.building.DryClay;
 import net.dark_roleplay.medieval.common.blocks.building.DryClayGrass;
 import net.dark_roleplay.medieval.common.blocks.building.MossyLog;
@@ -17,7 +18,8 @@ import net.dark_roleplay.medieval.common.blocks.building.PackedIceBricks;
 import net.dark_roleplay.medieval.common.blocks.building.SnowBricks;
 import net.dark_roleplay.medieval.common.blocks.building.StoneBricks;
 import net.dark_roleplay.medieval.common.blocks.building.StonePillar;
-import net.dark_roleplay.medieval.common.blocks.building.Timbering;
+import net.dark_roleplay.medieval.common.blocks.building.TimberedClay;
+import net.dark_roleplay.medieval.common.blocks.building.roof.NormalRoof;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.Anvil;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.ButterChurn;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.Cauldron;
@@ -50,6 +52,7 @@ import net.dark_roleplay.medieval.common.blocks.decorative.buckets.Bucket;
 import net.dark_roleplay.medieval.common.blocks.decorative.buckets.BucketDirt;
 import net.dark_roleplay.medieval.common.blocks.decorative.candles.BeesWaxCandle;
 import net.dark_roleplay.medieval.common.blocks.decorative.chairs.BarrelChair;
+import net.dark_roleplay.medieval.common.blocks.decorative.chairs.LogBench;
 import net.dark_roleplay.medieval.common.blocks.decorative.chairs.LogChair;
 import net.dark_roleplay.medieval.common.blocks.decorative.chairs.SimpleChair;
 import net.dark_roleplay.medieval.common.blocks.decorative.clocks.ClockCore;
@@ -174,7 +177,8 @@ public class DRPMedievalBlocks {
 				new SimpleChair("simple_" + mat.getFormatValue() + "_chair"),
 				new SimpleTable("simple_" + mat.getFormatValue() + "_table"),
 				new SidewayBarrel("laying_" + mat.getFormatValue() + "_barrel"),
-				new WoodSupport(mat.getFormatValue() + "_wood_support")
+				new WoodSupport(mat.getFormatValue() + "_wood_support"),
+				new LogBench(mat.getFormatValue() + "_log_bench")
 			);
 			
 			register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
@@ -191,24 +195,24 @@ public class DRPMedievalBlocks {
 			);
 			
 			registerNoItems(reg,
-				new Timbering(mat.getFormatValue() + "_timbered_clay_clean"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_diagonal_bt"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_diagonal_tb"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_cross"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_t_bt"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_b_bt"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_t_tb"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_b_tb"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_arrow_b"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_arrow_t"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_arrow_r"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_arrow_l"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_l_lr"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_r_lr"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_l_rl"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_double_diagonal_r_rl"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_vertical"),
-				new Timbering(mat.getFormatValue() + "_timbered_clay_horizontal"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_clean"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_diagonal_bt"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_diagonal_tb"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_cross"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_t_bt"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_b_bt"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_t_tb"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_b_tb"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_arrow_b"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_arrow_t"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_arrow_r"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_arrow_l"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_l_lr"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_r_lr"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_l_rl"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_r_rl"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_vertical"),
+				new TimberedClay(mat.getFormatValue() + "_timbered_clay_horizontal"),
 				new FluidBarrel(mat.getFormatValue() + "_fluid_barrel")
 			);
 		}
@@ -261,7 +265,9 @@ public class DRPMedievalBlocks {
 			new AdvancedOre("salpeter_ore", 1),
 			new AdvancedOre("sulfur_ore", 1),
 			new AdvancedOre("silver_ore", 2),
-			new SnowBricks("snow_bricks")
+			new SnowBricks("snow_bricks"),
+			new DirtStairs("dirt_stairs"),
+			new NormalRoof("normal_clay_roof")
 		);
 		
 		register(reg, DRPMedievalCreativeTabs.UTILITY,
@@ -308,6 +314,7 @@ public class DRPMedievalBlocks {
 		String texGens = References.MODID + ":argh/texture_generators/"; 
 		String modGens = References.MODID + ":argh/json_generators/"; 
 		
+		//TODO Automate Loading, and remove need to register
 		event.addAll(
 			new ResourceGenerator(
 				"wood",
@@ -413,6 +420,8 @@ public class DRPMedievalBlocks {
 				"wood", null, new ResourceLocation(texGens + "timbering/timbering_arrows.json")
 			), new ResourceGenerator(
 				"wood", null, new ResourceLocation(texGens + "timbering/timbering_straight.json")
+			), new ResourceGenerator(
+				"wood", null, new ResourceLocation(texGens + "log_bench.json")
 			)
 		);
 	}

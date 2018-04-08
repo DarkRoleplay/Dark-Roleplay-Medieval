@@ -13,8 +13,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class Chair extends FacedBlock {
-	private float yOffset;
 	
+	private float yOffset;
 	
 	public Chair(Material mat, String registryName,String unlocalizedName, float yOffset) {
 		super(mat);

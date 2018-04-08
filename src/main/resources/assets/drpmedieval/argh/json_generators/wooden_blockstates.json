@@ -66,6 +66,9 @@
 		},{
 			"input" : "drpmedieval:argh/blockstates/wood_support.json",
 			"output" : "drpmedieval:blockstates/%wood%_wood_support.json"
+		},{
+			"input" : "drpmedieval:argh/blockstates/log_bench.json",
+			"output" : "drpmedieval:blockstates/%wood%_log_bench.json"
 		}
 	]
 }

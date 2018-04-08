@@ -25,7 +25,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Timbering extends Block{
+public class TimberedClay extends Block{
 
 	public static final PropertyBool UP = PropertyBool.create("up");
 	public static final PropertyBool DOWN = PropertyBool.create("down");
@@ -95,7 +95,7 @@ public class Timbering extends Block{
 		}});
 	}
 	
-	public Timbering(String name) {
+	public TimberedClay(String name) {
 		super(Material.ROCK);
 		this.setRegistryName(name);
 		this.fullBlock = true;
@@ -173,12 +173,12 @@ public class Timbering extends Block{
 				}else if(!state.getValue(DOWN) && ((pos1 == ClickLoc.BOTTOM_LEFT && pos2 == ClickLoc.BOTTOM_RIGHT) || (pos1 == ClickLoc.BOTTOM_RIGHT && pos2 == ClickLoc.BOTTOM_LEFT))) {
 					world.setBlockState(pos, state.withProperty(DOWN, true));
 					succes = true;
-				}else if(Timbering.recipes.containsKey(types[1])) {
-					List<TimberRecipe> recipes = Timbering.recipes.get(types[1]);
+				}else if(TimberedClay.recipes.containsKey(types[1])) {
+					List<TimberRecipe> recipes = TimberedClay.recipes.get(types[1]);
 					for(TimberRecipe recipe : recipes) {
 						if(recipe.equals(pos1, pos2)) {
 							world.setBlockState(pos, Block.REGISTRY.getObject(
-										new ResourceLocation(state.getBlock().getRegistryName().getResourceDomain(), types[0] + "_timbering_" + recipe.getOutput())
+										new ResourceLocation(state.getBlock().getRegistryName().getResourceDomain(), types[0] + "_timbered_clay_" + recipe.getOutput())
 									)
 									.getDefaultState().withProperty(UP, state.getValue(UP))
 									.withProperty(DOWN, state.getValue(DOWN))

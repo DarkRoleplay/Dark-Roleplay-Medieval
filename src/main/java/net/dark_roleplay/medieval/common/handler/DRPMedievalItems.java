@@ -148,6 +148,8 @@ public class DRPMedievalItems {
 		register(reg, DRPMedievalCreativeTabs.EQUIPMENT,
 			new DRPItem("flint_knife", "equipment/tools", 1),
 			new DRPItem("wooden_wrench", "equipment/tools", 1),
+			new DRPItem("wood_street_stomper", "equipment/tools", 1),
+			new DRPItem("stone_street_stomper", "equipment/tools", 1),
 			new Lock("wooden_lock", "misc/locks", 16),
 			new Key("wooden_key", "misc/keys", 16),
 			new DRPItem("clean_paintbrush", "paintbrushes", 1),

@@ -1,0 +1,25 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+			"bark": "drpmedieval:blocks/log_bench/%wood%_log_bench_bark",
+			"plank": "drpmedieval:blocks/clean_plank/%wood%_clean_plank",
+			"top": "drpmedieval:blocks/log_bench/%wood%_log_bench_top",
+			"log_top": "drpmedieval:blocks/log_bench/%wood%_log_bench_side"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"facing":{
+			"north":{},
+			"east":{"y":90},
+			"south":{"y":180},
+			"west":{"y":270}
+		},
+		"single":{
+			false: {"model":"drpmedieval:wood_blocks/log_bench/log_bench_multiple"},
+			true : {"model":"drpmedieval:wood_blocks/log_bench/log_bench_single"}
+		}
+	}
+}
