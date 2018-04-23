@@ -2,39 +2,60 @@ package net.dark_roleplay.medieval.common.handler;
 
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.entities.villager.EmeraldsForStacks;
+import net.dark_roleplay.medieval.common.objects.villagers.BasicTradeList;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.fml.common.registry.VillagerRegistry;
+import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession;
 
+import static net.minecraft.entity.passive.EntityVillager.PriceInfo;
+
+@Mod.EventBusSubscriber(modid = References.MODID)
+@ObjectHolder(value = References.MODID)
 public class DRPMedievalVillagers {
 
-	protected static final VillagerRegistry.VillagerProfession PROFESSION_CARPENTER = DRPMedievalVillagers.createProf(new ResourceLocation(References.MODID, "carpenter"), new ResourceLocation(References.MODID, "textures/entities/villager/carpenter.png"), new ResourceLocation(References.MODID, "textures/entities/villager/zombie/carpenter.png") );
-    protected static final VillagerRegistry.VillagerCareer CAREER_CARPENTER = DRPMedievalVillagers.createCarrer(DRPMedievalVillagers.PROFESSION_CARPENTER, new ResourceLocation(References.MODID, "carpenter"));  
+	public static final VillagerRegistry.VillagerProfession CARPENTER = null;
+
+	private static VillagerRegistry.VillagerCareer CARPENTER_TIMBERER;
 	
 	public static void init(FMLPreInitializationEvent event) {
 
 	}
 	
 	public static void init(FMLInitializationEvent event) {
-		DRPMedievalVillagers.CAREER_CARPENTER.addTrade(1, new EmeraldsForStacks(new ItemStack(Blocks.LOG, 16, 0), new EntityVillager.PriceInfo(1,2)),
-				new EmeraldsForStacks(new ItemStack(Blocks.LOG, 16, 1), new EntityVillager.PriceInfo(1,2)),
-				new EmeraldsForStacks(new ItemStack(Blocks.LOG, 16, 2), new EntityVillager.PriceInfo(1,2)),
-				new EmeraldsForStacks(new ItemStack(Blocks.LOG, 16, 3), new EntityVillager.PriceInfo(1,2)),
-				new EmeraldsForStacks(new ItemStack(Blocks.LOG2, 16, 0), new EntityVillager.PriceInfo(1,2)),
-				new EmeraldsForStacks(new ItemStack(Blocks.LOG2, 16, 1), new EntityVillager.PriceInfo(1,2)));
-		
-        //VillagerRegistry.instance().register(DRPMedievalVillagers.PROFESSION_CARPENTER);
+		CARPENTER_TIMBERER.addTrade(1,
+			new EmeraldsForStacks(new ItemStack(Blocks.LOG, 16, 0), new PriceInfo(1,2)),
+			new EmeraldsForStacks(new ItemStack(Blocks.LOG, 16, 1), new PriceInfo(1,2)),
+			new EmeraldsForStacks(new ItemStack(Blocks.LOG, 16, 2), new PriceInfo(1,2)),
+			new EmeraldsForStacks(new ItemStack(Blocks.LOG, 16, 3), new PriceInfo(1,2)),
+			new EmeraldsForStacks(new ItemStack(Blocks.LOG2, 16, 0), new PriceInfo(1,2)),
+			new EmeraldsForStacks(new ItemStack(Blocks.LOG2, 16, 1), new PriceInfo(1,2))
+		);
+
 	}
 	
 	public static void init(FMLPostInitializationEvent event) {
 		
 	}
 
+	@SubscribeEvent
+	public static void registerVillager(RegistryEvent.Register<VillagerRegistry.VillagerProfession> e) {
+		VillagerRegistry.VillagerProfession carpenter = createProf(new ResourceLocation(References.MODID, "carpenter"), new ResourceLocation(References.MODID, "textures/entities/villager/carpenter.png"), new ResourceLocation(References.MODID, "textures/entities/villager/zombie/carpenter.png"));
+		CARPENTER_TIMBERER = DRPMedievalVillagers.createCarrer(carpenter, new ResourceLocation(References.MODID, "carpenter"));  
+		e.getRegistry().register(
+			carpenter
+		);
+	}
+	
 
 	
 	public static VillagerRegistry.VillagerProfession createProf(ResourceLocation name, ResourceLocation textureVillager, ResourceLocation textureZombie){

@@ -29,7 +29,7 @@ public class ActionMove implements Action{
 		if(tag == null)
 			tag = new NBTTagCompound();
 		
-		tag.
+		return tag;
 	}
 
 	@Override

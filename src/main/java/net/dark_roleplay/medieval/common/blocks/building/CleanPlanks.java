@@ -53,7 +53,7 @@ public class CleanPlanks extends Block{
     {
         return this.getDefaultState().withProperty(CleanPlanks.VARIANT, CleanPlanks.EnumType.byMetadata(meta));
     }
-
+    
     @Override
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos){
         return state.getValue(CleanPlanks.VARIANT).getMapColor();
