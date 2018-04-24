@@ -1,12 +1,10 @@
 package net.dark_roleplay.medieval.common.objects.items;
 
-import net.dark_roleplay.drpcore.api.items.DRPFood;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
+import net.dark_roleplay.drpcore.api.old.items.DRPFood;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.SoundCategory;

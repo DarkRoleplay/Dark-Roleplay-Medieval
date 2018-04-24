@@ -1,7 +1,6 @@
 package net.dark_roleplay.medieval.common.blocks.craftingstations;
 
-import net.dark_roleplay.drpcore.api.crafting.Crafting_Util;
-import net.dark_roleplay.medieval.client.gui.carving.Gui_CarveSign;
+import net.dark_roleplay.drpcore.api.old.crafting.Crafting_Util;
 import net.dark_roleplay.medieval.common.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.blocks.templates.FacedBlock;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
@@ -10,7 +9,6 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;

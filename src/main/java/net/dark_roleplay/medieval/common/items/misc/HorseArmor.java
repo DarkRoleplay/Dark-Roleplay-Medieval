@@ -1,9 +1,8 @@
 package net.dark_roleplay.medieval.common.items.misc;
 
-import net.dark_roleplay.drpcore.api.items.DRPItem;
+import net.dark_roleplay.library.items.DRPItem;
 import net.minecraft.entity.passive.HorseArmorType;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
 public class HorseArmor extends DRPItem{
 

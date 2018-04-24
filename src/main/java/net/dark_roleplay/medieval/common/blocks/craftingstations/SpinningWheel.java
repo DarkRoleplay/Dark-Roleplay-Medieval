@@ -1,8 +1,6 @@
 package net.dark_roleplay.medieval.common.blocks.craftingstations;
 
-import net.dark_roleplay.drpcore.api.crafting.Crafting_Util;
-import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
-import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
+import net.dark_roleplay.drpcore.api.old.crafting.Crafting_Util;
 import net.dark_roleplay.medieval.common.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.blocks.templates.FacedBlock;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;

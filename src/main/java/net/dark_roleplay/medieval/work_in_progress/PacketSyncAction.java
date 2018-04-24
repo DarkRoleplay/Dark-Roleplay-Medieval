@@ -1,8 +1,7 @@
 package net.dark_roleplay.medieval.work_in_progress;
 
 import io.netty.buffer.ByteBuf;
-import net.dark_roleplay.drpcore.common.network.PacketBase;
-import net.dark_roleplay.medieval.common.network.packets.SyncPacket_ShopSign;
+import net.dark_roleplay.library.networking.PacketBase;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class PacketSyncAction extends PacketBase.Server<PacketSyncAction>{

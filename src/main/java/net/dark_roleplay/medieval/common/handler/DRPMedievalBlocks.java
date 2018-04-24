@@ -3,11 +3,11 @@ package net.dark_roleplay.medieval.common.handler;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.dark_roleplay.drpcore.api.Modules;
-import net.dark_roleplay.drpcore.api.blocks.Crop;
-import net.dark_roleplay.drpcore.modules.materials.AddResourceGenerators;
-import net.dark_roleplay.drpcore.modules.materials.Material;
-import net.dark_roleplay.drpcore.modules.materials.ResourceGenerator;
+import net.dark_roleplay.drpcore.api.old.Modules;
+import net.dark_roleplay.drpcore.api.old.blocks.Crop;
+import net.dark_roleplay.drpcore.api.old.modules.materials.AddResourceGenerators;
+import net.dark_roleplay.drpcore.api.old.modules.materials.Material;
+import net.dark_roleplay.drpcore.api.old.modules.materials.ResourceGenerator;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.building.DirtStairs;
 import net.dark_roleplay.medieval.common.blocks.building.DryClay;

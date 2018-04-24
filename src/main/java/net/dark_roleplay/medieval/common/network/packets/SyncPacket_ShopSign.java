@@ -2,14 +2,12 @@ package net.dark_roleplay.medieval.common.network.packets;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.awt.image.Raster;
 
 import io.netty.buffer.ByteBuf;
-import net.dark_roleplay.drpcore.common.network.PacketBase;
+import net.dark_roleplay.library.networking.PacketBase;
 import net.dark_roleplay.medieval.common.blocks.util.shop_sign.TE_ShopSign;
 import net.dark_roleplay.medieval.common.util.nbt.ImageConversion;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

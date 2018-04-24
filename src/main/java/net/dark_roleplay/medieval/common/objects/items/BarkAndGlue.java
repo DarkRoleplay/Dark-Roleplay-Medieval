@@ -1,10 +1,8 @@
 package net.dark_roleplay.medieval.common.objects.items;
 
-import net.dark_roleplay.drpcore.api.items.DRPItem;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
+import net.dark_roleplay.library.items.DRPItem;
 import net.minecraft.block.BlockLog;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;

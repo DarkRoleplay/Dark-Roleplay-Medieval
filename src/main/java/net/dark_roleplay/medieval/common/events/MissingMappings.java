@@ -4,18 +4,15 @@ import java.util.ArrayList;
 
 import com.google.common.collect.ImmutableList;
 
-import net.dark_roleplay.drpcore.modules.work_in_progress.skill.Skill;
+import net.dark_roleplay.drpcore.testing.skills.Skill;
 import net.dark_roleplay.medieval.common.References;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.RegistryEvent.MissingMappings.Mapping;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 
 @Mod.EventBusSubscriber
 public class MissingMappings {

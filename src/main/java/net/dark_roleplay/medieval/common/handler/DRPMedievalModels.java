@@ -2,8 +2,8 @@ package net.dark_roleplay.medieval.common.handler;
 
 import java.util.ArrayList;
 
-import net.dark_roleplay.drpcore.api.items.DRPItem;
-import net.dark_roleplay.drpcore.api.items.ItemApi;
+import net.dark_roleplay.library.items.DRPItem;
+import net.dark_roleplay.library.items.ItemUtil;
 import net.dark_roleplay.medieval.common.References;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -22,7 +22,7 @@ public class DRPMedievalModels {
 	
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent event){
-		ItemApi.registerItemMeshs();
+		ItemUtil.registerItemMeshs();
 
 		for(Item item : toRegisterMeshes){
 			registerItemMesh(item);

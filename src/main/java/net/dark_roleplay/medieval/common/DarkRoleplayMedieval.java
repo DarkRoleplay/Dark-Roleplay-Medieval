@@ -1,6 +1,5 @@
 package net.dark_roleplay.medieval.common;
 
-import net.dark_roleplay.drpcore.api.Modules;
 import net.dark_roleplay.medieval.client.events.Event_GuiOpen;
 import net.dark_roleplay.medieval.client.events.config.Event_ConfigChange;
 import net.dark_roleplay.medieval.common.events.blocks.Event_BlockBreak;
@@ -9,9 +8,7 @@ import net.dark_roleplay.medieval.common.gui.GuiHandler;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalAchievements;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCapabilities;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalCrafting;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalEntities;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalLores;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalMappings;
@@ -70,8 +67,7 @@ public class DarkRoleplayMedieval {
 		DRPMedievalAchievements.init(event);
 		DRPMedievalLores.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
-
-		Modules.CRAFTING2.addMod("drpmedieval");
+		
 		GameRegistry.registerFuelHandler(new DarkRoleplayFuelHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(DarkRoleplayMedieval.instance, new GuiHandler());
 		
@@ -144,7 +140,6 @@ public class DarkRoleplayMedieval {
 		DRPMedievalTileEntities.init(event);
 		DRPMedievalAchievements.init(event);
 		DRPMedievalSkills.init(event);
-		DRPMedievalCrafting.init(event);
 		DRPMedievalLores.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
 		

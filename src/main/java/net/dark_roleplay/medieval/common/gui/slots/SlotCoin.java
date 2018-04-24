@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.gui.slots;
 
-import net.dark_roleplay.drpcore.api.items.DRPEquip;
+import net.dark_roleplay.drpcore.api.old.items.DRPEquip;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;

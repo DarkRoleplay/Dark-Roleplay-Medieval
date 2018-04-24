@@ -1,29 +1,22 @@
 package net.dark_roleplay.medieval.client.gui.carving;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.client.gui.storage.Gui_SimpleStorage;
 import net.dark_roleplay.medieval.common.blocks.util.shop_sign.TE_ShopSign;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalPackets;
 import net.dark_roleplay.medieval.common.network.packets.SyncPacket_ShopSign;
 import net.dark_roleplay.medieval.common.util.nbt.ImageConversion;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiLabel;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.client.settings.GameSettings;
 import net.minecraft.util.ResourceLocation;
 
 public class Gui_CarveSign extends GuiScreen{

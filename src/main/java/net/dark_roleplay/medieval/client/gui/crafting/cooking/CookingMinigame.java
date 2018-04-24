@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.client.gui.crafting.cooking;
 
-import net.dark_roleplay.drpcore.api.gui.advanced.Gui_Screen;
+import net.dark_roleplay.drpcore.api.old.gui.advanced.Gui_Screen;
 import net.dark_roleplay.medieval.client.gui.crafting.cooking.parts.Gui_RoundPanel;
 
 public class CookingMinigame extends Gui_Screen{

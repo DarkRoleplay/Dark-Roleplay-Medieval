@@ -1,11 +1,6 @@
 package net.dark_roleplay.medieval.common.blocks.craftingstations;
 
-import net.dark_roleplay.drpcore.api.crafting.Crafting_Util;
-import net.dark_roleplay.drpcore.client.gui.crafting.recipe_selection.RecipeSelection;
-import net.dark_roleplay.drpcore.common.DRPCoreReferences;
-import net.dark_roleplay.drpcore.common.DarkRoleplayCore;
-import net.dark_roleplay.drpcore.common.handler.DRPCoreGuis;
-import net.dark_roleplay.medieval.client.gui.crafting.cooking.CookingMinigame;
+import net.dark_roleplay.drpcore.api.old.crafting.Crafting_Util;
 import net.dark_roleplay.medieval.common.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCauldron;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
@@ -19,7 +14,6 @@ import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -183,9 +177,9 @@ public class Cauldron extends BlockContainer {
 				}
 			}				
 		}else if(world.isRemote && state.getValue(Cauldron.FILLED)){
-//			Crafting_Util.openRecipeSelection(this);
-			if(DRPCoreReferences.SIDE.isClient())
-				Crafting_Util.openRecipeSelection(this);
+			Crafting_Util.openRecipeSelection(this);
+//			if(DRPCoreReferences.SIDE.isClient())
+//				Crafting_Util.openRecipeSelection(this);
 //				Minecraft.getMinecraft().displayGuiScreen(new CookingMinigame());
 		}
 		return true;

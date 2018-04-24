@@ -3,9 +3,9 @@ package net.dark_roleplay.medieval.common.crafting;
 import java.util.List;
 import java.util.UUID;
 
-import net.dark_roleplay.drpcore.api.crafting.simple_recipe.SimpleCrafter;
-import net.dark_roleplay.drpcore.api.crafting.simple_recipe.SimpleRecipe;
-import net.dark_roleplay.drpcore.api.events.player.Event_PlayerCraft;
+import net.dark_roleplay.drpcore.api.old.crafting.simple_recipe.SimpleCrafter;
+import net.dark_roleplay.drpcore.api.old.crafting.simple_recipe.SimpleRecipe;
+import net.dark_roleplay.drpcore.api.old.events.player.Event_PlayerCraft;
 import net.dark_roleplay.medieval.api.items.IKey;
 import net.dark_roleplay.medieval.api.items.ILock;
 import net.minecraft.entity.item.EntityItem;

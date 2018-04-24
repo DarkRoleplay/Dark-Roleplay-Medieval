@@ -10,6 +10,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
+import net.dark_roleplay.medieval.api.blocks.properties.UnlistedPropertyInteger;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.decorative.rope_fence.RopeFence;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
@@ -87,7 +88,7 @@ public class DelayedBaker_RopeFence extends DelayedBaker implements ICustomModel
 
 		if (state instanceof IExtendedBlockState) {
 			IExtendedBlockState exState = (IExtendedBlockState) state;
-			if (exState.getUnlistedNames().contains(RopeFence.NORTH))
+			if (exState.getUnlistedNames().contains(RopeFence.NORTH) && exState.getValue(RopeFence.NORTH) != null)
 				north = exState.getValue(RopeFence.NORTH);
 			if (exState.getUnlistedNames().contains(RopeFence.EAST))
 				east = exState.getValue(RopeFence.EAST);

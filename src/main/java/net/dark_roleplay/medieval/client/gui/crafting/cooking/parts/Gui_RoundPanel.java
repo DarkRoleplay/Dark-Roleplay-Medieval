@@ -2,8 +2,7 @@ package net.dark_roleplay.medieval.client.gui.crafting.cooking.parts;
 
 import java.awt.Color;
 
-import net.dark_roleplay.drpcore.api.gui.advanced.Gui_Panel;
-import net.dark_roleplay.drpcore.api.gui.modular.ModularGui_Drawer;
+import net.dark_roleplay.drpcore.api.old.gui.advanced.Gui_Panel;
 import net.minecraft.client.renderer.GlStateManager;
 
 public class Gui_RoundPanel extends Gui_Panel.IMPL{
