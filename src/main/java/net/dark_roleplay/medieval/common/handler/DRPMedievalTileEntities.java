@@ -7,6 +7,7 @@ import net.dark_roleplay.medieval.common.blocks.storage.shelf.TE_Shelf;
 import net.dark_roleplay.medieval.common.blocks.tileentities.TileEntity_AdvancedCrop;
 import net.dark_roleplay.medieval.common.blocks.tileentities.TileEntity_FlowerStorage;
 import net.dark_roleplay.medieval.common.blocks.tileentities.lectern.TileEntity_Lectern;
+import net.dark_roleplay.medieval.common.blocks.tileentities.roof.TE_Roof;
 import net.dark_roleplay.medieval.common.blocks.tileentities.storage.TileEntity_SimpleStorage;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.RopeCoilTileEntity;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityAnvil;
@@ -55,6 +56,7 @@ public class DRPMedievalTileEntities {
 		
 		// Storage Blocks
         //New Storage
+        GameRegistry.registerTileEntity(TE_Roof.class, References.MODID + "tile_entity_roof");
         GameRegistry.registerTileEntity(TileEntity_SimpleStorage.class, References.MODID + ":" + "tile_entity_simple_storage");
         GameRegistry.registerTileEntity(TileEntity_Lectern.class, References.MODID + ":" + "tile_entity_lectern");
         GameRegistry.registerTileEntity(TE_FluidBarrel.class, References.MODID + ":" + "tile_entity_fluid_barrel");

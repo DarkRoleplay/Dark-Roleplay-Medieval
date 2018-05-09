@@ -17,7 +17,7 @@ public class BlockProperties {
 	public static final PropertyBool LIT = PropertyBool.create("lit");
 
 	
-	public static final PropertyEnum<StairType> TYPE = PropertyEnum.<StairType>create("type", StairType.class);
+	public static final PropertyEnum<StairType> STAIR_TYPE = PropertyEnum.<StairType>create("type", StairType.class);
 	
 	
 	public static enum StairType implements IStringSerializable{

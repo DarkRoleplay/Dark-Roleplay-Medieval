@@ -16,6 +16,7 @@ import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderRopeAnchor;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderShipsWheel;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderTarget;
 import net.dark_roleplay.medieval.client.blocks.tesrs.clock.TESR_ClockCore;
+import net.dark_roleplay.medieval.client.blocks.tesrs.roof.TESR_Roof;
 import net.dark_roleplay.medieval.client.blocks.tesrs.shelf.TESR_Shelf;
 import net.dark_roleplay.medieval.client.blocks.tesrs.shop_sign.TESR_ShopSign;
 import net.dark_roleplay.medieval.client.entities.fox.Render_Fox;
@@ -31,6 +32,7 @@ import net.dark_roleplay.medieval.common.blocks.decorative.clocks.TE_ClockCore;
 import net.dark_roleplay.medieval.common.blocks.storage.barrels.TESR_FluidBarrel;
 import net.dark_roleplay.medieval.common.blocks.storage.barrels.TE_FluidBarrel;
 import net.dark_roleplay.medieval.common.blocks.storage.shelf.TE_Shelf;
+import net.dark_roleplay.medieval.common.blocks.tileentities.roof.TE_Roof;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityAnvil;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCauldron;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityChain;
@@ -79,7 +81,7 @@ public class ClientProxy extends CommonProxy {
 		ModelLoaderRegistry.registerLoader(new DelayedBaker_DirtBucket());		
 		ModelLoaderRegistry.registerLoader(new DelayedBaker_Timbering());
 		ModelLoaderRegistry.registerLoader(new MultiLayerModelLoader());
-
+		
 		RenderingRegistry.<Entity_Fox>registerEntityRenderingHandler(Entity_Fox.class, Render_Fox.FACTORY);
 		RenderingRegistry.<Wheelbarrel>registerEntityRenderingHandler(Wheelbarrel.class, WheelbarrelRenderer.FACTORY);
 
@@ -103,6 +105,7 @@ public class ClientProxy extends CommonProxy {
 
 
 	public void registerRenders() {				
+		ClientRegistry.bindTileEntitySpecialRenderer(TE_Roof.class, new TESR_Roof());
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_ClockCore.class, new TESR_ClockCore());
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_ShopSign.class, new TESR_ShopSign());
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_Shelf.class, new TESR_Shelf(Minecraft.getMinecraft().getRenderItem()));

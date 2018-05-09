@@ -1,6 +1,7 @@
 {
     "forge_marker": 1,
     "defaults": {
+		"model":"drpmedieval:wood_blocks/log_bench/log_bench_single",
         "textures": {
 			"bark": "drpmedieval:blocks/log_bench/%wood%_log_bench_bark",
 			"plank": "drpmedieval:blocks/clean_plank/%wood%_clean_plank",

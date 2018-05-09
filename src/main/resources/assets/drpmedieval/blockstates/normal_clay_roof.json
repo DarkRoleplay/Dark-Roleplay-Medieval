@@ -10,13 +10,13 @@
     },
 	"variants": {
 		"facing":{
-			"north":{"y":90},
-			"east":{"y":180},
-			"south":{"y":270},
-			"west":{}
+			"north":{},
+			"east":{"y":90},
+			"south":{"y":180},
+			"west":{"y":270}
 		},
 		"type":{
-			"straight":{"model": "drpmedieval:shingle_roof/roof_straight"},
+			"straight":{"model": "drpmedieval:shingle_roof/normal_roof_straight"},
 			"inner_left":{"model": "drpmedieval:shingle_roof/roof_inner_right"},
 			"inner_right":{"model": "drpmedieval:shingle_roof/roof_inner_right"},
 			"outer_left":{"model": "drpmedieval:shingle_roof/roof_outer_left"},

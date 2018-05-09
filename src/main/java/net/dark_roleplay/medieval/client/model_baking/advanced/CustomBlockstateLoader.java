@@ -6,7 +6,10 @@ import java.util.Map;
 
 import com.google.gson.JsonObject;
 
+import net.dark_roleplay.medieval.client.blocks.tesrs.roof.TESR_Roof;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ICustomModelLoader;
@@ -21,6 +24,10 @@ public class CustomBlockstateLoader implements ICustomModelLoader{
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {
 		manager = resourceManager;
+		TESR_Roof.north = new HashMap<IBlockState, TextureAtlasSprite>(); 
+		TESR_Roof.east = new HashMap<IBlockState, TextureAtlasSprite>();  
+		TESR_Roof.south = new HashMap<IBlockState, TextureAtlasSprite>(); 
+		TESR_Roof.west = new HashMap<IBlockState, TextureAtlasSprite>();  
 	}
 
 	@Override

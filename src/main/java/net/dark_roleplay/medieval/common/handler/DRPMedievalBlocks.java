@@ -20,6 +20,7 @@ import net.dark_roleplay.medieval.common.blocks.building.StoneBricks;
 import net.dark_roleplay.medieval.common.blocks.building.StonePillar;
 import net.dark_roleplay.medieval.common.blocks.building.TimberedClay;
 import net.dark_roleplay.medieval.common.blocks.building.roof.NormalRoof;
+import net.dark_roleplay.medieval.common.blocks.building.shingles.Slab;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.Anvil;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.ButterChurn;
 import net.dark_roleplay.medieval.common.blocks.craftingstations.Cauldron;
@@ -267,7 +268,8 @@ public class DRPMedievalBlocks {
 			new AdvancedOre("silver_ore", 2),
 			new SnowBricks("snow_bricks"),
 			new DirtStairs("dirt_stairs"),
-			new NormalRoof("normal_clay_roof")
+			new NormalRoof("normal_clay_roof"),
+			new Slab("shingles_slab", BlockBehaviours.SHINGLES)
 		);
 		
 		register(reg, DRPMedievalCreativeTabs.UTILITY,

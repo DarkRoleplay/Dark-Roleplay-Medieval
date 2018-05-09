@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "0.2.4c"
+version = "0.2.5"
 group = "net.dark_roleplay.medieval"
 archivesBaseName = "Dark Roleplay Medieval"
 
