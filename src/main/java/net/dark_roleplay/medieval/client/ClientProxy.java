@@ -2,6 +2,8 @@ package net.dark_roleplay.medieval.client;
 
 import java.io.File;
 
+import com.google.common.collect.ImmutableMap;
+
 import net.dark_roleplay.medieval.client.blocks.colors.DryClayGrassColor;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderAnvil;
 import net.dark_roleplay.medieval.client.blocks.tesrs.SpecialRenderCauldron;
@@ -53,8 +55,11 @@ import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.animation.ITimeValue;
+import net.minecraftforge.common.model.animation.IAnimationStateMachine;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -124,4 +129,8 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRopeAnchor.class, new SpecialRenderRopeAnchor());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFirepit.class, new SpecialRenderFirepit());	
 	}
+	
+	public IAnimationStateMachine load(ResourceLocation location, ImmutableMap<String, ITimeValue> parameters){
+        return ModelLoaderRegistry.loadASM(location, parameters);
+    }
 }

@@ -27,6 +27,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.property.ExtendedBlockState;
+import net.minecraftforge.common.property.IUnlistedProperty;
+import net.minecraftforge.common.property.Properties;
 
 public class DungeonChest extends Block {
 
@@ -41,31 +44,93 @@ public class DungeonChest extends Block {
 		this.setSoundType(SoundType.WOOD);
 	}
 
-	// -------------------------------------------------- Block Data --------------------------------------------------
-	
+	// -------------------------------------------------- Block Data
+	// --------------------------------------------------
+
 	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
-		if(state.getValue(DungeonChest.FACING) == EnumFacing.NORTH)
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		if (state.getValue(DungeonChest.FACING) == EnumFacing.NORTH)
 			return new AxisAlignedBB(0.0625F, 0F, 0.125F, 0.9375F, 0.75F, 0.875F);
-		else if( state.getValue(DungeonChest.FACING) == EnumFacing.EAST )
+		else if (state.getValue(DungeonChest.FACING) == EnumFacing.EAST)
 			return new AxisAlignedBB(0.125F, 0F, 0.0625F, 0.875F, 0.75F, 0.9375F);
-		else if( state.getValue(DungeonChest.FACING) == EnumFacing.SOUTH )
+		else if (state.getValue(DungeonChest.FACING) == EnumFacing.SOUTH)
 			return new AxisAlignedBB(0.0625F, 0F, 0.125F, 0.9375F, 0.75F, 0.875F);
-		else if( state.getValue(DungeonChest.FACING) == EnumFacing.WEST )
+		else if (state.getValue(DungeonChest.FACING) == EnumFacing.WEST)
 			return new AxisAlignedBB(0.125F, 0F, 0.0625F, 0.875F, 0.75F, 0.9375F);
 		return null;
-    }
+	}
 
 	@Override
-	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing){
-        return BlockFaceShape.UNDEFINED;
-    }
+	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing) {
+		return BlockFaceShape.UNDEFINED;
+	}
 
-	@Override		
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
 		switch (meta) {
+		case 0:
+			return this.getDefaultState().withProperty(DungeonChest.FACING, EnumFacing.NORTH);
+		case 1:
+			return this.getDefaultState().withProperty(DungeonChest.FACING, EnumFacing.EAST);
+		case 2:
+			return this.getDefaultState().withProperty(DungeonChest.FACING, EnumFacing.SOUTH);
+		case 3:
+			return this.getDefaultState().withProperty(DungeonChest.FACING, EnumFacing.WEST);
+		default:
+			return this.getDefaultState().withProperty(DungeonChest.FACING, EnumFacing.NORTH);
+		}
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+
+		EnumFacing facing = state.getValue(DungeonChest.FACING);
+		if (facing.equals(EnumFacing.NORTH))
+			return 0;
+		if (facing.equals(EnumFacing.EAST))
+			return 1;
+		if (facing.equals(EnumFacing.SOUTH))
+			return 2;
+		if (facing.equals(EnumFacing.WEST))
+			return 3;
+		return 0;
+	}
+
+	@Override
+	protected ExtendedBlockState createBlockState() {
+
+		return new ExtendedBlockState(this, new IProperty[] { DungeonChest.FACING, Properties.StaticProperty },
+				new IUnlistedProperty[] { Properties.AnimationProperty });
+	}
+
+	@Override
+	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return state.withProperty(Properties.StaticProperty, true);
+	}
+
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+
+	// -------------------------------------------------- Block Events
+	// --------------------------------------------------
+
+	@Override
+	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+			float hitZ, int meta, EntityLivingBase placer) {
+		if (!worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true))
+			return Blocks.AIR.getDefaultState();
+		EntityPlayer entity = (EntityPlayer) placer;
+		if (entity != null) {
+			int dir = MathHelper.floor((entity.rotationYaw * 4.0F) / 360.0F + 0.5D) & 3;
+			switch (dir) {
 			case 0:
 				return this.getDefaultState().withProperty(DungeonChest.FACING, EnumFacing.NORTH);
 			case 1:
@@ -76,67 +141,20 @@ public class DungeonChest extends Block {
 				return this.getDefaultState().withProperty(DungeonChest.FACING, EnumFacing.WEST);
 			default:
 				return this.getDefaultState().withProperty(DungeonChest.FACING, EnumFacing.NORTH);
-		}
-	}
-
-	@Override
-	public int getMetaFromState(IBlockState state) {
-
-		EnumFacing facing = state.getValue(DungeonChest.FACING);
-		if(facing.equals(EnumFacing.NORTH)) return 0;
-		if(facing.equals(EnumFacing.EAST)) return 1;
-		if(facing.equals(EnumFacing.SOUTH)) return 2;
-		if(facing.equals(EnumFacing.WEST)) return 3;
-		return 0;
-	}
-
-	@Override
-	protected BlockStateContainer createBlockState() {
-
-		return new BlockStateContainer(this, new IProperty[] {DungeonChest.FACING});
-	}
-	
-	@Override
-	public boolean isFullCube(IBlockState state) {
-		return false;
-	}
-	
-	@Override
-	public boolean isOpaqueCube(IBlockState state) {
-		return false;
-	}
-	
-	// -------------------------------------------------- Block Events --------------------------------------------------
-
-	@Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
-		if(!worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true)) return Blocks.AIR.getDefaultState();
-		EntityPlayer entity = (EntityPlayer) placer;
-		if(entity != null){
-			int dir = MathHelper.floor((entity.rotationYaw * 4.0F) / 360.0F + 0.5D) & 3;
-			switch (dir) {
-				case 0:
-					return this.getDefaultState().withProperty(DungeonChest.FACING, EnumFacing.NORTH);
-				case 1:
-					return this.getDefaultState().withProperty(DungeonChest.FACING, EnumFacing.EAST);
-				case 2:
-					return this.getDefaultState().withProperty(DungeonChest.FACING, EnumFacing.SOUTH);
-				case 3:
-					return this.getDefaultState().withProperty(DungeonChest.FACING, EnumFacing.WEST);
-				default:
-					return this.getDefaultState().withProperty(DungeonChest.FACING, EnumFacing.NORTH);
 			}
 		}
 		return Blocks.AIR.getDefaultState();
 	}
-	
-	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 
-		if(!world.isRemote){
+	@Override
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+			EnumFacing facing, float hitX, float hitY, float hitZ) {
+
+		if (!world.isRemote) {
 			TileEntity tileentity = world.getTileEntity(pos);
-			if(tileentity instanceof TileEntityDungeonChest){
-				player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_DUNGEONCHEST, world, pos.getX(), pos.getY(), pos.getZ());
+			if (tileentity instanceof TileEntityDungeonChest) {
+				player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_DUNGEONCHEST, world, pos.getX(),
+						pos.getY(), pos.getZ());
 			}
 		}
 		return true;
@@ -147,7 +165,7 @@ public class DungeonChest extends Block {
 
 		TileEntity tileEntity = worldIn.getTileEntity(pos);
 
-		if(tileEntity instanceof TileEntityDungeonChest){
+		if (tileEntity instanceof TileEntityDungeonChest) {
 			TileEntityDungeonChest tileentityChest = (TileEntityDungeonChest) tileEntity;
 			InventoryHelper.dropInventoryItems(worldIn, pos, tileentityChest.inventory);
 		}
@@ -163,6 +181,6 @@ public class DungeonChest extends Block {
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
 		return new TileEntityDungeonChest();
-    }
-	
+	}
+
 }
