@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.common.blocks.storage.shelf;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.blocks.templates.FacedBlock;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityDungeonChest;
+import net.dark_roleplay.medieval.common.blocks.tileentitys.TE_DungeonChest;
 import net.dark_roleplay.medieval.common.gui.GuiHandler;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.SoundType;

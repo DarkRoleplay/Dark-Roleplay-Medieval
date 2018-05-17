@@ -15,7 +15,7 @@ import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityBookOne;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCauldron;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityChain;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCrate;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityDungeonChest;
+import net.dark_roleplay.medieval.common.blocks.tileentitys.TE_DungeonChest;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityFirepit;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityGrindstone;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityHangingCauldron;
@@ -63,7 +63,7 @@ public class DRPMedievalTileEntities {
 
         //Old Storage
 		GameRegistry.registerTileEntity(TileEntityCrate.class, References.MODID + ":" + "TilEntityCrate");
-		GameRegistry.registerTileEntity(TileEntityDungeonChest.class, References.MODID + ":" + "TileEntityDungeonChest");
+		GameRegistry.registerTileEntity(TE_DungeonChest.class, References.MODID + ":" + "TileEntityDungeonChest");
 		GameRegistry.registerTileEntity(TileEntity_AdvancedCrop.class, References.MODID + ":" + "tile_entity_advanced_crop");
 		
 	}

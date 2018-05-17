@@ -31,10 +31,12 @@ import net.dark_roleplay.medieval.client.model_baking.MultiLayerModelLoader;
 import net.dark_roleplay.medieval.client.model_baking.advanced.CustomBlockstateLoader;
 import net.dark_roleplay.medieval.common.CommonProxy;
 import net.dark_roleplay.medieval.common.blocks.decorative.clocks.TE_ClockCore;
+import net.dark_roleplay.medieval.common.blocks.storage.DungeonChest;
 import net.dark_roleplay.medieval.common.blocks.storage.barrels.TESR_FluidBarrel;
 import net.dark_roleplay.medieval.common.blocks.storage.barrels.TE_FluidBarrel;
 import net.dark_roleplay.medieval.common.blocks.storage.shelf.TE_Shelf;
 import net.dark_roleplay.medieval.common.blocks.tileentities.roof.TE_Roof;
+import net.dark_roleplay.medieval.common.blocks.tileentitys.TE_DungeonChest;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityAnvil;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCauldron;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityChain;
@@ -53,11 +55,15 @@ import net.dark_roleplay.medieval.common.entities.WheelbarrelRenderer;
 import net.dark_roleplay.medieval.common.entities.fox.Entity_Fox;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
+import net.minecraftforge.client.model.animation.Animation;
+import net.minecraftforge.client.model.animation.AnimationTESR;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.animation.Event;
 import net.minecraftforge.common.animation.ITimeValue;
 import net.minecraftforge.common.model.animation.IAnimationStateMachine;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -116,6 +122,22 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_Shelf.class, new TESR_Shelf(Minecraft.getMinecraft().getRenderItem()));
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_FluidBarrel.class, new TESR_FluidBarrel());
 
+		ClientRegistry.bindTileEntitySpecialRenderer(TE_DungeonChest.class, new AnimationTESR<TE_DungeonChest>(){
+			@Override
+		    public void renderTileEntityFast(TE_DungeonChest te, double x, double y, double z, float partialTick, int breakStage, float partial, BufferBuilder renderer){
+//				
+//				if(te.asm.currentState().equals("closed") || te.asm.currentState().equals("open")) {
+					te.clickTime.setValue(Animation.getWorldTime(te.getWorld()));
+//				}
+				super.renderTileEntityFast(te, x, y, z, partialTick, breakStage, partial, renderer);
+			}
+			
+			@Override
+			public void handleEvents(TE_DungeonChest chest, float time, Iterable<Event> pastEvents){
+				chest.handleEvents(time, pastEvents);
+			}
+		});
+		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAnvil.class, new SpecialRenderAnvil());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMortar.class, new SpecialRenderMortar());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrindstone.class, new SpecialRenderGrindstone());

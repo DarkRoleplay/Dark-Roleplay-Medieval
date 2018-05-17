@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.blocks.storage;
 
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCrate;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityDungeonChest;
+import net.dark_roleplay.medieval.common.blocks.tileentitys.TE_DungeonChest;
 import net.dark_roleplay.medieval.common.gui.GuiHandler;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.minecraft.block.Block;
@@ -147,14 +147,13 @@ public class DungeonChest extends Block {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
-			EnumFacing facing, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-		if (!world.isRemote) {
+		if (world.isRemote) {
 			TileEntity tileentity = world.getTileEntity(pos);
-			if (tileentity instanceof TileEntityDungeonChest) {
-				player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_DUNGEONCHEST, world, pos.getX(),
-						pos.getY(), pos.getZ());
+			if (tileentity instanceof TE_DungeonChest) {
+//				player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_DUNGEONCHEST, world, pos.getX(), pos.getY(), pos.getZ());
+				((TE_DungeonChest) tileentity).click(player.isSneaking());
 			}
 		}
 		return true;
@@ -165,8 +164,8 @@ public class DungeonChest extends Block {
 
 		TileEntity tileEntity = worldIn.getTileEntity(pos);
 
-		if (tileEntity instanceof TileEntityDungeonChest) {
-			TileEntityDungeonChest tileentityChest = (TileEntityDungeonChest) tileEntity;
+		if (tileEntity instanceof TE_DungeonChest) {
+			TE_DungeonChest tileentityChest = (TE_DungeonChest) tileEntity;
 			InventoryHelper.dropInventoryItems(worldIn, pos, tileentityChest.inventory);
 		}
 
@@ -180,7 +179,7 @@ public class DungeonChest extends Block {
 
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
-		return new TileEntityDungeonChest();
+		return new TE_DungeonChest();
 	}
 
 }

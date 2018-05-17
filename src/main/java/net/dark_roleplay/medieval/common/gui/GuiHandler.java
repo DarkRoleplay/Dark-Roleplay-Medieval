@@ -7,7 +7,7 @@ import net.dark_roleplay.medieval.client.gui.Note;
 import net.dark_roleplay.medieval.client.gui.storage.Gui_SimpleStorage;
 import net.dark_roleplay.medieval.common.blocks.tileentities.storage.TileEntity_SimpleStorage;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCrate;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityDungeonChest;
+import net.dark_roleplay.medieval.common.blocks.tileentitys.TE_DungeonChest;
 import net.dark_roleplay.medieval.common.gui.container.ContainerCrate;
 import net.dark_roleplay.medieval.common.gui.container.ContainerDungeonChest;
 import net.dark_roleplay.medieval.common.gui.container.Container_SimpleStorage;
@@ -29,7 +29,7 @@ public class GuiHandler implements IGuiHandler {
 
 		switch (ID) {
 			case GUI_DUNGEONCHEST:
-				return new ContainerDungeonChest(player.inventory, (TileEntityDungeonChest) world.getTileEntity(new BlockPos(x, y, z)));
+				return new ContainerDungeonChest(player.inventory, (TE_DungeonChest) world.getTileEntity(new BlockPos(x, y, z)));
 			case GUI_CRATE:
 				return new ContainerCrate(player.inventory, (TileEntityCrate) world.getTileEntity(new BlockPos(x, y, z)));
 			case GUI_SIMPLE_STORAGE:
@@ -48,7 +48,7 @@ public class GuiHandler implements IGuiHandler {
 
 		switch (ID) {
 			case GUI_DUNGEONCHEST:
-				return new GuiDungeonChest(new ContainerDungeonChest(player.inventory, (TileEntityDungeonChest) world.getTileEntity(new BlockPos(x, y, z))));
+				return new GuiDungeonChest(new ContainerDungeonChest(player.inventory, (TE_DungeonChest) world.getTileEntity(new BlockPos(x, y, z))));
 			case GUI_CRATE:
 				return new GuiCrate(new ContainerCrate(player.inventory, (TileEntityCrate) world.getTileEntity(new BlockPos(x, y, z))));
 			case GUI_MINIGAME_MUSIK:

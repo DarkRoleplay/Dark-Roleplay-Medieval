@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.gui.container;
 
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityDungeonChest;
+import net.dark_roleplay.medieval.common.blocks.tileentitys.TE_DungeonChest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerDungeonChest extends Container {
 
-	private TileEntityDungeonChest chest = new TileEntityDungeonChest();
+	private TE_DungeonChest chest = new TE_DungeonChest();
 
-	public ContainerDungeonChest(IInventory playerInv, TileEntityDungeonChest DungeonChest) {
+	public ContainerDungeonChest(IInventory playerInv, TE_DungeonChest DungeonChest) {
 		int i = -18;
 		int j;
 		int k;

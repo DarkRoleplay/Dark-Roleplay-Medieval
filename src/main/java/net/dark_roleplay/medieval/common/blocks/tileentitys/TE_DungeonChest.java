@@ -22,23 +22,21 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.model.animation.CapabilityAnimation;
 import net.minecraftforge.common.model.animation.IAnimationStateMachine;
 
-public class TileEntityDungeonChest extends TileEntity {
+public class TE_DungeonChest extends TileEntity {
 
 	public InventoryBasic inventory;
 
 	@Nullable
-	private final IAnimationStateMachine asm;
-	private final VariableValue cycleLength = new VariableValue(4);
-	private final VariableValue clickTime = new VariableValue(Float.NEGATIVE_INFINITY);
+	public final IAnimationStateMachine asm;
+	public final VariableValue clickTime = new VariableValue(Float.NEGATIVE_INFINITY);
 
 	int InvSize = 27;
 
-	public TileEntityDungeonChest() {
+	public TE_DungeonChest() {
 		inventory = new InventoryBasic("DungeonChestInventory", false, InvSize);
-		asm = DarkRoleplayMedieval.proxy.load(new ResourceLocation(References.MODID, "asms/block/engine.json"),
-				ImmutableMap.<String, ITimeValue>of("cycle_length", cycleLength, "click_time", clickTime
-				// "offset", offset
-				));
+		asm = DarkRoleplayMedieval.proxy.load(new ResourceLocation(References.MODID, "asms/block/simple_chest.json"), ImmutableMap.<String, ITimeValue>of(
+				"click_time", clickTime
+		));
 	}
 
 	public void handleEvents(float time, Iterable<Event> pastEvents) {
@@ -52,35 +50,18 @@ public class TileEntityDungeonChest extends TileEntity {
 		return true;
 	}
 
-	/*
-	 * public IExtendedBlockState getState(IExtendedBlockState state) { return
-	 * state.withProperty(B3DFrameProperty.instance, curState); }
-	 */
-
 	public void click(boolean sneaking) {
-		if (asm != null) {
-			if (sneaking) {
-				cycleLength.setValue(6 - cycleLength.apply(0));
-			}
-			/*
-			 * else if(asm.currentState().equals("closed")) {
-			 * clickTime.setValue(Animation.getWorldTime(getWorld()));
-			 * asm.transition("opening"); } else
-			 * if(asm.currentState().equals("open")) {
-			 * clickTime.setValue(Animation.getWorldTime(getWorld()));
-			 * asm.transition("closing"); }
-			 */
-			else if (asm.currentState().equals("default")) {
-				float time = Animation.getWorldTime(getWorld(), Animation.getPartialTickTime());
-				clickTime.setValue(time);
-				// offset.setValue(time);
-				// asm.transition("moving");
-				asm.transition("starting");
-			} else if (asm.currentState().equals("moving")) {
-				clickTime.setValue(Animation.getWorldTime(getWorld(), Animation.getPartialTickTime()));
-				asm.transition("stopping");
-			}
-		}
+		if(sneaking) {
+			System.out.println(asm.currentState());
+			System.out.println(Animation.getWorldTime(getWorld()));
+			clickTime.setValue(Animation.getWorldTime(getWorld()));
+		}else if(asm.currentState().equals("closed")){
+            clickTime.setValue(Animation.getWorldTime(getWorld()));
+            asm.transition("opening");
+        }else if(asm.currentState().equals("open")){
+            clickTime.setValue(Animation.getWorldTime(getWorld()));
+            asm.transition("closing");
+        }
 	}
 
 	@Override
