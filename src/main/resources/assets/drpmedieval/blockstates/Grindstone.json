@@ -1,8 +1,8 @@
 {
     "variants":{
-        "facing=north":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-        "facing=east":{"model":"drpmedieval:m_i_s_s_i_n_g", "y":90},
-        "facing=south":{"model":"drpmedieval:m_i_s_s_i_n_g", "y":180},
-        "facing=west":{"model":"drpmedieval:m_i_s_s_i_n_g", "y":270}   
+        "facing=north":{"model":"drpmedieval:none"},
+        "facing=east":{"model":"drpmedieval:none", "y":90},
+        "facing=south":{"model":"drpmedieval:none", "y":180},
+        "facing=west":{"model":"drpmedieval:none", "y":270}   
     }
 }

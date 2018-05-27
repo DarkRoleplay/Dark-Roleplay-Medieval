@@ -178,7 +178,7 @@ public class DRPMedievalItems {
 			new DRPFood(2, 0.4F, "turnip", "food/vegetables", 64),
 			new DRPFood(2, 0.4F, "hops", "food/vegetables", 64),
 			new DRPFood(6, 0.5F, "pumpkin_bread", "food/bakewares", 64),
-			new DRPFood(6, 0.5F, "honey_comb", "food", 64),
+			new DRPFood(6, 0.5F, "honey_comb", "food/other", 64),
 			new DRPMStew(8, 0.5F, "chicken_stew"),
 			new DRPMStew(7, 0.5F, "cod_stew"),
 			new DRPMStew(6, 0.3F, "vegie_stew"),
@@ -217,7 +217,7 @@ public class DRPMedievalItems {
 		event.addAll(
 			new ResourceGenerator(
 				"wood",
-				new ResourceLocation(modGens + "wood_beam.json"),
+				new ResourceLocation(modGens + "wood_beam.json"), 
 				null
 			)
 		);

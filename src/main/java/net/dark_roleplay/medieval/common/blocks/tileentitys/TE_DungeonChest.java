@@ -11,6 +11,7 @@ import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
@@ -26,6 +27,8 @@ public class TE_DungeonChest extends TileEntity {
 
 	public InventoryBasic inventory;
 
+	private boolean isOpen = false;
+
 	@Nullable
 	public final IAnimationStateMachine asm;
 	public final VariableValue clickTime = new VariableValue(Float.NEGATIVE_INFINITY);
@@ -34,15 +37,12 @@ public class TE_DungeonChest extends TileEntity {
 
 	public TE_DungeonChest() {
 		inventory = new InventoryBasic("DungeonChestInventory", false, InvSize);
-		asm = DarkRoleplayMedieval.proxy.load(new ResourceLocation(References.MODID, "asms/block/simple_chest.json"), ImmutableMap.<String, ITimeValue>of(
-				"click_time", clickTime
-		));
+		asm = DarkRoleplayMedieval.proxy.load(
+				new ResourceLocation(References.MODID, "asms/block/simple_chest_top.json"),
+				ImmutableMap.<String, ITimeValue>of("click_time", clickTime));
 	}
 
 	public void handleEvents(float time, Iterable<Event> pastEvents) {
-		for (Event event : pastEvents) {
-			System.out.println("Event: " + event.event() + " " + event.offset() + " " + getPos() + " " + time);
-		}
 	}
 
 	@Override
@@ -50,18 +50,30 @@ public class TE_DungeonChest extends TileEntity {
 		return true;
 	}
 
-	public void click(boolean sneaking) {
-		if(sneaking) {
-			System.out.println(asm.currentState());
-			System.out.println(Animation.getWorldTime(getWorld()));
-			clickTime.setValue(Animation.getWorldTime(getWorld()));
-		}else if(asm.currentState().equals("closed")){
-            clickTime.setValue(Animation.getWorldTime(getWorld()));
-            asm.transition("opening");
-        }else if(asm.currentState().equals("open")){
-            clickTime.setValue(Animation.getWorldTime(getWorld()));
-            asm.transition("closing");
-        }
+	public boolean isOpen() {
+		return this.isOpen;
+	}
+
+	@Nullable
+	public SPacketUpdateTileEntity getUpdatePacket() {
+		return null;
+	}
+
+	public NBTTagCompound getUpdateTag() {
+		return this.writeToNBT(new NBTTagCompound());
+	}
+
+	public void click() {
+		this.isOpen = !this.isOpen;
+		if (world.isRemote) {
+			if (asm.currentState().equals("closed")) {
+				clickTime.setValue(Animation.getWorldTime(getWorld()));
+				asm.transition("opening");
+			} else if (asm.currentState().equals("open")) {
+				clickTime.setValue(Animation.getWorldTime(getWorld()));
+				asm.transition("closing");
+			}
+		}
 	}
 
 	@Override
@@ -83,35 +95,41 @@ public class TE_DungeonChest extends TileEntity {
 
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
-
 		super.writeToNBT(nbt);
 
+		nbt.setBoolean("is_open", this.isOpen);
+		
 		NBTTagList list = new NBTTagList();
 
 		for (int i = 0; i < InvSize; i++) {
 			if (inventory.getStackInSlot(i) != null) {
 				NBTTagCompound tag = new NBTTagCompound();
-				tag.setByte("Slot", (byte) i);
+				tag.setByte("slot", (byte) i);
 				inventory.getStackInSlot(i).writeToNBT(tag);
 				list.appendTag(tag);
 			}
 		}
 
-		nbt.setTag("ItemStacks", list);
+		nbt.setTag("inventory", list);
 
 		return nbt;
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
-
 		super.readFromNBT(compound);
 
-		NBTTagList list = compound.getTagList("ItemStacks", 10);
+		this.isOpen = compound.hasKey("is_open") ? compound.getBoolean("is_open") : false;
+		if (!DarkRoleplayMedieval.isOnServer && this.isOpen) {
+			System.out.println(this.asm + " SEARCH ME!");
+			this.asm.transition("open");
+		}
+		
+		NBTTagList list = compound.getTagList("inventory", 10);
 		this.inventory = new InventoryBasic("DungeonChestInventory", false, InvSize);
 		for (int i = 0; i < list.tagCount(); i++) {
 			NBTTagCompound tag = list.getCompoundTagAt(i);
-			byte b = tag.getByte("Slot");
+			byte b = tag.getByte("slot");
 
 			if (b >= 0 && b < inventory.getSizeInventory()) {
 				inventory.setInventorySlotContents(b, new ItemStack(tag));

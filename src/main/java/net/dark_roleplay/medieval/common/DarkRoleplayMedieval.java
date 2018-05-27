@@ -56,9 +56,7 @@ public class DarkRoleplayMedieval {
 	
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
-		if(event.getSide() == Side.SERVER) {
-			DarkRoleplayMedieval.isOnServer = true;
-		}
+		DarkRoleplayMedieval.isOnServer = event.getSide().isServer();
 
 		DRPMedievalCapabilities.register();
 		DRPMedievalVillagers.init(event);

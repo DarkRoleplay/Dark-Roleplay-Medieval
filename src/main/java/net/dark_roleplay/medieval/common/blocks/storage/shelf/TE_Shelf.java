@@ -22,7 +22,8 @@ public class TE_Shelf extends TileEntity {
 		protected void onContentsChanged(int slot) {
 			TE_Shelf.this.markDirty();
 	        IBlockState state = world.getBlockState(getPos());
-			world.notifyBlockUpdate(getPos(), state, state, 3);
+			world.notifyBlockUpdate(getPos(), state, state, 2);
+			System.out.println("Test");
 		}
 	};
 

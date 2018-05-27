@@ -4,18 +4,17 @@ import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.blocks.decorative.clocks.TE_ClockCore;
 import net.dark_roleplay.medieval.common.blocks.storage.barrels.TE_FluidBarrel;
 import net.dark_roleplay.medieval.common.blocks.storage.shelf.TE_Shelf;
-import net.dark_roleplay.medieval.common.blocks.tileentities.TileEntity_AdvancedCrop;
 import net.dark_roleplay.medieval.common.blocks.tileentities.TileEntity_FlowerStorage;
 import net.dark_roleplay.medieval.common.blocks.tileentities.lectern.TileEntity_Lectern;
 import net.dark_roleplay.medieval.common.blocks.tileentities.roof.TE_Roof;
 import net.dark_roleplay.medieval.common.blocks.tileentities.storage.TileEntity_SimpleStorage;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.RopeCoilTileEntity;
+import net.dark_roleplay.medieval.common.blocks.tileentitys.TE_DungeonChest;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityAnvil;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityBookOne;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCauldron;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityChain;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCrate;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TE_DungeonChest;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityFirepit;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityGrindstone;
 import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityHangingCauldron;
@@ -64,7 +63,6 @@ public class DRPMedievalTileEntities {
         //Old Storage
 		GameRegistry.registerTileEntity(TileEntityCrate.class, References.MODID + ":" + "TilEntityCrate");
 		GameRegistry.registerTileEntity(TE_DungeonChest.class, References.MODID + ":" + "TileEntityDungeonChest");
-		GameRegistry.registerTileEntity(TileEntity_AdvancedCrop.class, References.MODID + ":" + "tile_entity_advanced_crop");
 		
 	}
 	

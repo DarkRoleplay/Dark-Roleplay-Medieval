@@ -1,0 +1,19 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:none"
+    },
+	"variants": {
+		"inventory":[{}],
+		"axis":{
+			"x":{"x":90},
+			"y":{},
+			"z":{"y" : 90, "x":90}
+		},
+		"type":{
+			"full_block":{},
+			"top":{},
+			"bottom":{}
+		}
+	}
+}

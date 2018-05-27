@@ -9,6 +9,7 @@
         "transform": "forge:default-block"
     },
 	"variants": {
+		"inventory":[{}],
 		"facing":{
 			"north":{},
 			"east":{"y":90},
@@ -17,7 +18,7 @@
 		},
 		"type":{
 			"straight":{"model": "drpmedieval:shingle_roof/normal_roof_straight"},
-			"inner_left":{"model": "drpmedieval:shingle_roof/roof_inner_right"},
+			"inner_left":{"model": "drpmedieval:shingle_roof/roof_inner_left"},
 			"inner_right":{"model": "drpmedieval:shingle_roof/roof_inner_right"},
 			"outer_left":{"model": "drpmedieval:shingle_roof/roof_outer_left"},
 			"outer_right":{"model": "drpmedieval:shingle_roof/roof_outer_left"}

@@ -149,11 +149,14 @@ public class DungeonChest extends Block {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-		if (world.isRemote) {
-			TileEntity tileentity = world.getTileEntity(pos);
-			if (tileentity instanceof TE_DungeonChest) {
-//				player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_DUNGEONCHEST, world, pos.getX(), pos.getY(), pos.getZ());
-				((TE_DungeonChest) tileentity).click(player.isSneaking());
+		TileEntity tileentity = world.getTileEntity(pos);
+		if (tileentity instanceof TE_DungeonChest) {
+			TE_DungeonChest chest = (TE_DungeonChest) tileentity;
+			if(chest.isOpen() && !player.isSneaking()) {	
+				if (!world.isRemote)
+					player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_DUNGEONCHEST, world, pos.getX(), pos.getY(), pos.getZ());
+			}else {
+				((TE_DungeonChest) tileentity).click();	
 			}
 		}
 		return true;

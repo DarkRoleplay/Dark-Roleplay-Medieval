@@ -123,12 +123,14 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_FluidBarrel.class, new TESR_FluidBarrel());
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_DungeonChest.class, new AnimationTESR<TE_DungeonChest>(){
+			
 			@Override
-		    public void renderTileEntityFast(TE_DungeonChest te, double x, double y, double z, float partialTick, int breakStage, float partial, BufferBuilder renderer){
-//				
-//				if(te.asm.currentState().equals("closed") || te.asm.currentState().equals("open")) {
-					te.clickTime.setValue(Animation.getWorldTime(te.getWorld()));
-//				}
+		    public void renderTileEntityFast(TE_DungeonChest te, double x, double y, double z, float partialTick, int breakStage, float partial, BufferBuilder renderer) {
+//				float time = Animation.getWorldTime(getWorld());
+//				time -= Math.floor(time);
+//				te.clickTime.setValue(time);
+//				System.out.println(time);
+//				System.out.println("Render");
 				super.renderTileEntityFast(te, x, y, z, partialTick, breakStage, partial, renderer);
 			}
 			

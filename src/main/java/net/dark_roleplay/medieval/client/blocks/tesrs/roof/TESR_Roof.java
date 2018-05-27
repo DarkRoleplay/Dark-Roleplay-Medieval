@@ -1,32 +1,28 @@
 package net.dark_roleplay.medieval.client.blocks.tesrs.roof;
 
-import org.lwjgl.opengl.GL11;
+import static net.dark_roleplay.medieval.common.blocks.BlockProperties.FACING;
+import static net.dark_roleplay.medieval.common.blocks.BlockProperties.STAIR_TYPE;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import net.dark_roleplay.medieval.common.blocks.BlockProperties.StairType;
 import net.dark_roleplay.medieval.common.blocks.tileentities.roof.TE_Roof;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BlockModelRenderer;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.renderer.vertex.VertexFormat;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.animation.FastTESR;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import static net.dark_roleplay.medieval.common.blocks.BlockProperties.*;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
 
 public class TESR_Roof extends FastTESR<TE_Roof> {
 
@@ -70,6 +66,7 @@ public class TESR_Roof extends FastTESR<TE_Roof> {
 		int x2 = (int) x;
 		int y2 = (int) y;
 		int z2 = (int) z;
+		
 		
 //		System.out.println("X: " + x + " Y: " + y + " Z: " + z );
 		switch(type) {
