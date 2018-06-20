@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import javax.annotation.Nullable;
 
-import net.dark_roleplay.library.items.DRPItem;
+import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.medieval.api.items.ILock;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;

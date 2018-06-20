@@ -3,8 +3,8 @@ package net.dark_roleplay.medieval.client.blocks.tesrs;
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.common.References;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityFirepit;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityFirepit;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;

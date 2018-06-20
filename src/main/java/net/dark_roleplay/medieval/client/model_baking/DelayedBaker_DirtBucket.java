@@ -12,10 +12,10 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import net.dark_roleplay.medieval.common.References;
-import net.dark_roleplay.medieval.common.blocks.decorative.buckets.BucketDirt;
-import net.dark_roleplay.medieval.common.blocks.decorative.rope_fence.RopeFence;
-import net.dark_roleplay.medieval.common.blocks.helper.EnumAxis;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
+import net.dark_roleplay.medieval.common.objects.blocks.decorative.buckets.BucketDirt;
+import net.dark_roleplay.medieval.common.objects.blocks.decorative.rope_fence.RopeFence;
+import net.dark_roleplay.medieval.common.objects.blocks.helper.EnumAxis;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;

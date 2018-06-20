@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.handler;
 
 import java.util.Arrays;
 
-import net.dark_roleplay.drpcore.api.old.util.lore.LoreUtil;
+import net.dark_roleplay.core.api.old.util.lore.LoreUtil;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

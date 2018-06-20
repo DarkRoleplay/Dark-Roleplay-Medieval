@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import org.lwjgl.input.Keyboard;
 
-import net.dark_roleplay.drpcore.api.old.gui.DRPGuiScreen;
-import net.dark_roleplay.drpcore.api.old.gui.ITimedGui;
+import net.dark_roleplay.core.api.old.gui.DRPGuiScreen;
+import net.dark_roleplay.core.api.old.gui.ITimedGui;
 import net.dark_roleplay.medieval.common.References;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

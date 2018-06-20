@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.objects.items;
 
-import net.dark_roleplay.library.items.DRPItem;
+import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.medieval.client.ClientProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;

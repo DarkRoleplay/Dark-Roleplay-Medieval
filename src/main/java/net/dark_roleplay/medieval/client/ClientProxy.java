@@ -30,30 +30,30 @@ import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_Timbering;
 import net.dark_roleplay.medieval.client.model_baking.MultiLayerModelLoader;
 import net.dark_roleplay.medieval.client.model_baking.advanced.CustomBlockstateLoader;
 import net.dark_roleplay.medieval.common.CommonProxy;
-import net.dark_roleplay.medieval.common.blocks.decorative.clocks.TE_ClockCore;
-import net.dark_roleplay.medieval.common.blocks.storage.DungeonChest;
-import net.dark_roleplay.medieval.common.blocks.storage.barrels.TESR_FluidBarrel;
-import net.dark_roleplay.medieval.common.blocks.storage.barrels.TE_FluidBarrel;
-import net.dark_roleplay.medieval.common.blocks.storage.shelf.TE_Shelf;
-import net.dark_roleplay.medieval.common.blocks.tileentities.roof.TE_Roof;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TE_DungeonChest;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityAnvil;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityCauldron;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityChain;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityFirepit;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityGrindstone;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityHangingCauldron;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityHook;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityKeyHanging;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityMortar;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityRopeAnchor;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityShipsWheel;
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TileEntityTarget;
-import net.dark_roleplay.medieval.common.blocks.util.shop_sign.TE_ShopSign;
 import net.dark_roleplay.medieval.common.entities.Wheelbarrel;
 import net.dark_roleplay.medieval.common.entities.WheelbarrelRenderer;
 import net.dark_roleplay.medieval.common.entities.fox.Entity_Fox;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
+import net.dark_roleplay.medieval.common.objects.blocks.decorative.clocks.TE_ClockCore;
+import net.dark_roleplay.medieval.common.objects.blocks.storage.DungeonChest;
+import net.dark_roleplay.medieval.common.objects.blocks.storage.barrels.TESR_FluidBarrel;
+import net.dark_roleplay.medieval.common.objects.blocks.storage.barrels.TE_FluidBarrel;
+import net.dark_roleplay.medieval.common.objects.blocks.storage.shelf.TE_Shelf;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TE_DungeonChest;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityAnvil;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityCauldron;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityChain;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityFirepit;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityGrindstone;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityHangingCauldron;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityHook;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityKeyHanging;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityMortar;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityRopeAnchor;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityShipsWheel;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityTarget;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.roof.TE_Roof;
+import net.dark_roleplay.medieval.common.objects.blocks.util.shop_sign.TE_ShopSign;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.resources.IReloadableResourceManager;
@@ -84,10 +84,8 @@ public class ClientProxy extends CommonProxy {
 	
 	@Override
 	public void init(FMLPreInitializationEvent event) {
-		//ModelLoaderRegistry.registerLoader(new DelayedBakedModel());
 		ModelLoaderRegistry.registerLoader(new DelayedBaker_HangingBridge());
 		ModelLoaderRegistry.registerLoader(new DelayedBaker_RopeFence());
-//		ModelLoaderRegistry.registerLoader(new DelayedBaker_FlowerPot());
 		ModelLoaderRegistry.registerLoader(new CustomBlockstateLoader());
 		ModelLoaderRegistry.registerLoader(new DelayedBaker_DirtBucket());		
 		ModelLoaderRegistry.registerLoader(new DelayedBaker_Timbering());
@@ -102,12 +100,8 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void init(FMLInitializationEvent event) {
 		IResourceManager manager = Minecraft.getMinecraft().getResourceManager();
-		if(manager instanceof IReloadableResourceManager) {
-//		    ((IReloadableResourceManager)manager).registerReloadListener(new RecipeFromJSON());
-		}
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new DryClayGrassColor(), DRPMedievalBlocks.DRY_CLAY_GRASS);
 
-		
 		MinecraftForge.EVENT_BUS.register(new Event_CameraUpdate());
 	}
 
@@ -126,11 +120,6 @@ public class ClientProxy extends CommonProxy {
 			
 			@Override
 		    public void renderTileEntityFast(TE_DungeonChest te, double x, double y, double z, float partialTick, int breakStage, float partial, BufferBuilder renderer) {
-//				float time = Animation.getWorldTime(getWorld());
-//				time -= Math.floor(time);
-//				te.clickTime.setValue(time);
-//				System.out.println(time);
-//				System.out.println("Render");
 				super.renderTileEntityFast(te, x, y, z, partialTick, breakStage, partial, renderer);
 			}
 			

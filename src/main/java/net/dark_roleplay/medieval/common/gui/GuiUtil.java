@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.gui;
 
 import net.dark_roleplay.medieval.client.gui.carving.Gui_CarveSign;
-import net.dark_roleplay.medieval.common.blocks.util.shop_sign.TE_ShopSign;
+import net.dark_roleplay.medieval.common.objects.blocks.util.shop_sign.TE_ShopSign;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

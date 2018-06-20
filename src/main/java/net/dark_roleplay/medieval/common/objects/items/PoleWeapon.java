@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.objects.items;
 
-import net.dark_roleplay.drpcore.api.old.items.weapons.IExtendedRange;
-import net.dark_roleplay.library.items.DRPItem;
+import net.dark_roleplay.core.api.old.items.weapons.IExtendedRange;
+import net.dark_roleplay.library_old.items.DRPItem;
 
 public class PoleWeapon extends DRPItem implements IExtendedRange{
 

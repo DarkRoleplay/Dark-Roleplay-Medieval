@@ -28,6 +28,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.common.ForgeVersion;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Config;
+import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -68,7 +70,6 @@ public class DarkRoleplayMedieval {
 		
 		GameRegistry.registerFuelHandler(new DarkRoleplayFuelHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(DarkRoleplayMedieval.instance, new GuiHandler());
-		
 
 		VillageHandlerCarpenter villageHandler = new VillageHandlerCarpenter();
 		VillagerRegistry.instance().registerVillageCreationHandler(villageHandler);

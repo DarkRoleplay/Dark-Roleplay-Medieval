@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.google.common.collect.ImmutableList;
 
-import net.dark_roleplay.drpcore.testing.skills.Skill;
+import net.dark_roleplay.core.testing.skills.Skill;
 import net.dark_roleplay.medieval.common.References;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

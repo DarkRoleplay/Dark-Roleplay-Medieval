@@ -2,10 +2,10 @@ package net.dark_roleplay.medieval.client.gui.storage;
 
 import java.awt.Color;
 
-import net.dark_roleplay.drpcore.api.old.gui.modular.ModularGui_Drawer;
+import net.dark_roleplay.core.api.old.gui.modular.ModularGui_Drawer;
 import net.dark_roleplay.medieval.common.References;
-import net.dark_roleplay.medieval.common.blocks.tileentities.storage.TileEntity_SimpleStorage;
 import net.dark_roleplay.medieval.common.gui.container.Container_SimpleStorage;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.storage.TileEntity_SimpleStorage;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.util.ResourceLocation;

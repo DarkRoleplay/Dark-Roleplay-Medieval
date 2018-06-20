@@ -2,9 +2,9 @@ package net.dark_roleplay.medieval.client.blocks.tesrs.shelf;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.common.blocks.BlockProperties;
-import net.dark_roleplay.medieval.common.blocks.storage.shelf.Shelf;
-import net.dark_roleplay.medieval.common.blocks.storage.shelf.TE_Shelf;
+import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
+import net.dark_roleplay.medieval.common.objects.blocks.storage.shelf.Shelf;
+import net.dark_roleplay.medieval.common.objects.blocks.storage.shelf.TE_Shelf;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.client.events;
 
-import net.dark_roleplay.drpcore.common.handler.DRPCoreConfigs;
+import net.dark_roleplay.core.common.handler.DRPCoreConfigs;
 import net.dark_roleplay.medieval.client.gui.info.Gui_UpdateAvailable;
 import net.dark_roleplay.medieval.common.References;
 import net.minecraft.client.gui.GuiMainMenu;

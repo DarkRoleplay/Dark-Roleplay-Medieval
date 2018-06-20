@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.gui.container;
 
 import javax.annotation.Nullable;
 
-import net.dark_roleplay.medieval.common.blocks.tileentities.storage.TileEntity_SimpleStorage;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.storage.TileEntity_SimpleStorage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;

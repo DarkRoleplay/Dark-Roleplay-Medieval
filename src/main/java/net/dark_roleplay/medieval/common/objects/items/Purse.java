@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.objects.items;
 
 import javax.annotation.Nullable;
 
-import net.dark_roleplay.library.items.DRPItem;
+import net.dark_roleplay.library_old.items.DRPItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;

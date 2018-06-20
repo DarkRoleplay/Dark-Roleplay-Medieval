@@ -42,7 +42,7 @@
 					"cached_texture":"%wood%_top"
 				}
 			],
-			"output":"drpmedieval:textures/blocks/barrels/simple_%wood%_chest_top"
+			"output":"drpmedieval:textures/blocks/chests/simple_%wood%_chest_top"
 		}
 	]
 }

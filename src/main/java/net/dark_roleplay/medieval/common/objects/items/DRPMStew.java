@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.objects.items;
 
-import net.dark_roleplay.drpcore.api.old.items.DRPFood;
+import net.dark_roleplay.core.api.old.items.DRPFood;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;

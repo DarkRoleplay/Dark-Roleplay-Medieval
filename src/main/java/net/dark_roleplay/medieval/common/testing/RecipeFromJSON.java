@@ -11,7 +11,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import net.dark_roleplay.drpcore.api.old.crafting.simple_recipe.SimpleRecipe;
+import net.dark_roleplay.core.api.old.crafting.simple_recipe.SimpleRecipe;
 import net.dark_roleplay.medieval.common.References;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IResourceManager;

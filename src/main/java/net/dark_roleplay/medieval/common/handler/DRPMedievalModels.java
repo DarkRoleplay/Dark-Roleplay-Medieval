@@ -2,8 +2,8 @@ package net.dark_roleplay.medieval.common.handler;
 
 import java.util.ArrayList;
 
-import net.dark_roleplay.library.items.DRPItem;
-import net.dark_roleplay.library.items.ItemUtil;
+import net.dark_roleplay.library_old.items.DRPItem;
+import net.dark_roleplay.library_old.items.ItemUtil;
 import net.dark_roleplay.medieval.common.References;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;

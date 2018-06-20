@@ -1,13 +1,13 @@
 package net.dark_roleplay.medieval.client.blocks.tesrs.roof;
 
-import static net.dark_roleplay.medieval.common.blocks.BlockProperties.FACING;
-import static net.dark_roleplay.medieval.common.blocks.BlockProperties.STAIR_TYPE;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.STAIR_TYPE;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import net.dark_roleplay.medieval.common.blocks.BlockProperties.StairType;
-import net.dark_roleplay.medieval.common.blocks.tileentities.roof.TE_Roof;
+import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.StairType;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.roof.TE_Roof;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;

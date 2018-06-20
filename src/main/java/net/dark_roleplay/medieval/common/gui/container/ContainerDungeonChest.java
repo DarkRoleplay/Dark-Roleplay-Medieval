@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.gui.container;
 
-import net.dark_roleplay.medieval.common.blocks.tileentitys.TE_DungeonChest;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TE_DungeonChest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;

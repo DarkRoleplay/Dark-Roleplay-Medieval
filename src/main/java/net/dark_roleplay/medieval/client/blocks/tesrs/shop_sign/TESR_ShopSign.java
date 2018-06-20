@@ -3,10 +3,10 @@ package net.dark_roleplay.medieval.client.blocks.tesrs.shop_sign;
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.common.References;
-import net.dark_roleplay.medieval.common.blocks.decorative.clocks.TE_ClockCore;
-import net.dark_roleplay.medieval.common.blocks.util.shop_sign.ShopSign;
-import net.dark_roleplay.medieval.common.blocks.util.shop_sign.TE_ShopSign;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
+import net.dark_roleplay.medieval.common.objects.blocks.decorative.clocks.TE_ClockCore;
+import net.dark_roleplay.medieval.common.objects.blocks.util.shop_sign.ShopSign;
+import net.dark_roleplay.medieval.common.objects.blocks.util.shop_sign.TE_ShopSign;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;

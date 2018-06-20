@@ -4,7 +4,7 @@
 		"model":"drpmedieval:wood_blocks/simple_chest",
         "textures": {
 			"side": "drpmedieval:blocks/chests/simple_%wood%_chest_side",
-			"top": "drpmedieval:blocks/barrels/simple_%wood%_chest_top"
+			"top": "drpmedieval:blocks/chests/simple_%wood%_chest_top"
         },
         "transform": "forge:default-block"
     },
