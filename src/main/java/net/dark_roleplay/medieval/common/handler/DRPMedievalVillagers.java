@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.handler;
 
 import net.dark_roleplay.medieval.common.References;
-import net.dark_roleplay.medieval.common.entities.villager.EmeraldsForStacks;
+import net.dark_roleplay.medieval.common.objects.entities.villager.EmeraldsForStacks;
 import net.dark_roleplay.medieval.common.objects.villagers.BasicTradeList;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;

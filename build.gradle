@@ -20,7 +20,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.1.2608"
+    version = "1.12.2-14.23.4.2709"
     runDir = "run"
 	
     mappings = "snapshot_20171003"
@@ -52,7 +52,9 @@ dependencies {
 	// at runtime, use the full JEI jar
 	runtime "mezz.jei:jei_${mc_version}:${jei_version}"
 	
-	 embed "darkroleplay.library:drplibrary-${mc_version}:${drp_library_version}"
+	embed "darkroleplay.library:drplibrary-${mc_version}:${drp_library_version}"
+	deobfProvided "darkroleplay.core:drpcore-${mc_version}:${drp_core_version}:SNAPSHOT"
+	runtime "darkroleplay.core:drpcore-${mc_version}:${drp_core_version}:SNAPSHOT"
 }
 
 processResources {

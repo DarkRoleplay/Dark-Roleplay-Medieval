@@ -3,9 +3,9 @@ package net.dark_roleplay.medieval.common.objects.blocks.storage;
 import javax.annotation.Nullable;
 
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.common.gui.GuiHandler;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityCrate;
+import net.dark_roleplay.medieval.common.objects.gui.GuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.ITileEntityProvider;

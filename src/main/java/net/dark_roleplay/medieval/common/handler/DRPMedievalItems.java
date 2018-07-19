@@ -18,6 +18,7 @@ import net.dark_roleplay.medieval.common.objects.items.Instrument;
 import net.dark_roleplay.medieval.common.objects.items.Key;
 import net.dark_roleplay.medieval.common.objects.items.Lock;
 import net.dark_roleplay.medieval.common.objects.items.PoleWeapon;
+import net.dark_roleplay.medieval.common.objects.items.Spindle;
 import net.dark_roleplay.medieval.common.objects.items.Telescope;
 import net.dark_roleplay.medieval.common.objects.items.blocks.HangingBridge_Item;
 import net.dark_roleplay.medieval.common.objects.items.blocks.ItemMultiBlock;
@@ -71,6 +72,7 @@ public class DRPMedievalItems {
 	public static final Item BARLEY_SEED = null;
 	public static final Item HOPS = null;
 	public static final Item BLACK_PAINTBRUSH = null;
+	public static final Item SPINDLE = null;
 	
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Item> event) {
@@ -145,6 +147,7 @@ public class DRPMedievalItems {
 			new DRPItem("wooden_wrench", "equipment/tools", 1),
 			new DRPItem("wood_street_stomper", "equipment/tools", 1),
 			new DRPItem("stone_street_stomper", "equipment/tools", 1),
+			new Spindle("spindle", "equipment/tools"),
 			new Lock("wooden_lock", "misc/locks", 16),
 			new Key("wooden_key", "misc/keys", 16),
 			new DRPItem("clean_paintbrush", "paintbrushes", 1),

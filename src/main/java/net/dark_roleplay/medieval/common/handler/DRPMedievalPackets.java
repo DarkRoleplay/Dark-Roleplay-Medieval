@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.medieval.common.network.packets.SyncPacket_ShopSign;
+import net.dark_roleplay.medieval.common.objects.packets.SyncPacket_ShopSign;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

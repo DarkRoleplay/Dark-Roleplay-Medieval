@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.objects.blocks.plants;
 
 import net.dark_roleplay.core.api.old.blocks.Crop;
-import net.dark_roleplay.core.api.old.modules.time.Season;
+import net.dark_roleplay.core.modules.date.Season;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;

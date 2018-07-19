@@ -5,7 +5,6 @@ import java.util.UUID;
 
 import net.dark_roleplay.core.api.old.crafting.simple_recipe.SimpleCrafter;
 import net.dark_roleplay.core.api.old.crafting.simple_recipe.SimpleRecipe;
-import net.dark_roleplay.core.api.old.events.player.Event_PlayerCraft;
 import net.dark_roleplay.medieval.api.items.IKey;
 import net.dark_roleplay.medieval.api.items.ILock;
 import net.minecraft.entity.item.EntityItem;
@@ -52,7 +51,6 @@ public class LockKeyCrafter extends SimpleCrafter{
 				}
 			}
 		}
-		MinecraftForge.EVENT_BUS.post(new Event_PlayerCraft(player, recipe));
 		player.openContainer.detectAndSendChanges();
 	}
 	

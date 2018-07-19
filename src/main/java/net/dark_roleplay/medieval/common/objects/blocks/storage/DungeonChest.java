@@ -1,10 +1,10 @@
 package net.dark_roleplay.medieval.common.objects.blocks.storage;
 
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.common.gui.GuiHandler;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TE_DungeonChest;
 import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityCrate;
+import net.dark_roleplay.medieval.common.objects.gui.GuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
@@ -14,14 +14,17 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -30,6 +33,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.property.ExtendedBlockState;
 import net.minecraftforge.common.property.IUnlistedProperty;
 import net.minecraftforge.common.property.Properties;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemHandlerHelper;
 
 public class DungeonChest extends Block {
 
@@ -154,9 +159,10 @@ public class DungeonChest extends Block {
 			TE_DungeonChest chest = (TE_DungeonChest) tileentity;
 			if(chest.isOpen() && !player.isSneaking()) {	
 				if (!world.isRemote)
-					player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_DUNGEONCHEST, world, pos.getX(), pos.getY(), pos.getZ());
+					player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_GENERAL_STORAGE, world, pos.getX(), pos.getY(), pos.getZ());
 			}else {
 				((TE_DungeonChest) tileentity).click();	
+				Minecraft.getMinecraft().world.playSound(pos, chest.isOpen() ? SoundEvents.BLOCK_CHEST_OPEN : SoundEvents.BLOCK_CHEST_CLOSE, SoundCategory.BLOCKS, 1F, 1F, true);
 			}
 		}
 		return true;
@@ -169,7 +175,7 @@ public class DungeonChest extends Block {
 
 		if (tileEntity instanceof TE_DungeonChest) {
 			TE_DungeonChest tileentityChest = (TE_DungeonChest) tileEntity;
-			InventoryHelper.dropInventoryItems(worldIn, pos, tileentityChest.inventory);
+//			InventoryHelper.dropInventoryItems(worldIn, pos, tileentityChest.inventory);
 		}
 
 		super.breakBlock(worldIn, pos, state);

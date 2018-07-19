@@ -1,21 +1,21 @@
 {
 	"parameters": {
 		"end_anim": [ "compose", [ "+", 1 ] , "#click_time" ],
-		"trigger_anim": [ "-", "#end_anim", 0.1],
+		"trigger_anim": [ "-", "#end_anim", 0.05],
 		"progress": [ "-", "#click_time" ]
 	},
 	"clips": {
 		"closed": "drpmedieval:block/wood_blocks/simple_chest_top@closed",
 		"opening": [
 			"trigger_positive",
-			[ "slerp", "#closed", ["apply", "drpmedieval:block/wood_blocks/simple_chest_top@open", "#progress"], "#identity", "#progress" ],
+			["apply", "drpmedieval:block/wood_blocks/simple_chest_top@opening", "#progress" ],
 			"#trigger_anim",
 			"!transition:open"
 		],
 		"open": ["apply", "drpmedieval:block/wood_blocks/simple_chest_top@open", 0.9],
 		"closing": [
 			"trigger_positive",
-			[ "slerp", "#open", "#closed", "#identity", "#progress" ],
+			["apply", "drpmedieval:block/wood_blocks/simple_chest_top@closing", "#progress" ],
 			"#trigger_anim",
 			"!transition:closed"
 		]

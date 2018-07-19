@@ -33,7 +33,6 @@ import net.dark_roleplay.medieval.common.objects.blocks.craftingstations.JuicePr
 import net.dark_roleplay.medieval.common.objects.blocks.craftingstations.Mortar;
 import net.dark_roleplay.medieval.common.objects.blocks.craftingstations.PotteryTurntable;
 import net.dark_roleplay.medieval.common.objects.blocks.craftingstations.SimpleCarpenterWorkbench;
-import net.dark_roleplay.medieval.common.objects.blocks.craftingstations.SpinningWheel;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.BookOne;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.Chain;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.GoldenShipsBell;
@@ -90,6 +89,8 @@ import net.dark_roleplay.medieval.common.objects.blocks.storage.DungeonChest;
 import net.dark_roleplay.medieval.common.objects.blocks.storage.barrels.FluidBarrel;
 import net.dark_roleplay.medieval.common.objects.blocks.storage.shelf.Shelf;
 import net.dark_roleplay.medieval.common.objects.blocks.util.shop_sign.ShopSign;
+import net.dark_roleplay.medieval.common.spinning_wheel.SpinningWheel;
+import net.dark_roleplay.medieval.common.spinning_wheel.SpinningWheelTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.creativetab.CreativeTabs;
@@ -101,6 +102,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -308,6 +310,8 @@ public class DRPMedievalBlocks {
 			new HangingBridge("hanging_bridge_bottom" ,0F),
 			new HangingBridge("hanging_bridge_top" ,0.5F)
 		);
+		
+		GameRegistry.registerTileEntity(SpinningWheelTileEntity.class, References.MODID + ":spinning_wheel");
 	}
 	
 	@SubscribeEvent

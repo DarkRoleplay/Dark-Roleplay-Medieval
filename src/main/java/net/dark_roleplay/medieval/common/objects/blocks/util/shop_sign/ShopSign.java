@@ -5,9 +5,9 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import net.dark_roleplay.medieval.client.gui.carving.Gui_CarveSign;
-import net.dark_roleplay.medieval.common.gui.GuiUtil;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.wall_mounted.WallMounted;
+import net.dark_roleplay.medieval.common.objects.gui.GuiUtil;
 import net.dark_roleplay.medieval.common.util.nbt.ImageConversion;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;

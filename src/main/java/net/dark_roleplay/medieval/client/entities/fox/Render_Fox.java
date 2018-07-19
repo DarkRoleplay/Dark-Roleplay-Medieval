@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.client.entities.fox;
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.common.References;
-import net.dark_roleplay.medieval.common.entities.fox.Entity_Fox;
+import net.dark_roleplay.medieval.common.objects.entities.fox.Entity_Fox;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;

@@ -3,9 +3,9 @@ package net.dark_roleplay.medieval.common.handler;
 import java.awt.Color;
 
 import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.common.objects.entities.Wheelbarrel;
+import net.dark_roleplay.medieval.common.objects.entities.fox.Entity_Fox;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.common.entities.Wheelbarrel;
-import net.dark_roleplay.medieval.common.entities.fox.Entity_Fox;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;

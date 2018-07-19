@@ -5,8 +5,10 @@ import javax.annotation.Nonnull;
 import com.google.common.collect.ImmutableMap;
 
 import jline.internal.Nullable;
+import net.dark_roleplay.core.api.storage.DynamicStorageTileEntity;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.References;
+import net.minecraft.client.Minecraft;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -23,9 +25,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.model.animation.CapabilityAnimation;
 import net.minecraftforge.common.model.animation.IAnimationStateMachine;
 
-public class TE_DungeonChest extends TileEntity {
-
-	public InventoryBasic inventory;
+public class TE_DungeonChest extends DynamicStorageTileEntity {
 
 	private boolean isOpen = false;
 
@@ -33,17 +33,14 @@ public class TE_DungeonChest extends TileEntity {
 	public final IAnimationStateMachine asm;
 	public final VariableValue clickTime = new VariableValue(Float.NEGATIVE_INFINITY);
 
-	int InvSize = 27;
-
 	public TE_DungeonChest() {
-		inventory = new InventoryBasic("DungeonChestInventory", false, InvSize);
+		super(27);
 		asm = DarkRoleplayMedieval.proxy.load(
 				new ResourceLocation(References.MODID, "asms/block/simple_chest_top.json"),
 				ImmutableMap.<String, ITimeValue>of("click_time", clickTime));
 	}
 
-	public void handleEvents(float time, Iterable<Event> pastEvents) {
-	}
+	public void handleEvents(float time, Iterable<Event> pastEvents) {}
 
 	@Override
 	public boolean hasFastRenderer() {
@@ -52,15 +49,6 @@ public class TE_DungeonChest extends TileEntity {
 
 	public boolean isOpen() {
 		return this.isOpen;
-	}
-
-	@Nullable
-	public SPacketUpdateTileEntity getUpdatePacket() {
-		return null;
-	}
-
-	public NBTTagCompound getUpdateTag() {
-		return this.writeToNBT(new NBTTagCompound());
 	}
 
 	public void click() {
@@ -97,42 +85,40 @@ public class TE_DungeonChest extends TileEntity {
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
-		nbt.setBoolean("is_open", this.isOpen);
+		nbt.setBoolean("isOpen", this.isOpen);
 		
-		NBTTagList list = new NBTTagList();
-
-		for (int i = 0; i < InvSize; i++) {
-			if (inventory.getStackInSlot(i) != null) {
-				NBTTagCompound tag = new NBTTagCompound();
-				tag.setByte("slot", (byte) i);
-				inventory.getStackInSlot(i).writeToNBT(tag);
-				list.appendTag(tag);
-			}
-		}
-
-		nbt.setTag("inventory", list);
-
 		return nbt;
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
-		super.readFromNBT(compound);
+		if(compound.hasKey("inventoryMain")) {
+			super.readFromNBT(compound);
+		}else {//Old Format, Update
+			
+			NBTTagList newItems = new NBTTagList();
 
-		this.isOpen = compound.hasKey("is_open") ? compound.getBoolean("is_open") : false;
+			NBTTagList list = compound.getTagList("inventory", 10);
+			for (int i = 0; i < list.tagCount(); i++) {
+				NBTTagCompound tag = list.getCompoundTagAt(i);
+				byte b = tag.getByte("slot");
+				
+				NBTTagCompound itemTag = new NBTTagCompound();
+				itemTag.setInteger("Slot", b);
+				new ItemStack(tag).writeToNBT(itemTag);
+			}
+			
+			NBTTagCompound newInventory = new NBTTagCompound();
+			newInventory.setTag("Items", newItems);
+			newInventory.setInteger("Size", 36);
+			compound.setTag("inventoryMain", newInventory);
+		    
+		    super.readFromNBT(compound);
+		}
+
+		this.isOpen = compound.hasKey("isOpen") ? compound.getBoolean("isOpen") : false;
 		if (!DarkRoleplayMedieval.isOnServer && this.isOpen) {
 			this.asm.transition("open");
-		}
-		
-		NBTTagList list = compound.getTagList("inventory", 10);
-		this.inventory = new InventoryBasic("DungeonChestInventory", false, InvSize);
-		for (int i = 0; i < list.tagCount(); i++) {
-			NBTTagCompound tag = list.getCompoundTagAt(i);
-			byte b = tag.getByte("slot");
-
-			if (b >= 0 && b < inventory.getSizeInventory()) {
-				inventory.setInventorySlotContents(b, new ItemStack(tag));
-			}
 		}
 	}
 }

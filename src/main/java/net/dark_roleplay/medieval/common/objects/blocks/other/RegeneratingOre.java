@@ -105,7 +105,7 @@ public class RegeneratingOre extends Block{
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(world.isRemote){
-			player.openGui(DarkRoleplayMedieval.instance,net.dark_roleplay.medieval.common.gui.GuiHandler.GUI_MINIGAME_MUSIK,player.getEntityWorld(),pos.getX(),pos.getY(),pos.getZ());
+			player.openGui(DarkRoleplayMedieval.instance,net.dark_roleplay.medieval.common.objects.gui.GuiHandler.GUI_MINIGAME_MUSIK,player.getEntityWorld(),pos.getX(),pos.getY(),pos.getZ());
 		}
 		return true;
 	}

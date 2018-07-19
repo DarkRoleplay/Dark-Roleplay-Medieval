@@ -17,3 +17,4 @@ Forge Latest_Client.launch
 Forge Latest_Server.launch
 *.launch
 .metadata/
+/bin/
