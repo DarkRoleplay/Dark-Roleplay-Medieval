@@ -176,7 +176,7 @@ public class Carpenter extends StructureVillagePieces.House1{
                 rotation = Rotation.NONE;
             }
 
-            PlacementSettings placement = new PlacementSettings().setRotation(rotation).setMirror(mirror).set.setBoundingBox(sbb);
+            PlacementSettings placement = new PlacementSettings().setRotation(rotation).setMirror(mirror).setBoundingBox(sbb);
             Template template = manager.getTemplate(server, STRUCTURE_RES_LOC);
 
             if(template != null){

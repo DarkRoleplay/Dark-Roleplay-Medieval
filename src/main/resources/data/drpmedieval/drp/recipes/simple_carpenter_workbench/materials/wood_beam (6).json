@@ -1,0 +1,17 @@
+{
+  "category": "materials",
+  "name": "wood_beams5",
+  "outputs": [
+    {
+      "item": "drpmedieval:spruce_wood_beam",
+      "count": 4,
+      "data": 1
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log",
+      "data": 1
+    }
+  ]
+}

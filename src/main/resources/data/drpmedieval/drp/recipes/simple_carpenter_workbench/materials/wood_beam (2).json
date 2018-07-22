@@ -1,0 +1,17 @@
+{
+  "category": "materials",
+  "name": "wood_beams1",
+  "outputs": [
+    {
+      "item": "drpmedieval:dark_oak_wood_beam",
+      "count": 4,
+      "data": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log2",
+      "data": 1
+    }
+  ]
+}

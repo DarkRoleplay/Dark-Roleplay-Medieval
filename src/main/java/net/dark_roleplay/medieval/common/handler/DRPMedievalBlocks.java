@@ -93,6 +93,7 @@ import net.dark_roleplay.medieval.common.spinning_wheel.SpinningWheel;
 import net.dark_roleplay.medieval.common.spinning_wheel.SpinningWheelTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
@@ -269,9 +270,9 @@ public class DRPMedievalBlocks {
 			new AdvancedOre("sulfur_ore", 1),
 			new AdvancedOre("silver_ore", 2),
 			new SnowBricks("snow_bricks"),
-			new DirtStairs("dirt_stairs"),
-			new NormalRoof("normal_clay_roof"),
-			new Slab("shingles_slab", BlockBehaviours.SHINGLES)
+			new DirtStairs("dirt_stairs")
+			//new NormalRoof("normal_clay_roof"),
+			//new Slab("shingles_slab", BlockBehaviours.SHINGLES)
 		);
 		
 		register(reg, DRPMedievalCreativeTabs.UTILITY,
@@ -294,7 +295,6 @@ public class DRPMedievalBlocks {
 			new Mushroom("mushroom_brown"),
 			new Mushroom("mushroom_red")
 		);
-		
 		
 		registerNoItems(reg,
 			new Forge("forge"),

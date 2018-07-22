@@ -40,7 +40,6 @@ public class DryClayGenerator implements IWorldGenerator{
 				
 				float chance = SimplexNoise.noise(x3 + xOffset, z3 + zOffset, frequency);
 				if(chance > 0.85F) {
-					System.out.println("Generated Clay");
 					int y = getHeighestOccurence(Blocks.GRASS, world, x3, z3);
 					if(y == 0) y = getHeighestOccurence(Blocks.DIRT, world, x3, z3);
 					if(y == 0) continue;

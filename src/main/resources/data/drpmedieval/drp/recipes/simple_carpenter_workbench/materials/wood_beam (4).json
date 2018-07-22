@@ -1,0 +1,17 @@
+{
+  "category": "materials",
+  "name": "wood_beams3",
+  "outputs": [
+    {
+      "item": "drpmedieval:jungle_wood_beam",
+      "count": 4,
+      "data": 3
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log",
+      "data": 3
+    }
+  ]
+}
