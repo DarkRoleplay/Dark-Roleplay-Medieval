@@ -11,8 +11,8 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import net.dark_roleplay.core.api.old.Modules;
 import net.dark_roleplay.core.api.old.modules.materials.Material;
+import net.dark_roleplay.core.modules.Modules;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.objects.blocks.building.TimberedClay;
 import net.minecraft.block.state.IBlockState;

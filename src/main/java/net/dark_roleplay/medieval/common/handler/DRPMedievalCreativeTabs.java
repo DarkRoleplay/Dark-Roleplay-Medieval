@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.core.api.old.Modules;
 import net.dark_roleplay.core.api.old.modules.materials.Material;
+import net.dark_roleplay.core.modules.Modules;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.client.gui.storage;
 
 import java.awt.Color;
 
-import net.dark_roleplay.core.api.old.gui.modular.ModularGui_Drawer;
+import net.dark_roleplay.library.experimental.guis.modular.ModularGui_Drawer;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.objects.blocks.tileentities.storage.TileEntity_SimpleStorage;
 import net.dark_roleplay.medieval.common.objects.gui.container.Container_SimpleStorage;

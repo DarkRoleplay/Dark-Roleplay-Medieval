@@ -6,7 +6,12 @@
 	"textures":[
 		{
 			"base":"bark",
-			"manipulations":[],
+			"manipulations":[
+				{
+					"type":"rotate",
+					"amount":"90"
+				}
+			],
 			"output":"drpmedieval:textures/blocks/log_bench/%wood%_log_bench_bark"
 		},
 		{

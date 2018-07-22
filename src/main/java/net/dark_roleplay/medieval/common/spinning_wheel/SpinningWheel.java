@@ -92,14 +92,15 @@ public class SpinningWheel extends FacedBlock {
 
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-//			Crafting_Util.openRecipeSelection(this);
-		if(!world.isRemote){
-			TileEntity tileentity = world.getTileEntity(pos);
-
-			if(tileentity instanceof SpinningWheelTileEntity){
-				player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_SPINNING_WHEEL_PARTS, world, pos.getX(), pos.getY(), pos.getZ());
-			}
-		}
+		if(world.isRemote)
+			Crafting_Util.openRecipeSelection(this);
+//		if(!world.isRemote){
+//			TileEntity tileentity = world.getTileEntity(pos);
+//
+//			if(tileentity instanceof SpinningWheelTileEntity){
+//				player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_SPINNING_WHEEL_PARTS, world, pos.getX(), pos.getY(), pos.getZ());
+//			}
+//		}
 		return true;
 	}
 	

@@ -7,7 +7,11 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -71,6 +75,17 @@ public class BarrelEmpty extends Block {
 	
 	// -------------------------------------------------- Block Events --------------------------------------------------
 			
+
+	@Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+		if(!world.isRemote){
+			if(player.getHeldItem(hand).getItem() == Items.CLAY_BALL) {
+				world.setBlockState(pos, Block.getBlockFromName(new ResourceLocation(state.getBlock().getRegistryName().getResourceDomain(), state.getBlock().getRegistryName().getResourcePath().replace("_empty_barrel", "_fluid_barrel")).toString()).getDefaultState());
+			}
+		}
+		return true;
+	}
+	
 	@Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
 		return this.getDefaultState();

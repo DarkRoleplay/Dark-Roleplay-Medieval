@@ -1,5 +1,6 @@
 package net.dark_roleplay.medieval.common.objects.blocks.storage.barrels;
 
+import net.dark_roleplay.medieval.common.objects.blocks.decorative.barrels.BarrelEmpty;
 import net.dark_roleplay.medieval.common.objects.blocks.storage.shelf.TE_Shelf;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -24,12 +25,10 @@ import net.minecraftforge.fluids.capability.templates.FluidHandlerItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-public class FluidBarrel extends Block{
+public class FluidBarrel extends BarrelEmpty{
 
 	public FluidBarrel(String name) {
-		super(Material.WOOD);
-		this.setRegistryName(name);
-		this.setUnlocalizedName(name);
+		super(name);
 	}
 	
 	@Override

@@ -3,13 +3,12 @@ package net.dark_roleplay.medieval.common.handler;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.dark_roleplay.core.api.old.Modules;
 import net.dark_roleplay.core.api.old.items.DRPEquip;
 import net.dark_roleplay.core.api.old.items.DRPFood;
-import net.dark_roleplay.core.api.old.items.Seed;
 import net.dark_roleplay.core.api.old.modules.materials.AddResourceGenerators;
 import net.dark_roleplay.core.api.old.modules.materials.Material;
 import net.dark_roleplay.core.api.old.modules.materials.ResourceGenerator;
+import net.dark_roleplay.core.modules.Modules;
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.objects.items.BarkAndGlue;
@@ -19,6 +18,7 @@ import net.dark_roleplay.medieval.common.objects.items.Key;
 import net.dark_roleplay.medieval.common.objects.items.Lock;
 import net.dark_roleplay.medieval.common.objects.items.PoleWeapon;
 import net.dark_roleplay.medieval.common.objects.items.Spindle;
+import net.dark_roleplay.medieval.common.objects.items.StreetStomper;
 import net.dark_roleplay.medieval.common.objects.items.Telescope;
 import net.dark_roleplay.medieval.common.objects.items.blocks.HangingBridge_Item;
 import net.dark_roleplay.medieval.common.objects.items.blocks.ItemMultiBlock;
@@ -145,8 +145,8 @@ public class DRPMedievalItems {
 		register(reg, DRPMedievalCreativeTabs.EQUIPMENT,
 			new DRPItem("flint_knife", "equipment/tools", 1),
 			new DRPItem("wooden_wrench", "equipment/tools", 1),
-			new DRPItem("wood_street_stomper", "equipment/tools", 1),
-			new DRPItem("stone_street_stomper", "equipment/tools", 1),
+			new StreetStomper("wood_street_stomper", "equipment/tools", 1, 256),
+			new StreetStomper("stone_street_stomper", "equipment/tools", 1, 512),
 			new Spindle("spindle", "equipment/tools"),
 			new Lock("wooden_lock", "misc/locks", 16),
 			new Key("wooden_key", "misc/keys", 16),
@@ -185,8 +185,8 @@ public class DRPMedievalItems {
 			new DRPMStew(8, 0.5F, "chicken_stew"),
 			new DRPMStew(7, 0.5F, "cod_stew"),
 			new DRPMStew(6, 0.3F, "vegie_stew"),
-			new DRPMStew(6, 0.3F, "pumpkin_stew"),
-			new Seed("barley_seed", 64, DRPMedievalBlocks.BARLEY)
+			new DRPMStew(6, 0.3F, "pumpkin_stew")
+//			new Seed("barley_seed", 64, DRPMedievalBlocks.BARLEY)
 			
 		);
 		

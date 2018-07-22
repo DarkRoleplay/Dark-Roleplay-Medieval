@@ -7,7 +7,6 @@ import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCapabilities;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalLores;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalMappings;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalPackets;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalSkills;
@@ -65,7 +64,6 @@ public class DarkRoleplayMedieval {
 		DRPMedievalTileEntities.init(event);
 		DRPMedievalSkills.init(event);
 		DRPMedievalAchievements.init(event);
-		DRPMedievalLores.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
 		
 		GameRegistry.registerFuelHandler(new DarkRoleplayFuelHandler());
@@ -83,7 +81,6 @@ public class DarkRoleplayMedieval {
 		DRPMedievalTileEntities.init(event);
 		DRPMedievalSkills.init(event);
 		DRPMedievalAchievements.init(event);
-		DRPMedievalLores.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
 		DRPMedievalCreativeTabs.init(event);
 		WorldLoot.registerChestLoot();
@@ -139,7 +136,6 @@ public class DarkRoleplayMedieval {
 		DRPMedievalTileEntities.init(event);
 		DRPMedievalAchievements.init(event);
 		DRPMedievalSkills.init(event);
-		DRPMedievalLores.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
 		
 		ModContainer mod = Loader.instance().activeModContainer();

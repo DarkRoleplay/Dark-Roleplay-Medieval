@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.objects.blocks.templates;
 
-import net.dark_roleplay.core.api.old.util.sitting.SittingUtil;
+import net.dark_roleplay.core.modules.sitting.SittingUtil;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
