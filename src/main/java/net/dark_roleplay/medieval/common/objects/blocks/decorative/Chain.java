@@ -2,6 +2,7 @@ package net.dark_roleplay.medieval.common.objects.blocks.decorative;
 
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
+import net.dark_roleplay.medieval.common.objects.blocks.templates.FacedBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityChain;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -24,9 +25,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class Chain extends BlockContainer {
-
-	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+public class Chain extends FacedBlock {
 
 	public Chain(String registryName) {
 		super(Material.IRON);
@@ -55,41 +54,6 @@ public class Chain extends BlockContainer {
 		return true; 
 	}
 
-	
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-
-		switch (meta) {
-			case 0:
-				return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.NORTH);
-			case 1:
-				return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.EAST);
-			case 2:
-				return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.SOUTH);
-			case 3:
-				return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.WEST);
-			default:
-				return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.NORTH);
-		}
-	}
-
-	@Override
-	public int getMetaFromState(IBlockState state) {
-
-		EnumFacing facing = state.getValue(Chain.FACING);
-		if(facing.equals(EnumFacing.NORTH)) return 0;
-		if(facing.equals(EnumFacing.EAST)) return 1;
-		if(facing.equals(EnumFacing.SOUTH)) return 2;
-		if(facing.equals(EnumFacing.WEST)) return 3;
-		return 0;
-	}
-
-	@Override
-	protected BlockStateContainer createBlockState() {
-
-		return new BlockStateContainer(this, new IProperty[] {Chain.FACING});
-	}
-	
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
@@ -126,26 +90,9 @@ public class Chain extends BlockContainer {
 	
 	@Override	
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
-
 		EntityPlayer entity = (EntityPlayer) placer;
-		if(entity != null){
-			if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.CHAIN)) return Blocks.AIR.getDefaultState();
-			int dir = MathHelper.floor((entity.rotationYaw * 4.0F) / 360.0F + 0.5D) & 3;
-			switch (dir) {
-				case 0:
-					return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.NORTH);
-				case 1:
-					return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.EAST);
-				case 2:
-					return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.SOUTH);
-				case 3:
-					return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.WEST);
-				default:
-					return this.getDefaultState().withProperty(Chain.FACING, EnumFacing.NORTH);
-			}
-		}
-
-		return Blocks.AIR.getDefaultState();
+		if(!worldIn.isSideSolid(pos.offset(EnumFacing.UP), EnumFacing.DOWN) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(DRPMedievalBlocks.CHAIN)) return Blocks.AIR.getDefaultState();
+		return super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
 	}
 	
 	// -------------------------------------------------- Old Rendering System --------------------------------------------------
@@ -162,8 +109,7 @@ public class Chain extends BlockContainer {
 	}
 	
 	@Override
-	public TileEntity createNewTileEntity(World world, int meta) {
-
+	public TileEntity createTileEntity(World world, IBlockState state) {
 		return new TileEntityChain();
 	}
 }

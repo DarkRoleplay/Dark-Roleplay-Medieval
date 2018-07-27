@@ -13,7 +13,7 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
-public class TE_ClockCore  extends TileEntity {
+public class TE_ClockCore extends TileEntity {
 
 	private boolean realTime;
 	private boolean hasUpdate;

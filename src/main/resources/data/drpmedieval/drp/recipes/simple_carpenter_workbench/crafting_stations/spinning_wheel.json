@@ -1,5 +1,5 @@
 {
-    "station":"minecraft:air",
+	"station": "drpmedieval:simple_carpenter_workbench",
     "category":"crafting_stations",
     "name":"spinning_wheel",
     "outputs":[

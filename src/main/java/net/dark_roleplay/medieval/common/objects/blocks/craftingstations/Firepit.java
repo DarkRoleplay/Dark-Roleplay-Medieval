@@ -25,6 +25,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Firepit extends BlockContainer {
 
+	//TODO ROTATION
 	public Firepit(String registryName) {
 		super(Material.WOOD);
 		this.setRegistryName(registryName);

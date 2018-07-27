@@ -22,6 +22,8 @@ import net.minecraft.world.World;
 
 public class FirewoodPile extends Block{
 
+	//TODO ROTATION
+	
 	public FirewoodPile(String registreName) {
 		super(Material.WOOD);
 		this.setRegistryName(registreName);

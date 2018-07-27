@@ -17,6 +17,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class SimpleTable extends Block{
+
+	//TODO ROTATION
 	
     public static final PropertyEnum<EnumAxis> TABLE_AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class);
 	

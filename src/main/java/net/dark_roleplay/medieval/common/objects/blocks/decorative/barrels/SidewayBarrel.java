@@ -1,16 +1,17 @@
 package net.dark_roleplay.medieval.common.objects.blocks.decorative.barrels;
 
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING;
+
 import java.util.List;
 import java.util.Random;
 
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
-import net.minecraft.block.Block;
+import net.dark_roleplay.medieval.common.objects.blocks.templates.FacedBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -26,9 +27,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class SidewayBarrel extends Block {
+public class SidewayBarrel extends FacedBlock {
 
-	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 	public static final PropertyBool TAP = PropertyBool.create("tap");
 	
 	public SidewayBarrel(String registryName) {

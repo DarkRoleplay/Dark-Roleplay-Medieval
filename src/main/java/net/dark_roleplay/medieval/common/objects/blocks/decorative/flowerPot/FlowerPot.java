@@ -34,6 +34,7 @@ public class FlowerPot extends Block implements ITileEntityProvider{
 
     public static final PropertyEnum<EnumAxis> AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class);
 
+	//TODO ROTATION
 	
 	public static final PropertyInteger FLOWER1 = PropertyInteger.create("flower1", 0, 10);
 	public static final PropertyInteger FLOWER2 = PropertyInteger.create("flower2", 0, 10);

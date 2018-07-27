@@ -1,5 +1,5 @@
 {
-  "station": "drpmedieval:simple_carpenter_workbench",
+  "station":"drpmedieval:simple_carpenter_workbench",
   "category": "decoration",
   "name": "hanging_bridge",
   "outputs": [

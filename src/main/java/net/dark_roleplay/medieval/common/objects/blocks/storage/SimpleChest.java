@@ -5,7 +5,6 @@ import net.dark_roleplay.medieval.api.items.ILock;
 import net.dark_roleplay.medieval.api.storage.LockStackHandler;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCapabilities;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.objects.blocks.tileentities.storage.TileEntity_SimpleStorage;
 import net.dark_roleplay.medieval.common.objects.gui.GuiHandler;
 import net.minecraft.block.Block;

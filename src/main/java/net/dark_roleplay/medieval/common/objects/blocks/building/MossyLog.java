@@ -10,6 +10,7 @@ import net.minecraft.block.state.IBlockState;
 
 public class MossyLog extends BlockLog {
 
+	//TODO ROTATION
 	public static final PropertyEnum<BlockLog.EnumAxis> LOG_AXIS = PropertyEnum.<BlockLog.EnumAxis>create("axis",
 			BlockLog.EnumAxis.class);
 

@@ -19,8 +19,6 @@ import net.dark_roleplay.medieval.common.objects.blocks.building.SnowBricks;
 import net.dark_roleplay.medieval.common.objects.blocks.building.StoneBricks;
 import net.dark_roleplay.medieval.common.objects.blocks.building.StonePillar;
 import net.dark_roleplay.medieval.common.objects.blocks.building.TimberedClay;
-import net.dark_roleplay.medieval.common.objects.blocks.building.roof.NormalRoof;
-import net.dark_roleplay.medieval.common.objects.blocks.building.shingles.Slab;
 import net.dark_roleplay.medieval.common.objects.blocks.craftingstations.Anvil;
 import net.dark_roleplay.medieval.common.objects.blocks.craftingstations.ButterChurn;
 import net.dark_roleplay.medieval.common.objects.blocks.craftingstations.Cauldron;
@@ -33,7 +31,6 @@ import net.dark_roleplay.medieval.common.objects.blocks.craftingstations.JuicePr
 import net.dark_roleplay.medieval.common.objects.blocks.craftingstations.Mortar;
 import net.dark_roleplay.medieval.common.objects.blocks.craftingstations.PotteryTurntable;
 import net.dark_roleplay.medieval.common.objects.blocks.craftingstations.SimpleCarpenterWorkbench;
-import net.dark_roleplay.medieval.common.objects.blocks.decorative.BookOne;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.Chain;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.GoldenShipsBell;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.Hook;
@@ -93,7 +90,6 @@ import net.dark_roleplay.medieval.common.spinning_wheel.SpinningWheel;
 import net.dark_roleplay.medieval.common.spinning_wheel.SpinningWheelTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
@@ -236,7 +232,6 @@ public class DRPMedievalBlocks {
 			new UnlitWallMount("torch_holder_unlit", new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F)),
 			new Target("target"),
 			new BeeHive("bee_hive"),
-			new BookOne("book_one"),
 			new Chain("chain"),
 			new ClockCore("clock_core"),
 			new ClockDial("clock_dial", new AxisAlignedBB(0.0F, 0.0F, 0.875F, 1.0, 1.0F, 1.0F)),
@@ -269,8 +264,8 @@ public class DRPMedievalBlocks {
 			new AdvancedOre("salpeter_ore", 1),
 			new AdvancedOre("sulfur_ore", 1),
 			new AdvancedOre("silver_ore", 2),
-			new SnowBricks("snow_bricks"),
-			new DirtStairs("dirt_stairs")
+			new SnowBricks("snow_bricks")
+//			new DirtStairs("dirt_stairs"),
 			//new NormalRoof("normal_clay_roof"),
 			//new Slab("shingles_slab", BlockBehaviours.SHINGLES)
 		);

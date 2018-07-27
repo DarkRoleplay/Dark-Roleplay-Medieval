@@ -19,6 +19,8 @@ import net.minecraft.world.World;
 
 public class WorkTable extends Block{
 	
+	//TODO ROTATION
+	
     public static final PropertyEnum<EnumAxis> TABLE_AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class);
     public static final PropertyBool WEST = PropertyBool.create("west");
     public static final PropertyBool EAST = PropertyBool.create("east");

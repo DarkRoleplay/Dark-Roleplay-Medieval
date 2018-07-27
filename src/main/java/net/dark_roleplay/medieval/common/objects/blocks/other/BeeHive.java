@@ -1,6 +1,7 @@
 package net.dark_roleplay.medieval.common.objects.blocks.other;
 
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
+import net.dark_roleplay.medieval.common.objects.blocks.templates.FacedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

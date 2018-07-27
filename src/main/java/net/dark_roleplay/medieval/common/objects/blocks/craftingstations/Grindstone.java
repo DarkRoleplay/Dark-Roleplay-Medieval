@@ -27,6 +27,7 @@ import net.minecraft.world.World;
 
 public class Grindstone extends BlockContainer {
 
+	//TODO ROTATION
 	public Grindstone(String registryName) {
 		super(Material.ROCK);
 		this.setRegistryName(registryName);

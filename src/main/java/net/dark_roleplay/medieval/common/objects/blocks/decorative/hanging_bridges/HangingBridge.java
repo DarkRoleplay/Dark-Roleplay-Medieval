@@ -38,6 +38,8 @@ import net.minecraftforge.common.property.IUnlistedProperty;
 
 public class HangingBridge extends Block {
 
+	//TODO ROTATION
+	
 	public static final PropertyEnum<EnumAxis> AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class);
 	public static final PropertyInteger HEIGHT = PropertyInteger.create("height", 0, 7);
 	

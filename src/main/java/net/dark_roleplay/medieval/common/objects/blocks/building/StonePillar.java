@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 
 public class StonePillar extends BlockRotatedPillar{
 
+	//TODO ROTATION
 	public StonePillar(String registryName) {
 	    super(Material.ROCK);
 	    this.setRegistryName(registryName);

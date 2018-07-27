@@ -30,6 +30,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.WorldInfo;
 
 public class Rope extends Block {
 
@@ -167,12 +168,7 @@ public class Rope extends Block {
 
 				worldIn.setBlockState(pos, this.getDefaultState().withProperty(POSITION, dir), 3);
 			}
-			// TODO Play Sound
-			// world.playSoundEffect((double) ((float) pos.getX() + 0.5F),
-			// (double) ((float) pos.getY() + 0.5F), (double) ((float)
-			// pos.getZ() + 0.5F), this.stepSound.getPlaceSound(),
-			// (this.stepSound.getVolume() + 1.0F) / 2.0F,
-			// /*this.stepSound.getFrequency()*/ 1 * 0.8F);
+			worldIn.playSound(pos.getX() + 0.5F, pos.getY() + 0.5, pos.getZ() + 0.5, this.getSoundType().getPlaceSound(), SoundCategory.BLOCKS, 1.0F, 1.0F, true);
 			return Blocks.AIR.getDefaultState();
 		}
 		return this.getDefaultState().withProperty(POSITION, dir);
@@ -196,13 +192,7 @@ public class Rope extends Block {
 										Item.getItemFromBlock(DRPMedievalBlocks.ROPE),
 										player.inventory.mainInventory.toArray(new ItemStack[] {})), 1);
 						}
-						// TODO PLAY SOUND
-						// world.playSoundEffect((double) ((float) pos.getX() +
-						// 0.5F), (double) ((float) pos.getY() + 0.5F), (double)
-						// ((float) pos.getZ() + 0.5F),
-						// this.stepSound.getPlaceSound(),
-						// (this.stepSound.getVolume() + 1.0F) / 2.0F,
-						// /*this.stepSound.getFrequency()*/1 * 0.8F);
+						world.playSound(pos2.getX(), pos2.getY(), pos2.getZ(), this.getSoundType().getPlaceSound(), SoundCategory.BLOCKS, 1.0F, 1.0F, true);
 						return true;
 					} else {
 						return true;

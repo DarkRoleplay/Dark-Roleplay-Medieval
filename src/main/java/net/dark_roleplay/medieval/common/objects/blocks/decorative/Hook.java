@@ -2,15 +2,13 @@ package net.dark_roleplay.medieval.common.objects.blocks.decorative;
 
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
+import net.dark_roleplay.medieval.common.objects.blocks.templates.FacedBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityHook;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockFaceShape;
-import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,7 +22,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class Hook extends BlockContainer {
+public class Hook extends FacedBlock {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
@@ -41,8 +39,7 @@ public class Hook extends BlockContainer {
 	// -------------------------------------------------- Block Data --------------------------------------------------
 
 	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos){
         return new AxisAlignedBB(0.3125F, 0.375F, 0.3125F, 0.6875F, 1F, 0.6875F);
     }
 
@@ -50,40 +47,6 @@ public class Hook extends BlockContainer {
 	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing){
         return BlockFaceShape.UNDEFINED;
     }
-	
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-
-		switch (meta) {
-			case 0:
-				return this.getDefaultState().withProperty(Hook.FACING, EnumFacing.NORTH);
-			case 1:
-				return this.getDefaultState().withProperty(Hook.FACING, EnumFacing.EAST);
-			case 2:
-				return this.getDefaultState().withProperty(Hook.FACING, EnumFacing.SOUTH);
-			case 3:
-				return this.getDefaultState().withProperty(Hook.FACING, EnumFacing.WEST);
-			default:
-				return this.getDefaultState().withProperty(Hook.FACING, EnumFacing.NORTH);
-		}
-	}
-	
-	@Override
-	public int getMetaFromState(IBlockState state) {
-
-		EnumFacing facing = state.getValue(Hook.FACING);
-		if(facing.equals(EnumFacing.NORTH)) return 0;
-		if(facing.equals(EnumFacing.EAST)) return 1;
-		if(facing.equals(EnumFacing.SOUTH)) return 2;
-		if(facing.equals(EnumFacing.WEST)) return 3;
-		return 0;
-	}
-	
-	@Override
-	protected BlockStateContainer createBlockState() {
-
-		return new BlockStateContainer(this, new IProperty[] {Hook.FACING});
-	}
 	
 	@Override
 	public boolean isFullCube(IBlockState state) {
@@ -141,8 +104,7 @@ public class Hook extends BlockContainer {
 	// TODO Old Rendering System
 	
 	@Override
-	public TileEntity createNewTileEntity(World world, int meta) {
-
+	public TileEntity createTileEntity(World world, IBlockState state) {
 		return new TileEntityHook();
 	}
 	

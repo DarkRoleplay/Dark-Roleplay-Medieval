@@ -26,7 +26,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class Anvil extends BlockContainer {
-
+	
+	//TODO ROTATION
+	
 	public Anvil(String registryName) {
 		super(Material.IRON);
 		this.setRegistryName(registryName);

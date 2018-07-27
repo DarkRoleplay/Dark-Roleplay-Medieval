@@ -1,15 +1,17 @@
 package net.dark_roleplay.medieval.common.objects.blocks.decorative.wall_mounted;
 
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.ADDON_LIGHTER;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.ADDON_TRAP;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.POWERED;
+
 import java.util.Random;
 
-import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -29,9 +31,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
-public class UnlitWallMount extends WallMounted {
+public class UnlitWallMount extends EmptyWallMount {
 
-	public static final PropertyBool POWERED = PropertyBool.create("powered");
 
 	@ObjectHolder("drpmedieval:trigger_trap")
 	private static Item trap;
@@ -42,52 +43,40 @@ public class UnlitWallMount extends WallMounted {
 	private Block lit;
 	
 	public UnlitWallMount(String registryName, AxisAlignedBB bb) {
-		super(registryName, Material.IRON, bb); // new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F));
+		super(registryName, bb); // new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F));
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(4F);
 		this.setHarvestLevel("pickaxe", 0);
 		this.setSoundType(SoundType.ANVIL);
-		this.setDefaultState(this.getDefaultState().withProperty(EmptyWallMount.ADDON_LIGHTER, false).withProperty(EmptyWallMount.ADDON_TRAP, false));
 	}
 
 	// -------------------------------------------------- Block Data --------------------------------------------------
 	
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		IBlockState state = super.getStateFromMeta(meta % 4);
-		if(meta > 3 && meta < 8){
-			return state.withProperty(EmptyWallMount.ADDON_LIGHTER, true).withProperty(EmptyWallMount.ADDON_TRAP, false).withProperty(POWERED, false);
-		}else if(meta > 7 && meta < 12){
-			return state.withProperty(EmptyWallMount.ADDON_LIGHTER, false).withProperty(EmptyWallMount.ADDON_TRAP, true).withProperty(POWERED, false);
-		}else if(meta > 12){
-			return state.withProperty(EmptyWallMount.ADDON_LIGHTER, false).withProperty(EmptyWallMount.ADDON_TRAP, true).withProperty(POWERED, true);
-		}else{
-			return state.withProperty(EmptyWallMount.ADDON_LIGHTER, false).withProperty(EmptyWallMount.ADDON_TRAP, false).withProperty(POWERED, false);
-		}
+		IBlockState state = super.getStateFromMeta(meta);
+		if(meta > 12)
+			state = state.withProperty(POWERED, true);
+		return state;
 	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		int i = super.getMetaFromState(state);
-		if(state.getValue(EmptyWallMount.ADDON_LIGHTER)){
-			i += 4;
-			if(state.getValue(POWERED))
-				i+= 8;
-		}else if(state.getValue(EmptyWallMount.ADDON_TRAP)){
-			i += 8;
-		}
+		if(state.getValue(ADDON_LIGHTER) && state.getValue(POWERED))
+				i += 8;
 		return i;
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {FACING, EmptyWallMount.ADDON_LIGHTER, EmptyWallMount.ADDON_TRAP, POWERED});
+		return new BlockStateContainer(this, new IProperty[] {FACING, ADDON_LIGHTER, ADDON_TRAP, POWERED});
 	}
 	
 	
 	@Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
-		return this.getDefaultState().withProperty(FACING, facing).withProperty(EmptyWallMount.ADDON_TRAP, false).withProperty(EmptyWallMount.ADDON_LIGHTER, false).withProperty(POWERED, false);
+		return this.getDefaultState().withProperty(FACING, facing).withProperty(ADDON_TRAP, false).withProperty(ADDON_LIGHTER, false).withProperty(POWERED, false);
 	}
 	
 	// -------------------------------------------------- Block Events --------------------------------------------------
@@ -99,10 +88,10 @@ public class UnlitWallMount extends WallMounted {
 			this.dropBlockAsItem(world, pos, state, 0);
 			world.setBlockToAir(pos);
 			this.spawnAddons(world, pos, state);
-		}else if(state.getValue(EmptyWallMount.ADDON_LIGHTER) && world.isBlockPowered(fromPos)){
+		}else if(state.getValue(ADDON_LIGHTER) && world.isBlockPowered(fromPos)){
 			world.setBlockState(pos, this.lit.getDefaultState()
-				.withProperty(FACING, state.getValue(FACING)).withProperty(EmptyWallMount.ADDON_TRAP, state.getValue(EmptyWallMount.ADDON_TRAP))
-				.withProperty(EmptyWallMount.ADDON_LIGHTER, state.getValue(EmptyWallMount.ADDON_LIGHTER)).withProperty(POWERED, state.getValue(POWERED))
+				.withProperty(FACING, state.getValue(FACING)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP))
+				.withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(POWERED, state.getValue(POWERED))
 			);
 		}
 		
@@ -113,8 +102,8 @@ public class UnlitWallMount extends WallMounted {
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(!world.isRemote){
 			boolean consumeItems = player.capabilities.isCreativeMode;
-			boolean hasTrap = state.getValue(EmptyWallMount.ADDON_TRAP);
-			boolean hasLighter = state.getValue(EmptyWallMount.ADDON_LIGHTER);
+			boolean hasTrap = state.getValue(ADDON_TRAP);
+			boolean hasLighter = state.getValue(ADDON_LIGHTER);
 			ItemStack heldStack = player.getHeldItem(hand);
 			
 			if(heldStack.isEmpty()){
@@ -133,18 +122,18 @@ public class UnlitWallMount extends WallMounted {
 					player.getHeldItem(hand).shrink(1);
 					spawnAddons(world, pos, state);
 				}
-				world.setBlockState(pos, state.withProperty(FACING, state.getValue(FACING)).withProperty(EmptyWallMount.ADDON_LIGHTER, false).withProperty(EmptyWallMount.ADDON_TRAP, true));
+				world.setBlockState(pos, state.withProperty(FACING, state.getValue(FACING)).withProperty(ADDON_LIGHTER, false).withProperty(ADDON_TRAP, true));
 			}else if(heldStack.getItem() == this.lighter && !hasTrap){
 				if(consumeItems){
 					player.getHeldItem(hand).shrink(1);
 					spawnAddons(world, pos, state);
 				}
-				world.setBlockState(pos, state.withProperty(FACING, state.getValue(FACING)).withProperty(EmptyWallMount.ADDON_LIGHTER, true).withProperty(EmptyWallMount.ADDON_TRAP, false));
+				world.setBlockState(pos, state.withProperty(FACING, state.getValue(FACING)).withProperty(ADDON_LIGHTER, true).withProperty(ADDON_TRAP, false));
 			}else if(heldStack.getItem() == Items.FLINT_AND_STEEL){
 				if(consumeItems){
 					player.getHeldItem(hand).attemptDamageItem(1, new Random(), (EntityPlayerMP) player);
 				}
-				world.setBlockState(pos, this.lit.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(EmptyWallMount.ADDON_LIGHTER, state.getValue(EmptyWallMount.ADDON_LIGHTER)).withProperty(EmptyWallMount.ADDON_TRAP, state.getValue(EmptyWallMount.ADDON_TRAP)).withProperty(UnlitWallMount.POWERED, state.getValue(UnlitWallMount.POWERED)));
+				world.setBlockState(pos, this.lit.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP)).withProperty(POWERED, state.getValue(POWERED)));
 			}
 		}
 		return true;
@@ -186,10 +175,10 @@ public class UnlitWallMount extends WallMounted {
 	}
 	
 	public void spawnAddons(World world, BlockPos pos, IBlockState state){
-		if(state.getValue(EmptyWallMount.ADDON_LIGHTER)){
+		if(state.getValue(ADDON_LIGHTER)){
 			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
 		}
-		if(state.getValue(EmptyWallMount.ADDON_TRAP)){
+		if(state.getValue(ADDON_TRAP)){
 			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TRIGGER_TRAP, 1)));
 		}
 	}

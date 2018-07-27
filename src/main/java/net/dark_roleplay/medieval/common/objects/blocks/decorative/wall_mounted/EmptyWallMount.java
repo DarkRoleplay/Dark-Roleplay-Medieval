@@ -1,21 +1,21 @@
 package net.dark_roleplay.medieval.common.objects.blocks.decorative.wall_mounted;
 
-import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.ADDON_LIGHTER;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.ADDON_TRAP;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.POWERED;
+
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
-import net.dark_roleplay.medieval.common.util.InventoryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,14 +23,10 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
 public class EmptyWallMount extends WallMounted {
-
-	public static PropertyBool ADDON_LIGHTER = PropertyBool.create("addon_lighter");
-	public static PropertyBool ADDON_TRAP = PropertyBool.create("addon_trap");
 
 	@ObjectHolder("drpmedieval:trigger_trap")
 	private static Item trap;
@@ -47,7 +43,7 @@ public class EmptyWallMount extends WallMounted {
 		this.setHardness(4F);
 		this.setHarvestLevel("pickaxe", 0);
 		this.setSoundType(SoundType.ANVIL);
-		this.setDefaultState(this.getDefaultState().withProperty(EmptyWallMount.ADDON_LIGHTER, false).withProperty(EmptyWallMount.ADDON_TRAP, false));
+		this.setDefaultState(this.getDefaultState().withProperty(ADDON_LIGHTER, false).withProperty(ADDON_TRAP, false));
 	}
 
 	// -------------------------------------------------- Block Data --------------------------------------------------
@@ -67,10 +63,10 @@ public class EmptyWallMount extends WallMounted {
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		int i = super.getMetaFromState(state);
-		if(state.getValue(EmptyWallMount.ADDON_LIGHTER)){
+		if(state.getValue(ADDON_LIGHTER)){
 			i += 4;
 		}
-		else if(state.getValue(EmptyWallMount.ADDON_TRAP)){
+		else if(state.getValue(ADDON_TRAP)){
 			i += 8;
 		}
 		return i;
@@ -78,7 +74,7 @@ public class EmptyWallMount extends WallMounted {
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {FACING, EmptyWallMount.ADDON_LIGHTER, EmptyWallMount.ADDON_TRAP});
+		return new BlockStateContainer(this, new IProperty[] {FACING, ADDON_LIGHTER, ADDON_TRAP});
 	}
 	
 	@Override
@@ -118,7 +114,7 @@ public class EmptyWallMount extends WallMounted {
 				if(!consumeItems){
 					player.getHeldItem(hand).shrink(1);
 				}
-				world.setBlockState(pos, this.unlit.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP)).withProperty(UnlitWallMount.POWERED, false));
+				world.setBlockState(pos, this.unlit.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP)).withProperty(POWERED, false));
 			}
 		}
 		return true;
@@ -148,10 +144,10 @@ public class EmptyWallMount extends WallMounted {
 	}
 	
 	public void spawnAddons(World world, BlockPos pos, IBlockState state){
-		if(state.getValue(EmptyWallMount.ADDON_LIGHTER)){
+		if(state.getValue(ADDON_LIGHTER)){
 			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
 		}
-		if(state.getValue(EmptyWallMount.ADDON_TRAP)){
+		if(state.getValue(ADDON_TRAP)){
 			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TRIGGER_TRAP, 1)));
 		}
 	}

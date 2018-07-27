@@ -13,6 +13,7 @@ import net.minecraft.world.IBlockAccess;
 
 public class FiredPottery extends Block {
 
+	//TODO ROTATION
 	private AxisAlignedBB bb;
 	
 	public FiredPottery(String registryName, AxisAlignedBB bb) {

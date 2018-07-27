@@ -28,6 +28,7 @@ import net.minecraft.world.World;
 
 public class HangingCauldron extends BlockContainer {
 
+	//TODO ROTATION
 	public HangingCauldron(String registryName) {
 		super(Material.IRON);
 		this.setRegistryName(registryName);

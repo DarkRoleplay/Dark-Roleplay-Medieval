@@ -33,6 +33,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Lantern extends Block{
+	
+	//TODO ROTATION
 
 	public static final PropertyBool CANDLE = PropertyBool.create("candle");
 	public static final PropertyBool LIT = PropertyBool.create("lit");

@@ -1,10 +1,9 @@
 package net.dark_roleplay.medieval.common.objects.blocks.decorative.apiaries;
 
+import net.dark_roleplay.medieval.api.blocks.wood.WoodType;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
-import net.dark_roleplay.medieval.common.objects.blocks.WoodHelper;
-import net.dark_roleplay.medieval.common.objects.blocks.WoodHelper.WoodType;
-import net.dark_roleplay.medieval.common.objects.blocks.templates.WoodenBlock;
+import net.dark_roleplay.medieval.common.objects.blocks.templates.FacedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -13,7 +12,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -25,10 +23,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class Apiary extends WoodenBlock{
+public class Apiary extends FacedBlock{
 	
-	public Apiary(String registryName, WoodHelper.WoodType... types) {
-		super(Material.WOOD, types);
+	public Apiary(String registryName) {
+		super(Material.WOOD);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
@@ -182,14 +180,4 @@ public class Apiary extends WoodenBlock{
 			return Blocks.AIR.getDefaultState();
 		return this.getStateFromMeta(meta).withProperty(BlockProperties.FACING, placer.getHorizontalFacing().getOpposite());
     }
-
-	@Override
-	public IBlockState getStateForVariant(WoodType type) {
-		return null;
-	}
-
-	
-	public static int getTypeAmount(){
-		return 4;
-	}
 }

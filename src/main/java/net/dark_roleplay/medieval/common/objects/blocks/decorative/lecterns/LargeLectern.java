@@ -5,6 +5,9 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
+
+import net.dark_roleplay.medieval.common.objects.blocks.templates.FacedBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.tileentities.lectern.TileEntity_Lectern;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
@@ -41,11 +44,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.items.CapabilityItemHandler;
 
-public class LargeLectern extends Block implements ITileEntityProvider{
-	
-	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
-	
-	public static final PropertyBool TOP = PropertyBool.create("top");
+public class LargeLectern extends FacedBlock implements ITileEntityProvider{
+		
 	public static final PropertyBool BOOK = PropertyBool.create("book");
 
 	public LargeLectern(String registryName) {
@@ -55,7 +55,7 @@ public class LargeLectern extends Block implements ITileEntityProvider{
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
-		this.setDefaultState(this.getDefaultState().withProperty(LargeLectern.FACING, EnumFacing.NORTH).withProperty(LargeLectern.TOP, false).withProperty(LargeLectern.BOOK, false));
+		this.setDefaultState(this.getDefaultState().withProperty(FACING, EnumFacing.NORTH).withProperty(IS_TOP, false).withProperty(BOOK, false));
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class LargeLectern extends Block implements ITileEntityProvider{
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		state = this.getActualState(state, source, pos);
-		if(state.getValue(LargeLectern.TOP))
+		if(state.getValue(IS_TOP))
 			return new AxisAlignedBB(0f,0f,0f,1f,0.5f,1f);
 		return new AxisAlignedBB(0.4f, 0f, 0.4f, 0.6f, 1f, 0.6f);
 	}
@@ -85,25 +85,25 @@ public class LargeLectern extends Block implements ITileEntityProvider{
 		
 		switch (meta) {
 			case 0:
-				return this.getDefaultState().withProperty(LargeLectern.FACING, EnumFacing.NORTH).withProperty(LargeLectern.TOP, type).withProperty(LargeLectern.BOOK, false);
+				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH).withProperty(IS_TOP, type).withProperty(BOOK, false);
 			case 1:
-				return this.getDefaultState().withProperty(LargeLectern.FACING, EnumFacing.EAST).withProperty(LargeLectern.TOP, type).withProperty(LargeLectern.BOOK, false);
+				return this.getDefaultState().withProperty(FACING, EnumFacing.EAST).withProperty(IS_TOP, type).withProperty(BOOK, false);
 			case 2:
-				return this.getDefaultState().withProperty(LargeLectern.FACING, EnumFacing.SOUTH).withProperty(LargeLectern.TOP, type).withProperty(LargeLectern.BOOK, false);
+				return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH).withProperty(IS_TOP, type).withProperty(BOOK, false);
 			case 3:
-				return this.getDefaultState().withProperty(LargeLectern.FACING, EnumFacing.WEST).withProperty(LargeLectern.TOP, type).withProperty(LargeLectern.BOOK, false);
+				return this.getDefaultState().withProperty(FACING, EnumFacing.WEST).withProperty(IS_TOP, type).withProperty(BOOK, false);
 			default:
-				return this.getDefaultState().withProperty(LargeLectern.FACING, EnumFacing.NORTH).withProperty(LargeLectern.TOP, type).withProperty(LargeLectern.BOOK, false);
+				return this.getDefaultState().withProperty(FACING, EnumFacing.NORTH).withProperty(IS_TOP, type).withProperty(BOOK, false);
 		}
 	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
-		int meta = state.getValue(LargeLectern.TOP) ? 4 : 0;
+		int meta = state.getValue(IS_TOP) ? 4 : 0;
 		
 		
-		EnumFacing facing = state.getValue(LargeLectern.FACING);
+		EnumFacing facing = state.getValue(FACING);
 		if(facing.equals(EnumFacing.NORTH)) return meta;
 		if(facing.equals(EnumFacing.EAST)) return meta + 1;
 		if(facing.equals(EnumFacing.SOUTH)) return meta + 2;
@@ -113,23 +113,23 @@ public class LargeLectern extends Block implements ITileEntityProvider{
 	
 	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos){
-		if(state.getValue(LargeLectern.TOP)){
+		if(state.getValue(IS_TOP)){
 			TileEntity_Lectern te = (TileEntity_Lectern) world.getTileEntity(pos);
 			if((te != null))
 				//				System.out.println(((World) world).isRemote  + "  " + te.renderBook());
-				return state.withProperty(LargeLectern.BOOK, te.renderBook());
+				return state.withProperty(BOOK, te.renderBook());
 		}
         return state;
     }
 	
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {LargeLectern.FACING,LargeLectern.TOP, LargeLectern.BOOK});
+		return new BlockStateContainer(this, new IProperty[] {FACING,IS_TOP, BOOK});
 	}
 	
 	@Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
-		return this.getDefaultState().withProperty(LargeLectern.FACING, placer.getHorizontalFacing().getOpposite()).withProperty(LargeLectern.TOP, false).withProperty(LargeLectern.BOOK, false);
+		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite()).withProperty(IS_TOP, false).withProperty(BOOK, false);
     }
 	
 	@Override
@@ -139,7 +139,7 @@ public class LargeLectern extends Block implements ITileEntityProvider{
 	
 	@Override
 	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack){
-		worldIn.setBlockState(pos.add(0,1,0), state.withProperty(LargeLectern.TOP, true).withProperty(LargeLectern.BOOK, false));
+		worldIn.setBlockState(pos.add(0,1,0), state.withProperty(IS_TOP, true).withProperty(BOOK, false));
     }
 	
 	@Override
@@ -182,12 +182,12 @@ public class LargeLectern extends Block implements ITileEntityProvider{
 	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-		if(!state.getValue(LargeLectern.TOP)){
+		if(!state.getValue(IS_TOP)){
 			pos = pos.up();
 			state = world.getBlockState(pos);
 		}
 		
-		if(state.getValue(LargeLectern.TOP)){
+		if(state.getValue(IS_TOP)){
 			TileEntity_Lectern te = (TileEntity_Lectern) world.getTileEntity(pos);
 			if((te != null) && te.renderBook()){
 				ItemStack stack = player.getHeldItem(hand).copy();
