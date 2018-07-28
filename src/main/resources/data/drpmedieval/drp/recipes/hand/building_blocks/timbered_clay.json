@@ -1,0 +1,20 @@
+{
+  "category": "building_blocks",
+  "name": "timbered_clay",
+  "outputs": [
+    {
+      "item": "drpmedieval:timbered_clay",
+      "count": 2
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:sticks",
+      "count": 4
+    },
+	{
+      "item": "minecraft:clay",
+      "count": 4
+    }
+  ]
+}

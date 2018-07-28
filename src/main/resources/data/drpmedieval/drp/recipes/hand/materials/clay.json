@@ -1,0 +1,19 @@
+{
+  "category": "materials",
+  "name": "clay12",
+  "outputs": [
+    {
+      "item": "minecraft:clay_ball"
+	  "count":16
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "drpmedieval:dry_clay_lump",
+	  "count":16
+    }
+  ]
+}

@@ -98,6 +98,7 @@ public class TimberedClay extends Block{
 	public TimberedClay(String name) {
 		super(Material.ROCK);
 		this.setRegistryName(name);
+		this.setUnlocalizedName("timbered_clay");
 		this.fullBlock = true;
 		this.setDefaultState(this.blockState.getBaseState().withProperty(UP, false).withProperty(RIGHT, false).withProperty(DOWN, false).withProperty(LEFT, false));
 	}

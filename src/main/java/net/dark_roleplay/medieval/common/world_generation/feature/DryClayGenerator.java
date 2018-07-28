@@ -29,6 +29,7 @@ public class DryClayGenerator implements IWorldGenerator{
 	}
 	
 	public void generateOverworld(World world, Random rand, int x, int z) {
+		if(!DRPMedievalConfig.WORLD_GEN.GENERATE_DRY_CLAY) return;
 		Random rnd = new Random(world.getSeed());
 		int xOffset = rnd.nextInt(1000);
 		int zOffset = rnd.nextInt(1000);

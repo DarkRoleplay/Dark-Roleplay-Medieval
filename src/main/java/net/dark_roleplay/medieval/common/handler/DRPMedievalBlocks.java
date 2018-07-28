@@ -155,6 +155,8 @@ public class DRPMedievalBlocks {
 	public static final EmptyWallMount CANDLE_HOLDER_EMPTY = null;
 	public static final EmptyWallMount TORCH_HOLDER_EMPTY = null;
 	
+	public static final Block OAK_TIMBERED_CLAY_CLEAN = null;
+	
 	
 	public static final Crop BARLEY = null;
 	

@@ -33,6 +33,10 @@ public class DRPMedievalConfig {
 		@Config.Name("Generate Salpeter Ore")
 		@Config.Comment("Disabled/Enables ore generation for salpeter \nAllowed values: true, false")
 		public boolean GENERATE_SALPETER = true;
+		
+		@Config.Name("Generate Dry Clay Patches")
+		@Config.Comment("Disabled/Enables ore generation for dry clay \nAllowed values: true, false")
+		public boolean GENERATE_DRY_CLAY = true;
 	}
 	
 }

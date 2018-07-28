@@ -22,10 +22,14 @@ import net.dark_roleplay.medieval.common.objects.items.StreetStomper;
 import net.dark_roleplay.medieval.common.objects.items.Telescope;
 import net.dark_roleplay.medieval.common.objects.items.blocks.HangingBridge_Item;
 import net.dark_roleplay.medieval.common.objects.items.blocks.ItemMultiBlock;
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -73,6 +77,7 @@ public class DRPMedievalItems {
 	public static final Item HOPS = null;
 	public static final Item BLACK_PAINTBRUSH = null;
 	public static final Item SPINDLE = null;
+	public static final Item TIMBERED_CLAY = null;
 	
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Item> event) {
@@ -206,6 +211,9 @@ public class DRPMedievalItems {
 					new DRPItem(mat.getFormatValue() + "_wood_beam", "wood_beams", 64)
 			);
 		}
+	
+		register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
+				new ItemBlock(DRPMedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
 		
 		for(ItemBlock block : blockItems){
 			reg.register(block);
@@ -224,6 +232,12 @@ public class DRPMedievalItems {
 				null
 			)
 		);
+	}
+	
+	@SubscribeEvent
+	public static void reigsterModel(ModelRegistryEvent event) {
+		ModelBakery.registerItemVariants(TIMBERED_CLAY, TIMBERED_CLAY.getRegistryName());
+		ModelLoader.setCustomModelResourceLocation(TIMBERED_CLAY, 0, new ModelResourceLocation(TIMBERED_CLAY.getRegistryName().toString(), "inventory"));
 	}
 	
 	protected static void register(IForgeRegistry<Item> reg, CreativeTabs creativeTab, Item... items){
