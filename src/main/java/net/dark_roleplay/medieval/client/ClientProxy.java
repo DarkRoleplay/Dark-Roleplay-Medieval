@@ -32,6 +32,8 @@ import net.dark_roleplay.medieval.client.model_baking.advanced.CustomBlockstateL
 import net.dark_roleplay.medieval.common.CommonProxy;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.clocks.TE_ClockCore;
+import net.dark_roleplay.medieval.common.objects.blocks.decorative.flowers.FlowersTileEntity;
+import net.dark_roleplay.medieval.common.objects.blocks.decorative.flowers.TESR_Flowers;
 import net.dark_roleplay.medieval.common.objects.blocks.storage.DungeonChest;
 import net.dark_roleplay.medieval.common.objects.blocks.storage.barrels.TESR_FluidBarrel;
 import net.dark_roleplay.medieval.common.objects.blocks.storage.barrels.TE_FluidBarrel;
@@ -115,6 +117,7 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_ShopSign.class, new TESR_ShopSign());
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_Shelf.class, new TESR_Shelf(Minecraft.getMinecraft().getRenderItem()));
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_FluidBarrel.class, new TESR_FluidBarrel());
+		ClientRegistry.bindTileEntitySpecialRenderer(FlowersTileEntity.class, new TESR_Flowers());
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TE_DungeonChest.class, new AnimationTESR<TE_DungeonChest>(){
 			

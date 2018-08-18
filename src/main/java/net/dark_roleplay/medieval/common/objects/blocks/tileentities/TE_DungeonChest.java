@@ -83,8 +83,8 @@ public class TE_DungeonChest extends DynamicStorageTileEntity {
 
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
-		super.writeToNBT(nbt);
-
+		nbt = super.writeToNBT(nbt);
+		
 		nbt.setBoolean("isOpen", this.isOpen);
 		
 		return nbt;
@@ -110,7 +110,7 @@ public class TE_DungeonChest extends DynamicStorageTileEntity {
 			
 			NBTTagCompound newInventory = new NBTTagCompound();
 			newInventory.setTag("Items", newItems);
-			newInventory.setInteger("Size", 36);
+			newInventory.setInteger("Size", 27);
 			compound.setTag("inventoryMain", newInventory);
 		    
 		    super.readFromNBT(compound);

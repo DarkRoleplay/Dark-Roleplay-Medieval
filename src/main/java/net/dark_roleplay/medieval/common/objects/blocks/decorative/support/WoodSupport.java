@@ -31,7 +31,7 @@ public class WoodSupport extends FacedBlock{
 		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(0.5F);
-		this.setSoundType(SoundType.CLOTH);
+		this.setSoundType(SoundType.WOOD);
 		boundingBoxes[0] = new AxisAlignedBB(0.375F, 0F, 0.375F, 0.625F, 1F, 0.625F);
 		boundingBoxes[1] = new AxisAlignedBB(0.375F, 0F, 0.0F, 0.625F, 1F, 0.25F);
 		boundingBoxes[2] = new AxisAlignedBB(0.75F, 0F, 0.75F, 1F, 1F, 1F);

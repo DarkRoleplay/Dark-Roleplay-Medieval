@@ -52,11 +52,11 @@ dependencies {
 	// at runtime, use the full JEI jar
 	runtime "mezz.jei:jei_${mc_version}:${jei_version}"
   
-	deobfProvided "darkroleplay.core:drpcore-${mc_version}:${drp_core_version}"
-	embed "darkroleplay.library:drplibrary-${mc_version}:${drp_library_version}"
-	deobfProvided "darkroleplay.core_modules.drpcmblueprints:drpcmblueprints-${mc_version}:${drp_core_module_blueprints_version}"
-	deobfProvided "darkroleplay.core_modules.drpcmdates:drpcmdates-${mc_version}:${drp_core_module_dates_version}"
-	deobfProvided "darkroleplay.core_modules.drpcmcrops:drpcmcrops-${mc_version}:${drp_core_module_crops_version}"
+	deobfProvided "darkroleplay:drpcore:${mc_version}-${drp_core_version}"
+	embed "darkroleplay:drplibrary:${mc_version}-${drp_library_version}"
+	deobfProvided "darkroleplay.core_modules:drpcmblueprints:${mc_version}-${drp_core_module_blueprints_version}"
+	deobfProvided "darkroleplay.core_modules:drpcmdates:${mc_version}-${drp_core_module_dates_version}"
+	deobfProvided "darkroleplay.core_modules:drpcmcrops:${mc_version}-${drp_core_module_crops_version}"
 }
 
 processResources {

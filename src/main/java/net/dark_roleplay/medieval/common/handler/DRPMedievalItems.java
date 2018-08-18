@@ -21,6 +21,7 @@ import net.dark_roleplay.medieval.common.objects.items.Spindle;
 import net.dark_roleplay.medieval.common.objects.items.StreetStomper;
 import net.dark_roleplay.medieval.common.objects.items.Telescope;
 import net.dark_roleplay.medieval.common.objects.items.blocks.HangingBridge_Item;
+import net.dark_roleplay.medieval.common.objects.items.blocks.ItemFirewood;
 import net.dark_roleplay.medieval.common.objects.items.blocks.ItemMultiBlock;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -130,7 +131,6 @@ public class DRPMedievalItems {
 		register(reg, DRPMedievalCreativeTabs.MISCELLANEOUS,
 			new DRPItem("tap", "misc", 64),
 			new DRPItem("trigger_trap", "misc", 64),
-			new DRPItem("firewood", "firewood", 64, "oak", "birch", "spruce", "jungle", "acacia", "dark_oak"),
 			new DRPItem("coin_bronze", "misc/currency", 50),
 			new DRPItem("coin_silver", "misc/currency", 50),
 			new DRPItem("coin_golden", "misc/currency", 50),
@@ -208,8 +208,12 @@ public class DRPMedievalItems {
 	
 		for(Material mat : Modules.MATERIALS.getMaterials(Modules.MATERIALS.WOOD_KEY)){
 			register(reg, DRPMedievalCreativeTabs.MISCELLANEOUS,
-					new DRPItem(mat.getFormatValue() + "_wood_beam", "wood_beams", 64)
+					new DRPItem(mat.getFormatValue() + "_wood_beam", "wood_beams", 64),
+					new ItemFirewood(mat.getFormatValue() + "_firewood", "firewood", 64)
 			);
+			
+			
+
 		}
 	
 		register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,

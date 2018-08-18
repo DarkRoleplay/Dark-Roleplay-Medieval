@@ -10,6 +10,7 @@ import javax.annotation.Nullable;
 
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.lecterns.LargeLectern;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -99,6 +100,9 @@ public class TimberedClay extends Block{
 		super(Material.ROCK);
 		this.setRegistryName(name);
 		this.setUnlocalizedName("timbered_clay");
+		this.setHardness(1.25F);
+		this.setResistance(7.0F);
+		this.setSoundType(SoundType.STONE);
 		this.fullBlock = true;
 		this.setDefaultState(this.blockState.getBaseState().withProperty(UP, false).withProperty(RIGHT, false).withProperty(DOWN, false).withProperty(LEFT, false));
 	}

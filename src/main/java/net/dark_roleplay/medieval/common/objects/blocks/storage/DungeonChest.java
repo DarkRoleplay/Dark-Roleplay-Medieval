@@ -14,9 +14,11 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -28,6 +30,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.property.ExtendedBlockState;
 import net.minecraftforge.common.property.IUnlistedProperty;
 import net.minecraftforge.common.property.Properties;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 
 public class DungeonChest extends FacedBlock {
 
@@ -115,7 +119,18 @@ public class DungeonChest extends FacedBlock {
 
 		if (tileEntity instanceof TE_DungeonChest) {
 			TE_DungeonChest tileentityChest = (TE_DungeonChest) tileEntity;
-//			InventoryHelper.dropInventoryItems(worldIn, pos, tileentityChest.inventory);
+			ItemStackHandler handler = (ItemStackHandler) tileentityChest.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+			
+			EntityItem entityItem;
+			for(int i = 0; i < handler.getSlots(); i++) {
+				ItemStack stack = handler.getStackInSlot(i);
+
+				if(!stack.isEmpty()) {
+					entityItem = new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), stack);
+					entityItem.setDefaultPickupDelay();
+					worldIn.spawnEntity(entityItem);
+				}
+			}
 		}
 
 		super.breakBlock(worldIn, pos, state);

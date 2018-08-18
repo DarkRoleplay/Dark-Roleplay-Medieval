@@ -25,6 +25,7 @@ public class BarrelEmpty extends Block {
 		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
+		this.setResistance(0.5F);
 		this.setHarvestLevel("axe", 0);
 		this.setSoundType(SoundType.WOOD);
 	}

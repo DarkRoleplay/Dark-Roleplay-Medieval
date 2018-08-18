@@ -11,7 +11,8 @@
       "item": "minecraft:stick"
     },
     {
-      "item": "minecraft:wool"
+      "item": "minecraft:feather",
+	  "count":3
     }
   ]
 }

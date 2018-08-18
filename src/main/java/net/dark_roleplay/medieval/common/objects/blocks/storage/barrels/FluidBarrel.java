@@ -1,6 +1,7 @@
 package net.dark_roleplay.medieval.common.objects.blocks.storage.barrels;
 
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.barrels.BarrelEmpty;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,6 +21,10 @@ public class FluidBarrel extends BarrelEmpty{
 
 	public FluidBarrel(String name) {
 		super(name);
+		this.setHardness(2F);
+		this.setResistance(0.5F);
+		this.setHarvestLevel("axe", 0);
+		this.setSoundType(SoundType.WOOD);
 	}
 	
 	@Override

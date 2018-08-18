@@ -9,7 +9,6 @@ import net.dark_roleplay.core.api.old.modules.materials.ResourceGenerator;
 import net.dark_roleplay.core.modules.Modules;
 import net.dark_roleplay.core_modules.crops.api.blocks.Crop;
 import net.dark_roleplay.medieval.common.References;
-import net.dark_roleplay.medieval.common.objects.blocks.building.DirtStairs;
 import net.dark_roleplay.medieval.common.objects.blocks.building.DryClay;
 import net.dark_roleplay.medieval.common.objects.blocks.building.DryClayGrass;
 import net.dark_roleplay.medieval.common.objects.blocks.building.MossyLog;
@@ -56,6 +55,8 @@ import net.dark_roleplay.medieval.common.objects.blocks.decorative.clocks.ClockC
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.clocks.ClockDial;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.firewood_pile.FirewoodPile;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.flowerPot.FlowerPot;
+import net.dark_roleplay.medieval.common.objects.blocks.decorative.flowers.FlowerTest;
+import net.dark_roleplay.medieval.common.objects.blocks.decorative.flowers.FlowersTileEntity;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.hanging_bridges.HangingBridge;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.head_cutting_block.HeadCuttingBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.lanterns.Lantern;
@@ -291,17 +292,18 @@ public class DRPMedievalBlocks {
 //			new AppleSappling("apple_sapling"),
 			new Mushroom("mushroom_brown"),
 			new Mushroom("mushroom_red")
+//			new FlowerTest("flower_test")
 		);
 		
 		registerNoItems(reg,
 			new Forge("forge"),
 			new SimpleCarpenterWorkbench("simple_carpenter_workbench"),
 			new Barley("barley"),
-			new Apple("apple_green", new ItemStack(DRPMedievalItems.APPLE_GREEN, 1)),
-			new Apple("apple_red", new ItemStack(Items.APPLE, 1)),
-			new Apple("apple_yellow", new ItemStack(DRPMedievalItems.APPLE_YELLOW, 1)),
-			new Pear("pear_green", new ItemStack(DRPMedievalItems.PEAR_GREEN, 1)),
-			new Pear("pear_yellow", new ItemStack(DRPMedievalItems.PEAR_YELLOW, 1)),
+//			new Apple("apple_green", new ItemStack(DRPMedievalItems.APPLE_GREEN, 1)),
+//			new Apple("apple_red", new ItemStack(Items.APPLE, 1)),
+//			new Apple("apple_yellow", new ItemStack(DRPMedievalItems.APPLE_YELLOW, 1)),
+//			new Pear("pear_green", new ItemStack(DRPMedievalItems.PEAR_GREEN, 1)),
+//			new Pear("pear_yellow", new ItemStack(DRPMedievalItems.PEAR_YELLOW, 1)),
 			new Hops("hops"),
 			new GunpowderTrail("gunpowder_trail"),
 			new HangingBridge("hanging_bridge_bottom" ,0F),
@@ -309,6 +311,7 @@ public class DRPMedievalBlocks {
 		);
 		
 		GameRegistry.registerTileEntity(SpinningWheelTileEntity.class, References.MODID + ":spinning_wheel");
+		GameRegistry.registerTileEntity(FlowersTileEntity.class, new ResourceLocation(References.MODID, "flower_container"));
 	}
 	
 	@SubscribeEvent

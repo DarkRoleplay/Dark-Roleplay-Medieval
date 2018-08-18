@@ -9,11 +9,11 @@
   ],
   "ingredients": [
     {
-      "item": "minecraft:sticks",
-      "count": 4
+      "item": "minecraft:stick",
+      "count": 8
     },
 	{
-      "item": "minecraft:clay",
+      "item": "minecraft:clay_ball",
       "count": 4
     }
   ]

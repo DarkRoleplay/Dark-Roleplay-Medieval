@@ -9,9 +9,8 @@
   ],
   "ingredients": [
     {
-      "item": "minecraft:monster_egg",
-      "count": 2,
-      "data": 2
+      "item": "minecraft:stonebrick",
+      "count": 2
     },
     {
       "item": "minecraft:iron_ingot",

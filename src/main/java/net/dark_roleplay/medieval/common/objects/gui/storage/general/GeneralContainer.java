@@ -18,6 +18,7 @@ import net.minecraftforge.items.SlotItemHandler;
 public class GeneralContainer extends Container{
 
 	protected TileEntity te;
+	protected int slotCount;
 
 	public GeneralContainer(TileEntity te, InventoryPlayer playerInventory) {
 		this.te = te;
@@ -25,11 +26,13 @@ public class GeneralContainer extends Container{
 		if(this.te.hasCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null)) {
 			IItemHandler handler = this.te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
 			
+			this.slotCount = handler.getSlots();
+			
 			int size = handler.getSlots();
 			
 			for(int y = 0; y < Math.ceil(size / 9F); y++) {
 				for(int x = 0; x < 9; x++) {
-			        addSlotToContainer(new SlotItemHandler(handler, x + (y * 9), 5 + (x * 18), 5 + (y * 18)));
+			        addSlotToContainer(new SlotItemHandler(handler, x + (y * 9), 8 + (x * 18), 8 + (y * 18)));
 				}
 			}
 		}
@@ -54,5 +57,32 @@ public class GeneralContainer extends Container{
 		Vec3d playerPos = player.getPositionVector();
 		return te.getPos().distanceSqToCenter(playerPos.x, playerPos.y, playerPos.z) < 7D;
 	}
+
+	@Override
+    public ItemStack transferStackInSlot(EntityPlayer playerIn, int index){
+        ItemStack itemstack = ItemStack.EMPTY;
+        Slot slot = this.inventorySlots.get(index);
+
+        if (slot != null && slot.getHasStack()){
+            ItemStack itemstack1 = slot.getStack();
+            itemstack = itemstack1.copy();
+
+            if (index < this.slotCount) {
+                if (!this.mergeItemStack(itemstack1, this.slotCount, this.inventorySlots.size(), true)){
+                    return ItemStack.EMPTY;
+                }
+            } else if (!this.mergeItemStack(itemstack1, 0, this.slotCount, false)){
+                return ItemStack.EMPTY;
+            }
+
+            if (itemstack1.isEmpty()){
+                slot.putStack(ItemStack.EMPTY);
+            }else{
+                slot.onSlotChanged();
+            }
+        }
+
+        return itemstack;
+    }
 
 }

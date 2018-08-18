@@ -33,14 +33,14 @@ public class DryClayGenerator implements IWorldGenerator{
 		Random rnd = new Random(world.getSeed());
 		int xOffset = rnd.nextInt(1000);
 		int zOffset = rnd.nextInt(1000);
-		float frequency = 750;
+		float frequency = 800;
 		for(int x2 = 1; x2 <= 16; x2++) {
 			for(int z2 = 1; z2 <= 16; z2++) {
 				int x3 = x + x2;
 				int z3 = z + z2;
 				
 				float chance = SimplexNoise.noise(x3 + xOffset, z3 + zOffset, frequency);
-				if(chance > 0.85F) {
+				if(chance > 0.90F) {
 					int y = getHeighestOccurence(Blocks.GRASS, world, x3, z3);
 					if(y == 0) y = getHeighestOccurence(Blocks.DIRT, world, x3, z3);
 					if(y == 0) continue;
