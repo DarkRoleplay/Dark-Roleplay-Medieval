@@ -1,10 +1,14 @@
 package net.dark_roleplay.medieval.common.objects.blocks.storage.barrels;
 
+import java.util.Random;
+
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.barrels.BarrelEmpty;
+import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -19,6 +23,8 @@ import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 
 public class FluidBarrel extends BarrelEmpty{
 
+	private Item barrelItem = null;
+	
 	public FluidBarrel(String name) {
 		super(name);
 		this.setHardness(2F);
@@ -32,6 +38,11 @@ public class FluidBarrel extends BarrelEmpty{
 		return true;
 	}
 
+	@Override
+    public Item getItemDropped(IBlockState state, Random rand, int fortune){
+        return barrelItem == null ? barrelItem = Item.getByNameOrId(this.getRegistryName().toString().replace("_fluid_", "_empty_")) : barrelItem;
+    }
+	
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
 		return new TE_FluidBarrel();

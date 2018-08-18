@@ -8,7 +8,7 @@
         "transform": "forge:default-block"
     },
     "variants": {
-		"inventory":[{}],
+		"inventory":[{ "model": "drpmedieval:dry_clay/dry_clay_grass" }],
         "snowy=false": [
             { "model": "drpmedieval:dry_clay/dry_clay_grass" },
             { "model": "drpmedieval:dry_clay/dry_clay_grass", "y": 90 },

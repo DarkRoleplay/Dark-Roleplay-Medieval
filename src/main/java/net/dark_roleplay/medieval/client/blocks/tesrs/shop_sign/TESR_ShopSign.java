@@ -21,12 +21,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 
-public class TESR_ShopSign extends TileEntitySpecialRenderer {
+public class TESR_ShopSign extends TileEntitySpecialRenderer<TE_ShopSign> {
 
 	public TESR_ShopSign() {}
 
 	@Override  
-	public void render(TileEntity te, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
+	public void render(TE_ShopSign te, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
 			if(!(te instanceof TE_ShopSign))
 				return;
 			TE_ShopSign tes = (TE_ShopSign) te;

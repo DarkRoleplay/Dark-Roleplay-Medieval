@@ -23,6 +23,7 @@ import net.minecraft.world.World;
 public class FirewoodPile extends Block{
 
 	//TODO ROTATION
+	private Item firewoodItem = null;
 	
 	public FirewoodPile(String registreName) {
 		super(Material.WOOD);
@@ -38,7 +39,7 @@ public class FirewoodPile extends Block{
     }
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune){
-        return DRPMedievalItems.FIREWOOD;
+        return firewoodItem == null ? firewoodItem = Item.getByNameOrId(this.getRegistryName().toString().replace("_pile", "")) : firewoodItem;
     }
 
 	@Override

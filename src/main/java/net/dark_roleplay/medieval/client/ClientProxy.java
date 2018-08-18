@@ -56,11 +56,18 @@ import net.dark_roleplay.medieval.common.objects.blocks.util.shop_sign.TE_ShopSi
 import net.dark_roleplay.medieval.common.objects.entities.Wheelbarrel;
 import net.dark_roleplay.medieval.common.objects.entities.WheelbarrelRenderer;
 import net.dark_roleplay.medieval.common.objects.entities.fox.Entity_Fox;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.client.model.animation.Animation;
 import net.minecraftforge.client.model.animation.AnimationTESR;
@@ -102,8 +109,17 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void init(FMLInitializationEvent event) {
 		IResourceManager manager = Minecraft.getMinecraft().getResourceManager();
-		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new DryClayGrassColor(), DRPMedievalBlocks.DRY_CLAY_GRASS);
+		DryClayGrassColor color = new DryClayGrassColor();
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(color, DRPMedievalBlocks.DRY_CLAY_GRASS);
+		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor(){
+			@Override
+            public int colorMultiplier(ItemStack stack, int tintIndex){
+                IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
+                return color.colorMultiplier(iblockstate, (IBlockAccess)null, (BlockPos)null, tintIndex);
+            }
+        }, DRPMedievalBlocks.DRY_CLAY_GRASS);
 
+		
 		MinecraftForge.EVENT_BUS.register(new Event_CameraUpdate());
 	}
 

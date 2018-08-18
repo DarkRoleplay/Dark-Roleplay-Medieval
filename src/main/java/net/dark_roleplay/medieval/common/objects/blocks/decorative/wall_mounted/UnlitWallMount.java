@@ -5,6 +5,7 @@ import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.A
 import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING;
 import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.POWERED;
 
+import java.util.List;
 import java.util.Random;
 
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
@@ -24,6 +25,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -39,8 +41,10 @@ public class UnlitWallMount extends EmptyWallMount {
 	
 	@ObjectHolder("minecraft:flint")
 	private static Item lighter;
-	
+
+	private Item emptyItem;
 	private Block lit;
+	private Item mountObject;
 	
 	public UnlitWallMount(String registryName, AxisAlignedBB bb) {
 		super(registryName, bb); // new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F));
@@ -101,7 +105,6 @@ public class UnlitWallMount extends EmptyWallMount {
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(!world.isRemote){
-			boolean consumeItems = player.capabilities.isCreativeMode;
 			boolean hasTrap = state.getValue(ADDON_TRAP);
 			boolean hasLighter = state.getValue(ADDON_LIGHTER);
 			ItemStack heldStack = player.getHeldItem(hand);
@@ -118,21 +121,15 @@ public class UnlitWallMount extends EmptyWallMount {
 					
 				}
 			}else if(heldStack.getItem() == this.trap && !hasTrap){
-				if(consumeItems){
-					player.getHeldItem(hand).shrink(1);
-					spawnAddons(world, pos, state);
-				}
+				player.getHeldItem(hand).shrink(1);
+				spawnAddons(world, pos, state);
 				world.setBlockState(pos, state.withProperty(FACING, state.getValue(FACING)).withProperty(ADDON_LIGHTER, false).withProperty(ADDON_TRAP, true));
 			}else if(heldStack.getItem() == this.lighter && !hasTrap){
-				if(consumeItems){
-					player.getHeldItem(hand).shrink(1);
-					spawnAddons(world, pos, state);
-				}
+				player.getHeldItem(hand).shrink(1);
+				spawnAddons(world, pos, state);
 				world.setBlockState(pos, state.withProperty(FACING, state.getValue(FACING)).withProperty(ADDON_LIGHTER, true).withProperty(ADDON_TRAP, false));
 			}else if(heldStack.getItem() == Items.FLINT_AND_STEEL){
-				if(consumeItems){
-					player.getHeldItem(hand).attemptDamageItem(1, new Random(), (EntityPlayerMP) player);
-				}
+				player.getHeldItem(hand).attemptDamageItem(1, new Random(), (EntityPlayerMP) player);
 				world.setBlockState(pos, this.lit.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP)).withProperty(POWERED, state.getValue(POWERED)));
 			}
 		}
@@ -140,11 +137,21 @@ public class UnlitWallMount extends EmptyWallMount {
 	}
 	
 	@Override
-	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
-		if(!world.isRemote){
-			spawnAddons(world, pos, state);
+    public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune){
+		NonNullList<ItemStack> stacks = NonNullList.create();
+		
+		if(state.getValue(ADDON_LIGHTER)){
+			stacks.add(new ItemStack(Items.FLINT, 1));
 		}
-    }
+		if(state.getValue(ADDON_TRAP)){
+			stacks.add(new ItemStack(DRPMedievalItems.TRIGGER_TRAP, 1));
+		}
+		
+		stacks.add(new ItemStack(emptyItem == null ? emptyItem = Item.getByNameOrId(this.getRegistryName().toString().replace("_unlit", "_empty")) : emptyItem));
+		stacks.add(new ItemStack(this.mountObject));
+
+		return stacks;
+	}
 	
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
@@ -169,17 +176,9 @@ public class UnlitWallMount extends EmptyWallMount {
 		Facing = (state.getValue(FACING));
 		return !state.getValue(POWERED).booleanValue() ? 0 : (Facing == side ? 15 : 0);
 	}
-	
-	public void init(Block lit){
+
+	public void init(Block lit, Item mountObject){
 		this.lit = lit;
-	}
-	
-	public void spawnAddons(World world, BlockPos pos, IBlockState state){
-		if(state.getValue(ADDON_LIGHTER)){
-			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
-		}
-		if(state.getValue(ADDON_TRAP)){
-			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TRIGGER_TRAP, 1)));
-		}
+		this.mountObject = mountObject;
 	}
 }

@@ -1,0 +1,23 @@
+{
+  "station": "drpmedieval:mortar",
+  "category": "materials",
+  "name": "gunpowder",
+  "outputs": [
+    {
+      "item": "minecraft:gunpowder",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:charcoal_powder"
+    },
+	{
+      "item": "drpmedieval:ore_chunk_sulfur"
+    },
+	{
+      "item": "drpmedieval:ore_chunk_salpeter",
+	  "count": 2
+    }
+  ]
+}

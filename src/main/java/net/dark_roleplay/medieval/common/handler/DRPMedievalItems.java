@@ -13,6 +13,7 @@ import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.objects.items.BarkAndGlue;
 import net.dark_roleplay.medieval.common.objects.items.DRPMStew;
+import net.dark_roleplay.medieval.common.objects.items.FlintKnife;
 import net.dark_roleplay.medieval.common.objects.items.Instrument;
 import net.dark_roleplay.medieval.common.objects.items.Key;
 import net.dark_roleplay.medieval.common.objects.items.Lock;
@@ -79,6 +80,8 @@ public class DRPMedievalItems {
 	public static final Item BLACK_PAINTBRUSH = null;
 	public static final Item SPINDLE = null;
 	public static final Item TIMBERED_CLAY = null;
+	public static final Item BEESWAX_CANDLE = null;
+	public static final Item LANTERN = null;
 	
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Item> event) {
@@ -148,7 +151,7 @@ public class DRPMedievalItems {
 				
 		//Equipment
 		register(reg, DRPMedievalCreativeTabs.EQUIPMENT,
-			new DRPItem("flint_knife", "equipment/tools", 1),
+			new FlintKnife("flint_knife", "equipment/tools", 1),
 			new DRPItem("wooden_wrench", "equipment/tools", 1),
 			new StreetStomper("wood_street_stomper", "equipment/tools", 1, 256),
 			new StreetStomper("stone_street_stomper", "equipment/tools", 1, 512),

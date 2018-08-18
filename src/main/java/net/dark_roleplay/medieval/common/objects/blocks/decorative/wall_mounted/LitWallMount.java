@@ -1,5 +1,6 @@
 package net.dark_roleplay.medieval.common.objects.blocks.decorative.wall_mounted;
 
+import java.util.List;
 import java.util.Random;
 
 import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
@@ -24,6 +25,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -42,7 +44,9 @@ public class LitWallMount extends EmptyWallMount {
 	@ObjectHolder("minecraft:flint")
 	private static Item lighter;
 	
+	private Item emptyItem;
 	private Block unlit;
+	private Item mountObject;
 	
 	private double centerOffset;
 	private double centerOffsetPowered;
@@ -170,13 +174,6 @@ public class LitWallMount extends EmptyWallMount {
 	}
 	
 	@Override
-	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
-		if(!world.isRemote){
-			spawnAddons(world, pos, state);
-		}
-    }
-	
-	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 		if(!world.isRemote){
 			world.setBlockState(pos, state.withProperty(POWERED, Boolean.valueOf(false)), 3);
@@ -200,17 +197,26 @@ public class LitWallMount extends EmptyWallMount {
 		return !state.getValue(POWERED).booleanValue() ? 0 : (Facing == side ? 15 : 0);
 	}
 	
-	public void init(Block lit){
+	public void init(Block lit, Item mountObject){
 		this.unlit = lit;
+		this.mountObject = mountObject;
 	}
 	
-	public void spawnAddons(World world, BlockPos pos, IBlockState state){
+	@Override
+    public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune){
+		NonNullList<ItemStack> stacks = NonNullList.create();
+		
 		if(state.getValue(ADDON_LIGHTER)){
-			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));
+			stacks.add(new ItemStack(Items.FLINT, 1));
 		}
 		if(state.getValue(ADDON_TRAP)){
-			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(DRPMedievalItems.TRIGGER_TRAP, 1)));
+			stacks.add(new ItemStack(DRPMedievalItems.TRIGGER_TRAP, 1));
 		}
+		
+		stacks.add(new ItemStack(emptyItem == null ? emptyItem = Item.getByNameOrId(this.getRegistryName().toString().replace("_lit", "_empty")) : emptyItem));
+		stacks.add(new ItemStack(this.mountObject));
+		
+		return stacks;
 	}
 	
 	private Vec3d rotatePos(Vec3d pos, int amount){

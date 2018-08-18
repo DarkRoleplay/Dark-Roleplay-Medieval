@@ -8,6 +8,7 @@ import java.util.WeakHashMap;
 
 import javax.annotation.Nullable;
 
+import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.lecterns.LargeLectern;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -19,11 +20,15 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class TimberedClay extends Block{
@@ -96,8 +101,12 @@ public class TimberedClay extends Block{
 		}});
 	}
 	
-	public TimberedClay(String name) {
+	private int woodBeamAmount = 0;
+	private Item woodBeamItem = null;
+	
+	public TimberedClay(String name, int woodBeamAmount) {
 		super(Material.ROCK);
+		this.woodBeamAmount = woodBeamAmount;
 		this.setRegistryName(name);
 		this.setUnlocalizedName("timbered_clay");
 		this.setHardness(1.25F);
@@ -131,7 +140,26 @@ public class TimberedClay extends Block{
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, UP, DOWN, RIGHT, LEFT);
 	}
-	
+
+	@Override
+    public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune){
+		NonNullList<ItemStack> stacks = NonNullList.create();
+		
+		int frameAmount = 0;
+		if(state.getValue(UP)) frameAmount ++;
+		if(state.getValue(LEFT)) frameAmount ++;
+		if(state.getValue(RIGHT)) frameAmount ++;
+		if(state.getValue(DOWN)) frameAmount ++;
+		
+		if(this.woodBeamAmount + frameAmount > 0)
+			stacks.add(new ItemStack(woodBeamItem == null ? woodBeamItem = Item.getByNameOrId(this.getRegistryName().toString().split("_timbered_clay")[0] + "_wood_beam") : woodBeamItem, woodBeamAmount + frameAmount));
+		
+		stacks.add(new ItemStack(DRPMedievalItems.TIMBERED_CLAY, 1));
+		
+		return stacks;
+    }
+
+	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(player.getHeldItem(hand).getItem().getRegistryName().toString().endsWith("_wood_beam")) {
 			
