@@ -60,19 +60,21 @@ public class DelayedBaker_RopeFence extends DelayedBaker implements ICustomModel
 	@Override
 	public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
 		side = null;
-
+		
 		// IExtendedBlockState state = (IExtendetBlockState)
 		// state.getBlock().getExtendedState(state, world, pos);
 
-		if (state == null)
-			return Collections.EMPTY_LIST;
+		List<BakedQuad> result = Lists.newArrayList();
+		this.addQuads(result, pole, 0, 0, state, side, rand);
+	
+		if (state == null) {
+			return result;
+		}
 		//
 		// IExtendedBlockState state = (IExtendedBlockState) st;
 
 		if (CACHE.containsKey(state))
 			return CACHE.get(state);
-
-		List<BakedQuad> result = Lists.newArrayList();
 
 		int north = 3;
 		int east = 3;
@@ -83,8 +85,6 @@ public class DelayedBaker_RopeFence extends DelayedBaker implements ICustomModel
 		boolean south_east = state.getValue(RopeFence.SOUTH_EAST);
 		boolean south_west = state.getValue(RopeFence.SOUTH_WEST);
 		boolean north_west = state.getValue(RopeFence.NORTH_WEST);
-
-		this.addQuads(result, pole, 0, 0, state, side, rand);
 
 		if (state instanceof IExtendedBlockState) {
 			IExtendedBlockState exState = (IExtendedBlockState) state;
@@ -191,7 +191,7 @@ public class DelayedBaker_RopeFence extends DelayedBaker implements ICustomModel
 	public boolean accepts(ResourceLocation modelLocation) {
 		return ((modelLocation instanceof ModelResourceLocation)
 				&& DRPMedievalBlocks.ROPE_FENCE.getRegistryName().equals(modelLocation)
-				&& !modelLocation.getResourcePath().contains("inventory"));
+				&& !modelLocation.toString().contains("inventory"));
 	}
 
 	protected static IModel getModel(String modelName) {

@@ -1,0 +1,18 @@
+{
+	"type":"wood",
+	"jsons":[
+		{
+			"input" : "drpmedieval:arg/blockstates/chairs/barrel_chair.json",
+			"output" : "drpmedieval:blockstates/%wood%_barrel_chair.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/chairs/simple_chair.json",
+			"output" : "drpmedieval:blockstates/simple_plank_%wood%_chair.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/chairs/log_chair.json",
+			"output" : "drpmedieval:blockstates/%wood%_log_chair.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/chairs/log_bench.json",
+			"output" : "drpmedieval:blockstates/%wood%_log_bench.json"
+		}
+	]
+}

@@ -1,0 +1,45 @@
+{
+	"particle": "drpmedieval:blocks/clean_plank/%wood%_clean_plank",
+	"textures":{
+		"texture": "drpmedieval:blocks/clean_plank/%wood%_clean_plank"
+	},
+	"pack0":{
+		"center":				"drpmedieval:block/simple_solid_table/pack_0/center",
+		"top_left":				"drpmedieval:block/simple_solid_table/pack_0/top_left",
+		"top_center":			"drpmedieval:block/simple_solid_table/pack_0/top_center",
+		"top_right":			"drpmedieval:block/simple_solid_table/pack_0/top_right",
+		"bottom_left":			"drpmedieval:block/simple_solid_table/pack_0/bottom_left",
+		"bottom_center":		"drpmedieval:block/simple_solid_table/pack_0/bottom_center",
+		"bottom_right":			"drpmedieval:block/simple_solid_table/pack_0/bottom_right",
+		"center_left":			"drpmedieval:block/simple_solid_table/pack_0/center_left",
+		"center_right":			"drpmedieval:block/simple_solid_table/pack_0/center_right"
+	},
+	"pack1":{
+		"top_left":				"drpmedieval:block/simple_solid_table/pack_1/top_left",
+		"top_center":			"drpmedieval:block/simple_solid_table/pack_1/top_center",
+		"top_right":			"drpmedieval:block/simple_solid_table/pack_1/top_right",
+		"bottom_left":			"drpmedieval:block/simple_solid_table/pack_1/bottom_left",
+		"bottom_center":		"drpmedieval:block/simple_solid_table/pack_1/bottom_center",
+		"bottom_right":			"drpmedieval:block/simple_solid_table/pack_1/bottom_right",
+		"center_left":			"drpmedieval:block/simple_solid_table/pack_1/center_left",
+		"center_right":			"drpmedieval:block/simple_solid_table/pack_1/center_right"
+	},
+	"pack2":{
+		"top_left":				"drpmedieval:block/simple_solid_table/pack_2/top_left",
+		"top_right":			"drpmedieval:block/simple_solid_table/pack_2/top_right",
+		"bottom_left":			"drpmedieval:block/simple_solid_table/pack_2/bottom_left",
+		"bottom_right":			"drpmedieval:block/simple_solid_table/pack_2/bottom_right"
+	},
+	"pack3":{
+		"top_left":				"drpmedieval:block/simple_solid_table/pack_3/top_left",
+		"top_right":			"drpmedieval:block/simple_solid_table/pack_3/top_right",
+		"bottom_left":			"drpmedieval:block/simple_solid_table/pack_3/bottom_left",
+		"bottom_right":			"drpmedieval:block/simple_solid_table/pack_3/bottom_right"
+	},
+	"pack4":{
+		"top_left":				"drpmedieval:block/simple_solid_table/pack_4/top_left",
+		"top_right":			"drpmedieval:block/simple_solid_table/pack_4/top_right",
+		"bottom_left":			"drpmedieval:block/simple_solid_table/pack_4/bottom_left",
+		"bottom_right":			"drpmedieval:block/simple_solid_table/pack_4/bottom_right"
+	}
+}

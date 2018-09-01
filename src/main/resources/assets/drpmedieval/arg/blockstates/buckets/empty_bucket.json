@@ -1,0 +1,19 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:buckets/empty_bucket",
+        "textures": {
+			"texture": "drpmedieval:blocks/bucket/%wood%_bucket"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"facing":{
+			"north":{},
+			"east":{"y":90},
+			"south":{"y":180},
+			"west":{"y":270}
+		}
+	}
+}

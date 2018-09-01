@@ -1,0 +1,18 @@
+{
+	"type":"wood",
+	"keys":[
+		{
+			"key":"tile.%wood%_empty_barrel.name",
+			"en_us":"Empty %wood% Barrel"
+		},{
+			"key":"tile.%wood%_gunpowder_barrel.name",
+			"en_us":"Gunpowder filled %wood% Barrel"
+		},{
+			"key":"tile.%wood%_closed_barrel.name",
+			"en_us":"Closed %wood% Barrel"
+		},{
+			"key":"tile.laying_%wood%_barrel.name",
+			"en_us":"Laying %wood% Barrel"
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:oak_chopping_block",
+  "category": "firewood",
+  "name": "oak_firewood_2",
+  "outputs": [
+    {
+      "item": "drpmedieval:oak_firewood",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log"
+    }
+  ]
+}

@@ -40,11 +40,11 @@ public class WorkTable extends Block{
 	public IBlockState getStateFromMeta(int meta) {
 		switch (meta) {
 			case 0:
-				return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.X);
+				return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.X);
 			case 1:
-				return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.Z);
+				return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.Z);
 			default:
-				return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.X);
+				return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.X);
 		}
 	}
 
@@ -56,7 +56,7 @@ public class WorkTable extends Block{
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
-		EnumAxis facing = state.getValue(SimpleTable.TABLE_AXIS);
+		EnumAxis facing = state.getValue(TABLE_AXIS);
 		if(facing.equals(EnumAxis.X)) return 0;
 		if(facing.equals(EnumAxis.Z)) return 1;
 
@@ -82,7 +82,7 @@ public class WorkTable extends Block{
 	
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {SimpleTable.TABLE_AXIS, EAST, WEST});
+		return new BlockStateContainer(this, new IProperty[] {TABLE_AXIS, EAST, WEST});
 	}
 
 	@Override
@@ -101,12 +101,12 @@ public class WorkTable extends Block{
 		switch(placer.getHorizontalFacing().getOpposite()){
 		case EAST:
 		case WEST:
-			return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.Z);
+			return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.Z);
 		case NORTH:
 		case SOUTH:
-	        return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.X);
+	        return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.X);
 	    default:
-	        return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.X);
+	        return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.X);
 		}
     }
 	

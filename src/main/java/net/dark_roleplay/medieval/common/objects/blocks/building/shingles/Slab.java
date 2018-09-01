@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.objects.blocks.building.shingles;
 
-import net.dark_roleplay.library.blocks.BlockSettings;
-import net.dark_roleplay.library.blocks.DRPBlock;
+import net.dark_roleplay.library.experimental.blocks.BlockSettings;
+import net.dark_roleplay.library.experimental.blocks.DRPBlock;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;

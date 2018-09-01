@@ -1,24 +1,20 @@
 package net.dark_roleplay.medieval.common.objects.blocks.decorative.buckets;
 
+import javax.annotation.Nullable;
+
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
+import net.dark_roleplay.medieval.common.objects.blocks.decorative.flowers.FlowersTileEntity;
 import net.dark_roleplay.medieval.common.objects.blocks.helper.EnumAxis;
-import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntity_FlowerStorage;
 import net.minecraft.block.Block;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -30,14 +26,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BucketDirt extends Block implements ITileEntityProvider{
+public class BucketDirt extends Block{
 
     public static final PropertyEnum<EnumAxis> AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class);
-
-	
-	public static final PropertyInteger FLOWER1 = PropertyInteger.create("flower1", 0, 10);
-	public static final PropertyInteger FLOWER2 = PropertyInteger.create("flower2", 0, 10);
-	public static final PropertyInteger FLOWER3 = PropertyInteger.create("flower3", 0, 10);
 
 	public BucketDirt(String registreName) {
 		super(Material.WOOD);
@@ -52,27 +43,13 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {BucketDirt.AXIS, BucketDirt.FLOWER1, BucketDirt.FLOWER2, BucketDirt.FLOWER3});
+		return new BlockStateContainer(this, BucketDirt.AXIS);
 	}
 
 	@Override
 	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing){
         return BlockFaceShape.UNDEFINED;
     }
-
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileEntity_FlowerStorage();
-	}
-	
-	private TileEntity_FlowerStorage getTE(IBlockAccess world, BlockPos pos) {
-	    return (TileEntity_FlowerStorage) world.getTileEntity(pos);
-	}
-	
-	@Override
-	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
-		return state.withProperty(BucketDirt.FLOWER1, this.getTE(world, pos).getFlower((byte)0)).withProperty(BucketDirt.FLOWER2, this.getTE(world, pos).getFlower((byte)1)).withProperty(BucketDirt.FLOWER3, this.getTE(world, pos).getFlower((byte)2));
-	}
 	
 	@Override
 	public boolean isFullCube(IBlockState state) {
@@ -110,15 +87,7 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos){
         return new AxisAlignedBB(0.1875F, 0F, 0.1875F, 0.8125F, 0.625F, 0.8125F);
     }
-	
-	// -------------------------------------------------- Rendering --------------------------------------------------
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer(){
-		return BlockRenderLayer.CUTOUT;
-	}
-	
 	// -------------------------------------------------- Block Placement --------------------------------------------------
 	
 	@Override
@@ -153,170 +122,31 @@ public class BucketDirt extends Block implements ITileEntityProvider{
 	
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
-		TileEntity tileEntity = this.getTE(world, pos);
-
-		if(tileEntity instanceof TileEntity_FlowerStorage){
-			TileEntity_FlowerStorage tileEntityBucket = (TileEntity_FlowerStorage) tileEntity;
-			for(int i = 0; i < 3; i++){
-				ItemStack stack;
-				switch(tileEntityBucket.getFlower((byte)i)){
-				case 1:
-					stack = new ItemStack(Item.getItemFromBlock(Blocks.YELLOW_FLOWER));
-					break;
-				case 2:
-					stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,0);
-					break;
-				case 3:
-					stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,1);
-					break;
-				case 4:
-					stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,2);
-					break;
-				case 5:
-					stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,3);
-					break;
-				case 6:
-					stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,4);
-					break;
-				case 7:
-					stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,5);
-					break;
-				case 8:
-					stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,6);
-					break;
-				case 9:
-					stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,7);
-					break;
-				case 10:
-					stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,8);
-					break;
-				default: 
-					continue;	
-				}
-	            EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY()+1, pos.getZ(), stack);
-	            world.spawnEntity(entityItem);
-			}
-		}
-
 		super.breakBlock(world, pos, state);
 	}
 	
 	@Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-
-        	TileEntity_FlowerStorage te = this.getTE(world, pos);
-            if (te.getFlower((byte) 2) == 0) {
-                if (player.getHeldItem(hand) != null) {
-                	if(player.getHeldItem(hand).getItem() == Item.getItemFromBlock(Blocks.YELLOW_FLOWER)){
-                		te.addFlower(1);
-                        if (!world.isRemote){
-                        	player.getHeldItem(hand).shrink(1);
-                        	player.openContainer.detectAndSendChanges();
-                        }
-                	}else if(player.getHeldItem(hand).getItem() == Item.getItemFromBlock(Blocks.RED_FLOWER)){
-                		switch(player.getHeldItem(hand).getMetadata()){
-                		case 0:
-                			te.addFlower(2);
-                			break;
-                		case 1:
-                			te.addFlower(3);
-                			break;
-                		case 2:
-                			te.addFlower(4);
-                			break;
-                		case 3:
-                			te.addFlower(5);
-                			break;
-                		case 4:
-                			te.addFlower(6);
-                			break;
-                		case 5:
-                			te.addFlower(7);
-                			break;
-                		case 6:
-                			te.addFlower(8);
-                			break;
-                		case 7:
-                			te.addFlower(9);
-                			break;
-                		case 8:
-                			te.addFlower(10);
-                			break;
-                		default:
-                			break;
-                		}
-	                		if (!world.isRemote){
-	                        player.getHeldItem(hand).shrink(1);
-	                        player.openContainer.detectAndSendChanges();
-                		}
-                	}
-                }
-            }
-            if (player.getHeldItem(hand).getItem().getToolClasses(player.getHeldItem(hand)).contains("shovel")) {
-            	 if(te.getFlower((byte) 2) != 0){
-            		 if (!world.isRemote){
-            			 this.giveItem(player, world,pos, (byte) te.getFlower((byte) 2));
-	             		 player.getHeldItem(hand).damageItem(1, player);
-            		 }
-            		 te.removeFlower();
-            	}else if(te.getFlower((byte) 1) != 0){
-            		if (!world.isRemote){
-            			this.giveItem(player, world,pos, (byte) te.getFlower((byte) 1));
-	             		player.getHeldItem(hand).damageItem(1, player);
-           		 	}
-           		 	te.removeFlower();
-            	}else if(te.getFlower((byte) 0) != 0){
-            		if (!world.isRemote){
-            			this.giveItem(player, world,pos, (byte) te.getFlower((byte) 0));
-            			player.getHeldItem(hand).damageItem(1, player);
-            		}
-            		te.removeFlower();
-            	}
-            }
-        return true;
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+//		if(player.getHeldItem(hand).getItem() == Item.getItemFromBlock(Blocks.YELLOW_FLOWER) || player.getHeldItem(hand).getItem() == Item.getItemFromBlock(Blocks.RED_FLOWER) || player.getHeldItem(hand).getItem() == Item.getItemFromBlock(Blocks.DOUBLE_PLANT)) {
+		if(player.getHeldItem(hand).getItem() instanceof ItemBlock) {
+			TileEntity te = world.getTileEntity(pos);
+			if(!(te instanceof FlowersTileEntity)) return false;
+			
+			FlowersTileEntity flower = (FlowersTileEntity) te;
+			return flower.addFlower(player.getHeldItem(hand).copy(), world.isRemote);
+		}
+		
+        return false;
     }
 	
-	public void giveItem(EntityPlayer player, World world, BlockPos pos, byte item){
-		ItemStack stack;
-		switch(item){
-			case 1:
-				stack = new ItemStack(Item.getItemFromBlock(Blocks.YELLOW_FLOWER));
-				break;
-			case 2:
-				stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,0);
-				break;
-			case 3:
-				stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,1);
-				break;
-			case 4:
-				stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,2);
-				break;
-			case 5:
-				stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,3);
-				break;
-			case 6:
-				stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,4);
-				break;
-			case 7:
-				stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,5);
-				break;
-			case 8:
-				stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,6);
-				break;
-			case 9:
-				stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,7);
-				break;
-			case 10:
-				stack = new ItemStack(Item.getItemFromBlock(Blocks.RED_FLOWER),1,8);
-				break;
-			default: 
-				return;	
-		}
-		if (!player.inventory.addItemStackToInventory(stack)) {
-            EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY()+1, pos.getZ(), stack);
-            world.spawnEntity(entityItem);
-        } else {
-            player.openContainer.detectAndSendChanges();
-        }
-	}
+
+	@Override
+    public boolean hasTileEntity(IBlockState state) {
+        return true;
+    }
+    
+    @Nullable
+    public TileEntity createTileEntity(World world, IBlockState state){
+        return new FlowersTileEntity(3);
+    }
 }

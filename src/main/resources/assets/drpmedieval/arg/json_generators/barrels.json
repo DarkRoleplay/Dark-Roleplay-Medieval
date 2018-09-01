@@ -1,0 +1,21 @@
+{
+	"type":"wood",
+	"jsons":[
+		{
+			"input" : "drpmedieval:arg/blockstates/barrels/closed_barrel.json",
+			"output" : "drpmedieval:blockstates/%wood%_closed_barrel.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/barrels/empty_barrel.json",
+			"output" : "drpmedieval:blockstates/%wood%_empty_barrel.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/barrels/fluid_barrel.json",
+			"output" : "drpmedieval:blockstates/%wood%_fluid_barrel.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/barrels/laying_barrel.json",
+			"output" : "drpmedieval:blockstates/laying_%wood%_barrel.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/barrels/gunpowder_barrel.json",
+			"output" : "drpmedieval:blockstates/%wood%_gunpowder_barrel.json"
+		}
+	]
+}

@@ -37,7 +37,7 @@ public class DRPMedievalModels {
 		registerItemMesh(DRPMedievalBlocks.MORTAR);
 		registerItemMesh(DRPMedievalBlocks.CAULDRON);
 		registerItemMesh(DRPMedievalBlocks.ROPE_ANCHOR);
-		registerItemMesh(DRPMedievalBlocks.FIREPIT);
+		registerItemMesh(DRPMedievalBlocks.FIREPIT_LIT);
 		
 		forceAdditionalModels();
 	}

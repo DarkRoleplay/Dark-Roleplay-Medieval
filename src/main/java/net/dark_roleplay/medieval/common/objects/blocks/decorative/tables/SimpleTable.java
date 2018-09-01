@@ -1,12 +1,11 @@
 package net.dark_roleplay.medieval.common.objects.blocks.decorative.tables;
 
+import static net.dark_roleplay.library.experimental.connected_model.ConnectedModelBlockStates.*;
+
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
-import net.dark_roleplay.medieval.common.objects.blocks.helper.EnumAxis;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -16,12 +15,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+
 public class SimpleTable extends Block{
 
 	//TODO ROTATION
-	
-    public static final PropertyEnum<EnumAxis> TABLE_AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class);
-	
+		
 	public SimpleTable(String registryName) {
 		super(Material.WOOD);
 		this.setRegistryName(registryName);
@@ -30,17 +28,28 @@ public class SimpleTable extends Block{
 		this.setHardness(2F);
 		this.setHarvestLevel("axe", 0);
 		this.setSoundType(SoundType.WOOD);
+		this.setDefaultState(
+				this.getDefaultState()
+				.withProperty(NORTH_LEFT, false)
+				.withProperty(NORTH_CENTER, false)
+				.withProperty(NORTH_RIGHT, false)
+				.withProperty(SOUTH_LEFT, false)
+				.withProperty(SOUTH_CENTER, false)
+				.withProperty(SOUTH_RIGHT, false)
+				.withProperty(CENTER_LEFT, false)
+				.withProperty(CENTER_RIGHT, false)
+			);
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		switch (meta) {
 			case 0:
-				return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.X);
+				return this.getDefaultState().withProperty(AXIS_HORIZONTAL, EnumFacing.Axis.X);
 			case 1:
-				return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.Z);
+				return this.getDefaultState().withProperty(AXIS_HORIZONTAL, EnumFacing.Axis.Z);
 			default:
-				return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.X);
+				return this.getDefaultState().withProperty(AXIS_HORIZONTAL, EnumFacing.Axis.X);
 		}
 	}
 
@@ -50,11 +59,27 @@ public class SimpleTable extends Block{
     }
 	
 	@Override
+	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
+		IBlockState stateCopy = state;
+		
+		stateCopy = stateCopy.withProperty(NORTH_LEFT, world.getBlockState(pos.north().west()).getBlock() == this);
+		stateCopy = stateCopy.withProperty(NORTH_CENTER, world.getBlockState(pos.north()).getBlock() == this);
+		stateCopy = stateCopy.withProperty(NORTH_RIGHT, world.getBlockState(pos.north().east()).getBlock() == this);
+		stateCopy = stateCopy.withProperty(SOUTH_LEFT, world.getBlockState(pos.south().west()).getBlock() == this);
+		stateCopy = stateCopy.withProperty(SOUTH_CENTER, world.getBlockState(pos.south()).getBlock() == this);
+		stateCopy = stateCopy.withProperty(SOUTH_RIGHT, world.getBlockState(pos.south().east()).getBlock() == this);
+		stateCopy = stateCopy.withProperty(CENTER_LEFT, world.getBlockState(pos.west()).getBlock() == this);
+		stateCopy = stateCopy.withProperty(CENTER_RIGHT, world.getBlockState(pos.east()).getBlock() == this);
+		
+		return stateCopy;
+	}
+	
+	@Override
 	public int getMetaFromState(IBlockState state) {
 
-		EnumAxis facing = state.getValue(SimpleTable.TABLE_AXIS);
-		if(facing.equals(EnumAxis.X)) return 0;
-		if(facing.equals(EnumAxis.Z)) return 1;
+		EnumFacing.Axis facing = (EnumFacing.Axis) state.getValue(AXIS_HORIZONTAL);
+		if(facing.equals(EnumFacing.Axis.X)) return 0;
+		if(facing.equals(EnumFacing.Axis.Z)) return 1;
 
 		return 0;
 	}
@@ -62,7 +87,7 @@ public class SimpleTable extends Block{
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] {SimpleTable.TABLE_AXIS});
+		return new BlockStateContainer(this, NORTH_LEFT, NORTH_CENTER, NORTH_RIGHT, SOUTH_LEFT, SOUTH_CENTER, SOUTH_RIGHT, CENTER_LEFT, CENTER_RIGHT, AXIS_HORIZONTAL);
 	}
 
 	@Override
@@ -81,12 +106,12 @@ public class SimpleTable extends Block{
 		switch(placer.getHorizontalFacing().getOpposite()){
 		case EAST:
 		case WEST:
-			return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.Z);
+			return this.getDefaultState().withProperty(AXIS_HORIZONTAL, EnumFacing.Axis.Z);
 		case NORTH:
 		case SOUTH:
-	        return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.X);
+	        return this.getDefaultState().withProperty(AXIS_HORIZONTAL, EnumFacing.Axis.X);
 	    default:
-	        return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.X);
+	        return this.getDefaultState().withProperty(AXIS_HORIZONTAL, EnumFacing.Axis.X);
 		}
     }
 	

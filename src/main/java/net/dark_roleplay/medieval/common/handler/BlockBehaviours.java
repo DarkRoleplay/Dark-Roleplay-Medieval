@@ -1,8 +1,8 @@
 package net.dark_roleplay.medieval.common.handler;
 
 import net.dark_roleplay.core.api.old.crafting.Crafting_Util;
-import net.dark_roleplay.library.blocks.BlockSettings;
-import net.dark_roleplay.library.blocks.behaviors.IActivatedBehavior;
+import net.dark_roleplay.library.experimental.blocks.BlockSettings;
+import net.dark_roleplay.library.experimental.blocks.behaviors.IActivatedBehavior;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;

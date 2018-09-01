@@ -5,6 +5,7 @@ import net.dark_roleplay.medieval.common.objects.events.MissingMappings;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.nbt.NBTTagFloat;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -93,6 +94,20 @@ public class DRPMedievalMappings {
 		registerMappingB("simple_oak_table", "simple_table_oak");
 		registerMappingB("simple_spruce_table", "simple_table_spruce");
 		
+		registerMappingB("simple_plank_acacia_table", "simple_acacia_table");
+		registerMappingB("simple_plank_birch_table", "simple_birch_table");
+		registerMappingB("simple_plank_dark_oak_table", "simple_dark_oak_table");
+		registerMappingB("simple_plank_jungle_table", "simple_jungle_table");
+		registerMappingB("simple_plank_oak_table", "simple_oak_table");
+		registerMappingB("simple_plank_spruce_table", "simple_spruce_table");
+		
+		registerMappingB("simple_plank_acacia_chair", "simple_acacia_chair");
+		registerMappingB("simple_plank_birch_chair", "simple_birch_chair");
+		registerMappingB("simple_plank_dark_oak_chair", "simple_dark_oak_chair");
+		registerMappingB("simple_plank_jungle_chair", "simple_jungle_chair");
+		registerMappingB("simple_plank_oak_chair", "simple_oak_chair");
+		registerMappingB("simple_plank_spruce_chair", "simple_spruce_chair");
+		
 		registerMappingI("barley", "barley_item");
 		registerMappingI("acacia_barrel_chair", "barrel_chair_acacia");
 		registerMappingI("birch_barrel_chair", "barrel_chair_birch");
@@ -174,8 +189,31 @@ public class DRPMedievalMappings {
 		registerMappingI("simple_jungle_table", "simple_table_jungle");
 		registerMappingI("simple_oak_table", "simple_table_oak");
 		registerMappingI("simple_spruce_table", "simple_table_spruce");
+		registerMappingI("oak_firewood", "firewood");
+		registerIgnoreMappingI("drpmedieval:sledge");
+		registerIgnoreMappingI("drpmedieval:ropedarrow");
+		registerIgnoreMappingI("drpmedieval:gunpowder_trail");
+		
+		registerIgnoreMappingB("drpmedieval:pear_yellow");
+		registerIgnoreMappingB("drpmedieval:shingles_slab");
+		registerIgnoreMappingB("drpmedieval:apple_red");
+		registerIgnoreMappingB("drpmedieval:flower_test");
+		registerIgnoreMappingB("drpmedieval:apple_yellow");
+		registerIgnoreMappingB("drpmedieval:apple_green");
+		registerIgnoreMappingB("drpmedieval:pear_green");
+		registerIgnoreMappingB("drpmedieval:dirt_stairs");
+		registerIgnoreMappingB("drpmedieval:book_one");
+		registerIgnoreMappingB("drpmedieval:normal_clay_roof");
 	}
 
+	private static void registerIgnoreMappingI(String oldName) {
+		MissingMappings.ignoreItem(oldName);
+	}
+	
+	private static void registerIgnoreMappingB(String oldName) {
+		MissingMappings.ignoreBlock(oldName);
+	}
+	
 	private static void registerMapping(Item item, String oldName) {
 		MissingMappings.registerToRemapI(item.getRegistryName().getResourcePath(), References.MODID + ":" + oldName);
 	}

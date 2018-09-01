@@ -5,10 +5,8 @@ import java.util.List;
 
 import net.dark_roleplay.core.api.old.items.DRPEquip;
 import net.dark_roleplay.core.api.old.items.DRPFood;
-import net.dark_roleplay.core.api.old.modules.materials.AddResourceGenerators;
-import net.dark_roleplay.core.api.old.modules.materials.Material;
-import net.dark_roleplay.core.api.old.modules.materials.ResourceGenerator;
-import net.dark_roleplay.core.modules.Modules;
+import net.dark_roleplay.core_modules.maarg.api.materials.Material;
+import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.objects.items.BarkAndGlue;
@@ -18,13 +16,12 @@ import net.dark_roleplay.medieval.common.objects.items.Instrument;
 import net.dark_roleplay.medieval.common.objects.items.Key;
 import net.dark_roleplay.medieval.common.objects.items.Lock;
 import net.dark_roleplay.medieval.common.objects.items.PoleWeapon;
-import net.dark_roleplay.medieval.common.objects.items.Spindle;
 import net.dark_roleplay.medieval.common.objects.items.StreetStomper;
 import net.dark_roleplay.medieval.common.objects.items.Telescope;
+import net.dark_roleplay.medieval.common.objects.items.WarHorn;
 import net.dark_roleplay.medieval.common.objects.items.blocks.HangingBridge_Item;
 import net.dark_roleplay.medieval.common.objects.items.blocks.ItemFirewood;
 import net.dark_roleplay.medieval.common.objects.items.blocks.ItemMultiBlock;
-import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -168,7 +165,8 @@ public class DRPMedievalItems {
 			new DRPEquip("leather_purse", "purses", DRPEquip.TYPE.TYPE_MONEY_STORAGE),
 			new DRPEquip("ring_bronze", "rings", DRPEquip.TYPE.TYPE_RING),
 			new DRPEquip("ring_silver", "rings", DRPEquip.TYPE.TYPE_RING),
-			new DRPEquip("ring_golden", "rings", DRPEquip.TYPE.TYPE_RING)
+			new DRPEquip("ring_golden", "rings", DRPEquip.TYPE.TYPE_RING),
+			new WarHorn("bone_war_horn","equipment/tools/horsn", 1)
 		);
 		
 		//Food
@@ -209,7 +207,7 @@ public class DRPMedievalItems {
 				new ItemMultiBlock(DRPMedievalBlocks.FORGE).setRegistryName("forge")
 		);
 	
-		for(Material mat : Modules.MATERIALS.getMaterials(Modules.MATERIALS.WOOD_KEY)){
+        for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
 			register(reg, DRPMedievalCreativeTabs.MISCELLANEOUS,
 					new DRPItem(mat.getFormatValue() + "_wood_beam", "wood_beams", 64),
 					new ItemFirewood(mat.getFormatValue() + "_firewood", "firewood", 64)
@@ -228,23 +226,11 @@ public class DRPMedievalItems {
 	}
 	
 	@SubscribeEvent
-	public static void addResources(AddResourceGenerators event){
-		String texGens = References.MODID + ":argh/texture_generators/"; 
-		String modGens = References.MODID + ":argh/json_generators/"; 
-		
-		event.addAll(
-			new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "wood_beam.json"), 
-				null
-			)
-		);
-	}
-	
-	@SubscribeEvent
 	public static void reigsterModel(ModelRegistryEvent event) {
-		ModelBakery.registerItemVariants(TIMBERED_CLAY, TIMBERED_CLAY.getRegistryName());
+		ModelLoader.registerItemVariants(TIMBERED_CLAY, TIMBERED_CLAY.getRegistryName());
 		ModelLoader.setCustomModelResourceLocation(TIMBERED_CLAY, 0, new ModelResourceLocation(TIMBERED_CLAY.getRegistryName().toString(), "inventory"));
+
+		ModelLoader.registerItemVariants(LANTERN, new ResourceLocation(References.MODID, "lantern_solid"), new ResourceLocation(References.MODID, "lantern_translucent"));
 	}
 	
 	protected static void register(IForgeRegistry<Item> reg, CreativeTabs creativeTab, Item... items){

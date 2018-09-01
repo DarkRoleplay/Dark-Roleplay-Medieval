@@ -3,11 +3,12 @@ package net.dark_roleplay.medieval.common.handler;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.dark_roleplay.core.api.old.modules.materials.AddResourceGenerators;
-import net.dark_roleplay.core.api.old.modules.materials.Material;
-import net.dark_roleplay.core.api.old.modules.materials.ResourceGenerator;
 import net.dark_roleplay.core.modules.Modules;
 import net.dark_roleplay.core_modules.crops.api.blocks.Crop;
+import net.dark_roleplay.core_modules.maarg.api.materials.Material;
+import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
+import net.dark_roleplay.library.experimental.connected_model.ConnectedModelLoader;
+import net.dark_roleplay.medieval.client.model_baking.ConnectedModelBlock;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.objects.blocks.building.DryClay;
 import net.dark_roleplay.medieval.common.objects.blocks.building.DryClayGrass;
@@ -69,6 +70,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.decorative.scales.Scale;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.support.WoodSupport;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.tables.BarrelTable;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.tables.SimpleTable;
+import net.dark_roleplay.medieval.common.objects.blocks.decorative.tables.SolidSimpleTable;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.tables.WorkTable;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.wall_mounted.EmptyWallMount;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.wall_mounted.LitWallMount;
@@ -78,9 +80,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.other.BeeHive;
 import net.dark_roleplay.medieval.common.objects.blocks.other.gunpowder_trail.GunpowderTrail;
 import net.dark_roleplay.medieval.common.objects.blocks.plants.Barley;
 import net.dark_roleplay.medieval.common.objects.blocks.plants.Hops;
-import net.dark_roleplay.medieval.common.objects.blocks.plants.apples.Apple;
 import net.dark_roleplay.medieval.common.objects.blocks.plants.mushrooms.Mushroom;
-import net.dark_roleplay.medieval.common.objects.blocks.plants.pears.Pear;
 import net.dark_roleplay.medieval.common.objects.blocks.rotary.Axle;
 import net.dark_roleplay.medieval.common.objects.blocks.storage.Crate;
 import net.dark_roleplay.medieval.common.objects.blocks.storage.DungeonChest;
@@ -92,9 +92,8 @@ import net.dark_roleplay.medieval.common.spinning_wheel.SpinningWheelTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.event.RegistryEvent;
@@ -118,7 +117,7 @@ public class DRPMedievalBlocks {
 	public static final Block ANVIL = null;
 	public static final Block CAULDRON = null;
 	public static final Block CHAIN = null;
-	public static final Block FIREPIT = null;
+	public static final Block FIREPIT_LIT = null;
 	public static final Block GRINDSTONE = null;
 	public static final Block HANGING_CAULDRON = null;
 	public static final Block KEY_HANGING = null;
@@ -165,7 +164,14 @@ public class DRPMedievalBlocks {
 	public static final void register(RegistryEvent.Register<Block> event) {
 		IForgeRegistry<Block> reg = event.getRegistry();
 		
-		for(Material mat : Modules.MATERIALS.getMaterials(Modules.MATERIALS.WOOD_KEY)){
+		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
+			
+			Block solidSimpleTable = new SolidSimpleTable("simple_solid_" + mat.getFormatValue() + "_table");			
+			Block plankSimpleTable = new SimpleTable("simple_plank_" + mat.getFormatValue() + "_table");
+
+			ConnectedModelLoader.registerConnectedModelBlock(solidSimpleTable);
+			ConnectedModelLoader.registerConnectedModelBlock(plankSimpleTable);
+
 			register(reg, DRPMedievalCreativeTabs.DECORATION,
 				new FirewoodPile(mat.getFormatValue() + "_firewood_pile"),
 				new BarrelChair(mat.getFormatValue() + "_barrel_chair"),
@@ -177,11 +183,12 @@ public class DRPMedievalBlocks {
 				new Bucket(mat.getFormatValue() + "_empty_bucket"),
 				new Bucket(mat.getFormatValue() + "_water_bucket"),
 				new LogChair(mat.getFormatValue() + "_log_chair"),
-				new SimpleChair("simple_" + mat.getFormatValue() + "_chair"),
-				new SimpleTable("simple_" + mat.getFormatValue() + "_table"),
+				new SimpleChair("simple_plank_" + mat.getFormatValue() + "_chair"),
 				new SidewayBarrel("laying_" + mat.getFormatValue() + "_barrel"),
 				new WoodSupport(mat.getFormatValue() + "_wood_support"),
-				new LogBench(mat.getFormatValue() + "_log_bench")
+				new LogBench(mat.getFormatValue() + "_log_bench"),
+				solidSimpleTable,
+				plankSimpleTable
 			);
 			
 			register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
@@ -292,7 +299,6 @@ public class DRPMedievalBlocks {
 //			new AppleSappling("apple_sapling"),
 			new Mushroom("mushroom_brown"),
 			new Mushroom("mushroom_red")
-//			new FlowerTest("flower_test")
 		);
 		
 		registerNoItems(reg,
@@ -310,125 +316,8 @@ public class DRPMedievalBlocks {
 			new HangingBridge("hanging_bridge_top" ,0.5F)
 		);
 		
-		GameRegistry.registerTileEntity(SpinningWheelTileEntity.class, References.MODID + ":spinning_wheel");
+		GameRegistry.registerTileEntity(SpinningWheelTileEntity.class, new ResourceLocation(References.MODID, "spinning_wheel"));
 		GameRegistry.registerTileEntity(FlowersTileEntity.class, new ResourceLocation(References.MODID, "flower_container"));
-	}
-	
-	@SubscribeEvent
-	public static void addBlocks(AddResourceGenerators event){
-		String texGens = References.MODID + ":argh/texture_generators/"; 
-		String modGens = References.MODID + ":argh/json_generators/"; 
-		
-		//TODO Automate Loading, and remove need to register
-		event.addAll(
-			new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "wooden_blockstates.json"),
-				null
-			), new ResourceGenerator(
-				"wood",
-				null,
-				new ResourceLocation(texGens + "simple_shelf.json")
-			), new ResourceGenerator(
-				"wood",
-				null,
-				new ResourceLocation(texGens + "dirt_bucket.json")
-			), new ResourceGenerator(
-				"wood",
-				null,
-				new ResourceLocation(texGens + "simple_chest.json")
-			), new ResourceGenerator(
-				"wood",
-				null,
-				new ResourceLocation(texGens + "crate.json")
-			), new ResourceGenerator(
-				"wood",
-				null,
-				new ResourceLocation(texGens + "wood_support.json")
-			), new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "water_bucket.json"),
-				new ResourceLocation(texGens + "water_bucket.json")
-			), new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "empty_bucket.json"),
-				new ResourceLocation(texGens + "empty_bucket.json")
-			), new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "chopping_block.json"),
-				new ResourceLocation(texGens + "chopping_block.json")
-			), new ResourceGenerator(
-				"wood",
-				null,
-				new ResourceLocation(texGens + "large_lectern.json")
-			), new ResourceGenerator(
-				"wood",
-				null,
-				new ResourceLocation(texGens + "clean_plank.json")
-			), new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "log_chair.json"),
-				new ResourceLocation(texGens + "log_chair.json")
-			), new ResourceGenerator(
-				"wood",
-				null,
-				new ResourceLocation(texGens + "mossy_log.json")
-			), new ResourceGenerator(
-				"wood",
-				null,
-				new ResourceLocation(texGens + "simple_chair.json")
-			), new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "simple_table.json"),
-				new ResourceLocation(texGens + "simple_table.json")
-			), new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "firewood_pile.json"),
-				new ResourceLocation(texGens + "firewood_pile.json")
-			), new ResourceGenerator(
-				"wood",
-				null,
-				new ResourceLocation(texGens + "barrel_chair.json")
-			), new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "barrel_table.json"),
-				new ResourceLocation(texGens + "barrel_table.json")
-			), new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "closed_barrel.json"),
-				new ResourceLocation(texGens + "closed_barrel.json")
-			), new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "empty_barrel.json"),
-				new ResourceLocation(texGens + "empty_barrel.json")
-			), new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "gunpowder_barrel.json"),
-				new ResourceLocation(texGens + "gunpowder_barrel.json")
-			), new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "laying_barrel.json"),
-				new ResourceLocation(texGens + "laying_barrel.json")
-			), new ResourceGenerator(
-				"wood",
-				new ResourceLocation(modGens + "fluid_barrel.json"),
-				new ResourceLocation(texGens + "fluid_barrel.json")
-			), new ResourceGenerator(
-				"wood", null, new ResourceLocation(texGens + "timbering/timbering.json")
-			), new ResourceGenerator(
-				"wood", null, new ResourceLocation(texGens + "timbering/timbering_diagonal.json")
-			), new ResourceGenerator(
-				"wood", null, new ResourceLocation(texGens + "timbering/timbering_double_diagonal_h.json")
-			), new ResourceGenerator(
-				"wood", null, new ResourceLocation(texGens + "timbering/timbering_double_diagonal_v.json")
-			), new ResourceGenerator(
-				"wood", null, new ResourceLocation(texGens + "timbering/timbering_arrows.json")
-			), new ResourceGenerator(
-				"wood", null, new ResourceLocation(texGens + "timbering/timbering_straight.json")
-			), new ResourceGenerator(
-				"wood", null, new ResourceLocation(texGens + "log_bench.json")
-			)
-		);
 	}
 	
 	protected static void register(IForgeRegistry<Block> reg, CreativeTabs creativeTab, Block... blocks){

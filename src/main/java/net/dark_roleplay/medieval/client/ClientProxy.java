@@ -23,7 +23,6 @@ import net.dark_roleplay.medieval.client.blocks.tesrs.shelf.TESR_Shelf;
 import net.dark_roleplay.medieval.client.blocks.tesrs.shop_sign.TESR_ShopSign;
 import net.dark_roleplay.medieval.client.entities.fox.Render_Fox;
 import net.dark_roleplay.medieval.client.events.Event_CameraUpdate;
-import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_DirtBucket;
 import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_HangingBridge;
 import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_RopeFence;
 import net.dark_roleplay.medieval.client.model_baking.DelayedBaker_Timbering;
@@ -56,6 +55,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.util.shop_sign.TE_ShopSi
 import net.dark_roleplay.medieval.common.objects.entities.Wheelbarrel;
 import net.dark_roleplay.medieval.common.objects.entities.WheelbarrelRenderer;
 import net.dark_roleplay.medieval.common.objects.entities.fox.Entity_Fox;
+import net.dark_roleplay.medieval.work_in_progress_2.gui.brewing.Keybinds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -77,6 +77,7 @@ import net.minecraftforge.common.animation.ITimeValue;
 import net.minecraftforge.common.model.animation.IAnimationStateMachine;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -95,8 +96,7 @@ public class ClientProxy extends CommonProxy {
 	public void init(FMLPreInitializationEvent event) {
 		ModelLoaderRegistry.registerLoader(new DelayedBaker_HangingBridge());
 		ModelLoaderRegistry.registerLoader(new DelayedBaker_RopeFence());
-		ModelLoaderRegistry.registerLoader(new CustomBlockstateLoader());
-		ModelLoaderRegistry.registerLoader(new DelayedBaker_DirtBucket());		
+		ModelLoaderRegistry.registerLoader(new CustomBlockstateLoader());	
 		ModelLoaderRegistry.registerLoader(new DelayedBaker_Timbering());
 		ModelLoaderRegistry.registerLoader(new MultiLayerModelLoader());
 		
@@ -108,6 +108,9 @@ public class ClientProxy extends CommonProxy {
 	
 	@Override
 	public void init(FMLInitializationEvent event) {
+		//TODO REMOVE THIS
+		ClientRegistry.registerKeyBinding(Keybinds.debugging);
+		
 		IResourceManager manager = Minecraft.getMinecraft().getResourceManager();
 		DryClayGrassColor color = new DryClayGrassColor();
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(color, DRPMedievalBlocks.DRY_CLAY_GRASS);

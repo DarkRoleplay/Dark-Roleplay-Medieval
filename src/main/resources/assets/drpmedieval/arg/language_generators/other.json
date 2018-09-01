@@ -1,0 +1,18 @@
+{
+	"type":"wood",
+	"keys":[
+		{
+			"key":"tile.%wood%_chopping_block.name",
+			"en_us":"%wood% Chopping Block"
+		},{
+			"key":"tile.large_%wood%_lectern.name",
+			"en_us":"Large %wood% Lectern"
+		},{
+			"key":"tile.%wood%_wood_support.name",
+			"en_us":"%wood% Wood Support"
+		},{
+			"key":"tile.%wood%_firewood_pile.name",
+			"en_us":"%wood% Firewood Pile"
+		}
+	]
+}

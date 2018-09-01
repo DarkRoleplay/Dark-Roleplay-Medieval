@@ -1,5 +1,6 @@
 package net.dark_roleplay.medieval.common;
 
+import net.dark_roleplay.core_modules.maarg.api.materials.builders.MaterialBuilderWood;
 import net.dark_roleplay.medieval.client.events.Event_GuiOpen;
 import net.dark_roleplay.medieval.client.events.config.Event_ConfigChange;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalAchievements;
@@ -24,6 +25,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.common.ForgeVersion;
 import net.minecraftforge.common.MinecraftForge;
@@ -66,12 +68,26 @@ public class DarkRoleplayMedieval {
 		DRPMedievalAchievements.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
 		
-		GameRegistry.registerFuelHandler(new DarkRoleplayFuelHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(DarkRoleplayMedieval.instance, new GuiHandler());
 
 		VillageHandlerCarpenter villageHandler = new VillageHandlerCarpenter();
 		VillagerRegistry.instance().registerVillageCreationHandler(villageHandler);
 		MapGenStructureIO.registerStructureComponent(Carpenter.class, References.MODID+":carpenter_house_small");
+		
+		
+		
+		
+		String path = References.MODID + ":arg/textures/wood/";
+		String path_t = References.MODID + ":arg/lang/wood/";
+		
+		MaterialBuilderWood builder = new MaterialBuilderWood();
+		builder.setFormattingValue("iron_wood");
+		builder.setLogSide(new ResourceLocation(path + "log_ironwood.png"));
+		builder.setLogTop(new ResourceLocation(path + "log_ironwood_top.png"));
+		builder.setPlank(new ResourceLocation(path + "planks_ironwood.png"));
+		builder.setCleanPlank(new ResourceLocation(path + "planks_ironwood.png"));
+		builder.setTranslations(new ResourceLocation(path_t + "ironwood.json"));
+		builder.build();
 	}
 
 	@EventHandler
@@ -155,19 +171,5 @@ public class DarkRoleplayMedieval {
 		GameRegistry.addSmelting(Item.getItemFromBlock(Blocks.OBSIDIAN), new ItemStack(DRPMedievalBlocks.OBSIDIAN_GLASS), 0.1f);		
 		GameRegistry.addSmelting(Item.getItemFromBlock(DRPMedievalBlocks.UNFIRED_VASE), new ItemStack(DRPMedievalBlocks.FIRED_VASE), 0.1f);
 
-	}
-}
-
-class DarkRoleplayFuelHandler implements IFuelHandler {
-
-	@Override
-	public int getBurnTime(ItemStack fuel) {
-
-		Item item = fuel.getItem();
-
-		if(item.equals(DRPMedievalItems.FIREWOOD))
-			return 800;
-
-		return 0;
 	}
 }

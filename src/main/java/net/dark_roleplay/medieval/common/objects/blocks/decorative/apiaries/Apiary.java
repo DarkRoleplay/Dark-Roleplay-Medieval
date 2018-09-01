@@ -1,6 +1,5 @@
 package net.dark_roleplay.medieval.common.objects.blocks.decorative.apiaries;
 
-import net.dark_roleplay.medieval.api.blocks.wood.WoodType;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.templates.FacedBlock;

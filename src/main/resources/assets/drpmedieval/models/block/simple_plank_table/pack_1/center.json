@@ -1,0 +1,371 @@
+{
+  "__comment": "designed by j_t_k222",
+  "textures": {
+    "particle": "#wood",
+    "texture": "#wood"
+  },
+  "elements": [
+    {
+      "__comment": "center",
+      "from": [
+        4.5,
+        15,
+        0
+      ],
+      "to": [
+        7.5,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.5,
+            0,
+            7.5,
+            16
+          ],
+          "texture": "#texture"
+        },
+        "up": {
+          "uv": [
+            4.5,
+            0,
+            7.5,
+            16
+          ],
+          "texture": "#texture"
+        },
+        "north": {
+          "uv": [
+            8.5,
+            0,
+            11.5,
+            1
+          ],
+          "texture": "#texture"
+        },
+        "south": {
+          "uv": [
+            4.5,
+            0,
+            7.5,
+            1
+          ],
+          "texture": "#texture"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            1
+          ],
+          "texture": "#texture"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            1
+          ],
+          "texture": "#texture"
+        }
+      }
+    },
+    {
+      "__comment": "center",
+      "from": [
+        12.5,
+        15,
+        0
+      ],
+      "to": [
+        15.5,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            12.5,
+            0,
+            15.5,
+            16
+          ],
+          "texture": "#texture"
+        },
+        "up": {
+          "uv": [
+            12.5,
+            0,
+            15.5,
+            16
+          ],
+          "texture": "#texture"
+        },
+        "north": {
+          "uv": [
+            0.5,
+            0,
+            3.5,
+            1
+          ],
+          "texture": "#texture"
+        },
+        "south": {
+          "uv": [
+            12.5,
+            0,
+            15.5,
+            1
+          ],
+          "texture": "#texture"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            1
+          ],
+          "texture": "#texture"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            1
+          ],
+          "texture": "#texture"
+        }
+      }
+    },
+    {
+      "__comment": "center",
+      "from": [
+        8.5,
+        15,
+        0
+      ],
+      "to": [
+        11.5,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            8.5,
+            0,
+            11.5,
+            16
+          ],
+          "texture": "#texture"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            0,
+            11.5,
+            16
+          ],
+          "texture": "#texture"
+        },
+        "north": {
+          "uv": [
+            4.5,
+            0,
+            7.5,
+            1
+          ],
+          "texture": "#texture"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            0,
+            11.5,
+            1
+          ],
+          "texture": "#texture"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            1
+          ],
+          "texture": "#texture"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            1
+          ],
+          "texture": "#texture"
+        }
+      }
+    },
+    {
+      "__comment": "center",
+      "from": [
+        0.5,
+        15,
+        0
+      ],
+      "to": [
+        3.5,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            0.000006676,
+            3.5,
+            16
+          ],
+          "texture": "#texture"
+        },
+        "up": {
+          "uv": [
+            0.5,
+            0,
+            3.5,
+            15.99999
+          ],
+          "texture": "#texture",
+          "cullface": "up"
+        },
+        "north": {
+          "uv": [
+            12.5,
+            0.000005722,
+            15.5,
+            1.000006
+          ],
+          "texture": "#texture",
+          "cullface": "north"
+        },
+        "south": {
+          "uv": [
+            0.5,
+            0.000005722,
+            3.5,
+            1.000006
+          ],
+          "texture": "#texture",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0,
+            0.000005722,
+            15.99999,
+            1.000006
+          ],
+          "texture": "#texture",
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            0.000006676,
+            0.000005722,
+            16,
+            1.000006
+          ],
+          "texture": "#texture",
+          "cullface": "east"
+        }
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        0,
+        2
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        0.3
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        0,
+        2
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        0.3
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "gui": {
+      "rotation": [
+        35,
+        45,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "head": {
+      "translation": [
+        0,
+        15,
+        0
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    }
+  }
+}

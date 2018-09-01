@@ -1,0 +1,21 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:chairs/log_chair",
+        "textures": {
+			"side": "drpmedieval:blocks/log_chair/%wood%_log_chair_bark",
+			"top": "drpmedieval:blocks/log_chair/%wood%_log_chair_top",
+			"inner": "drpmedieval:blocks/log_chair/%wood%_log_chair_bark"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"facing":{
+			"north":{},
+			"east":{"y":90},
+			"south":{"y":180},
+			"west":{"y":270}
+		}
+	}
+}

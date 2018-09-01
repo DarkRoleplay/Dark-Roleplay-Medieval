@@ -1,0 +1,15 @@
+{
+	"type":"wood",
+	"keys":[
+		{
+			"key":"tile.%wood%_crate.name",
+			"en_us":"%wood% Crate"
+		},{
+			"key":"tile.simple_%wood%_chest.name",
+			"en_us":"Simple %wood% Chest"
+		},{
+			"key":"tile.simple_%wood%_shelf.name",
+			"en_us":"Simple %wood% Shelf"
+		}
+	]
+}

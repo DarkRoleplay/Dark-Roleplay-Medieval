@@ -20,15 +20,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 
-public class TESR_ClockCore extends TileEntitySpecialRenderer {
+public class TESR_ClockCore extends TileEntitySpecialRenderer<TE_ClockCore> {
 
 	public TESR_ClockCore() {}
 
 	@Override  
-	public void render(TileEntity te, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
-		if(!(te instanceof TE_ClockCore))
-			return;
-		TE_ClockCore tes = (TE_ClockCore) te;
+	public void render(TE_ClockCore te, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
 		
 		if(te.getWorld().getBlockState(te.getPos()).getBlock() != DRPMedievalBlocks.CLOCK_CORE)
 			return;
@@ -37,7 +34,7 @@ public class TESR_ClockCore extends TileEntitySpecialRenderer {
 		float angleMinutes = 0F;
 		float angleHours = 0F;
 		
-		if(tes.isRealTime()){
+		if(te.isRealTime()){
 			angleHours = 30 * Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 			angleMinutes = 6 * Calendar.getInstance().get(Calendar.MINUTE);
 		}else{

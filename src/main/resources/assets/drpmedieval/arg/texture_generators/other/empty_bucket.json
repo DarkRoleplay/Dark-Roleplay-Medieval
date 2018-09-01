@@ -1,0 +1,18 @@
+{
+	"type":"wood",
+	"required_textures":[
+		"drpmedieval:arg/textures/overlays/bucket.png"
+	],
+	"textures":[
+		{
+			"base":"clean_plank",
+			"manipulations":[
+				{
+					"type":"overlay",
+					"texture":"0"
+				}
+			],
+			"output":"drpmedieval:textures/blocks/bucket/%wood%_bucket"
+		}
+	]
+}

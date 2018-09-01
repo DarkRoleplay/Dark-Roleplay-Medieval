@@ -1,10 +1,10 @@
 package net.dark_roleplay.medieval.common.objects.blocks.tileentities;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableMap;
 
-import jline.internal.Nullable;
 import net.dark_roleplay.core.api.storage.DynamicStorageTileEntity;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.References;

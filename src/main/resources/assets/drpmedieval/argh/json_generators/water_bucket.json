@@ -1,8 +1,0 @@
-{
-	"jsons":[
-		{
-			"input" : "drpmedieval:argh/models/block/water_bucket.json",
-			"output" : "drpmedieval:models/block/bucket/%wood%_water_bucket.json"
-		}
-	]
-}

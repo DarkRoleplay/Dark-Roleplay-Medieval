@@ -1,0 +1,15 @@
+{
+	"type":"wood",
+	"keys":[
+		{
+			"key":"tile.%wood%_barrel_table.name",
+			"en_us":"%wood% Barrel Table"
+		},{
+			"key":"tile.simple_plank_%wood%_table.name",
+			"en_us":"Simple %wood% Plank Table"
+		},{
+			"key":"tile.simple_solid_%wood%_table.name",
+			"en_us":"Simple %wood% Solid Table"
+		}
+	]
+}

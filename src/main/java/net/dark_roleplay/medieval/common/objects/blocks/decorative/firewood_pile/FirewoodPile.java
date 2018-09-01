@@ -10,6 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -21,6 +22,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class FirewoodPile extends Block{
+	
+    public static final PropertyEnum<EnumAxis> TABLE_AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class);
 
 	//TODO ROTATION
 	private Item firewoodItem = null;
@@ -51,18 +54,18 @@ public class FirewoodPile extends Block{
 	public IBlockState getStateFromMeta(int meta) {
 		switch (meta) {
 			case 0:
-				return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.X);
+				return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.X);
 			case 1:
-				return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.Z);
+				return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.Z);
 			default:
-				return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.X);
+				return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.X);
 		}
 	}
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
-		EnumAxis facing = state.getValue(SimpleTable.TABLE_AXIS);
+		EnumAxis facing = state.getValue(TABLE_AXIS);
 		if(facing.equals(EnumAxis.X)) return 0;
 		if(facing.equals(EnumAxis.Z)) return 1;
 
@@ -72,7 +75,7 @@ public class FirewoodPile extends Block{
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] {SimpleTable.TABLE_AXIS});
+		return new BlockStateContainer(this, new IProperty[] {TABLE_AXIS});
 	}
 
 	@Override
@@ -90,12 +93,12 @@ public class FirewoodPile extends Block{
 		switch(placer.getHorizontalFacing().getOpposite()){
 		case EAST:
 		case WEST:
-			return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.Z);
+			return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.Z);
 		case NORTH:
 		case SOUTH:
-	        return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.X);
+	        return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.X);
 	    default:
-	        return this.getDefaultState().withProperty(SimpleTable.TABLE_AXIS, EnumAxis.X);
+	        return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.X);
 		}
     }
 	

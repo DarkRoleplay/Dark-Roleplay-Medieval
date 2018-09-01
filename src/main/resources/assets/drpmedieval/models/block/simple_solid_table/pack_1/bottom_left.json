@@ -1,0 +1,78 @@
+{
+  "__comment": "Designed by Lukas",
+  "textures": {
+    "particle": "drpmedieval:blocks/clean_plank_spruce",
+    "texture": "drpmedieval:blocks/clean_plank_spruce"
+  },
+  "elements": [
+    {
+      "__comment": "BottomLeft",
+      "from": [
+        0,
+        14.5,
+        15.5
+      ],
+      "to": [
+        0.5,
+        15,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0,
+            0.5,
+            0.5
+          ],
+          "texture": "#texture"
+        },
+        "up": {
+          "uv": [
+            0,
+            15.5,
+            0.5,
+            16
+          ],
+          "texture": "#texture"
+        },
+        "north": {
+          "uv": [
+            15.5,
+            1,
+            16,
+            1.5
+          ],
+          "texture": "#texture"
+        },
+        "south": {
+          "uv": [
+            0,
+            1,
+            0.5,
+            1.5
+          ],
+          "texture": "#texture"
+        },
+        "west": {
+          "uv": [
+            15.5,
+            1,
+            16,
+            1.5
+          ],
+          "texture": "#texture"
+        },
+        "east": {
+          "uv": [
+            0,
+            1,
+            0.5,
+            1.5
+          ],
+          "texture": "#texture"
+        }
+      }
+    }
+  ]
+}

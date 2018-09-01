@@ -19,6 +19,11 @@ public class FlowersTileEntity extends TileEntity{
 	
 	private FlowerData[] flowers = new FlowerData[0];
 	
+	public FlowersTileEntity() {
+		
+	}
+
+	
 	public FlowersTileEntity(int flowersAmount) {
 		this.flowers = new FlowerData[flowersAmount];
 	}

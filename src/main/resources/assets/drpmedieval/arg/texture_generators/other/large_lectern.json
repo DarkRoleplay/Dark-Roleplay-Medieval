@@ -1,0 +1,11 @@
+{
+	"type":"wood",
+	"required_textures":[],
+	"textures":[
+		{
+			"base":"clean_plank",
+			"manipulations":[],
+			"output":"drpmedieval:textures/blocks/lecterns/%wood%_plank"
+		}
+	]
+}

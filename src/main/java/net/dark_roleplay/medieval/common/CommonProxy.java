@@ -1,8 +1,9 @@
 package net.dark_roleplay.medieval.common;
 
+import javax.annotation.Nullable;
+
 import com.google.common.collect.ImmutableMap;
 
-import jline.internal.Nullable;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.animation.ITimeValue;

@@ -1,0 +1,27 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+	    "model": "drpmedieval:buckets/bucket_dirt",
+        "textures": {
+            "texture": "drpmedieval:blocks/bucket/%wood%_bucket"
+        },
+        "transform": "forge:default-block"
+    },
+    "variants": {
+		"normal": [{
+			"model": "drpmedieval:buckets/bucket_dirt"
+		}],
+		"inventory":{
+		    "model": "drpmedieval:buckets/bucket_dirt",
+			"textures": {
+				"flower_1": "blocks/flower_oxeye_daisy",
+				"flower_2": "blocks/flower_tulip_red",
+				"flower_3": "blocks/flower_blue_orchid"
+			}
+		},
+        "axis":{
+			"x":{},
+			"z":{"y" : 90}
+		}
+    }
+}

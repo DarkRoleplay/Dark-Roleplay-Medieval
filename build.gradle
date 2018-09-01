@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "1.12.2-0.2.6"
+version = "1.12.2-0.2.6.1"
 group = "net.dark_roleplay"
 archivesBaseName = "drpmedieval"
 
@@ -20,7 +20,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.4.2705"
+    version = "1.12.2-14.23.4.2756"
     runDir = "run"
     
     mappings = "snapshot_20180709"
@@ -56,7 +56,8 @@ dependencies {
 	embed "darkroleplay:drplibrary:${mc_version}-${drp_library_version}"
 	deobfProvided "darkroleplay.core_modules:drpcmblueprints:${mc_version}-${drp_core_module_blueprints_version}"
 	deobfProvided "darkroleplay.core_modules:drpcmdates:${mc_version}-${drp_core_module_dates_version}"
-	deobfProvided "darkroleplay.core_modules:drpcmcrops:${mc_version}-${drp_core_module_crops_version}"
+	deobfProvided "darkroleplay.core_modules:drpcmcrops:${mc_version}-${drp_core_module_crops_version}"	
+	deobfProvided "darkroleplay.core_modules:drpcmmaarg:${mc_version}-${drp_core_module_maarg_version}"
 }
 
 processResources {

@@ -1,0 +1,15 @@
+{
+	"type":"wood",
+	"jsons":[
+		{
+			"input" : "drpmedieval:arg/blockstates/storage/crate.json",
+			"output" : "drpmedieval:blockstates/%wood%_crate.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/storage/simple_chest.json",
+			"output" : "drpmedieval:blockstates/simple_%wood%_chest.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/storage/simple_shelf.json",
+			"output" : "drpmedieval:blockstates/simple_%wood%_shelf.json"
+		}
+	]
+}

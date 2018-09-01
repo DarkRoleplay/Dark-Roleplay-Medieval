@@ -71,4 +71,9 @@ public class ItemFirewood extends DRPItem {
 
 		return true;
 	}
+	
+	@Override
+	public int getItemBurnTime(ItemStack itemStack){
+        return 800;
+    }
 }

@@ -1,8 +1,0 @@
-{
-	"jsons":[
-		{
-			"input" : "drpmedieval:argh/models/block/gunpowder_barrel.json",
-			"output" : "drpmedieval:models/block/barrels/%wood%_gunpowder_barrel.json"
-		}
-	]
-}

@@ -5,16 +5,19 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import net.dark_roleplay.core.api.old.modules.materials.Material;
 import net.dark_roleplay.core.modules.Modules;
+import net.dark_roleplay.core_modules.maarg.api.materials.Material;
+import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.objects.blocks.building.TimberedClay;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;
@@ -101,7 +104,7 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 			ImmutableList.Builder<ResourceLocation> builder = ImmutableList.builder();
 			List<ResourceLocation> locations = new ArrayList<ResourceLocation>();
 			
-			List<Material> mats = Modules.MATERIALS.getMaterials("wood");
+			Set<Material> mats = MaterialRegistry.getMaterialsForType("wood");
 
 			locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/timbered_clay"));
 			

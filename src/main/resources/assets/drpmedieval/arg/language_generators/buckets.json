@@ -1,0 +1,15 @@
+{
+	"type":"wood",
+	"keys":[
+		{
+			"key":"tile.%wood%_empty_bucket.name",
+			"en_us":"Empty %wood% Bucket"
+		},{
+			"key":"tile.%wood%_dirt_bucket.name",
+			"en_us":"Dirt filled %wood% bucket"
+		},{
+			"key":"tile.%wood%_water_bucket.name",
+			"en_us":"Water filled %wood% Bucket"
+		}
+	]
+}

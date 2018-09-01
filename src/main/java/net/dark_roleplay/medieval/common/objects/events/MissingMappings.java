@@ -19,8 +19,10 @@ public class MissingMappings {
 	
 	public static ArrayList<Block> remapBlocks = new ArrayList<Block>();
 	public static ArrayList<String> blockNames = new ArrayList<String>();
+	public static ArrayList<String> blockNamesIgnore = new ArrayList<String>();
 	public static ArrayList<Item> remapItems = new ArrayList<Item>();
 	public static ArrayList<String> itemNames = new ArrayList<String>();
+	public static ArrayList<String> itemNamesIgnore = new ArrayList<String>();
 	
 	public static void registerToRemapB(String block, String oldName2){
 		if(Block.REGISTRY.containsKey(new ResourceLocation(References.MODID, block))){
@@ -36,6 +38,15 @@ public class MissingMappings {
 		}
 	}
 	
+	public static void ignoreBlock(String block) {
+		blockNamesIgnore.add(block);
+	}
+	
+	
+	public static void ignoreItem(String item) {
+		itemNamesIgnore.add(item);
+	}
+	
 	@SubscribeEvent
 	public static void MissingMappingsBlock(RegistryEvent.MissingMappings<Block> event){
 		ImmutableList<Mapping<Block>> mappings = event.getAllMappings();
@@ -47,6 +58,8 @@ public class MissingMappings {
 						mapping.remap(remapBlocks.get(i));
 					}
 				}
+			}else if(MissingMappings.blockNamesIgnore.contains(name)){
+				mapping.ignore();
 			}
 		}
 	}
@@ -62,9 +75,7 @@ public class MissingMappings {
 						mapping.remap(remapItems.get(i));
 					}
 				}
-			}else if(name.equals("DRPMEDIEVAL:SLEDGE") ||
-					name.equals("DRPMEDIEVAL:ROPEDARROW") ||
-					name.equals("DRPMEDIEVAL:GUNPOWDER_TRAIL")){
+			}else if(MissingMappings.itemNamesIgnore.contains(name)){
 				mapping.ignore();
 			}
 		}
