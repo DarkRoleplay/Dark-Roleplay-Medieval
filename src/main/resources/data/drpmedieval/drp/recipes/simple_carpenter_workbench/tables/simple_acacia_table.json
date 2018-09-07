@@ -1,10 +1,10 @@
 {
     "station":"drpmedieval:simple_carpenter_workbench",
     "category":"tables",
-    "name":"simple_acacia_table",
+    "name":"simple_plank_acacia_table",
     "outputs":[
         {
-            "item":"drpmedieval:simple_acacia_table",
+            "item":"drpmedieval:simple_plank_acacia_table",
             "count":"1"
         }
     ],

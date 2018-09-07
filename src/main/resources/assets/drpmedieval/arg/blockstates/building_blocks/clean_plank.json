@@ -3,7 +3,7 @@
     "defaults": {
 		"model": "cube_all",
         "textures": {
-			"all": "drpmedieval:blocks/clean_plank/%wood%_clean_plank"
+			"all": "drpmedieval:blocks/clean_plank/clean_plank_%wood%"
         },
         "transform": "forge:default-block"
     },

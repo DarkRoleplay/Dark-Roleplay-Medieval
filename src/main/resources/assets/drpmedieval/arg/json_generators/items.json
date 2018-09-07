@@ -1,0 +1,18 @@
+{
+	"type":"wood",
+	"jsons":[
+		{
+			"input" : "drpmedieval:arg/models/wood_beam.json",
+			"output" : "drpmedieval:models/item/wood_beams/%wood%_wood_beam.json"
+		},{
+			"input" : "drpmedieval:arg/models/items/simple_plank_table.json",
+			"output" : "drpmedieval:models/item/simple_plank_%wood%_table.json"
+		},{
+			"input" : "drpmedieval:arg/models/items/simple_solid_table.json",
+			"output" : "drpmedieval:models/item/simple_solid_%wood%_table.json"
+		},{
+			"input" : "drpmedieval:arg/models/items/firewood.json",
+			"output" : "drpmedieval:models/item/firewood/%wood%_firewood.json"
+		}
+	]
+}

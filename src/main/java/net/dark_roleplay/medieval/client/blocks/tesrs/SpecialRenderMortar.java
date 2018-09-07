@@ -4,6 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityMortar;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
@@ -14,7 +15,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 
-public class SpecialRenderMortar extends TileEntitySpecialRenderer {
+public class SpecialRenderMortar extends TileEntitySpecialRenderer<TileEntityMortar> {
 
 	private static final ResourceLocation texture = new ResourceLocation(References.MODID, "textures/old_blocks/block_mortar.png");
 
@@ -25,7 +26,7 @@ public class SpecialRenderMortar extends TileEntitySpecialRenderer {
 	}
 
 	@Override
-	public void render(TileEntity tileentity, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
+	public void render(TileEntityMortar tileentity, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
 
 		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMedievalBlocks.MORTAR)){
 			GL11.glPushMatrix();

@@ -1,0 +1,13 @@
+{
+	"required_mod":"biomesoplenty",
+    "type":"wood",
+    "name":"mahogany",
+    
+    "log_side"			: "biomesoplenty:textures/blocks/mahogany_log.png",
+    "log_top"			: "biomesoplenty:textures/blocks/mahogany_log_top.png",
+    "planks"				: "biomesoplenty:textures/blocks/mahogany_planks.png",
+   	
+    "languages":{
+		"en_us":"Mahogany"
+    }
+}

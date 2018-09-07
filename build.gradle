@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "1.12.2-0.2.6.1"
+version = "1.12.2-0.2.7"
 group = "net.dark_roleplay"
 archivesBaseName = "drpmedieval"
 
@@ -37,6 +37,10 @@ repositories {
 		name = "DarkRoleplayMaven"
 		url = "https://dark-roleplay.net/files/maven/"
 	}
+	maven{
+		name = "BoP"
+		url = "http://files.minecraftforge.net/maven/"
+	}
 }
 
 
@@ -51,7 +55,8 @@ dependencies {
 	deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
 	// at runtime, use the full JEI jar
 	runtime "mezz.jei:jei_${mc_version}:${jei_version}"
-  
+  	runtime "com.github.glitchfiend.biomesoplenty:BiomesOPlenty:1.12.2-7.0.1.2399:universal"
+	
 	deobfProvided "darkroleplay:drpcore:${mc_version}-${drp_core_version}"
 	embed "darkroleplay:drplibrary:${mc_version}-${drp_library_version}"
 	deobfProvided "darkroleplay.core_modules:drpcmblueprints:${mc_version}-${drp_core_module_blueprints_version}"
@@ -77,17 +82,16 @@ processResources {
 
 //Signing the Jar
 task signJar(type: SignJar, dependsOn: reobfJar) {
-    onlyIf {
-        project.hasProperty('keyStore')
-    }
 
-	keyStore = project.findProperty('keyStore')
-    alias = project.findProperty('keyStoreAlias')
-    storePass = project.findProperty('keyStorePass')
-    keyPass = project.findProperty('keyStoreKeyPass')
-	
-    inputFile = jar.archivePath
-    outputFile = jar.archivePath
+	if(project.hasProperty('keyStore')){
+		keyStore = project.findProperty('keyStore')
+		alias = project.findProperty('keyStoreAlias')
+		storePass = project.findProperty('keyStorePass')
+		keyPass = project.findProperty('keyStoreKeyPass')
+		
+		inputFile = jar.archivePath
+		outputFile = jar.archivePath
+	}
 }
 build.dependsOn signJar
 

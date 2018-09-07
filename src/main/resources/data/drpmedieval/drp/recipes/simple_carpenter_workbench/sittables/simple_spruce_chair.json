@@ -1,10 +1,10 @@
 {
     "station":"drpmedieval:simple_carpenter_workbench",
     "category":"sittables",
-    "name":"simple_spruce_chair",
+    "name":"simple_plank_spruce_chair",
     "outputs":[
         {
-            "item":"drpmedieval:simple_spruce_chair",
+            "item":"drpmedieval:simple_plank_spruce_chair",
             "count":"1"
         }
     ],

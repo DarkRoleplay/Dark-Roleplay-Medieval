@@ -1,0 +1,11 @@
+{
+	"type":"wood",
+	"required_textures":[],
+	"textures":[
+		{
+			"base":"planks",
+			"manipulations":[],
+			"output":"drpmedieval:textures/blocks/planks/planks_%wood%"
+		}
+	]
+}

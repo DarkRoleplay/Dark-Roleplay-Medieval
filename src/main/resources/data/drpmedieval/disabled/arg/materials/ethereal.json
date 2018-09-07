@@ -1,0 +1,13 @@
+{
+	"required_mod":"biomesoplenty",
+    "type":"wood",
+    "name":"ethereal",
+    
+    "log_side"			: "biomesoplenty:textures/blocks/ethereal_log.png",
+    "log_top"			: "biomesoplenty:textures/blocks/ethereal_log_top.png",
+    "planks"				: "biomesoplenty:textures/blocks/ethereal_planks.png",
+   	
+    "languages":{
+		"en_us":"Ethereal"
+    }
+}

@@ -11,7 +11,6 @@ import net.dark_roleplay.medieval.common.handler.DRPMedievalItems;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalMappings;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalPackets;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalSkills;
-import net.dark_roleplay.medieval.common.handler.DRPMedievalTileEntities;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalVillagers;
 import net.dark_roleplay.medieval.common.objects.events.blocks.Event_BlockBreak;
 import net.dark_roleplay.medieval.common.objects.events.capabilities.Event_CapabilityTileEntity;
@@ -29,9 +28,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.common.ForgeVersion;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.ConfigManager;
-import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -59,11 +55,11 @@ public class DarkRoleplayMedieval {
 	
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
+		References.SIDE = event.getSide();
 		DarkRoleplayMedieval.isOnServer = event.getSide().isServer();
 
 		DRPMedievalCapabilities.register();
 		DRPMedievalVillagers.init(event);
-		DRPMedievalTileEntities.init(event);
 		DRPMedievalSkills.init(event);
 		DRPMedievalAchievements.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
@@ -79,22 +75,12 @@ public class DarkRoleplayMedieval {
 		
 		String path = References.MODID + ":arg/textures/wood/";
 		String path_t = References.MODID + ":arg/lang/wood/";
-		
-		MaterialBuilderWood builder = new MaterialBuilderWood();
-		builder.setFormattingValue("iron_wood");
-		builder.setLogSide(new ResourceLocation(path + "log_ironwood.png"));
-		builder.setLogTop(new ResourceLocation(path + "log_ironwood_top.png"));
-		builder.setPlank(new ResourceLocation(path + "planks_ironwood.png"));
-		builder.setCleanPlank(new ResourceLocation(path + "planks_ironwood.png"));
-		builder.setTranslations(new ResourceLocation(path_t + "ironwood.json"));
-		builder.build();
 	}
 
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
 		
 		DRPMedievalVillagers.init(event);
-		DRPMedievalTileEntities.init(event);
 		DRPMedievalSkills.init(event);
 		DRPMedievalAchievements.init(event);
 		DarkRoleplayMedieval.proxy.init(event);
@@ -149,7 +135,6 @@ public class DarkRoleplayMedieval {
 	@EventHandler
 	public static void postInit(FMLPostInitializationEvent event) {
 		DRPMedievalVillagers.init(event);
-		DRPMedievalTileEntities.init(event);
 		DRPMedievalAchievements.init(event);
 		DRPMedievalSkills.init(event);
 		DarkRoleplayMedieval.proxy.init(event);

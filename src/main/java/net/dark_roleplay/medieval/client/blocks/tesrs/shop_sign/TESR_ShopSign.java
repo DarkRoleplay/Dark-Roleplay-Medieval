@@ -26,10 +26,7 @@ public class TESR_ShopSign extends TileEntitySpecialRenderer<TE_ShopSign> {
 	public TESR_ShopSign() {}
 
 	@Override  
-	public void render(TE_ShopSign te, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
-			if(!(te instanceof TE_ShopSign))
-				return;
-			TE_ShopSign tes = (TE_ShopSign) te;
+	public void render(TE_ShopSign tes, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
 			
 			if(tes.getDrawing() == null)
 				return;
@@ -40,7 +37,9 @@ public class TESR_ShopSign extends TileEntitySpecialRenderer<TE_ShopSign> {
 		    BufferBuilder buff = tessellator.getBuffer();
 		    buff.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX); 
 
-		    EnumFacing facing = te.getWorld().getBlockState(te.getPos()).getValue(BlockProperties.FACING);
+		    IBlockState state = tes.getWorld().getBlockState(tes.getPos());
+		    if(state.getBlock() != DRPMedievalBlocks.WALL_SHOP_SIGN) return;
+		    EnumFacing facing = tes.getWorld().getBlockState(tes.getPos()).getValue(BlockProperties.FACING);
 		
 		    float uMin = 0;
 		    float uMax = 1;

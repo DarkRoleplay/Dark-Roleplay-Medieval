@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import org.lwjgl.input.Keyboard;
 
 import net.dark_roleplay.core.api.old.gui.DRPGuiScreen;
-import net.dark_roleplay.core.api.old.gui.ITimedGui;
 import net.dark_roleplay.medieval.common.References;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -14,7 +13,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 
-public class MusikMinigameGui extends DRPGuiScreen implements ITimedGui{
+public class MusikMinigameGui extends DRPGuiScreen{
 
 	private int noteWidth = 20;
 	private int currentNote = 0;
@@ -62,7 +61,7 @@ public class MusikMinigameGui extends DRPGuiScreen implements ITimedGui{
 	}
 	
 	@Override
-	public void tick() {
+	public void updateScreen() {
 		if(currentTick < 20){
 			currentTick ++;
 		}else{

@@ -1,10 +1,10 @@
 {
     "station":"drpmedieval:simple_carpenter_workbench",
     "category":"tables",
-    "name":"simple_jungle_table",
+    "name":"simple_plank_ungle_table",
     "outputs":[
         {
-            "item":"drpmedieval:simple_jungle_table",
+            "item":"drpmedieval:simple_plank_jungle_table",
             "count":"1"
         }
     ],

@@ -1,0 +1,12 @@
+{
+	"required_mod":"biomesoplenty",
+    "type":"wood",
+    "name":"dead",
+    
+    "log_side"			: "biomesoplenty:textures/blocks/dead_log.png",
+    "log_top"			: "biomesoplenty:textures/blocks/dead_log_top.png",
+   	
+    "languages":{
+		"en_us":"Dead"
+    }
+}

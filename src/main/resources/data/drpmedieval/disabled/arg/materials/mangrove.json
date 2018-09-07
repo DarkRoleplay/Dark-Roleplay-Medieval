@@ -1,0 +1,13 @@
+{
+	"required_mod":"biomesoplenty",
+    "type":"wood",
+    "name":"mangrove",
+    
+    "log_side"			: "biomesoplenty:textures/blocks/mangrove_log.png",
+    "log_top"			: "biomesoplenty:textures/blocks/mangrove_log_top.png",
+    "planks"				: "biomesoplenty:textures/blocks/mangrove_planks.png",
+   	
+    "languages":{
+		"en_us":"Mangrove"
+    }
+}

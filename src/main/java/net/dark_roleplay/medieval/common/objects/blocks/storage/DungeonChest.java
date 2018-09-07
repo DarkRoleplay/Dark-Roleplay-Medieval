@@ -106,7 +106,8 @@ public class DungeonChest extends FacedBlock {
 					player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_GENERAL_STORAGE, world, pos.getX(), pos.getY(), pos.getZ());
 			}else {
 				((TE_DungeonChest) tileentity).click();	
-				Minecraft.getMinecraft().world.playSound(pos, chest.isOpen() ? SoundEvents.BLOCK_CHEST_OPEN : SoundEvents.BLOCK_CHEST_CLOSE, SoundCategory.BLOCKS, 1F, 1F, true);
+				if(world.isRemote)
+					Minecraft.getMinecraft().world.playSound(pos, chest.isOpen() ? SoundEvents.BLOCK_CHEST_OPEN : SoundEvents.BLOCK_CHEST_CLOSE, SoundCategory.BLOCKS, 1F, 1F, true);
 			}
 		}
 		return true;

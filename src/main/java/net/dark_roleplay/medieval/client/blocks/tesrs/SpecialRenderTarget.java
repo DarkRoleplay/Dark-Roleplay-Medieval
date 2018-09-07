@@ -4,17 +4,17 @@ import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.handler.DRPMedievalBlocks;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityTarget;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 
-public class SpecialRenderTarget extends TileEntitySpecialRenderer {
+public class SpecialRenderTarget extends TileEntitySpecialRenderer<TileEntityTarget> {
 
 	private static final ResourceLocation texture = new ResourceLocation(References.MODID, "textures/old_blocks/block_target.png");
 
@@ -25,7 +25,7 @@ public class SpecialRenderTarget extends TileEntitySpecialRenderer {
 	}
 
 	@Override
-	public void render(TileEntity tileentity, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
+	public void render(TileEntityTarget tileentity, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
 
 		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMedievalBlocks.TARGET)){
 			GL11.glPushMatrix();

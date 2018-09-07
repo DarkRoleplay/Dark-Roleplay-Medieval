@@ -3,12 +3,11 @@ package net.dark_roleplay.medieval.common.handler;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.dark_roleplay.core.modules.Modules;
 import net.dark_roleplay.core_modules.crops.api.blocks.Crop;
+import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
 import net.dark_roleplay.core_modules.maarg.api.materials.Material;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
 import net.dark_roleplay.library.experimental.connected_model.ConnectedModelLoader;
-import net.dark_roleplay.medieval.client.model_baking.ConnectedModelBlock;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.objects.blocks.building.DryClay;
 import net.dark_roleplay.medieval.common.objects.blocks.building.DryClayGrass;
@@ -54,9 +53,9 @@ import net.dark_roleplay.medieval.common.objects.blocks.decorative.chairs.LogCha
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.chairs.SimpleChair;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.clocks.ClockCore;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.clocks.ClockDial;
+import net.dark_roleplay.medieval.common.objects.blocks.decorative.clocks.TE_ClockCore;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.firewood_pile.FirewoodPile;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.flowerPot.FlowerPot;
-import net.dark_roleplay.medieval.common.objects.blocks.decorative.flowers.FlowerTest;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.flowers.FlowersTileEntity;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.hanging_bridges.HangingBridge;
 import net.dark_roleplay.medieval.common.objects.blocks.decorative.head_cutting_block.HeadCuttingBlock;
@@ -85,14 +84,36 @@ import net.dark_roleplay.medieval.common.objects.blocks.rotary.Axle;
 import net.dark_roleplay.medieval.common.objects.blocks.storage.Crate;
 import net.dark_roleplay.medieval.common.objects.blocks.storage.DungeonChest;
 import net.dark_roleplay.medieval.common.objects.blocks.storage.barrels.FluidBarrel;
+import net.dark_roleplay.medieval.common.objects.blocks.storage.barrels.TE_FluidBarrel;
 import net.dark_roleplay.medieval.common.objects.blocks.storage.shelf.Shelf;
+import net.dark_roleplay.medieval.common.objects.blocks.storage.shelf.TE_Shelf;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.RopeCoilTileEntity;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TE_DungeonChest;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityAnvil;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityBookOne;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityCauldron;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityChain;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityCrate;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityFirepit;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityGrindstone;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityHangingCauldron;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityHook;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityKeyHanging;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityMortar;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityRopeAnchor;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityShipsWheel;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntityTarget;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.TileEntity_FlowerStorage;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.lectern.TileEntity_Lectern;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.roof.TE_Roof;
+import net.dark_roleplay.medieval.common.objects.blocks.tileentities.storage.TileEntity_SimpleStorage;
 import net.dark_roleplay.medieval.common.objects.blocks.util.shop_sign.ShopSign;
+import net.dark_roleplay.medieval.common.objects.blocks.util.shop_sign.TE_ShopSign;
 import net.dark_roleplay.medieval.common.spinning_wheel.SpinningWheel;
 import net.dark_roleplay.medieval.common.spinning_wheel.SpinningWheelTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -156,6 +177,7 @@ public class DRPMedievalBlocks {
 	public static final EmptyWallMount TORCH_HOLDER_EMPTY = null;
 	
 	public static final Block OAK_TIMBERED_CLAY_CLEAN = null;
+	public static final Block WALL_SHOP_SIGN = null;
 	
 	
 	public static final Crop BARLEY = null;
@@ -164,67 +186,104 @@ public class DRPMedievalBlocks {
 	public static final void register(RegistryEvent.Register<Block> event) {
 		IForgeRegistry<Block> reg = event.getRegistry();
 		
+		MaterialRequirements logRequired = new MaterialRequirements("log_side", "log_top");
+		MaterialRequirements plankRequired = new MaterialRequirements("plank");
+		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_plank");
+
 		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
-			
-			Block solidSimpleTable = new SolidSimpleTable("simple_solid_" + mat.getFormatValue() + "_table");			
-			Block plankSimpleTable = new SimpleTable("simple_plank_" + mat.getFormatValue() + "_table");
 
-			ConnectedModelLoader.registerConnectedModelBlock(solidSimpleTable);
-			ConnectedModelLoader.registerConnectedModelBlock(plankSimpleTable);
+			if(logRequired.doesFulfillRequirements(mat)) {
+				register(reg, DRPMedievalCreativeTabs.DECORATION,
+						new FirewoodPile(mat.getName() + "_firewood_pile")
+				);
+				
+				register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
+					new MossyLog("mossy_" + mat.getName() + "_log")
+				);
+				
+				register(reg, DRPMedievalCreativeTabs.UTILITY,
+					new ChoppingBlock(mat.getName() + "_chopping_block")
+				);
+				
+				if(cleanPlankRequired.doesFulfillRequirements(mat)) {
+					register(reg, DRPMedievalCreativeTabs.DECORATION,
+						new LogChair(mat.getName() + "_log_chair"),
+						new LogBench(mat.getName() + "_log_bench")
+					);
+				}
+			}
+			
+			if(plankRequired.doesFulfillRequirements(mat)) {
+				register(reg, DRPMedievalCreativeTabs.DECORATION,
+					new BarrelChair(mat.getName() + "_barrel_chair"),
+					new BarrelEmpty(mat.getName() + "_empty_barrel"),
+					new BarrelClosed(mat.getName() + "_closed_barrel"),
+					new BarrelFilled(mat.getName() + "_gunpowder_barrel"),
+					new BarrelTable(mat.getName() + "_barrel_table"),
+					new SidewayBarrel("laying_" + mat.getName() + "_barrel")
+				);
+				
 
-			register(reg, DRPMedievalCreativeTabs.DECORATION,
-				new FirewoodPile(mat.getFormatValue() + "_firewood_pile"),
-				new BarrelChair(mat.getFormatValue() + "_barrel_chair"),
-				new BarrelEmpty(mat.getFormatValue() + "_empty_barrel"),
-				new BarrelClosed(mat.getFormatValue() + "_closed_barrel"),
-				new BarrelFilled(mat.getFormatValue() + "_gunpowder_barrel"),
-				new BarrelTable(mat.getFormatValue() + "_barrel_table"),
-				new BucketDirt(mat.getFormatValue() + "_dirt_bucket"),
-				new Bucket(mat.getFormatValue() + "_empty_bucket"),
-				new Bucket(mat.getFormatValue() + "_water_bucket"),
-				new LogChair(mat.getFormatValue() + "_log_chair"),
-				new SimpleChair("simple_plank_" + mat.getFormatValue() + "_chair"),
-				new SidewayBarrel("laying_" + mat.getFormatValue() + "_barrel"),
-				new WoodSupport(mat.getFormatValue() + "_wood_support"),
-				new LogBench(mat.getFormatValue() + "_log_bench"),
-				solidSimpleTable,
-				plankSimpleTable
-			);
+				registerNoItems(reg,
+					new FluidBarrel(mat.getName() + "_fluid_barrel")
+				);
+						
+				
+				register(reg, DRPMedievalCreativeTabs.UTILITY,
+					new Crate(mat.getName() + "_crate"),
+					new DungeonChest("simple_" + mat.getName() + "_chest")
+				);
+			}
 			
-			register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
-				new Block(net.minecraft.block.material.Material.WOOD).setRegistryName(mat.getFormatValue() + "_clean_plank").setUnlocalizedName(mat.getFormatValue() + "_clean_plank"),
-				new MossyLog("mossy_" + mat.getFormatValue() + "_log")
-			);
-			
-			register(reg, DRPMedievalCreativeTabs.UTILITY,
-				new ChoppingBlock(mat.getFormatValue() + "_chopping_block"),
-				new Crate(mat.getFormatValue() + "_crate"),
-				new DungeonChest("simple_" + mat.getFormatValue() + "_chest"),
-				new LargeLectern("large_" + mat.getFormatValue() + "_lectern"),
-				new Shelf("simple_" + mat.getFormatValue() + "_shelf")
-			);
-			
-			registerNoItems(reg,
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_clean", 0),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_diagonal_bt", 1),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_diagonal_tb", 1),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_cross", 2),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_t_bt", 1),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_b_bt", 1),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_t_tb", 1),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_b_tb", 1),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_arrow_b", 2),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_arrow_t", 2),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_arrow_r", 2),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_arrow_l", 2),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_l_lr", 1),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_r_lr", 1),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_l_rl", 1),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_double_diagonal_r_rl", 1),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_vertical", 1),
-				new TimberedClay(mat.getFormatValue() + "_timbered_clay_horizontal", 1),
-				new FluidBarrel(mat.getFormatValue() + "_fluid_barrel")
-			);
+			if(cleanPlankRequired.doesFulfillRequirements(mat)) {
+				Block solidSimpleTable = new SolidSimpleTable("simple_solid_" + mat.getName() + "_table");			
+				Block plankSimpleTable = new SimpleTable("simple_plank_" + mat.getName() + "_table");
+
+				if(References.SIDE.isClient()) {
+					ConnectedModelLoader.registerConnectedModelBlock(solidSimpleTable);
+					ConnectedModelLoader.registerConnectedModelBlock(plankSimpleTable);
+				}
+				
+				register(reg, DRPMedievalCreativeTabs.DECORATION,
+					solidSimpleTable,
+					plankSimpleTable,
+					new WoodSupport(mat.getName() + "_wood_support"),
+					new SimpleChair("simple_plank_" + mat.getName() + "_chair"),
+					new BucketDirt(mat.getName() + "_dirt_bucket"),
+					new Bucket(mat.getName() + "_empty_bucket"),
+					new Bucket(mat.getName() + "_water_bucket")
+				);
+				
+				register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
+					new Block(net.minecraft.block.material.Material.WOOD).setRegistryName(mat.getName() + "_clean_plank").setUnlocalizedName(mat.getName() + "_clean_plank")
+				);
+				
+				registerNoItems(reg,
+					new TimberedClay(mat.getName() + "_timbered_clay_clean", 0),
+					new TimberedClay(mat.getName() + "_timbered_clay_diagonal_bt", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_diagonal_tb", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_cross", 2),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_t_bt", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_b_bt", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_t_tb", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_b_tb", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_arrow_b", 2),
+					new TimberedClay(mat.getName() + "_timbered_clay_arrow_t", 2),
+					new TimberedClay(mat.getName() + "_timbered_clay_arrow_r", 2),
+					new TimberedClay(mat.getName() + "_timbered_clay_arrow_l", 2),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_l_lr", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_r_lr", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_l_rl", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_r_rl", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_vertical", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_horizontal", 1)
+				);
+				
+				register(reg, DRPMedievalCreativeTabs.UTILITY,
+					new LargeLectern("large_" + mat.getName() + "_lectern"),
+					new Shelf("simple_" + mat.getName() + "_shelf")
+				);
+			}
 		}
 		
 		register(reg, DRPMedievalCreativeTabs.DECORATION,
@@ -253,7 +312,6 @@ public class DRPMedievalBlocks {
 			new MugEmpty("mug_empty"),
 			new RopeFence("rope_fence"),
 			new ShipsHelm("ships_helm"),
-			new SpinningWheel("spinning_wheel"),
 			new MinecartStopper("minecart_stopper"),
 			new Scale("golden_scale")
 		);
@@ -294,7 +352,7 @@ public class DRPMedievalBlocks {
 			new PotteryTurntable("pottery_turntable"),
 			new Rope("rope"),
 			new RopeAnchor("rope_anchor"),
-			
+			new SpinningWheel("spinning_wheel"),
 			//TODO MOVE TO OWN TAB
 //			new AppleSappling("apple_sapling"),
 			new Mushroom("mushroom_brown"),
@@ -316,8 +374,40 @@ public class DRPMedievalBlocks {
 			new HangingBridge("hanging_bridge_top" ,0.5F)
 		);
 		
+		GameRegistry.registerTileEntity(TE_ClockCore.class, new ResourceLocation(References.MODID, "te_clock_core"));
+		GameRegistry.registerTileEntity(TE_ShopSign.class, new ResourceLocation(References.MODID,"te_shop_sign"));
+        GameRegistry.registerTileEntity(TE_Shelf.class, new ResourceLocation(References.MODID, "te_shelf"));
+		GameRegistry.registerTileEntity(TileEntityAnvil.class, new ResourceLocation(References.MODID, "TileEntityAnvil"));
+		GameRegistry.registerTileEntity(TileEntityMortar.class, new ResourceLocation(References.MODID, "TileEntityMortar"));
+		GameRegistry.registerTileEntity(TileEntityGrindstone.class, new ResourceLocation(References.MODID, "TileEntityGrindstone"));
+		GameRegistry.registerTileEntity(TileEntityHangingCauldron.class, new ResourceLocation(References.MODID, "TileEntityHangingCauldron"));
+		GameRegistry.registerTileEntity(TileEntityBookOne.class, new ResourceLocation(References.MODID, "TileEntityBookOne"));
+		GameRegistry.registerTileEntity(TileEntityCauldron.class, new ResourceLocation(References.MODID, "TileEntityCauldron"));
+		GameRegistry.registerTileEntity(TileEntityChain.class, new ResourceLocation(References.MODID, "TileEntityChain"));
+		GameRegistry.registerTileEntity(TileEntityHook.class, new ResourceLocation(References.MODID, "TileEntityHook"));
+		GameRegistry.registerTileEntity(TileEntityKeyHanging.class, new ResourceLocation(References.MODID, "TileEntityKeyHanging"));
+		GameRegistry.registerTileEntity(TileEntityShipsWheel.class, new ResourceLocation(References.MODID, "TileEntityShipsWheel"));
+		GameRegistry.registerTileEntity(TileEntityTarget.class, new ResourceLocation(References.MODID, "TileEntityTarget"));
+		GameRegistry.registerTileEntity(TileEntityRopeAnchor.class, new ResourceLocation(References.MODID, "TileEntityRopeAnchor"));
+		GameRegistry.registerTileEntity(TileEntityFirepit.class, new ResourceLocation(References.MODID, "TileEntityFirepit"));
+        GameRegistry.registerTileEntity(TileEntity_FlowerStorage.class, new ResourceLocation(References.MODID, "BucketTileEntity"));
+        GameRegistry.registerTileEntity(RopeCoilTileEntity.class, new ResourceLocation(References.MODID, "rope_coil_tilenentity"));
+		
+		// Storage Blocks
+        //New Storage
+        GameRegistry.registerTileEntity(TE_Roof.class, new ResourceLocation(References.MODID, "tile_entity_roof"));
+        GameRegistry.registerTileEntity(TileEntity_SimpleStorage.class, new ResourceLocation(References.MODID, "tile_entity_simple_storage"));
+        GameRegistry.registerTileEntity(TileEntity_Lectern.class, new ResourceLocation(References.MODID, "tile_entity_lectern"));
+        GameRegistry.registerTileEntity(TE_FluidBarrel.class, new ResourceLocation(References.MODID, "tile_entity_fluid_barrel"));
+
+        //Old Storage
+		GameRegistry.registerTileEntity(TileEntityCrate.class, new ResourceLocation(References.MODID, "TilEntityCrate"));
+		GameRegistry.registerTileEntity(TE_DungeonChest.class, new ResourceLocation(References.MODID, "TileEntityDungeonChest"));
+		
+		//New Test Things
 		GameRegistry.registerTileEntity(SpinningWheelTileEntity.class, new ResourceLocation(References.MODID, "spinning_wheel"));
 		GameRegistry.registerTileEntity(FlowersTileEntity.class, new ResourceLocation(References.MODID, "flower_container"));
+		
 	}
 	
 	protected static void register(IForgeRegistry<Block> reg, CreativeTabs creativeTab, Block... blocks){

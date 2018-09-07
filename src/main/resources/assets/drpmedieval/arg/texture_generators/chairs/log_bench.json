@@ -10,7 +10,7 @@
 			"manipulations":[
 				{
 					"type":"rotate",
-					"amount":"90"
+					"angle":"90"
 				}
 			],
 			"output":"drpmedieval:textures/blocks/log_bench/%wood%_log_bench_bark"
@@ -28,6 +28,10 @@
 			"base":"log_side",
 			"manipulations":[
 				{
+					"type":"rotate",
+					"angle":"90"
+				},
+				{
 					"type":"mask",
 					"texture":"1"
 				}
@@ -40,10 +44,6 @@
 				{
 					"type":"overlay",
 					"cached_texture":"log_bench_%wood%_overlay"
-				},
-				{
-					"type":"rotate",
-					"amount":"90"
 				}
 			],
 			"output":"drpmedieval:textures/blocks/log_bench/%wood%_log_bench_side"

@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.dark_roleplay.core.api.old.items.DRPEquip;
 import net.dark_roleplay.core.api.old.items.DRPFood;
+import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
 import net.dark_roleplay.core_modules.maarg.api.materials.Material;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
 import net.dark_roleplay.library_old.items.DRPItem;
@@ -26,6 +27,7 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -79,6 +81,7 @@ public class DRPMedievalItems {
 	public static final Item TIMBERED_CLAY = null;
 	public static final Item BEESWAX_CANDLE = null;
 	public static final Item LANTERN = null;
+	public static final Item HAY = null;
 	
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Item> event) {
@@ -166,7 +169,7 @@ public class DRPMedievalItems {
 			new DRPEquip("ring_bronze", "rings", DRPEquip.TYPE.TYPE_RING),
 			new DRPEquip("ring_silver", "rings", DRPEquip.TYPE.TYPE_RING),
 			new DRPEquip("ring_golden", "rings", DRPEquip.TYPE.TYPE_RING),
-			new WarHorn("bone_war_horn","equipment/tools/horsn", 1)
+			new WarHorn("bone_war_horn","equipment/tools/horns", 1)
 		);
 		
 		//Food
@@ -207,14 +210,23 @@ public class DRPMedievalItems {
 				new ItemMultiBlock(DRPMedievalBlocks.FORGE).setRegistryName("forge")
 		);
 	
+		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_plank");
+		
         for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
+        	if(cleanPlankRequired.doesFulfillRequirements(mat)) {
+        		register(reg, DRPMedievalCreativeTabs.MISCELLANEOUS,
+    				new DRPItem(mat.getName() + "_wood_beam", "wood_beams", 64) {
+	    				@Override
+	    				public int getItemBurnTime(ItemStack itemStack){
+	    			        return 400;
+    					}
+    				}
+        		);
+        	}
+        	
 			register(reg, DRPMedievalCreativeTabs.MISCELLANEOUS,
-					new DRPItem(mat.getFormatValue() + "_wood_beam", "wood_beams", 64),
-					new ItemFirewood(mat.getFormatValue() + "_firewood", "firewood", 64)
+				new ItemFirewood(mat.getName() + "_firewood", "firewood", 64)
 			);
-			
-			
-
 		}
 	
 		register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,

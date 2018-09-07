@@ -1,6 +1,5 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.core.modules.Modules;
 import net.dark_roleplay.core_modules.maarg.api.materials.Material;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
 import net.minecraft.creativetab.CreativeTabs;
@@ -66,7 +65,7 @@ public class DRPMedievalCreativeTabs {
 	        	}
 	        }
 	        for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
-	        	String name = mat.getFormatValue();
+	        	String name = mat.getName();
 	        	for(ItemStack stack : cache){
 	        		if(stack.getItem().getRegistryName().getResourcePath().contains(name)){
 	        			if(items.contains(stack)){
@@ -80,7 +79,7 @@ public class DRPMedievalCreativeTabs {
 		
 		private static boolean isWooden(Item item){
 	        for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
-	        	String name = mat.getFormatValue();
+	        	String name = mat.getName();
 		        if(item.getRegistryName().getResourcePath().contains(name)){
 	    			return true;
 	    		}
@@ -91,7 +90,7 @@ public class DRPMedievalCreativeTabs {
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
-		MISCELLANEOUS.setPreviewStack(new ItemStack(DRPMedievalItems.FIREWOOD, 1, 2));
+		MISCELLANEOUS.setPreviewStack(new ItemStack(DRPMedievalItems.HAY));
 		EQUIPMENT.setPreviewStack(new ItemStack(DRPMedievalItems.LEATHER_PURSE));
 		FOOD.setPreviewStack(new ItemStack(DRPMedievalItems.COOKED_CATFISH));
 		UTILITY.setPreviewStack(new ItemStack(Item.getItemFromBlock(DRPMedievalBlocks.OAK_CHOPPING_BLOCK)));

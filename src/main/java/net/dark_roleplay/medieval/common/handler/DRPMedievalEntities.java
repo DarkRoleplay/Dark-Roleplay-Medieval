@@ -5,6 +5,7 @@ import java.awt.Color;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.objects.entities.Wheelbarrel;
 import net.dark_roleplay.medieval.common.objects.entities.fox.Entity_Fox;
+import net.dark_roleplay.medieval.common.objects.entities.rope_slide.RopeSlider;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -34,6 +35,7 @@ public class DRPMedievalEntities {
         
 //        reg.register(createBuilder("wheelbarrel").entity(Wheelbarrel.class).tracker(32, 3, true).build());        
         reg.register(createBuilder("fox").entity(Entity_Fox.class).tracker(32, 3, true).egg(new Color(255, 100, 0).getRGB(), new Color(200, 200, 200).getRGB()).build());
+        reg.register(createBuilder("rope_slider").entity(RopeSlider.class).tracker(32, 10, true).build());
 
     }
 

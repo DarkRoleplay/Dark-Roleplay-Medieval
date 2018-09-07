@@ -4,7 +4,7 @@
 		"model":"drpmedieval:wood_blocks/log_bench/log_bench_single",
         "textures": {
 			"bark": "drpmedieval:blocks/log_bench/%wood%_log_bench_bark",
-			"plank": "drpmedieval:blocks/clean_plank/%wood%_clean_plank",
+			"plank": "drpmedieval:blocks/clean_plank/clean_plank_%wood%",
 			"top": "drpmedieval:blocks/log_bench/%wood%_log_bench_top",
 			"log_top": "drpmedieval:blocks/log_bench/%wood%_log_bench_side"
         },

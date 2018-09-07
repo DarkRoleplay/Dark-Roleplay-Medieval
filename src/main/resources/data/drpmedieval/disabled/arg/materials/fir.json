@@ -1,0 +1,13 @@
+{
+	"required_mod":"biomesoplenty",
+    "type":"wood",
+    "name":"fir",
+    
+    "log_side"			: "biomesoplenty:textures/blocks/fir_log.png",
+    "log_top"			: "biomesoplenty:textures/blocks/fir_log_top.png",
+    "planks"				: "biomesoplenty:textures/blocks/fir_planks.png",
+   	
+    "languages":{
+		"en_us":"Fir"
+    }
+}

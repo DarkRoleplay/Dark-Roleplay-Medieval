@@ -1,0 +1,13 @@
+{
+	"required_mod":"biomesoplenty",
+    "type":"wood",
+    "name":"jacaranda",
+    
+    "log_side"			: "biomesoplenty:textures/blocks/jacaranda_log.png",
+    "log_top"			: "biomesoplenty:textures/blocks/jacaranda_log_top.png",
+    "planks"				: "biomesoplenty:textures/blocks/jacaranda_planks.png",
+   	
+    "languages":{
+		"en_us":"Jacaranda"
+    }
+}
