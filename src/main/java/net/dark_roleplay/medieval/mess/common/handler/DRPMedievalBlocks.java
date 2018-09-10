@@ -124,63 +124,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 
-@ObjectHolder(References.MODID)
-@Mod.EventBusSubscriber
 public class DRPMedievalBlocks {
 
-	
-//	public static SimpleChest CHEST_TEST = new SimpleChest("simple_chest");
-	
-	static List<Block> blocks = new ArrayList<Block>();
-	
-	public static final Block OAK_FIREWOOD_PILE = null;
-
-	public static final Block ANVIL = null;
-	public static final Block CAULDRON = null;
-	public static final Block CHAIN = null;
-	public static final Block FIREPIT_LIT = null;
-	public static final Block GRINDSTONE = null;
-	public static final Block HANGING_CAULDRON = null;
-	public static final Block KEY_HANGING = null;
-	public static final Block MORTAR = null;
-	public static final Block SHIPS_HELM = null;
-	public static final Block TARGET = null;
-	public static final Block CLOCK_CORE = null;
-	public static final AdvancedOre COPPER_ORE = null;
-	public static final Block DRY_CLAY = null;
-	public static final Block DRY_CLAY_GRASS = null;
-	public static final Block GUNPOWDER_TRAIL = null;
-	public static final Block HANGING_BRIDGE_BOTTOM = null;
-	public static final Block HANGING_BRIDGE_TOP = null;
-	public static final Block ROPE = null;
-	public static final Block IRON_HOOK = null;
-	public static final AdvancedOre SILVER_ORE = null;
-	public static final Block OBSIDIAN_GLASS = null;
-	public static final Block ROPE_ANCHOR = null;
-	public static final Block ROPE_FENCE = null;
-	public static final Block BEESWAX_CANDLE = null;
-	public static final Block FLOWER_POT = null;
-	public static final Block MOSSY_SPRUCE_LOG = null;
-	public static final Block OAK_CHOPPING_BLOCK = null;
-	public static final AdvancedOre TIN_ORE = null;
-	public static final AdvancedOre SULFUR_ORE = null;
-	public static final AdvancedOre SALPETER_ORE = null;
-	public static final Block UNFIRED_VASE = null;
-	public static final Block FIRED_VASE = null;
-	public static final Block SIMPLE_CARPENTER_WORKBENCH = null;
-	public static final Block FORGE = null;
-	public static final UnlitWallMount CANDLE_HOLDER_UNLIT = null;
-	public static final LitWallMount CANDLE_HOLDER_LIT = null;
-	public static final UnlitWallMount TORCH_HOLDER_UNLIT = null;
-	public static final LitWallMount TORCH_HOLDER_LIT = null;
-	public static final EmptyWallMount CANDLE_HOLDER_EMPTY = null;
-	public static final EmptyWallMount TORCH_HOLDER_EMPTY = null;
-	
-	public static final Block OAK_TIMBERED_CLAY_CLEAN = null;
-	public static final Block WALL_SHOP_SIGN = null;
-	
-	
-	public static final Crop BARLEY = null;
 	
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Block> event) {
@@ -193,43 +138,22 @@ public class DRPMedievalBlocks {
 		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
 
 			if(logRequired.doesFulfillRequirements(mat)) {
-				register(reg, DRPMedievalCreativeTabs.DECORATION,
-						new FirewoodPile(mat.getName() + "_firewood_pile")
-				);
-				
-				register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
+					new FirewoodPile(mat.getName() + "_firewood_pile")
 					new MossyLog("mossy_" + mat.getName() + "_log")
-				);
-				
-				register(reg, DRPMedievalCreativeTabs.UTILITY,
 					new ChoppingBlock(mat.getName() + "_chopping_block")
-				);
-				
-				if(cleanPlankRequired.doesFulfillRequirements(mat)) {
 					register(reg, DRPMedievalCreativeTabs.DECORATION,
-						new LogChair(mat.getName() + "_log_chair"),
-						new LogBench(mat.getName() + "_log_bench")
-					);
+					new LogChair(mat.getName() + "_log_chair"),
+					new LogBench(mat.getName() + "_log_bench")
 				}
 			}
 			
 			if(plankRequired.doesFulfillRequirements(mat)) {
 				register(reg, DRPMedievalCreativeTabs.DECORATION,
-					new BarrelChair(mat.getName() + "_barrel_chair"),
 					new BarrelEmpty(mat.getName() + "_empty_barrel"),
 					new BarrelClosed(mat.getName() + "_closed_barrel"),
 					new BarrelFilled(mat.getName() + "_gunpowder_barrel"),
-					new BarrelTable(mat.getName() + "_barrel_table"),
 					new SidewayBarrel("laying_" + mat.getName() + "_barrel")
-				);
-				
-
-				registerNoItems(reg,
 					new FluidBarrel(mat.getName() + "_fluid_barrel")
-				);
-						
-				
-				register(reg, DRPMedievalCreativeTabs.UTILITY,
 					new Crate(mat.getName() + "_crate"),
 					new DungeonChest("simple_" + mat.getName() + "_chest")
 				);
@@ -239,12 +163,8 @@ public class DRPMedievalBlocks {
 				Block solidSimpleTable = new SolidSimpleTable("simple_solid_" + mat.getName() + "_table");			
 				Block plankSimpleTable = new SimpleTable("simple_plank_" + mat.getName() + "_table");
 
-				if(References.SIDE.isClient()) {
 					ConnectedModelLoader.registerConnectedModelBlock(solidSimpleTable);
 					ConnectedModelLoader.registerConnectedModelBlock(plankSimpleTable);
-				}
-				
-				register(reg, DRPMedievalCreativeTabs.DECORATION,
 					solidSimpleTable,
 					plankSimpleTable,
 					new WoodSupport(mat.getName() + "_wood_support"),
@@ -252,13 +172,7 @@ public class DRPMedievalBlocks {
 					new BucketDirt(mat.getName() + "_dirt_bucket"),
 					new Bucket(mat.getName() + "_empty_bucket"),
 					new Bucket(mat.getName() + "_water_bucket")
-				);
-				
-				register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
 					new Block(net.minecraft.block.material.Material.WOOD).setRegistryName(mat.getName() + "_clean_plank").setUnlocalizedName(mat.getName() + "_clean_plank")
-				);
-				
-				registerNoItems(reg,
 					new TimberedClay(mat.getName() + "_timbered_clay_clean", 0),
 					new TimberedClay(mat.getName() + "_timbered_clay_diagonal_bt", 1),
 					new TimberedClay(mat.getName() + "_timbered_clay_diagonal_tb", 1),
@@ -277,16 +191,11 @@ public class DRPMedievalBlocks {
 					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_r_rl", 1),
 					new TimberedClay(mat.getName() + "_timbered_clay_vertical", 1),
 					new TimberedClay(mat.getName() + "_timbered_clay_horizontal", 1)
-				);
-				
-				register(reg, DRPMedievalCreativeTabs.UTILITY,
 					new LargeLectern("large_" + mat.getName() + "_lectern"),
 					new Shelf("simple_" + mat.getName() + "_shelf")
 				);
 			}
-		}
-		
-		register(reg, DRPMedievalCreativeTabs.DECORATION,
+			
 			new HeadCuttingBlock("head_cutting_block"),
 			new Lantern("lantern", new net.minecraft.block.material.Material(MapColor.IRON), new AxisAlignedBB(0.25F, 0F, 0.25F, 0.75F, 0.5F, 0.75F)),
 			new WorkTable("work_table"),
@@ -314,32 +223,18 @@ public class DRPMedievalBlocks {
 			new ShipsHelm("ships_helm"),
 			new MinecartStopper("minecart_stopper"),
 			new Scale("golden_scale")
-		);
-		
-		register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
 			new AdvancedOre("tin_ore", 1),
 			new DryClay("dry_clay"),
 			new DryClayGrass("dry_clay_grass"),
-			new StoneBricks("andesite_bricks"),
 			new StonePillar("andesite_pillar"),
 			new AdvancedOre("copper_ore", 1),
-			new StoneBricks("diorite_bricks"),
 			new StonePillar("diorite_pillar"),
-			new StoneBricks("granite_bricks"),
 			new StonePillar("granite_pillar"),
 			new ObsidianGlass("obsidian_glass"),
 			new PackedIceBricks("packed_ice_bricks"),
 			new AdvancedOre("salpeter_ore", 1),
 			new AdvancedOre("sulfur_ore", 1),
 			new AdvancedOre("silver_ore", 2),
-			new SnowBricks("snow_bricks")
-//			new DirtStairs("dirt_stairs"),
-			//new NormalRoof("normal_clay_roof"),
-			//new Slab("shingles_slab", BlockBehaviours.SHINGLES)
-		);
-		
-		register(reg, DRPMedievalCreativeTabs.UTILITY,
-			new ButterChurn("butter_churn"),
 			new ShopSign("wall_shop_sign"),
 			new Anvil("anvil"),
 			new Axle("axle"),
@@ -353,21 +248,11 @@ public class DRPMedievalBlocks {
 			new Rope("rope"),
 			new RopeAnchor("rope_anchor"),
 			new SpinningWheel("spinning_wheel"),
-			//TODO MOVE TO OWN TAB
-//			new AppleSappling("apple_sapling"),
 			new Mushroom("mushroom_brown"),
 			new Mushroom("mushroom_red")
-		);
-		
-		registerNoItems(reg,
 			new Forge("forge"),
 			new SimpleCarpenterWorkbench("simple_carpenter_workbench"),
 			new Barley("barley"),
-//			new Apple("apple_green", new ItemStack(DRPMedievalItems.APPLE_GREEN, 1)),
-//			new Apple("apple_red", new ItemStack(Items.APPLE, 1)),
-//			new Apple("apple_yellow", new ItemStack(DRPMedievalItems.APPLE_YELLOW, 1)),
-//			new Pear("pear_green", new ItemStack(DRPMedievalItems.PEAR_GREEN, 1)),
-//			new Pear("pear_yellow", new ItemStack(DRPMedievalItems.PEAR_YELLOW, 1)),
 			new Hops("hops"),
 			new GunpowderTrail("gunpowder_trail"),
 			new HangingBridge("hanging_bridge_bottom" ,0F),

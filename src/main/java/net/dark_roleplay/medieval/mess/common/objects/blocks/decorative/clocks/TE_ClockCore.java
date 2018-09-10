@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 import javax.annotation.Nullable;
 
-import net.dark_roleplay.medieval.mess.common.util.nbt.ImageConversion;
+import net.dark_roleplay.medieval.old.ImageConversion;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.nbt.NBTTagCompound;

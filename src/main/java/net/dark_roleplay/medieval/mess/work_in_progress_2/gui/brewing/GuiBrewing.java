@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.mess.work_in_progress_2.gui.brewing;
 
 import net.dark_roleplay.core.api.old.gui.DRPGuiScreen;
-import net.dark_roleplay.medieval.mess.client.gui.storage.Gui_SimpleStorage;
+import net.dark_roleplay.medieval.client.objects.guis.blocks.Gui_SimpleStorage;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiBrewing extends DRPGuiScreen{

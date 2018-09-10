@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.mess.common.objects.blocks.util.shop_sign;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalItems;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.decorative.wall_mounted.WallMounted;
 import net.dark_roleplay.medieval.mess.common.objects.gui.GuiUtil;
-import net.dark_roleplay.medieval.mess.common.util.nbt.ImageConversion;
+import net.dark_roleplay.medieval.old.ImageConversion;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;

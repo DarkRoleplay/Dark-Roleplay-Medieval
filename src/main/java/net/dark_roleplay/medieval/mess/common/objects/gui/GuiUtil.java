@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.mess.common.objects.gui;
 
-import net.dark_roleplay.medieval.mess.client.gui.carving.Gui_CarveSign;
+import net.dark_roleplay.medieval.client.objects.guis.blocks.Gui_CarveSign;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.util.shop_sign.TE_ShopSign;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.BlockPos;

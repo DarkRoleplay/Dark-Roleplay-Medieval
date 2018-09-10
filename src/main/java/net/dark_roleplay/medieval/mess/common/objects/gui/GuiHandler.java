@@ -2,9 +2,9 @@ package net.dark_roleplay.medieval.mess.common.objects.gui;
 
 import java.util.ArrayList;
 
+import net.dark_roleplay.medieval.client.objects.guis.blocks.Gui_SimpleStorage;
 import net.dark_roleplay.medieval.mess.client.gui.MusikMinigameGui;
 import net.dark_roleplay.medieval.mess.client.gui.Note;
-import net.dark_roleplay.medieval.mess.client.gui.storage.Gui_SimpleStorage;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TE_DungeonChest;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityCrate;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.storage.TileEntity_SimpleStorage;

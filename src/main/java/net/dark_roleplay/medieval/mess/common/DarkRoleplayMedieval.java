@@ -4,25 +4,25 @@ import java.io.File;
 
 import com.typesafe.config.ConfigSyntax;
 
+import net.dark_roleplay.medieval.client.objects.events.OnConfigChange;
+import net.dark_roleplay.medieval.common.handler.MedievalMappings;
+import net.dark_roleplay.medieval.common.handler.MedievalPackets;
+import net.dark_roleplay.medieval.common.objects.world_gen.materials.DryClayGenerator;
+import net.dark_roleplay.medieval.common.objects.world_gen.village.carpenter.CarpenterHouse;
+import net.dark_roleplay.medieval.common.objects.world_gen.village.carpenter.VillageHandlerCarpenter;
 import net.dark_roleplay.medieval.mess.client.events.Event_GuiOpen;
-import net.dark_roleplay.medieval.mess.client.events.config.Event_ConfigChange;
 import net.dark_roleplay.medieval.mess.common.config.Client;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalAchievements;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalCapabilities;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalItems;
-import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalMappings;
-import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalPackets;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalSkills;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalVillagers;
 import net.dark_roleplay.medieval.mess.common.objects.events.blocks.Event_BlockBreak;
 import net.dark_roleplay.medieval.mess.common.objects.events.capabilities.Event_CapabilityTileEntity;
 import net.dark_roleplay.medieval.mess.common.objects.gui.GuiHandler;
 import net.dark_roleplay.medieval.mess.common.world_generation.WorldLoot;
-import net.dark_roleplay.medieval.mess.common.world_generation.feature.DryClayGenerator;
 import net.dark_roleplay.medieval.mess.common.world_generation.feature.OreGen;
-import net.dark_roleplay.medieval.mess.work_in_progress_2.Carpenter;
-import net.dark_roleplay.medieval.mess.work_in_progress_2.VillageHandlerCarpenter;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -69,10 +69,6 @@ public class DarkRoleplayMedieval {
 		DarkRoleplayMedieval.proxy.init(event);
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(DarkRoleplayMedieval.instance, new GuiHandler());
-
-		VillageHandlerCarpenter villageHandler = new VillageHandlerCarpenter();
-		VillagerRegistry.instance().registerVillageCreationHandler(villageHandler);
-		MapGenStructureIO.registerStructureComponent(Carpenter.class, References.MODID+":carpenter_house_small");
 		
 		if(Client.MAARG_VERSION < References.MAARG_VERSION) {
 			File drp = new File(net.dark_roleplay.core_modules.maarg.References.FOLDER_ARG, "drpmedieval");
@@ -117,11 +113,11 @@ public class DarkRoleplayMedieval {
 		GameRegistry.registerWorldGenerator(new DryClayGenerator(), 500);
 //		GameRegistry.registerWorldGenerator(new GenerateStructure(), 0);
 
-		DRPMedievalPackets.init();
+		MedievalPackets.init();
 		
 		if(event.getSide() == Side.CLIENT){
 			MinecraftForge.EVENT_BUS.register(new Event_GuiOpen());
-			MinecraftForge.EVENT_BUS.register(new Event_ConfigChange());
+			MinecraftForge.EVENT_BUS.register(new OnConfigChange());
 //			RenderPlayer steve = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("default"));
 //			RenderPlayer alex = ((RenderPlayer)Minecraft.getMinecraft().getRenderManager().getSkinMap().get("slim"));
 //			steve.addLayer(new RenderLayerPremium());
@@ -130,7 +126,7 @@ public class DarkRoleplayMedieval {
 //			alex.addLayer(new RenderLayer_Guild());
 		}
 
-		DRPMedievalMappings.init(event);
+		MedievalMappings.init(event);
 
 		MinecraftForge.EVENT_BUS.register(new Event_BlockBreak());
 		

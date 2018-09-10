@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.mess.work_in_progress_2.gui.brewing;
 
 import org.lwjgl.input.Keyboard;
 
-import net.dark_roleplay.medieval.mess.common.References;
+import net.dark_roleplay.medieval.common.References;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;

@@ -4,25 +4,26 @@ import java.io.File;
 
 import com.google.common.collect.ImmutableMap;
 
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_ClockCore;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Shelf;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_ShopSign;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderAnvil;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderCauldron;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderChain;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderFirepit;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderGrindstone;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderHangingCauldron;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderHook;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderKeyHanging;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderMortar;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderRopeAnchor;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderShipsWheel;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderTarget;
+import net.dark_roleplay.medieval.client.objects.entities.renderer.Render_Fox;
+import net.dark_roleplay.medieval.client.objects.events.OnCameraUpdate;
+import net.dark_roleplay.medieval.common.objects.entities.Entity_Fox;
 import net.dark_roleplay.medieval.mess.client.blocks.colors.DryClayGrassColor;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.SpecialRenderAnvil;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.SpecialRenderCauldron;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.SpecialRenderChain;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.SpecialRenderFirepit;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.SpecialRenderGrindstone;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.SpecialRenderHangingCauldron;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.SpecialRenderHook;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.SpecialRenderKeyHanging;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.SpecialRenderMortar;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.SpecialRenderRopeAnchor;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.SpecialRenderShipsWheel;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.SpecialRenderTarget;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.clock.TESR_ClockCore;
 import net.dark_roleplay.medieval.mess.client.blocks.tesrs.roof.TESR_Roof;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.shelf.TESR_Shelf;
-import net.dark_roleplay.medieval.mess.client.blocks.tesrs.shop_sign.TESR_ShopSign;
-import net.dark_roleplay.medieval.mess.client.entities.fox.Render_Fox;
-import net.dark_roleplay.medieval.mess.client.events.Event_CameraUpdate;
 import net.dark_roleplay.medieval.mess.client.model_baking.DelayedBaker_HangingBridge;
 import net.dark_roleplay.medieval.mess.client.model_baking.DelayedBaker_RopeFence;
 import net.dark_roleplay.medieval.mess.client.model_baking.DelayedBaker_Timbering;
@@ -54,7 +55,6 @@ import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.roof.T
 import net.dark_roleplay.medieval.mess.common.objects.blocks.util.shop_sign.TE_ShopSign;
 import net.dark_roleplay.medieval.mess.common.objects.entities.Wheelbarrel;
 import net.dark_roleplay.medieval.mess.common.objects.entities.WheelbarrelRenderer;
-import net.dark_roleplay.medieval.mess.common.objects.entities.fox.Entity_Fox;
 import net.dark_roleplay.medieval.mess.work_in_progress_2.gui.brewing.Keybinds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -123,7 +123,7 @@ public class ClientProxy extends CommonProxy {
         }, DRPMedievalBlocks.DRY_CLAY_GRASS);
 
 		
-		MinecraftForge.EVENT_BUS.register(new Event_CameraUpdate());
+		MinecraftForge.EVENT_BUS.register(new OnCameraUpdate());
 	}
 
 	@Override
