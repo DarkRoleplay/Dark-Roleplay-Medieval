@@ -1,23 +1,16 @@
 package net.dark_roleplay.medieval.client.objects.blocks.tesrs;
 
 import java.util.Calendar;
-import java.util.Random;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalBlocks;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.decorative.clocks.TE_ClockCore;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.util.shop_sign.ShopSign;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.util.shop_sign.TE_ShopSign;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 
 public class TESR_ClockCore extends TileEntitySpecialRenderer<TE_ClockCore> {
@@ -26,9 +19,6 @@ public class TESR_ClockCore extends TileEntitySpecialRenderer<TE_ClockCore> {
 
 	@Override  
 	public void render(TE_ClockCore te, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
-		
-		if(te.getWorld().getBlockState(te.getPos()).getBlock() != DRPMedievalBlocks.CLOCK_CORE)
-			return;
 		EnumFacing facing = te.getWorld().getBlockState(te.getPos()).getValue(BlockProperties.FACING);
 		
 		float angleMinutes = 0F;

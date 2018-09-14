@@ -2,7 +2,6 @@ package net.dark_roleplay.medieval.mess.common.objects.blocks.decorative;
 
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalCreativeTabs;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.templates.FacedBlock;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityHook;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -22,7 +21,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class Hook extends FacedBlock {
+public class Hook extends Block {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
@@ -30,7 +29,6 @@ public class Hook extends FacedBlock {
 		super(Material.IRON);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(4F);
 		this.setHarvestLevel("pickaxe", 1);
 		this.setSoundType(SoundType.METAL);

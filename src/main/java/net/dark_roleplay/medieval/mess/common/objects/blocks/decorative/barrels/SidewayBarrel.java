@@ -8,6 +8,7 @@ import java.util.Random;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalItems;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.templates.FacedBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -27,7 +28,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class SidewayBarrel extends FacedBlock {
+public class SidewayBarrel extends Block {
 
 	public static final PropertyBool TAP = PropertyBool.create("tap");
 	

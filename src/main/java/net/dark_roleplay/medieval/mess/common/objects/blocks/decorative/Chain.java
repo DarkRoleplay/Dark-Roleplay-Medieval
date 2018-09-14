@@ -25,13 +25,12 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class Chain extends FacedBlock {
+public class Chain extends Block {
 
 	public Chain(String registryName) {
 		super(Material.IRON);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(3F);
 		this.setSoundType(SoundType.METAL);
 	}

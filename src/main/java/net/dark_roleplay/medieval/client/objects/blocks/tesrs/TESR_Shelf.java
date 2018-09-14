@@ -3,7 +3,6 @@ package net.dark_roleplay.medieval.client.objects.blocks.tesrs;
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.storage.shelf.Shelf;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.storage.shelf.TE_Shelf;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -16,7 +15,6 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -45,8 +43,6 @@ public class TESR_Shelf  extends TileEntitySpecialRenderer<TE_Shelf> {
 		BlockPos tePos = te.getPos();
 		
 		IBlockState state  = te.getWorld().getBlockState(te.getPos());
-		if(!(state.getBlock() instanceof Shelf))
-			return;
 		
 		EnumFacing facing = (EnumFacing) state.getValue(BlockProperties.FACING);
 		

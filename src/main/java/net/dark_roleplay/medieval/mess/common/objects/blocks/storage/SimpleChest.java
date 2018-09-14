@@ -1,12 +1,12 @@
 package net.dark_roleplay.medieval.mess.common.objects.blocks.storage;
 
+import net.dark_roleplay.medieval.common.handler.MedievalGuis;
 import net.dark_roleplay.medieval.mess.api.items.IKey;
 import net.dark_roleplay.medieval.mess.api.items.ILock;
 import net.dark_roleplay.medieval.mess.api.storage.LockStackHandler;
 import net.dark_roleplay.medieval.mess.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalCapabilities;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.storage.TileEntity_SimpleStorage;
-import net.dark_roleplay.medieval.mess.common.objects.gui.GuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
@@ -68,7 +68,7 @@ public class SimpleChest extends Block implements ITileEntityProvider{
             					world.spawnEntity(new EntityItem(player.world, player.posX, player.posY, player.posZ, output));
             				}
             			}else{
-                	        player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_SIMPLE_STORAGE, world, pos.getX(), pos.getY(), pos.getZ());
+                	        player.openGui(DarkRoleplayMedieval.instance, MedievalGuis.GUI_SIMPLE_STORAGE, world, pos.getX(), pos.getY(), pos.getZ());
             			}
             	        return true;
             		}
@@ -76,7 +76,7 @@ public class SimpleChest extends Block implements ITileEntityProvider{
         			player.sendStatusMessage(new TextComponentTranslation("drpcore.blocks.chest.locked"), true);
         		}
         	}else{
-    	        player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_SIMPLE_STORAGE, world, pos.getX(), pos.getY(), pos.getZ());
+    	        player.openGui(DarkRoleplayMedieval.instance, MedievalGuis.GUI_SIMPLE_STORAGE, world, pos.getX(), pos.getY(), pos.getZ());
         	}
 	        return true;
 	    }

@@ -2,8 +2,8 @@ package net.dark_roleplay.medieval.client.objects.entities.model;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.mess.api.advanced_model.AdvancedModel;
-import net.dark_roleplay.medieval.mess.api.advanced_model.ModelRenderer;
+import net.dark_roleplay.medieval.testing.blockstate_loading.AdvancedModel;
+import net.dark_roleplay.medieval.testing.blockstate_loading.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;

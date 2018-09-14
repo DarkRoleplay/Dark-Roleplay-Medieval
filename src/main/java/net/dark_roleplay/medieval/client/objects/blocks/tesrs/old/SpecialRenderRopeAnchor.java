@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.client.objects.blocks.tesrs.old;
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.common.References;
-import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityRopeAnchor;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -26,7 +26,6 @@ public class SpecialRenderRopeAnchor extends TileEntitySpecialRenderer<TileEntit
 	@Override
 	public void render(TileEntityRopeAnchor tileentity, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
 
-		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMedievalBlocks.ROPE_ANCHOR)){
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 			GL11.glRotatef(180, 0F, 0F, 1F);
@@ -38,10 +37,10 @@ public class SpecialRenderRopeAnchor extends TileEntitySpecialRenderer<TileEntit
 			World worldIn = tileentity.getWorld();
 			BlockPos pos = tileentity.getPos();
 
-			Boolean North = worldIn.getBlockState(pos.add(0, -1, -1)).getBlock().equals(DRPMedievalBlocks.ROPE);
-			Boolean East = worldIn.getBlockState(pos.add(1, -1, 0)).getBlock().equals(DRPMedievalBlocks.ROPE);
-			Boolean South = worldIn.getBlockState(pos.add(0, -1, 1)).getBlock().equals(DRPMedievalBlocks.ROPE);
-			Boolean West = worldIn.getBlockState(pos.add(-1, -1, 0)).getBlock().equals(DRPMedievalBlocks.ROPE);
+			Boolean North = worldIn.getBlockState(pos.add(0, -1, -1)).getBlock().equals(MedievalBlocks.ROPE);
+			Boolean East = worldIn.getBlockState(pos.add(1, -1, 0)).getBlock().equals(MedievalBlocks.ROPE);
+			Boolean South = worldIn.getBlockState(pos.add(0, -1, 1)).getBlock().equals(MedievalBlocks.ROPE);
+			Boolean West = worldIn.getBlockState(pos.add(-1, -1, 0)).getBlock().equals(MedievalBlocks.ROPE);
 
 			if(North){
 				this.model.renderNorth(0.0625F);
@@ -57,7 +56,6 @@ public class SpecialRenderRopeAnchor extends TileEntitySpecialRenderer<TileEntit
 			}
 
 			GL11.glPopMatrix();
-		}
 	}
 
 }

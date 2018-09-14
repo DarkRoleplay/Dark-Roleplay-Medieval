@@ -1,17 +1,14 @@
 package net.dark_roleplay.medieval.mess.common.objects.blocks.decorative.clocks;
 
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.*;
+import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.FACING;
 
 import java.util.Random;
 
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalBlocks;
-import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalCreativeTabs;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.templates.FacedBlock;
-import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
@@ -19,7 +16,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumFacing.Axis;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -27,7 +23,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class ClockDial extends FacedBlock{
+public class ClockDial extends Block{
 
 	public static final PropertyInteger POSITION = PropertyInteger.create("position", 0,8);
 	
@@ -50,7 +46,6 @@ public class ClockDial extends FacedBlock{
 		super(Material.WOOD);
 		this.setRegistryName(registreName);
 		this.setUnlocalizedName(registreName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(1F); 
 		this.setSoundType(SoundType.WOOD);
 

@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.objects.items.tools;
 
 import net.dark_roleplay.library_old.items.DRPItem;
-import net.dark_roleplay.medieval.mess.client.ClientProxy;
+import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -19,9 +19,9 @@ public class Telescope extends DRPItem{
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer playerIn, EnumHand handIn){
 		if(world.isRemote){
-			ClientProxy.telescopeLevel ++;
-			if(ClientProxy.telescopeLevel == 4){
-				ClientProxy.telescopeLevel = 0;
+			DarkRoleplayMedieval.ClientProxy.TELESCOPE_LEVEL ++;
+			if(DarkRoleplayMedieval.ClientProxy.TELESCOPE_LEVEL == 4){
+				DarkRoleplayMedieval.ClientProxy.TELESCOPE_LEVEL = 0;
 				Minecraft.getMinecraft().gameSettings.smoothCamera = false;
 			}
 		}

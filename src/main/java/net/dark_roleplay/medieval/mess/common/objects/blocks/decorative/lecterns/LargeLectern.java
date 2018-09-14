@@ -1,23 +1,19 @@
 package net.dark_roleplay.medieval.mess.common.objects.blocks.decorative.lecterns;
 
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.*;
+import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.FACING;
+import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.IS_TOP;
 
 import java.util.List;
 
 import javax.annotation.Nullable;
 
-import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalCreativeTabs;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.templates.FacedBlock;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TE_DungeonChest;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.lectern.TileEntity_Lectern;
-import net.dark_roleplay.medieval.mess.testing.large_block.LargeBlock;
+import net.dark_roleplay.medieval.testing.blocks.large_block.LargeBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -46,7 +42,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.items.CapabilityItemHandler;
 
-public class LargeLectern extends FacedBlock implements LargeBlock{
+public class LargeLectern extends Block implements LargeBlock{
 		
 	public static final PropertyBool BOOK = PropertyBool.create("book");
 
@@ -54,7 +50,6 @@ public class LargeLectern extends FacedBlock implements LargeBlock{
 		super(Material.WOOD);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
 		this.setDefaultState(this.getDefaultState().withProperty(FACING, EnumFacing.NORTH).withProperty(IS_TOP, false).withProperty(BOOK, false));

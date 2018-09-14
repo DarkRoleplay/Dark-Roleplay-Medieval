@@ -2,9 +2,9 @@ package net.dark_roleplay.medieval.mess.common.objects.blocks.building.roof;
 
 import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.*;
 
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Roof;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.templates.FacedBlock;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.roof.TE_Roof;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;

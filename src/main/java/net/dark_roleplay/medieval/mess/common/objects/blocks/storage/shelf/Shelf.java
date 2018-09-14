@@ -3,6 +3,7 @@ package net.dark_roleplay.medieval.mess.common.objects.blocks.storage.shelf;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.templates.FacedBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
@@ -19,13 +20,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-public class Shelf extends FacedBlock{
+public class Shelf extends Block{
 
 	public Shelf(String registryName) {
 		super(Material.WOOD);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.UTILITY);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
 	}

@@ -1,8 +1,6 @@
 package net.dark_roleplay.medieval.mess.common.objects.blocks.decorative.chairs;
 
-import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.templates.Chair;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -14,11 +12,10 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class LogBench extends Chair {
+public class LogBench extends Block {
 
 	public LogBench(String registryName) {
 		super(Material.WOOD, registryName, registryName, 0.1875F);
-		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setHarvestLevel("axe", 0);
 		this.setSoundType(SoundType.WOOD);

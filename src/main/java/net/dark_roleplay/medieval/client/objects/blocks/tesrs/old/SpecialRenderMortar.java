@@ -3,7 +3,6 @@ package net.dark_roleplay.medieval.client.objects.blocks.tesrs.old;
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.common.References;
-import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityMortar;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
@@ -26,30 +25,27 @@ public class SpecialRenderMortar extends TileEntitySpecialRenderer<TileEntityMor
 
 	@Override
 	public void render(TileEntityMortar tileentity, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
+		GL11.glPushMatrix();
+		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
+		GL11.glRotatef(180, 0F, 0F, 1F);
 
-		if(tileentity.getWorld().getBlockState(tileentity.getPos()).getBlock().equals(DRPMedievalBlocks.MORTAR)){
-			GL11.glPushMatrix();
-			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-			GL11.glRotatef(180, 0F, 0F, 1F);
+		PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+		IBlockState state = tileentity.getWorld().getBlockState(tileentity.getPos());
+		int facing = 0;
+		if(state.getValue(FACING).equals(EnumFacing.NORTH))
+			facing = 1;
+		else if(state.getValue(FACING).equals(EnumFacing.EAST))
+			facing = 2;
+		else if(state.getValue(FACING).equals(EnumFacing.SOUTH))
+			facing = 3;
+		else if(state.getValue(FACING).equals(EnumFacing.WEST)) facing = 4;
 
-			PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
-			IBlockState state = tileentity.getWorld().getBlockState(tileentity.getPos());
-			int facing = 0;
-			if(state.getValue(FACING).equals(EnumFacing.NORTH))
-				facing = 1;
-			else if(state.getValue(FACING).equals(EnumFacing.EAST))
-				facing = 2;
-			else if(state.getValue(FACING).equals(EnumFacing.SOUTH))
-				facing = 3;
-			else if(state.getValue(FACING).equals(EnumFacing.WEST)) facing = 4;
+		GL11.glRotatef((facing + 2) * 90, 0.0F, 1.0F, 0.0F);
+		this.bindTexture(texture);
 
-			GL11.glRotatef((facing + 2) * 90, 0.0F, 1.0F, 0.0F);
-			this.bindTexture(texture);
+		this.model.renderModel(0.0625F);
 
-			this.model.renderModel(0.0625F);
-
-			GL11.glPopMatrix();
-		}
+		GL11.glPopMatrix();
 	}
 
 }

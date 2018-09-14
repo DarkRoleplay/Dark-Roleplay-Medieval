@@ -19,7 +19,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class SimpleCarpenterWorkbench extends FacedBlock{
+public class SimpleCarpenterWorkbench extends Block{
 
 	public static final PropertyBool LEFT = PropertyBool.create("left");
 

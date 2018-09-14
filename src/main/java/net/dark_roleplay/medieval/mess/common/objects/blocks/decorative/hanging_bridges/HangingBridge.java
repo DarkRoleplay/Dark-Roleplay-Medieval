@@ -5,17 +5,15 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import ibxm.Player;
-import net.dark_roleplay.medieval.mess.api.blocks.properties.UnlistedPropertyBool;
-import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalBlocks;
-import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalItems;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.helper.EnumAxis;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
+
+import net.dark_roleplay.medieval.client.objects.blocks.properties.UnlistedPropertyBool;
+import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
@@ -40,7 +38,6 @@ public class HangingBridge extends Block {
 
 	//TODO ROTATION
 	
-	public static final PropertyEnum<EnumAxis> AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class);
 	public static final PropertyInteger HEIGHT = PropertyInteger.create("height", 0, 7);
 	
 	public static final UnlistedPropertyBool NORTH = UnlistedPropertyBool.create("north");
@@ -68,7 +65,7 @@ public class HangingBridge extends Block {
 	
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune){
-        return DRPMedievalItems.HANGING_BRIDGE;
+        return MedievalItems.HANGING_BRIDGE;
     }
 	
 	@Override
@@ -92,12 +89,12 @@ public class HangingBridge extends Block {
 			boolean east = ext.getValue(HangingBridge.EAST) == null ? false : ext.getValue(HangingBridge.EAST); 
 			boolean west = ext.getValue(HangingBridge.WEST) == null ? false : ext.getValue(HangingBridge.WEST); 
 			
-			if(state.getValue(HangingBridge.AXIS) == EnumAxis.X ){
+			if(state.getValue(AXIS_HORIZONTAL) == EnumFacing.Axis.X ){
 				if(west)
 		        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0f,0.0625f,1f,1f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
 				if(east)
 		        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0.9375f,0.875f,0f,1f,1f,1f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
-			}else if(state.getValue(HangingBridge.AXIS) == EnumAxis.Z){
+			}else if(state.getValue(AXIS_HORIZONTAL) == EnumFacing.Axis.Z){
 				if(east)
 		        	Block.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0f,0.875f,0.9375f,1f,1f,1f).offset(new Vec3d(0F, (0.0625F * state.getValue(HangingBridge.HEIGHT)) + this.initialOffset, 0F)));
 				if(west)
@@ -107,7 +104,7 @@ public class HangingBridge extends Block {
     }
 	
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player){
-        return DRPMedievalItems.HANGING_BRIDGE.getDefaultInstance().copy();
+        return MedievalItems.HANGING_BRIDGE.getDefaultInstance().copy();
     }
 	
 	@Override
@@ -118,15 +115,15 @@ public class HangingBridge extends Block {
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		if(Math.floor(meta / 8) == 0)
-			return this.getDefaultState().withProperty(HangingBridge.AXIS, EnumAxis.X).withProperty(HangingBridge.HEIGHT, meta);
+			return this.getDefaultState().withProperty(AXIS_HORIZONTAL, EnumFacing.Axis.X).withProperty(HangingBridge.HEIGHT, meta);
 		else
-			return this.getDefaultState().withProperty(HangingBridge.AXIS, EnumAxis.Z).withProperty(HangingBridge.HEIGHT, meta % 8);
+			return this.getDefaultState().withProperty(AXIS_HORIZONTAL, EnumFacing.Axis.Z).withProperty(HangingBridge.HEIGHT, meta % 8);
 	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		int meta = 0;
-		if(state.getValue(HangingBridge.AXIS) == EnumAxis.Z) {
+		if(state.getValue(AXIS_HORIZONTAL) == EnumFacing.Axis.Z) {
 			meta += 8;
 		}
 		meta += state.getValue(HangingBridge.HEIGHT);
@@ -135,7 +132,7 @@ public class HangingBridge extends Block {
 	
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new ExtendedBlockState(this, new IProperty[] {HangingBridge.AXIS, HangingBridge.HEIGHT}, new IUnlistedProperty[]{HangingBridge.NORTH, HangingBridge.SOUTH, HangingBridge.EAST, HangingBridge.WEST});
+		return new ExtendedBlockState(this, new IProperty[] {AXIS_HORIZONTAL, HangingBridge.HEIGHT}, new IUnlistedProperty[]{HangingBridge.NORTH, HangingBridge.SOUTH, HangingBridge.EAST, HangingBridge.WEST});
 	}
 	
 	
@@ -144,12 +141,12 @@ public class HangingBridge extends Block {
 		switch(placer.getHorizontalFacing().getOpposite()){
 		case EAST:
 		case WEST:
-			return this.getDefaultState().withProperty(HangingBridge.AXIS, EnumAxis.Z);
+			return this.getDefaultState().withProperty(AXIS_HORIZONTAL, EnumFacing.Axis.Z);
 		case NORTH:
 		case SOUTH:
-	        return this.getDefaultState().withProperty(HangingBridge.AXIS, EnumAxis.X);
+	        return this.getDefaultState().withProperty(AXIS_HORIZONTAL, EnumFacing.Axis.X);
 	    default:
-	        return this.getDefaultState().withProperty(HangingBridge.AXIS, EnumAxis.X);
+	        return this.getDefaultState().withProperty(AXIS_HORIZONTAL, EnumFacing.Axis.X);
 		}
     }
 	
@@ -166,7 +163,7 @@ public class HangingBridge extends Block {
 			boolean east = true;
 			boolean south = true;
 			boolean west = true;
-			if(state.getValue(HangingBridge.AXIS).equals(EnumAxis.X)){
+			if(state.getValue(AXIS_HORIZONTAL).equals(EnumFacing.Axis.X)){
 				if(this.doesBlockAlign(world, pos.north())){
 					north = false;
 				}
@@ -179,7 +176,7 @@ public class HangingBridge extends Block {
 				if(this.doesBlockAlign(world, pos.west())){
 					west = false;
 				}
-			}else if(state.getValue(HangingBridge.AXIS).equals(EnumAxis.Z)){
+			}else if(state.getValue(AXIS_HORIZONTAL).equals(EnumFacing.Axis.Z)){
 				if(this.doesBlockAlign(world, pos.east())){
 					north = false;
 				}
@@ -201,15 +198,15 @@ public class HangingBridge extends Block {
 	
 	private boolean doesBlockAlign(IBlockAccess world, BlockPos pos){
 		
-		return world.getBlockState(pos).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_TOP) ||
-				world.getBlockState(pos.up()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.up()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_TOP) ||
-				world.getBlockState(pos.down()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.down()).getBlock().equals(DRPMedievalBlocks.HANGING_BRIDGE_TOP);
+		return world.getBlockState(pos).getBlock().equals(MedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos).getBlock().equals(MedievalBlocks.HANGING_BRIDGE_TOP) ||
+				world.getBlockState(pos.up()).getBlock().equals(MedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.up()).getBlock().equals(MedievalBlocks.HANGING_BRIDGE_TOP) ||
+				world.getBlockState(pos.down()).getBlock().equals(MedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.down()).getBlock().equals(MedievalBlocks.HANGING_BRIDGE_TOP);
 	}
 	
 	@Override
 	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
-		EnumAxis axis = state.getValue(AXIS);
-		if(axis == EnumAxis.Z){
+		EnumFacing.Axis axis = state.getValue(AXIS);
+		if(axis == EnumFacing.Axis.Z){
 			if(world.getBlockState(pos.add(1, 0, 0)).getBlock() == this && world.getBlockState(pos.add(-1, 0, 0)).getBlock() == this){
 				breakBridge(world, pos.add(1, 0, 0), pos, axis);
 				breakBridge(world, pos.add(1, -1, 0), pos, axis);
@@ -218,7 +215,7 @@ public class HangingBridge extends Block {
 				breakBridge(world, pos.add(-1, -1, 0), pos, axis);
 				breakBridge(world, pos.add(-1, 1, 0), pos, axis);
 			}
-		}else if(axis == EnumAxis.X){
+		}else if(axis == EnumFacing.Axis.X){
 			if(world.getBlockState(pos.add(0, 0, 1)).getBlock() == this && world.getBlockState(pos.add(0, 0, -1)).getBlock() == this){
 				breakBridge(world, pos.add(0, 0, 10), pos, axis);
 				breakBridge(world, pos.add(0, -1, 1), pos, axis);
@@ -230,10 +227,10 @@ public class HangingBridge extends Block {
 		}
     }
 	
-	private void breakBridge(World world, BlockPos pos, BlockPos prevPos, EnumAxis axis){
+	private void breakBridge(World world, BlockPos pos, BlockPos prevPos, EnumFacing.Axis axis){
 		if(world.getBlockState(pos).getBlock() instanceof HangingBridge){
 			world.destroyBlock(pos, true);
-			if(axis == EnumAxis.X){
+			if(axis == EnumFacing.Axis.X){
 				boolean dir = pos.getZ() > prevPos.getZ();
 				this.breakBridge(world, pos.add(0, 0, dir ? 1 : -1), pos, axis);
 				this.breakBridge(world, pos.add(0, 1, dir ? 1 : -1), pos, axis);

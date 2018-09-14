@@ -2,7 +2,6 @@ package net.dark_roleplay.medieval.mess.common.objects.blocks.decorative;
 
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalSounds;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.templates.FacedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -20,13 +19,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class GoldenShipsBell extends FacedBlock {
+public class GoldenShipsBell extends Block {
 
 	public GoldenShipsBell(String registryName) {
 		super(Material.IRON);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.ANVIL);
 	}

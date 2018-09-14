@@ -30,11 +30,28 @@ import net.minecraftforge.registries.IForgeRegistry;
 @ObjectHolder(References.MODID)
 public class MedievalItems {
 	
-	private static List<ItemBlock> blockItems = new ArrayList<ItemBlock>();
+	//Items
 	
-	public static void addBlockItem(ItemBlock item){
-		blockItems.add(item);
-	}
+	public static final Item WOODEN_WRENCH = null;
+	public static final Item TIMBERED_CLAY = null;
+	public static final Item DRY_CLAY_CHUNK = null;
+	public static final Item TRIGGER_TRAP = null;
+	public static final Item ORE_CHUNK_SALPETER = null;
+	public static final Item ORE_CHUNK_SILVER = null;
+	public static final Item ORE_CHUNK_TIN = null;
+	public static final Item ORE_CHUNK_COPPER = null;
+	public static final Item ORE_CHUNK_SULFUR = null;
+	public static final Item HANGING_BRIDGE = null;
+	
+	public static final Item DOUGH = null;
+	public static final Item RAW_WOLF = null;
+	public static final Item COOKED_WOLF = null;
+	public static final Item RAW_CATFISH = null;
+	public static final Item COOKED_CATFISH = null;
+	public static final Item PUMPKIN_DOUGH = null;
+	public static final Item PUMPKIN_BREAD = null;
+	
+	public static final Item SPINDLE = null;
 	
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Item> registryEvent) {
@@ -187,5 +204,12 @@ public class MedievalItems {
 		for(Item item : items)
 			item.setCreativeTab(creativeTab);
 		reg.registerAll(items);
+	}
+	
+	
+	private static List<ItemBlock> blockItems = new ArrayList<ItemBlock>();
+
+	public static void addBlockItem(ItemBlock item){
+		blockItems.add(item);
 	}
 }

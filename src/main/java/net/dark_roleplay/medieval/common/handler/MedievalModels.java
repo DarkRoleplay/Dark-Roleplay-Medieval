@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.library_old.items.ItemUtil;
 import net.dark_roleplay.medieval.common.References;
-import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -31,13 +30,13 @@ public class MedievalModels {
 		toRegisterMeshes = null;
 		
 		// Old Blocks
-		registerItemMesh(DRPMedievalBlocks.ANVIL);
-		registerItemMesh(DRPMedievalBlocks.GRINDSTONE);
-		registerItemMesh(DRPMedievalBlocks.HANGING_CAULDRON);
-		registerItemMesh(DRPMedievalBlocks.MORTAR);
-		registerItemMesh(DRPMedievalBlocks.CAULDRON);
-		registerItemMesh(DRPMedievalBlocks.ROPE_ANCHOR);
-		registerItemMesh(DRPMedievalBlocks.FIREPIT_LIT);
+		registerItemMesh(MedievalBlocks.ANVIL);
+		registerItemMesh(MedievalBlocks.GRINDSTONE);
+		registerItemMesh(MedievalBlocks.HANGING_CAULDRON);
+		registerItemMesh(MedievalBlocks.MORTAR);
+		registerItemMesh(MedievalBlocks.CAULDRON);
+		registerItemMesh(MedievalBlocks.ROPE_ANCHOR);
+		registerItemMesh(MedievalBlocks.FIREPIT_LIT);
 		
 		//TODO FIX
 //		ModelLoader.registerItemVariants(TIMBERED_CLAY, TIMBERED_CLAY.getRegistryName());

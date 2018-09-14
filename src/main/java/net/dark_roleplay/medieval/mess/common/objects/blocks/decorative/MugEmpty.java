@@ -11,13 +11,12 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class MugEmpty extends FacedBlock {
+public class MugEmpty extends Block {
 
 	public MugEmpty(String registryName) {
 		super(Material.WOOD);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(1F);
 		this.setSoundType(SoundType.WOOD);
 	}

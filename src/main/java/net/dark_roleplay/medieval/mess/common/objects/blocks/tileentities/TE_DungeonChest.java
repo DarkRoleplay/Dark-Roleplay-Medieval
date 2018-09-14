@@ -6,8 +6,8 @@ import javax.annotation.Nullable;
 import com.google.common.collect.ImmutableMap;
 
 import net.dark_roleplay.core.api.storage.DynamicStorageTileEntity;
-import net.dark_roleplay.medieval.mess.common.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.mess.common.References;
+import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.common.References;
 import net.minecraft.client.Minecraft;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.ItemStack;
@@ -117,7 +117,7 @@ public class TE_DungeonChest extends DynamicStorageTileEntity {
 		}
 
 		this.isOpen = compound.hasKey("isOpen") ? compound.getBoolean("isOpen") : false;
-		if (!DarkRoleplayMedieval.isOnServer && this.isOpen) {
+		if (DarkRoleplayMedieval.SIDE.isClient() && this.isOpen) {
 			this.asm.transition("open");
 		}
 	}

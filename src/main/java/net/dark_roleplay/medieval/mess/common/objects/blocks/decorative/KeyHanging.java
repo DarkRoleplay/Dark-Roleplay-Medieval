@@ -3,7 +3,6 @@ package net.dark_roleplay.medieval.mess.common.objects.blocks.decorative;
 import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.FACING;
 
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalCreativeTabs;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.templates.FacedBlock;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityKeyHanging;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -22,13 +21,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class KeyHanging extends FacedBlock {
+public class KeyHanging extends Block {
 
 	public KeyHanging(String registryName) {
 		super(Material.IRON);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.METAL);
 	}

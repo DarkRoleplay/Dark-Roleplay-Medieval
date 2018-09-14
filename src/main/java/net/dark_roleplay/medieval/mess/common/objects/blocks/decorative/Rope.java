@@ -40,7 +40,6 @@ public class Rope extends Block {
 		super(Material.CLOTH);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.DECORATION);
 		this.setHardness(0.5F);
 		this.setSoundType(SoundType.CLOTH);
 	}

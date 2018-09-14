@@ -1,9 +1,9 @@
 package net.dark_roleplay.medieval.mess.common.objects.blocks.storage;
 
+import net.dark_roleplay.medieval.common.handler.MedievalGuis;
 import net.dark_roleplay.medieval.mess.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalCreativeTabs;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityCrate;
-import net.dark_roleplay.medieval.mess.common.objects.gui.GuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -25,7 +25,6 @@ public class Crate extends Block {
 		super(Material.WOOD);
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(DRPMedievalCreativeTabs.UTILITY);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
 	}
@@ -61,7 +60,7 @@ public class Crate extends Block {
 		if(!world.isRemote){
 			TileEntity tileentity = world.getTileEntity(pos);
 			if(tileentity instanceof TileEntityCrate){
-				player.openGui(DarkRoleplayMedieval.instance, GuiHandler.GUI_CRATE, world, pos.getX(), pos.getY(), pos.getZ());
+				player.openGui(DarkRoleplayMedieval.instance, MedievalGuis.GUI_CRATE, world, pos.getX(), pos.getY(), pos.getZ());
 			}
 
 		}

@@ -2,10 +2,8 @@ package net.dark_roleplay.medieval.client.objects.blocks.tesrs;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.mess.common.handler.DRPMedievalBlocks;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.util.shop_sign.TE_ShopSign;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -28,8 +26,6 @@ public class TESR_ShopSign extends TileEntitySpecialRenderer<TE_ShopSign> {
 		    BufferBuilder buff = tessellator.getBuffer();
 		    buff.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX); 
 
-		    IBlockState state = tes.getWorld().getBlockState(tes.getPos());
-		    if(state.getBlock() != DRPMedievalBlocks.WALL_SHOP_SIGN) return;
 		    EnumFacing facing = tes.getWorld().getBlockState(tes.getPos()).getValue(BlockProperties.FACING);
 		    
 		    this.bindTexture(tes.getDrawing());

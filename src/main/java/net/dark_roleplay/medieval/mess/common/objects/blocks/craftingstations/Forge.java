@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.mess.common.objects.blocks.craftingstations;
 
 import net.dark_roleplay.core.api.old.crafting.Crafting_Util;
 import net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.templates.FacedBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -19,7 +19,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class Forge extends FacedBlock {
+public class Forge extends Block {
 
 	public static final PropertyBool LEFT = PropertyBool.create("left");
 	
