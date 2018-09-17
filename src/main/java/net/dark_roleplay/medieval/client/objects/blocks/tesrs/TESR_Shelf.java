@@ -2,8 +2,8 @@ package net.dark_roleplay.medieval.client.objects.blocks.tesrs;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.storage.shelf.TE_Shelf;
+import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Shelf;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -26,26 +26,26 @@ import net.minecraftforge.items.IItemHandler;
 public class TESR_Shelf  extends TileEntitySpecialRenderer<TE_Shelf> {
 
     private RenderItem itemRenderer;
-	
+
     private ItemMap slot1 = new ItemMap(ItemStack.EMPTY, null);
     private ItemMap slot2 = new ItemMap(ItemStack.EMPTY, null);
     private ItemMap slot3 = new ItemMap(ItemStack.EMPTY, null);
     private ItemMap slot4 = new ItemMap(ItemStack.EMPTY, null);
-    
+
 	public TESR_Shelf(RenderItem itemRenderer) {
 		this.itemRenderer = itemRenderer;
 	}
 
-	@Override  
+	@Override
 	public void render(TE_Shelf te, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
-		
+
 		Vec3d playerPos = Minecraft.getMinecraft().player.getPositionEyes(partialTicks);
 		BlockPos tePos = te.getPos();
-		
+
 		IBlockState state  = te.getWorld().getBlockState(te.getPos());
-		
-		EnumFacing facing = (EnumFacing) state.getValue(BlockProperties.FACING);
-		
+
+		EnumFacing facing = (EnumFacing) state.getValue(BlockProperties.FACING_HORIZONTAL);
+
 		if(facing == EnumFacing.NORTH){
 			if(playerPos.z >= tePos.getZ())
 				return;
@@ -59,20 +59,20 @@ public class TESR_Shelf  extends TileEntitySpecialRenderer<TE_Shelf> {
 			if(playerPos.x >= tePos.getX())
 				return;
 		}
-		
+
 		if(this.itemRenderer == null)
 			this.itemRenderer = Minecraft.getMinecraft().getRenderItem();
-		
+
 		IItemHandler invHandler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-		
-		slot1.refresh(invHandler.getStackInSlot(0), te.getWorld());
-		slot2.refresh(invHandler.getStackInSlot(1), te.getWorld());
-		slot3.refresh(invHandler.getStackInSlot(2), te.getWorld());
-		slot4.refresh(invHandler.getStackInSlot(3), te.getWorld());
+
+		this.slot1.refresh(invHandler.getStackInSlot(0), te.getWorld());
+		this.slot2.refresh(invHandler.getStackInSlot(1), te.getWorld());
+		this.slot3.refresh(invHandler.getStackInSlot(2), te.getWorld());
+		this.slot4.refresh(invHandler.getStackInSlot(3), te.getWorld());
 
         Minecraft.getMinecraft().getRenderManager().renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 
-		
+
 		GL11.glPushMatrix();
         GlStateManager.enableBlend();
         RenderHelper.enableStandardItemLighting();
@@ -85,64 +85,64 @@ public class TESR_Shelf  extends TileEntitySpecialRenderer<TE_Shelf> {
 			case EAST:
 				GlStateManager.translate(x + 0.75, y + 0.30, z + 0.75);
 				GlStateManager.rotate(-90F, 0F, 1F, 0F);
-	        	slot1.render();
+	        	this.slot1.render();
 				GlStateManager.translate(-0.5, 0, 0);
-	        	slot2.render();				
+	        	this.slot2.render();
 	        	GlStateManager.translate(0.5, 0.45, 0);
-	        	slot4.render();				
+	        	this.slot4.render();
 	        	GlStateManager.translate(-0.5, 0, 0);
-	        	slot3.render();
+	        	this.slot3.render();
 				break;
 			case NORTH:
 				GlStateManager.translate(x + 0.75, y + 0.30, z + 0.25);
-	        	slot1.render();
+	        	this.slot1.render();
 				GlStateManager.translate(-0.5, 0, 0);
-	        	slot2.render();				
+	        	this.slot2.render();
 	        	GlStateManager.translate(0.5, 0.45, 0);
-	        	slot3.render();				
+	        	this.slot3.render();
 	        	GlStateManager.translate(-0.5, 0, 0);
-	        	slot4.render();
+	        	this.slot4.render();
 				break;
 			case SOUTH:
 				GlStateManager.translate(x + 0.25, y + 0.30, z + 0.75);
 				GlStateManager.rotate(180F, 0F, 1F, 0F);
-	        	slot1.render();
+	        	this.slot1.render();
 				GlStateManager.translate(-0.5, 0, 0);
-	        	slot2.render();				
+	        	this.slot2.render();
 	        	GlStateManager.translate(0.5, 0.45, 0);
-	        	slot3.render();				
+	        	this.slot3.render();
 	        	GlStateManager.translate(-0.5, 0, 0);
-	        	slot4.render();
+	        	this.slot4.render();
 				break;
 			case WEST:
 				GlStateManager.translate(x + 0.25, y + 0.30, z + 0.75);
 				GlStateManager.rotate(90F, 0F, 1F, 0F);
-	        	slot1.render();
+	        	this.slot1.render();
 				GlStateManager.translate(0.5, 0, 0);
-	        	slot2.render();				
+	        	this.slot2.render();
 	        	GlStateManager.translate(-0.5, 0.45, 0);
-	        	slot4.render();				
+	        	this.slot4.render();
 	        	GlStateManager.translate(0.5, 0, 0);
-	        	slot3.render();
+	        	this.slot3.render();
 				break;
 			default:
 				break;
         }
         GL11.glPopMatrix();
-        
+
         GlStateManager.disableBlend();
         GL11.glPopMatrix();
 	}
-	
+
 	public class ItemMap{
 		public ItemStack stack;
 		public IBakedModel model;
-		
+
 		public ItemMap(ItemStack stack, IBakedModel model){
 			this.stack = stack;
 			this.model = model;
 		}
-		
+
 		public void refresh(ItemStack stack, World world){
 			if(this.stack.equals(stack)){
 				return;
@@ -151,12 +151,12 @@ public class TESR_Shelf  extends TileEntitySpecialRenderer<TE_Shelf> {
 				this.stack = stack;
 			}
 		}
-		
+
 		public void render(){
-			if(stack != null && model != null){
+			if(this.stack != null && this.model != null){
 				GL11.glPushMatrix();
 				GlStateManager.scale(0.3F,0.3F, 0.3F);
-				TESR_Shelf.this.itemRenderer.renderItem(stack, ForgeHooksClient.handleCameraTransforms(this.model, ItemCameraTransforms.TransformType.NONE, false));
+				TESR_Shelf.this.itemRenderer.renderItem(this.stack, ForgeHooksClient.handleCameraTransforms(this.model, ItemCameraTransforms.TransformType.NONE, false));
 				GL11.glPopMatrix();
 			}
 		}

@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.Side;
 public class References {
 
 	public static final String NAME = "Dark Roleplay Medieval";
-	public static final String VERSION = "0.2.7.2";
+	public static final String VERSION = "1.12.2-0.3.0";
 	public static final String MODID = "drpmedieval";
 	public static final String ACCEPTEDVERSIONS = "[1.12,1.13)";
 	public static final String DEPENDECIES = "required-after:drpcore@[0.4.3,);before:drpcmmaarg";
@@ -22,10 +22,10 @@ public class References {
     public static final Logger LOGGER = LogManager.getLogger(References.MODID);
 
     public static final int MAARG_VERSION = 1;
-    
+
     public static final boolean IS_DEV = true;
-    
+
 	public static CheckResult VERSION_STATUS;
-	
+
 	public static Side SIDE;
 }

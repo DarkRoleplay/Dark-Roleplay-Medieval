@@ -11,7 +11,7 @@ import com.google.common.collect.Maps;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.decorative.hanging_bridges.HangingBridge;
+import net.dark_roleplay.medieval.common.objects.blocks.old.HangingBridge;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;

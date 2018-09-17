@@ -5,7 +5,7 @@ import java.awt.image.DataBufferInt;
 
 import io.netty.buffer.ByteBuf;
 import net.dark_roleplay.library.networking.PacketBase;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.util.shop_sign.TE_ShopSign;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ShopSign;
 import net.dark_roleplay.medieval.old.ImageConversion;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;

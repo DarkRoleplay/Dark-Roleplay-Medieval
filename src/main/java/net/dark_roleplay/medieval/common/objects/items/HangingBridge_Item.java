@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.common.objects.items;
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.decorative.hanging_bridges.HangingBridge;
+import net.dark_roleplay.medieval.common.objects.blocks.old.HangingBridge;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

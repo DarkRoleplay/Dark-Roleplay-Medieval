@@ -4,8 +4,8 @@ import java.util.Calendar;
 
 import org.lwjgl.opengl.GL11;
 
+import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -17,13 +17,13 @@ public class TESR_ClockCore extends TileEntitySpecialRenderer<TE_ClockCore> {
 
 	public TESR_ClockCore() {}
 
-	@Override  
+	@Override
 	public void render(TE_ClockCore te, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
-		EnumFacing facing = te.getWorld().getBlockState(te.getPos()).getValue(BlockProperties.FACING);
-		
+		EnumFacing facing = te.getWorld().getBlockState(te.getPos()).getValue(BlockProperties.FACING_HORIZONTAL);
+
 		float angleMinutes = 0F;
 		float angleHours = 0F;
-		
+
 		if(te.isRealTime()){
 			angleHours = 30 * Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 			angleMinutes = 6 * Calendar.getInstance().get(Calendar.MINUTE);
@@ -31,11 +31,11 @@ public class TESR_ClockCore extends TileEntitySpecialRenderer<TE_ClockCore> {
 			angleMinutes = 0.36F * (te.getWorld().getWorldTime() % 1000F);
 			angleHours = 30F * (te.getWorld().getWorldTime() / 1000F) + 180;
 		}
-		
+
 		GlStateManager.pushMatrix();{
 			GlStateManager.disableTexture2D();
 			GlStateManager.disableCull();
-			
+
 			switch(facing){
 				case NORTH:
 					GlStateManager.translate(x + 0.5, y + 0.5, z);
@@ -55,14 +55,14 @@ public class TESR_ClockCore extends TileEntitySpecialRenderer<TE_ClockCore> {
 				default:
 					break;
 			}
-			
-			
+
+
 			Tessellator tessellator = Tessellator.getInstance();
 		    BufferBuilder buff = tessellator.getBuffer();
 		    buff.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
 
 			GlStateManager.rotate(angleMinutes,1F,0F,0F);
-			
+
 			buff.pos(-0.0775, 0, -0.03127).color(0.0F, 0.0F, 0.0F, 1.0F).endVertex();
 			buff.pos(-0.0775, 0, 0.03127).color(0.0F, 0.0F, 0.0F, 1.0F).endVertex();
 			buff.pos(-0.0775, 1.2, 0.03127).color(0.0F, 0.0F, 0.0F, 1.0F).endVertex();
@@ -70,15 +70,15 @@ public class TESR_ClockCore extends TileEntitySpecialRenderer<TE_ClockCore> {
 
 		    tessellator.draw();
 
-		    buff.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR); 
-		    
+		    buff.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
+
 			GlStateManager.rotate(angleHours-angleMinutes,1F,0F,0F);
 
 			buff.pos(-0.075, 0, -0.0625).color(0.0F, 0.0F, 0.0F, 1.0F).endVertex();
 			buff.pos(-0.075, 0, 0.0625).color(0.0F, 0.0F, 0.0F, 1.0F).endVertex();
 			buff.pos(-0.075, 0.8, 0.0625).color(0.0F, 0.0F, 0.0F, 1.0F).endVertex();
 			buff.pos(-0.075, 0.8, -0.0625).color(0.0F, 0.0F, 0.0F, 1.0F).endVertex();
-		    
+
 
 		    tessellator.draw();
 

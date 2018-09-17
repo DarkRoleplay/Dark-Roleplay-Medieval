@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.client.objects.blocks.tesrs.old;
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.common.References;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityKeyHanging;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityKeyHanging;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;

@@ -1,15 +1,12 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old;
 
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.FACING;
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.STAIR_TYPE;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
 
 import java.util.List;
-
 import javax.annotation.Nullable;
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.StairType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -42,7 +39,7 @@ public class DirtStairs extends FacedBlock {
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { FACING, STAIR_TYPE });
+		return new BlockStateContainer(this, new IProperty[] { FACING_HORIZONTAL, STAIR_TYPE });
 	}
 
 	@Override
@@ -57,16 +54,16 @@ public class DirtStairs extends FacedBlock {
 
 	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
-		EnumFacing facing = state.getValue(FACING);
+		EnumFacing facing = state.getValue(FACING_HORIZONTAL);
 		IBlockState otherBlock = world.getBlockState(pos.offset(facing));
 		IBlockState otherBlock2 = world.getBlockState(pos.offset(facing.getOpposite()));
-		if (otherBlock.getBlock() == this && otherBlock.getValue(FACING) == facing.rotateY()) {
+		if (otherBlock.getBlock() == this && otherBlock.getValue(FACING_HORIZONTAL) == facing.rotateY()) {
 			return state.withProperty(STAIR_TYPE, StairType.INNER_LEFT);
-		} else if (otherBlock.getBlock() == this && otherBlock.getValue(FACING) == facing.rotateYCCW()) {
+		} else if (otherBlock.getBlock() == this && otherBlock.getValue(FACING_HORIZONTAL) == facing.rotateYCCW()) {
 			return state.withProperty(STAIR_TYPE, StairType.INNER_RIGHT);
-		} else if (otherBlock2.getBlock() == this && otherBlock2.getValue(FACING) == facing.rotateY()) {
+		} else if (otherBlock2.getBlock() == this && otherBlock2.getValue(FACING_HORIZONTAL) == facing.rotateY()) {
 			return state.withProperty(STAIR_TYPE, StairType.OUTER_LEFT);
-		} else if (otherBlock2.getBlock() == this && otherBlock2.getValue(FACING) == facing.rotateYCCW()) {
+		} else if (otherBlock2.getBlock() == this && otherBlock2.getValue(FACING_HORIZONTAL) == facing.rotateYCCW()) {
 			return state.withProperty(STAIR_TYPE, StairType.OUTER_RIGHT);
 		}
 
@@ -81,7 +78,7 @@ public class DirtStairs extends FacedBlock {
 
 		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_SLAB_BOTTOM);
 
-		EnumFacing facing = state.getValue(FACING).getOpposite();
+		EnumFacing facing = state.getValue(FACING_HORIZONTAL).getOpposite();
 		
 		StairType type = state.getValue(STAIR_TYPE);
 		

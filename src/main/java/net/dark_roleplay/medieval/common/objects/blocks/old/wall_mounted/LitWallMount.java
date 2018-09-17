@@ -1,9 +1,6 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted;
 
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.ADDON_LIGHTER;
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.ADDON_TRAP;
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.FACING;
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.POWERED;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
 
 import java.util.List;
 import java.util.Random;
@@ -65,7 +62,7 @@ public class LitWallMount extends EmptyWallMount {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand){
-		EnumFacing enumfacing = state.getValue(FACING);
+		EnumFacing enumfacing = state.getValue(FACING_HORIZONTAL);
 		double offsetX = pos.getX() + 0.5D;
 		double offsetY = pos.getY() + this.yOffset;
 		double offsetZ = pos.getZ() + 0.5D;
@@ -101,27 +98,27 @@ public class LitWallMount extends EmptyWallMount {
 	
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {FACING, ADDON_LIGHTER, ADDON_TRAP, POWERED});
+		return new BlockStateContainer(this, new IProperty[] {FACING_HORIZONTAL, ADDON_LIGHTER, ADDON_TRAP, POWERED});
 	}
 	
 	
 	@Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
-		return this.getDefaultState().withProperty(FACING, facing).withProperty(ADDON_TRAP, false).withProperty(ADDON_LIGHTER, false).withProperty(POWERED, false);
+		return this.getDefaultState().withProperty(FACING_HORIZONTAL, facing).withProperty(ADDON_TRAP, false).withProperty(ADDON_LIGHTER, false).withProperty(POWERED, false);
 	}
 	
 	// -------------------------------------------------- Block Events --------------------------------------------------
 	
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos){
-		EnumFacing enumfacing = state.getValue(FACING);
+		EnumFacing enumfacing = state.getValue(FACING_HORIZONTAL);
 		if(!this.canBlockStay(world, pos, enumfacing)){
 			this.dropBlockAsItem(world, pos, state, 0);
 			world.setBlockToAir(pos);
 			this.spawnAddons(world, pos, state);
 		}else if(state.getValue(ADDON_LIGHTER) && world.isBlockPowered(fromPos)){
 			world.setBlockState(pos, this.unlit.getDefaultState()
-				.withProperty(FACING, state.getValue(FACING)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP))
+				.withProperty(FACING_HORIZONTAL, state.getValue(FACING_HORIZONTAL)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP))
 				.withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(POWERED, state.getValue(POWERED))
 			);
 		}
@@ -143,12 +140,12 @@ public class LitWallMount extends EmptyWallMount {
 					world.scheduleUpdate(pos, this, 60);
 					world.scheduleUpdate(pos, this.unlit, 60);
 					world.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 1F, 1F, true);
-					world.notifyNeighborsOfStateChange(pos.offset(state.getValue(FACING).getOpposite()), state.getBlock(),false);
+					world.notifyNeighborsOfStateChange(pos.offset(state.getValue(FACING_HORIZONTAL).getOpposite()), state.getBlock(),false);
 				}else if(hasLighter){
 					
 				}else{
 					if(player.isSneaking()){
-						world.setBlockState(pos, this.unlit.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP)).withProperty(POWERED, state.getValue(POWERED)));
+						world.setBlockState(pos, this.unlit.getDefaultState().withProperty(FACING_HORIZONTAL, state.getValue(FACING_HORIZONTAL)).withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP)).withProperty(POWERED, state.getValue(POWERED)));
 					}
 				}
 			}else if(heldStack.getItem() == this.trap && !hasTrap){
@@ -174,7 +171,7 @@ public class LitWallMount extends EmptyWallMount {
 			world.setBlockState(pos, state.withProperty(POWERED, Boolean.valueOf(false)), 3);
 			world.notifyNeighborsOfStateChange(pos, this, false);
 			world.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 1F, 1F, true);
-			EnumFacing Facing = state.getValue(FACING);
+			EnumFacing Facing = state.getValue(FACING_HORIZONTAL);
 			world.notifyNeighborsOfStateChange(pos.offset(Facing.getOpposite()), state.getBlock(),false);
 		}
 
@@ -188,7 +185,7 @@ public class LitWallMount extends EmptyWallMount {
 	@Override
 	public int getStrongPower(IBlockState state, IBlockAccess blockAccess, BlockPos pos, EnumFacing side){
 		EnumFacing Facing = EnumFacing.SOUTH;
-		Facing = (state.getValue(FACING));
+		Facing = (state.getValue(FACING_HORIZONTAL));
 		return !state.getValue(POWERED).booleanValue() ? 0 : (Facing == side ? 15 : 0);
 	}
 	

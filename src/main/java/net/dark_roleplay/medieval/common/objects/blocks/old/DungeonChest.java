@@ -1,12 +1,12 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old;
 
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.FACING;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.handler.MedievalGuis;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TE_DungeonChest;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -45,13 +45,13 @@ public class DungeonChest extends FacedBlock {
 
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		if (state.getValue(FACING) == EnumFacing.NORTH)
+		if (state.getValue(FACING_HORIZONTAL) == EnumFacing.NORTH)
 			return new AxisAlignedBB(0.0625F, 0F, 0.125F, 0.9375F, 0.75F, 0.875F);
-		else if (state.getValue(FACING) == EnumFacing.EAST)
+		else if (state.getValue(FACING_HORIZONTAL) == EnumFacing.EAST)
 			return new AxisAlignedBB(0.125F, 0F, 0.0625F, 0.875F, 0.75F, 0.9375F);
-		else if (state.getValue(FACING) == EnumFacing.SOUTH)
+		else if (state.getValue(FACING_HORIZONTAL) == EnumFacing.SOUTH)
 			return new AxisAlignedBB(0.0625F, 0F, 0.125F, 0.9375F, 0.75F, 0.875F);
-		else if (state.getValue(FACING) == EnumFacing.WEST)
+		else if (state.getValue(FACING_HORIZONTAL) == EnumFacing.WEST)
 			return new AxisAlignedBB(0.125F, 0F, 0.0625F, 0.875F, 0.75F, 0.9375F);
 		return null;
 	}
@@ -63,7 +63,7 @@ public class DungeonChest extends FacedBlock {
 
 	@Override
 	protected ExtendedBlockState createBlockState() {
-		return new ExtendedBlockState(this, new IProperty[] { FACING, Properties.StaticProperty },
+		return new ExtendedBlockState(this, new IProperty[] { FACING_HORIZONTAL, Properties.StaticProperty },
 				new IUnlistedProperty[] { Properties.AnimationProperty });
 	}
 

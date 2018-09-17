@@ -6,6 +6,7 @@ import net.dark_roleplay.library.sides.IProxy;
 import net.dark_roleplay.medieval.client.objects.blocks.color_handlers.DryClayGrassColor;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_ClockCore;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Flowers;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_FluidBarrel;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Roof;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Shelf;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_ShopSign;
@@ -25,40 +26,38 @@ import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_Hang
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_RopeFence;
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_Timbering;
 import net.dark_roleplay.medieval.client.objects.model_loaders.MultiLayerModelLoader;
-import net.dark_roleplay.medieval.common.handler.MedievalGuis;
 import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.MedievalGuis;
 import net.dark_roleplay.medieval.common.handler.MedievalItems;
 import net.dark_roleplay.medieval.common.handler.MedievalMappings;
 import net.dark_roleplay.medieval.common.handler.MedievalPackets;
 import net.dark_roleplay.medieval.common.handler.MedievalVillagers;
 import net.dark_roleplay.medieval.common.handler.MedievalWorldGen;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FlowerContainer;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FluidBarrel;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Roof;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.storage.barrels.TESR_FluidBarrel;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.storage.barrels.TE_FluidBarrel;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.storage.shelf.TE_Shelf;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TE_DungeonChest;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityAnvil;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityCauldron;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityChain;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityFirepit;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityGrindstone;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityHangingCauldron;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityHook;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityKeyHanging;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityMortar;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityRopeAnchor;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityShipsWheel;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityTarget;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.util.shop_sign.TE_ShopSign;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Shelf;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ShopSign;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityAnvil;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityCauldron;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityChain;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityFirepit;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityGrindstone;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityHangingCauldron;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityHook;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityKeyHanging;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityMortar;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityRopeAnchor;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityShipsWheel;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityTarget;
 import net.dark_roleplay.medieval.testing.Keybinds;
 import net.dark_roleplay.medieval.testing.blockstate_loading.CustomBlockstateLoader;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.color.IItemColor;
-import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -88,12 +87,12 @@ public class DarkRoleplayMedieval {
 
 	@Mod.Instance(References.MODID)
 	public static DarkRoleplayMedieval INSTANCE;
-	
+
 	@SidedProxy
 	public static IBaseProxy proxy;
-	
+
 	public static Side SIDE;
-	
+
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
 		SIDE = event.getSide();
@@ -115,42 +114,42 @@ public class DarkRoleplayMedieval {
 		MedievalBlocks.TORCH_HOLDER_LIT.init(MedievalBlocks.TORCH_HOLDER_UNLIT, Item.getItemFromBlock(Blocks.TORCH));
 		MedievalBlocks.CANDLE_HOLDER_EMPTY.init(MedievalBlocks.CANDLE_HOLDER_UNLIT, Item.getItemFromBlock(MedievalBlocks.BEESWAX_CANDLE));
 		MedievalBlocks.TORCH_HOLDER_EMPTY.init(MedievalBlocks.TORCH_HOLDER_UNLIT, Item.getItemFromBlock(Blocks.TORCH));
-		
+
 		MedievalBlocks.SALPETER_ORE.init(MedievalItems.ORE_CHUNK_SALPETER);
 		MedievalBlocks.SILVER_ORE.init(MedievalItems.ORE_CHUNK_SILVER);
 		MedievalBlocks.TIN_ORE.init(MedievalItems.ORE_CHUNK_TIN);
 		MedievalBlocks.COPPER_ORE.init(MedievalItems.ORE_CHUNK_COPPER);
 		MedievalBlocks.SULFUR_ORE.init(MedievalItems.ORE_CHUNK_SULFUR);
-		
+
 		GameRegistry.addSmelting(MedievalItems.DOUGH, new ItemStack(Items.BREAD), 0.1f);
 		GameRegistry.addSmelting(MedievalItems.RAW_WOLF, new ItemStack(MedievalItems.COOKED_WOLF), 0.1f);
 		GameRegistry.addSmelting(MedievalItems.RAW_CATFISH, new ItemStack(MedievalItems.COOKED_CATFISH), 0.1f);
 		GameRegistry.addSmelting(MedievalItems.PUMPKIN_DOUGH, new ItemStack(MedievalItems.PUMPKIN_BREAD), 0.1f);
-		GameRegistry.addSmelting(Item.getItemFromBlock(Blocks.OBSIDIAN), new ItemStack(MedievalBlocks.OBSIDIAN_GLASS), 0.1f);		
+		GameRegistry.addSmelting(Item.getItemFromBlock(Blocks.OBSIDIAN), new ItemStack(MedievalBlocks.OBSIDIAN_GLASS), 0.1f);
 		GameRegistry.addSmelting(Item.getItemFromBlock(MedievalBlocks.UNFIRED_VASE), new ItemStack(MedievalBlocks.FIRED_VASE), 0.1f);
 	}
-	
+
 	@EventHandler
 	public static void postInit(FMLPostInitializationEvent event) {
 		proxy.postInit(event);
 	}
-	
+
 	public static interface IBaseProxy extends IProxy{
 		public default IAnimationStateMachine load(ResourceLocation location, ImmutableMap<String, ITimeValue> parameters) {return null;}
 	}
-	
+
 	public static class ClientProxy implements IBaseProxy{
-		
+
 		public static int TELESCOPE_LEVEL = 0;
-		
+
 		@Override
 		public void preInit(FMLPreInitializationEvent event) {
 			ModelLoaderRegistry.registerLoader(new DelayedBaker_HangingBridge());
 			ModelLoaderRegistry.registerLoader(new DelayedBaker_RopeFence());
-			ModelLoaderRegistry.registerLoader(new CustomBlockstateLoader());	
+			ModelLoaderRegistry.registerLoader(new CustomBlockstateLoader());
 			ModelLoaderRegistry.registerLoader(new DelayedBaker_Timbering());
 			ModelLoaderRegistry.registerLoader(new MultiLayerModelLoader());
-			
+
 //			RenderingRegistry.<Entity_Fox>registerEntityRenderingHandler(Entity_Fox.class, Render_Fox.FACTORY);
 //			RenderingRegistry.<Wheelbarrel>registerEntityRenderingHandler(Wheelbarrel.class, WheelbarrelRenderer.FACTORY);
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_Roof.class, new TESR_Roof());
@@ -165,13 +164,13 @@ public class DarkRoleplayMedieval {
 			    public void renderTileEntityFast(TE_DungeonChest te, double x, double y, double z, float partialTick, int breakStage, float partial, BufferBuilder renderer) {
 					super.renderTileEntityFast(te, x, y, z, partialTick, breakStage, partial, renderer);
 				}
-				
+
 				@Override
 				public void handleEvents(TE_DungeonChest chest, float time, Iterable<Event> pastEvents){
 					chest.handleEvents(time, pastEvents);
 				}
 			});
-			
+
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAnvil.class, new SpecialRenderAnvil());
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMortar.class, new SpecialRenderMortar());
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrindstone.class, new SpecialRenderGrindstone());
@@ -184,19 +183,19 @@ public class DarkRoleplayMedieval {
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTarget.class, new SpecialRenderTarget());
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRopeAnchor.class, new SpecialRenderRopeAnchor());
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFirepit.class, new SpecialRenderFirepit());
-			
+
 			ClientRegistry.registerKeyBinding(Keybinds.debugging);
-			
-			IResourceManager manager = Minecraft.getMinecraft().getResourceManager();
+		}
+
+		@Override
+		public void init(FMLInitializationEvent event) {
+			Minecraft.getMinecraft().getResourceManager();
 			DryClayGrassColor color = new DryClayGrassColor();
 			Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(color, MedievalBlocks.DRY_CLAY_GRASS);
-			Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor(){
-				@Override
-	            public int colorMultiplier(ItemStack stack, int tintIndex){
-	                IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
-	                return color.colorMultiplier(iblockstate, (IBlockAccess)null, (BlockPos)null, tintIndex);
-	            }
-	        }, MedievalBlocks.DRY_CLAY_GRASS);
+			Minecraft.getMinecraft().getItemColors().registerItemColorHandler((IItemColor) (stack, tintIndex) -> {
+			    IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
+			    return color.colorMultiplier(iblockstate, (IBlockAccess)null, (BlockPos)null, tintIndex);
+			}, MedievalBlocks.DRY_CLAY_GRASS);
 		}
 
 		@Override
@@ -204,6 +203,6 @@ public class DarkRoleplayMedieval {
 	        return ModelLoaderRegistry.loadASM(location, parameters);
 	    }
 	}
-	
+
 	public static class ServerProxy implements IBaseProxy{}
 }

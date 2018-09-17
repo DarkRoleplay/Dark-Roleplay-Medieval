@@ -4,7 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.tileentities.TileEntityRopeAnchor;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityRopeAnchor;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;

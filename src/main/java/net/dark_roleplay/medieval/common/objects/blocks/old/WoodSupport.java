@@ -1,8 +1,9 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old;
 
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
+
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -40,7 +41,7 @@ public class WoodSupport extends FacedBlock{
 	
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(TYPE, meta % 4).withProperty(BlockProperties.FACING, EnumFacing.getHorizontal(meta / 4));
+		return this.getDefaultState().withProperty(TYPE, meta % 4).withProperty(FACING_HORIZONTAL, EnumFacing.getHorizontal(meta / 4));
 	}
 
 	@Override
@@ -50,12 +51,12 @@ public class WoodSupport extends FacedBlock{
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return (state.getValue(TYPE) % 3) + (state.getValue(BlockProperties.FACING).getHorizontalIndex() * 4);
+		return (state.getValue(TYPE) % 3) + (state.getValue(FACING_HORIZONTAL).getHorizontalIndex() * 4);
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { TYPE, BlockProperties.FACING});
+		return new BlockStateContainer(this, new IProperty[] { TYPE, FACING_HORIZONTAL});
 	}
 
 	@Override
@@ -81,24 +82,24 @@ public class WoodSupport extends FacedBlock{
 		}else{
 			if(facing == EnumFacing.NORTH || facing == EnumFacing.SOUTH){
 				if(hitX <= 0.2){
-					state = state.withProperty(BlockProperties.FACING, facing == EnumFacing.NORTH ? facing.getOpposite() : facing.rotateYCCW().getOpposite());
+					state = state.withProperty(FACING_HORIZONTAL, facing == EnumFacing.NORTH ? facing.getOpposite() : facing.rotateYCCW().getOpposite());
 					state = state.withProperty(TYPE, 2);
 				}else if(hitX >= 0.8){
-					state = state.withProperty(BlockProperties.FACING, facing == EnumFacing.NORTH ? facing.rotateYCCW().getOpposite() : facing.getOpposite());
+					state = state.withProperty(FACING_HORIZONTAL, facing == EnumFacing.NORTH ? facing.rotateYCCW().getOpposite() : facing.getOpposite());
 					state = state.withProperty(TYPE, 2);
 				}else{
-					state = state.withProperty(BlockProperties.FACING, facing.getOpposite());
+					state = state.withProperty(FACING_HORIZONTAL, facing.getOpposite());
 					state = state.withProperty(TYPE, 1);
 				}
 			}else if(facing == EnumFacing.EAST || facing == EnumFacing.WEST){
 				if(hitZ <= 0.2){
-					state = state.withProperty(BlockProperties.FACING, facing == EnumFacing.EAST ? facing.getOpposite() : facing.rotateYCCW().getOpposite());
+					state = state.withProperty(FACING_HORIZONTAL, facing == EnumFacing.EAST ? facing.getOpposite() : facing.rotateYCCW().getOpposite());
 					state = state.withProperty(TYPE, 2);
 				}else if(hitZ >= 0.8){
-					state = state.withProperty(BlockProperties.FACING, facing == EnumFacing.EAST ? facing.rotateYCCW().getOpposite() : facing.getOpposite());
+					state = state.withProperty(FACING_HORIZONTAL, facing == EnumFacing.EAST ? facing.rotateYCCW().getOpposite() : facing.getOpposite());
 					state = state.withProperty(TYPE, 2);
 				}else{
-					state = state.withProperty(BlockProperties.FACING, facing.getOpposite());
+					state = state.withProperty(FACING_HORIZONTAL, facing.getOpposite());
 					state = state.withProperty(TYPE, 1);
 				}
 			}
@@ -111,7 +112,7 @@ public class WoodSupport extends FacedBlock{
 
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos){
-		EnumFacing facing = state.getValue(BlockProperties.FACING);
+		EnumFacing facing = state.getValue(FACING_HORIZONTAL);
         if(state.getValue(TYPE) == 0){
             return boundingBoxes[0];
         }else if(state.getValue(TYPE) == 1){

@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted;
 
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.FACING;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
@@ -32,17 +32,17 @@ public class WallMounted extends FacedBlock{
 	
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos){
-		switch(state.getValue(FACING)){
-			case NORTH:
-				return this.northBB;
-			case EAST:
-				return this.eastBB;
-			case SOUTH:
-				return this.southBB;
-			case WEST:
-				return this.westBB;
-			default:
-				return this.northBB;
+		switch(state.getValue(FACING_HORIZONTAL)){
+		case EAST:
+			return this.eastBB;
+		case NORTH:
+			return this.northBB;
+		case SOUTH:
+			return this.southBB;
+		case WEST:
+			return this.westBB;
+		default:
+			return this.northBB;
 		}
     }
 	

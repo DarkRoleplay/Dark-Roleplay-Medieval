@@ -29,9 +29,9 @@ import net.minecraftforge.registries.IForgeRegistry;
 @EventBusSubscriber(modid = References.MODID)
 @ObjectHolder(References.MODID)
 public class MedievalItems {
-	
+
 	//Items
-	
+
 	public static final Item WOODEN_WRENCH = null;
 	public static final Item TIMBERED_CLAY = null;
 	public static final Item DRY_CLAY_CHUNK = null;
@@ -42,7 +42,7 @@ public class MedievalItems {
 	public static final Item ORE_CHUNK_COPPER = null;
 	public static final Item ORE_CHUNK_SULFUR = null;
 	public static final Item HANGING_BRIDGE = null;
-	
+
 	public static final Item DOUGH = null;
 	public static final Item RAW_WOLF = null;
 	public static final Item COOKED_WOLF = null;
@@ -50,17 +50,23 @@ public class MedievalItems {
 	public static final Item COOKED_CATFISH = null;
 	public static final Item PUMPKIN_DOUGH = null;
 	public static final Item PUMPKIN_BREAD = null;
-	
+	public static final Item HOPS = null;
+	public static final Item TAP = null;
+	public static final Item BLACK_PAINTBRUSH = null;
+
 	public static final Item SPINDLE = null;
-	
+	public static final Item BARLEY = null;
+	public static final Item LANTERN = null;
+	public static final Item BEESWAX_CANDLE = null;
+
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Item> registryEvent) {
 		IForgeRegistry<Item> reg = registryEvent.getRegistry();
-		
+
 		MaterialRequirements logRequired = new MaterialRequirements("log_side", "log_top");
-		MaterialRequirements plankRequired = new MaterialRequirements("plank");
+		new MaterialRequirements("plank");
 		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_plank");
-		
+
 		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
 			if(cleanPlankRequired.doesFulfillRequirements(mat)) {
         		register(reg, MedievalCreativeTabs.MISCELLANEOUS,
@@ -78,15 +84,15 @@ public class MedievalItems {
     				}
         		);
         	}
-        	
+
 			if(logRequired.doesFulfillRequirements(mat)) {
 				register(reg, MedievalCreativeTabs.MISCELLANEOUS,
 					new ItemFirewood(mat.getName() + "_firewood", "firewood", 64)
 				);
 			}
-			
+
 		}
-		
+
 		register(reg, MedievalCreativeTabs.MISCELLANEOUS,
 				new DRPItem("grass", "misc", 64),
 				new DRPItem("hay", "misc", 64),
@@ -103,7 +109,7 @@ public class MedievalItems {
 				new DRPItem("leather_book_cover", "misc/books", 64),
 				new DRPItem("leather_book_cover_thik", "misc/books", 64),
 				new DRPItem("leather_book_cover_thin", "misc/books", 64),
-				
+
 				new DRPItem("barley", "cereals", 64),
 				new DRPItem("pumpkin_dough", "misc/dough", 64, "wheat", "barley"),
 				new DRPItem("flour", "misc/flour", 64, "wheat", "barley"),
@@ -119,7 +125,7 @@ public class MedievalItems {
 				new DRPItem("bat_ear", "mobs/bat", 64),
 				new DRPItem("fur_wolf", "mobs/wolf", 64)
 			);
-		
+
 		register(reg, MedievalCreativeTabs.EQUIPMENT,
 				new FlintKnife("flint_knife", "equipment/tools", 1),
 				new DRPItem("wooden_wrench", "equipment/tools", 1),
@@ -133,7 +139,7 @@ public class MedievalItems {
 				new Telescope("silver_telescope", "equipment/telescope"),
 				new WarHorn("bone_war_horn","equipment/tools/horns", 1)
 		);
-		
+
 		register(reg, MedievalCreativeTabs.FOOD,
 			new DRPFood(4, 0.3F, "apple_green", "food/fruits", 64),
 			new DRPFood(4, 0.3F, "apple_yellow", "food/fruits", 64),
@@ -154,28 +160,28 @@ public class MedievalItems {
 			new DRPMStew(8, 0.5F, "chicken_stew"),
 			new DRPMStew(7, 0.5F, "cod_stew"),
 			new DRPMStew(6, 0.3F, "vegie_stew"),
-			new DRPMStew(6, 0.3F, "pumpkin_stew")				
+			new DRPMStew(6, 0.3F, "pumpkin_stew")
 		);
-		
+
 
 //		register(reg, DRPMedievalCreativeTabs.DECORATION,
 //				new HangingBridge_Item("hanging_bridge", "blocks", 64)
 //		);
-//		
+//
 //		register(reg, DRPMedievalCreativeTabs.UTILITY,
 //				new ItemMultiBlock(DRPMedievalBlocks.SIMPLE_CARPENTER_WORKBENCH).setRegistryName("simple_carpenter_workbench"),
 //				new ItemMultiBlock(DRPMedievalBlocks.FORGE).setRegistryName("forge")
 //		);
-//	
+//
 //		register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
 //				new ItemBlock(DRPMedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
-		
-		
+
+
 		if(References.IS_DEV) {
 			register(reg, MedievalCreativeTabs.FOOD,
 				new DRPFood(6, 0.5F, "honey_comb", "food/other", 64)
-			); 
-			
+			);
+
 			register(reg, MedievalCreativeTabs.MISCELLANEOUS,
 				new DRPItem("stone_brick", "misc", 64),
 				new DRPItem("beeswax", "misc", 64),
@@ -185,8 +191,8 @@ public class MedievalItems {
 				new DRPItem("sugar_frame", "misc/apiary_frames", 1),
 				new DRPItem("wax_frame", "misc/apiary_frames", 1)
 			);
-			
-			
+
+
 //			new PoleWeapon("halberd", "equipment/weapons/pole_weapons", 20),
 //			new DRPEquip("quiver", "quivers", DRPEquip.TYPE.TYPE_AMMO_STORAGE),
 //			new DRPEquip("leather_purse", "purses", DRPEquip.TYPE.TYPE_MONEY_STORAGE),
@@ -194,19 +200,19 @@ public class MedievalItems {
 //			new DRPEquip("ring_silver", "rings", DRPEquip.TYPE.TYPE_RING),
 //			new DRPEquip("ring_golden", "rings", DRPEquip.TYPE.TYPE_RING),
 		}
-		
+
 		for(ItemBlock block : blockItems){
 			reg.register(block);
 		}
 	}
-	
+
 	protected static void register(IForgeRegistry<Item> reg, CreativeTabs creativeTab, Item... items){
 		for(Item item : items)
 			item.setCreativeTab(creativeTab);
 		reg.registerAll(items);
 	}
-	
-	
+
+
 	private static List<ItemBlock> blockItems = new ArrayList<ItemBlock>();
 
 	public static void addBlockItem(ItemBlock item){

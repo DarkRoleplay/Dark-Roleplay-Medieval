@@ -1,9 +1,6 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted;
 
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.ADDON_LIGHTER;
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.ADDON_TRAP;
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.FACING;
-import static net.dark_roleplay.medieval.mess.common.objects.blocks.BlockProperties.POWERED;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.medieval.common.handler.MedievalItems;
@@ -69,12 +66,12 @@ public class EmptyWallMount extends WallMounted {
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {FACING, ADDON_LIGHTER, ADDON_TRAP});
+		return new BlockStateContainer(this, new IProperty[] {FACING_HORIZONTAL, ADDON_LIGHTER, ADDON_TRAP});
 	}
 	
 	@Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
-		return this.getDefaultState().withProperty(FACING, facing).withProperty(ADDON_TRAP, false).withProperty(ADDON_LIGHTER, false);
+		return this.getDefaultState().withProperty(FACING_HORIZONTAL, facing).withProperty(ADDON_TRAP, false).withProperty(ADDON_LIGHTER, false);
 	}
 	
 	// -------------------------------------------------- Block Events --------------------------------------------------
@@ -109,7 +106,7 @@ public class EmptyWallMount extends WallMounted {
 				if(!consumeItems){
 					player.getHeldItem(hand).shrink(1);
 				}
-				world.setBlockState(pos, this.unlit.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP)).withProperty(POWERED, false));
+				world.setBlockState(pos, this.unlit.getDefaultState().withProperty(FACING_HORIZONTAL, state.getValue(FACING_HORIZONTAL)).withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP)).withProperty(POWERED, false));
 			}
 		}
 		return true;
@@ -117,7 +114,7 @@ public class EmptyWallMount extends WallMounted {
 	
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos){
-		EnumFacing enumfacing = state.getValue(FACING);
+		EnumFacing enumfacing = state.getValue(FACING_HORIZONTAL);
 		if(!this.canBlockStay(world, pos, enumfacing)){
 			this.dropBlockAsItem(world, pos, state, 0);
 			world.setBlockToAir(pos);

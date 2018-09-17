@@ -7,8 +7,8 @@ import java.io.IOException;
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.common.handler.MedievalPackets;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ShopSign;
 import net.dark_roleplay.medieval.common.objects.packets.blocks.SyncPacket_ShopSign;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.util.shop_sign.TE_ShopSign;
 import net.dark_roleplay.medieval.old.ImageConversion;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;

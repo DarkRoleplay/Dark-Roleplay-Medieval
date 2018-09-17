@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.objects.blocks.behaviors;
 
 import net.dark_roleplay.library.experimental.blocks.behaviors.IActivatedBehavior;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IRainTickBehavior;
-import net.dark_roleplay.medieval.mess.common.objects.blocks.storage.barrels.TE_FluidBarrel;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FluidBarrel;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
