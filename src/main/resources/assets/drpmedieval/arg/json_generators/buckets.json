@@ -10,6 +10,9 @@
 		},{
 			"input" : "drpmedieval:arg/blockstates/buckets/water_bucket.json",
 			"output" : "drpmedieval:blockstates/%wood%_water_bucket.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/flower_pots/flower_pot.json",
+			"output" : "drpmedieval:blockstates/%wood%_flower_pot.json"
 		}
 	]
 }

@@ -33,6 +33,8 @@ public class BlockProperties {
 
 	//Dungeon Chest
 	public static final PropertyBool LIT = PropertyBool.create("lit");
+	public static final PropertyBool IS_OPEN = PropertyBool.create("open");
+
 
 
 	public static enum StairType implements IStringSerializable{
@@ -60,6 +62,9 @@ public class BlockProperties {
 		public static final BlockSettings METAL_DECO_TESR = new BlockSettings(Material.IRON, SoundType.METAL, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setBlockRenderLayer(BlockRenderLayer.TRANSLUCENT);
 
 		public static final BlockSettings STONE_SOLID = new BlockSettings(Material.ROCK, SoundType.STONE, 1.5F, 10.0F);
+		public static final BlockSettings STONE_DECO = new BlockSettings(Material.ROCK, SoundType.STONE, 1.5F, 10.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
+		public static final BlockSettings STONE_DECO_TESR = new BlockSettings(Material.ROCK, SoundType.STONE, 1.5F, 10.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setBlockRenderLayer(BlockRenderLayer.TRANSLUCENT);
+
 		public static final BlockSettings SNOW_SOLID = new BlockSettings(Material.CRAFTED_SNOW, SoundType.SNOW, 0.2F, 0.0F);
 		//		Block
 		public static final BlockSettings PACKED_ICE = new BlockSettings(Material.PACKED_ICE, SoundType.GLASS, 0.5F, 0.0F);

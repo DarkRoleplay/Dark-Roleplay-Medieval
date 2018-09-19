@@ -1,22 +1,18 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old;
 
-import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING_HORIZONTAL;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.IS_OPEN;
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.handler.MedievalGuis;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -37,8 +33,6 @@ public class DungeonChest extends FacedBlock {
 
 	public DungeonChest (String name, BlockSettings settings) {
 		super(name, settings);
-		this.setHardness(2F);
-		this.setSoundType(SoundType.WOOD);
 	}
 
 	// -------------------------------------------------- Block Data --------------------------------------------------
@@ -56,14 +50,10 @@ public class DungeonChest extends FacedBlock {
 		return null;
 	}
 
-	@Override
-	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing) {
-		return BlockFaceShape.UNDEFINED;
-	}
 
 	@Override
 	protected ExtendedBlockState createBlockState() {
-		return new ExtendedBlockState(this, new IProperty[] { FACING_HORIZONTAL, Properties.StaticProperty },
+		return new ExtendedBlockState(this, new IProperty[] { FACING_HORIZONTAL, IS_OPEN, Properties.StaticProperty },
 				new IUnlistedProperty[] { Properties.AnimationProperty });
 	}
 
@@ -73,24 +63,17 @@ public class DungeonChest extends FacedBlock {
 	}
 
 	@Override
-	public boolean isFullCube(IBlockState state) {
-		return false;
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(FACING_HORIZONTAL, EnumFacing.getHorizontal(meta % 4)).withProperty(IS_OPEN, meta / 4 > 0);
 	}
 
 	@Override
-	public boolean isOpaqueCube(IBlockState state) {
-		return false;
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(FACING_HORIZONTAL).getHorizontalIndex() + (state.getValue(IS_OPEN) ? 4 : 0);
 	}
+
 
 	// -------------------------------------------------- Block Events --------------------------------------------------
-
-	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-		if (!world.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true))
-			return Blocks.AIR.getDefaultState();
-		EntityPlayer entity = (EntityPlayer) placer;
-		return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer);
-	}
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
@@ -98,13 +81,20 @@ public class DungeonChest extends FacedBlock {
 		TileEntity tileentity = world.getTileEntity(pos);
 		if (tileentity instanceof TE_DungeonChest) {
 			TE_DungeonChest chest = (TE_DungeonChest) tileentity;
-			if(chest.isOpen() && !player.isSneaking()) {	
+			if(state.getValue(IS_OPEN) && !player.isSneaking()) {
 				if (!world.isRemote)
 					player.openGui(DarkRoleplayMedieval.INSTANCE, MedievalGuis.GUI_GENERAL_STORAGE, world, pos.getX(), pos.getY(), pos.getZ());
 			}else {
-				((TE_DungeonChest) tileentity).click();	
-				if(world.isRemote)
-					Minecraft.getMinecraft().world.playSound(pos, chest.isOpen() ? SoundEvents.BLOCK_CHEST_OPEN : SoundEvents.BLOCK_CHEST_CLOSE, SoundCategory.BLOCKS, 1F, 1F, true);
+				if(world.isRemote) {
+					if(state.getValue(IS_OPEN)) {
+						chest.goToAnimation("closing");
+						Minecraft.getMinecraft().world.playSound(pos, SoundEvents.BLOCK_CHEST_CLOSE, SoundCategory.BLOCKS, 0.6F, 1F, true);
+					}else {
+						chest.goToAnimation("opening");
+						Minecraft.getMinecraft().world.playSound(pos, SoundEvents.BLOCK_CHEST_OPEN, SoundCategory.BLOCKS, 0.6F, 1F, true);
+					}
+				}
+				world.setBlockState(pos, state.withProperty(IS_OPEN, !state.getValue(IS_OPEN)));
 			}
 		}
 		return true;
@@ -118,7 +108,7 @@ public class DungeonChest extends FacedBlock {
 		if (tileEntity instanceof TE_DungeonChest) {
 			TE_DungeonChest tileentityChest = (TE_DungeonChest) tileEntity;
 			ItemStackHandler handler = (ItemStackHandler) tileentityChest.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-			
+
 			EntityItem entityItem;
 			for(int i = 0; i < handler.getSlots(); i++) {
 				ItemStack stack = handler.getStackInSlot(i);
@@ -133,15 +123,4 @@ public class DungeonChest extends FacedBlock {
 
 		super.breakBlock(worldIn, pos, state);
 	}
-
-	@Override
-	public boolean hasTileEntity(IBlockState state) {
-		return true;
-	}
-
-	@Override
-	public TileEntity createTileEntity(World world, IBlockState state) {
-		return new TE_DungeonChest();
-	}
-
 }

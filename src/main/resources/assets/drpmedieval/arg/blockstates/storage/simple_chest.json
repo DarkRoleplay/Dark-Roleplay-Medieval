@@ -16,6 +16,10 @@
 			"south":{"y":180},
 			"west":{"y":270}
 		},
+		"open":{
+			"true":{},
+			"false":{}
+		},
 		"static": {
             "true": {
                 "model":"drpmedieval:wood_blocks/simple_chest"

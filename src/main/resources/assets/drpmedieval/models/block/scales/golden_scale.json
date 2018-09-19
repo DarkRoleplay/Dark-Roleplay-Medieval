@@ -1,6 +1,7 @@
 {
 	"__comment": "Designed by Rolfaal with Cubik Studio - https://cubik.studio",
 	"textures": {
+		"particle": "blocks/gold_block",
 		"rope": "drpmedieval:blocks/rope",
 		"gold": "blocks/gold_block"
 	},

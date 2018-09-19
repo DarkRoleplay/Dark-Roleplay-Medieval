@@ -3,10 +3,7 @@
 	"textures": {
 		"particle": "#texture",
 		"texture": "#texture",
-		"dirt": "blocks/dirt",
-		"flower1": "#flower_1",
-		"flower2": "#flower_2",
-		"flower3": "#flower_3"
+		"dirt": "blocks/dirt"
 	},
 	"elements": [
 		{
@@ -155,66 +152,6 @@
 			"to": [ 15.5, 7.501, 12 ],
 			"faces": {
 				"up": { "uv": [ 0.5, 4, 15.5, 12 ], "texture": "#dirt" }
-			}
-		},
-		{
-			"__comment": "Flower1",
-			"from": [ 2.4999, 7.5, -2 ],
-			"to": [ 2.5009, 23.5, 14 ],
-			"rotation": { "origin": [ 2.5, 7.5, 6 ], "axis": "y", "angle": -22.5 },
-			"faces": {
-				"west": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower1" },
-				"east": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower1" }
-			}
-		},
-		{
-			"__comment": "Flower1",
-			"from": [ -5.5, 7.5, 5.999 ],
-			"to": [ 10.5, 23.5, 6 ],
-			"rotation": { "origin": [ 2.5, 7.5, 6 ], "axis": "y", "angle": -22.5 },
-			"faces": {
-				"north": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower1" },
-				"south": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower1" }
-			}
-		},
-		{
-			"__comment": "Flower2",
-			"from": [ 8.4999, 7.5, 2 ],
-			"to": [ 8.5009, 23.5, 18 ],
-			"rotation": { "origin": [ 8.5, 7.5, 10 ], "axis": "y", "angle": 22.5 },
-			"faces": {
-				"west": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower3" },
-				"east": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower3" }
-			}
-		},
-		{
-			"__comment": "Flower2",
-			"from": [ 4.4999, 7.5, 7.999 ],
-			"to": [ 20.4999, 23.5, 8 ],
-			"rotation": { "origin": [ 12.5, 7.5, 8 ], "axis": "y", "angle": 45 },
-			"faces": {
-				"north": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower2" },
-				"south": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower2" }
-			}
-		},
-		{
-			"__comment": "Flower3",
-			"from": [ 0.4999, 7.5, 9.999 ],
-			"to": [ 16.4999, 23.5, 10 ],
-			"rotation": { "origin": [ 8.5, 7.5, 10 ], "axis": "y", "angle": 22.5 },
-			"faces": {
-				"north": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower3" },
-				"south": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower3" }
-			}
-		},
-		{
-			"__comment": "Flower3",
-			"from": [ 12.5, 7.5, -0.0001 ],
-			"to": [ 12.501, 23.5, 15.9999 ],
-			"rotation": { "origin": [ 12.5, 7.5, 8 ], "axis": "y", "angle": 45 },
-			"faces": {
-				"west": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower2" },
-				"east": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower2" }
 			}
 		}
 	]

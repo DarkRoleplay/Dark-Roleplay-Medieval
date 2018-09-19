@@ -1,6 +1,6 @@
 {
-	"particle": "drpmedieval:blocks/clean_plank/%wood%_clean_plank",
 	"textures":{
+		"particle": "drpmedieval:blocks/clean_plank/%wood%_clean_plank",
 		"texture": "drpmedieval:blocks/clean_plank/clean_plank_%wood%"
 	},
 	"pack0":{

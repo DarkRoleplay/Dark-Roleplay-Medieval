@@ -30,73 +30,73 @@ public class TimberedClay extends Block{
 	public static final PropertyBool DOWN = PropertyBool.create("down");
 	public static final PropertyBool RIGHT = PropertyBool.create("right");
 	public static final PropertyBool LEFT = PropertyBool.create("left");
-	
-	public final Map<EntityPlayer, ClickInfo> clicks = new WeakHashMap<EntityPlayer, ClickInfo>();
+
+	public static final Map<EntityPlayer, ClickInfo> clicks = new WeakHashMap<EntityPlayer, ClickInfo>();
 	public static final Map<String, List<TimberRecipe>> recipes = new HashMap<String, List<TimberRecipe>>();
-	
+
 	static {
 		recipes.put("clean", new ArrayList<TimberRecipe>() {{
-			add(new TimberRecipe(ClickLoc.TOP, ClickLoc.BOTTOM, "vertical"));
-			add(new TimberRecipe(ClickLoc.LEFT, ClickLoc.RIGHT, "horizontal"));
-			add(new TimberRecipe(ClickLoc.BOTTOM_LEFT, ClickLoc.TOP_RIGHT, "diagonal_bt"));
-			add(new TimberRecipe(ClickLoc.TOP_LEFT, ClickLoc.BOTTOM_RIGHT, "diagonal_tb"));
-			add(new TimberRecipe(ClickLoc.BOTTOM, ClickLoc.TOP_RIGHT, "double_diagonal_t_bt"));
-			add(new TimberRecipe(ClickLoc.BOTTOM_LEFT, ClickLoc.TOP, "double_diagonal_b_bt"));
-			add(new TimberRecipe(ClickLoc.BOTTOM, ClickLoc.TOP_LEFT, "double_diagonal_t_tb"));
-			add(new TimberRecipe(ClickLoc.TOP, ClickLoc.BOTTOM_RIGHT, "double_diagonal_b_tb"));
-			add(new TimberRecipe(ClickLoc.BOTTOM_LEFT, ClickLoc.RIGHT, "double_diagonal_l_lr"));
-			add(new TimberRecipe(ClickLoc.LEFT, ClickLoc.TOP_RIGHT, "double_diagonal_r_lr"));
-			add(new TimberRecipe(ClickLoc.TOP_LEFT, ClickLoc.RIGHT, "double_diagonal_l_rl"));
-			add(new TimberRecipe(ClickLoc.LEFT, ClickLoc.BOTTOM_RIGHT, "double_diagonal_r_rl"));
+			this.add(new TimberRecipe(ClickLoc.TOP, ClickLoc.BOTTOM, "vertical"));
+			this.add(new TimberRecipe(ClickLoc.LEFT, ClickLoc.RIGHT, "horizontal"));
+			this.add(new TimberRecipe(ClickLoc.BOTTOM_LEFT, ClickLoc.TOP_RIGHT, "diagonal_bt"));
+			this.add(new TimberRecipe(ClickLoc.TOP_LEFT, ClickLoc.BOTTOM_RIGHT, "diagonal_tb"));
+			this.add(new TimberRecipe(ClickLoc.BOTTOM, ClickLoc.TOP_RIGHT, "double_diagonal_t_bt"));
+			this.add(new TimberRecipe(ClickLoc.BOTTOM_LEFT, ClickLoc.TOP, "double_diagonal_b_bt"));
+			this.add(new TimberRecipe(ClickLoc.BOTTOM, ClickLoc.TOP_LEFT, "double_diagonal_t_tb"));
+			this.add(new TimberRecipe(ClickLoc.TOP, ClickLoc.BOTTOM_RIGHT, "double_diagonal_b_tb"));
+			this.add(new TimberRecipe(ClickLoc.BOTTOM_LEFT, ClickLoc.RIGHT, "double_diagonal_l_lr"));
+			this.add(new TimberRecipe(ClickLoc.LEFT, ClickLoc.TOP_RIGHT, "double_diagonal_r_lr"));
+			this.add(new TimberRecipe(ClickLoc.TOP_LEFT, ClickLoc.RIGHT, "double_diagonal_l_rl"));
+			this.add(new TimberRecipe(ClickLoc.LEFT, ClickLoc.BOTTOM_RIGHT, "double_diagonal_r_rl"));
 		}});
-		
+
 		recipes.put("diagonal_bt", new ArrayList<TimberRecipe>() {{
-			add(new TimberRecipe(ClickLoc.TOP_LEFT, ClickLoc.BOTTOM_RIGHT, "cross"));
+			this.add(new TimberRecipe(ClickLoc.TOP_LEFT, ClickLoc.BOTTOM_RIGHT, "cross"));
 		}});
 
 		recipes.put("diagonal_tb", new ArrayList<TimberRecipe>() {{
-			add(new TimberRecipe(ClickLoc.BOTTOM_LEFT, ClickLoc.TOP_RIGHT, "cross"));
+			this.add(new TimberRecipe(ClickLoc.BOTTOM_LEFT, ClickLoc.TOP_RIGHT, "cross"));
 		}});
-		
+
 		recipes.put("double_diagonal_t_bt", new ArrayList<TimberRecipe>() {{
-			add(new TimberRecipe(ClickLoc.TOP_LEFT, ClickLoc.BOTTOM, "arrow_b"));
+			this.add(new TimberRecipe(ClickLoc.TOP_LEFT, ClickLoc.BOTTOM, "arrow_b"));
 		}});
 
 		recipes.put("double_diagonal_t_tb", new ArrayList<TimberRecipe>() {{
-			add(new TimberRecipe(ClickLoc.BOTTOM, ClickLoc.TOP_RIGHT, "arrow_b"));
+			this.add(new TimberRecipe(ClickLoc.BOTTOM, ClickLoc.TOP_RIGHT, "arrow_b"));
 		}});
-		
+
 
 		recipes.put("double_diagonal_b_bt", new ArrayList<TimberRecipe>() {{
-			add(new TimberRecipe(ClickLoc.TOP, ClickLoc.BOTTOM_RIGHT, "arrow_t"));
+			this.add(new TimberRecipe(ClickLoc.TOP, ClickLoc.BOTTOM_RIGHT, "arrow_t"));
 		}});
-		
+
 
 		recipes.put("double_diagonal_b_tb", new ArrayList<TimberRecipe>() {{
-			add(new TimberRecipe(ClickLoc.TOP, ClickLoc.BOTTOM_LEFT, "arrow_t"));
+			this.add(new TimberRecipe(ClickLoc.TOP, ClickLoc.BOTTOM_LEFT, "arrow_t"));
 		}});
 		recipes.put("double_diagonal_l_lr", new ArrayList<TimberRecipe>() {{
-			add(new TimberRecipe(ClickLoc.TOP_LEFT, ClickLoc.RIGHT, "arrow_r"));
+			this.add(new TimberRecipe(ClickLoc.TOP_LEFT, ClickLoc.RIGHT, "arrow_r"));
 		}});
 
 		recipes.put("double_diagonal_l_rl", new ArrayList<TimberRecipe>() {{
-			add(new TimberRecipe(ClickLoc.BOTTOM_LEFT, ClickLoc.RIGHT, "arrow_r"));
+			this.add(new TimberRecipe(ClickLoc.BOTTOM_LEFT, ClickLoc.RIGHT, "arrow_r"));
 		}});
-		
+
 
 		recipes.put("double_diagonal_r_lr", new ArrayList<TimberRecipe>() {{
-			add(new TimberRecipe(ClickLoc.LEFT, ClickLoc.BOTTOM_RIGHT, "arrow_l"));
+			this.add(new TimberRecipe(ClickLoc.LEFT, ClickLoc.BOTTOM_RIGHT, "arrow_l"));
 		}});
-		
+
 
 		recipes.put("double_diagonal_r_rl", new ArrayList<TimberRecipe>() {{
-			add(new TimberRecipe(ClickLoc.LEFT, ClickLoc.TOP_RIGHT, "arrow_l"));
+			this.add(new TimberRecipe(ClickLoc.LEFT, ClickLoc.TOP_RIGHT, "arrow_l"));
 		}});
 	}
-	
+
 	private int woodBeamAmount = 0;
 	private Item woodBeamItem = null;
-	
+
 	public TimberedClay(String name, int woodBeamAmount) {
 		super(Material.ROCK);
 		this.woodBeamAmount = woodBeamAmount;
@@ -108,7 +108,7 @@ public class TimberedClay extends Block{
 		this.fullBlock = true;
 		this.setDefaultState(this.blockState.getBaseState().withProperty(UP, false).withProperty(RIGHT, false).withProperty(DOWN, false).withProperty(LEFT, false));
 	}
-	
+
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState()
@@ -125,7 +125,7 @@ public class TimberedClay extends Block{
 		if(state.getValue(DOWN)) meta |= 4;
 		if(state.getValue(RIGHT)) meta |= 2;
 		if(state.getValue(LEFT)) meta |= 1;
-		
+
 		return meta;
 	}
 
@@ -137,43 +137,43 @@ public class TimberedClay extends Block{
 	@Override
     public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune){
 		NonNullList<ItemStack> stacks = NonNullList.create();
-		
+
 		int frameAmount = 0;
 		if(state.getValue(UP)) frameAmount ++;
 		if(state.getValue(LEFT)) frameAmount ++;
 		if(state.getValue(RIGHT)) frameAmount ++;
 		if(state.getValue(DOWN)) frameAmount ++;
-		
+
 		if(this.woodBeamAmount + frameAmount > 0)
-			stacks.add(new ItemStack(woodBeamItem == null ? woodBeamItem = Item.getByNameOrId(this.getRegistryName().toString().split("_timbered_clay")[0] + "_wood_beam") : woodBeamItem, woodBeamAmount + frameAmount));
-		
+			stacks.add(new ItemStack(this.woodBeamItem == null ? this.woodBeamItem = Item.getByNameOrId(this.getRegistryName().toString().split("_timbered_clay")[0] + "_wood_beam") : this.woodBeamItem, this.woodBeamAmount + frameAmount));
+
 		stacks.add(new ItemStack(MedievalItems.TIMBERED_CLAY, 1));
-		
+
 		return stacks;
     }
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(player.getHeldItem(hand).getItem().getRegistryName().toString().endsWith("_wood_beam")) {
-			
+
 			if(world.isRemote)
 				return true;
-		
+
 			if(clicks.containsKey(player)) {
 				ClickInfo info = clicks.get(player);
 
-				
+
 				if(!info.equals(pos)) {
 					this.clicks.replace(player, new ClickInfo(pos, ClickLoc.getLoc(facing, hitX, hitY, hitZ)));
 					return true;
 				}
 
-				clicks.remove(player);				
+				clicks.remove(player);
 				ClickLoc pos1 = info.getLoc();
 				ClickLoc pos2 = ClickLoc.getLoc(facing, hitX, hitY, hitZ);
 				String[] types = state.getBlock().getRegistryName().getResourcePath().split("_timbered_clay_");
 				String[] itemTypes = player.getHeldItem(hand).getItem().getRegistryName().getResourcePath().split("_wood_beam");
-				
+
 				if(this.getRegistryName().getResourcePath().contains("clean") && (!state.getValue(UP) && !state.getValue(DOWN) && !state.getValue(RIGHT) && !state.getValue(LEFT))) {
 					if(!types[0].equals(itemTypes[0])) {
 						IBlockState newState = Block.REGISTRY.getObject(new ResourceLocation(state.getBlock().getRegistryName().toString().replace(types[0], itemTypes[0]))).getDefaultState();
@@ -185,7 +185,7 @@ public class TimberedClay extends Block{
 					return false;
 				}
 
-				
+
 				boolean succes = false;
 				if(!state.getValue(UP) && ((pos1 == ClickLoc.TOP_LEFT && pos2 == ClickLoc.TOP_RIGHT) || (pos1 == ClickLoc.TOP_RIGHT && pos2 == ClickLoc.TOP_LEFT))) {
 					world.setBlockState(pos, state.withProperty(UP, true));
@@ -226,45 +226,57 @@ public class TimberedClay extends Block{
 		}
         return false;
     }
-	
+
 	public static class TimberRecipe {
 		private ClickLoc loc1;
 		private ClickLoc loc2;
 		private String output;
-		
+
 		public TimberRecipe(ClickLoc loc1, ClickLoc loc2, String output) {
 			this.loc1 = loc1;
 			this.loc2 = loc2;
 			this.output = output;
 		}
-		
+
 		public boolean equals(ClickLoc loc1, ClickLoc loc2) {
 			return (this.loc1 == loc1 && this.loc2 == loc2) || (this.loc1 == loc2 && this.loc2 == loc1);
 		}
-		
+
 		public String getOutput() {
 			return this.output;
 		}
+
+		public ClickLoc getLoc1() {
+			return this.loc1;
+		}
+
+		public ClickLoc getLoc2() {
+			return this.loc2;
+		}
 	}
-	
+
 	public static class ClickInfo {
 		BlockPos pos;
 		ClickLoc loc;
-		
+
 		public ClickInfo(BlockPos pos, ClickLoc loc) {
 			this.pos = pos;
 			this.loc = loc;
 		}
-		
+
 		public boolean equals(BlockPos pos){
 			return this.pos.equals(pos);
 		}
-		
+
 		public ClickLoc getLoc() {
 			return this.loc;
 		}
+
+		public BlockPos getPos() {
+			return this.pos;
+		}
 	}
-	
+
 	public static enum ClickLoc{
 		TOP_LEFT,
 		TOP,
@@ -275,11 +287,11 @@ public class TimberedClay extends Block{
 		BOTTOM_LEFT,
 		LEFT,
 		CENTER;
-		
+
 		public static ClickLoc getLoc(EnumFacing facing, float hitX, float hitY, float hitZ) {
 			ClickLoc[] locations = getLocationsForHeight(hitY);
 			switch(facing) {
-				case EAST:					
+				case EAST:
 					return hitZ < 0.25F ? locations[2] : hitZ > 0.75F ? locations[0] : locations[1];
 				case NORTH:
 					return hitX < 0.25F ? locations[0] : hitX > 0.75F ? locations[2] : locations[1];
@@ -291,7 +303,7 @@ public class TimberedClay extends Block{
 					return null;
 			}
 		}
-		
+
 		private static ClickLoc[] getLocationsForHeight(float hitY) {
 			if(hitY > 0.75F) {
 				return new ClickLoc[] {TOP_LEFT, TOP, TOP_RIGHT};

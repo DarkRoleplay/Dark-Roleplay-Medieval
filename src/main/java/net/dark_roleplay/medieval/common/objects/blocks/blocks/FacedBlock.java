@@ -19,6 +19,7 @@ public class FacedBlock extends DRPBlock{
 	public FacedBlock (String name, BlockSettings settings) {
 		super(name, settings);
 	}
+
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState().withProperty(FACING_HORIZONTAL, EnumFacing.getHorizontal(meta));
@@ -49,7 +50,7 @@ public class FacedBlock extends DRPBlock{
 		}
         return state.withProperty(FACING_HORIZONTAL, facing);
     }
-	
+
 	@Override
 	public IBlockState withMirror(IBlockState state, Mirror mirror) {
 		EnumFacing facing = state.getValue(FACING_HORIZONTAL);
@@ -65,14 +66,14 @@ public class FacedBlock extends DRPBlock{
         return state;
     }
 
-	
+
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] {FACING_HORIZONTAL});
 	}
 
 	@Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
         return this.getDefaultState().withProperty(FACING_HORIZONTAL, placer.getHorizontalFacing().getOpposite());
     }
 }

@@ -1,5 +1,6 @@
 {
 	"textures": {
+		"particle": "blocks/gold_block",
 		"0": "drpmedieval:blocks/ship_bells/ship_bell_rope",
 		"1": "blocks/gold_block"
 	},

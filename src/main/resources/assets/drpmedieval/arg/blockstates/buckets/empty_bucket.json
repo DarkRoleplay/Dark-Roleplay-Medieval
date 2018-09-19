@@ -9,11 +9,9 @@
     },
 	"variants": {
 		"inventory":[{}],
-		"facing":{
-			"north":{},
-			"east":{"y":90},
-			"south":{"y":180},
-			"west":{"y":270}
+		"axis":{
+			"x":{},
+			"z":{"y":90}
 		}
 	}
 }

@@ -1,13 +1,8 @@
 {
     "variants":{
-        "facing=north,filled=false":{"model":"drpmedieval:none"},
-        "facing=east,filled=false":{"model":"drpmedieval:none", "y":90},
-        "facing=south,filled=false":{"model":"drpmedieval:none", "y":180},
-        "facing=west,filled=false":{"model":"drpmedieval:none", "y":270},   
-		
-		"facing=north,filled=true":{"model":"drpmedieval:none"},
-        "facing=east,filled=true":{"model":"drpmedieval:none", "y":90},
-        "facing=south,filled=true":{"model":"drpmedieval:none", "y":180},
-        "facing=west,filled=true":{"model":"drpmedieval:none", "y":270}   
+        "facing=north":{"model":"drpmedieval:none"},
+        "facing=east":{"model":"drpmedieval:none", "y":90},
+        "facing=south":{"model":"drpmedieval:none", "y":180},
+        "facing=west":{"model":"drpmedieval:none", "y":270}
     }
 }

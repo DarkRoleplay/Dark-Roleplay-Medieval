@@ -28,9 +28,9 @@
 	],
 	"transitions": {
 		"closed": ["opening", "open"],
-		"opening": "open",
+		"opening": ["open", "closing"],
 		"open": ["closing", "closed"],
-		"closing": "closed"
+		"closing": ["closed", "opening"]
 	},
 	"start_state": "closed"
 }

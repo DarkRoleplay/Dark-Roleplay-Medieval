@@ -3,7 +3,7 @@
 	"required_textures":[],
 	"textures":[
 		{
-			"base":"clean_planks",
+			"base":"clean_plank",
 			"manipulations":[],
 			"output":"drpmedieval:textures/blocks/clean_planks/clean_planks_%wood%"
 		}

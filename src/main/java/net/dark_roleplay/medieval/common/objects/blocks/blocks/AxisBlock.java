@@ -44,20 +44,20 @@ public class AxisBlock extends DRPBlock{
 		}
         return state.withProperty(AXIS_HORIZONTAL, axis);
     }
-	
+
 	@Override
 	public IBlockState withMirror(IBlockState state, Mirror mirror) {
         return state;
     }
 
-	
+
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] {AXIS_HORIZONTAL});
 	}
 
 	@Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
-        return this.getDefaultState().withProperty(AXIS_HORIZONTAL, placer.getHorizontalFacing().getAxis());
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
+        return this.getDefaultState().withProperty(AXIS_HORIZONTAL, placer.getHorizontalFacing().rotateY().getAxis());
     }
 }

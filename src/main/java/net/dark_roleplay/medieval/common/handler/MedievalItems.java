@@ -11,7 +11,9 @@ import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.objects.items.BarkAndGlue;
 import net.dark_roleplay.medieval.common.objects.items.DRPMStew;
+import net.dark_roleplay.medieval.common.objects.items.HangingBridge_Item;
 import net.dark_roleplay.medieval.common.objects.items.ItemFirewood;
+import net.dark_roleplay.medieval.common.objects.items.ItemMultiBlock;
 import net.dark_roleplay.medieval.common.objects.items.tools.FlintKnife;
 import net.dark_roleplay.medieval.common.objects.items.tools.StreetStomper;
 import net.dark_roleplay.medieval.common.objects.items.tools.Telescope;
@@ -164,17 +166,17 @@ public class MedievalItems {
 		);
 
 
-//		register(reg, DRPMedievalCreativeTabs.DECORATION,
-//				new HangingBridge_Item("hanging_bridge", "blocks", 64)
-//		);
-//
-//		register(reg, DRPMedievalCreativeTabs.UTILITY,
-//				new ItemMultiBlock(DRPMedievalBlocks.SIMPLE_CARPENTER_WORKBENCH).setRegistryName("simple_carpenter_workbench"),
-//				new ItemMultiBlock(DRPMedievalBlocks.FORGE).setRegistryName("forge")
-//		);
-//
-//		register(reg, DRPMedievalCreativeTabs.BUILDING_MATS,
-//				new ItemBlock(DRPMedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
+		register(reg, MedievalCreativeTabs.DECORATION,
+				new HangingBridge_Item("hanging_bridge", "blocks", 64)
+		);
+
+		register(reg, MedievalCreativeTabs.UTILITY,
+				new ItemMultiBlock(MedievalBlocks.SIMPLE_CARPENTER_WORKBENCH).setRegistryName("simple_carpenter_workbench"),
+				new ItemMultiBlock(MedievalBlocks.FORGE).setRegistryName("forge")
+		);
+
+		register(reg, MedievalCreativeTabs.BUILDING_MATS,
+				new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
 
 
 		if(References.IS_DEV) {
