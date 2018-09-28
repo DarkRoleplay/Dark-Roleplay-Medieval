@@ -63,6 +63,7 @@ dependencies {
 	deobfProvided "darkroleplay.core_modules:drpcmdates:${mc_version}-${drp_core_module_dates_version}"
 	deobfProvided "darkroleplay.core_modules:drpcmcrops:${mc_version}-${drp_core_module_crops_version}"	
 	deobfProvided "darkroleplay.core_modules:drpcmmaarg:${mc_version}-${drp_core_module_maarg_version}"
+	deobfProvided "darkroleplay.core_modules:drpcmguis:${mc_version}-${drp_core_module_guis_version}"
 }
 
 processResources {

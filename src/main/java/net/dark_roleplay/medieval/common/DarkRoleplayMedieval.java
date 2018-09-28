@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 
 import net.dark_roleplay.library.sides.IProxy;
 import net.dark_roleplay.medieval.client.objects.blocks.color_handlers.DryClayGrassColor;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Banner;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_ClockCore;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Flowers;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_FluidBarrel;
@@ -33,6 +34,7 @@ import net.dark_roleplay.medieval.common.handler.MedievalMappings;
 import net.dark_roleplay.medieval.common.handler.MedievalPackets;
 import net.dark_roleplay.medieval.common.handler.MedievalVillagers;
 import net.dark_roleplay.medieval.common.handler.MedievalWorldGen;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Banner;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FlowerContainer;
@@ -142,6 +144,9 @@ public class DarkRoleplayMedieval {
 
 		public static int TELESCOPE_LEVEL = 0;
 
+		//Searching for a fast way to fix the multiple mods bug
+		//Comming close!
+
 		@Override
 		public void preInit(FMLPreInitializationEvent event) {
 			ModelLoaderRegistry.registerLoader(new DelayedBaker_HangingBridge());
@@ -158,6 +163,7 @@ public class DarkRoleplayMedieval {
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_Shelf.class, new TESR_Shelf(Minecraft.getMinecraft().getRenderItem()));
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_FluidBarrel.class, new TESR_FluidBarrel());
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_FlowerContainer.class, new TESR_Flowers());
+			ClientRegistry.bindTileEntitySpecialRenderer(TE_Banner.class, new TESR_Banner());
 
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_DungeonChest.class, new AnimationTESR<TE_DungeonChest>(){
 				@Override
