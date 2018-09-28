@@ -56,10 +56,11 @@ public class BlockProperties {
 		public static final BlockSettings WOOD_DECO = new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
 		public static final BlockSettings WOOD_DECO_TESR =new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setBlockRenderLayer(BlockRenderLayer.TRANSLUCENT);
 
+		public static final BlockSettings PAPER_DECO = new BlockSettings(Material.WOOD, SoundType.CLOTH, 1.0F, 2.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
 
-		public static final BlockSettings METAL_SOLID = new BlockSettings(Material.IRON, SoundType.METAL, 2.0F, 5.0F);
-		public static final BlockSettings METAL_DECO = new BlockSettings(Material.IRON, SoundType.METAL, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
-		public static final BlockSettings METAL_DECO_TESR = new BlockSettings(Material.IRON, SoundType.METAL, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setBlockRenderLayer(BlockRenderLayer.TRANSLUCENT);
+		public static final BlockSettings METAL_SOLID = new BlockSettings(Material.IRON, SoundType.METAL, 5.0F, 15.0F);
+		public static final BlockSettings METAL_DECO = new BlockSettings(Material.IRON, SoundType.METAL, 5.0F, 15.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
+		public static final BlockSettings METAL_DECO_TESR = new BlockSettings(Material.IRON, SoundType.METAL, 5.0F, 15.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setBlockRenderLayer(BlockRenderLayer.TRANSLUCENT);
 
 		public static final BlockSettings STONE_SOLID = new BlockSettings(Material.ROCK, SoundType.STONE, 1.5F, 10.0F);
 		public static final BlockSettings STONE_DECO = new BlockSettings(Material.ROCK, SoundType.STONE, 1.5F, 10.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
