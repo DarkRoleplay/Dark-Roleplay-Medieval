@@ -291,12 +291,12 @@ public class MedievalBlocks {
 			new FacedBlock("head_cutting_block", Settings.WOOD_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0f, 0f, 0f, 1f, 0.5f, 1f))),
 			new ClockDial("clock_dial", new AxisAlignedBB(0.0F, 0.0F, 0.875F, 1.0, 1.0F, 1.0F)), //TODO Update to DRPBlock
 			new DRPBlock("bee_hive", Settings.PAPER_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.1875f, 0.1875f, 0.1875f, 0.8125f, 1f, 0.8125f))), //TODO Update to DRPBlock  //TODO fix Settings
-			new EmptyWallMount("candle_holder_empty", Settings.WOOD_DECO, new AxisAlignedBB(0.3125F, 0F, 0.5F, 0.6875F, 0.9375F, 1.0F)), //TODO Update to DRPBlock //TODO fix Settings
-			new LitWallMount("candle_holder_lit", Settings.WOOD_DECO, new AxisAlignedBB(0.3125F, 0F, 0.5F, 0.6875F, 0.9375F, 1.0F), 0.19D, 1.05D), //TODO Update to DRPBlock //TODO fix Settings
-			new UnlitWallMount("candle_holder_unlit", Settings.WOOD_DECO, new AxisAlignedBB(0.3125F, 0F, 0.5F, 0.6875F, 0.9375F, 1.0F)), //TODO Update to DRPBlock //TODO fix Settings
-			new EmptyWallMount("torch_holder_empty", Settings.WOOD_DECO, new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F)), //TODO Update to DRPBlock //TODO fix Settings
-			new LitWallMount("torch_holder_lit", Settings.WOOD_DECO, new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F), 0.23D, 0.82D), //TODO Update to DRPBlock //TODO fix Settings
-			new UnlitWallMount("torch_holder_unlit", Settings.WOOD_DECO, new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F)), //TODO Update to DRPBlock //TODO fix Settings
+			new EmptyWallMount("candle_holder_empty", Settings.METAL_DECO, new AxisAlignedBB(0.3125F, 0F, 0.5F, 0.6875F, 0.9375F, 1.0F)), //TODO Update to DRPBlock //TODO fix Settings
+			new LitWallMount("candle_holder_lit", Settings.METAL_DECO, new AxisAlignedBB(0.3125F, 0F, 0.5F, 0.6875F, 0.9375F, 1.0F), 0.19D, 1.05D), //TODO Update to DRPBlock //TODO fix Settings
+			new UnlitWallMount("candle_holder_unlit", Settings.METAL_DECO, new AxisAlignedBB(0.3125F, 0F, 0.5F, 0.6875F, 0.9375F, 1.0F)), //TODO Update to DRPBlock //TODO fix Settings
+			new EmptyWallMount("torch_holder_empty", Settings.METAL_DECO, new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F)), //TODO Update to DRPBlock //TODO fix Settings
+			new LitWallMount("torch_holder_lit", Settings.METAL_DECO, new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F), 0.23D, 0.82D), //TODO Update to DRPBlock //TODO fix Settings
+			new UnlitWallMount("torch_holder_unlit", Settings.METAL_DECO, new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F)), //TODO Update to DRPBlock //TODO fix Settings
 			new ShopSign("wall_shop_sign", Settings.METAL_DECO).setTileEntityFactory(TE_ShopSign::new), //TODO Update to DRPBlock
 			new WallMounted("ships_helm", Settings.WOOD_DECO_TESR, new AxisAlignedBB(0F, 0F, 0.625F, 1F, 1F, 1F)).setTileEntityFactory(TileEntityShipsWheel::new), //TODO Update to DRPBlock
 			new Target("target", Settings.WOOD_DECO_TESR).setTileEntityFactory(TileEntityTarget::new), //TODO Update to DRPBlock
@@ -313,7 +313,7 @@ public class MedievalBlocks {
 			new PillarBlock("diorite_pillar", Settings.STONE_SOLID),
 			new PillarBlock("granite_pillar", Settings.STONE_SOLID),
 			new DRPBlock("snow_bricks", Settings.SNOW_SOLID),
-			new DRPBlock("packed_ice_bricks", Settings.SNOW_SOLID),//TODO make slippery
+			new DRPBlock("packed_ice_bricks", Settings.PACKED_ICE),//TODO make slippery
 			new DRPBlock("obsidian_glass", Settings.OBSIDIAN_GLASS.setBlockRenderLayer(BlockRenderLayer.TRANSLUCENT)), //TODO fix Settings
 			new DryClay("dry_clay"), //TODO Update to DRPBlock
 			new DryClayGrass("dry_clay_grass"), //TODO Update to DRPBlock
