@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.common.objects.blocks.behaviors;
 import net.dark_roleplay.core.api.storage.DynamicStorageTileEntity;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IActivatedBehavior;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IBreakingBehavior;
-import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.handler.MedievalGuis;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
 import net.minecraft.block.state.IBlockState;

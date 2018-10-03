@@ -1,8 +1,8 @@
 package net.dark_roleplay.medieval.common.handler;
 
 import net.dark_roleplay.core.modules.hud.Hud;
+import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.client.objects.huds.TimberedClayHud;
-import net.dark_roleplay.medieval.common.References;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;

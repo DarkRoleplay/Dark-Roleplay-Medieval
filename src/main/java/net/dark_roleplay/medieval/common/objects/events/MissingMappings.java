@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.google.common.collect.ImmutableList;
 
 import net.dark_roleplay.core.testing.skills.Skill;
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.References;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -16,42 +16,42 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber
 public class MissingMappings {
-	
+
 	public static ArrayList<Block> remapBlocks = new ArrayList<Block>();
 	public static ArrayList<String> blockNames = new ArrayList<String>();
 	public static ArrayList<String> blockNamesIgnore = new ArrayList<String>();
 	public static ArrayList<Item> remapItems = new ArrayList<Item>();
 	public static ArrayList<String> itemNames = new ArrayList<String>();
 	public static ArrayList<String> itemNamesIgnore = new ArrayList<String>();
-	
+
 	public static void registerToRemapB(String block, String oldName2){
 		if(Block.REGISTRY.containsKey(new ResourceLocation(References.MODID, block))){
 			remapBlocks.add(Block.REGISTRY.getObject(new ResourceLocation(References.MODID, block)));
 			blockNames.add(oldName2.toLowerCase());
 		}
 	}
-	
+
 	public static void registerToRemapI(String item, String oldName2){
 		if(Item.REGISTRY.containsKey(new ResourceLocation(References.MODID, item))){
 			remapItems.add(Item.REGISTRY.getObject(new ResourceLocation(References.MODID, item)));
 			itemNames.add(oldName2.toLowerCase());
 		}
 	}
-	
+
 	public static void ignoreBlock(String block) {
 		blockNamesIgnore.add(block);
 	}
-	
-	
+
+
 	public static void ignoreItem(String item) {
 		itemNamesIgnore.add(item);
 	}
-	
+
 	@SubscribeEvent
 	public static void MissingMappingsBlock(RegistryEvent.MissingMappings<Block> event){
 		ImmutableList<Mapping<Block>> mappings = event.getAllMappings();
 		for(RegistryEvent.MissingMappings.Mapping<Block> mapping : mappings){
-			if(!mapping.key.getResourceDomain().equals(References.MODID)) continue;
+			if(!mapping.key.getNamespace().equals(References.MODID)) continue;
 			String name = mapping.key.toString().toLowerCase();
 			if(MissingMappings.blockNames.contains(name)){
 				for(int i = 0; i < MissingMappings.blockNames.size(); i++){
@@ -64,12 +64,12 @@ public class MissingMappings {
 			}
 		}
 	}
-	
+
 	@SubscribeEvent
 	public static void MissingMappingsItem(RegistryEvent.MissingMappings<Item> event){
 		ImmutableList<Mapping<Item>> mappings = event.getAllMappings();
 		for(RegistryEvent.MissingMappings.Mapping<Item> mapping : mappings){
-			if(!mapping.key.getResourceDomain().equals(References.MODID)) continue;
+			if(!mapping.key.getNamespace().equals(References.MODID)) continue;
 			String name = mapping.key.toString().toLowerCase();
 			if(MissingMappings.itemNames.contains(name)){
 				for(int i = 0; i < MissingMappings.itemNames.size(); i++){
@@ -82,16 +82,16 @@ public class MissingMappings {
 			}
 		}
 	}
-	
+
 	@SubscribeEvent
 	public static void MissingMappingsEntities(RegistryEvent.MissingMappings<Skill> event){
 		ImmutableList<Mapping<Skill>> mappings = event.getAllMappings();
 		for(RegistryEvent.MissingMappings.Mapping<Skill> mapping : mappings){
-			if(!mapping.key.getResourceDomain().equals(References.MODID)) continue;
+			if(!mapping.key.getNamespace().equals(References.MODID)) continue;
 			mapping.ignore();
 		}
 	}
-	
+
 //	for (RegistryEvent.MissingMappings.Mapping mapping : event.getAllMappings()) {
 //	if (MissingMappings.oldName.contains(mapping..toUpperCase())) {
 //		System.out.println(mapping.name);

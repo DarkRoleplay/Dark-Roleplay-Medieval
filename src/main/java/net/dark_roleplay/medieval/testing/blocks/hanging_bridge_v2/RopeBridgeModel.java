@@ -25,7 +25,7 @@ public class RopeBridgeModel{
 		TextureAtlasSprite rope = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("drpmedieval:blocks/rope");
 
 		Vec3d size = posB.subtract(posA);
-		double distance = size.lengthVector();
+		double distance = size.length();
 		for(double i = 0d; i < distance; i++) {
 
 			float u0 = rope.getMinU();

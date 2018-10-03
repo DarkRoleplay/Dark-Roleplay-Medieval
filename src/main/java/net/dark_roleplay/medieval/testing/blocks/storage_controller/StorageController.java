@@ -8,7 +8,7 @@ public class StorageController extends Block{
 	public StorageController() {
 		super(Material.ANVIL);
 		this.setRegistryName("work_in_progress_block_0");
-		this.setUnlocalizedName("work_in_progress_block_0");
+		this.setTranslationKey("work_in_progress_block_0");
 	}
 
 }

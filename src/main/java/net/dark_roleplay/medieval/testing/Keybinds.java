@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.testing;
 
 import org.lwjgl.input.Keyboard;
 
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.testing.guis.brewing.GuiBrewing;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;

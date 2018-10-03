@@ -52,7 +52,7 @@ public class Target extends FacedBlock {
 	}
 
 	@Override
-	public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
+	public void onPlayerDestroy(World worldIn, BlockPos pos, IBlockState state) {
 		if (worldIn.getBlockState(pos.add(0, 1, 0)).getBlock() == this) {
 			worldIn.setBlockToAir(pos.add(0, 1, 0));
 		} else if (worldIn.getBlockState(pos.add(0, -1, 0)).getBlock() == this) {

@@ -38,7 +38,7 @@ public class TimberedClayHud extends Hud{
 
 			if(!(state.getBlock() instanceof TimberedClay)) return;
 
-			String[] types = state.getBlock().getRegistryName().getResourcePath().split("_timbered_clay_");
+			String[] types = state.getBlock().getRegistryName().getPath().split("_timbered_clay_");
 			if(TimberedClay.recipes.containsKey(types[1])) {
 				List<TimberRecipe> recipes = TimberedClay.recipes.get(types[1]).stream().filter(rec -> rec.getLoc1() == info.getLoc() || rec.getLoc2() == info.getLoc()).collect(Collectors.toList());
 				int amount = recipes.size();

@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.objects.world_gen.materials.DryClayGenerator;
 import net.dark_roleplay.medieval.common.objects.world_gen.village.carpenter.CarpenterHouse;
 import net.dark_roleplay.medieval.common.objects.world_gen.village.carpenter.VillageHandlerCarpenter;

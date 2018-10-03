@@ -35,7 +35,7 @@ public class Hops extends Block {
 	public Hops(String registryName) {
 		super(Material.PLANTS);
 		this.setRegistryName(registryName);
-		this.setUnlocalizedName(registryName);
+		this.setTranslationKey(registryName);
 		this.setTickRandomly(true);
 	}
 

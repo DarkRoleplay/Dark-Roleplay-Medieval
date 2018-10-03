@@ -16,7 +16,7 @@ public class MossyLog extends BlockLog {
 
 	public MossyLog(String registryName) {
 		this.setRegistryName(registryName);
-		this.setUnlocalizedName(registryName);
+		this.setTranslationKey(registryName);
         this.setCreativeTab(MedievalCreativeTabs.BUILDING_MATS);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
 		this.setHardness(2.0F);

@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.handler;
 
 import java.util.Random;
 
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.References;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.passive.EntityVillager.PriceInfo;
@@ -37,26 +37,26 @@ public class MedievalVillagers {
 			new EmeraldsForStacks(new ItemStack(Blocks.LOG2, 16, 1), new PriceInfo(1,2))
 		);
 	}
-	
+
 	@SubscribeEvent
 	public static void registerVillager(RegistryEvent.Register<VillagerRegistry.VillagerProfession> e) {
 		VillagerRegistry.VillagerProfession carpenter = createProf(new ResourceLocation(References.MODID, "carpenter"), new ResourceLocation(References.MODID, "textures/entities/villager/carpenter.png"), new ResourceLocation(References.MODID, "textures/entities/villager/zombie/carpenter.png"));
-		CARPENTER_TIMBERER = createCarrer(carpenter, new ResourceLocation(References.MODID, "carpenter"));  
+		CARPENTER_TIMBERER = createCarrer(carpenter, new ResourceLocation(References.MODID, "carpenter"));
 		e.getRegistry().register(
 			carpenter
 		);
 	}
-	
+
 	public static VillagerRegistry.VillagerProfession createProf(ResourceLocation name, ResourceLocation textureVillager, ResourceLocation textureZombie){
-		return new VillagerRegistry.VillagerProfession(name.getResourceDomain() + ":" + name.getResourcePath(),
-				textureVillager.getResourceDomain() + ":" + textureVillager.getResourcePath(),
-				textureZombie.getResourceDomain() + ":" + textureZombie.getResourcePath());
+		return new VillagerRegistry.VillagerProfession(name.getNamespace() + ":" + name.getPath(),
+				textureVillager.getNamespace() + ":" + textureVillager.getPath(),
+				textureZombie.getNamespace() + ":" + textureZombie.getPath());
 	}
-	
+
 	public static VillagerRegistry.VillagerCareer createCarrer(VillagerRegistry.VillagerProfession prof, ResourceLocation name){
-		return new VillagerRegistry.VillagerCareer(prof, name.getResourceDomain() + ":" + name.getResourcePath());
+		return new VillagerRegistry.VillagerCareer(prof, name.getNamespace() + ":" + name.getPath());
 	}
-	
+
 	public static class EmeraldsForStacks implements EntityVillager.ITradeList{
 	    public ItemStack stack1;
 	    public ItemStack stack2;
@@ -66,7 +66,7 @@ public class MedievalVillagers {
 	        this.stack1 = stack1;
 	        this.price = price;
 	    }
-	    
+
 	    public EmeraldsForStacks(ItemStack stack1, ItemStack stack2, EntityVillager.PriceInfo price){
 	        this.stack1 = stack1;
 	        this.stack2 = stack2;
@@ -76,7 +76,7 @@ public class MedievalVillagers {
 	    @Override
 		public void addMerchantRecipe(IMerchant merchant, MerchantRecipeList recipeList, Random random){
 	        int i = 1;
-	        
+
 	        if (this.price != null){
 	            i = this.price.getPrice(random);
 	        }

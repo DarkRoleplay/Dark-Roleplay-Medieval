@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.objects.items.tools;
 
 import net.dark_roleplay.library_old.items.DRPItem;
-import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.DarkRoleplayMedieval;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

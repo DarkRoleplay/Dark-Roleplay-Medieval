@@ -14,7 +14,7 @@ import com.google.common.collect.Maps;
 
 import net.dark_roleplay.core_modules.maarg.api.materials.Material;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.objects.blocks.old.TimberedClay;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
@@ -33,7 +33,7 @@ import net.minecraftforge.common.model.IModelState;
 public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModelLoader {
 
 	protected static final Map<IBlockState, Map<EnumFacing, List<BakedQuad>>> CACHE = Maps.newHashMap();
-	
+
 	protected static ImmutableList<ResourceLocation> textures;
 
 	protected static IModel timbering;
@@ -66,16 +66,16 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 		boolean left = state.getValue(TimberedClay.LEFT);
 
 		String bitCode = (top ? "1" : "0") + (right ? "1" : "0") + (bottom ? "1" : "0") + (left ? "1" : "0");
-		
-		String[] textures = state.getBlock().getRegistryName().getResourcePath().split("_timbered_clay_");
 
-		this.addQuads(result, 
+		String[] textures = state.getBlock().getRegistryName().getPath().split("_timbered_clay_");
+
+		this.addQuads(result,
 			timbering.retexture(
 				ImmutableMap.<String, String>of(
 					"end","drpmedieval:blocks/timbered_clay/timbered_clay",
 					"side","drpmedieval:blocks/timbered_clay/" + textures[1] + "/" + textures[0] + "_timbered_clay_" + bitCode
 				)
-			), 
+			),
 			0, 0, state, side, rand
 		);
 
@@ -87,7 +87,7 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 			Map<EnumFacing, List<BakedQuad>> map = Maps.newHashMap();
 			CACHE.put(state, map);
 		}
-		
+
 		return result;
 	}
 
@@ -101,11 +101,11 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 		if (textures == null) {
 			ImmutableList.Builder<ResourceLocation> builder = ImmutableList.builder();
 			List<ResourceLocation> locations = new ArrayList<ResourceLocation>();
-			
+
 			Set<Material> mats = MaterialRegistry.getMaterialsForType("wood");
 
 			locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/timbered_clay"));
-			
+
 			for(int i = 0; i < 16; i ++) {
 				String bitCode = ((i & 1) == 1 ? "1" : "0") + ((i & 2) == 2 ? "1" : "0") + ((i & 4) == 4 ? "1" : "0") + ((i & 8) == 8 ? "1" : "0");
 
@@ -131,7 +131,7 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 
 				}
 			}
-			
+
 			builder.addAll(locations);
 			textures = builder.build();
 		}

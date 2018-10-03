@@ -97,7 +97,7 @@ public class SimpleCarpenterWorkbench extends FacedBlock{
 	}
 
 	@Override
-	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
+	public void onPlayerDestroy(World world, BlockPos pos, IBlockState state){
 		world.setBlockToAir(pos.offset(state.getValue(LEFT) ? state.getValue(FACING_HORIZONTAL).rotateY() : state.getValue(FACING_HORIZONTAL).rotateYCCW()));
 	}
 

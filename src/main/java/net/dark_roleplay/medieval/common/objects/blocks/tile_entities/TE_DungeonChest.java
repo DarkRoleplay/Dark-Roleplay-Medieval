@@ -6,8 +6,8 @@ import javax.annotation.Nullable;
 import com.google.common.collect.ImmutableMap;
 
 import net.dark_roleplay.core.api.storage.DynamicStorageTileEntity;
-import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.old.DungeonChest;
 import net.minecraft.block.state.IBlockState;

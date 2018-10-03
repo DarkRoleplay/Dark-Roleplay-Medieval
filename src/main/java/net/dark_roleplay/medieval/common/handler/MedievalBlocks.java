@@ -7,7 +7,8 @@ import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
 import net.dark_roleplay.library.experimental.blocks.DRPBlock;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IBoundingBoxBehavior;
 import net.dark_roleplay.library.experimental.connected_model.ConnectedModelLoader;
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.library.util.InDevUtil;
+import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.Settings;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.AxisBoundingBox;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Bell;
@@ -333,7 +334,7 @@ public class MedievalBlocks {
 			new SimpleCarpenterWorkbench("simple_carpenter_workbench", Settings.WOOD_DECO).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock  //TODO fix Settings
 		);
 
-		if(References.IS_DEV) {
+		if(InDevUtil.isDevEnv()) {
 			register(reg, MedievalCreativeTabs.UTILITY,
 				new SpinningWheel("spinning_wheel2", Settings.WOOD_DECO).setTileEntityFactory(SpinningWheelTileEntity::new).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock
 			);

@@ -29,7 +29,7 @@ public class HangingCauldron extends BlockContainer {
 		super(Material.IRON);
 		this.setResistance(2000.0F);
 		this.setRegistryName(registryName);
-		this.setUnlocalizedName(registryName);
+		this.setTranslationKey(registryName);
 	}
 
 	// -------------------------------------------------- Block Data --------------------------------------------------

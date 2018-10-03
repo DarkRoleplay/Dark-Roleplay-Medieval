@@ -31,14 +31,14 @@ public class DryClayGrass extends Block{
         super(Material.GRASS);
         this.setDefaultState(this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)));
 	    this.setRegistryName(name);
-	    this.setUnlocalizedName(name);
+	    this.setTranslationKey(name);
 	    this.setCreativeTab(MedievalCreativeTabs.BUILDING_MATS);
 	    this.setHardness(0.6F);
 	    this.setSoundType(SoundType.GROUND);
         this.setTickRandomly(true);
 	    this.setHarvestLevel("shovel", -1);
     }
-	
+
     @Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune){
     	return MedievalItems.DRY_CLAY_CHUNK;
@@ -51,7 +51,7 @@ public class DryClayGrass extends Block{
 
     @Override
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer(){
+    public BlockRenderLayer getRenderLayer(){
         return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
@@ -70,7 +70,7 @@ public class DryClayGrass extends Block{
         Block block = world.getBlockState(pos.up()).getBlock();
         return state.withProperty(SNOWY, Boolean.valueOf(block == Blocks.SNOW || block == Blocks.SNOW_LAYER));
     }
-    
+
     @Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand){
         if (!world.isRemote){
@@ -95,7 +95,7 @@ public class DryClayGrass extends Block{
                 }
             }
         }
-    }    
+    }
 
     @Override
     public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable){

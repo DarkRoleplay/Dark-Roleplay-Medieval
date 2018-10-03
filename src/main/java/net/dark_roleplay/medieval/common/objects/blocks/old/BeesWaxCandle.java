@@ -28,7 +28,7 @@ public class BeesWaxCandle extends Block{
 	public BeesWaxCandle(String registryName) {
 		super(Material.WOOD);
 		this.setRegistryName(registryName);
-		this.setUnlocalizedName(registryName);
+		this.setTranslationKey(registryName);
 		this.setSoundType(SoundType.CLOTH);
 	}
 

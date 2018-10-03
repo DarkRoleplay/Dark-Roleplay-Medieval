@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.old.premium;
 
+import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.client.objects.entities.model.Model_Fox;
-import net.dark_roleplay.medieval.common.References;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.entity.player.EntityPlayer;

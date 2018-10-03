@@ -7,8 +7,9 @@ import net.dark_roleplay.core.api.old.items.DRPFood;
 import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
 import net.dark_roleplay.core_modules.maarg.api.materials.Material;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
+import net.dark_roleplay.library.util.InDevUtil;
 import net.dark_roleplay.library_old.items.DRPItem;
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.objects.items.BarkAndGlue;
 import net.dark_roleplay.medieval.common.objects.items.DRPMStew;
 import net.dark_roleplay.medieval.common.objects.items.HangingBridge_Item;
@@ -179,7 +180,7 @@ public class MedievalItems {
 				new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
 
 
-		if(References.IS_DEV) {
+		if(InDevUtil.isDevEnv()) {
 			register(reg, MedievalCreativeTabs.FOOD,
 				new DRPFood(6, 0.5F, "honey_comb", "food/other", 64)
 			);

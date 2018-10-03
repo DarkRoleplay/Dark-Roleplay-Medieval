@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.configs;
 
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.References;
 import net.minecraftforge.common.config.Config;
 
 @Config(modid = References.MODID, name = "Dark Roleplay Medieval/Dark Roleplay Medieval", category = "world_gen")

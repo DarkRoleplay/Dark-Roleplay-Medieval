@@ -1,6 +1,9 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted;
 
-import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.ADDON_LIGHTER;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.ADDON_TRAP;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING_HORIZONTAL;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.POWERED;
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.medieval.common.handler.MedievalItems;
@@ -25,13 +28,13 @@ public class EmptyWallMount extends WallMounted {
 
 	@ObjectHolder("drpmedieval:trigger_trap")
 	private static Item trap;
-	
+
 	@ObjectHolder("minecraft:flint")
 	private static Item lighter;
-	
+
 	private Block unlit;
 	private Item mountObject;
-	
+
 	public EmptyWallMount(String name, BlockSettings settings, AxisAlignedBB northBB) {
 		super(name, settings, northBB);
 		this.setHarvestLevel("pickaxe", 0);
@@ -39,7 +42,7 @@ public class EmptyWallMount extends WallMounted {
 	}
 
 	// -------------------------------------------------- Block Data --------------------------------------------------
-	
+
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		IBlockState state = super.getStateFromMeta(meta % 4);
@@ -68,12 +71,12 @@ public class EmptyWallMount extends WallMounted {
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] {FACING_HORIZONTAL, ADDON_LIGHTER, ADDON_TRAP});
 	}
-	
+
 	@Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 		return this.getDefaultState().withProperty(FACING_HORIZONTAL, facing).withProperty(ADDON_TRAP, false).withProperty(ADDON_LIGHTER, false);
 	}
-	
+
 	// -------------------------------------------------- Block Events --------------------------------------------------
 
 	@Override
@@ -83,26 +86,26 @@ public class EmptyWallMount extends WallMounted {
 			boolean hasTrap = state.getValue(ADDON_TRAP);
 			boolean hasLighter = state.getValue(ADDON_LIGHTER);
 			ItemStack heldStack = player.getHeldItem(hand);
-			
+
 			if(heldStack.isEmpty()){
 				if(hasTrap){
-					
+
 				}else if(hasLighter){
-					
+
 				}
 			}else if(heldStack.getItem() == this.trap && !hasTrap){
 				if(consumeItems){
 					player.getHeldItem(hand).shrink(1);
-					spawnAddons(world, pos, state);
+					this.spawnAddons(world, pos, state);
 				}
 				world.setBlockState(pos, state.withProperty(ADDON_LIGHTER, false).withProperty(ADDON_TRAP, true));
 			}else if(heldStack.getItem() == this.lighter && !hasTrap){
 				if(consumeItems){
 					player.getHeldItem(hand).shrink(1);
-					spawnAddons(world, pos, state);
+					this.spawnAddons(world, pos, state);
 				}
 				world.setBlockState(pos, state.withProperty(ADDON_LIGHTER, true).withProperty(ADDON_TRAP, false));
-			}else if(heldStack.getItem() == mountObject){
+			}else if(heldStack.getItem() == this.mountObject){
 				if(!consumeItems){
 					player.getHeldItem(hand).shrink(1);
 				}
@@ -111,7 +114,7 @@ public class EmptyWallMount extends WallMounted {
 		}
 		return true;
 	}
-	
+
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos){
 		EnumFacing enumfacing = state.getValue(FACING_HORIZONTAL);
@@ -122,19 +125,19 @@ public class EmptyWallMount extends WallMounted {
 		}
 		super.neighborChanged(state, world, pos, block, fromPos);
 	}
-	
+
 	@Override
-	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
+	public void onPlayerDestroy(World world, BlockPos pos, IBlockState state){
 		if(!world.isRemote){
-			spawnAddons(world, pos, state);
+			this.spawnAddons(world, pos, state);
 		}
     }
-	
+
 	public void init(Block unlit, Item mountObject){
 		this.unlit = unlit;
 		this.mountObject = mountObject;
 	}
-	
+
 	public void spawnAddons(World world, BlockPos pos, IBlockState state){
 		if(state.getValue(ADDON_LIGHTER)){
 			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT, 1)));

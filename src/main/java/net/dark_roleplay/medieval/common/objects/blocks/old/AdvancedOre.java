@@ -15,7 +15,7 @@ public class AdvancedOre extends Block{
     public AdvancedOre(String registryName, int harvestLevel){
         super(Material.ROCK);
         this.setRegistryName(registryName);
-		this.setUnlocalizedName(registryName);
+		this.setTranslationKey(registryName);
         this.setSoundType(SoundType.STONE);
         this.setHardness(3.0F);
 		this.setHarvestLevel("pickaxe", harvestLevel);

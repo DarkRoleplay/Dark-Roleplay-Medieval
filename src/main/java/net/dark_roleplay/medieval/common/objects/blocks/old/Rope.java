@@ -31,7 +31,7 @@ public class Rope extends Block {
 	public Rope(String registryName) {
 		super(Material.CLOTH);
 		this.setRegistryName(registryName);
-		this.setUnlocalizedName(registryName);
+		this.setTranslationKey(registryName);
 		this.setHardness(0.5F);
 		this.setSoundType(SoundType.CLOTH);
 	}

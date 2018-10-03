@@ -8,7 +8,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.old.HangingBridge;
@@ -30,36 +30,36 @@ import net.minecraftforge.common.property.IExtendedBlockState;
 public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomModelLoader{
 
 	protected static final Map<IBlockState, List<BakedQuad>> CACHE = Maps.newHashMap();
-	
+
 	protected static ImmutableList<ResourceLocation> textures;
-	
+
 	protected static IModel[] planks;
 	protected static IModel[] post_left;
 	protected static IModel[] post_right;
 	protected static IModel[] rope_side;
-	
+
 	@Override
 	public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
 		side = null;
-		
+
 		if(CACHE.containsKey(state))
 			return CACHE.get(state);
-		
+
 		List<BakedQuad> result = Lists.newArrayList();
-		
+
 		int yRot = state.getValue(BlockProperties.AXIS_HORIZONTAL) == EnumFacing.Axis.Z ? 90 : 0;
-		int height = state.getValue(HangingBridge.HEIGHT) + (((HangingBridge)state.getBlock()).getRegistryName().getResourcePath().contains("top") ? 8 : 0);
-		
+		int height = state.getValue(HangingBridge.HEIGHT) + (((HangingBridge)state.getBlock()).getRegistryName().getPath().contains("top") ? 8 : 0);
+
 		if(state instanceof IExtendedBlockState){
 			IExtendedBlockState ext = (IExtendedBlockState) state;
-			
-			boolean north = ext.getValue(HangingBridge.NORTH); 
-			boolean east = ext.getValue(HangingBridge.EAST); 
-			boolean south = ext.getValue(HangingBridge.SOUTH); 
+
+			boolean north = ext.getValue(HangingBridge.NORTH);
+			boolean east = ext.getValue(HangingBridge.EAST);
+			boolean south = ext.getValue(HangingBridge.SOUTH);
 			boolean west = ext.getValue(HangingBridge.WEST);
-			
+
 			this.addQuads(result, planks[height], yRot, 0, state, side, rand);
-			
+
 			if(east){
 				this.addQuads(result, rope_side[height], yRot + 180, 0, state, side, rand);
 				if(north){
@@ -79,7 +79,7 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 				}
 			}
 		}
-		
+
 		CACHE.put(state, result);
 		return result;
 	}
@@ -127,10 +127,10 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 				rope_side[i] = getModel("rope_side_" + i);
 			}
 		}
-		
+
 		if(textures == null){
 			ImmutableList.Builder<ResourceLocation> builder = ImmutableList.builder();
-			
+
 			for(int i = 0; i < 16; i++){
 				builder.addAll(planks[i].getTextures());
 				builder.addAll(post_left[i].getTextures());
@@ -140,7 +140,7 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 			}
 			textures = builder.build();
 		}
-		
+
 		return this;
 	}
 

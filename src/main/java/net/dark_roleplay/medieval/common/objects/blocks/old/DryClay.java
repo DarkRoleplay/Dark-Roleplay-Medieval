@@ -19,7 +19,7 @@ public class DryClay extends Block{
 	public DryClay(String registryName) {
 	    super(Material.CLAY);
 	    this.setRegistryName(registryName);
-	    this.setUnlocalizedName(registryName);
+	    this.setTranslationKey(registryName);
 	    this.setCreativeTab(MedievalCreativeTabs.BUILDING_MATS);
 	    this.setHardness(0.6F);
 	    this.setSoundType(SoundType.GROUND);

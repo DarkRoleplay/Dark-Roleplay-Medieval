@@ -8,7 +8,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
 import net.dark_roleplay.medieval.common.objects.blocks.old.RopeFence;
 import net.minecraft.block.state.IBlockState;

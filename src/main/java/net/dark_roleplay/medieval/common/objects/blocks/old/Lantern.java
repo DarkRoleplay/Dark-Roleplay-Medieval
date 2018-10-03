@@ -49,7 +49,7 @@ public class Lantern extends Block{
 	public Lantern(String registryName, Material material, AxisAlignedBB northBB) {
 		super(material);
 		this.setRegistryName(registryName);
-		this.setUnlocalizedName(registryName);
+		this.setTranslationKey(registryName);
 		this.northBB = northBB;
 		this.setHardness(1F);
 		this.setHarvestLevel("pickaxe", 0);
@@ -106,7 +106,7 @@ public class Lantern extends Block{
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer(){
+	public BlockRenderLayer getRenderLayer(){
 		 return BlockRenderLayer.TRANSLUCENT;
 	}
 

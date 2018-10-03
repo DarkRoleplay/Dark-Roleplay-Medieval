@@ -1,6 +1,9 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted;
 
-import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.ADDON_LIGHTER;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.ADDON_TRAP;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING_HORIZONTAL;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.POWERED;
 
 import java.util.List;
 import java.util.Random;
@@ -35,24 +38,24 @@ public class LitWallMount extends EmptyWallMount {
 
 	@ObjectHolder("drpmedieval:trigger_trap")
 	private static Item trap;
-	
+
 	@ObjectHolder("minecraft:flint")
 	private static Item lighter;
-	
+
 	private Item emptyItem;
 	private Block unlit;
 	private Item mountObject;
-	
+
 	private double centerOffset;
 	private double centerOffsetPowered;
 	private double yOffset;
-	
+
 	public LitWallMount(String name, BlockSettings settings, AxisAlignedBB northBB, double centerOffset, double yOffset) {
 		super(name, settings, northBB);
 		this.setLightLevel(0.9375F);
 		this.setHarvestLevel("pickaxe", 0);
 		this.setDefaultState(this.getDefaultState().withProperty(ADDON_LIGHTER, false).withProperty(ADDON_TRAP, false));
-		this.centerOffset = centerOffset;		
+		this.centerOffset = centerOffset;
 		this.centerOffsetPowered = centerOffset - 0.275F;
 		this.yOffset = yOffset;
 	}
@@ -68,10 +71,10 @@ public class LitWallMount extends EmptyWallMount {
 		double offsetZ = pos.getZ() + 0.5D;
 
 		boolean powered = state.getValue(POWERED);
-		
+
 		EnumFacing enumfacing1 = enumfacing.getOpposite();
-		world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, offsetX + ((powered ? this.centerOffsetPowered : this.centerOffset) * enumfacing1.getFrontOffsetX()), offsetY - (powered ? 0.15f : 0), offsetZ + ((powered ? this.centerOffsetPowered : this.centerOffset) * enumfacing1.getFrontOffsetZ()), 0.0D, 0.0D, 0.0D); 
-		world.spawnParticle(EnumParticleTypes.FLAME, 		offsetX + ((powered ? this.centerOffsetPowered : this.centerOffset) * enumfacing1.getFrontOffsetX()), offsetY - (powered ? 0.15f : 0), offsetZ + ((powered ? this.centerOffsetPowered : this.centerOffset) * enumfacing1.getFrontOffsetZ()), 0.0D, 0.0D, 0.0D);
+		world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, offsetX + ((powered ? this.centerOffsetPowered : this.centerOffset) * enumfacing1.getXOffset()), offsetY - (powered ? 0.15f : 0), offsetZ + ((powered ? this.centerOffsetPowered : this.centerOffset) * enumfacing1.getZOffset()), 0.0D, 0.0D, 0.0D);
+		world.spawnParticle(EnumParticleTypes.FLAME, 		offsetX + ((powered ? this.centerOffsetPowered : this.centerOffset) * enumfacing1.getXOffset()), offsetY - (powered ? 0.15f : 0), offsetZ + ((powered ? this.centerOffsetPowered : this.centerOffset) * enumfacing1.getZOffset()), 0.0D, 0.0D, 0.0D);
 	}
 
 	@Override
@@ -95,20 +98,20 @@ public class LitWallMount extends EmptyWallMount {
 				i += 8;
 		return i;
 	}
-	
+
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] {FACING_HORIZONTAL, ADDON_LIGHTER, ADDON_TRAP, POWERED});
 	}
-	
-	
+
+
 	@Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 		return this.getDefaultState().withProperty(FACING_HORIZONTAL, facing).withProperty(ADDON_TRAP, false).withProperty(ADDON_LIGHTER, false).withProperty(POWERED, false);
 	}
-	
+
 	// -------------------------------------------------- Block Events --------------------------------------------------
-	
+
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos){
 		EnumFacing enumfacing = state.getValue(FACING_HORIZONTAL);
@@ -124,7 +127,7 @@ public class LitWallMount extends EmptyWallMount {
 		}
 		super.neighborChanged(state, world, pos, block, fromPos);
 	}
-	
+
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(!world.isRemote){
@@ -132,7 +135,7 @@ public class LitWallMount extends EmptyWallMount {
 			boolean hasTrap = state.getValue(ADDON_TRAP);
 			boolean hasLighter = state.getValue(ADDON_LIGHTER);
 			ItemStack heldStack = player.getHeldItem(hand);
-			
+
 			if(heldStack.isEmpty()){
 				if(hasTrap){
 					state = state.cycleProperty(POWERED);
@@ -142,7 +145,7 @@ public class LitWallMount extends EmptyWallMount {
 					world.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 1F, 1F, true);
 					world.notifyNeighborsOfStateChange(pos.offset(state.getValue(FACING_HORIZONTAL).getOpposite()), state.getBlock(),false);
 				}else if(hasLighter){
-					
+
 				}else{
 					if(player.isSneaking()){
 						world.setBlockState(pos, this.unlit.getDefaultState().withProperty(FACING_HORIZONTAL, state.getValue(FACING_HORIZONTAL)).withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP)).withProperty(POWERED, state.getValue(POWERED)));
@@ -151,20 +154,20 @@ public class LitWallMount extends EmptyWallMount {
 			}else if(heldStack.getItem() == this.trap && !hasTrap){
 				if(consumeItems){
 					player.getHeldItem(hand).shrink(1);
-					spawnAddons(world, pos, state);
+					this.spawnAddons(world, pos, state);
 				}
 				world.setBlockState(pos, state.withProperty(ADDON_LIGHTER, false).withProperty(ADDON_TRAP, true));
 			}else if(heldStack.getItem() == this.lighter && !hasTrap){
 				if(consumeItems){
 					player.getHeldItem(hand).shrink(1);
-					spawnAddons(world, pos, state);
+					this.spawnAddons(world, pos, state);
 				}
 				world.setBlockState(pos, state.withProperty(ADDON_LIGHTER, true).withProperty(ADDON_TRAP, false));
 			}
 		}
 		return true;
 	}
-	
+
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 		if(!world.isRemote){
@@ -176,41 +179,42 @@ public class LitWallMount extends EmptyWallMount {
 		}
 
 	}
-	
+
 	@Override
 	public int getWeakPower(IBlockState state, IBlockAccess blockAccess, BlockPos pos, EnumFacing side){
 		return state.getValue(POWERED).booleanValue() ? 15 : 0;
 	}
-	
+
 	@Override
 	public int getStrongPower(IBlockState state, IBlockAccess blockAccess, BlockPos pos, EnumFacing side){
 		EnumFacing Facing = EnumFacing.SOUTH;
 		Facing = (state.getValue(FACING_HORIZONTAL));
 		return !state.getValue(POWERED).booleanValue() ? 0 : (Facing == side ? 15 : 0);
 	}
-	
+
+	@Override
 	public void init(Block lit, Item mountObject){
 		this.unlit = lit;
 		this.mountObject = mountObject;
 	}
-	
+
 	@Override
     public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune){
 		NonNullList<ItemStack> stacks = NonNullList.create();
-		
+
 		if(state.getValue(ADDON_LIGHTER)){
 			stacks.add(new ItemStack(Items.FLINT, 1));
 		}
 		if(state.getValue(ADDON_TRAP)){
 			stacks.add(new ItemStack(MedievalItems.TRIGGER_TRAP, 1));
 		}
-		
-		stacks.add(new ItemStack(emptyItem == null ? emptyItem = Item.getByNameOrId(this.getRegistryName().toString().replace("_lit", "_empty")) : emptyItem));
+
+		stacks.add(new ItemStack(this.emptyItem == null ? this.emptyItem = Item.getByNameOrId(this.getRegistryName().toString().replace("_lit", "_empty")) : this.emptyItem));
 		stacks.add(new ItemStack(this.mountObject));
-		
+
 		return stacks;
 	}
-	
+
 	private Vec3d rotatePos(Vec3d pos, int amount){
 		switch(amount){
 			case 0://NORTH
@@ -219,7 +223,7 @@ public class LitWallMount extends EmptyWallMount {
 				return new Vec3d(1 - pos.z, pos.y, pos.x);
 			case 2://SOUTH
 				return new Vec3d(1 - pos.x, pos.y, 1 - pos.z);
-			case 3://EAST 
+			case 3://EAST
 				return new Vec3d(pos.z, pos.y, 1 - pos.x);
 			default:
 				return pos;

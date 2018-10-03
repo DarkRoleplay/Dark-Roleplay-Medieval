@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.objects.gui.general_storage;
 
 import net.dark_roleplay.library.experimental.guis.modular.ModularGui_Drawer;
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.References;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;

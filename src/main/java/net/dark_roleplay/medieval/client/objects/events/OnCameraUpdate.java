@@ -1,8 +1,8 @@
 package net.dark_roleplay.medieval.client.objects.events;
 
+import net.dark_roleplay.medieval.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.client.objects.guis.hud.Gui_Telescope;
-import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.common.References;
 import net.dark_roleplay.medieval.common.objects.items.tools.Telescope;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,4 +1,4 @@
-package net.dark_roleplay.medieval.common;
+package net.dark_roleplay.medieval;
 
 import com.google.common.collect.ImmutableMap;
 

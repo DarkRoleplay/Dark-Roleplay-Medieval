@@ -20,7 +20,7 @@ public class MultiLayerModelLoader implements ICustomModelLoader
 
     @Override
     public boolean accepts(ResourceLocation modelLocation){
-        return modelLocation.getResourcePath().equals("lantern");
+        return modelLocation.getPath().equals("lantern");
     }
 
     @Override

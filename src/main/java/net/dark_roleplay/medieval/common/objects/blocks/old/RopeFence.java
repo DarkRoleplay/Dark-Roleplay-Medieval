@@ -52,7 +52,7 @@ public class RopeFence extends Block{
 	public RopeFence(String registryName) {
 		super(Material.WOOD);
 		this.setRegistryName(registryName);
-		this.setUnlocalizedName(registryName);
+		this.setTranslationKey(registryName);
 		this.setHardness(2F);
 		this.setSoundType(SoundType.WOOD);
 		this.setDefaultState(this.getDefaultState().withProperty(NORTH_EAST, false).withProperty(NORTH_WEST, false).withProperty(SOUTH_EAST, false).withProperty(SOUTH_WEST, false));

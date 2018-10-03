@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.client.objects.blocks.tesrs.old;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityFirepit;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

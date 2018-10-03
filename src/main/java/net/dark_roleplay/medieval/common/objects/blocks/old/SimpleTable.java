@@ -22,7 +22,7 @@ public class SimpleTable extends Block{
 	public SimpleTable(String registryName) {
 		super(Material.WOOD);
 		this.setRegistryName(registryName);
-		this.setUnlocalizedName(registryName);
+		this.setTranslationKey(registryName);
 		this.setHardness(2F);
 		this.setHarvestLevel("axe", 0);
 		this.setSoundType(SoundType.WOOD);

@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.testing.blocks.large_block;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.References;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;

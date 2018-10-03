@@ -4,7 +4,7 @@ import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.F
 import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.IS_OPEN;
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
-import net.dark_roleplay.medieval.common.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.handler.MedievalGuis;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
@@ -64,7 +64,7 @@ public class DungeonChest extends FacedBlock {
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(FACING_HORIZONTAL, EnumFacing.getHorizontal(meta % 4)).withProperty(IS_OPEN, meta / 4 > 0);
+		return this.getDefaultState().withProperty(FACING_HORIZONTAL, EnumFacing.byHorizontalIndex(meta % 4)).withProperty(IS_OPEN, meta / 4 > 0);
 	}
 
 	@Override

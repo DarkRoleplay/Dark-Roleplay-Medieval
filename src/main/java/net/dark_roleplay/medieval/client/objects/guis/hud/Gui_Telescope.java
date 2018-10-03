@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.client.objects.guis.hud;
 
 import java.awt.Color;
 
-import net.dark_roleplay.medieval.common.References;
+import net.dark_roleplay.medieval.References;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;

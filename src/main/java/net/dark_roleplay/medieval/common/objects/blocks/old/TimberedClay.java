@@ -101,7 +101,7 @@ public class TimberedClay extends Block{
 		super(Material.ROCK);
 		this.woodBeamAmount = woodBeamAmount;
 		this.setRegistryName(name);
-		this.setUnlocalizedName("timbered_clay");
+		this.setTranslationKey("timbered_clay");
 		this.setHardness(1.25F);
 		this.setResistance(7.0F);
 		this.setSoundType(SoundType.STONE);
@@ -171,15 +171,15 @@ public class TimberedClay extends Block{
 				clicks.remove(player);
 				ClickLoc pos1 = info.getLoc();
 				ClickLoc pos2 = ClickLoc.getLoc(facing, hitX, hitY, hitZ);
-				String[] types = state.getBlock().getRegistryName().getResourcePath().split("_timbered_clay_");
-				String[] itemTypes = player.getHeldItem(hand).getItem().getRegistryName().getResourcePath().split("_wood_beam");
+				String[] types = state.getBlock().getRegistryName().getPath().split("_timbered_clay_");
+				String[] itemTypes = player.getHeldItem(hand).getItem().getRegistryName().getPath().split("_wood_beam");
 
-				if(this.getRegistryName().getResourcePath().contains("clean") && (!state.getValue(UP) && !state.getValue(DOWN) && !state.getValue(RIGHT) && !state.getValue(LEFT))) {
+				if(this.getRegistryName().getPath().contains("clean") && (!state.getValue(UP) && !state.getValue(DOWN) && !state.getValue(RIGHT) && !state.getValue(LEFT))) {
 					if(!types[0].equals(itemTypes[0])) {
 						IBlockState newState = Block.REGISTRY.getObject(new ResourceLocation(state.getBlock().getRegistryName().toString().replace(types[0], itemTypes[0]))).getDefaultState();
 						world.setBlockState(pos, newState);
 						state = newState;
-						types = state.getBlock().getRegistryName().getResourcePath().split("_timbering_");
+						types = state.getBlock().getRegistryName().getPath().split("_timbering_");
 					}
 				}else if(!types[0].equals(itemTypes[0])) {
 					return false;
@@ -204,7 +204,7 @@ public class TimberedClay extends Block{
 					for(TimberRecipe recipe : recipes) {
 						if(recipe.equals(pos1, pos2)) {
 							world.setBlockState(pos, Block.REGISTRY.getObject(
-										new ResourceLocation(state.getBlock().getRegistryName().getResourceDomain(), types[0] + "_timbered_clay_" + recipe.getOutput())
+										new ResourceLocation(state.getBlock().getRegistryName().getNamespace(), types[0] + "_timbered_clay_" + recipe.getOutput())
 									)
 									.getDefaultState().withProperty(UP, state.getValue(UP))
 									.withProperty(DOWN, state.getValue(DOWN))

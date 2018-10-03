@@ -1,9 +1,9 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old;
 
 
-import java.util.Random;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING_HORIZONTAL;
 
-import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
+import java.util.Random;
 
 import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
 import net.minecraft.block.Block;
@@ -27,12 +27,12 @@ import net.minecraft.world.World;
 public class ClockDial extends Block{
 
 	public static final PropertyInteger POSITION = PropertyInteger.create("position", 0,8);
-	
+
 	private AxisAlignedBB northBB;
 	private AxisAlignedBB eastBB;
 	private AxisAlignedBB southBB;
 	private AxisAlignedBB westBB;
-	
+
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] {FACING_HORIZONTAL, POSITION});
@@ -42,12 +42,12 @@ public class ClockDial extends Block{
 	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing){
         return BlockFaceShape.UNDEFINED;
     }
-	
+
 	public ClockDial(String registreName, AxisAlignedBB northBB) {
 		super(Material.WOOD);
 		this.setRegistryName(registreName);
-		this.setUnlocalizedName(registreName);
-		this.setHardness(1F); 
+		this.setTranslationKey(registreName);
+		this.setHardness(1F);
 		this.setSoundType(SoundType.WOOD);
 
 		this.northBB = northBB;
@@ -59,23 +59,23 @@ public class ClockDial extends Block{
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		EnumFacing facing = EnumFacing.getHorizontal(meta % 4);
+		EnumFacing facing = EnumFacing.byHorizontalIndex(meta % 4);
 		return this.getDefaultState().withProperty(FACING_HORIZONTAL, facing).withProperty(POSITION, meta / 4);
 	}
-	
+
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		EnumFacing facing = (EnumFacing) state.getValue(FACING_HORIZONTAL);
+		EnumFacing facing = state.getValue(FACING_HORIZONTAL);
 		int i = facing.getHorizontalIndex();
-		
+
 		int pos = state.getValue(POSITION);
 		if(pos != 0){
 			i += (4 * ((pos % 2) + 1));
@@ -116,23 +116,23 @@ public class ClockDial extends Block{
 		if(world.getBlockState(pos.offset(side.getOpposite())).getBlock() != MedievalBlocks.CLOCK_CORE)
 			return false;
 		if(side.getAxis() == Axis.X){
-	        return canPlacePart(world, pos) && canPlacePart(world, pos.up()) && canPlacePart(world, pos.down()) && canPlacePart(world, pos.north()) && canPlacePart(world, pos.south());
+	        return this.canPlacePart(world, pos) && this.canPlacePart(world, pos.up()) && this.canPlacePart(world, pos.down()) && this.canPlacePart(world, pos.north()) && this.canPlacePart(world, pos.south());
 		}else if(side.getAxis() == Axis.Z){
-	        return canPlacePart(world, pos) && canPlacePart(world, pos.up()) && canPlacePart(world, pos.down()) && canPlacePart(world, pos.east()) && canPlacePart(world, pos.west());
+	        return this.canPlacePart(world, pos) && this.canPlacePart(world, pos.up()) && this.canPlacePart(world, pos.down()) && this.canPlacePart(world, pos.east()) && this.canPlacePart(world, pos.west());
 		}
 		return false;
 
     }
-	
+
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune){
 		if(state.getValue(POSITION) == 0)
 			return Item.getItemFromBlock(this);
 		return null;
     }
-	
+
 	@Override
-	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state){
+	public void onPlayerDestroy(World world, BlockPos pos, IBlockState state){
 		EnumFacing facing = state.getValue(FACING_HORIZONTAL);
 
 		int position = state.getValue(POSITION);
@@ -193,44 +193,45 @@ public class ClockDial extends Block{
 			}
 		}
 	}
-	
+
 	private boolean canPlacePart(World world, BlockPos pos){
 		 return world.getBlockState(pos).getBlock().isReplaceable(world, pos);
 	}
-	
+
 	@Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
         return this.getDefaultState().withProperty(FACING_HORIZONTAL, facing);
     }
-	
+
+	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos){
 //		System.out.println(state.getValue(POSITION));
 		int position = state.getValue(POSITION);
-		EnumFacing facing = (EnumFacing) state.getValue(FACING_HORIZONTAL);
-		
+		EnumFacing facing = state.getValue(FACING_HORIZONTAL);
+
 		if(position == 0){
 			return state;
 		}else if(position == 1){
-			if(checkSide(world, pos.offset(facing.rotateY()))){
+			if(this.checkSide(world, pos.offset(facing.rotateY()))){
 				return state.withProperty(POSITION, 3);
-			}else if(checkSide(world, pos.offset(facing.rotateY().getOpposite()))){
+			}else if(this.checkSide(world, pos.offset(facing.rotateY().getOpposite()))){
 				return state.withProperty(POSITION, 7);
-			}else if(checkSide(world, pos.up())){
+			}else if(this.checkSide(world, pos.up())){
 				return state.withProperty(POSITION, 5);
 			}
 		}else if(position == 2){
-			if(checkCorner(world, pos.offset(facing.rotateY())) && checkCorner(world, pos.up())){
+			if(this.checkCorner(world, pos.offset(facing.rotateY())) && this.checkCorner(world, pos.up())){
 				return state.withProperty(POSITION, 4);
-			}else if(checkCorner(world, pos.offset(facing.rotateYCCW())) && checkCorner(world, pos.up())){
+			}else if(this.checkCorner(world, pos.offset(facing.rotateYCCW())) && this.checkCorner(world, pos.up())){
 				return state.withProperty(POSITION, 6);
-			}else if(checkCorner(world, pos.offset(facing.rotateYCCW())) && checkCorner(world, pos.down())){
+			}else if(this.checkCorner(world, pos.offset(facing.rotateYCCW())) && this.checkCorner(world, pos.down())){
 				return state.withProperty(POSITION, 8);
 			}
 			return state;
 		}
 		return state;
     }
-	
+
 	private boolean checkSide(IBlockAccess world, BlockPos pos){
 		IBlockState state2 = world.getBlockState(pos);
 		if(state2.getBlock() == this){
@@ -240,7 +241,7 @@ public class ClockDial extends Block{
 		}
 		return false;
 	}
-	
+
 	private boolean checkCorner(IBlockAccess world, BlockPos pos){
 		IBlockState state2 = world.getBlockState(pos);
 		if(state2.getBlock() == this){
@@ -250,7 +251,7 @@ public class ClockDial extends Block{
 		}
 		return false;
 	}
-	
+
 	private AxisAlignedBB rotateAABB(AxisAlignedBB bb, int amount){
 		switch(amount){
 			case 0://NORTH
@@ -259,13 +260,13 @@ public class ClockDial extends Block{
 				return new AxisAlignedBB(bb.maxZ, bb.minY, bb.minX, bb.minZ, bb.maxY, bb.maxX);
 			case 2://SOUTH
 				return new AxisAlignedBB(1 - bb.maxX, bb.minY, 1 - bb.maxZ, 1 - bb.minX, bb.maxY, 1 - bb.minZ);
-			case 3://EAST 
+			case 3://EAST
 				return new AxisAlignedBB(1 - bb.minZ, bb.minY, 1 - bb.maxX, 1 - bb.maxZ, bb.maxY, 1 - bb.minX);
 			default:
 				return bb;
 		}
 	}
-	
+
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos){
 		switch(state.getValue(FACING_HORIZONTAL)){
