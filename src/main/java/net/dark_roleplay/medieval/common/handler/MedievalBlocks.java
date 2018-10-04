@@ -63,6 +63,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FluidBa
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Roof;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Shelf;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ShopSign;
+import net.dark_roleplay.medieval.common.objects.blocks.vanilla_overwrites.TorchOverride;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityAnvil;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityBookOne;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityCauldron;
@@ -167,7 +168,8 @@ public class MedievalBlocks {
 				);
 
 				register(reg, MedievalCreativeTabs.BUILDING_MATS,
-					new MossyLog("mossy_" + mat.getName() + "_log") //TODO Update to DRPBlock
+					new MossyLog("mossy_" + mat.getName() + "_log"), //TODO Update to DRPBlock
+					new WoodSupport(mat.getName() + "_wood_support", Settings.WOOD_DECO) //TODO Update to DRPBlock
 				);
 
 				register(reg, MedievalCreativeTabs.DECORATION,
@@ -227,8 +229,7 @@ public class MedievalBlocks {
 					new AxisBlock(mat.getName() + "_dirt_bucket", Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875F, 0f, 0.21875F, 0.78125f, 0.5625f, 0.78125F)), new Behavior_FlowerContainer()).setTileEntityFactory(() -> new TE_FlowerContainer(3)),
 					new AxisBlock(mat.getName() + "_flower_pot", Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875f, 0f, 0f, 0.78125f, 0.5625f, 1f)), new Behavior_FlowerContainer()).setTileEntityFactory(() -> new TE_FlowerContainer(3)),
 					solidSimpleTable,
-					plankSimpleTable,
-					new WoodSupport(mat.getName() + "_wood_support", Settings.WOOD_DECO) //TODO Update to DRPBlock
+					plankSimpleTable
 				);
 
 				registerNoItems(reg,  //TODO Update to DRPBlock
@@ -335,6 +336,7 @@ public class MedievalBlocks {
 		);
 
 		if(InDevUtil.isDevEnv()) {
+			reg.register(new TorchOverride());
 			register(reg, MedievalCreativeTabs.UTILITY,
 				new SpinningWheel("spinning_wheel2", Settings.WOOD_DECO).setTileEntityFactory(SpinningWheelTileEntity::new).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock
 			);

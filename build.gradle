@@ -20,19 +20,23 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.4.2765"
+    version = "1.12.2-14.23.5.2768"
     runDir = "run"
     
-    mappings = "snapshot_20180814"
+	if (project.hasProperty('mappings_112')) {
+		mappings = project.findProperty('mappings_112')
+	} else{
+		mappings = "snapshot_20180814"
+	}
 	
 	if (project.hasProperty('mc_username')) {
-		clientRunArgs += ['--username', project.mc_username]
+		clientRunArgs += ['--username', project.findProperty('mc_username')]
 		if (project.hasProperty('mc_password')) {
-			clientRunArgs += ['--password', project.mc_password]
+			clientRunArgs += ['--password', project.findProperty('mc_password')]
 		}
 	}
 	if (project.hasProperty('mc_uuid')) {
-		clientRunArgs += ['--uuid', project.mc_uuid]
+		clientRunArgs += ['--uuid', project.findProperty('mc_uuid')]
 	}
 
 	// disable server gui

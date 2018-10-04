@@ -66,7 +66,7 @@ public class MedievalModels {
 	}
 
 	public static void registerItemMesh(String folder, Item item) {
-	    String path = stringParseName(item.getTranslationKey().toString().substring(item.getTranslationKey().toString().indexOf(".") + 1, item.getTranslationKey().toString().length()));
+	    String path = stringParseName(item.getRegistryName().getPath());//item.getTranslationKey().toString().substring(item.getTranslationKey().toString().indexOf(".") + 1, item.getTranslationKey().toString().length()));
 		if(folder != null){
 			path = stringParseName(folder) + "/" + path;
 			ModelBakery.registerItemVariants(item,new ResourceLocation(References.MODID + ":" + path));
