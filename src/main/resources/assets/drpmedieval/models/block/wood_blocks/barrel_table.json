@@ -1,8 +1,8 @@
 {
 	"__comment": "Designed by JTK222",
 	"textures": {
-		"particle": "#top",
-		"texture": "#top",
+		"particle": "drpmedieval:blocks/placeholder",
+		"texture": "drpmedieval:blocks/placeholder",
 		"metal": "drpmedieval:blocks/barrels/metal"
 	},
 	"elements": [

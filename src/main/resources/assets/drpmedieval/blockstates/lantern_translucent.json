@@ -3,6 +3,7 @@
        "candle=false,lit=false":{"model":"drpmedieval:lantern/lantern_translucent"},
 	   "candle=false,lit=true":{"model":"drpmedieval:lantern/lantern_translucent"},
 	   "candle=true,lit=false":{"model":"drpmedieval:lantern/lantern_translucent"},
-	   "candle=true,lit=true":{"model":"drpmedieval:lantern/lantern_translucent"}
+	   "candle=true,lit=true":{"model":"drpmedieval:lantern/lantern_translucent"},
+	   "inventory":{"model":"drpmedieval:lantern/lantern_translucent"}
 	}
 }

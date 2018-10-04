@@ -4,7 +4,8 @@
 		"model":"drpmedieval:wood_blocks/barrel_table",
         "textures": {
 			"side": "drpmedieval:blocks/barrels/%wood%_barrel_side",
-			"top": "drpmedieval:blocks/barrels/%wood%_barrel_top"
+			"particle": "drpmedieval:blocks/barrels/%wood%_barrel_top",
+			"texture": "drpmedieval:blocks/barrels/%wood%_barrel_top"
         },
         "transform": "forge:default-block"
     },

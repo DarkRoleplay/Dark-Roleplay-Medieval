@@ -1,10 +1,20 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old;
 
-import static net.dark_roleplay.library.experimental.connected_model.ConnectedModelBlockStates.*;
+import static net.dark_roleplay.library.experimental.connected_model.ConnectedModelBlockStates.AXIS_HORIZONTAL;
+import static net.dark_roleplay.library.experimental.connected_model.ConnectedModelBlockStates.CENTER_LEFT;
+import static net.dark_roleplay.library.experimental.connected_model.ConnectedModelBlockStates.CENTER_RIGHT;
+import static net.dark_roleplay.library.experimental.connected_model.ConnectedModelBlockStates.HORIZONTAL;
+import static net.dark_roleplay.library.experimental.connected_model.ConnectedModelBlockStates.NORTH_CENTER;
+import static net.dark_roleplay.library.experimental.connected_model.ConnectedModelBlockStates.NORTH_LEFT;
+import static net.dark_roleplay.library.experimental.connected_model.ConnectedModelBlockStates.NORTH_RIGHT;
+import static net.dark_roleplay.library.experimental.connected_model.ConnectedModelBlockStates.SOUTH_CENTER;
+import static net.dark_roleplay.library.experimental.connected_model.ConnectedModelBlockStates.SOUTH_LEFT;
+import static net.dark_roleplay.library.experimental.connected_model.ConnectedModelBlockStates.SOUTH_RIGHT;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -13,12 +23,14 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.property.ExtendedBlockState;
+import net.minecraftforge.common.property.IExtendedBlockState;
 
 
 public class SimpleTable extends Block{
 
 	//TODO ROTATION
-		
+
 	public SimpleTable(String registryName) {
 		super(Material.WOOD);
 		this.setRegistryName(registryName);
@@ -28,14 +40,6 @@ public class SimpleTable extends Block{
 		this.setSoundType(SoundType.WOOD);
 		this.setDefaultState(
 				this.getDefaultState()
-				.withProperty(NORTH_LEFT, false)
-				.withProperty(NORTH_CENTER, false)
-				.withProperty(NORTH_RIGHT, false)
-				.withProperty(SOUTH_LEFT, false)
-				.withProperty(SOUTH_CENTER, false)
-				.withProperty(SOUTH_RIGHT, false)
-				.withProperty(CENTER_LEFT, false)
-				.withProperty(CENTER_RIGHT, false)
 			);
 	}
 
@@ -55,11 +59,13 @@ public class SimpleTable extends Block{
 	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing){
         return BlockFaceShape.UNDEFINED;
     }
-	
+
 	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
-		IBlockState stateCopy = state;
-		
+		if(!(state instanceof IExtendedBlockState)) return state;
+
+		IExtendedBlockState stateCopy = (IExtendedBlockState) state;
+
 		stateCopy = stateCopy.withProperty(NORTH_LEFT, world.getBlockState(pos.north().west()).getBlock() == this);
 		stateCopy = stateCopy.withProperty(NORTH_CENTER, world.getBlockState(pos.north()).getBlock() == this);
 		stateCopy = stateCopy.withProperty(NORTH_RIGHT, world.getBlockState(pos.north().east()).getBlock() == this);
@@ -68,10 +74,10 @@ public class SimpleTable extends Block{
 		stateCopy = stateCopy.withProperty(SOUTH_RIGHT, world.getBlockState(pos.south().east()).getBlock() == this);
 		stateCopy = stateCopy.withProperty(CENTER_LEFT, world.getBlockState(pos.west()).getBlock() == this);
 		stateCopy = stateCopy.withProperty(CENTER_RIGHT, world.getBlockState(pos.east()).getBlock() == this);
-		
+
 		return stateCopy;
 	}
-	
+
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
@@ -81,11 +87,10 @@ public class SimpleTable extends Block{
 
 		return 0;
 	}
-	
+
 	@Override
 	protected BlockStateContainer createBlockState() {
-
-		return new BlockStateContainer(this, NORTH_LEFT, NORTH_CENTER, NORTH_RIGHT, SOUTH_LEFT, SOUTH_CENTER, SOUTH_RIGHT, CENTER_LEFT, CENTER_RIGHT, AXIS_HORIZONTAL);
+		return new ExtendedBlockState(this, new IProperty[] {AXIS_HORIZONTAL}, HORIZONTAL);
 	}
 
 	@Override
@@ -97,10 +102,10 @@ public class SimpleTable extends Block{
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-	
-	
+
+
 	@Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 		switch(placer.getHorizontalFacing().getOpposite()){
 		case EAST:
 		case WEST:
@@ -112,7 +117,7 @@ public class SimpleTable extends Block{
 	        return this.getDefaultState().withProperty(AXIS_HORIZONTAL, EnumFacing.Axis.X);
 		}
     }
-	
+
     @Override
 	public boolean isSideSolid(IBlockState base_state, IBlockAccess world, BlockPos pos, EnumFacing side){
     	if(side == EnumFacing.UP)
