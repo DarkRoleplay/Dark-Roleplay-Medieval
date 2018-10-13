@@ -57,13 +57,13 @@ public class DelayedBaker_RopeFence extends DelayedBaker implements ICustomModel
 	@Override
 	public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
 		side = null;
-		
+
 		// IExtendedBlockState state = (IExtendetBlockState)
 		// state.getBlock().getExtendedState(state, world, pos);
 
 		List<BakedQuad> result = Lists.newArrayList();
 		this.addQuads(result, pole, 0, 0, state, side, rand);
-	
+
 		if (state == null) {
 			return result;
 		}
@@ -177,10 +177,8 @@ public class DelayedBaker_RopeFence extends DelayedBaker implements ICustomModel
 	}
 
 	@Override
-	public IBakedModel bake(IModelState state, VertexFormat format,
-			java.util.function.Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
-		this.bakeInfo(format, bakedTextureGetter,
-				new ResourceLocation(References.MODID, "blocks/clean_plank_spruce"));
+	public IBakedModel bake(IModelState state, VertexFormat format, java.util.function.Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
+		this.bakeInfo(format, bakedTextureGetter, new ResourceLocation(References.MODID, "blocks/clean_plank_spruce"));
 		return this;
 	}
 

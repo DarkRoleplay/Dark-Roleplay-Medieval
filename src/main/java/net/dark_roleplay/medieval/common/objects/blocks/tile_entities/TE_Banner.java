@@ -42,14 +42,12 @@ public class TE_Banner extends TileEntity{
 
 	@Override
 	public NBTTagCompound getUpdateTag() {
-		if(this.image == null) return null;
-		return this.image.write();
+		return super.getUpdateTag();
 	}
 
 	@Override
 	public void handleUpdateTag(NBTTagCompound compound) {
-		if(compound != null)
-			this.image = ImageHelper.read(compound);
+		super.handleUpdateTag(compound);
 	}
 
 	@Override

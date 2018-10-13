@@ -36,7 +36,7 @@ public abstract class DelayedBaker implements IBakedModel, IModel{
 	}
 
 	protected void addQuads(List<BakedQuad> quads, IModel model, int yRotate, int xRotate, IBlockState state, EnumFacing side, long rand){
-		TRSRTransformation transform = new TRSRTransformation(ModelRotation.getModelRotation(xRotate, yRotate));
+		TRSRTransformation transform = TRSRTransformation.from(ModelRotation.getModelRotation(xRotate, yRotate));
 		IBakedModel baked = model.bake(transform, this.format, this.textureGetter);
 		quads.addAll(baked.getQuads(state, side,  rand));
 	}

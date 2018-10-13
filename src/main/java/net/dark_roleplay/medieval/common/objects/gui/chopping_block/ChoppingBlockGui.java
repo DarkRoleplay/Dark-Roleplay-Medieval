@@ -1,4 +1,4 @@
-package net.dark_roleplay.medieval.common.objects.gui.general_storage;
+package net.dark_roleplay.medieval.common.objects.gui.chopping_block;
 
 import net.dark_roleplay.library.experimental.guis.modular.ModularGui_Drawer;
 import net.dark_roleplay.medieval.References;
@@ -7,13 +7,13 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.util.ResourceLocation;
 
-public class GeneralGui extends GuiContainer{
+public class ChoppingBlockGui extends GuiContainer{
 
-    private static final ResourceLocation background = new ResourceLocation(References.MODID, "textures/guis/storage/dynamic_storage.png");
-
-	public GeneralGui(Container inventorySlots) {
+    public ChoppingBlockGui(Container inventorySlots) {
 		super(inventorySlots);
 	}
+
+	private static final ResourceLocation background = new ResourceLocation(References.MODID, "textures/guis/storage/dynamic_storage.png");
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks){
@@ -29,7 +29,7 @@ public class GeneralGui extends GuiContainer{
 
 		ModularGui_Drawer.drawBackground(posX, posY, this.xSize, this.ySize);
 
-        this.mc.getTextureManager().bindTexture(GeneralGui.background);
+        this.mc.getTextureManager().bindTexture(background);
         for(Slot slot : this.inventorySlots.inventorySlots){
         	this.drawTexturedModalRect((posX + slot.xPos) - 1, (posY + slot.yPos) - 1, 0, 238, 18, 18);
 

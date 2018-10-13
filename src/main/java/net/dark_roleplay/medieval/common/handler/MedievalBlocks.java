@@ -20,6 +20,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Craft
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_DrawBanner;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_FlowerContainer;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.FacedBoundingBox;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.chopping_block.ChoppingBlockActivation;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.AxisBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.PillarBlock;
@@ -56,6 +57,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.LitWall
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.UnlitWallMount;
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.WallMounted;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Banner;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ChoppingBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FlowerContainer;
@@ -159,8 +161,9 @@ public class MedievalBlocks {
 					new FacedBlock(mat.getName() + "_chopping_block", Settings.WOOD_DECO)
 						.addBehaviors(
 								new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.75f, 0.9375f)),
-								new Behavior_CraftingStation()
-						),
+								new ChoppingBlockActivation()
+								//new Behavior_CraftingStation()
+						).setTileEntityFactory(TE_ChoppingBlock::new),
 					new DRPBlock(mat.getName() + "_crate", Settings.WOOD_DECO)
 						.addBehaviors(
 								new Behavior_Container()).setTileEntityFactory(() -> new DynamicStorageTileEntity(18)
@@ -366,7 +369,7 @@ public class MedievalBlocks {
 		//New Storage
 		GameRegistry.registerTileEntity(TE_FluidBarrel.class, new ResourceLocation(References.MODID, "tile_entity_fluid_barrel"));
 		GameRegistry.registerTileEntity(TE_Shelf.class, new ResourceLocation(References.MODID, "te_shelf"));
-
+		GameRegistry.registerTileEntity(TE_ChoppingBlock.class, new ResourceLocation(References.MODID, "te_chopping_block"));
 
 		GameRegistry.registerTileEntity(TE_ClockCore.class, new ResourceLocation(References.MODID, "te_clock_core"));
 		GameRegistry.registerTileEntity(TE_ShopSign.class, new ResourceLocation(References.MODID,"te_shop_sign"));

@@ -62,6 +62,10 @@ public class MedievalItems {
 	public static final Item LANTERN = null;
 	public static final Item BEESWAX_CANDLE = null;
 
+	public static final Item COIN_BRONZE = null;
+	public static final Item COIN_SILVER = null;
+	public static final Item COIN_GOLDEN = null;
+
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Item> registryEvent) {
 		IForgeRegistry<Item> reg = registryEvent.getRegistry();

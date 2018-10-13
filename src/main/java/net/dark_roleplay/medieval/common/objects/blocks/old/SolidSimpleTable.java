@@ -32,9 +32,7 @@ public class SolidSimpleTable extends Block{
 		this.setHardness(2F);
 		this.setHarvestLevel("axe", 0);
 		this.setSoundType(SoundType.WOOD);
-		this.setDefaultState(
-				this.getDefaultState()
-			);
+		this.setDefaultState(this.getDefaultState());
 	}
 
 	@Override
@@ -53,7 +51,7 @@ public class SolidSimpleTable extends Block{
 	}
 
 	@Override
-	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
+	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos){
 		if(!(state instanceof IExtendedBlockState)) return state;
 
 		IExtendedBlockState stateCopy = (IExtendedBlockState) state;

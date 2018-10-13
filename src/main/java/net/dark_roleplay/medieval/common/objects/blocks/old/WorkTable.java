@@ -17,14 +17,14 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class WorkTable extends Block{
-	
+
 	//TODO ROTATION
-	
-    public static final PropertyEnum<EnumAxis> TABLE_AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class);
+
+    public static final PropertyEnum<EnumAxis> TABLE_AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class, EnumAxis.X, EnumAxis.Z);
     public static final PropertyBool WEST = PropertyBool.create("west");
     public static final PropertyBool EAST = PropertyBool.create("east");
 
-    
+
 	public WorkTable(String registryName) {
 		super(Material.WOOD);
 		this.setRegistryName(registryName);
@@ -50,7 +50,7 @@ public class WorkTable extends Block{
 	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing){
         return BlockFaceShape.UNDEFINED;
     }
-	
+
 	@Override
 	public int getMetaFromState(IBlockState state) {
 
@@ -60,7 +60,8 @@ public class WorkTable extends Block{
 
 		return 0;
 	}
-	
+
+	@Override
 	@Deprecated
     public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos){
 		boolean west = false, east = false;
@@ -77,7 +78,7 @@ public class WorkTable extends Block{
 		}
         return state.withProperty(WEST, west).withProperty(EAST, east);
     }
-	
+
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] {TABLE_AXIS, EAST, WEST});
@@ -92,10 +93,10 @@ public class WorkTable extends Block{
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-	
-	
+
+
 	@Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){	
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 		switch(placer.getHorizontalFacing().getOpposite()){
 		case EAST:
 		case WEST:
@@ -107,7 +108,7 @@ public class WorkTable extends Block{
 	        return this.getDefaultState().withProperty(TABLE_AXIS, EnumAxis.X);
 		}
     }
-	
+
     @Override
 	public boolean isSideSolid(IBlockState base_state, IBlockAccess world, BlockPos pos, EnumFacing side){
     	if(side == EnumFacing.UP)

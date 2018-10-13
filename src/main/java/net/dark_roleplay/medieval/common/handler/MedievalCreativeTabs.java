@@ -12,10 +12,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class MedievalCreativeTabs {
+
 	@ItemStackHolder(value = References.MODID + ":hay")
 	public static final ItemStack MISCELLANEOUS_ICON = null;
 
-	@ItemStackHolder(value = References.MODID + ":leather_purse")
+	@ItemStackHolder(value = References.MODID + ":bone_war_horn")
 	public static final ItemStack EQUIPMENT_ICON = null;
 
 	@ItemStackHolder(value = References.MODID + ":cooked_catfish")
@@ -31,27 +32,27 @@ public class MedievalCreativeTabs {
 	public static final ItemStack DECORATION_ICON = null;
 
 	public static final DRPCreativeTab DECORATION = new DRPCreativeTab("drpm_deco") {
-		public ItemStack getTabIconItem() {return DECORATION_ICON;}
+		@Override public ItemStack createIcon() {return DECORATION_ICON;}
 	};
 
 	public static final DRPCreativeTab BUILDING_MATS = new DRPCreativeTab("drpm_build_mats") {
-		public ItemStack getTabIconItem() {return BUILDING_ICON;}
+		@Override public ItemStack createIcon() {	return BUILDING_ICON;}
 	};
 
 	public static final DRPCreativeTab UTILITY = new DRPCreativeTab("drpm_utility") {
-		public ItemStack getTabIconItem() {return UTILITY_ICON;}
+		@Override public ItemStack createIcon() {return UTILITY_ICON;}
 	};
 
 	public static final DRPCreativeTab FOOD = new DRPCreativeTab("drpm_food") {
-		public ItemStack getTabIconItem() {return FOOD_ICON;}
+		@Override public ItemStack createIcon() {return FOOD_ICON;}
 	};
 
 	public static final DRPCreativeTab EQUIPMENT = new DRPCreativeTab("drpm_equip") {
-		public ItemStack getTabIconItem() {return EQUIPMENT_ICON;}
+		@Override public ItemStack createIcon() {return EQUIPMENT_ICON;}
 	};
 
 	public static final DRPCreativeTab MISCELLANEOUS = new DRPCreativeTab("drpm_misc") {
-		public ItemStack getTabIconItem() {return MISCELLANEOUS_ICON;}
+		@Override public ItemStack createIcon() {return MISCELLANEOUS_ICON;}
 	};
 
 	private static class DRPCreativeTab extends CreativeTabs{

@@ -38,9 +38,7 @@ public class SimpleTable extends Block{
 		this.setHardness(2F);
 		this.setHarvestLevel("axe", 0);
 		this.setSoundType(SoundType.WOOD);
-		this.setDefaultState(
-				this.getDefaultState()
-			);
+		this.setDefaultState(this.getDefaultState());
 	}
 
 	@Override
@@ -61,19 +59,30 @@ public class SimpleTable extends Block{
     }
 
 	@Override
-	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
+	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos){
 		if(!(state instanceof IExtendedBlockState)) return state;
 
 		IExtendedBlockState stateCopy = (IExtendedBlockState) state;
 
-		stateCopy = stateCopy.withProperty(NORTH_LEFT, world.getBlockState(pos.north().west()).getBlock() == this);
-		stateCopy = stateCopy.withProperty(NORTH_CENTER, world.getBlockState(pos.north()).getBlock() == this);
-		stateCopy = stateCopy.withProperty(NORTH_RIGHT, world.getBlockState(pos.north().east()).getBlock() == this);
-		stateCopy = stateCopy.withProperty(SOUTH_LEFT, world.getBlockState(pos.south().west()).getBlock() == this);
-		stateCopy = stateCopy.withProperty(SOUTH_CENTER, world.getBlockState(pos.south()).getBlock() == this);
-		stateCopy = stateCopy.withProperty(SOUTH_RIGHT, world.getBlockState(pos.south().east()).getBlock() == this);
-		stateCopy = stateCopy.withProperty(CENTER_LEFT, world.getBlockState(pos.west()).getBlock() == this);
-		stateCopy = stateCopy.withProperty(CENTER_RIGHT, world.getBlockState(pos.east()).getBlock() == this);
+		if(state.getValue(AXIS_HORIZONTAL) == EnumFacing.Axis.Z) {
+			stateCopy = stateCopy.withProperty(NORTH_LEFT, world.getBlockState(pos.north().west()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(NORTH_CENTER, world.getBlockState(pos.north()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(NORTH_RIGHT, world.getBlockState(pos.north().east()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(SOUTH_LEFT, world.getBlockState(pos.south().west()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(SOUTH_CENTER, world.getBlockState(pos.south()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(SOUTH_RIGHT, world.getBlockState(pos.south().east()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(CENTER_LEFT, world.getBlockState(pos.west()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(CENTER_RIGHT, world.getBlockState(pos.east()).getBlock() == this);
+		}else if(state.getValue(AXIS_HORIZONTAL) == EnumFacing.Axis.X) {
+			stateCopy = stateCopy.withProperty(NORTH_LEFT, world.getBlockState(pos.east().north()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(NORTH_CENTER, world.getBlockState(pos.east()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(NORTH_RIGHT, world.getBlockState(pos.east().south()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(SOUTH_LEFT, world.getBlockState(pos.west().north()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(SOUTH_CENTER, world.getBlockState(pos.west()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(SOUTH_RIGHT, world.getBlockState(pos.west().south()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(CENTER_LEFT, world.getBlockState(pos.north()).getBlock() == this);
+			stateCopy = stateCopy.withProperty(CENTER_RIGHT, world.getBlockState(pos.south()).getBlock() == this);
+		}
 
 		return stateCopy;
 	}

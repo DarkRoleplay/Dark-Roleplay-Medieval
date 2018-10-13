@@ -13,6 +13,9 @@
 		},{
 			"input" : "drpmedieval:arg/models/items/firewood.json",
 			"output" : "drpmedieval:models/item/firewood/%wood%_firewood.json"
+		},{
+			"input" : "drpmedieval:arg/models/items/planks.json",
+			"output" : "drpmedieval:models/item/planks/%wood%_planks.json"
 		}
 	]
 }
