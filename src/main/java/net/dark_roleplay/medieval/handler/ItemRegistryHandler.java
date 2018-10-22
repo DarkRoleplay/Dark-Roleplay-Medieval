@@ -70,6 +70,7 @@ public class ItemRegistryHandler {
 			new DRPFood(4, 0.6F, "cauliflower", ResourceFolders.Items.VEGETABLES + "/cauliflower", 64),
 			new DRPFood(2, 0.4F, "garlic", ResourceFolders.Items.VEGETABLES + "/garlic", 64),
 			new DRPFood(2, 0.4F, "onion", ResourceFolders.Items.VEGETABLES + "/onion", 64),
+			new DRPFood(2, 0.4F, "bell_pepper", ResourceFolders.Items.VEGETABLES + "/bell_pepper", 64),
 			new DRPFood(6, 0.5F, "pumpkin_bread", ResourceFolders.Items.BAKEWARES + "/breads", 64),
 			new DRPMStew(8, 0.5F, "chicken_stew", ResourceFolders.Items.STEWS),
 			new DRPMStew(7, 0.5F, "cod_stew", ResourceFolders.Items.STEWS),
