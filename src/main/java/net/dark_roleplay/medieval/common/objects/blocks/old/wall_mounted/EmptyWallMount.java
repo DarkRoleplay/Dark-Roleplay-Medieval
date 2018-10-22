@@ -6,7 +6,7 @@ import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.F
 import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.POWERED;
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
-import net.dark_roleplay.medieval.common.handler.MedievalItems;
+import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;

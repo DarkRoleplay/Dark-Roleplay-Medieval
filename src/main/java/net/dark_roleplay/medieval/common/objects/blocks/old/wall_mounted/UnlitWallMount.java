@@ -1,12 +1,15 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted;
 
-import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.*;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.ADDON_LIGHTER;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.ADDON_TRAP;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING_HORIZONTAL;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.POWERED;
 
 import java.util.List;
 import java.util.Random;
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
-import net.dark_roleplay.medieval.common.handler.MedievalItems;
+import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
@@ -33,21 +36,21 @@ public class UnlitWallMount extends EmptyWallMount {
 
 	@ObjectHolder("drpmedieval:trigger_trap")
 	private static Item trap;
-	
+
 	@ObjectHolder("minecraft:flint")
 	private static Item lighter;
 
 	private Item emptyItem;
 	private Block lit;
 	private Item mountObject;
-	
+
 	public UnlitWallMount(String name, BlockSettings settings, AxisAlignedBB northBB) {
 		super(name, settings, northBB);
 		this.setHarvestLevel("pickaxe", 0);
 	}
 
 	// -------------------------------------------------- Block Data --------------------------------------------------
-	
+
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		IBlockState state = super.getStateFromMeta(meta);
@@ -68,15 +71,15 @@ public class UnlitWallMount extends EmptyWallMount {
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] {FACING_HORIZONTAL, ADDON_LIGHTER, ADDON_TRAP, POWERED});
 	}
-	
-	
+
+
 	@Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 		return this.getDefaultState().withProperty(FACING_HORIZONTAL, facing).withProperty(ADDON_TRAP, false).withProperty(ADDON_LIGHTER, false).withProperty(POWERED, false);
 	}
-	
+
 	// -------------------------------------------------- Block Events --------------------------------------------------
-	
+
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos){
 		EnumFacing enumfacing = state.getValue(FACING_HORIZONTAL);
@@ -90,17 +93,17 @@ public class UnlitWallMount extends EmptyWallMount {
 				.withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(POWERED, state.getValue(POWERED))
 			);
 		}
-		
+
 		super.neighborChanged(state, world, pos, block, fromPos);
 	}
-	
+
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(!world.isRemote){
 			boolean hasTrap = state.getValue(ADDON_TRAP);
 			boolean hasLighter = state.getValue(ADDON_LIGHTER);
 			ItemStack heldStack = player.getHeldItem(hand);
-			
+
 			if(heldStack.isEmpty()){
 				if(hasTrap){
 					state = state.cycleProperty(POWERED);
@@ -110,15 +113,15 @@ public class UnlitWallMount extends EmptyWallMount {
 					world.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 1F, 1F, true);
 					world.notifyNeighborsOfStateChange(pos.offset(state.getValue(FACING_HORIZONTAL).getOpposite()), state.getBlock(),false);
 				}else if(hasLighter){
-					
+
 				}
 			}else if(heldStack.getItem() == this.trap && !hasTrap){
 				player.getHeldItem(hand).shrink(1);
-				spawnAddons(world, pos, state);
+				this.spawnAddons(world, pos, state);
 				world.setBlockState(pos, state.withProperty(FACING_HORIZONTAL, state.getValue(FACING_HORIZONTAL)).withProperty(ADDON_LIGHTER, false).withProperty(ADDON_TRAP, true));
 			}else if(heldStack.getItem() == this.lighter && !hasTrap){
 				player.getHeldItem(hand).shrink(1);
-				spawnAddons(world, pos, state);
+				this.spawnAddons(world, pos, state);
 				world.setBlockState(pos, state.withProperty(FACING_HORIZONTAL, state.getValue(FACING_HORIZONTAL)).withProperty(ADDON_LIGHTER, true).withProperty(ADDON_TRAP, false));
 			}else if(heldStack.getItem() == Items.FLINT_AND_STEEL){
 				player.getHeldItem(hand).attemptDamageItem(1, new Random(), (EntityPlayerMP) player);
@@ -127,24 +130,24 @@ public class UnlitWallMount extends EmptyWallMount {
 		}
 		return true;
 	}
-	
+
 	@Override
     public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune){
 		NonNullList<ItemStack> stacks = NonNullList.create();
-		
+
 		if(state.getValue(ADDON_LIGHTER)){
 			stacks.add(new ItemStack(Items.FLINT, 1));
 		}
 		if(state.getValue(ADDON_TRAP)){
 			stacks.add(new ItemStack(MedievalItems.TRIGGER_TRAP, 1));
 		}
-		
-		stacks.add(new ItemStack(emptyItem == null ? emptyItem = Item.getByNameOrId(this.getRegistryName().toString().replace("_unlit", "_empty")) : emptyItem));
+
+		stacks.add(new ItemStack(this.emptyItem == null ? this.emptyItem = Item.getByNameOrId(this.getRegistryName().toString().replace("_unlit", "_empty")) : this.emptyItem));
 		stacks.add(new ItemStack(this.mountObject));
 
 		return stacks;
 	}
-	
+
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 		if(!world.isRemote){
@@ -156,12 +159,12 @@ public class UnlitWallMount extends EmptyWallMount {
 		}
 
 	}
-	
+
 	@Override
 	public int getWeakPower(IBlockState state, IBlockAccess blockAccess, BlockPos pos, EnumFacing side){
 		return state.getValue(POWERED).booleanValue() ? 15 : 0;
 	}
-	
+
 	@Override
 	public int getStrongPower(IBlockState state, IBlockAccess blockAccess, BlockPos pos, EnumFacing side){
 		EnumFacing Facing = EnumFacing.SOUTH;
@@ -169,6 +172,7 @@ public class UnlitWallMount extends EmptyWallMount {
 		return !state.getValue(POWERED).booleanValue() ? 0 : (Facing == side ? 15 : 0);
 	}
 
+	@Override
 	public void init(Block lit, Item mountObject){
 		this.lit = lit;
 		this.mountObject = mountObject;

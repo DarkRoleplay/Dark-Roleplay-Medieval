@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Random;
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
-import net.dark_roleplay.medieval.common.handler.MedievalItems;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
+import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
@@ -28,7 +28,7 @@ import net.minecraft.world.World;
 public class SidewayBarrel extends FacedBlock {
 
 	public static final PropertyBool TAP = PropertyBool.create("tap");
-	
+
 	public SidewayBarrel (String name, BlockSettings settings) {
 		super(name, settings);
 	}
@@ -61,7 +61,7 @@ public class SidewayBarrel extends FacedBlock {
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		int i = state.getValue(TAP).booleanValue() ? 4 : 0;
-		EnumFacing facing = (EnumFacing) state.getValue(FACING_HORIZONTAL);
+		EnumFacing facing = state.getValue(FACING_HORIZONTAL);
 		if (facing.equals(EnumFacing.NORTH))
 			return 0 + i;
 		if (facing.equals(EnumFacing.EAST))
@@ -88,42 +88,42 @@ public class SidewayBarrel extends FacedBlock {
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 		return super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(TAP, false);
 	}
-	
+
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(!world.isRemote){
 			if(player.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(MedievalItems.TAP) && !state.getValue(TAP).booleanValue()){
-				world.setBlockState(pos, state.withProperty(TAP,true));		
+				world.setBlockState(pos, state.withProperty(TAP,true));
 				if(!player.capabilities.isCreativeMode) player.getHeldItem(hand).shrink(1);
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	@Override
 	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune){
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
 
         Random rand = world instanceof World ? ((World)world).rand : RANDOM;
 
-        int count = quantityDropped(state, fortune, rand);
+        int count = this.quantityDropped(state, fortune, rand);
         for(int i = 0; i < count; i++){
             Item item = this.getItemDropped(state, rand, fortune);
             if (item != Items.AIR){
                 ret.add(new ItemStack(item, 1, this.damageDropped(state)));
             }
         }
-        
+
         if(state.getValue(TAP)){
         	ret.add(new ItemStack(MedievalItems.TAP, 1, 0));
         }
-        
+
         return ret;
     }
 }

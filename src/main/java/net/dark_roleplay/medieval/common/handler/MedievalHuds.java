@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.core.modules.hud.Hud;
+import net.dark_roleplay.core_modules.guis.api.huds.Hud;
 import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.client.objects.huds.TimberedClayHud;
 import net.minecraft.util.ResourceLocation;

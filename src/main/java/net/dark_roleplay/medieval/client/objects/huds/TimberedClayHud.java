@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import com.google.gson.JsonObject;
 
-import net.dark_roleplay.core.modules.hud.Hud;
+import net.dark_roleplay.core_modules.guis.api.huds.Hud;
 import net.dark_roleplay.medieval.common.objects.blocks.old.TimberedClay;
 import net.dark_roleplay.medieval.common.objects.blocks.old.TimberedClay.ClickInfo;
 import net.dark_roleplay.medieval.common.objects.blocks.old.TimberedClay.ClickLoc;

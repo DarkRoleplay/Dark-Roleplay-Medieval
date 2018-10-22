@@ -1,8 +1,8 @@
 package net.dark_roleplay.medieval.common.objects.blocks.behaviors;
 
 import net.dark_roleplay.library.experimental.blocks.behaviors.IActivatedBehavior;
-import net.dark_roleplay.medieval.common.handler.MedievalItems;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
+import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -16,7 +16,7 @@ public class Behavior_ClockCore implements IActivatedBehavior{
 
 	@Override
 	public boolean execute(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if(player.getHeldItemMainhand().getItem() == MedievalItems.WOODEN_WRENCH){
+		if(player.getHeldItemMainhand().getItem() == MedievalItems.WOOD_WRENCH){
 			TileEntity te = world.getTileEntity(pos);
 			if(te != null && te instanceof TE_ClockCore){
 				TE_ClockCore teCC = (TE_ClockCore) te;

@@ -65,8 +65,12 @@ repositories {
 		url = "http://dvs1.progwml6.com/files/maven"
 	}
 	maven {
-		name = "DarkRoleplayMaven"
-		url = "https://dark-roleplay.net/files/maven/"
+		name = "Dark Roleplay"
+		url = "https://maven.dark-roleplay.net"
+	}
+	maven {
+		name = "Stop Mod Reposts"
+		url = "https://mvn.stopmodreposts.org/"
 	}
 	maven{
 		name = "BoP"
@@ -81,9 +85,12 @@ dependencies {
 	runtime "mezz.jei:jei_${mc_version}:${jei_version}"
   	runtime "com.github.glitchfiend.biomesoplenty:BiomesOPlenty:1.12.2-7.0.1.2399:universal"
 	
+	
+	embed "org.stopmodreposts:stopmodreposts:${mc_version}-${stopmodreposts_version}"
+
+	embed "net.dark_roleplay:drplibrary:${mc_version}-${drp_library_version}"
+
 	deobfProvided "darkroleplay:drpcore:${mc_version}-${drp_core_version}"
-	embed "darkroleplay:drplibrary:${mc_version}-${drp_library_version}"
-	deobfProvided "darkroleplay.core_modules:drpcmblueprints:${mc_version}-${drp_core_module_blueprints_version}"
 	deobfProvided "darkroleplay.core_modules:drpcmdates:${mc_version}-${drp_core_module_dates_version}"
 	deobfProvided "darkroleplay.core_modules:drpcmcrops:${mc_version}-${drp_core_module_crops_version}"	
 	deobfProvided "darkroleplay.core_modules:drpcmmaarg:${mc_version}-${drp_core_module_maarg_version}"

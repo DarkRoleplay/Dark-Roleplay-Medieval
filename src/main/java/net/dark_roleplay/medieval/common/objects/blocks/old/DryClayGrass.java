@@ -4,7 +4,7 @@ import java.util.Random;
 
 import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.MedievalCreativeTabs;
-import net.dark_roleplay.medieval.common.handler.MedievalItems;
+import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;

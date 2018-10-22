@@ -81,6 +81,7 @@ import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityRop
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityTarget;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntity_Lectern;
+import net.dark_roleplay.medieval.handler.ItemRegistryHandler;
 import net.dark_roleplay.medieval.testing.blocks.spinning_wheel.SpinningWheel;
 import net.dark_roleplay.medieval.testing.blocks.spinning_wheel.SpinningWheelTileEntity;
 import net.minecraft.block.Block;
@@ -387,7 +388,7 @@ public class MedievalBlocks {
 		for(Block block : blocks){
 			block.setCreativeTab(creativeTab);
 			ItemBlock itemBlock = (ItemBlock) new ItemBlock(block).setRegistryName(block.getRegistryName());
-			MedievalItems.addBlockItem(itemBlock);
+			ItemRegistryHandler.addBlockItem(itemBlock);
 			MedievalModels.addItemToRegisterMesh(itemBlock);
 		}
 		reg.registerAll(blocks);

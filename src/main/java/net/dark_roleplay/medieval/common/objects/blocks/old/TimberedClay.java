@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import net.dark_roleplay.medieval.common.handler.MedievalItems;
+import net.dark_roleplay.medieval.common.handler.MedievalItemsOld;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -147,7 +147,7 @@ public class TimberedClay extends Block{
 		if(this.woodBeamAmount + frameAmount > 0)
 			stacks.add(new ItemStack(this.woodBeamItem == null ? this.woodBeamItem = Item.getByNameOrId(this.getRegistryName().toString().split("_timbered_clay")[0] + "_wood_beam") : this.woodBeamItem, this.woodBeamAmount + frameAmount));
 
-		stacks.add(new ItemStack(MedievalItems.TIMBERED_CLAY, 1));
+		stacks.add(new ItemStack(MedievalItemsOld.TIMBERED_CLAY, 1));
 
 		return stacks;
     }

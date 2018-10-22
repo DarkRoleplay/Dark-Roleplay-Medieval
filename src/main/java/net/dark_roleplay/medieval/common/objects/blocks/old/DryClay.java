@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.common.objects.blocks.old;
 import java.util.Random;
 
 import net.dark_roleplay.medieval.common.handler.MedievalCreativeTabs;
-import net.dark_roleplay.medieval.common.handler.MedievalItems;
+import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
@@ -24,7 +24,7 @@ public class DryClay extends Block{
 	    this.setHardness(0.6F);
 	    this.setSoundType(SoundType.GROUND);
 	    this.setHarvestLevel("shovel", -1);
-    }	
+    }
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune){

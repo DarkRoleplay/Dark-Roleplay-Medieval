@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.common.objects.blocks.old;
 import java.util.Random;
 
 import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
-import net.dark_roleplay.medieval.common.handler.MedievalItems;
+import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -31,7 +31,7 @@ public class Hops extends Block {
 
 	//0-3 Growing till fully grown, 4-7  fruit levels
 	public static PropertyInteger AGE = PropertyInteger.create("age", 0, 7);
-	
+
 	public Hops(String registryName) {
 		super(Material.PLANTS);
 		this.setRegistryName(registryName);
@@ -39,10 +39,12 @@ public class Hops extends Block {
 		this.setTickRandomly(true);
 	}
 
+	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
+	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
@@ -56,7 +58,7 @@ public class Hops extends Block {
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] {AGE});
 	}
-	
+
 	public boolean canGrow(IBlockState state) {
 		return state.getValue(AGE).intValue() < 7 ? true : false;
 	}
@@ -68,18 +70,19 @@ public class Hops extends Block {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return ((Integer) state.getValue(AGE)).intValue();
+		return state.getValue(AGE).intValue();
 	}
-	
+
 	@SideOnly(Side.CLIENT)
     public BlockRenderLayer getBlockLayer(){
         return BlockRenderLayer.CUTOUT;
     }
-	
+
+	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune){
         return Item.getItemFromBlock(MedievalBlocks.ROPE);
     }
-	
+
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return new AxisAlignedBB(0.375F, 0F, 0.375F,  0.625F, 1F, 0.625F);
@@ -89,18 +92,18 @@ public class Hops extends Block {
 	public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
 		return true;
 	}
-	
+
 //	public boolean canPlaceBlockAt(World worldIn, BlockPos pos){
 //        IBlockState soil = worldIn.getBlockState(pos.down());
 //        return super.canPlaceBlockAt(worldIn, pos) && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
 //    }
-	
+
 	protected boolean canSustainBush(IBlockState state){
         return state.getBlock() == Blocks.GRASS || state.getBlock() == Blocks.DIRT || state.getBlock() == Blocks.FARMLAND;
     }
-	
+
 	// -------------------------------------------------- Block Events --------------------------------------------------
-	
+
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(!world.isRemote){
@@ -111,15 +114,15 @@ public class Hops extends Block {
 		}
 		return true;
 	}
-	
+
 	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
 
 		super.updateTick(worldIn, pos, state, rand);
 
-		int i = ((Integer) state.getValue(AGE)).intValue();
+		int i = state.getValue(AGE).intValue();
 
-		if(canGrow(state)){
+		if(this.canGrow(state)){
 			if((i < 4 && rand.nextInt(10) == 0) || (i >= 4 && rand.nextInt(5) == 0)){
 				if(state.getValue(AGE).intValue() == 3){
 					if(worldIn.getBlockState(pos.up()).getBlock() == MedievalBlocks.ROPE){

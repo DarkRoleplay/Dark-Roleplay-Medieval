@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class MedievalCreativeTabs {
 
 	@ItemStackHolder(value = References.MODID + ":hay")
-	public static final ItemStack MISCELLANEOUS_ICON = null;
+	public static final ItemStack MATERIALS_ICON = null;
 
 	@ItemStackHolder(value = References.MODID + ":bone_war_horn")
 	public static final ItemStack EQUIPMENT_ICON = null;
@@ -51,8 +51,8 @@ public class MedievalCreativeTabs {
 		@Override public ItemStack createIcon() {return EQUIPMENT_ICON;}
 	};
 
-	public static final DRPCreativeTab MISCELLANEOUS = new DRPCreativeTab("drpm_misc") {
-		@Override public ItemStack createIcon() {return MISCELLANEOUS_ICON;}
+	public static final DRPCreativeTab MATERIALS = new DRPCreativeTab("drpm_misc") {
+		@Override public ItemStack createIcon() {return MATERIALS_ICON;}
 	};
 
 	private static class DRPCreativeTab extends CreativeTabs{

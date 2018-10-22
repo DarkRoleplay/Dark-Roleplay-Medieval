@@ -11,10 +11,10 @@ import net.minecraft.world.World;
 
 public class BarkAndGlue extends DRPItem{
 
-	public BarkAndGlue(String registryName, int stackSize) {
-		super(registryName, stackSize);
+	public BarkAndGlue(String registryName, String folder, int stackSize) {
+		super(registryName, folder, stackSize);
 	}
-	
+
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(world.getBlockState(pos).getBlock() instanceof BlockLog){

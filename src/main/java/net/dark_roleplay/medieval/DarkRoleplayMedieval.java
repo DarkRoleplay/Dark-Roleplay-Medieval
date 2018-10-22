@@ -23,13 +23,13 @@ import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderM
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderRopeAnchor;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderShipsWheel;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderTarget;
+import net.dark_roleplay.medieval.client.objects.items.color_handlers.PaintBrushColors;
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_HangingBridge;
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_RopeFence;
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_Timbering;
 import net.dark_roleplay.medieval.client.objects.model_loaders.MultiLayerModelLoader;
 import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.MedievalGuis;
-import net.dark_roleplay.medieval.common.handler.MedievalItems;
 import net.dark_roleplay.medieval.common.handler.MedievalMappings;
 import net.dark_roleplay.medieval.common.handler.MedievalPackets;
 import net.dark_roleplay.medieval.common.handler.MedievalVillagers;
@@ -54,6 +54,7 @@ import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityMor
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityRopeAnchor;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityTarget;
+import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.dark_roleplay.medieval.testing.Keybinds;
 import net.dark_roleplay.medieval.testing.blockstate_loading.CustomBlockstateLoader;
 import net.minecraft.block.state.IBlockState;
@@ -117,16 +118,18 @@ public class DarkRoleplayMedieval {
 		MedievalBlocks.CANDLE_HOLDER_EMPTY.init(MedievalBlocks.CANDLE_HOLDER_UNLIT, Item.getItemFromBlock(MedievalBlocks.BEESWAX_CANDLE));
 		MedievalBlocks.TORCH_HOLDER_EMPTY.init(MedievalBlocks.TORCH_HOLDER_UNLIT, Item.getItemFromBlock(Blocks.TORCH));
 
-		MedievalBlocks.SALPETER_ORE.init(MedievalItems.ORE_CHUNK_SALPETER);
-		MedievalBlocks.SILVER_ORE.init(MedievalItems.ORE_CHUNK_SILVER);
-		MedievalBlocks.TIN_ORE.init(MedievalItems.ORE_CHUNK_TIN);
-		MedievalBlocks.COPPER_ORE.init(MedievalItems.ORE_CHUNK_COPPER);
-		MedievalBlocks.SULFUR_ORE.init(MedievalItems.ORE_CHUNK_SULFUR);
+		MedievalBlocks.SALPETER_ORE.init(MedievalItems.SALPETER_ORE_CHUNK);
+		MedievalBlocks.SILVER_ORE.init(MedievalItems.SILVER_ORE_CHUNK);
+		MedievalBlocks.TIN_ORE.init(MedievalItems.TIN_ORE_CHUNK);
+		MedievalBlocks.COPPER_ORE.init(MedievalItems.COPPER_ORE_CHUNK);
+		MedievalBlocks.SULFUR_ORE.init(MedievalItems.SULFUR_ORE_CHUNK);
 
-		GameRegistry.addSmelting(MedievalItems.DOUGH, new ItemStack(Items.BREAD), 0.1f);
+		GameRegistry.addSmelting(MedievalItems.WHEAT_DOUGH, new ItemStack(Items.BREAD), 0.1f);
+		GameRegistry.addSmelting(MedievalItems.BARLEY_DOUGH, new ItemStack(Items.BREAD), 0.1f);
 		GameRegistry.addSmelting(MedievalItems.RAW_WOLF, new ItemStack(MedievalItems.COOKED_WOLF), 0.1f);
 		GameRegistry.addSmelting(MedievalItems.RAW_CATFISH, new ItemStack(MedievalItems.COOKED_CATFISH), 0.1f);
-		GameRegistry.addSmelting(MedievalItems.PUMPKIN_DOUGH, new ItemStack(MedievalItems.PUMPKIN_BREAD), 0.1f);
+		GameRegistry.addSmelting(MedievalItems.WHEAT_PUMPKIN_DOUGH, new ItemStack(MedievalItems.PUMPKIN_BREAD), 0.1f);
+		GameRegistry.addSmelting(MedievalItems.BARLEY_PUMPKIN_DOUGH, new ItemStack(MedievalItems.PUMPKIN_BREAD), 0.1f);
 		GameRegistry.addSmelting(Item.getItemFromBlock(Blocks.OBSIDIAN), new ItemStack(MedievalBlocks.OBSIDIAN_GLASS), 0.1f);
 		GameRegistry.addSmelting(Item.getItemFromBlock(MedievalBlocks.UNFIRED_VASE), new ItemStack(MedievalBlocks.FIRED_VASE), 0.1f);
 	}
@@ -202,6 +205,7 @@ public class DarkRoleplayMedieval {
 			    IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
 			    return color.colorMultiplier(iblockstate, (IBlockAccess)null, (BlockPos)null, tintIndex);
 			}, MedievalBlocks.DRY_CLAY_GRASS);
+			Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new PaintBrushColors(), MedievalItems.DIRTY_PAINTBRUSH);
 		}
 
 		@Override

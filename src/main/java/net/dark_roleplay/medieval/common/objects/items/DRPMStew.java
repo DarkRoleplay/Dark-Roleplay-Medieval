@@ -11,9 +11,9 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 public class DRPMStew extends DRPFood {
-	
-	public DRPMStew(int food, float saturation, String name) {
-		super(food, saturation, name, 1);
+
+	public DRPMStew(int food, float saturation, String name, String itemFolder) {
+		super(food, saturation, name, itemFolder, 1);
 	}
 
 	@Override

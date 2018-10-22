@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.testing.blocks.spinning_wheel;
 
 import javax.annotation.Nonnull;
 
-import net.dark_roleplay.medieval.common.handler.MedievalItems;
+import net.dark_roleplay.medieval.common.handler.MedievalItemsOld;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -28,7 +28,7 @@ public class ContainerSpinningWheel extends Container{
         addSlotToContainer(new SlotItemHandler(te.inventory, 3, 86, 34) {
         	@Override
             public boolean isItemValid(@Nonnull ItemStack stack){
-                return stack.getItem() == MedievalItems.SPINDLE && super.isItemValid(stack);
+                return stack.getItem() == MedievalItemsOld.SPINDLE && super.isItemValid(stack);
             }	
         });
 
