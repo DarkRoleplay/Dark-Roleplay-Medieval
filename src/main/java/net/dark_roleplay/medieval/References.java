@@ -17,7 +17,7 @@ public class References {
 	public static final String DEPENDECIES = "";
 	public static final String UPDATECHECK = "https://dark-roleplay.net/files/versions/drpmedieval/drpmedieval-1.12.2.json";
 	public static final List<String> AUTHORS = Arrays.asList("JTK222", "Rolfaal", "Kanno");
-	public static final String CREDITS = "Lead Programmer: JTK222, Artists: Rolfaal & Kanno";
+	public static final String CREDITS = "Lead Programmer: JTK222, Artists: Rolfaal & Kanno (https://twitter.com/lKanno_)";
     public static final Logger LOGGER = LogManager.getLogger(References.MODID);
 
     public static final int MAARG_VERSION = 1;
