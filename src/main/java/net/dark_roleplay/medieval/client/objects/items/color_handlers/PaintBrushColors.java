@@ -7,7 +7,7 @@ public class PaintBrushColors implements IItemColor {
 
 	@Override
 	public int colorMultiplier(ItemStack stack, int tintIndex) {
-		return 0;
+		return tintIndex == 1 ? 0x202020 : 0xFFFFFF;
 	}
 
 }
