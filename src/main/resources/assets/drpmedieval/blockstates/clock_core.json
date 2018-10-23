@@ -3,6 +3,7 @@
         "facing=north":{"model":"drpmedieval:clocks/clock_core"},
         "facing=east":{"model":"drpmedieval:clocks/clock_core", "y":90},
         "facing=south":{"model":"drpmedieval:clocks/clock_core", "y":180},
-        "facing=west":{"model":"drpmedieval:clocks/clock_core", "y":270}   
+        "facing=west":{"model":"drpmedieval:clocks/clock_core", "y":270},
+		"inventory":{"model":"drpmedieval:clocks/clock_core"}
     }
 }

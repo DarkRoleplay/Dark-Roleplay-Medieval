@@ -30,13 +30,13 @@ public class MedievalModels {
 		toRegisterMeshes = null;
 
 		// Old Blocks
-		registerItemMesh(MedievalBlocks.ANVIL);
-		registerItemMesh(MedievalBlocks.GRINDSTONE);
-		registerItemMesh(MedievalBlocks.HANGING_CAULDRON);
-		registerItemMesh(MedievalBlocks.MORTAR);
-		registerItemMesh(MedievalBlocks.CAULDRON);
-		registerItemMesh(MedievalBlocks.ROPE_ANCHOR);
-		registerItemMesh(MedievalBlocks.FIREPIT_LIT);
+		registerItemMesh("old_blocks", MedievalBlocks.ANVIL);
+		registerItemMesh("old_blocks", MedievalBlocks.GRINDSTONE);
+		registerItemMesh("old_blocks", MedievalBlocks.HANGING_CAULDRON);
+		registerItemMesh("old_blocks", MedievalBlocks.MORTAR);
+		registerItemMesh("old_blocks", MedievalBlocks.CAULDRON);
+		registerItemMesh("old_blocks", MedievalBlocks.ROPE_ANCHOR);
+		registerItemMesh("old_blocks", MedievalBlocks.FIREPIT_LIT);
 
 		//TODO FIX
 //		ModelLoader.registerItemVariants(TIMBERED_CLAY, TIMBERED_CLAY.getRegistryName());

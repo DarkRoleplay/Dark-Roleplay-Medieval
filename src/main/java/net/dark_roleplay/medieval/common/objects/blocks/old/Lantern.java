@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
-import net.dark_roleplay.medieval.common.handler.MedievalItemsOld;
+import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -96,10 +96,10 @@ public class Lantern extends Block{
     public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune){
 		NonNullList<ItemStack> stacks = NonNullList.create();
 
-		stacks.add(new ItemStack(MedievalItemsOld.LANTERN));
+		stacks.add(new ItemStack(MedievalItems.LANTERN));
 
 		if(state.getValue(CANDLE))
-			stacks.add(new ItemStack(MedievalItemsOld.BEESWAX_CANDLE));
+			stacks.add(new ItemStack(MedievalItems.BEESWAX_CANDLE));
 
 		return stacks;
 	}

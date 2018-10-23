@@ -3,6 +3,7 @@
         "facing=north":{"model":"drpmedieval:butter_churn/butter_churn"},
         "facing=east":{"model":"drpmedieval:butter_churn/butter_churn", "y":90},
         "facing=south":{"model":"drpmedieval:butter_churn/butter_churn", "y":180},
-        "facing=west":{"model":"drpmedieval:butter_churn/butter_churn", "y":270}   
+        "facing=west":{"model":"drpmedieval:butter_churn/butter_churn", "y":270},
+        "inventory":{"model":"drpmedieval:butter_churn/butter_churn"} 
     }
 }

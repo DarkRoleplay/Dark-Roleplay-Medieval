@@ -1,66 +1,20 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
 import net.dark_roleplay.library.util.InDevUtil;
-import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.objects.items.ItemMultiBlock;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
-import net.minecraftforge.registries.IForgeRegistry;
 
 @EventBusSubscriber(modid = References.MODID)
 @ObjectHolder(References.MODID)
 public class MedievalItemsOld {
 
-	//Items
-
-	public static final Item TIMBERED_CLAY = null;;
-	public static final Item HANGING_BRIDGE = null;
-;
-	public static final Item BLACK_PAINTBRUSH = null;
-
-	public static final Item SPINDLE = null;
-	public static final Item BARLEY = null;
-	public static final Item LANTERN = null;
-	public static final Item BEESWAX_CANDLE = null;
-
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Item> registryEvent) {
-		IForgeRegistry<Item> reg = registryEvent.getRegistry();
-
-		MaterialRequirements logRequired = new MaterialRequirements("log_side", "log_top");
-		MaterialRequirements planksRequired = new MaterialRequirements("plank");
-		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_plank");
-
-		register(reg, MedievalCreativeTabs.MATERIALS,
-				new DRPItem("barley", "cereals", 64)
-			);
-
-		register(reg, MedievalCreativeTabs.UTILITY,
-				new ItemMultiBlock(MedievalBlocks.SIMPLE_CARPENTER_WORKBENCH).setRegistryName("simple_carpenter_workbench"),
-				new ItemMultiBlock(MedievalBlocks.FORGE).setRegistryName("forge")
-		);
-
-		register(reg, MedievalCreativeTabs.BUILDING_MATS,
-				new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
-
-
 		if(InDevUtil.isDevEnv()) {
-			register(reg, MedievalCreativeTabs.MATERIALS,
-				new DRPItem("stone_brick", "misc", 64),
-				new DRPItem("beeswax", "misc", 64),
-				new DRPItem("empty_frame", "misc/apiary_frames", 1),
-				new DRPItem("honey_frame", "misc/apiary_frames", 1),
-				new DRPItem("brute_frame", "misc/apiary_frames", 1),
-				new DRPItem("sugar_frame", "misc/apiary_frames", 1),
-				new DRPItem("wax_frame", "misc/apiary_frames", 1)
-			);
 
 //			new DRPItem("asparagus", "food/vegetables", 64),
 //			new DRPItem("asparagus_cut", "food/vegetables/cut", 64),
@@ -140,11 +94,5 @@ public class MedievalItemsOld {
 //			new DRPEquip("ring_silver", "rings", DRPEquip.TYPE.TYPE_RING),
 //			new DRPEquip("ring_golden", "rings", DRPEquip.TYPE.TYPE_RING),
 		}
-	}
-
-	protected static void register(IForgeRegistry<Item> reg, CreativeTabs creativeTab, Item... items){
-		for(Item item : items)
-			item.setCreativeTab(creativeTab);
-		reg.registerAll(items);
 	}
 }

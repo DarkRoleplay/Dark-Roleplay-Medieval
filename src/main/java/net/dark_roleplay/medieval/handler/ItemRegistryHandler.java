@@ -7,14 +7,17 @@ import net.dark_roleplay.core.api.old.items.DRPFood;
 import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
 import net.dark_roleplay.core_modules.maarg.api.materials.Material;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
+import net.dark_roleplay.library.util.InDevUtil;
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.medieval.References;
+import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
 import net.dark_roleplay.medieval.common.handler.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.handler.ResourceFolders;
 import net.dark_roleplay.medieval.common.objects.items.BarkAndGlue;
 import net.dark_roleplay.medieval.common.objects.items.DRPMStew;
 import net.dark_roleplay.medieval.common.objects.items.HangingBridge_Item;
 import net.dark_roleplay.medieval.common.objects.items.ItemFirewood;
+import net.dark_roleplay.medieval.common.objects.items.ItemMultiBlock;
 import net.dark_roleplay.medieval.common.objects.items.tools.FlintKnife;
 import net.dark_roleplay.medieval.common.objects.items.tools.StreetStomper;
 import net.dark_roleplay.medieval.common.objects.items.tools.Telescope;
@@ -83,6 +86,7 @@ public class ItemRegistryHandler {
 			new DRPItem("hay", ResourceFolders.Items.PLANT_MATS, 64),
 			new DRPItem("wheat_pumpkin_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64),
 			new DRPItem("barley_pumpkin_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64),
+			new DRPItem("barley", ResourceFolders.Items.COOKING_MATS + "/cereals", 64),
 			new DRPItem("wheat_flour", ResourceFolders.Items.COOKING_MATS + "/fours", 64),
 			new DRPItem("barley_flour", ResourceFolders.Items.COOKING_MATS + "/fours", 64),
 			new DRPItem("wheat_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64),
@@ -114,6 +118,34 @@ public class ItemRegistryHandler {
 			new HangingBridge_Item("hanging_bridge", ResourceFolders.Items.BLOCKS, 64)
 		);
 
+
+		//TODO Fix that
+
+		registerItems(reg, MedievalCreativeTabs.UTILITY,
+				new ItemMultiBlock(MedievalBlocks.SIMPLE_CARPENTER_WORKBENCH).setRegistryName("simple_carpenter_workbench"),
+				new ItemMultiBlock(MedievalBlocks.FORGE).setRegistryName("forge")
+		);
+
+		registerItems(reg, MedievalCreativeTabs.BUILDING_MATS,
+				new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
+
+		if(InDevUtil.isDevEnv() && false) {
+			registerItems(reg, MedievalCreativeTabs.MATERIALS,
+				new DRPItem("stone_bricks", ResourceFolders.Items.PROCESSED_MINERALS, 64)
+			);
+
+			registerItems(reg, MedievalCreativeTabs.MATERIALS,
+				new DRPItem("beeswax", "misc", 64),
+				new DRPItem("empty_frame", "misc/apiary_frames", 1),
+				new DRPItem("honey_frame", "misc/apiary_frames", 1),
+				new DRPItem("brute_frame", "misc/apiary_frames", 1),
+				new DRPItem("sugar_frame", "misc/apiary_frames", 1),
+				new DRPItem("wax_frame", "misc/apiary_frames", 1)
+			);
+
+		}
+
+
 		MaterialRequirements logRequired = new MaterialRequirements("log_side", "log_top");
 		MaterialRequirements planksRequired = new MaterialRequirements("plank");
 		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_plank");
@@ -122,13 +154,13 @@ public class ItemRegistryHandler {
 		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
 			if(cleanPlankRequired.doesFulfillRequirements(mat)) {
 				registerItems(reg, MedievalCreativeTabs.MATERIALS,
-    				new DRPItem(mat.getName() + "_wood_beam", "wood_beams", 64) {
+    				new DRPItem(mat.getName() + "_wood_beam", ResourceFolders.Items.PROCESSED_MINERALS + "/wood_beams", 64) {
 	    				@Override
 	    				public int getItemBurnTime(ItemStack itemStack){
 	    			        return 400;
     					}
     				},
-    				new DRPItem(mat.getName() + "_planks", "planks", 64) {
+    				new DRPItem(mat.getName() + "_planks", ResourceFolders.Items.PROCESSED_MINERALS + "/planks", 64) {
 	    				@Override
 	    				public int getItemBurnTime(ItemStack itemStack){
 	    			        return 400;
@@ -139,7 +171,7 @@ public class ItemRegistryHandler {
 
 			if(logRequired.doesFulfillRequirements(mat)) {
 				registerItems(reg, MedievalCreativeTabs.MATERIALS,
-					new ItemFirewood(mat.getName() + "_firewood", "firewood", 64)
+					new ItemFirewood(mat.getName() + "_firewood", ResourceFolders.Items.PROCESSED_MINERALS + "/firewood", 64)
 				);
 			}
 		}

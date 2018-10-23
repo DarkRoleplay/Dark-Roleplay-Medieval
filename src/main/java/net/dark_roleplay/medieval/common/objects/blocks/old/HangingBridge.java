@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 
 import net.dark_roleplay.medieval.client.objects.blocks.properties.UnlistedPropertyBool;
 import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
-import net.dark_roleplay.medieval.common.handler.MedievalItemsOld;
+import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -65,7 +65,7 @@ public class HangingBridge extends Block {
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune){
-        return MedievalItemsOld.HANGING_BRIDGE;
+        return MedievalItems.HANGING_BRIDGE;
     }
 
 	@Override
@@ -105,7 +105,7 @@ public class HangingBridge extends Block {
 
 	@Override
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player){
-        return MedievalItemsOld.HANGING_BRIDGE.getDefaultInstance().copy();
+        return MedievalItems.HANGING_BRIDGE.getDefaultInstance().copy();
     }
 
 	@Override

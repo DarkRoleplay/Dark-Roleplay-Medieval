@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "drpmedieval:items/block_rope_anchor"
+        "layer0": "drpmedieval:items/old_blocks/hanging_cauldron"
     },
     "display": {
 		"gui": {

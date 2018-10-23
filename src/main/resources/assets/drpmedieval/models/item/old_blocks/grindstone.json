@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "drpmedieval:items/block_anvil"
+        "layer0": "drpmedieval:items/old_blocks/grindstone"
     },
     "display": {
 		"gui": {

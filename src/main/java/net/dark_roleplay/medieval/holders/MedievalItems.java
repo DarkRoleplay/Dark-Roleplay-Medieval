@@ -72,9 +72,14 @@ public class MedievalItems {
 		TIN_ORE_CHUNK			= null,
 		COPPER_ORE_CHUNK		= null,
 		SULFUR_ORE_CHUNK		= null,
-		SALPETER_ORE_CHUNK		= null;
+		SALPETER_ORE_CHUNK		= null,
+		SPINDLE					= null,
+		BARLEY					= null;
 
 	//BLOCKS
 	public static final Item
+		TIMBERED_CLAY			= null,
+		LANTERN					= null,
+		BEESWAX_CANDLE			= null,
 		HANGING_BRIDGE			= null;
 }
