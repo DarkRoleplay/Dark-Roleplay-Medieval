@@ -41,7 +41,8 @@ public class MedievalItems {
 		CHICKEN_STEW			= null,
 		COD_STEW				= null,
 		VEGIE_STEW				= null,
-		PUMPKIN_STEW			= null;
+		PUMPKIN_STEW			= null,
+		BELL_PEPPER				= null;
 
 	//MATERIALS
 	public static final Item
