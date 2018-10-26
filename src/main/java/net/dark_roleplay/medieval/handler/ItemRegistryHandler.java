@@ -87,8 +87,8 @@ public class ItemRegistryHandler {
 			new DRPItem("wheat_pumpkin_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64),
 			new DRPItem("barley_pumpkin_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64),
 			new DRPItem("barley", ResourceFolders.Items.COOKING_MATS + "/cereals", 64),
-			new DRPItem("wheat_flour", ResourceFolders.Items.COOKING_MATS + "/fours", 64),
-			new DRPItem("barley_flour", ResourceFolders.Items.COOKING_MATS + "/fours", 64),
+			new DRPItem("wheat_flour", ResourceFolders.Items.COOKING_MATS + "/flours", 64),
+			new DRPItem("barley_flour", ResourceFolders.Items.COOKING_MATS + "/flours", 64),
 			new DRPItem("wheat_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64),
 			new DRPItem("barley_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64),
 			new DRPItem("bronze_coin", ResourceFolders.Items.CURRENCIES, 50),
@@ -102,8 +102,8 @@ public class ItemRegistryHandler {
 			new DRPItem("tanned_leather_string", ResourceFolders.Items.LEATHER_MATS, 64),
 			new DRPItem("tanned_leather", ResourceFolders.Items.LEATHER_MATS, 64),
 			new DRPItem("leather_book_cover", ResourceFolders.Items.BOOKS, 64),
-			new DRPItem("leather_book_cover_thik", ResourceFolders.Items.BOOKS, 64),
-			new DRPItem("leather_book_cover_thin", ResourceFolders.Items.BOOKS, 64),
+			new DRPItem("thik_leather_book_cover", ResourceFolders.Items.BOOKS, 64),
+			new DRPItem("thin_leather_book_cover", ResourceFolders.Items.BOOKS, 64),
 			new DRPItem("dry_clay_chunk", ResourceFolders.Items.MINERALS, 64),
 			new DRPItem("silver_ore_chunk", ResourceFolders.Items.MINERALS, 64),
 			new DRPItem("tin_ore_chunk", ResourceFolders.Items.MINERALS, 64),
@@ -131,7 +131,7 @@ public class ItemRegistryHandler {
 
 		if(InDevUtil.isDevEnv() && false) {
 			registerItems(reg, MedievalCreativeTabs.MATERIALS,
-				new DRPItem("stone_bricks", ResourceFolders.Items.PROCESSED_MINERALS, 64)
+				new DRPItem("stone_bricks", ResourceFolders.Items.PROCESSED_MATERIALS, 64)
 			);
 
 			registerItems(reg, MedievalCreativeTabs.MATERIALS,
@@ -154,13 +154,13 @@ public class ItemRegistryHandler {
 		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
 			if(cleanPlankRequired.doesFulfillRequirements(mat)) {
 				registerItems(reg, MedievalCreativeTabs.MATERIALS,
-    				new DRPItem(mat.getName() + "_wood_beam", ResourceFolders.Items.PROCESSED_MINERALS + "/wood_beams", 64) {
+    				new DRPItem(mat.getName() + "_wood_beam", ResourceFolders.Items.PROCESSED_MATERIALS + "/wood_beams", 64) {
 	    				@Override
 	    				public int getItemBurnTime(ItemStack itemStack){
 	    			        return 400;
     					}
     				},
-    				new DRPItem(mat.getName() + "_planks", ResourceFolders.Items.PROCESSED_MINERALS + "/planks", 64) {
+    				new DRPItem(mat.getName() + "_planks", ResourceFolders.Items.PROCESSED_MATERIALS + "/planks", 64) {
 	    				@Override
 	    				public int getItemBurnTime(ItemStack itemStack){
 	    			        return 400;
@@ -171,7 +171,7 @@ public class ItemRegistryHandler {
 
 			if(logRequired.doesFulfillRequirements(mat)) {
 				registerItems(reg, MedievalCreativeTabs.MATERIALS,
-					new ItemFirewood(mat.getName() + "_firewood", ResourceFolders.Items.PROCESSED_MINERALS + "/firewood", 64)
+					new ItemFirewood(mat.getName() + "_firewood", ResourceFolders.Items.PROCESSED_MATERIALS + "/firewood", 64)
 				);
 			}
 		}

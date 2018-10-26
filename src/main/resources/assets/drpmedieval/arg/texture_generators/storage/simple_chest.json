@@ -10,7 +10,7 @@
 			"manipulations":[
 				{
 					"type":"mask",
-					"texture":"0"
+					"texture":0
 				}
 			],
 			"cache":"%wood%_side"
@@ -20,7 +20,7 @@
 			"manipulations":[
 				{
 					"type":"mask",
-					"texture":"1"
+					"texture":1
 				}
 			],
 			"cache":"%wood%_top"

@@ -9,7 +9,7 @@
 			"manipulations":[
 				{
 					"type":"overlay",
-					"texture":"0"
+					"texture":0
 				}
 			],
 			"output":"drpmedieval:textures/blocks/bucket/%wood%_bucket"

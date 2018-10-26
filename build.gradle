@@ -59,6 +59,10 @@ configurations {
     compile.extendsFrom(embed)
 }
 
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
 repositories {
 	maven {
 		name = "JEI"
@@ -87,13 +91,15 @@ dependencies {
 	
 	
 	embed "org.stopmodreposts:stopmodreposts:${mc_version}-${stopmodreposts_version}"
-
-	embed "net.dark_roleplay:drplibrary:${mc_version}-${drp_library_version}"
+	
+	embed group: "net.dark_roleplay", name: "drplibrary", version: "${mc_version}-${drp_library_version}", changing: true
+	deobfProvided("net.dark_roleplay.core_modules:drpcmmaarg:${mc_version}-${drp_core_module_maarg_version}") {
+		exclude group: "net.dark_roleplay"
+	}
 
 	deobfProvided "darkroleplay:drpcore:${mc_version}-${drp_core_version}"
 	deobfProvided "darkroleplay.core_modules:drpcmdates:${mc_version}-${drp_core_module_dates_version}"
-	deobfProvided "darkroleplay.core_modules:drpcmcrops:${mc_version}-${drp_core_module_crops_version}"	
-	deobfProvided "darkroleplay.core_modules:drpcmmaarg:${mc_version}-${drp_core_module_maarg_version}"
+	deobfProvided "darkroleplay.core_modules:drpcmcrops:${mc_version}-${drp_core_module_crops_version}"
 	deobfProvided "darkroleplay.core_modules:drpcmguis:${mc_version}-${drp_core_module_guis_version}"
 }
 

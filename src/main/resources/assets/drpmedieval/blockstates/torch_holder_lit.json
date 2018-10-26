@@ -1,5 +1,6 @@
 {
     "variants":{
+       "inventory":{"model":"drpmedieval:torch_holder/torch_holder_lit"},
        "addon_lighter=false,addon_trap=false,facing=north,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit"},
 	   "addon_lighter=false,addon_trap=false,facing=east,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":90},
 	   "addon_lighter=false,addon_trap=false,facing=south,powered=false":{"model":"drpmedieval:torch_holder/torch_holder_lit","y":180},

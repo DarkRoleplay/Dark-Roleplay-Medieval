@@ -1,5 +1,6 @@
 {
     "variants":{
+       "inventory":{"model":"drpmedieval:candles/candle_holder"},
        "addon_lighter=false,addon_trap=false,facing=north,powered=false":{"model":"drpmedieval:candles/candle_holder"},
 	   "addon_lighter=false,addon_trap=false,facing=east,powered=false":{"model":"drpmedieval:candles/candle_holder","y":90},
 	   "addon_lighter=false,addon_trap=false,facing=south,powered=false":{"model":"drpmedieval:candles/candle_holder","y":180},

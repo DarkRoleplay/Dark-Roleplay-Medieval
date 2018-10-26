@@ -1,5 +1,9 @@
 {
 	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/barrels/%wood%_barrel_side",
+		"drpmedieval:textures/blocks/barrels/%wood%_barrel_top"
+	],
 	"required_textures":[
 		"drpmedieval:arg/textures/overlays/barrel_side.png",
 		"drpmedieval:arg/textures/overlays/barrel_top.png"
@@ -10,11 +14,11 @@
 			"manipulations":[
 				{
 					"type":"rotate",
-					"angle":"90"
+					"angle":90
 				},
 				{
 					"type":"overlay",
-					"texture":"0"
+					"texture":0
 				}
 			],
 			"output":"drpmedieval:textures/blocks/barrels/%wood%_barrel_side"
@@ -24,11 +28,11 @@
 			"manipulations":[
 				{
 					"type":"rotate",
-					"angle":"90"
+					"angle":90
 				},
 				{
 					"type":"overlay",
-					"texture":"1"
+					"texture":1
 				}
 			],
 			"output":"drpmedieval:textures/blocks/barrels/%wood%_barrel_top"

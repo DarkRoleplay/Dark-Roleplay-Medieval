@@ -3,6 +3,7 @@
         "facing=north":{"model":"drpmedieval:head_cutting_block/head_cutting_block"},
         "facing=east":{"model":"drpmedieval:head_cutting_block/head_cutting_block", "y":90},
         "facing=south":{"model":"drpmedieval:head_cutting_block/head_cutting_block", "y":180},
-        "facing=west":{"model":"drpmedieval:head_cutting_block/head_cutting_block", "y":270}   
+        "facing=west":{"model":"drpmedieval:head_cutting_block/head_cutting_block", "y":270},
+        "inventory":{"model":"drpmedieval:head_cutting_block/head_cutting_block"}
     }
 }

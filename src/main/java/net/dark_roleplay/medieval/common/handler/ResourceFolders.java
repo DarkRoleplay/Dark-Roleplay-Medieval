@@ -30,6 +30,7 @@ public class ResourceFolders {
 		public static final String BOOKS				= MATERIALS + "/books";
 		public static final String MINERALS				= MATERIALS + "/minerals";
 		public static final String PROCESSED_MINERALS	= MATERIALS + "/processed_minerals";
+		public static final String PROCESSED_MATERIALS	= MATERIALS + "/processed_materials";
 
 
 		public static final String CONSUMABLES 			= "consumables";

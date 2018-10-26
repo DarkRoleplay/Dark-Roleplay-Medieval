@@ -18,3 +18,5 @@ Forge Latest_Server.launch
 *.launch
 .metadata/
 /bin/
+/.gradle/
+/build/
