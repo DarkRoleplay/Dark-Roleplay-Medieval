@@ -126,8 +126,8 @@ public class ItemRegistryHandler {
 				new ItemMultiBlock(MedievalBlocks.FORGE).setRegistryName("forge")
 		);
 
-		registerItems(reg, MedievalCreativeTabs.BUILDING_MATS,
-				new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
+//		registerItems(reg, MedievalCreativeTabs.BUILDING_MATS,
+//				new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
 
 		if(InDevUtil.isDevEnv() && false) {
 			registerItems(reg, MedievalCreativeTabs.MATERIALS,
@@ -142,7 +142,6 @@ public class ItemRegistryHandler {
 				new DRPItem("sugar_frame", "misc/apiary_frames", 1),
 				new DRPItem("wax_frame", "misc/apiary_frames", 1)
 			);
-
 		}
 
 
