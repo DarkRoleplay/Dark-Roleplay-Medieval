@@ -14,22 +14,22 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class MedievalCreativeTabs {
 
 	@ItemStackHolder(value = References.MODID + ":hay")
-	public static final ItemStack MATERIALS_ICON = null;
+	public static final ItemStack MATERIALS_ICON = ItemStack.EMPTY;
 
 	@ItemStackHolder(value = References.MODID + ":bone_war_horn")
-	public static final ItemStack EQUIPMENT_ICON = null;
+	public static final ItemStack EQUIPMENT_ICON = ItemStack.EMPTY;
 
 	@ItemStackHolder(value = References.MODID + ":cooked_catfish")
-	public static final ItemStack FOOD_ICON = null;
+	public static final ItemStack FOOD_ICON = ItemStack.EMPTY;
 
 	@ItemStackHolder(value = References.MODID + ":oak_chopping_block")
-	public static final ItemStack UTILITY_ICON = null;
+	public static final ItemStack UTILITY_ICON = ItemStack.EMPTY;
 
 	@ItemStackHolder(value = References.MODID + ":mossy_spruce_log")
-	public static final ItemStack BUILDING_ICON = null;
+	public static final ItemStack BUILDING_ICON = ItemStack.EMPTY;
 
-	@ItemStackHolder(value = References.MODID + ":flower_pot")
-	public static final ItemStack DECORATION_ICON = null;
+	@ItemStackHolder(value = References.MODID + ":oak_flower_pot")
+	public static final ItemStack DECORATION_ICON = ItemStack.EMPTY;
 
 	public static final DRPCreativeTab DECORATION = new DRPCreativeTab("drpm_deco") {
 		@Override public ItemStack createIcon() {return DECORATION_ICON;}
