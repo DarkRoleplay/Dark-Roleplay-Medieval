@@ -57,6 +57,7 @@ public class ItemRegistryHandler {
 
 		registerItems(reg, MedievalCreativeTabs.FOOD,
 			new DRPFood(6, 0.5F, "honey_comb", ResourceFolders.Items.OTHER_FOOD + "/honey", 64),
+			new DRPFood(3, 0.5F, "butter", ResourceFolders.Items.OTHER_FOOD + "/butter", 64),
 			new DRPFood(4, 0.3F, "apple_green", ResourceFolders.Items.FRUITS + "/apples", 64),
 			new DRPFood(4, 0.3F, "apple_yellow", ResourceFolders.Items.FRUITS + "/apples", 64),
 			new DRPFood(1, 0.1F, "blue_berries", ResourceFolders.Items.FRUITS + "/berries", 64),
