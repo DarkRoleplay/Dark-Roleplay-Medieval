@@ -21,6 +21,7 @@ public class MedievalItems {
 
 	//FOOD
 	public static final Item
+		BUTTER					= null,
 		HONEY_COMB 				= null,
 		APPLE_GREEN 			= null,
 		APPLE_YELLOW 			= null,

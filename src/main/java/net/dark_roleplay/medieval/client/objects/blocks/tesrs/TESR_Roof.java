@@ -40,6 +40,7 @@ public class TESR_Roof extends FastTESR<TE_Roof> {
 
 	@Override
 	public void renderTileEntityFast(TE_Roof te, double x, double y, double z, float partialTicks, int destroyStage, float partial, BufferBuilder buffer) {
+		try {
 		BlockRendererDispatcher blockRenderDispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
 
 		World world = te.getWorld();
@@ -66,46 +67,13 @@ public class TESR_Roof extends FastTESR<TE_Roof> {
 			this.model = new BakedRoof(facing, sprite, world.getBlockState(pos).getActualState(world, pos).getValue(BlockProperties.STAIR_TYPE));
 //		}
 
-//		System.out.println("T");
 		BlockPos offset = pos;
 		if(world.isAirBlock(pos.down())) return;
 		buffer.setTranslation(x - offset.getX(), y - offset.getY() -1, z - offset.getZ());
 		blockRenderDispatcher.getBlockModelRenderer().renderModel(world, this.model, world.getBlockState(pos), pos, buffer, true);
+		}catch(Throwable e) {
+		}
 
-
-//
-//		IBlockState state = world.getBlockState(pos);
-//		state = state.getActualState(world, pos);
-//
-//		EnumFacing facing = state.getValue(BlockProperties.FACING_HORIZONTAL);
-//		BlockProperties.StairType type = state.getValue(BlockProperties.STAIR_TYPE);
-//		switch(type) {
-//			case INNER_LEFT:
-//				this.renderBack(facing.rotateY(), otherState, x, y, z, buffer, world, pos);
-//				this.renderBack(facing, otherState, x, y, z, buffer, world, pos);
-//				this.renderSide(facing.rotateY().rotateY(), otherState, x, y, z, false, buffer);
-//				this.renderSide(facing.rotateYCCW(), otherState, x, y, z, true, buffer);
-//				break;
-//			case INNER_RIGHT:
-//				this.renderBack(facing, otherState, x, y, z, buffer, world, pos);
-//				this.renderBack(facing.rotateYCCW(), otherState, x, y, z, buffer, world, pos);
-//				this.renderSide(facing.rotateY(), otherState, x, y, z, false, buffer);
-//				this.renderSide(facing.rotateY().rotateY(), otherState, x, y, z, true, buffer);
-//				break;
-//			case OUTER_LEFT:
-//				this.renderSide(facing.rotateY(), otherState, x, y, z, false, buffer);
-//				this.renderSide(facing, otherState, x, y, z, true, buffer);
-//				break;
-//			case OUTER_RIGHT:
-//				this.renderSide(facing, otherState, x, y, z, false, buffer);
-//				this.renderSide(facing.rotateYCCW(), otherState, x, y, z, true, buffer);
-//				break;
-//			case STRAIGHT:
-//				this.renderBack(facing, otherState, x, y, z, buffer, world, pos);
-////				this.renderSide(facing.rotateY(), otherState, x, y, z, false, buffer);
-////				this.renderSide(facing.rotateYCCW(), otherState, x, y, z, true, buffer);
-//				break;
-//		}
 	}
 
 	/**

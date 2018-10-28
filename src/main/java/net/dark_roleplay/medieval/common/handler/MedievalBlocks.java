@@ -157,6 +157,8 @@ public class MedievalBlocks {
 		MaterialRequirements plankRequired = new MaterialRequirements("planks");
 		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
 
+
+
 		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
 			if(logRequired.doesFulfillRequirements(mat)) {
 				register(reg, MedievalCreativeTabs.UTILITY,

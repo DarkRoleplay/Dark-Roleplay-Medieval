@@ -147,8 +147,8 @@ public class ItemRegistryHandler {
 
 
 		MaterialRequirements logRequired = new MaterialRequirements("log_side", "log_top");
-		MaterialRequirements planksRequired = new MaterialRequirements("plank");
-		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_plank");
+		MaterialRequirements planksRequired = new MaterialRequirements("planks");
+		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
 
 		//Register Wooden Items
 		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
