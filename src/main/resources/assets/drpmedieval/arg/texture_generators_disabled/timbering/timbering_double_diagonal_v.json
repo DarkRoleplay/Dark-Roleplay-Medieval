@@ -8,10 +8,10 @@
 		"drpmedieval:arg/textures/masks/timbered_clay/double_diagonal_b_tb.png", "drpmedieval:arg/textures/overlays/timbered_clay/double_diagonal_b_tb.png"
 	],
 	"textures":[
-		{"base":"clean_plank", "manipulations":[{"type":"mask","texture":"1"},{"type":"overlay","texture":"2"}], "cache":"%wood%_double_diagonal_t_bt"},
-		{"base":"clean_plank", "manipulations":[{"type":"mask","texture":"3"},{"type":"overlay","texture":"4"}], "cache":"%wood%_double_diagonal_b_bt"},
-		{"base":"clean_plank", "manipulations":[{"type":"mask","texture":"5"},{"type":"overlay","texture":"6"}], "cache":"%wood%_double_diagonal_t_tb"},
-		{"base":"clean_plank", "manipulations":[{"type":"mask","texture":"7"},{"type":"overlay","texture":"8"}], "cache":"%wood%_double_diagonal_b_tb"},
+		{"base":"clean_planks", "manipulations":[{"type":"mask","texture":"1"},{"type":"overlay","texture":"2"}], "cache":"%wood%_double_diagonal_t_bt"},
+		{"base":"clean_planks", "manipulations":[{"type":"mask","texture":"3"},{"type":"overlay","texture":"4"}], "cache":"%wood%_double_diagonal_b_bt"},
+		{"base":"clean_planks", "manipulations":[{"type":"mask","texture":"5"},{"type":"overlay","texture":"6"}], "cache":"%wood%_double_diagonal_t_tb"},
+		{"base":"clean_planks", "manipulations":[{"type":"mask","texture":"7"},{"type":"overlay","texture":"8"}], "cache":"%wood%_double_diagonal_b_tb"},
 	
 		{"base":0, "manipulations":[{"type":"overlay","cached_texture":"%wood%_double_diagonal_t_bt"}], "output":"drpmedieval:textures/blocks/timbered_clay/double_diagonal_t_bt/%wood%_timbered_clay_0000"},
 		{"base":0, "manipulations":[{"type":"overlay","cached_texture":"%wood%_double_diagonal_t_bt"}, {"type":"overlay","cached_texture":"%wood%_timbered_clay_top"}], "output":"drpmedieval:textures/blocks/timbered_clay/double_diagonal_t_bt/%wood%_timbered_clay_1000"},

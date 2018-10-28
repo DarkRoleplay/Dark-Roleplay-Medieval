@@ -1,5 +1,9 @@
 {
 	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/chests/simple_%wood%_chest_side",
+		"drpmedieval:textures/blocks/chests/simple_%wood%_chest_top"
+	],
 	"required_textures":[
 		"drpmedieval:arg/textures/masks/simple_chest_side.png",
 		"drpmedieval:arg/textures/masks/simple_chest_top.png"
@@ -26,7 +30,7 @@
 			"cache":"%wood%_top"
 		},
 		{
-			"base":"plank",
+			"base":"planks",
 			"manipulations":[
 				{
 					"type":"overlay",
@@ -36,7 +40,7 @@
 			"output":"drpmedieval:textures/blocks/chests/simple_%wood%_chest_side"
 		},
 		{
-			"base":"plank",
+			"base":"planks",
 			"manipulations":[
 				{
 					"type":"overlay",

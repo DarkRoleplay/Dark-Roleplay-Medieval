@@ -1,7 +1,7 @@
 {
 	"textures":{
-		"particle": "drpmedieval:blocks/clean_planks/clean_planks_%wood%",
-		"texture": "drpmedieval:blocks/clean_planks/clean_planks_%wood%"
+		"particle": "drpcmmaarg:blocks/clean_planks/clean_planks_%wood%",
+		"texture": "drpcmmaarg:blocks/clean_planks/clean_planks_%wood%"
 	},
 	"pack0":{
 		"center":				"drpmedieval:block/simple_plank_table/pack_0/center",

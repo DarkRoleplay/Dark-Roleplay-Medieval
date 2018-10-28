@@ -6,8 +6,8 @@
 		"drpmedieval:arg/textures/masks/timbered_clay/horizontal.png", "drpmedieval:arg/textures/overlays/timbered_clay/horizontal.png"
 	],
 	"textures":[
-		{"base":"clean_plank", "manipulations":[{"type":"mask","texture":"1"},{"type":"overlay","texture":"2"}], "cache":"%wood%_vertical"},
-		{"base":"clean_plank", "manipulations":[{"type":"mask","texture":"3"},{"type":"overlay","texture":"4"}], "cache":"%wood%_horizontal"},
+		{"base":"clean_planks", "manipulations":[{"type":"mask","texture":"1"},{"type":"overlay","texture":"2"}], "cache":"%wood%_vertical"},
+		{"base":"clean_planks", "manipulations":[{"type":"mask","texture":"3"},{"type":"overlay","texture":"4"}], "cache":"%wood%_horizontal"},
 	
 		{"base":0, "manipulations":[{"type":"overlay","cached_texture":"%wood%_vertical"}], "output":"drpmedieval:textures/blocks/timbered_clay/vertical/%wood%_timbered_clay_0000"},
 		{"base":0, "manipulations":[{"type":"overlay","cached_texture":"%wood%_vertical"}, {"type":"overlay","cached_texture":"%wood%_timbered_clay_top"}], "output":"drpmedieval:textures/blocks/timbered_clay/vertical/%wood%_timbered_clay_1000"},

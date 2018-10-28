@@ -7,6 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry.ItemStackHolder;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -61,7 +62,6 @@ public class MedievalCreativeTabs {
 
 		public DRPCreativeTab(String label) {
 			super(label);
-			this.setBackgroundImageName("drpmedieval.png");
 		}
 
 		@Override
@@ -113,4 +113,9 @@ public class MedievalCreativeTabs {
 			return false;
 		}
 	}
+
+    @SideOnly(Side.CLIENT)
+    public ResourceLocation getBackgroundImage(){
+        return new net.minecraft.util.ResourceLocation("textures/gui/creative_tabs/tab_" + "drpmedieva.png");
+    }
 }

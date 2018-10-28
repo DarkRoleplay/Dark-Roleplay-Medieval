@@ -1,9 +1,12 @@
 {
 	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/simple_shelf/simple_%wood%_shelf"
+	],
 	"required_textures":[],
 	"textures":[
 		{
-			"base":"clean_plank",
+			"base":"clean_planks",
 			"manipulations":[],
 			"output":"drpmedieval:textures/blocks/simple_shelf/simple_%wood%_shelf"
 		}

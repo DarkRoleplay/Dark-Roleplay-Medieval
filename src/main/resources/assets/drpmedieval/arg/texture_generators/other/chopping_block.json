@@ -1,5 +1,9 @@
 {
 	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/chopping_block/%wood%_chopping_block_bark",
+		"drpmedieval:textures/blocks/chopping_block/%wood%_chopping_block_top"
+	],
 	"required_textures":[
 		"drpmedieval:arg/textures/masks/chopping_block.png"
 	],

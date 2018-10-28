@@ -1,5 +1,9 @@
 {
-	"type":"wood",
+	"type":"wood",	
+	"outputs":[
+		"drpmedieval:textures/blocks/log_chair/%wood%_log_chair_bark",
+		"drpmedieval:textures/blocks/log_chair/%wood%_log_chair_top"
+	],
 	"required_textures":[],
 	"textures":[
 		{

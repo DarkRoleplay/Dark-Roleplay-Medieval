@@ -1,5 +1,9 @@
 {
 	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/mossy_log/mossy_%wood%_bark",
+		"drpmedieval:textures/blocks/mossy_log/mossy_%wood%_log_top"
+	],
 	"required_textures":[
 		"drpmedieval:arg/textures/overlays/mossy_log.png"
 	],

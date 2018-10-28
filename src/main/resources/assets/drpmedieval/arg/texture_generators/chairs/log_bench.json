@@ -1,5 +1,10 @@
 {
 	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/log_bench/%wood%_log_bench_bark",
+		"drpmedieval:textures/blocks/log_bench/%wood%_log_bench_side",
+		"drpmedieval:textures/blocks/log_bench/%wood%_log_bench_top"
+	],
 	"required_textures":[
 		"drpmedieval:arg/textures/masks/log_bench_side.png",
 		"drpmedieval:arg/textures/masks/log_bench_top.png"
@@ -49,7 +54,7 @@
 			"output":"drpmedieval:textures/blocks/log_bench/%wood%_log_bench_side"
 		},
 		{
-			"base":"clean_plank",
+			"base":"clean_planks",
 			"manipulations":[
 				{
 					"type":"overlay",

@@ -1,11 +1,14 @@
 {
 	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/flower_pots/%wood%_flower_pot"
+	],
 	"required_textures":[
 		"drpmedieval:arg/textures/overlays/flower_pot.png"
 	],
 	"textures":[
 		{
-			"base":"plank",
+			"base":"planks",
 			"manipulations":[
 				{
 					"type":"rotate",

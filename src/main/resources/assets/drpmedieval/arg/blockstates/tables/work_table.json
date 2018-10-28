@@ -3,9 +3,9 @@
     "defaults": {
 		"model":"drpmedieval:work_table/work_table_single",
         "textures": {		
-			"particle": "drpmedieval:blocks/log_side/log_side_%wood%",
-			"plates": "drpmedieval:blocks/clean_planks/clean_planks_%wood%",
-			"legs": "drpmedieval:blocks/log_side/log_side_%wood%"
+			"particle": "drpcmmaarg:blocks/log_side/%wood%_log_side",
+			"plates": "drpcmmaarg:blocks/clean_planks/clean_planks_%wood%",
+			"legs": "drpcmmaarg:blocks/log_side/%wood%_log_side"
         },
         "transform": "forge:default-block"
     },
