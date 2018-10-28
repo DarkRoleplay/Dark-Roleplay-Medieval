@@ -16,6 +16,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
@@ -23,6 +24,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TimberedClay extends Block{
 
@@ -66,11 +69,9 @@ public class TimberedClay extends Block{
 			this.add(new TimberRecipe(ClickLoc.BOTTOM, ClickLoc.TOP_RIGHT, "arrow_b"));
 		}});
 
-
 		recipes.put("double_diagonal_b_bt", new ArrayList<TimberRecipe>() {{
 			this.add(new TimberRecipe(ClickLoc.TOP, ClickLoc.BOTTOM_RIGHT, "arrow_t"));
 		}});
-
 
 		recipes.put("double_diagonal_b_tb", new ArrayList<TimberRecipe>() {{
 			this.add(new TimberRecipe(ClickLoc.TOP, ClickLoc.BOTTOM_LEFT, "arrow_t"));
@@ -83,14 +84,20 @@ public class TimberedClay extends Block{
 			this.add(new TimberRecipe(ClickLoc.BOTTOM_LEFT, ClickLoc.RIGHT, "arrow_r"));
 		}});
 
-
 		recipes.put("double_diagonal_r_lr", new ArrayList<TimberRecipe>() {{
 			this.add(new TimberRecipe(ClickLoc.LEFT, ClickLoc.BOTTOM_RIGHT, "arrow_l"));
 		}});
 
-
 		recipes.put("double_diagonal_r_rl", new ArrayList<TimberRecipe>() {{
 			this.add(new TimberRecipe(ClickLoc.LEFT, ClickLoc.TOP_RIGHT, "arrow_l"));
+		}});
+
+		recipes.put("horizontal", new ArrayList<TimberRecipe>() {{
+			this.add(new TimberRecipe(ClickLoc.TOP, ClickLoc.BOTTOM, "straight_cross"));
+		}});
+
+		recipes.put("vertical", new ArrayList<TimberRecipe>() {{
+			this.add(new TimberRecipe(ClickLoc.LEFT, ClickLoc.RIGHT, "straight_cross"));
 		}});
 	}
 
@@ -133,6 +140,13 @@ public class TimberedClay extends Block{
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, UP, DOWN, RIGHT, LEFT);
 	}
+
+	@Override
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getRenderLayer(){
+        return BlockRenderLayer.CUTOUT_MIPPED;
+    }
+
 
 	@Override
     public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune){

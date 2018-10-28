@@ -1,0 +1,27 @@
+{
+	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/timbered_clay/arrow_b/%wood%_timbered_clay",
+		"drpmedieval:textures/blocks/timbered_clay/arrow_t/%wood%_timbered_clay",
+		"drpmedieval:textures/blocks/timbered_clay/arrow_r/%wood%_timbered_clay",
+		"drpmedieval:textures/blocks/timbered_clay/arrow_l/%wood%_timbered_clay"
+	],
+	"required_textures":[
+		"drpmedieval:arg/textures/textures/timbered_clay.png",
+		"drpmedieval:arg/textures/masks/timbered_clay/arrow_b.png", "drpmedieval:arg/textures/overlays/timbered_clay/arrow_b.png",
+		"drpmedieval:arg/textures/masks/timbered_clay/arrow_t.png", "drpmedieval:arg/textures/overlays/timbered_clay/arrow_t.png",
+		"drpmedieval:arg/textures/masks/timbered_clay/arrow_r.png", "drpmedieval:arg/textures/overlays/timbered_clay/arrow_r.png",
+		"drpmedieval:arg/textures/masks/timbered_clay/arrow_l.png", "drpmedieval:arg/textures/overlays/timbered_clay/arrow_l.png"
+	],
+	"textures":[
+		{"base":"clean_planks", "manipulations":[{"type":"mask","texture":"1"},{"type":"overlay","texture":"2"}], "cache":"%wood%_arrow_b"},
+		{"base":"clean_planks", "manipulations":[{"type":"mask","texture":"3"},{"type":"overlay","texture":"4"}], "cache":"%wood%_arrow_t"},
+		{"base":"clean_planks", "manipulations":[{"type":"mask","texture":"5"},{"type":"overlay","texture":"6"}], "cache":"%wood%_arrow_r"},
+		{"base":"clean_planks", "manipulations":[{"type":"mask","texture":"7"},{"type":"overlay","texture":"8"}], "cache":"%wood%_arrow_l"},
+		
+		{"base":0, "manipulations":[{"type":"overlay","cached_texture":"%wood%_arrow_b"}], "output":"drpmedieval:textures/blocks/timbered_clay/arrow_b/%wood%_timbered_clay"},
+		{"base":0, "manipulations":[{"type":"overlay","cached_texture":"%wood%_arrow_t"}], "output":"drpmedieval:textures/blocks/timbered_clay/arrow_t/%wood%_timbered_clay"},
+		{"base":0, "manipulations":[{"type":"overlay","cached_texture":"%wood%_arrow_r"}], "output":"drpmedieval:textures/blocks/timbered_clay/arrow_r/%wood%_timbered_clay"},
+		{"base":0, "manipulations":[{"type":"overlay","cached_texture":"%wood%_arrow_l"}], "output":"drpmedieval:textures/blocks/timbered_clay/arrow_l/%wood%_timbered_clay"}
+	]
+}

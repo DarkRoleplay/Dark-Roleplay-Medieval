@@ -257,7 +257,8 @@ public class MedievalBlocks {
 					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_l_rl", 1),
 					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_r_rl", 1),
 					new TimberedClay(mat.getName() + "_timbered_clay_vertical", 1),
-					new TimberedClay(mat.getName() + "_timbered_clay_horizontal", 1)
+					new TimberedClay(mat.getName() + "_timbered_clay_horizontal", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_straight_cross", 1)
 				);
 			}
 		}

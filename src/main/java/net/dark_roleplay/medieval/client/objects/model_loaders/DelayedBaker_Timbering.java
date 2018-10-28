@@ -12,6 +12,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
+import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
 import net.dark_roleplay.core_modules.maarg.api.materials.Material;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
 import net.dark_roleplay.medieval.References;
@@ -72,8 +73,9 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 		this.addQuads(result,
 			timbering.retexture(
 				ImmutableMap.<String, String>of(
-					"end","drpmedieval:blocks/timbered_clay/timbered_clay",
-					"side","drpmedieval:blocks/timbered_clay/" + textures[1] + "/" + textures[0] + "_timbered_clay_" + bitCode
+					"all","drpmedieval:blocks/timbered_clay/timbered_clay",
+					"base","drpmedieval:blocks/timbered_clay/" + textures[1] + "/"  + textures[0] + "_timbered_clay",
+					"overlay","drpmedieval:blocks/timbered_clay/clean/" + textures[0] + "_timbered_clay_" + bitCode
 				)
 			),
 			0, 0, state, side, rand
@@ -106,30 +108,39 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 
 			locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/timbered_clay"));
 
+			MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
+
 			for(int i = 0; i < 16; i ++) {
 				String bitCode = ((i & 1) == 1 ? "1" : "0") + ((i & 2) == 2 ? "1" : "0") + ((i & 4) == 4 ? "1" : "0") + ((i & 8) == 8 ? "1" : "0");
 
 				for(Material mat : mats) {
+					if(!cleanPlankRequired.doesFulfillRequirements(mat)) continue;
 					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/clean/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/diagonal_bt/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/diagonal_tb/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/cross/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_t_bt/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_b_bt/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_t_tb/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_b_tb/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/arrow_b/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/arrow_t/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/arrow_r/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/arrow_l/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_l_lr/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_r_lr/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_l_rl/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_r_rl/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/vertical/" + mat.getName() + "_timbered_clay_" + bitCode));
-					locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/horizontal/" + mat.getName() + "_timbered_clay_" + bitCode));
 
 				}
+			}
+
+			for(Material mat : mats) {
+				if(!cleanPlankRequired.doesFulfillRequirements(mat)) continue;
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/clean/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/diagonal_bt/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/diagonal_tb/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/cross/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_t_bt/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_b_bt/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_t_tb/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_b_tb/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/arrow_b/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/arrow_t/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/arrow_r/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/arrow_l/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_l_lr/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_r_lr/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_l_rl/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/double_diagonal_r_rl/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/vertical/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/horizontal/" + mat.getName() + "_timbered_clay"));
+				locations.add(new ResourceLocation("drpmedieval:blocks/timbered_clay/straight_cross/" + mat.getName() + "_timbered_clay"));
 			}
 
 			builder.addAll(locations);
@@ -153,7 +164,7 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 
 	protected static IModel getModel() {
 		return ModelLoaderRegistry.getModelOrLogError(
-				new ResourceLocation("drpmedieval:block/timbering"),
-				"A problem occured while trying to load: " + "minecraft:block/cube_column");
+				new ResourceLocation("drpmedieval:block/timbered_clay"),
+				"A problem occured while trying to load: " + "drpmedieval:block/timbered_clay");
 	}
 }
