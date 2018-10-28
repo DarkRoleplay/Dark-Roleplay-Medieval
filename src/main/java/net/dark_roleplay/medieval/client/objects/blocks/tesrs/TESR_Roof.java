@@ -1,7 +1,11 @@
 package net.dark_roleplay.medieval.client.objects.blocks.tesrs;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import org.apache.commons.lang3.ArrayUtils;
 
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Roof;
@@ -9,14 +13,15 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;
+import net.minecraft.client.renderer.block.model.ItemOverrideList;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.animation.FastTESR;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TESR_Roof extends FastTESR<TE_Roof> {
 
@@ -25,220 +30,304 @@ public class TESR_Roof extends FastTESR<TE_Roof> {
 	public static Map<IBlockState, TextureAtlasSprite> south = new HashMap<IBlockState, TextureAtlasSprite>();
 	public static Map<IBlockState, TextureAtlasSprite> west = new HashMap<IBlockState, TextureAtlasSprite>();
 
+//	public static IBakedModel[] back = new IBakedModel[4];
+//
+//	static {
+//		back[0] = ModelBlock;
+//	}
+
+	private BakedRoof model = null;
+
 	@Override
 	public void renderTileEntityFast(TE_Roof te, double x, double y, double z, float partialTicks, int destroyStage, float partial, BufferBuilder buffer) {
-
+		BlockRendererDispatcher blockRenderDispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
 
 		World world = te.getWorld();
 		BlockPos pos = te.getPos();
 
 		IBlockState otherState = world.getBlockState(pos.down());
 
-		if(!otherState.getBlock().isFullCube(otherState)) {
-			return;
-		}
+		if(!otherState.isFullCube()) return;
 
 		if(!north.containsKey(otherState)) {
-			BlockRendererDispatcher blockRenderDispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
 
-			IBakedModel model = blockRenderDispatcher.getModelForState(otherState);
-			north.put(otherState, model.getQuads(otherState, EnumFacing.NORTH, 0L).get(0).getSprite());
-			east.put(otherState, model.getQuads(otherState, EnumFacing.EAST, 0L).get(0).getSprite());
-			south.put(otherState, model.getQuads(otherState, EnumFacing.SOUTH, 0L).get(0).getSprite());
-			west.put(otherState, model.getQuads(otherState, EnumFacing.WEST, 0L).get(0).getSprite());
+			IBakedModel modelOther = blockRenderDispatcher.getModelForState(otherState);
+			north.put(otherState, modelOther.getQuads(otherState, EnumFacing.NORTH, 0L).get(0).getSprite());
+			east.put(otherState, modelOther.getQuads(otherState, EnumFacing.EAST, 0L).get(0).getSprite());
+			south.put(otherState, modelOther.getQuads(otherState, EnumFacing.SOUTH, 0L).get(0).getSprite());
+			west.put(otherState, modelOther.getQuads(otherState, EnumFacing.WEST, 0L).get(0).getSprite());
+
 		}
 
-//		Minecraft.getMinecraft().Lig
+		EnumFacing facing = world.getBlockState(pos).getValue(BlockProperties.FACING_HORIZONTAL);
 
-		IBlockState state = world.getBlockState(pos);
-//		System.out.println(state.getClass());
-		state = state.getActualState(world, pos);
+		TextureAtlasSprite sprite = north.get(otherState);
+//		if(this.model == null) {
+			this.model = new BakedRoof(facing, sprite, world.getBlockState(pos).getActualState(world, pos).getValue(BlockProperties.STAIR_TYPE));
+//		}
 
-		EnumFacing facing = state.getValue(BlockProperties.FACING_HORIZONTAL);
-		BlockProperties.StairType type = state.getValue(BlockProperties.STAIR_TYPE);
+//		System.out.println("T");
+		BlockPos offset = pos;
+		if(world.isAirBlock(pos.down())) return;
+		buffer.setTranslation(x - offset.getX(), y - offset.getY() -1, z - offset.getZ());
+		blockRenderDispatcher.getBlockModelRenderer().renderModel(world, this.model, world.getBlockState(pos), pos, buffer, true);
 
-		//		System.out.println("X: " + x + " Y: " + y + " Z: " + z );
-		switch(type) {
-			case INNER_LEFT:
-				this.renderBack(facing.rotateY(), otherState, x, y, z, buffer, world, pos);
-				this.renderBack(facing, otherState, x, y, z, buffer, world, pos);
-				this.renderSide(facing.rotateY().rotateY(), otherState, x, y, z, false, buffer);
-				this.renderSide(facing.rotateYCCW(), otherState, x, y, z, true, buffer);
-				break;
-			case INNER_RIGHT:
-				this.renderBack(facing, otherState, x, y, z, buffer, world, pos);
-				this.renderBack(facing.rotateYCCW(), otherState, x, y, z, buffer, world, pos);
-				this.renderSide(facing.rotateY(), otherState, x, y, z, false, buffer);
-				this.renderSide(facing.rotateY().rotateY(), otherState, x, y, z, true, buffer);
-				break;
-			case OUTER_LEFT:
-				this.renderSide(facing.rotateY(), otherState, x, y, z, false, buffer);
-				this.renderSide(facing, otherState, x, y, z, true, buffer);
-				break;
-			case OUTER_RIGHT:
-				this.renderSide(facing, otherState, x, y, z, false, buffer);
-				this.renderSide(facing.rotateYCCW(), otherState, x, y, z, true, buffer);
-				break;
-			case STRAIGHT:
-				this.renderBack(facing, otherState, x, y, z, buffer, world, pos);
-				this.renderSide(facing.rotateY(), otherState, x, y, z, false, buffer);
-				this.renderSide(facing.rotateYCCW(), otherState, x, y, z, true, buffer);
-				break;
-		}
+
+//
+//		IBlockState state = world.getBlockState(pos);
+//		state = state.getActualState(world, pos);
+//
+//		EnumFacing facing = state.getValue(BlockProperties.FACING_HORIZONTAL);
+//		BlockProperties.StairType type = state.getValue(BlockProperties.STAIR_TYPE);
+//		switch(type) {
+//			case INNER_LEFT:
+//				this.renderBack(facing.rotateY(), otherState, x, y, z, buffer, world, pos);
+//				this.renderBack(facing, otherState, x, y, z, buffer, world, pos);
+//				this.renderSide(facing.rotateY().rotateY(), otherState, x, y, z, false, buffer);
+//				this.renderSide(facing.rotateYCCW(), otherState, x, y, z, true, buffer);
+//				break;
+//			case INNER_RIGHT:
+//				this.renderBack(facing, otherState, x, y, z, buffer, world, pos);
+//				this.renderBack(facing.rotateYCCW(), otherState, x, y, z, buffer, world, pos);
+//				this.renderSide(facing.rotateY(), otherState, x, y, z, false, buffer);
+//				this.renderSide(facing.rotateY().rotateY(), otherState, x, y, z, true, buffer);
+//				break;
+//			case OUTER_LEFT:
+//				this.renderSide(facing.rotateY(), otherState, x, y, z, false, buffer);
+//				this.renderSide(facing, otherState, x, y, z, true, buffer);
+//				break;
+//			case OUTER_RIGHT:
+//				this.renderSide(facing, otherState, x, y, z, false, buffer);
+//				this.renderSide(facing.rotateYCCW(), otherState, x, y, z, true, buffer);
+//				break;
+//			case STRAIGHT:
+//				this.renderBack(facing, otherState, x, y, z, buffer, world, pos);
+////				this.renderSide(facing.rotateY(), otherState, x, y, z, false, buffer);
+////				this.renderSide(facing.rotateYCCW(), otherState, x, y, z, true, buffer);
+//				break;
+//		}
 	}
 
-	public void renderBack(EnumFacing facing, IBlockState state, double x, double y, double z, BufferBuilder buffer, World world, BlockPos pos) {
+	/**
+	 * Converts the vertex information to the int array format expected by
+	 * BakedQuads.
+	 *
+	 * @param x
+	 *            x coordinate
+	 * @param y
+	 *            y coordinate
+	 * @param z
+	 *            z coordinate
+	 * @param color
+	 *            RGBA colour format - white for no effect, non-white to tint
+	 *            the face with the specified colour
+	 * @param texture
+	 *            the texture to use for the face
+	 * @param u
+	 *            u-coordinate of the texture (0 - 16) corresponding to [x,y,z]
+	 * @param v
+	 *            v-coordinate of the texture (0 - 16) corresponding to [x,y,z]
+	 * @return
+	 */
+	private static int[] vertexToInts(float x, float y, float z, int color, TextureAtlasSprite texture, float u, float v) {
+		return new int[] { Float.floatToRawIntBits(x), Float.floatToRawIntBits(y), Float.floatToRawIntBits(z), color,
+				Float.floatToRawIntBits(texture.getInterpolatedU(u)),
+				Float.floatToRawIntBits(texture.getInterpolatedV(v)), 0 };
+	}
 
-        EnumNeighborInfo info = EnumNeighborInfo.getNeighbourInfo(facing);
 
-        pos = pos.offset(facing.getOpposite());
-        int total = state.getPackedLightmapCoords(world, pos.offset(facing));
+	private static int[] createFullQuad(EnumFacing facing, TextureAtlasSprite sprite) {
+		int[] output = new int[0];
 
-        state.getPackedLightmapCoords(world, pos.offset(info.corners[0]));
-        state.getPackedLightmapCoords(world, pos.offset(info.corners[1]));
-        state.getPackedLightmapCoords(world, pos.offset(info.corners[2]));
-        state.getPackedLightmapCoords(world, pos.offset(info.corners[3]));
-
-        int r1 = (int) ((total & 0xFFFF) * 0.75) ;
-        int r2 = (int) ((total & 0xFFFF) * 0.75);
-        int r3 = (int) ((total & 0xFFFF) * 0.75);
-        int r4 = (int) ((total & 0xFFFF) * 0.75);
-
-        int l1 = (int) ((total >> 16) * 0.8);
-        int l2 = (int) ((total >> 16) * 0.8);
-        int l3 = (int) ((total >> 16) * 0.8);
-        int l4 = (int) ((total >> 16) * 0.8);
-
-//        if(r1 > l1) l1 = 1; else r1 = 0;
-//        if(r2 > l2) l2 = 1; else r2 = 0;
-//        if(r3 > l3) l3 = 1; else r3 = 0;
-//        if(r4 > l4) l4 = 1; else r4 = 0;
-
-
-//        System.out.println(r1);
-		TextureAtlasSprite sprite = facing == EnumFacing.NORTH ? north.get(state) : facing == EnumFacing.EAST ? east.get(state) : facing == EnumFacing.WEST ? west.get(state) : south.get(state);
 		switch(facing) {
+			case DOWN:
+				break;
 			case EAST:
-				buffer.pos(x	, y		, z	+ 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).lightmap(l1, r1).endVertex();
-				buffer.pos(x	, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMaxV()).lightmap(l2, r2).endVertex();
-				buffer.pos(x	, y + 1	, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMinV()).lightmap(l3, r3).endVertex();
-				buffer.pos(x	, y + 1	, z	+ 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMinV()).lightmap(l4, r4).endVertex();
+				output = ArrayUtils.addAll(output, vertexToInts(0, 1, 0, -1, sprite, 0, 16));
+				output = ArrayUtils.addAll(output, vertexToInts(0, 1, 1, -1, sprite, 16, 16));
+				output = ArrayUtils.addAll(output, vertexToInts(0, 2, 1, -1, sprite, 16, 0));
+				output = ArrayUtils.addAll(output, vertexToInts(0, 2, 0, -1, sprite, 0, 0));
 				break;
 			case NORTH:
-				buffer.pos(x + 1, y		, z + 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).lightmap(l1, r1).endVertex();
-				buffer.pos(x	, y		, z + 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMaxV()).lightmap(l2, r2).endVertex();
-				buffer.pos(x	, y + 1	, z + 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMinV()).lightmap(l3, r3).endVertex();
-				buffer.pos(x + 1, y + 1	, z + 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMinV()).lightmap(l4, r4).endVertex();
+				output = ArrayUtils.addAll(output, vertexToInts(0, 1, 1, -1, sprite, 0, 16));
+				output = ArrayUtils.addAll(output, vertexToInts(1, 1, 1, -1, sprite, 16, 16));
+				output = ArrayUtils.addAll(output, vertexToInts(1, 2, 1, -1, sprite, 16, 0));
+				output = ArrayUtils.addAll(output, vertexToInts(0, 2, 1, -1, sprite, 0, 0));
 				break;
 			case SOUTH:
-				buffer.pos(x	, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).lightmap(l1, r1).endVertex();
-				buffer.pos(x + 1, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMaxV()).lightmap(l2, r2).endVertex();
-				buffer.pos(x + 1, y + 1	, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMinV()).lightmap(l3, r3).endVertex();
-				buffer.pos(x	, y + 1	, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMinV()).lightmap(l4, r4).endVertex();
+				output = ArrayUtils.addAll(output, vertexToInts(0, 1, 0, -1, sprite, 16, 16));
+				output = ArrayUtils.addAll(output, vertexToInts(1, 1, 0, -1, sprite, 0, 16));
+				output = ArrayUtils.addAll(output, vertexToInts(1, 2, 0, -1, sprite, 0, 0));
+				output = ArrayUtils.addAll(output, vertexToInts(0, 2, 0, -1, sprite, 16, 0));
+				break;
+			case UP:
 				break;
 			case WEST:
-				buffer.pos(x + 1, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).lightmap(l1, r1).endVertex();
-				buffer.pos(x + 1, y		, z	+ 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMaxV()).lightmap(l2, r2).endVertex();
-				buffer.pos(x + 1, y + 1	, z	+ 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMinV()).lightmap(l3, r3).endVertex();
-				buffer.pos(x + 1, y + 1	, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMinV()).lightmap(l4, r4).endVertex();
+				output = ArrayUtils.addAll(output, vertexToInts(1, 1, 0, -1, sprite, 16, 16));
+				output = ArrayUtils.addAll(output, vertexToInts(1, 1, 1, -1, sprite, 0, 16));
+				output = ArrayUtils.addAll(output, vertexToInts(1, 2, 1, -1, sprite, 0, 0));
+				output = ArrayUtils.addAll(output, vertexToInts(1, 2, 0, -1, sprite, 16, 0));
 				break;
 			default:
 				break;
 		}
+
+		return output;
 	}
 
-	public void renderSide(EnumFacing facing, IBlockState state, double x, double y, double z, boolean invert, BufferBuilder buffer) {
-		TextureAtlasSprite sprite = facing == EnumFacing.NORTH ? north.get(state) : facing == EnumFacing.EAST ? east.get(state) : facing == EnumFacing.WEST ? west.get(state) : south.get(state);
-		if(invert) {
-			switch(facing) {
-				case EAST:
-					buffer.pos(x	, y		, z	+ 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x	, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x	, y + 1	, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMinV()).tex(100, 1).endVertex();
-					buffer.pos(x	, y		, z	+ 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).tex(100, 1).endVertex();
+	private static int[] createTriangleQuad(EnumFacing facing, boolean inverted, TextureAtlasSprite sprite) {
+		int[] output = new int[0];
+
+		switch(facing) {
+			case DOWN:
+				break;
+			case EAST:
+				if(inverted) {
+					output = ArrayUtils.addAll(output, vertexToInts(0, 1, 0, -1, sprite, 0, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(0, 1, 1, -1, sprite, 16, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(0, 2, 1, -1, sprite, 16, 0));
+					output = ArrayUtils.addAll(output, vertexToInts(0, 1.5F, 0.5F, -1, sprite, 8, 8));
+				}else {
+					output = ArrayUtils.addAll(output, vertexToInts(0, 1, 0, -1, sprite, 0, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(0, 1, 1, -1, sprite, 16, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(0, 1.5F, 0.5F, -1, sprite, 8, 8));
+					output = ArrayUtils.addAll(output, vertexToInts(0, 2, 0, -1, sprite, 0, 0));
+				}
+				break;
+			case NORTH:
+				if(inverted) {
+					output = ArrayUtils.addAll(output, vertexToInts(0, 1, 1, -1, sprite, 0, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(1, 1, 1, -1, sprite, 16, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(1, 2, 1, -1, sprite, 16, 0));
+					output = ArrayUtils.addAll(output, vertexToInts(0.5F, 1.5F, 1, -1, sprite, 8, 8));
+				}else {
+					output = ArrayUtils.addAll(output, vertexToInts(0, 1, 1, -1, sprite, 0, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(1, 1, 1, -1, sprite, 16, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(0.5F, 1.5F, 1, -1, sprite, 8, 8));
+					output = ArrayUtils.addAll(output, vertexToInts(0, 2, 1, -1, sprite, 0, 0));
+				}
+				break;
+			case SOUTH:
+				if(inverted) {
+					output = ArrayUtils.addAll(output, vertexToInts(0, 1, 0, -1, sprite, 16, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(1, 1, 0, -1, sprite, 0, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(0.5F, 1.5F, 0, -1, sprite, 8, 8));
+					output = ArrayUtils.addAll(output, vertexToInts(0, 2, 0, -1, sprite, 16, 0));
+				}else {
+					output = ArrayUtils.addAll(output, vertexToInts(0, 1, 0, -1, sprite, 16, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(1, 1, 0, -1, sprite, 0, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(1, 2, 0, -1, sprite, 0, 0));
+					output = ArrayUtils.addAll(output, vertexToInts(0.5F, 1.5F, 0, -1, sprite, 8, 8));
+				}
+
+				break;
+			case UP:
+				break;
+			case WEST:
+				if(inverted) {
+					output = ArrayUtils.addAll(output, vertexToInts(1, 1, 0, -1, sprite, 16, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(1, 1, 1, -1, sprite, 0, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(1, 1.5F, 0.5F, -1, sprite, 8, 8));
+					output = ArrayUtils.addAll(output, vertexToInts(1, 2, 0, -1, sprite, 16, 0));
+				}else {
+					output = ArrayUtils.addAll(output, vertexToInts(1, 1, 0, -1, sprite, 16, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(1, 1, 1, -1, sprite, 0, 16));
+					output = ArrayUtils.addAll(output, vertexToInts(1, 2, 1, -1, sprite, 0, 0));
+					output = ArrayUtils.addAll(output, vertexToInts(1, 1.5F, 0.5F, -1, sprite, 8, 8));
+				}
+				break;
+			default:
+				break;
+		}
+
+		return output;
+	}
+
+	private class BakedRoof implements IBakedModel{
+
+		List<BakedQuad> facingCWQ = new ArrayList<BakedQuad>();
+		List<BakedQuad> facingQ = new ArrayList<BakedQuad>();
+		List<BakedQuad> facingCCWQ = new ArrayList<BakedQuad>();
+
+		EnumFacing facing = null;
+
+		public BakedRoof(EnumFacing facing, TextureAtlasSprite sprite, BlockProperties.StairType type) {
+			this.facing = facing.getOpposite();
+
+
+
+//			System.out.println(type);
+			switch(type) {
+				case INNER_LEFT:
+					this.facingQ.add(new BakedQuad(createFullQuad(facing, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCWQ.add(new BakedQuad(createFullQuad(facing.rotateY(), sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
 					break;
-				case NORTH:
-					buffer.pos(x + 1, y		, z + 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x	, y		, z + 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x	, y + 1	, z + 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMinV()).tex(100, 1).endVertex();
-					buffer.pos(x + 1, y		, z + 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).tex(100, 1).endVertex();
+				case INNER_RIGHT:
+					this.facingQ.add(new BakedQuad(createFullQuad(facing, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCCWQ.add(new BakedQuad(createFullQuad(facing.rotateYCCW(), sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
 					break;
-				case SOUTH:
-					buffer.pos(x	, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x + 1, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x + 1, y + 1	, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMinV()).tex(100, 1).endVertex();
-					buffer.pos(x	, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).tex(100, 1).endVertex();
+				case OUTER_LEFT:
+					this.facingQ.add(new BakedQuad(createTriangleQuad(facing, false, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateY(), true, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
 					break;
-				case WEST:
-					buffer.pos(x + 1, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x + 1, y		, z	+ 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x + 1, y + 1	, z	+ 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMinV()).tex(100, 1).endVertex();
-					buffer.pos(x + 1, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).tex(100, 1).endVertex();
+				case OUTER_RIGHT:
+					this.facingQ.add(new BakedQuad(createTriangleQuad(facing, true, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateYCCW(), false, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					break;
+				case STRAIGHT:
+					this.facingQ.add(new BakedQuad(createFullQuad(facing, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateY(), true, sprite),0, facing.rotateY(), sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateYCCW(), false, sprite),0, facing.rotateYCCW(), sprite, true, DefaultVertexFormats.BLOCK));
 					break;
 				default:
 					break;
 			}
-		}else {
-			switch(facing) {
-				case EAST:
-					buffer.pos(x	, y		, z	+ 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x	, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x	, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMinV()).tex(100, 1).endVertex();
-					buffer.pos(x	, y + 1	, z	+ 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMinV()).tex(100, 1).endVertex();
-					break;
-				case NORTH:
-					buffer.pos(x + 1, y		, z + 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x	, y		, z + 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x	, y		, z + 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMinV()).tex(100, 1).endVertex();
-					buffer.pos(x + 1, y + 1	, z + 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMinV()).tex(100, 1).endVertex();
-					break;
-				case SOUTH:
-					buffer.pos(x	, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x + 1, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x + 1, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMinV()).tex(100, 1).endVertex();
-					buffer.pos(x	, y + 1	, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMinV()).tex(100, 1).endVertex();
-					break;
-				case WEST:
-					buffer.pos(x + 1, y		, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x + 1, y		, z	+ 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMaxV()).tex(100, 1).endVertex();
-					buffer.pos(x + 1, y		, z	+ 1	).color(1f, 1f, 1f, 1f).tex(sprite.getMaxU(), sprite.getMinV()).tex(100, 1).endVertex();
-					buffer.pos(x + 1, y + 1	, z		).color(1f, 1f, 1f, 1f).tex(sprite.getMinU(), sprite.getMinV()).tex(100, 1).endVertex();
-					break;
-				default:
-					break;
-			}
+
+//			if(facing == EnumFacing.SOUTH) {
+//				this.facingQ.add(new BakedQuad(createFullQuad(facing, sprite), 0, EnumFacing.SOUTH, sprite, true, DefaultVertexFormats.BLOCK));
+//			}else if(facing == EnumFacing.EAST){
+//				this.facingQ.add(new BakedQuad(createFullQuad(facing, sprite), 0, EnumFacing.EAST, sprite, true, DefaultVertexFormats.BLOCK));
+//			}else if(facing == EnumFacing.WEST){
+//				this.facingQ.add(new BakedQuad(createFullQuad(facing, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
+//			}else if(facing == EnumFacing.NORTH){
+//				this.facingQ.add(new BakedQuad(createFullQuad(facing, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
+//				this.facingCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateY(), true, sprite),0, facing.rotateY(), sprite, true, DefaultVertexFormats.BLOCK));
+//				this.facingCCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateYCCW(), false, sprite),0, facing.rotateYCCW(), sprite, true, DefaultVertexFormats.BLOCK));
+//			}
+		}
+
+		@Override
+		public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
+			if(side == this.facing) return this.facingQ;
+			else if(side == this.facing.rotateY()) return this.facingCWQ;
+			else if(side == this.facing.rotateYCCW()) return this.facingCCWQ;
+			return new ArrayList<BakedQuad>();
+		}
+
+		@Override
+		public boolean isAmbientOcclusion() {
+			return true;
+		}
+
+		@Override
+		public boolean isGui3d() {
+			return false;
+		}
+
+		@Override
+		public boolean isBuiltInRenderer() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		@Override
+		public TextureAtlasSprite getParticleTexture() {
+			return null;
+		}
+
+		@Override
+		public ItemOverrideList getOverrides() {
+			return null;
 		}
 	}
-
-	@SideOnly(Side.CLIENT)
-    public static enum EnumNeighborInfo {
-        DOWN(new EnumFacing[]{EnumFacing.WEST, EnumFacing.EAST, EnumFacing.NORTH, EnumFacing.SOUTH}),
-        UP(new EnumFacing[]{EnumFacing.EAST, EnumFacing.WEST, EnumFacing.NORTH, EnumFacing.SOUTH}),
-        NORTH(new EnumFacing[]{EnumFacing.DOWN, EnumFacing.UP, EnumFacing.EAST, EnumFacing.WEST}),
-        SOUTH(new EnumFacing[]{EnumFacing.DOWN, EnumFacing.UP, EnumFacing.WEST, EnumFacing.EAST}),
-        WEST(new EnumFacing[]{EnumFacing.DOWN, EnumFacing.UP, EnumFacing.NORTH, EnumFacing.SOUTH}),
-        EAST(new EnumFacing[]{EnumFacing.DOWN, EnumFacing.UP, EnumFacing.SOUTH, EnumFacing.NORTH});
-
-        private static final EnumNeighborInfo[] VALUES = new EnumNeighborInfo[6];
-
-        private final EnumFacing[] corners;
-
-        private EnumNeighborInfo(EnumFacing[] corners){
-            this.corners = corners;
-        }
-
-        public static EnumNeighborInfo getNeighbourInfo(EnumFacing facing){
-            return VALUES[facing.getIndex()];
-        }
-
-        static{
-            VALUES[EnumFacing.DOWN.getIndex()] = DOWN;
-            VALUES[EnumFacing.UP.getIndex()] = UP;
-            VALUES[EnumFacing.NORTH.getIndex()] = NORTH;
-            VALUES[EnumFacing.SOUTH.getIndex()] = SOUTH;
-            VALUES[EnumFacing.WEST.getIndex()] = WEST;
-            VALUES[EnumFacing.EAST.getIndex()] = EAST;
-        }
-    }
-
 }

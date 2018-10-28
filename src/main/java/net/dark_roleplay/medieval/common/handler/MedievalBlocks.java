@@ -39,6 +39,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.old.Lantern;
 import net.dark_roleplay.medieval.common.objects.blocks.old.LargeLectern;
 import net.dark_roleplay.medieval.common.objects.blocks.old.LogBench;
 import net.dark_roleplay.medieval.common.objects.blocks.old.MossyLog;
+import net.dark_roleplay.medieval.common.objects.blocks.old.NormalRoof;
 import net.dark_roleplay.medieval.common.objects.blocks.old.Rope;
 import net.dark_roleplay.medieval.common.objects.blocks.old.RopeAnchor;
 import net.dark_roleplay.medieval.common.objects.blocks.old.RopeFence;
@@ -153,8 +154,8 @@ public class MedievalBlocks {
 		IForgeRegistry<Block> reg = registryEvent.getRegistry();
 
 		MaterialRequirements logRequired = new MaterialRequirements("log_side", "log_top");
-		MaterialRequirements plankRequired = new MaterialRequirements("plank");
-		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_plank");
+		MaterialRequirements plankRequired = new MaterialRequirements("planks");
+		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
 
 		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
 			if(logRequired.doesFulfillRequirements(mat)) {
@@ -342,6 +343,7 @@ public class MedievalBlocks {
 		if(InDevUtil.isDevEnv()) {
 			reg.register(new TorchOverride());
 			register(reg, MedievalCreativeTabs.UTILITY,
+				new NormalRoof("oak_roof", Settings.WOOD_DECO),
 				new SpinningWheel("spinning_wheel2", Settings.WOOD_DECO).setTileEntityFactory(SpinningWheelTileEntity::new).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock
 			);
 
