@@ -69,9 +69,9 @@ public class TESR_Roof extends FastTESR<TE_Roof> {
 
 		BlockPos offset = pos;
 		if(world.isAirBlock(pos.down())) return;
-		buffer.setTranslation(x - offset.getX(), y - offset.getY() -1, z - offset.getZ());
-		blockRenderDispatcher.getBlockModelRenderer().renderModel(world, this.model, world.getBlockState(pos), pos, buffer, true);
-		}catch(Throwable e) {
+			buffer.setTranslation(x - offset.getX(), y - offset.getY() -1, z - offset.getZ());
+			blockRenderDispatcher.getBlockModelRenderer().renderModel(world, this.model, world.getBlockState(pos), pos, buffer, true);
+			}catch(Throwable e) {
 		}
 
 	}
@@ -216,6 +216,7 @@ public class TESR_Roof extends FastTESR<TE_Roof> {
 		List<BakedQuad> facingCWQ = new ArrayList<BakedQuad>();
 		List<BakedQuad> facingQ = new ArrayList<BakedQuad>();
 		List<BakedQuad> facingCCWQ = new ArrayList<BakedQuad>();
+		List<BakedQuad> facingMQ = new ArrayList<BakedQuad>();
 
 		EnumFacing facing = null;
 
@@ -227,25 +228,29 @@ public class TESR_Roof extends FastTESR<TE_Roof> {
 //			System.out.println(type);
 			switch(type) {
 				case INNER_LEFT:
-					this.facingQ.add(new BakedQuad(createFullQuad(facing, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
-					this.facingCWQ.add(new BakedQuad(createFullQuad(facing.rotateY(), sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingQ.add(new BakedQuad(createFullQuad(facing, sprite), 1, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCWQ.add(new BakedQuad(createFullQuad(facing.rotateY(), sprite), 1, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateYCCW(), false, sprite), 1, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingMQ.add(new BakedQuad(createTriangleQuad(facing.getOpposite(), true, sprite), 1, facing, sprite, true, DefaultVertexFormats.BLOCK));
 					break;
 				case INNER_RIGHT:
-					this.facingQ.add(new BakedQuad(createFullQuad(facing, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
-					this.facingCCWQ.add(new BakedQuad(createFullQuad(facing.rotateYCCW(), sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingQ.add(new BakedQuad(createFullQuad(facing, sprite), 1, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCCWQ.add(new BakedQuad(createFullQuad(facing.rotateYCCW(), sprite), 1, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateY(), true, sprite), 1, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingMQ.add(new BakedQuad(createTriangleQuad(facing.getOpposite(), false, sprite), 1, facing, sprite, true, DefaultVertexFormats.BLOCK));
 					break;
 				case OUTER_LEFT:
-					this.facingQ.add(new BakedQuad(createTriangleQuad(facing, false, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
-					this.facingCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateY(), true, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingQ.add(new BakedQuad(createTriangleQuad(facing, false, sprite), 1, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateY(), true, sprite), 1, facing, sprite, true, DefaultVertexFormats.BLOCK));
 					break;
 				case OUTER_RIGHT:
-					this.facingQ.add(new BakedQuad(createTriangleQuad(facing, true, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
-					this.facingCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateYCCW(), false, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingQ.add(new BakedQuad(createTriangleQuad(facing, true, sprite), 1, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateYCCW(), false, sprite), 1, facing, sprite, true, DefaultVertexFormats.BLOCK));
 					break;
 				case STRAIGHT:
-					this.facingQ.add(new BakedQuad(createFullQuad(facing, sprite), 0, facing, sprite, true, DefaultVertexFormats.BLOCK));
-					this.facingCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateY(), true, sprite),0, facing.rotateY(), sprite, true, DefaultVertexFormats.BLOCK));
-					this.facingCCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateYCCW(), false, sprite),0, facing.rotateYCCW(), sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingQ.add(new BakedQuad(createFullQuad(facing, sprite), 1, facing, sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateY(), true, sprite), 1, facing.rotateY(), sprite, true, DefaultVertexFormats.BLOCK));
+					this.facingCCWQ.add(new BakedQuad(createTriangleQuad(facing.rotateYCCW(), false, sprite), 1, facing.rotateYCCW(), sprite, true, DefaultVertexFormats.BLOCK));
 					break;
 				default:
 					break;
@@ -269,6 +274,7 @@ public class TESR_Roof extends FastTESR<TE_Roof> {
 			if(side == this.facing) return this.facingQ;
 			else if(side == this.facing.rotateY()) return this.facingCWQ;
 			else if(side == this.facing.rotateYCCW()) return this.facingCCWQ;
+			else if(side == this.facing.getOpposite()) return this.facingMQ;
 			return new ArrayList<BakedQuad>();
 		}
 

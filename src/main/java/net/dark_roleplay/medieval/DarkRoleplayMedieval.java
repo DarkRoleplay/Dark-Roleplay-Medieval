@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 
 import net.dark_roleplay.library.sides.IProxy;
 import net.dark_roleplay.medieval.client.objects.blocks.color_handlers.DryClayGrassColor;
+import net.dark_roleplay.medieval.client.objects.blocks.color_handlers.SolidColor;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Banner;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_ClockCore;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Flowers;
@@ -206,6 +207,25 @@ public class DarkRoleplayMedieval {
 			    return color.colorMultiplier(iblockstate, (IBlockAccess)null, (BlockPos)null, tintIndex);
 			}, MedievalBlocks.DRY_CLAY_GRASS);
 			Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new PaintBrushColors(), MedievalItems.DIRTY_PAINTBRUSH);
+
+			Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new SolidColor(),
+//				MedievalBlocks.WHITE_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.ORANGE_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.MAGENTA_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.LIGHT_BLUE_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.YELLOW_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.LIGHT_GREEN_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.PINK_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.GRAY_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.LIGHT_GRAY_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.CYAN_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.PURPLE_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.BLUE_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.BROWN_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.GREEN_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.RED_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.BLACK_CLAY_SHINGLE_ROOF
+			);
 		}
 
 		@Override

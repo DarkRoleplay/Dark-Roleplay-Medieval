@@ -2,12 +2,18 @@ package net.dark_roleplay.medieval.common.handler;
 
 import java.util.ArrayList;
 
+import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
+import net.dark_roleplay.core_modules.maarg.api.materials.Material;
+import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.library_old.items.ItemUtil;
 import net.dark_roleplay.medieval.References;
+import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.IStateMapper;
+import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -37,6 +43,34 @@ public class MedievalModels {
 		registerItemMesh("old_blocks", MedievalBlocks.CAULDRON);
 		registerItemMesh("old_blocks", MedievalBlocks.ROPE_ANCHOR);
 		registerItemMesh("old_blocks", MedievalBlocks.FIREPIT_LIT);
+
+		IStateMapper teRemover = new StateMap.Builder().ignore(BlockProperties.HAS_TE).build();
+		ModelLoader.setCustomStateMapper(MedievalBlocks.CLAY_SHINGLE_ROOF				, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.WHITE_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.ORANGE_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.MAGENTA_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.LIGHT_BLUE_CLAY_SHINGLE_ROOF 	, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.YELLOW_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.LIGHT_GREEN_CLAY_SHINGLE_ROOF 	, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.PINK_CLAY_SHINGLE_ROOF 			, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.GRAY_CLAY_SHINGLE_ROOF 			, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.LIGHT_GRAY_CLAY_SHINGLE_ROOF 	, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.CYAN_CLAY_SHINGLE_ROOF 			, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.PURPLE_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.BLUE_CLAY_SHINGLE_ROOF 			, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.BROWN_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.GREEN_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.RED_CLAY_SHINGLE_ROOF 			, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.BLACK_CLAY_SHINGLE_ROOF 		, teRemover);
+
+		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
+
+		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
+			if(cleanPlankRequired.doesFulfillRequirements(mat)) {
+				Block b = Block.getBlockFromName("drpmedieval:" +mat.getName() + "_shingle_roof");
+				ModelLoader.setCustomStateMapper(b, teRemover);
+			}
+		}
 
 		//TODO FIX
 //		ModelLoader.registerItemVariants(TIMBERED_CLAY, TIMBERED_CLAY.getRegistryName());

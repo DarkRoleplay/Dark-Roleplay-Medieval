@@ -129,6 +129,25 @@ public class MedievalBlocks {
 	 IRON_HOOK = null,
 	 BEESWAX_CANDLE = null;
 
+	public static final Block
+		CLAY_SHINGLE_ROOF				= null,
+		WHITE_CLAY_SHINGLE_ROOF 		= null,
+		ORANGE_CLAY_SHINGLE_ROOF 		= null,
+		MAGENTA_CLAY_SHINGLE_ROOF 		= null,
+		LIGHT_BLUE_CLAY_SHINGLE_ROOF 	= null,
+		YELLOW_CLAY_SHINGLE_ROOF 		= null,
+		LIGHT_GREEN_CLAY_SHINGLE_ROOF 	= null,
+		PINK_CLAY_SHINGLE_ROOF 			= null,
+		GRAY_CLAY_SHINGLE_ROOF 			= null,
+		LIGHT_GRAY_CLAY_SHINGLE_ROOF 	= null,
+		CYAN_CLAY_SHINGLE_ROOF 			= null,
+		PURPLE_CLAY_SHINGLE_ROOF 		= null,
+		BLUE_CLAY_SHINGLE_ROOF 			= null,
+		BROWN_CLAY_SHINGLE_ROOF 		= null,
+		GREEN_CLAY_SHINGLE_ROOF 		= null,
+		RED_CLAY_SHINGLE_ROOF 			= null,
+		BLACK_CLAY_SHINGLE_ROOF 		= null;
+
 	public static final EmptyWallMount CANDLE_HOLDER_EMPTY = null;
 	public static final UnlitWallMount CANDLE_HOLDER_UNLIT = null;
 	public static final LitWallMount CANDLE_HOLDER_LIT = null;
@@ -221,7 +240,8 @@ public class MedievalBlocks {
 				ConnectedModelLoader.registerConnectedModelBlock(plankSimpleTable);
 
 				register(reg, MedievalCreativeTabs.BUILDING_MATS,
-					new DRPBlock(mat.getName() + "_clean_plank", Settings.WOOD_SOLID)
+					new DRPBlock(mat.getName() + "_clean_plank", Settings.WOOD_SOLID),
+					new NormalRoof(mat.getName() + "_shingle_roof", Settings.WOOD_DECO)
 				);
 
 				register(reg, MedievalCreativeTabs.UTILITY,
@@ -316,6 +336,24 @@ public class MedievalBlocks {
 
 		//Building Blocks Tab
 		register(reg, MedievalCreativeTabs.BUILDING_MATS,
+			new NormalRoof("clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("white_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("orange_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("magenta_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("light_blue_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("yellow_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("light_green_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("pink_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("gray_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("light_gray_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("cyan_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("purple_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("blue_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("brown_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("green_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("red_clay_shingle_roof", Settings.WOOD_DECO),
+			new NormalRoof("black_clay_shingle_roof", Settings.WOOD_DECO),
+//			new NormalRoof("clay_shingle_roof", Settings.WOOD_DECO),
 			new DRPBlock("andesite_bricks", Settings.STONE_SOLID),
 			new DRPBlock("diorite_bricks", Settings.STONE_SOLID),
 			new DRPBlock("granite_bricks", Settings.STONE_SOLID),
@@ -346,7 +384,6 @@ public class MedievalBlocks {
 		if(InDevUtil.isDevEnv()) {
 			reg.register(new TorchOverride());
 			register(reg, MedievalCreativeTabs.UTILITY,
-				new NormalRoof("oak_roof", Settings.WOOD_DECO),
 				new SpinningWheel("spinning_wheel2", Settings.WOOD_DECO).setTileEntityFactory(SpinningWheelTileEntity::new).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock
 			);
 

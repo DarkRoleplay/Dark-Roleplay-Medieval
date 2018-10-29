@@ -1,0 +1,21 @@
+{
+	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/roof/%wood%_shingles"
+	],
+	"required_textures":[
+		"drpmedieval:arg/textures/overlays/shingle_roof.png"
+	],
+	"textures":[
+		{
+			"base":"clean_planks",
+			"manipulations":[
+				{
+					"type":"overlay",
+					"texture":0
+				}
+			],
+			"output":"drpmedieval:textures/blocks/roof/%wood%_shingles"
+		}
+	]
+}

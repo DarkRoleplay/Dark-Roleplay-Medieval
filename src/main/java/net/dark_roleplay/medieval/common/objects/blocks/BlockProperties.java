@@ -35,6 +35,8 @@ public class BlockProperties {
 	public static final PropertyBool LIT = PropertyBool.create("lit");
 	public static final PropertyBool IS_OPEN = PropertyBool.create("open");
 
+	public static final PropertyBool HAS_TE = PropertyBool.create("has_te");
+
 
 
 	public static enum StairType implements IStringSerializable{
