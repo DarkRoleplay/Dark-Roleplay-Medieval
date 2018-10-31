@@ -27,6 +27,7 @@ public class BlockProperties {
 
 	//Dirt Stairs
 	public static final PropertyEnum<StairType> STAIR_TYPE = PropertyEnum.<StairType>create("type", StairType.class);
+	public static final PropertyEnum<WindowPlacement> WINDOW_PLACEMENT = PropertyEnum.<WindowPlacement>create("placement", WindowPlacement.class);
 
 	//Target
 	public static final PropertyBool IS_TOP = PropertyBool.create("top");
@@ -45,6 +46,16 @@ public class BlockProperties {
 		INNER_RIGHT,
 		OUTER_LEFT,
 		OUTER_RIGHT;
+
+		@Override
+		public String getName() {
+			return this.name().toLowerCase();
+		}
+	}
+
+	public static enum WindowPlacement implements IStringSerializable{
+		OFFSET,
+		CENTERED;
 
 		@Override
 		public String getName() {

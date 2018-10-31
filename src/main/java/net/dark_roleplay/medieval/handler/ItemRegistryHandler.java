@@ -128,7 +128,7 @@ public class ItemRegistryHandler {
 		);
 
 		registerItems(reg, MedievalCreativeTabs.BUILDING_MATS,
-				new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
+			new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
 
 		if(InDevUtil.isDevEnv() && false) {
 			registerItems(reg, MedievalCreativeTabs.MATERIALS,

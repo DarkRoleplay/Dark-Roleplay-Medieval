@@ -57,6 +57,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.EmptyWa
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.LitWallMount;
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.UnlitWallMount;
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.WallMounted;
+import net.dark_roleplay.medieval.common.objects.blocks.special.WoodenWindow;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Banner;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ChoppingBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
@@ -176,8 +177,6 @@ public class MedievalBlocks {
 		MaterialRequirements plankRequired = new MaterialRequirements("planks");
 		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
 
-
-
 		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
 			if(logRequired.doesFulfillRequirements(mat)) {
 				register(reg, MedievalCreativeTabs.UTILITY,
@@ -241,7 +240,12 @@ public class MedievalBlocks {
 
 				register(reg, MedievalCreativeTabs.BUILDING_MATS,
 					new DRPBlock(mat.getName() + "_clean_plank", Settings.WOOD_SOLID),
-					new NormalRoof(mat.getName() + "_shingle_roof", Settings.WOOD_DECO)
+					new NormalRoof(mat.getName() + "_shingle_roof", Settings.WOOD_DECO),
+					new WoodenWindow(mat.getName() + "_window_cross", Settings.WOOD_DECO),
+					new WoodenWindow(mat.getName() + "_window_vertical", Settings.WOOD_DECO),
+					new WoodenWindow(mat.getName() + "_window_dense_diamond", Settings.WOOD_DECO),
+					new WoodenWindow(mat.getName() + "_window_dense_vertical", Settings.WOOD_DECO),
+					new WoodenWindow(mat.getName() + "_window_grid", Settings.WOOD_DECO)
 				);
 
 				register(reg, MedievalCreativeTabs.UTILITY,

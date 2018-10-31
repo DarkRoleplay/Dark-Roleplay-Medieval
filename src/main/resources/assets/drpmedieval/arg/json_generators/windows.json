@@ -1,0 +1,21 @@
+{
+	"type":"wood",
+	"jsons":[
+		{
+			"input" : "drpmedieval:arg/blockstates/windows/wood_cross.json",
+			"output" : "drpmedieval:blockstates/%wood%_window_cross.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/windows/wood_dense_diamond.json",
+			"output" : "drpmedieval:blockstates/%wood%_window_dense_diamond.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/windows/wood_dense_vertical.json",
+			"output" : "drpmedieval:blockstates/%wood%_window_dense_vertical.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/windows/wood_grid.json",
+			"output" : "drpmedieval:blockstates/%wood%_window_grid.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/windows/wood_vertical.json",
+			"output" : "drpmedieval:blockstates/%wood%_window_vertical.json"
+		}
+	]
+}

@@ -1,0 +1,28 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:windows/wood_cross/center_window",
+        "textures": {
+			"wood": "drpcmmaarg:blocks/clean_planks/clean_planks_%wood%",
+			"particle": "drpcmmaarg:blocks/clean_planks/clean_planks_%wood%"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"facing":{
+			"north":{},
+			"east":{"y":90},
+			"south":{"y":180},
+			"west":{"y":270}
+		},
+		"placement": {
+			"centered":{
+				"model":"drpmedieval:windows/wood_vertical/centered"
+			},
+			"offset":{
+				"model":"drpmedieval:windows/wood_vertical/offset"
+			}
+		}
+	}
+}
