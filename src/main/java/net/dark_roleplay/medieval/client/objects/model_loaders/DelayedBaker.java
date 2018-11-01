@@ -52,7 +52,7 @@ public abstract class DelayedBaker implements IBakedModel, IModel{
 	public IModelState getDefaultState() { return TRSRTransformation.identity(); }
 
 	@Override
-	public boolean isAmbientOcclusion() { return false; }
+	public boolean isAmbientOcclusion() { return true; }
 
 	@Override
 	public boolean isGui3d() { return true; }

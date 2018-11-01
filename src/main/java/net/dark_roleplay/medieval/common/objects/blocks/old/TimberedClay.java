@@ -112,7 +112,6 @@ public class TimberedClay extends Block{
 		this.setHardness(1.25F);
 		this.setResistance(7.0F);
 		this.setSoundType(SoundType.STONE);
-		this.fullBlock = true;
 		this.setDefaultState(this.blockState.getBaseState().withProperty(UP, false).withProperty(RIGHT, false).withProperty(DOWN, false).withProperty(LEFT, false));
 	}
 
