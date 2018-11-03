@@ -1,0 +1,34 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:stairs/simple_wood_stairs/top_single",
+        "textures": {
+			"planks": "drpcmmaarg:blocks/clean_planks/clean_planks_%wood%",
+			"bark": "drpcmmaarg:blocks/log_side/%wood%_log_side",
+			"particle": "drpcmmaarg:blocks/clean_planks/clean_planks_%wood%"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"connection=single,facing=north,grounded=false":{"model":"drpmedieval:stairs/simple_wood_stairs/top_single"},
+		"connection=single,facing=north,grounded=true":{"model":"drpmedieval:stairs/simple_wood_stairs/bottom_single"},
+		"connection=double,facing=north,grounded=false":{"model":"drpmedieval:stairs/simple_wood_stairs/top_multiple"},
+		"connection=double,facing=north,grounded=true":{"model":"drpmedieval:stairs/simple_wood_stairs/bottom_multiple"},
+		
+		"connection=single,facing=east,grounded=false":{"model":"drpmedieval:stairs/simple_wood_stairs/top_single", "y":90},
+		"connection=single,facing=east,grounded=true":{"model":"drpmedieval:stairs/simple_wood_stairs/bottom_single", "y":90},
+		"connection=double,facing=east,grounded=false":{"model":"drpmedieval:stairs/simple_wood_stairs/top_multiple", "y":90},
+		"connection=double,facing=east,grounded=true":{"model":"drpmedieval:stairs/simple_wood_stairs/bottom_multiple", "y":90},
+		
+		"connection=single,facing=south,grounded=false":{"model":"drpmedieval:stairs/simple_wood_stairs/top_single", "y":180},
+		"connection=single,facing=south,grounded=true":{"model":"drpmedieval:stairs/simple_wood_stairs/bottom_single", "y":180},
+		"connection=double,facing=south,grounded=false":{"model":"drpmedieval:stairs/simple_wood_stairs/top_multiple", "y":180},
+		"connection=double,facing=south,grounded=true":{"model":"drpmedieval:stairs/simple_wood_stairs/bottom_multiple", "y":180},
+
+		"connection=single,facing=west,grounded=false":{"model":"drpmedieval:stairs/simple_wood_stairs/top_single", "y":270},
+		"connection=single,facing=west,grounded=true":{"model":"drpmedieval:stairs/simple_wood_stairs/bottom_single", "y":270},
+		"connection=double,facing=west,grounded=false":{"model":"drpmedieval:stairs/simple_wood_stairs/top_multiple", "y":270},
+		"connection=double,facing=west,grounded=true":{"model":"drpmedieval:stairs/simple_wood_stairs/bottom_multiple", "y":270}
+	}
+}

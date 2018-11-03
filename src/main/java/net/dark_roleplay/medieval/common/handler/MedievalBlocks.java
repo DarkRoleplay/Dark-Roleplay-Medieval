@@ -57,6 +57,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.EmptyWa
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.LitWallMount;
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.UnlitWallMount;
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.WallMounted;
+import net.dark_roleplay.medieval.common.objects.blocks.special.SimpleWoodStairs;
 import net.dark_roleplay.medieval.common.objects.blocks.special.WoodenWindow;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Banner;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ChoppingBlock;
@@ -213,6 +214,10 @@ public class MedievalBlocks {
 				}
 
 				if(cleanPlankRequired.doesFulfillRequirements(mat)) {
+					register(reg, MedievalCreativeTabs.BUILDING_MATS,
+						new SimpleWoodStairs("simple_" + mat.getName() + "_stairs", Settings.WOOD_DECO)
+					);
+
 					register(reg, MedievalCreativeTabs.UTILITY,
 							new WorkTable(mat.getName() + "_work_table") //TODO Update to DRPBlock  //TODO fix Settings
 					);
