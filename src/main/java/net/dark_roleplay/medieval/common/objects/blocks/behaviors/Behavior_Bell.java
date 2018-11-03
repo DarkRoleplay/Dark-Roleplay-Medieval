@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.objects.blocks.behaviors;
 
 import net.dark_roleplay.library.experimental.blocks.behaviors.IActivatedBehavior;
 import net.dark_roleplay.library.experimental.blocks.behaviors.ICollidedWithBehavior;
-import net.dark_roleplay.medieval.common.handler.MedievalSounds;
+import net.dark_roleplay.medieval.holders.MedievalSounds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
