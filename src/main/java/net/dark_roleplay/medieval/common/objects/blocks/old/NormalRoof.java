@@ -76,16 +76,17 @@ public class NormalRoof extends FacedBlock {
 		IBlockState otherBlock = world.getBlockState(pos.offset(facing));
 		IBlockState otherBlock2 = world.getBlockState(pos.offset(facing.getOpposite()));
 		IBlockState otherBlock3 = world.getBlockState(pos.offset(facing.rotateY()));
+		IBlockState otherBlock4 = world.getBlockState(pos.offset(facing.rotateYCCW()));
 		if (otherBlock.getBlock() instanceof NormalRoof && otherBlock.getValue(FACING_HORIZONTAL) == facing.rotateY()) {
 			return state.withProperty(STAIR_TYPE, StairType.INNER_LEFT);
 		} else if (otherBlock.getBlock() instanceof NormalRoof
 				&& otherBlock.getValue(FACING_HORIZONTAL) == facing.rotateYCCW()) {
 			return state.withProperty(STAIR_TYPE, StairType.INNER_RIGHT);
 		} else if (otherBlock2.getBlock() instanceof NormalRoof
-				&& otherBlock2.getValue(FACING_HORIZONTAL) == facing.rotateY() && otherBlock3.getBlock() instanceof NormalRoof && otherBlock3.getValue(FACING_HORIZONTAL) != facing) {
+				&& otherBlock2.getValue(FACING_HORIZONTAL) == facing.rotateY() && !(otherBlock3.getBlock() instanceof NormalRoof && otherBlock3.getValue(FACING_HORIZONTAL) == facing)) {
 			return state.withProperty(STAIR_TYPE, StairType.OUTER_LEFT);
 		} else if (otherBlock2.getBlock() instanceof NormalRoof
-				&& otherBlock2.getValue(FACING_HORIZONTAL) == facing.rotateYCCW() && otherBlock3.getBlock() instanceof NormalRoof && otherBlock3.getValue(FACING_HORIZONTAL) != facing) {
+				&& otherBlock2.getValue(FACING_HORIZONTAL) == facing.rotateYCCW() && !(otherBlock4.getBlock() instanceof NormalRoof && otherBlock4.getValue(FACING_HORIZONTAL) == facing)) {
 			return state.withProperty(STAIR_TYPE, StairType.OUTER_RIGHT);
 		}
 
