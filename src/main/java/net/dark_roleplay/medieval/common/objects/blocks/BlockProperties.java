@@ -23,11 +23,13 @@ public class BlockProperties {
 	public static final PropertyBool POWERED = PropertyBool.create("powered");
 
 	//Wood Bench
-	public static final PropertyBool SINGLE = PropertyBool.create("single");
+	public static final PropertyBool SINGLE = PropertyBool.create("single"); //TODO change to SD_CONNECTION
 
 	//Dirt Stairs
 	public static final PropertyEnum<StairType> STAIR_TYPE = PropertyEnum.<StairType>create("type", StairType.class);
 	public static final PropertyEnum<WindowPlacement> WINDOW_PLACEMENT = PropertyEnum.<WindowPlacement>create("placement", WindowPlacement.class);
+
+	//Wooden Stairs
 
 	//Target
 	public static final PropertyBool IS_TOP = PropertyBool.create("top");
@@ -35,6 +37,12 @@ public class BlockProperties {
 	//Dungeon Chest
 	public static final PropertyBool LIT = PropertyBool.create("lit");
 	public static final PropertyBool IS_OPEN = PropertyBool.create("open");
+
+	/**
+	 * Default Implementation should set this to double, if there are 2+ equal blocks next to each other, otherwise it shoulg be single
+	 */
+	public static final PropertyEnum<ConnectionSD> SD_CONNECTION = PropertyEnum.<ConnectionSD>create("connection", ConnectionSD.class);
+	public static final PropertyBool GROUNDED = PropertyBool.create("grounded");
 
 	public static final PropertyBool HAS_TE = PropertyBool.create("has_te");
 
@@ -48,9 +56,7 @@ public class BlockProperties {
 		OUTER_RIGHT;
 
 		@Override
-		public String getName() {
-			return this.name().toLowerCase();
-		}
+		public String getName() { return this.name().toLowerCase(); }
 	}
 
 	public static enum WindowPlacement implements IStringSerializable{
@@ -58,8 +64,22 @@ public class BlockProperties {
 		CENTERED;
 
 		@Override
-		public String getName() {
-			return this.name().toLowerCase();
+		public String getName() { return this.name().toLowerCase(); }
+	}
+
+	public static enum ConnectionSD implements IStringSerializable{
+		SINGLE,
+		DOUBLE;
+
+		@Override
+		public String getName() { return this.name().toLowerCase(); }
+
+		public ConnectionSD get(int meta) {
+			for(ConnectionSD value : ConnectionSD.values()) {
+				if(meta == value.ordinal())
+					return value;
+			}
+			return null;
 		}
 	}
 
