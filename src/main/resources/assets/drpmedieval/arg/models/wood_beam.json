@@ -1,7 +1,7 @@
 {
 	"__comment": "Designed by Lukas",
 	"textures": {
-		"texture": "drpmedieval:blocks/clean_plank/clean_plank_%wood%"
+		"texture": "drpcmmaarg:blocks/clean_planks/clean_planks_%wood%"
 	},
 	"elements": [ 	 
 		{

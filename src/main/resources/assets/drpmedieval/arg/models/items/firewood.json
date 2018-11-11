@@ -1,8 +1,8 @@
 {
     "__comment": "model generated using mr_crayfish's model creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "drpmedieval:blocks/log_top/log_top_%wood%",
-        "1": "drpmedieval:blocks/log_side/log_side_%wood%"
+        "0": "drpcmmaarg:blocks/log_top/%wood%_log_top",
+        "1": "drpcmmaarg:blocks/log_side/%wood%_log_side"
     },
     "elements": [
         {

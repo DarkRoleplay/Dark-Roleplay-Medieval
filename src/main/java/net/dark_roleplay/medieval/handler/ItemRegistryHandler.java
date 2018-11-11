@@ -22,6 +22,8 @@ import net.dark_roleplay.medieval.common.objects.items.tools.FlintKnife;
 import net.dark_roleplay.medieval.common.objects.items.tools.StreetStomper;
 import net.dark_roleplay.medieval.common.objects.items.tools.Telescope;
 import net.dark_roleplay.medieval.common.objects.items.tools.WarHorn;
+import net.dark_roleplay.medieval.testing.purse.DRPCoin;
+import net.dark_roleplay.medieval.testing.purse.Purse;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -92,9 +94,9 @@ public class ItemRegistryHandler {
 			new DRPItem("barley_flour", ResourceFolders.Items.COOKING_MATS + "/flours", 64),
 			new DRPItem("wheat_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64),
 			new DRPItem("barley_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64),
-			new DRPItem("bronze_coin", ResourceFolders.Items.CURRENCIES, 50),
-			new DRPItem("silver_coin", ResourceFolders.Items.CURRENCIES, 50),
-			new DRPItem("gold_coin", ResourceFolders.Items.CURRENCIES, 50),
+			new DRPCoin("bronze_coin", ResourceFolders.Items.CURRENCIES, 50),
+			new DRPCoin("silver_coin", ResourceFolders.Items.CURRENCIES, 50),
+			new DRPCoin("gold_coin", ResourceFolders.Items.CURRENCIES, 50),
 			new DRPItem("bat_ear", ResourceFolders.Items.MOB_DROPS + "/bat", 64),
 			new DRPItem("wolf_fur", ResourceFolders.Items.MOB_DROPS + "/wolf", 64),
 			new DRPItem("tap", ResourceFolders.Items.ATTACHMENTS, 64),
@@ -130,9 +132,13 @@ public class ItemRegistryHandler {
 		registerItems(reg, MedievalCreativeTabs.BUILDING_MATS,
 			new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
 
-		if(InDevUtil.isDevEnv() && false) {
+		if(InDevUtil.isDevEnv()) {
 			registerItems(reg, MedievalCreativeTabs.MATERIALS,
 				new DRPItem("stone_bricks", ResourceFolders.Items.PROCESSED_MATERIALS, 64)
+			);
+
+			registerItems(reg, MedievalCreativeTabs.EQUIPMENT,
+				new Purse("leather_purse", ResourceFolders.Items.OTHER_EQUIPMENT, 1)
 			);
 
 			registerItems(reg, MedievalCreativeTabs.MATERIALS,

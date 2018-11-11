@@ -1,0 +1,40 @@
+{
+    "parent": "drpmedieval:block/mushrooms/mushroom_red3",
+    "display": {
+		"gui": {
+            "rotation": [ 25, 180, 0 ],
+            "translation": [ 0, 4, 0 ],
+            "scale": [ 1,1,1 ]
+        },
+		"firstperson_righthand": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 4, 6, 0 ],
+            "scale": [ 1, 1, 1 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 4, 6, 0 ],
+            "scale": [ 1, 1, 1 ]
+        },
+        "thirdperson_righthand": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 5, 0 ],
+            "scale": [ 1, 1, 1 ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 5, 0 ],
+            "scale": [ 1, 1, 1 ]
+        },
+        "head": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 18, 0 ],
+            "scale": [ 1.5,1.5,1.5 ]
+        },
+        "ground": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 5, 0 ],
+            "scale": [ 1, 1, 1 ]
+        }
+    }
+}

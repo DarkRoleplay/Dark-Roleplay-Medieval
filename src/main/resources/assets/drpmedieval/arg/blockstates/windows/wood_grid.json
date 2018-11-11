@@ -1,7 +1,7 @@
 {
     "forge_marker": 1,
     "defaults": {
-		"model":"drpmedieval:windows/wood_cross/center_window",
+		"model":"drpmedieval:windows/wood_grid/centered",
         "textures": {
 			"wood": "drpcmmaarg:blocks/clean_planks/clean_planks_%wood%",
 			"particle": "drpcmmaarg:blocks/clean_planks/clean_planks_%wood%"

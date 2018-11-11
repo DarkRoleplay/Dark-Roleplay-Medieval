@@ -25,6 +25,7 @@ import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderR
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderShipsWheel;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderTarget;
 import net.dark_roleplay.medieval.client.objects.items.color_handlers.PaintBrushColors;
+import net.dark_roleplay.medieval.client.objects.items.color_handlers.RoofItemColor;
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_HangingBridge;
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_RopeFence;
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_Timbering;
@@ -58,6 +59,8 @@ import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityTar
 import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.dark_roleplay.medieval.testing.Keybinds;
 import net.dark_roleplay.medieval.testing.blockstate_loading.CustomBlockstateLoader;
+import net.dark_roleplay.medieval.testing.building_scanner.TESR_BuildingScanner;
+import net.dark_roleplay.medieval.testing.building_scanner.TE_BuildingScanner;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -169,6 +172,9 @@ public class DarkRoleplayMedieval {
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_FlowerContainer.class, new TESR_Flowers());
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_Banner.class, new TESR_Banner());
 
+			ClientRegistry.bindTileEntitySpecialRenderer(TE_BuildingScanner.class, new TESR_BuildingScanner());
+
+
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_DungeonChest.class, new AnimationTESR<TE_DungeonChest>(){
 				@Override
 			    public void renderTileEntityFast(TE_DungeonChest te, double x, double y, double z, float partialTick, int breakStage, float partial, BufferBuilder renderer) {
@@ -226,6 +232,25 @@ public class DarkRoleplayMedieval {
 				MedievalBlocks.RED_CLAY_SHINGLE_ROOF,
 				MedievalBlocks.BLACK_CLAY_SHINGLE_ROOF
 			);
+
+			Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new RoofItemColor(),
+//					MedievalBlocks.WHITE_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.ORANGE_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.MAGENTA_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.LIGHT_BLUE_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.YELLOW_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.LIGHT_GREEN_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.PINK_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.GRAY_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.LIGHT_GRAY_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.CYAN_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.PURPLE_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.BLUE_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.BROWN_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.GREEN_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.RED_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.BLACK_CLAY_SHINGLE_ROOF
+				);
 		}
 
 		@Override

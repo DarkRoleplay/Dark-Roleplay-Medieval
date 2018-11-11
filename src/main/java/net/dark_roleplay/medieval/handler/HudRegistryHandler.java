@@ -1,4 +1,4 @@
-package net.dark_roleplay.medieval.common.handler;
+package net.dark_roleplay.medieval.handler;
 
 import net.dark_roleplay.core_modules.guis.api.huds.Hud;
 import net.dark_roleplay.medieval.References;
@@ -10,12 +10,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 @EventBusSubscriber(modid = References.MODID, value = Side.CLIENT)
-public class MedievalHuds {
-
+public class HudRegistryHandler {
 
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Hud> registryEvent) {
 		registryEvent.getRegistry().register(new TimberedClayHud(new ResourceLocation(References.MODID, "timbered_clay_view")));
 	}
-
 }

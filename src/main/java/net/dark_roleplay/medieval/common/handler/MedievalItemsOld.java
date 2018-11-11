@@ -1,19 +1,10 @@
 package net.dark_roleplay.medieval.common.handler;
 
 import net.dark_roleplay.library.util.InDevUtil;
-import net.dark_roleplay.medieval.References;
-import net.minecraft.item.Item;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
-@EventBusSubscriber(modid = References.MODID)
-@ObjectHolder(References.MODID)
 public class MedievalItemsOld {
 
-	@SubscribeEvent
-	public static final void register(RegistryEvent.Register<Item> registryEvent) {
+	public static final void register() {
 		if(InDevUtil.isDevEnv()) {
 
 //			new DRPItem("asparagus", "food/vegetables", 64),

@@ -68,7 +68,6 @@ import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FluidBa
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Roof;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Shelf;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ShopSign;
-import net.dark_roleplay.medieval.common.objects.blocks.vanilla_overwrites.TorchOverride;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityAnvil;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityBookOne;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityCauldron;
@@ -85,8 +84,9 @@ import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityShi
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityTarget;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntity_Lectern;
 import net.dark_roleplay.medieval.handler.ItemRegistryHandler;
-import net.dark_roleplay.medieval.testing.blocks.spinning_wheel.SpinningWheel;
 import net.dark_roleplay.medieval.testing.blocks.spinning_wheel.SpinningWheelTileEntity;
+import net.dark_roleplay.medieval.testing.building_scanner.BuildingScanner;
+import net.dark_roleplay.medieval.testing.building_scanner.TE_BuildingScanner;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.creativetab.CreativeTabs;
@@ -391,12 +391,13 @@ public class MedievalBlocks {
 		);
 
 		if(InDevUtil.isDevEnv()) {
-			reg.register(new TorchOverride());
-			register(reg, MedievalCreativeTabs.UTILITY,
-				new SpinningWheel("spinning_wheel2", Settings.WOOD_DECO).setTileEntityFactory(SpinningWheelTileEntity::new).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock
-			);
+//			reg.register(new TorchOverride());
+//			register(reg, MedievalCreativeTabs.UTILITY,
+//				new SpinningWheel("spinning_wheel2", Settings.WOOD_DECO).setTileEntityFactory(SpinningWheelTileEntity::new).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock
+//			);
 
-			GameRegistry.registerTileEntity(TE_Roof.class, new ResourceLocation(References.MODID, "tile_entity_roof"));
+			reg.register(new BuildingScanner());
+			GameRegistry.registerTileEntity(TE_BuildingScanner.class, new ResourceLocation(References.MODID, "te_building_scanner"));
 			GameRegistry.registerTileEntity(TileEntity_Lectern.class, new ResourceLocation(References.MODID, "tile_entity_lectern"));
 			GameRegistry.registerTileEntity(SpinningWheelTileEntity.class, new ResourceLocation(References.MODID, "spinning_wheel"));
 			GameRegistry.registerTileEntity(TE_Banner.class, new ResourceLocation(References.MODID, "tile_entity_banner"));
@@ -432,6 +433,7 @@ public class MedievalBlocks {
 		GameRegistry.registerTileEntity(TE_DungeonChest.class, new ResourceLocation(References.MODID, "TileEntityDungeonChest"));
 
 		//New Test Things
+		GameRegistry.registerTileEntity(TE_Roof.class, new ResourceLocation(References.MODID, "tile_entity_roof"));
 		GameRegistry.registerTileEntity(TE_FlowerContainer.class, new ResourceLocation(References.MODID, "flower_container"));
 	}
 
