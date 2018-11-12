@@ -2,13 +2,13 @@
 	"type":"wood",
 	"keys":[
 		{
-			"key":"tile.%wood%_crate.name",
+			"key":"tile.drpmedieval.%wood%_crate.name",
 			"en_us":"%wood% Crate"
 		},{
-			"key":"tile.simple_%wood%_chest.name",
+			"key":"tile.drpmedieval.simple_%wood%_chest.name",
 			"en_us":"Simple %wood% Chest"
 		},{
-			"key":"tile.simple_%wood%_shelf.name",
+			"key":"tile.drpmedieval.simple_%wood%_shelf.name",
 			"en_us":"Simple %wood% Shelf"
 		}
 	]

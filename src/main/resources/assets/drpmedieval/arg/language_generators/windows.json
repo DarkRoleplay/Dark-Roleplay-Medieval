@@ -1,0 +1,21 @@
+{
+	"type":"wood",
+	"keys":[
+		{
+			"key":"tile.drpmedieval.%wood%_window_dense_diamond.name",
+			"en_us":"Laying %wood% Barrel"
+		},{
+			"key":"tile.drpmedieval.%wood%_window_dense_vertical.name",
+			"en_us":"Laying %wood% Barrel"
+		},{
+			"key":"tile.drpmedieval.%wood%_window_cross.name",
+			"en_us":"Laying %wood% Barrel"
+		},{
+			"key":"tile.drpmedieval.%wood%_window_grid.name",
+			"en_us":"Laying %wood% Barrel"
+		},{
+			"key":"tile.drpmedieval.%wood%_window_vertical.name",
+			"en_us":"Laying %wood% Barrel"
+		}
+	]
+}

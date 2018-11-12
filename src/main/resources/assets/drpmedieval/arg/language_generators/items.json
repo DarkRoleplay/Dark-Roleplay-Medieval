@@ -2,7 +2,7 @@
 	"type":"wood",
 	"keys":[
 		{
-			"key":"item.planks.%wood%.name",
+			"key":"item.%wood%_planks.name",
 			"en_us":"%wood% Planks"
 		},{
 			"key":"item.%wood%_wood_beam.name",

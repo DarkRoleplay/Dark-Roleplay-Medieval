@@ -4,9 +4,8 @@
   "name": "flour",
   "outputs": [
     {
-      "item": "drpmedieval:flour",
-      "count": 2,
-	  "data": 1
+      "item": "drpmedieval:barley_flour",
+      "count": 2
     }
   ],
   "ingredients": [

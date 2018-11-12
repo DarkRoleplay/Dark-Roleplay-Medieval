@@ -2,19 +2,19 @@
 	"type":"wood",
 	"keys":[
 		{
-			"key":"tile.simple_plank_%wood%_chair.name",
+			"key":"tile.drpmedieval.simple_plank_%wood%_chair.name",
 			"en_us":"Simple %wood% Plank Table"
 		},{
 			"key":"tile.simple_solid_%wood%_chair.name",
 			"en_us":"Simple %wood% Solid Table"
 		},{
-			"key":"tile.%wood%_log_chair.name",
+			"key":"tile.drpmedieval.%wood%_log_chair.name",
 			"en_us":"%wood% Log Chair"
 		},{
-			"key":"tile.%wood%_log_bench.name",
+			"key":"tile.drpmedieval.%wood%_log_bench.name",
 			"en_us":"%wood% Log Bench"
 		},{
-			"key":"tile.%wood%_barrel_chair.name",
+			"key":"tile.drpmedieval.%wood%_barrel_chair.name",
 			"en_us":"%wood% Barrel Chair"
 		}
 	]

@@ -4,7 +4,7 @@
   "name": "flour",
   "outputs": [
     {
-      "item": "drpmedieval:flour",
+      "item": "drpmedieval:wheat_flour",
       "count": 2
     }
   ],
