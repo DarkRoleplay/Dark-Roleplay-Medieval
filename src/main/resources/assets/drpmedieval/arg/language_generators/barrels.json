@@ -15,7 +15,7 @@
 			"en_us":"Laying %wood% Barrel"
 		},{
 			"key":"tile.drpmedieval.%wood%_fluid_barrel.name",
-			"en_us":"Laying %wood% Barrel"
+			"en_us":"%wood% Fluid Barrel"
 		}
 	]
 }

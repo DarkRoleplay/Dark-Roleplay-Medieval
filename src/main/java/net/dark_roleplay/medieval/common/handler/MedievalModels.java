@@ -9,6 +9,7 @@ import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.library_old.items.ItemUtil;
 import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
+import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -43,6 +44,7 @@ public class MedievalModels {
 		registerItemMesh("old_blocks", MedievalBlocks.CAULDRON);
 		registerItemMesh("old_blocks", MedievalBlocks.ROPE_ANCHOR);
 		registerItemMesh("old_blocks", MedievalBlocks.FIREPIT_LIT);
+		registerItemMesh("blocks", MedievalItems.TIMBERED_CLAY);
 
 		IStateMapper teRemover = new StateMap.Builder().ignore(BlockProperties.HAS_TE).build();
 		ModelLoader.setCustomStateMapper(MedievalBlocks.CLAY_SHINGLE_ROOF				, teRemover);

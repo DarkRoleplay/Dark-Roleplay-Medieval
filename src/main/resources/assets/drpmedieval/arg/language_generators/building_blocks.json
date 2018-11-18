@@ -9,13 +9,13 @@
 			"en_us":"Mossy %wood% Wood"
 		},{
 			"key":"tile.drpmedieval.simple_%wood%_stairs.name",
-			"en_us":"Mossy %wood% Wood"
+			"en_us":"Simple %wood% Stairs"
 		},{
 			"key":"tile.drpmedieval.%wood%_wood_support.name",
 			"en_us":"%wood% Wood Support"
 		},{
 			"key":"tile.drpmedieval.%wood%_shingle_roof.name",
-			"en_us":"%wood% Wood Support"
+			"en_us":"%wood% Shingle Roof"
 		}
 	]
 }

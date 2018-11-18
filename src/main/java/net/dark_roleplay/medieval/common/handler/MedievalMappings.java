@@ -9,7 +9,16 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 public class MedievalMappings {
 
 	public static final void init(FMLInitializationEvent event) {
-
+//		registerMapping(Blocks.STONE, "minecart_stopper");
+		registerIgnoreMappingB("drpmedieval:work_table");
+		registerIgnoreMappingB("drpmedieval:spinning_wheel2");
+		registerIgnoreMappingB("drpmedieval:flower_pot");
+		registerIgnoreMappingB("drpcmblueprints:blueprint_controller");
+		registerIgnoreMappingB("drpmedieval:oak_roof");
+		registerIgnoreMappingB("drpmedieval:axle");
+		registerIgnoreMappingB("drpmedieval:gunpowder_trail");
+		registerIgnoreMappingB("drpmedieval:barley");
+		registerIgnoreMappingB("drpmedieval:minecart_stopper");
 	}
 
 	private static void registerIgnoreMappingI(String oldName) {
@@ -21,11 +30,11 @@ public class MedievalMappings {
 	}
 
 	private static void registerMapping(Item item, String oldName) {
-		MissingMappings.registerToRemapI(item.getRegistryName().getPath(), References.MODID + ":" + oldName);
+		MissingMappings.registerToRemapI(item.getRegistryName().toString(), References.MODID + ":" + oldName);
 	}
 
 	private static void registerMapping(Block block, String oldName) {
-		MissingMappings.registerToRemapB(block.getRegistryName().getPath(), References.MODID + ":" + oldName);
+		MissingMappings.registerToRemapB(block.getRegistryName().toString(), References.MODID + ":" + oldName);
 	}
 
 	private static void registerMappingB(String block, String oldName) {

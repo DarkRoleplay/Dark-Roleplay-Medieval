@@ -158,7 +158,7 @@ public class DelayedBaker_Timbering extends DelayedBaker implements ICustomModel
 
 	@Override
 	public boolean accepts(ResourceLocation modelLocation) {
-		return ((modelLocation instanceof ModelResourceLocation) && (modelLocation.toString().contains("_timbered_clay_")));
+		return ((modelLocation instanceof ModelResourceLocation) && (modelLocation.toString().contains("_timbered_clay_")) && !(modelLocation.toString().contains("inventory")));
 
 	}
 

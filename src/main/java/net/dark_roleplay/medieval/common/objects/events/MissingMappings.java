@@ -11,10 +11,10 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.RegistryEvent.MissingMappings.Mapping;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber(modid = References.MODID)
 public class MissingMappings {
 
 	public static ArrayList<Block> remapBlocks = new ArrayList<Block>();
@@ -25,8 +25,8 @@ public class MissingMappings {
 	public static ArrayList<String> itemNamesIgnore = new ArrayList<String>();
 
 	public static void registerToRemapB(String block, String oldName2){
-		if(Block.REGISTRY.containsKey(new ResourceLocation(References.MODID, block))){
-			remapBlocks.add(Block.REGISTRY.getObject(new ResourceLocation(References.MODID, block)));
+		if(Block.REGISTRY.containsKey(new ResourceLocation(block))){
+			remapBlocks.add(Block.REGISTRY.getObject(new ResourceLocation(block)));
 			blockNames.add(oldName2.toLowerCase());
 		}
 	}
@@ -49,9 +49,8 @@ public class MissingMappings {
 
 	@SubscribeEvent
 	public static void MissingMappingsBlock(RegistryEvent.MissingMappings<Block> event){
-		ImmutableList<Mapping<Block>> mappings = event.getAllMappings();
+		ImmutableList<Mapping<Block>> mappings = event.getMappings();
 		for(RegistryEvent.MissingMappings.Mapping<Block> mapping : mappings){
-			if(!mapping.key.getNamespace().equals(References.MODID)) continue;
 			String name = mapping.key.toString().toLowerCase();
 			if(MissingMappings.blockNames.contains(name)){
 				for(int i = 0; i < MissingMappings.blockNames.size(); i++){
@@ -67,9 +66,8 @@ public class MissingMappings {
 
 	@SubscribeEvent
 	public static void MissingMappingsItem(RegistryEvent.MissingMappings<Item> event){
-		ImmutableList<Mapping<Item>> mappings = event.getAllMappings();
+		ImmutableList<Mapping<Item>> mappings = event.getMappings();
 		for(RegistryEvent.MissingMappings.Mapping<Item> mapping : mappings){
-			if(!mapping.key.getNamespace().equals(References.MODID)) continue;
 			String name = mapping.key.toString().toLowerCase();
 			if(MissingMappings.itemNames.contains(name)){
 				for(int i = 0; i < MissingMappings.itemNames.size(); i++){

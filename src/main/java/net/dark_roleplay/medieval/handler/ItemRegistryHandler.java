@@ -23,7 +23,6 @@ import net.dark_roleplay.medieval.common.objects.items.tools.StreetStomper;
 import net.dark_roleplay.medieval.common.objects.items.tools.Telescope;
 import net.dark_roleplay.medieval.common.objects.items.tools.WarHorn;
 import net.dark_roleplay.medieval.testing.purse.DRPCoin;
-import net.dark_roleplay.medieval.testing.purse.Purse;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -129,26 +128,26 @@ public class ItemRegistryHandler {
 				new ItemMultiBlock(MedievalBlocks.FORGE).setRegistryName("forge")
 		);
 
-		registerItems(reg, MedievalCreativeTabs.BUILDING_MATS,
-			new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
+		registerItems(reg, MedievalCreativeTabs.BUILDING_MATS, new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
+
 
 		if(InDevUtil.isDevEnv()) {
-			registerItems(reg, MedievalCreativeTabs.MATERIALS,
-				new DRPItem("stone_bricks", ResourceFolders.Items.PROCESSED_MATERIALS, 64)
-			);
-
-			registerItems(reg, MedievalCreativeTabs.EQUIPMENT,
-				new Purse("leather_purse", ResourceFolders.Items.OTHER_EQUIPMENT, 1)
-			);
-
-			registerItems(reg, MedievalCreativeTabs.MATERIALS,
-				new DRPItem("beeswax", "misc", 64),
-				new DRPItem("empty_frame", "misc/apiary_frames", 1),
-				new DRPItem("honey_frame", "misc/apiary_frames", 1),
-				new DRPItem("brute_frame", "misc/apiary_frames", 1),
-				new DRPItem("sugar_frame", "misc/apiary_frames", 1),
-				new DRPItem("wax_frame", "misc/apiary_frames", 1)
-			);
+//			registerItems(reg, MedievalCreativeTabs.MATERIALS,
+//				new DRPItem("stone_bricks", ResourceFolders.Items.PROCESSED_MATERIALS, 64)
+//			);
+//
+//			registerItems(reg, MedievalCreativeTabs.EQUIPMENT,
+//				new Purse("leather_purse", ResourceFolders.Items.OTHER_EQUIPMENT, 1)
+//			);
+//
+//			registerItems(reg, MedievalCreativeTabs.MATERIALS,
+//				new DRPItem("beeswax", "misc", 64),
+//				new DRPItem("empty_frame", "misc/apiary_frames", 1),
+//				new DRPItem("honey_frame", "misc/apiary_frames", 1),
+//				new DRPItem("brute_frame", "misc/apiary_frames", 1),
+//				new DRPItem("sugar_frame", "misc/apiary_frames", 1),
+//				new DRPItem("wax_frame", "misc/apiary_frames", 1)
+//			);
 		}
 
 

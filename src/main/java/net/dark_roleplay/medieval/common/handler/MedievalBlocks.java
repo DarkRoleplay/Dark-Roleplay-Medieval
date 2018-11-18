@@ -17,7 +17,6 @@ import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Chair
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_ClockCore;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Container;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_CraftingStation;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_DrawBanner;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_FlowerContainer;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.FacedBoundingBox;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.chopping_block.ChoppingBlockActivation;
@@ -59,7 +58,6 @@ import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.UnlitWa
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.WallMounted;
 import net.dark_roleplay.medieval.common.objects.blocks.special.SimpleWoodStairs;
 import net.dark_roleplay.medieval.common.objects.blocks.special.WoodenWindow;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Banner;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ChoppingBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
@@ -82,11 +80,7 @@ import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityMor
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityRopeAnchor;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityTarget;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntity_Lectern;
 import net.dark_roleplay.medieval.handler.ItemRegistryHandler;
-import net.dark_roleplay.medieval.testing.blocks.spinning_wheel.SpinningWheelTileEntity;
-import net.dark_roleplay.medieval.testing.building_scanner.BuildingScanner;
-import net.dark_roleplay.medieval.testing.building_scanner.TE_BuildingScanner;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.creativetab.CreativeTabs;
@@ -312,7 +306,7 @@ public class MedievalBlocks {
 		//	new Chain("chain"),
 		//	new Hook("iron_hook"),
 		register(reg, MedievalCreativeTabs.DECORATION,
-			new FacedBlock("long_hanging_banner", Settings.WOOD_DECO_TESR).setTileEntityFactory(TE_Banner::new).addBehaviors(new Behavior_DrawBanner()),
+//			new FacedBlock("long_hanging_banner", Settings.WOOD_DECO_TESR).setTileEntityFactory(TE_Banner::new).addBehaviors(new Behavior_DrawBanner()),
 			new FacedBlock("chain", Settings.METAL_DECO_TESR).setTileEntityFactory(TileEntityChain::new).addBehaviors(new Behavior_CanPlaceChains(), new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.375F, 0F, 0.375F, 0.625F, 1F, 0.625F))),
 			new FacedBlock("iron_hook", Settings.METAL_DECO_TESR).setTileEntityFactory(TileEntityHook::new).addBehaviors(new Behavior_CanPlaceChains(), new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.3125F, 0.375F, 0.3125F, 0.6875F, 1F, 0.6875F))),
 			new FacedBlock("golden_scale", Settings.METAL_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0f, 0f, 0.25f, 1f, 1f, 0.75f))),
@@ -396,12 +390,11 @@ public class MedievalBlocks {
 //				new SpinningWheel("spinning_wheel2", Settings.WOOD_DECO).setTileEntityFactory(SpinningWheelTileEntity::new).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock
 //			);
 
-			reg.register(new BuildingScanner());
-			GameRegistry.registerTileEntity(TE_BuildingScanner.class, new ResourceLocation(References.MODID, "te_building_scanner"));
-			GameRegistry.registerTileEntity(TileEntity_Lectern.class, new ResourceLocation(References.MODID, "tile_entity_lectern"));
-			GameRegistry.registerTileEntity(SpinningWheelTileEntity.class, new ResourceLocation(References.MODID, "spinning_wheel"));
-			GameRegistry.registerTileEntity(TE_Banner.class, new ResourceLocation(References.MODID, "tile_entity_banner"));
-
+//			reg.register(new BuildingScanner());
+//			GameRegistry.registerTileEntity(TE_BuildingScanner.class, new ResourceLocation(References.MODID, "te_building_scanner"));
+//			GameRegistry.registerTileEntity(TileEntity_Lectern.class, new ResourceLocation(References.MODID, "tile_entity_lectern"));
+//			GameRegistry.registerTileEntity(SpinningWheelTileEntity.class, new ResourceLocation(References.MODID, "spinning_wheel"));
+//			GameRegistry.registerTileEntity(TE_Banner.class, new ResourceLocation(References.MODID, "tile_entity_banner"));
 		}
 
 		//TODO Finally make new models!

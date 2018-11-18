@@ -114,6 +114,7 @@ public class DarkRoleplayMedieval {
 		MedievalMappings.init(event);
 		MedievalPackets.init();
 		proxy.init(event);
+		MedievalMappings.init(event);
 
 		MedievalBlocks.CANDLE_HOLDER_UNLIT.init(MedievalBlocks.CANDLE_HOLDER_LIT, Item.getItemFromBlock(MedievalBlocks.BEESWAX_CANDLE));;
 		MedievalBlocks.CANDLE_HOLDER_LIT.init(MedievalBlocks.CANDLE_HOLDER_UNLIT, Item.getItemFromBlock(MedievalBlocks.BEESWAX_CANDLE));
