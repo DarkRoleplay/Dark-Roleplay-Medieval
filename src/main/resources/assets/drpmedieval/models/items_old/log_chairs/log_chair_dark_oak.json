@@ -1,8 +1,0 @@
-{
-    "parent": "drpmedieval:block/log_chairs/log_chair",
-    "textures": {
-        "side": "drpmedieval:blocks/log_chairs/log_chair_side_dark_oak",
-        "top": "drpmedieval:blocks/log_chairs/log_chair_top_dark_oak",
-        "inner": "drpmedieval:blocks/log_chairs/log_chair_inner_dark_oak"
-    }
-}
