@@ -334,7 +334,8 @@ public class MedievalBlocks {
 			new WallMounted("ships_helm", Settings.WOOD_DECO_TESR, new AxisAlignedBB(0F, 0F, 0.625F, 1F, 1F, 1F)).setTileEntityFactory(TileEntityShipsWheel::new), //TODO Update to DRPBlock
 			new Target("target", Settings.WOOD_DECO_TESR).setTileEntityFactory(TileEntityTarget::new), //TODO Update to DRPBlock
 			new Lantern("lantern", new net.minecraft.block.material.Material(MapColor.IRON), new AxisAlignedBB(0.25F, 0F, 0.25F, 0.75F, 0.5F, 0.75F)), //TODO Update to DRPBlock
-			new FacedBlock("golden_ship_bell", Settings.METAL_DECO).addBehaviors(new Behavior_Bell(), new FacedBoundingBox(new AxisAlignedBB(0.25f, 0f, 0.25f, 0.75f, 1f, 0.75f)))
+			new FacedBlock("golden_ship_bell", Settings.METAL_DECO).addBehaviors(new Behavior_Bell(), new FacedBoundingBox(new AxisAlignedBB(0.25f, 0f, 0.25f, 0.75f, 1f, 0.75f))),
+			new FacedBlock("christmas_stocking", Settings.PAPER_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.1875f, 0.1875f, 0.875f, 0.8125f, 0.8125f, 1f)), new Behavior_Container()).setTileEntityFactory(() -> new DynamicStorageTileEntity(1))
 		);
 
 		//Building Blocks Tab
