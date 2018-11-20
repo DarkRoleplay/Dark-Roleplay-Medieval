@@ -17,6 +17,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Chair
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_ClockCore;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Container;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_CraftingStation;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_EmptyBarrel;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_FlowerContainer;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.FacedBoundingBox;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.chopping_block.ChoppingBlockActivation;
@@ -56,6 +57,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.EmptyWa
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.LitWallMount;
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.UnlitWallMount;
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.WallMounted;
+import net.dark_roleplay.medieval.common.objects.blocks.special.Mushrooms;
 import net.dark_roleplay.medieval.common.objects.blocks.special.SimpleWoodStairs;
 import net.dark_roleplay.medieval.common.objects.blocks.special.WoodenWindow;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ChoppingBlock;
@@ -177,10 +179,11 @@ public class MedievalBlocks {
 				register(reg, MedievalCreativeTabs.UTILITY,
 					new FacedBlock(mat.getName() + "_chopping_block", Settings.WOOD_DECO)
 						.addBehaviors(
-								new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.75f, 0.9375f)),
-								new ChoppingBlockActivation()
+								new IBoundingBoxBehavior.SimpleImpl(new Behavior_CraftingStation(),
+								new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.75f, 0.9375f)
+								//new ChoppingBlockActivation()
 								//new Behavior_CraftingStation()
-						).setTileEntityFactory(TE_ChoppingBlock::new),
+						),//.setTileEntityFactory(TE_ChoppingBlock::new),
 					new DRPBlock(mat.getName() + "_crate", Settings.WOOD_DECO)
 						.addBehaviors(
 								new Behavior_Container()).setTileEntityFactory(() -> new DynamicStorageTileEntity(18)
@@ -222,7 +225,7 @@ public class MedievalBlocks {
 				register(reg, MedievalCreativeTabs.DECORATION,
 					new FacedBlock(mat.getName() + "_barrel_chair", Settings.WOOD_DECO).addBehaviors(new Behavior_Chair(0.3125f)),
 					new AxisBlock(mat.getName() + "_barrel_table", Settings.WOOD_DECO),
-					new DRPBlock(mat.getName() + "_empty_barrel", Settings.WOOD_DECO),
+					new DRPBlock(mat.getName() + "_empty_barrel", Settings.WOOD_DECO).addBehaviors(new Behavior_EmptyBarrel(References.MODID + ":%wood%_fluid_barrel", mat)),
 					new DRPBlock(mat.getName() + "_closed_barrel", Settings.WOOD_DECO),
 					new DRPBlock(mat.getName() + "_gunpowder_barrel", Settings.WOOD_DECO),
 					new DRPBlock(mat.getName() + "_fluid_barrel", Settings.WOOD_DECO).setTileEntityFactory(TE_FluidBarrel::new),
@@ -291,11 +294,11 @@ public class MedievalBlocks {
 			new FacedBlock("minecart_stopper", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.0625f, 0f, 0f, 0.9375, 1f, 0.875f))),
 			new FacedBlock("butter_churn", Settings.WOOD_DECO).addBehaviors(new Behavior_CraftingStation(), new FacedBoundingBox(new AxisAlignedBB(0.4375f, 0f, 0.3125f , 0.8125f, 0.75f, 0.6875f))),
 			new FacedBlock("spinning_wheel", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.3125f, 0f, 0f, 1f, 0.6875f, 1f)), new Behavior_CraftingStation()),
-			new FacedBlock("grindstone", Settings.WOOD_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.9375f, 0.9375f)),new Behavior_CraftingStation()).setTileEntityFactory(TileEntityGrindstone::new), //TODO fix Settings
+			new FacedBlock("grindstone", Settings.STONE_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.9375f, 0.9375f)),new Behavior_CraftingStation()).setTileEntityFactory(TileEntityGrindstone::new), //TODO fix Settings
 			new DRPBlock("firepit_lit", Settings.STONE_DECO_TESR).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0f, 0F, 0f, 1f, 0.5f, 1f)),new Behavior_CraftingStation()).setTileEntityFactory(TileEntityFirepit::new), //TODO fix Settings
 			new FacedBlock("cauldron", Settings.METAL_DECO_TESR).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 1f, 0.9375f)),new Behavior_CraftingStation()).setTileEntityFactory(TileEntityCauldron::new), //TODO fix Settings
 			new FacedBlock("anvil", Settings.METAL_DECO_TESR).addBehaviors(new Behavior_CraftingStation(), new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.1875F, 1F, 1F, 0.8125F))).setTileEntityFactory(TileEntityAnvil::new), //TODO fix Settings
-			new FacedBlock("mortar", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.25f, 0f, 0.25f, 0.75f, 0.25f, 0.75f)), new Behavior_CraftingStation()).setTileEntityFactory(TileEntityMortar::new), //TODO fix Settings
+			new FacedBlock("mortar", Settings.STONE_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.25f, 0f, 0.25f, 0.75f, 0.25f, 0.75f)), new Behavior_CraftingStation()).setTileEntityFactory(TileEntityMortar::new), //TODO fix Settings
 			new FacedBlock("clock_core", Settings.WOOD_DECO).setTileEntityFactory(TE_ClockCore::new).addBehaviors(new Behavior_ClockCore()),
 			new FacedBlock("pottery_turntable", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0f, 0f, 0.0625f, 1f, 0.9375f, 0.9375f)), new Behavior_CraftingStation()),
 			new HangingCauldron("hanging_cauldron"), //TODO Update to DRPBlock  //TODO fix Settings
@@ -315,13 +318,13 @@ public class MedievalBlocks {
 			new Rope("rope"),
 			new RopeAnchor("rope_anchor"),
 			new WallMounted("key_hanging", Settings.METAL_DECO_TESR, new AxisAlignedBB(0.3125F, 0.125F, 0.8125F, 0.6875F, 0.875F, 1F)).setTileEntityFactory(TileEntityKeyHanging::new),
-			new DRPBlock("unfired_vase", Settings.WOOD_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.3125f, 0f, 0.3125f, 0.6875f, 0.59375f, 0.6875f))), //TODO fix Settings
-			new DRPBlock("fired_vase", Settings.WOOD_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.3125f, 0f, 0.3125f, 0.6875f, 0.59375f, 0.6875f))), //TODO fix Settings
-			new DRPBlock("mushroom_brown", Settings.PLANT_DECO),
-			new DRPBlock("mushroom_red", Settings.PLANT_DECO),
+			new DRPBlock("unfired_vase", Settings.UNFIRED_POTTERY).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.3125f, 0f, 0.3125f, 0.6875f, 0.59375f, 0.6875f))), //TODO fix Settings
+			new DRPBlock("fired_vase", Settings.FIRED_POTTERY).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.3125f, 0f, 0.3125f, 0.6875f, 0.59375f, 0.6875f))), //TODO fix Settings
+			new Mushrooms("mushroom_brown", Settings.PLANT_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0F, 0F, 0F, 1F, 0.5F, 1F))),
+			new Mushrooms("mushroom_red", Settings.PLANT_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0F, 0F, 0F, 1F, 0.5F, 1F))),
 			new BeesWaxCandle("beeswax_candle"), //TODO Update to DRPBlock //TODO fix Settings
 			new RopeFence("rope_fence"), //TODO Update to DRPBlock //TODO fix Settings
-			new FacedBlock("head_cutting_block", Settings.WOOD_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0f, 0f, 0f, 1f, 0.5f, 1f))),
+			new FacedBlock("head_cutting_block", Settings.STONE_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0f, 0f, 0f, 1f, 0.5f, 1f))),
 			new ClockDial("clock_dial", new AxisAlignedBB(0.0F, 0.0F, 0.875F, 1.0, 1.0F, 1.0F)), //TODO Update to DRPBlock
 			new DRPBlock("bee_hive", Settings.PAPER_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.1875f, 0.1875f, 0.1875f, 0.8125f, 1f, 0.8125f))), //TODO Update to DRPBlock
 			new EmptyWallMount("candle_holder_empty", Settings.METAL_DECO, new AxisAlignedBB(0.3125F, 0F, 0.5F, 0.6875F, 0.9375F, 1.0F)), //TODO Update to DRPBlock

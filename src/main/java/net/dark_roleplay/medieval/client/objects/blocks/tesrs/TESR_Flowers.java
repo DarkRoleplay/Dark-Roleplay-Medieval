@@ -28,6 +28,7 @@ public class TESR_Flowers extends TileEntitySpecialRenderer<TE_FlowerContainer>{
 		GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 		GlStateManager.enableBlend();
 
+
 		if (Minecraft.isAmbientOcclusionEnabled()) {
 			GlStateManager.shadeModel(GL11.GL_SMOOTH);
 		} else {
@@ -36,7 +37,7 @@ public class TESR_Flowers extends TileEntitySpecialRenderer<TE_FlowerContainer>{
 
 		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.BLOCK);
 
-		renderTileEntityFast(te, x, y, z, partialTicks, destroyStage, partial, buffer);
+		this.renderTileEntityFast(te, x, y, z, partialTicks, destroyStage, partial, buffer);
 		buffer.setTranslation(0, 0, 0);
 
 		tessellator.draw();

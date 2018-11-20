@@ -40,13 +40,13 @@ public class DungeonChest extends FacedBlock {
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		if (state.getValue(FACING_HORIZONTAL) == EnumFacing.NORTH)
-			return new AxisAlignedBB(0.0625F, 0F, 0.125F, 0.9375F, 0.75F, 0.875F);
+			return new AxisAlignedBB(0F, 0F, 0.09375F, 1F, 0.875F, 0.90625F);
 		else if (state.getValue(FACING_HORIZONTAL) == EnumFacing.EAST)
-			return new AxisAlignedBB(0.125F, 0F, 0.0625F, 0.875F, 0.75F, 0.9375F);
+			return new AxisAlignedBB(0.09375F, 0F, 0F, 0.90625F, 0.875F, 1F);
 		else if (state.getValue(FACING_HORIZONTAL) == EnumFacing.SOUTH)
-			return new AxisAlignedBB(0.0625F, 0F, 0.125F, 0.9375F, 0.75F, 0.875F);
+			return new AxisAlignedBB(0F, 0F, 0.09375F, 1F, 0.875F, 0.90625F);
 		else if (state.getValue(FACING_HORIZONTAL) == EnumFacing.WEST)
-			return new AxisAlignedBB(0.125F, 0F, 0.0625F, 0.875F, 0.75F, 0.9375F);
+			return new AxisAlignedBB(0.09375F, 0F, 0F, 0.90625F, 0.875F, 1F);
 		return null;
 	}
 
