@@ -1,5 +1,7 @@
 package net.dark_roleplay.medieval.common.handler;
 
+import java.util.Random;
+
 import net.dark_roleplay.core.api.storage.DynamicStorageTileEntity;
 import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
 import net.dark_roleplay.core_modules.maarg.api.materials.Material;
@@ -17,10 +19,10 @@ import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Chair
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_ClockCore;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Container;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_CraftingStation;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_EmptyBarrel;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_FlowerContainer;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.FacedBoundingBox;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.chopping_block.ChoppingBlockActivation;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.barrels.Behavior_EmptyBarrel;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.barrels.Behavior_FluidFill;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.AxisBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.PillarBlock;
@@ -85,16 +87,23 @@ import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityTar
 import net.dark_roleplay.medieval.handler.ItemRegistryHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
 @EventBusSubscriber(modid = References.MODID)
@@ -179,15 +188,14 @@ public class MedievalBlocks {
 				register(reg, MedievalCreativeTabs.UTILITY,
 					new FacedBlock(mat.getName() + "_chopping_block", Settings.WOOD_DECO)
 						.addBehaviors(
-								new IBoundingBoxBehavior.SimpleImpl(new Behavior_CraftingStation(),
-								new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.75f, 0.9375f)
+								new Behavior_CraftingStation(),
+								new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.75f, 0.9375f))
 								//new ChoppingBlockActivation()
 								//new Behavior_CraftingStation()
 						),//.setTileEntityFactory(TE_ChoppingBlock::new),
 					new DRPBlock(mat.getName() + "_crate", Settings.WOOD_DECO)
-						.addBehaviors(
-								new Behavior_Container()).setTileEntityFactory(() -> new DynamicStorageTileEntity(18)
-						)
+						.addBehaviors(new Behavior_Container())
+						.setTileEntityFactory(() -> new DynamicStorageTileEntity(18))
 				);
 
 				register(reg, MedievalCreativeTabs.BUILDING_MATS,
@@ -200,7 +208,10 @@ public class MedievalBlocks {
 						.addBehaviors(new Behavior_Chair(0.25F)), //TODO Update to DRPBlock
 					new FacedBlock(mat.getName() + "_log_chair", Settings.WOOD_DECO)
 						.addBehaviors(new Behavior_Chair(0.1875F)),
-					new AxisBlock(mat.getName() + "_firewood_pile", Settings.WOOD_DECO)
+					new AxisBlock(mat.getName() + "_firewood_pile", Settings.WOOD_DECO) {
+						@Override public int quantityDropped(Random random){ return 16; }
+					    @Override public Item getItemDropped(IBlockState state, Random rand, int fortune){return Item.getByNameOrId(References.MODID + ":" + mat.getName() + "_firewood"); }
+				    }
 				);
 
 				if(plankRequired.doesFulfillRequirements(mat)) {
@@ -228,7 +239,7 @@ public class MedievalBlocks {
 					new DRPBlock(mat.getName() + "_empty_barrel", Settings.WOOD_DECO).addBehaviors(new Behavior_EmptyBarrel(References.MODID + ":%wood%_fluid_barrel", mat)),
 					new DRPBlock(mat.getName() + "_closed_barrel", Settings.WOOD_DECO),
 					new DRPBlock(mat.getName() + "_gunpowder_barrel", Settings.WOOD_DECO),
-					new DRPBlock(mat.getName() + "_fluid_barrel", Settings.WOOD_DECO).setTileEntityFactory(TE_FluidBarrel::new),
+					new DRPBlock(mat.getName() + "_fluid_barrel", Settings.WOOD_DECO).addBehaviors(new Behavior_FluidFill()).setTileEntityFactory(TE_FluidBarrel::new),
 					new SidewayBarrel("laying_" + mat.getName() + "_barrel", Settings.WOOD_DECO) //TODO Update to DRPBlock
 				);
 			}
@@ -242,7 +253,7 @@ public class MedievalBlocks {
 
 				register(reg, MedievalCreativeTabs.BUILDING_MATS,
 					new DRPBlock(mat.getName() + "_clean_plank", Settings.WOOD_SOLID),
-					new NormalRoof(mat.getName() + "_shingle_roof", Settings.WOOD_DECO),
+					new NormalRoof(mat.getName() + "_shingle_roof", Settings.WOOD_ROOF),
 					new WoodenWindow(mat.getName() + "_window_cross", Settings.WOOD_DECO),
 					new WoodenWindow(mat.getName() + "_window_vertical", Settings.WOOD_DECO),
 					new WoodenWindow(mat.getName() + "_window_dense_diamond", Settings.WOOD_DECO),
@@ -368,7 +379,15 @@ public class MedievalBlocks {
 			new PillarBlock("granite_pillar", Settings.STONE_SOLID),
 			new DRPBlock("snow_bricks", Settings.SNOW_SOLID),
 			new DRPBlock("packed_ice_bricks", Settings.PACKED_ICE),//TODO make slippery
-			new DRPBlock("obsidian_glass", Settings.OBSIDIAN_GLASS.setBlockRenderLayer(BlockRenderLayer.TRANSLUCENT)), //TODO fix Settings
+			new DRPBlock("obsidian_glass", Settings.OBSIDIAN_GLASS.setBlockRenderLayer(BlockRenderLayer.TRANSLUCENT)) {
+			    @Override
+				@SideOnly(Side.CLIENT)
+			    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side){
+			        IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
+
+			        return blockState != iblockstate;
+			    }
+			}, //TODO fix Settings
 			new DryClay("dry_clay"), //TODO Update to DRPBlock
 			new DryClayGrass("dry_clay_grass"), //TODO Update to DRPBlock
 			new AdvancedOre("tin_ore", 1), //TODO Update to DRPBlock

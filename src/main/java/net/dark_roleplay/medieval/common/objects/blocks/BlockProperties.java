@@ -88,7 +88,7 @@ public class BlockProperties {
 		public static final BlockSettings WOOD_SOLID = new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F);
 		public static final BlockSettings WOOD_DECO = new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
 		public static final BlockSettings WOOD_DECO_TESR =new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setBlockRenderType(EnumBlockRenderType.INVISIBLE);
-		public static final BlockSettings WOOD_ROOF = new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setLightOpacity(15);
+		public static final BlockSettings WOOD_ROOF = new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setLightOpacity(255);
 
 		public static final BlockSettings PAPER_DECO = new BlockSettings(Material.WOOD, SoundType.CLOTH, 1.0F, 2.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
 		public static final BlockSettings PLANT_DECO = new BlockSettings(Material.PLANTS, SoundType.PLANT, 0.0F, 0.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);

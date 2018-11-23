@@ -1,4 +1,4 @@
-package net.dark_roleplay.medieval.common.objects.blocks.behaviors;
+package net.dark_roleplay.medieval.common.objects.blocks.behaviors.barrels;
 
 import net.dark_roleplay.library.experimental.blocks.behaviors.IActivatedBehavior;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IRainTickBehavior;
