@@ -5,6 +5,7 @@ import org.lwjgl.opengl.GL11;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FlowerContainer;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FlowerContainer.FlowerData;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FlowerContainer.FlowerDataClient;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockModelRenderer;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
@@ -21,6 +22,11 @@ public class TESR_Flowers extends TileEntitySpecialRenderer<TE_FlowerContainer>{
 
 	@Override
 	public final void render(TE_FlowerContainer te, double x, double y, double z, float partialTicks, int destroyStage, float partial) {
+//		BlockRendererDispatcher blockRenderDispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
+
+		IBlockState state = te.getWorld().getBlockState(te.getPos());
+		//TODO Load Flower Positioning from Files
+
 		Tessellator tessellator = Tessellator.getInstance();
 		BufferBuilder buffer = tessellator.getBuffer();
 		this.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);

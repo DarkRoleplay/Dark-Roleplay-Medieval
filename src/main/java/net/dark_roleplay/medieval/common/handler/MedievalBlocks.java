@@ -8,7 +8,6 @@ import net.dark_roleplay.core_modules.maarg.api.materials.Material;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
 import net.dark_roleplay.library.experimental.blocks.DRPBlock;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IBoundingBoxBehavior;
-import net.dark_roleplay.library.experimental.connected_model.ConnectedModelLoader;
 import net.dark_roleplay.library.util.InDevUtil;
 import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.Settings;
@@ -247,9 +246,6 @@ public class MedievalBlocks {
 			if(cleanPlankRequired.doesFulfillRequirements(mat)) {
 				Block solidSimpleTable = new SolidSimpleTable("simple_solid_" + mat.getName() + "_table"); //TODO Update to DRPBlock
 				Block plankSimpleTable = new SimpleTable("simple_plank_" + mat.getName() + "_table"); //TODO Update to DRPBlock
-
-				ConnectedModelLoader.registerConnectedModelBlock(solidSimpleTable);
-				ConnectedModelLoader.registerConnectedModelBlock(plankSimpleTable);
 
 				register(reg, MedievalCreativeTabs.BUILDING_MATS,
 					new DRPBlock(mat.getName() + "_clean_plank", Settings.WOOD_SOLID),

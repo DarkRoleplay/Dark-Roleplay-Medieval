@@ -22,6 +22,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @EventBusSubscriber(modid = References.MODID, value = Side.CLIENT)
 public class MedievalModels {
@@ -29,6 +30,7 @@ public class MedievalModels {
 	static ArrayList<Item> toRegisterMeshes = new ArrayList<Item>();
 
 	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
 	public static void registerModels(ModelRegistryEvent event){
 		ItemUtil.registerItemMeshs();
 

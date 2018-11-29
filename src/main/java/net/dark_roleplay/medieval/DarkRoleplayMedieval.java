@@ -2,6 +2,10 @@ package net.dark_roleplay.medieval;
 
 import com.google.common.collect.ImmutableMap;
 
+import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
+import net.dark_roleplay.core_modules.maarg.api.materials.Material;
+import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
+import net.dark_roleplay.library.experimental.connected_model.ConnectedModelLoader;
 import net.dark_roleplay.library.sides.IProxy;
 import net.dark_roleplay.medieval.client.objects.blocks.color_handlers.DryClayGrassColor;
 import net.dark_roleplay.medieval.client.objects.blocks.color_handlers.SolidColor;
@@ -61,6 +65,7 @@ import net.dark_roleplay.medieval.testing.Keybinds;
 import net.dark_roleplay.medieval.testing.blockstate_loading.CustomBlockstateLoader;
 import net.dark_roleplay.medieval.testing.building_scanner.TESR_BuildingScanner;
 import net.dark_roleplay.medieval.testing.building_scanner.TE_BuildingScanner;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -251,6 +256,24 @@ public class DarkRoleplayMedieval {
 					MedievalBlocks.RED_CLAY_SHINGLE_ROOF,
 					MedievalBlocks.BLACK_CLAY_SHINGLE_ROOF
 				);
+
+
+
+
+			MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
+
+			for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
+				if(cleanPlankRequired.doesFulfillRequirements(mat)) {
+
+					Block solidSimpleTable = Block.getBlockFromName("drpmedieval:simple_solid_" +mat.getName() + "_table");//new SolidSimpleTable("simple_solid_" + mat.getName() + "_table"); //TODO Update to DRPBlock
+					Block plankSimpleTable = Block.getBlockFromName("drpmedieval:simple_plank_" +mat.getName() + "_table");//new SimpleTable("simple_plank_" + mat.getName() + "_table"); //TODO Update to DRPBlock
+
+					ConnectedModelLoader.registerConnectedModelBlock(solidSimpleTable);
+					ConnectedModelLoader.registerConnectedModelBlock(plankSimpleTable);
+				}
+
+
+			}
 		}
 
 		@Override

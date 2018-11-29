@@ -18,6 +18,8 @@ import net.dark_roleplay.medieval.common.objects.items.DRPMStew;
 import net.dark_roleplay.medieval.common.objects.items.HangingBridge_Item;
 import net.dark_roleplay.medieval.common.objects.items.ItemFirewood;
 import net.dark_roleplay.medieval.common.objects.items.ItemMultiBlock;
+import net.dark_roleplay.medieval.common.objects.items.consumables.Key;
+import net.dark_roleplay.medieval.common.objects.items.consumables.Lock;
 import net.dark_roleplay.medieval.common.objects.items.tools.FlintKnife;
 import net.dark_roleplay.medieval.common.objects.items.tools.StreetStomper;
 import net.dark_roleplay.medieval.common.objects.items.tools.Telescope;
@@ -52,8 +54,8 @@ public class ItemRegistryHandler {
 			new Telescope("golden_telescope", ResourceFolders.Items.OTHER_EQUIPMENT + "/telescopes"),
 			new Telescope("silver_telescope", ResourceFolders.Items.OTHER_EQUIPMENT + "/telescopes"),
 			new WarHorn("bone_war_horn", ResourceFolders.Items.INSTRUMENTS + "/horns", 1),
-			new DRPItem("wooden_lock", ResourceFolders.Items.CONSUMABLES + "/locks", 16),
-			new DRPItem("wooden_key", ResourceFolders.Items.CONSUMABLES + "/keys", 16)
+			new Lock("wooden_lock", ResourceFolders.Items.CONSUMABLES + "/locks", 16),
+			new Key("wooden_key", ResourceFolders.Items.CONSUMABLES + "/keys", 16)
 		);
 
 		registerItems(reg, MedievalCreativeTabs.FOOD,
