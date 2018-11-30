@@ -3,7 +3,7 @@
   "name": "dough",
   "outputs": [
     {
-      "item": "drpmedieval:dough"
+      "item": "drpmedieval:wheat_dough"
     }
   ],
   "ingredients": [
@@ -11,7 +11,7 @@
       "item": "minecraft:water_bucket"
     },
     {
-      "item": "drpmedieval:flour"
+      "item": "drpmedieval:wheat_flour"
     },
     {
       "item": "minecraft:egg"
