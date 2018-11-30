@@ -1,0 +1,19 @@
+{
+  "station":"drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "dark_oak_flower_pot",
+  "outputs": [
+    {
+      "item": "drpmedieval:dark_oak_flower_pot"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:dark_oak_planks",
+      "count": 4
+    },
+    {
+      "item": "minecraft:dirt"
+    }
+  ]
+}

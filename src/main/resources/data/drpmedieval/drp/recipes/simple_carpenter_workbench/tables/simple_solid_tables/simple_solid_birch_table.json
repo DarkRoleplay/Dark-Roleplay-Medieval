@@ -1,0 +1,17 @@
+{
+    "station":"drpmedieval:simple_carpenter_workbench",
+    "category":"tables",
+    "name":"simple_solid_birch_table",
+    "outputs":[
+        {
+            "item":"drpmedieval:simple_solid_birch_table",
+            "count": 1
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"drpmedieval:birch_planks",
+			"count": 8
+        }
+    ]
+}

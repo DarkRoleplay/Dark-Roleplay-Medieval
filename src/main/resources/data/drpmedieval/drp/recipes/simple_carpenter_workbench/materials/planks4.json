@@ -4,9 +4,8 @@
   "name": "planks4",
   "outputs": [
     {
-      "item": "drpmedieval:planks",
-      "count": 4,
-      "data": 2
+      "item": "drpmedieval:birch_planks",
+      "count": 4
     }
   ],
   "ingredients": [

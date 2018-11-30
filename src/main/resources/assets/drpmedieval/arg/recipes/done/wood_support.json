@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "%wood%_wood_support",
+  "outputs": [
+    {
+      "item": "drpmedieval:%wood%_wood_support",
+      "count": 1
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:%wood%_wood_beam",
+      "count": 1
+    }
+  ]
+}

@@ -3,7 +3,7 @@
   "name": "wooden_wrench",
   "outputs": [
     {
-      "item": "drpmedieval:wooden_wrench"
+      "item": "drpmedieval:wood_wrench"
     }
   ],
   "ingredients": [

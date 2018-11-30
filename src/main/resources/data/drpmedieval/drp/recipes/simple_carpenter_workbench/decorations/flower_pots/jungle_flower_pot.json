@@ -1,0 +1,19 @@
+{
+  "station":"drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "jungle_flower_pot",
+  "outputs": [
+    {
+      "item": "drpmedieval:jungle_flower_pot"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:jungle_planks",
+      "count": 4
+    },
+    {
+      "item": "minecraft:dirt"
+    }
+  ]
+}

@@ -10,8 +10,7 @@
     ],
     "ingredients":[
         {
-            "item":"drpmedieval:planks",
-			"data":"5",
+            "item":"drpmedieval:acacia_planks",
 			"count":"8"
         }
     ]

@@ -1,6 +1,6 @@
 {
   "station": "drpmedieval:simple_carpenter_workbench",
-  "category": "decoration",
+  "category": "decorations",
   "name": "large_oak_lectern",
   "outputs": [
     {
@@ -9,7 +9,7 @@
   ],
   "ingredients": [
     {
-      "item": "drpmedieval:planks",
+      "item": "drpmedieval:oak_planks",
       "count": 6
     }
   ]

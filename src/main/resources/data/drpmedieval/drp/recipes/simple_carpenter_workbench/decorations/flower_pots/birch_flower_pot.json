@@ -1,0 +1,19 @@
+{
+  "station":"drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "birch_flower_pot",
+  "outputs": [
+    {
+      "item": "drpmedieval:birch_flower_pot"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:birch_planks",
+      "count": 4
+    },
+    {
+      "item": "minecraft:dirt"
+    }
+  ]
+}

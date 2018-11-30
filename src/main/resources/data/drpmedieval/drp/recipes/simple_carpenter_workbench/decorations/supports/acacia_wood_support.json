@@ -1,18 +1,17 @@
 {
   "station": "drpmedieval:simple_carpenter_workbench",
-  "category": "decoration",
+  "category": "decorations",
   "name": "acacia_wood_support",
   "outputs": [
     {
       "item": "drpmedieval:acacia_wood_support",
-      "count": 2
+      "count": 1
     }
   ],
   "ingredients": [
     {
-      "item": "drpmedieval:planks",
-      "count": 4,
-      "data": 5
+      "item": "drpmedieval:acacia_wood_beam",
+      "count": 1
     }
   ]
 }

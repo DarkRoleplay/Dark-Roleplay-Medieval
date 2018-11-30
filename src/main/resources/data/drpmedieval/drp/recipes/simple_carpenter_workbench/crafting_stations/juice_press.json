@@ -9,9 +9,8 @@
   ],
   "ingredients": [
     {
-      "item": "drpmedieval:planks",
-      "count": 8,
-      "data": 1
+      "item": "drpmedieval:spruce_planks",
+      "count": 8
     },
     {
       "item": "minecraft:iron_ingot",

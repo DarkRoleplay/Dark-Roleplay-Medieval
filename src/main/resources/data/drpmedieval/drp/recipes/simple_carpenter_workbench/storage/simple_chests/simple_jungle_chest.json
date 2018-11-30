@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "storage",
+  "name": "simple_jungle_chest",
+  "outputs": [
+    {
+      "item": "drpmedieval:simple_jungle_chest"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:jungle_planks",
+      "count": 10
+    }
+  ]
+}

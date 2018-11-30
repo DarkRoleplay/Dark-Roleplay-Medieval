@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
 import net.dark_roleplay.core_modules.maarg.api.materials.Material;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
+import net.dark_roleplay.library.experimental.connected_model.ConnectedModelLoader;
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.library_old.items.ItemUtil;
 import net.dark_roleplay.medieval.References;
@@ -19,15 +20,18 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber(modid = References.MODID, value = Side.CLIENT)
 public class MedievalModels {
 
 	static ArrayList<Item> toRegisterMeshes = new ArrayList<Item>();
 
 	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
 	public static void registerModels(ModelRegistryEvent event){
 		ItemUtil.registerItemMeshs();
 
@@ -75,10 +79,27 @@ public class MedievalModels {
 		}
 
 		//TODO FIX
-//		ModelLoader.registerItemVariants(TIMBERED_CLAY, TIMBERED_CLAY.getRegistryName());
-//		ModelLoader.setCustomModelResourceLocation(TIMBERED_CLAY, 0, new ModelResourceLocation(TIMBERED_CLAY.getRegistryName().toString(), "inventory"));
-//
+		ModelLoader.registerItemVariants(MedievalItems.TIMBERED_CLAY, MedievalItems.TIMBERED_CLAY.getRegistryName());
+		ModelLoader.setCustomModelResourceLocation(MedievalItems.TIMBERED_CLAY, 0, new ModelResourceLocation(MedievalItems.TIMBERED_CLAY.getRegistryName().toString(), "inventory"));
+
 //		ModelLoader.registerItemVariants(LANTERN, new ResourceLocation(References.MODID, "lantern_solid"), new ResourceLocation(References.MODID, "lantern_translucent"));
+		new MedievalModels().registerTables();
+	}
+
+	//Special Code to rescue servers cause I am dumb.
+	private void registerTables() {
+		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
+
+		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
+			if(cleanPlankRequired.doesFulfillRequirements(mat)) {
+
+				Block solidSimpleTable = Block.getBlockFromName("drpmedieval:simple_solid_" +mat.getName() + "_table");//new SolidSimpleTable("simple_solid_" + mat.getName() + "_table"); //TODO Update to DRPBlock
+				Block plankSimpleTable = Block.getBlockFromName("drpmedieval:simple_plank_" +mat.getName() + "_table");//new SimpleTable("simple_plank_" + mat.getName() + "_table"); //TODO Update to DRPBlock
+
+				ConnectedModelLoader.registerConnectedModelBlock(solidSimpleTable);
+				ConnectedModelLoader.registerConnectedModelBlock(plankSimpleTable);
+			}
+		}
 	}
 
 	public static void registerItemMesh(Block block) {

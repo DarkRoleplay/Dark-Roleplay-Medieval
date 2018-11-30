@@ -4,7 +4,8 @@
 		"model": "drpmedieval:shingle_roof/roof_straight",
         "textures":{
 			"plank": "drpmedieval:blocks/roof/planks_treaded_wood",
-			"shingles": "drpmedieval:blocks/roof/%wood%_shingles"
+			"shingles": "drpmedieval:blocks/roof/%wood%_shingles",
+			"particle": "drpmedieval:blocks/roof/%wood%_shingles"
 		},
         "transform": "forge:default-block"
     },

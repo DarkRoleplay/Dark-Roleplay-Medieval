@@ -10,8 +10,7 @@
     ],
     "ingredients":[
         {
-            "item":"drpmedieval:planks",
-			"data":"0",
+            "item":"drpmedieval:oak_planks",
 			"count":"14"
         },
 		 {

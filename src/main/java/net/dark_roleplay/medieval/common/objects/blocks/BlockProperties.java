@@ -88,10 +88,14 @@ public class BlockProperties {
 		public static final BlockSettings WOOD_SOLID = new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F);
 		public static final BlockSettings WOOD_DECO = new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
 		public static final BlockSettings WOOD_DECO_TESR =new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setBlockRenderType(EnumBlockRenderType.INVISIBLE);
-		public static final BlockSettings WOOD_ROOF = new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setLightOpacity(15);
+		public static final BlockSettings WOOD_ROOF = new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setLightOpacity(255);
 
 		public static final BlockSettings PAPER_DECO = new BlockSettings(Material.WOOD, SoundType.CLOTH, 1.0F, 2.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
 		public static final BlockSettings PLANT_DECO = new BlockSettings(Material.PLANTS, SoundType.PLANT, 0.0F, 0.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
+
+		public static final BlockSettings UNFIRED_POTTERY = new BlockSettings(Material.CLAY, SoundType.GROUND, 1.0F, 2.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
+		public static final BlockSettings FIRED_POTTERY = new BlockSettings(Material.GLASS, SoundType.GLASS, 1.0F, 2.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
+
 
 		public static final BlockSettings METAL_SOLID = new BlockSettings(Material.IRON, SoundType.METAL, 5.0F, 15.0F);
 		public static final BlockSettings METAL_DECO = new BlockSettings(Material.IRON, SoundType.METAL, 5.0F, 15.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
@@ -103,7 +107,7 @@ public class BlockProperties {
 
 		public static final BlockSettings SNOW_SOLID = new BlockSettings(Material.CRAFTED_SNOW, SoundType.SNOW, 0.2F, 0.0F);
 		//		Block
-		public static final BlockSettings PACKED_ICE = new BlockSettings(Material.PACKED_ICE, SoundType.GLASS, 0.5F, 0.0F);
+		public static final BlockSettings PACKED_ICE = new BlockSettings(Material.PACKED_ICE, SoundType.GLASS, 0.5F, 0.0F).setSlipperiness(0.98F);
 
 		public static final BlockSettings OBSIDIAN_GLASS = new BlockSettings(Material.GLASS, SoundType.STONE, 4F, 4000.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setLightOpacity(6);
 

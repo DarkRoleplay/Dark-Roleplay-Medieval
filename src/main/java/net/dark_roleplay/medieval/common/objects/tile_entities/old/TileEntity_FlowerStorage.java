@@ -13,7 +13,7 @@ public class TileEntity_FlowerStorage  extends TileEntity {
 	private int flower1 = 0;
 	private int flower2 = 0;
 	private int flower3 = 0;
-	
+
 	public int getFlower(byte flower){
 		switch(flower){
 		case 0:
@@ -26,42 +26,42 @@ public class TileEntity_FlowerStorage  extends TileEntity {
 			return 0;
 		}
 	}
-	
-	public void addFlower(int flowerID){
-		if(flower1 == 0){
-			flower1 = flowerID;
-		}else if(flower2 == 0){
-			flower2 = flowerID;
-		}else if(flower3 == 0){
-			flower3 = flowerID;
-		}
-		
 
-        IBlockState state = world.getBlockState(getPos());
-		world.notifyBlockUpdate(getPos(), state, state, 3);
-		markDirty();
+	public void addFlower(int flowerID){
+		if(this.flower1 == 0){
+			this.flower1 = flowerID;
+		}else if(this.flower2 == 0){
+			this.flower2 = flowerID;
+		}else if(this.flower3 == 0){
+			this.flower3 = flowerID;
+		}
+
+
+        IBlockState state = this.world.getBlockState(this.getPos());
+		this.world.notifyBlockUpdate(this.getPos(), state, state, 3);
+		this.markDirty();
 	}
-	
+
 	public int removeFlower(){
 		int flower = 0;
-		
-		if(flower3 != 0){
-			flower3 = 0;
-			flower = flower3;
-		}else if(flower2 != 0){
-			flower2 = 0;
-			flower = flower2;
-		}else if(flower1 != 0){
-			flower1 = 0;
-			flower = flower1;
+
+		if(this.flower3 != 0){
+			this.flower3 = 0;
+			flower = this.flower3;
+		}else if(this.flower2 != 0){
+			this.flower2 = 0;
+			flower = this.flower2;
+		}else if(this.flower1 != 0){
+			this.flower1 = 0;
+			flower = this.flower1;
 		}
-		
-		markDirty();
-		if (world != null) {
-            IBlockState state = world.getBlockState(getPos());
-            world.notifyBlockUpdate(getPos(), state, state, 3);
+
+		this.markDirty();
+		if (this.world != null) {
+            IBlockState state = this.world.getBlockState(this.getPos());
+            this.world.notifyBlockUpdate(this.getPos(), state, state, 3);
         }
-		
+
 		return flower;
 	}
 
@@ -69,8 +69,7 @@ public class TileEntity_FlowerStorage  extends TileEntity {
     public NBTTagCompound getUpdateTag() {
     	NBTTagCompound nbtTag = new NBTTagCompound();
 
-        this.writeToNBT(nbtTag);
-        return writeToNBT(nbtTag);
+        return this.writeToNBT(nbtTag);
     }
 
     @Override
@@ -80,9 +79,9 @@ public class TileEntity_FlowerStorage  extends TileEntity {
 
         NBTTagCompound nbtTag = new NBTTagCompound();
         this.writeToNBT(nbtTag);
-        return new SPacketUpdateTileEntity(getPos(), 1, nbtTag);
+        return new SPacketUpdateTileEntity(this.getPos(), 1, nbtTag);
     }
-    
+
     @Override
     public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
         this.readFromNBT(packet.getNbtCompound());

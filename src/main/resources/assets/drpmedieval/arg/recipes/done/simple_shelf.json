@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "storage",
+  "name": "simple_%wood%_shelf",
+  "outputs": [
+    {
+      "item": "drpmedieval:simple_%wood%_shelf"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:%wood%_planks",
+      "count": 10
+    }
+  ]
+}

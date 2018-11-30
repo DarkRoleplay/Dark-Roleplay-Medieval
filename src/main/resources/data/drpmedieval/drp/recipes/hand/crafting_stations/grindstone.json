@@ -11,9 +11,8 @@
       "item": "minecraft:stone"
     },
     {
-      "item": "drpmedieval:planks",
-      "count": 2,
-      "data": 1
+      "item": "drpmedieval:spruce_planks",
+      "count": 2
     }
   ]
 }

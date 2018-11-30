@@ -3,7 +3,7 @@
   "name": "pumpkin_dough",
   "outputs": [
     {
-      "item": "drpmedieval:pumpkin_dough"
+      "item": "drpmedieval:wheat_pumpkin_dough"
     }
   ],
   "ingredients": [
@@ -11,7 +11,7 @@
       "item": "minecraft:water_bucket"
     },
     {
-      "item": "drpmedieval:flour"
+      "item": "drpmedieval:wheat_flour"
     },
     {
       "item": "minecraft:egg"

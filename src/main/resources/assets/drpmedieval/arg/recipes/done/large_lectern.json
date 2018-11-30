@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "large_%wood%_lectern",
+  "outputs": [
+    {
+      "item": "drpmedieval:large_%wood%_lectern"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:%wood%_planks",
+      "count": 6
+    }
+  ]
+}

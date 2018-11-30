@@ -114,16 +114,17 @@ public class LitWallMount extends EmptyWallMount {
 
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos){
+		if(!fromPos.equals(pos.offset(state.getValue(FACING_HORIZONTAL).getOpposite()))) return;
 		EnumFacing enumfacing = state.getValue(FACING_HORIZONTAL);
 		if(!this.canBlockStay(world, pos, enumfacing)){
 			this.dropBlockAsItem(world, pos, state, 0);
 			world.setBlockToAir(pos);
 			this.spawnAddons(world, pos, state);
-		}else if(state.getValue(ADDON_LIGHTER) && world.isBlockPowered(fromPos)){
+		}else if(state.getValue(ADDON_LIGHTER) && world.isBlockPowered(pos)){
 			world.setBlockState(pos, this.unlit.getDefaultState()
 				.withProperty(FACING_HORIZONTAL, state.getValue(FACING_HORIZONTAL)).withProperty(ADDON_TRAP, state.getValue(ADDON_TRAP))
 				.withProperty(ADDON_LIGHTER, state.getValue(ADDON_LIGHTER)).withProperty(POWERED, state.getValue(POWERED))
-			);
+			,2);
 		}
 		super.neighborChanged(state, world, pos, block, fromPos);
 	}

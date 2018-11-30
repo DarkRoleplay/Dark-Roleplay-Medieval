@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "storage",
+  "name": "simple_spruce_chest",
+  "outputs": [
+    {
+      "item": "drpmedieval:simple_spruce_chest"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:spruce_planks",
+      "count": 10
+    }
+  ]
+}

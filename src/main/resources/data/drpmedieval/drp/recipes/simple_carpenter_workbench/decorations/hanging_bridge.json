@@ -1,6 +1,6 @@
 {
   "station":"drpmedieval:simple_carpenter_workbench",
-  "category": "decoration",
+  "category": "decorations",
   "name": "hanging_bridge",
   "outputs": [
     {
@@ -10,9 +10,8 @@
   ],
   "ingredients": [
     {
-      "item": "drpmedieval:planks",
-      "count": 3,
-      "data": 1
+      "item": "drpmedieval:spruce_planks",
+      "count": 3
     },
     {
       "item": "drpmedieval:rope",

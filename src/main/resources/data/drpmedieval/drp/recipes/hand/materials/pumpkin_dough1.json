@@ -3,8 +3,7 @@
   "name": "pumpkin_dough",
   "outputs": [
     {
-      "item": "drpmedieval:pumpkin_dough",
-      "data": 1
+      "item": "drpmedieval:barley_pumpkin_dough"
     }
   ],
   "ingredients": [
@@ -12,8 +11,7 @@
       "item": "minecraft:water_bucket"
     },
     {
-      "item": "drpmedieval:flour",
-      "data": 1
+      "item": "drpmedieval:barley_flour"
     },
     {
       "item": "minecraft:egg"

@@ -10,8 +10,7 @@
     ],
     "ingredients":[
         {
-            "item":"drpmedieval:planks",
-			"data":"3",
+            "item":"drpmedieval:jungle_planks",
 			"count":"8"
         }
     ]
