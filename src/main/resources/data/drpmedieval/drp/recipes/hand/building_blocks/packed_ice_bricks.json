@@ -1,0 +1,14 @@
+{
+  "category": "building_blocks",
+  "name": "packed_ice_bricks",
+  "outputs": [
+    {
+      "item": "drpmedieval:packed_ice_bricks"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:packed_ice"
+    }
+  ]
+}

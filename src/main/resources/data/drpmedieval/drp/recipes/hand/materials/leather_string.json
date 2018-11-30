@@ -1,0 +1,18 @@
+{
+  "category": "materials",
+  "name": "leather_string",
+  "outputs": [
+    {
+      "item": "drpmedieval:leather_string",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "drpmedieval:flint_knife"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "category": "tools",
+  "name": "wood_street_stomper",
+  "outputs": [
+    {
+      "item": "drpmedieval:stone_street_stomper"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:stick",
+      "count": 2
+    },
+	{
+		"item": "minecraft:stone",
+		"count": 1,
+		"data": 0
+	}
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "category": "crafting_stations",
+  "name": "simple_carpenter_workbench",
+  "outputs": [
+    {
+      "item": "drpmedieval:simple_carpenter_workbench"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log",
+      "count": 2
+    }
+  ]
+}

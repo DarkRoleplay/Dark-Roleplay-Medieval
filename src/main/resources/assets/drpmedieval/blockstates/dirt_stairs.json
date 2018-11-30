@@ -1,0 +1,28 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model": "cube_column",
+        "textures":{
+			"dirt": "minecraft:blocks/dirt",
+			"plank": "drpmedieval:blocks/clean_plank/spruce_clean_plank",
+			"bark": "drpmedieval:blocks/apple_wood/log_apple"
+		},
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"facing":{
+			"north":{},
+			"east":{"y":90},
+			"south":{"y":180},
+			"west":{"y":270}
+		},
+		"type":{
+			"straight":{"model": "drpmedieval:dirt_stairs/dirt_stairs_straight"},
+			"inner_left":{"model": "drpmedieval:dirt_stairs/dirt_stairs_inner"},
+			"inner_right":{"model": "drpmedieval:dirt_stairs/dirt_stairs_inner_right"},
+			"outer_left":{"model": "drpmedieval:dirt_stairs/dirt_stairs_outer"},
+			"outer_right":{"model": "drpmedieval:dirt_stairs/dirt_stairs_outer_left"}
+		}
+	}
+}

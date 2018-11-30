@@ -1,0 +1,18 @@
+{
+	"type":"wood",
+	"keys":[
+		{
+			"key":"tile.drpmedieval.%wood%_barrel_table.name",
+			"en_us":"%wood% Barrel Table"
+		},{
+			"key":"tile.simple_plank_%wood%_table.name",
+			"en_us":"Simple %wood% Plank Table"
+		},{
+			"key":"tile.simple_solid_%wood%_table.name",
+			"en_us":"Simple %wood% Solid Table"
+		},{
+			"key":"tile.%wood%_work_table.name",
+			"en_us":"%wood% Work Table"
+		}
+	]
+}

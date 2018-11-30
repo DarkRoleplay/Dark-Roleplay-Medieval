@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "decorations",
+  "name": "candle_holder_empty",
+  "outputs": [
+    {
+      "item": "drpmedieval:candle_holder_empty",
+      "count": 2
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ]
+}

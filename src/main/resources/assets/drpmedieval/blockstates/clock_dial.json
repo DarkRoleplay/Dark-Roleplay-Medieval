@@ -1,0 +1,28 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+	    "model": "drpmedieval:clocks/clock_dial",
+        "transform": "forge:default-block"
+    },
+    "variants": {
+		"normal": [{}],
+		"inventory":[{}],
+		"position":{
+			"0":{"model": "drpmedieval:clocks/clock_dial_center"},
+			"1":{"model": "drpmedieval:clocks/clock_dial_top"},
+			"2":{"model": "drpmedieval:clocks/clock_dial_top_right"},
+			"3":{"model": "drpmedieval:clocks/clock_dial_right"},
+			"4":{"model": "drpmedieval:clocks/clock_dial_bottom_right"},
+			"5":{"model": "drpmedieval:clocks/clock_dial_bottom"},
+			"6":{"model": "drpmedieval:clocks/clock_dial_bottom_left"},
+			"7":{"model": "drpmedieval:clocks/clock_dial_left"},
+			"8":{"model": "drpmedieval:clocks/clock_dial_top_left"}
+		},
+		"facing":{
+			"north":{},
+			"east":{"y" : 90},
+			"south":{"y" : 180},
+			"west":{"y" : 270}
+		}
+	}
+}

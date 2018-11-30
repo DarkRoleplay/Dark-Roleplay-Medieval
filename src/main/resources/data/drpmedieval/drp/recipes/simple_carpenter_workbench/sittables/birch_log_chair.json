@@ -1,0 +1,18 @@
+{
+    "station":"drpmedieval:simple_carpenter_workbench",
+    "category":"sittables",
+    "name":"birch_log_chair",
+    "outputs":[
+        {
+            "item":"drpmedieval:birch_log_chair",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"minecraft:log",
+			"data":"2",
+			"count":"1"
+        }
+    ]
+}

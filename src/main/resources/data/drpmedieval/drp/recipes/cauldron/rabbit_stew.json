@@ -1,0 +1,32 @@
+{
+  "station": "drpmedieval:cauldron",
+  "category": "stews",
+  "name": "rabbit_stew",
+  "outputs": [
+    {
+      "item": "minecraft:rabbit_stew",
+	  "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:bowl",
+      "count": 4
+    },
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "minecraft:rabbit",
+      "count": 2
+    },
+    {
+      "item": "minecraft:potato",
+      "count": 3
+    },
+    {
+      "item": "minecraft:carrot",
+      "count": 2
+    }
+  ]
+}

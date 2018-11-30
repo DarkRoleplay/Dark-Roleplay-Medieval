@@ -1,0 +1,8 @@
+{
+    "variants":{
+		"facing=north":{"model":"drpmedieval:shop_signs/wall_shop_sign"},
+		"facing=east":{"model":"drpmedieval:shop_signs/wall_shop_sign", "y":90},
+		"facing=south":{"model":"drpmedieval:shop_signs/wall_shop_sign", "y":180},
+		"facing=west":{"model":"drpmedieval:shop_signs/wall_shop_sign", "y":270}
+	}
+}

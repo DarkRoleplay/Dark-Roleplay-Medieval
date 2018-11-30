@@ -1,0 +1,21 @@
+{
+	"type":"wood",
+	"keys":[
+		{
+			"key":"tile.drpmedieval.%wood%_clean_plank.name",
+			"en_us":"Clean %wood% Plank"
+		},{
+			"key":"tile.mossy_%wood%_log.name",
+			"en_us":"Mossy %wood% Wood"
+		},{
+			"key":"tile.drpmedieval.simple_%wood%_stairs.name",
+			"en_us":"Simple %wood% Stairs"
+		},{
+			"key":"tile.drpmedieval.%wood%_wood_support.name",
+			"en_us":"%wood% Wood Support"
+		},{
+			"key":"tile.drpmedieval.%wood%_shingle_roof.name",
+			"en_us":"%wood% Shingle Roof"
+		}
+	]
+}

@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:spinning_wheel",
+  "category": "materials",
+  "name": "string_4",
+  "outputs": [
+    {
+      "item": "minecraft:string",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:wool",
+	  "data": 4
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "station":"drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "rope_anchor",
+  "outputs": [
+    {
+      "item": "drpmedieval:rope_anchor",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log"
+    },
+    {
+      "item": "drpmedieval:rope",
+      "count": 4
+    }
+  ]
+}

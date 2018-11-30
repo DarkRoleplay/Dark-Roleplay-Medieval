@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:mortar",
+  "category": "materials",
+  "name": "charcoal_powder",
+  "outputs": [
+    {
+      "item": "drpmedieval:charcoal_powder",
+      "count": 2
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:coal",
+      "data": 1
+    }
+  ]
+}

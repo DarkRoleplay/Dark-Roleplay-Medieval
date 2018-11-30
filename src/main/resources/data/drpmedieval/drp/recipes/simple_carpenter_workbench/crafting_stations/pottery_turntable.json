@@ -1,0 +1,25 @@
+{
+	"station": "drpmedieval:simple_carpenter_workbench",
+    "category": "crafting_stations",
+    "name":"pottery_turntable",
+    "outputs":[
+        {
+            "item":"drpmedieval:pottery_turntable",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"drpmedieval:oak_planks",
+			"count":"14"
+        },
+		 {
+            "item":"minecraft:iron_ingot",
+			"count":"1"
+        },
+		{
+            "item":"minecraft:stone",
+			"count":"1"
+        }
+    ]
+}

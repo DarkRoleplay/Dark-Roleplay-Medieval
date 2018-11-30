@@ -1,0 +1,94 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model": "crop",
+        "textures":{
+			"crop": "drpmedieval:blocks/barley0"
+		}
+    },
+	"variants": {
+		"inventory":[{}],
+		"age":{
+			"0":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley0"
+				}
+			},
+			"1":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley0"
+				}
+			},
+			"2":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley1"
+				}
+			},
+			"3":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley1"
+				}
+			},
+			"4":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley2"
+				}
+			},
+			"5":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley2"
+				}
+			},
+			"6":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley3"
+				}
+			},
+			"7":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley3"
+				}
+			},
+			"8":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley4"
+				}
+			},
+			"9":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley4"
+				}
+			},
+			"10":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley5"
+				}
+			},
+			"11":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley5"
+				}
+			},
+			"12":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley6"
+				}
+			},
+			"13":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley6"
+				}
+			},
+			"14":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley6"
+				}
+			},
+			"15":{
+				"textures":{
+					"crop": "drpmedieval:blocks/barley7"
+				}
+			}
+		}
+	}
+}

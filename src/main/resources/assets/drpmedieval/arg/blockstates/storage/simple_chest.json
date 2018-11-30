@@ -1,0 +1,32 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:wood_blocks/simple_chest",
+        "textures": {
+			"side": "drpmedieval:blocks/chests/simple_%wood%_chest_side",
+			"top": "drpmedieval:blocks/chests/simple_%wood%_chest_top"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"facing":{
+			"north":{},
+			"east":{"y":90},
+			"south":{"y":180},
+			"west":{"y":270}
+		},
+		"open":{
+			"true":{},
+			"false":{}
+		},
+		"static": {
+            "true": {
+                "model":"drpmedieval:wood_blocks/simple_chest"
+            },
+            "false": {
+                "model":"drpmedieval:wood_blocks/simple_chest_top"
+            }
+        }
+	}
+}

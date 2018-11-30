@@ -1,0 +1,19 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:wood_blocks/barrel_table",
+        "textures": {
+			"side": "drpmedieval:blocks/barrels/%wood%_barrel_side",
+			"particle": "drpmedieval:blocks/barrels/%wood%_barrel_top",
+			"texture": "drpmedieval:blocks/barrels/%wood%_barrel_top"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"axis":{
+			"x":{},
+			"z":{"y":90}
+		}
+	}
+}

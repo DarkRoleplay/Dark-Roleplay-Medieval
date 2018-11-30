@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "materials",
+  "name": "wood_beams",
+  "outputs": [
+    {
+      "item": "drpmedieval:acacia_wood_beam",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log2"
+    }
+  ]
+}

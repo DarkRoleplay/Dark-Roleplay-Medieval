@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "materials",
+  "name": "planks3",
+  "outputs": [
+    {
+      "item": "drpmedieval:jungle_planks",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log",
+      "data": 3
+    }
+  ]
+}

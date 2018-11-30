@@ -4,7 +4,8 @@
 		"model": "drpmedieval:pottery/vase",
         "textures":{
 			"texture": "drpmedieval:blocks/pottery/unfired_pottery"
-		}
+		},
+        "transform": "forge:default-block"
     },
 	"variants": {
 		"inventory":[{}],

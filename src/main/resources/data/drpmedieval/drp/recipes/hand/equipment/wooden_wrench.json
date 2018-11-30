@@ -1,0 +1,15 @@
+{
+  "category": "tools",
+  "name": "wooden_wrench",
+  "outputs": [
+    {
+      "item": "drpmedieval:wood_wrench"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:stick",
+      "count": 3
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+    "parent": "drpmedieval:item/materials/processed_materials/planks/planks",
+	"textures": {
+		"particle": "drpcmmaarg:blocks/clean_planks/clean_planks_%wood%",
+        "0": "drpcmmaarg:blocks/clean_planks/clean_planks_%wood%"
+    }
+}

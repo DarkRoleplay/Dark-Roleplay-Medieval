@@ -1,0 +1,13 @@
+{
+	"required_mod":"biomesoplenty",
+    "type":"wood",
+    "name":"ebony",
+    
+    "log_side"			: "biomesoplenty:textures/blocks/ebony_log.png",
+    "log_top"			: "biomesoplenty:textures/blocks/ebony_log_top.png",
+    "planks"				: "biomesoplenty:textures/blocks/ebony_planks.png",
+   	
+    "languages":{
+		"en_us":"Ebony"
+    }
+}

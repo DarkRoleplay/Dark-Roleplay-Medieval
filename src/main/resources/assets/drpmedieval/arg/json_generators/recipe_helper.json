@@ -1,0 +1,57 @@
+{
+	"type":"wood",
+	"jsons":[],
+	"jsons2":[
+		{
+			"input" : "drpmedieval:arg/recipes/flower_pot.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/decorations/flower_pots/%wood%_flower_pot.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/closed_barrel.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/decorations/barrels/%wood%_closed_barrel.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/empty_barrel.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/decorations/barrels/%wood%_empty_barrel.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/laying_barrel.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/decorations/barrels/%wood%_laying_barrel.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/empty_bucket.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/decorations/buckets/%wood%_empty_bucket.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/dirt_bucket.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/decorations/buckets/%wood%_dirt_bucket.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/water_bucket.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/decorations/buckets/%wood%_water_bucket.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/large_lectern.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/decorations/lecterns/large_%wood%_lectern.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/wood_support.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/decorations/supports/%wood%_wood_support.json"
+		},
+		
+		{
+			"input" : "drpmedieval:arg/recipes/barrel_table.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/tables/barrel_tables/%wood%_barrel_table.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/simple_table.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/tables/simple_tables/simple_%wood%_table.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/simple_solid_table.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/tables/simple_solid_tables/simple_solid_%wood%_table.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/work_table.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/tables/work_tables/%wood%_work_table.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/crate.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/storage/crates/%wood%_crate.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/simple_chest.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/storage/simple_chests/simple_%wood%_chest.json"
+		},{
+			"input" : "drpmedieval:arg/recipes/simple_shelf.json",
+			"output" : "drpmedieval:recipes/simple_carpenter_workbench/storage/simple_shelfs/simple_%wood%_shelf.json"
+		}
+	]
+}

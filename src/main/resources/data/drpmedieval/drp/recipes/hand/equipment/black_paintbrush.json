@@ -1,0 +1,17 @@
+{
+  "category": "tools",
+  "name": "black_paintbrush",
+  "outputs": [
+    {
+      "item": "drpmedieval:dirty_paintbrush"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:clean_paintbrush"
+    },
+    {
+      "item": "minecraft:dye"
+    }
+  ]
+}

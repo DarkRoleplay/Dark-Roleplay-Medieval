@@ -1,0 +1,19 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "decorations",
+  "name": "minecart_stopper",
+  "outputs": [
+    {
+      "item": "drpmedieval:minecart_stopper"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log"
+    },
+    {
+      "item": "minecraft:iron_ingot",
+      "count": 2
+    }
+  ]
+}

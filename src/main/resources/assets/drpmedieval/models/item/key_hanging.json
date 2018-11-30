@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "drpmedieval:items/block_key_hanging"
+        "layer0": "drpmedieval:items/old_blocks/block_key_hanging"
     },
     "display": {
 		"gui": {

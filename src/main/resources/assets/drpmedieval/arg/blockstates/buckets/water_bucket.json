@@ -1,0 +1,17 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:buckets/water_bucket",
+        "textures": {
+			"bucket": "drpmedieval:blocks/bucket/%wood%_bucket"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"axis":{
+			"x":{},
+			"z":{"y":90}
+		}
+	}
+}

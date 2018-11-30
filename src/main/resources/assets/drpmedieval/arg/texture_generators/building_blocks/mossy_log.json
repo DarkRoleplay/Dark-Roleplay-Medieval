@@ -1,0 +1,27 @@
+{
+	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/mossy_log/mossy_%wood%_bark",
+		"drpmedieval:textures/blocks/mossy_log/mossy_%wood%_log_top"
+	],
+	"required_textures":[
+		"drpmedieval:arg/textures/overlays/mossy_log.png"
+	],
+	"textures":[
+		{
+			"base":"log_side",
+			"manipulations":[
+				{
+					"type":"overlay",
+					"texture":0
+				}
+			],
+			"output":"drpmedieval:textures/blocks/mossy_log/mossy_%wood%_bark"
+		},
+		{
+			"base":"log_top",
+			"manipulations":[],
+			"output":"drpmedieval:textures/blocks/mossy_log/mossy_%wood%_log_top"
+		}
+	]
+}

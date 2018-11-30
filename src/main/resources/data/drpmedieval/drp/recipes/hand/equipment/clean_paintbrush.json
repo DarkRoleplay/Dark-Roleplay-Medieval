@@ -1,0 +1,18 @@
+{
+  "category": "tools",
+  "name": "clean_paintbrush",
+  "outputs": [
+    {
+      "item": "drpmedieval:clean_paintbrush"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:feather",
+	  "count":3
+    }
+  ]
+}

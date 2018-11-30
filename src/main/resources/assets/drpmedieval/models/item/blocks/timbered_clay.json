@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "drpmedieval:blocks/timbered_clay/clean/oak_timbered_clay_0000"
+    }
+}

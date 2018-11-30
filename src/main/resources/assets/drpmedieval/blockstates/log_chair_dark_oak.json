@@ -1,8 +1,0 @@
-{
-    "variants":{
-        "facing=north":{"model":"drpmedieval:log_chairs/log_chair_dark_oak"},
-        "facing=east":{"model":"drpmedieval:log_chairs/log_chair_dark_oak", "y":90},
-        "facing=south":{"model":"drpmedieval:log_chairs/log_chair_dark_oak", "y":180},
-        "facing=west":{"model":"drpmedieval:log_chairs/log_chair_dark_oak", "y":270}   
-    }
-}

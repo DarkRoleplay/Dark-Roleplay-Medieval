@@ -1,0 +1,19 @@
+{
+  "station":"drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "acacia_flower_pot",
+  "outputs": [
+    {
+      "item": "drpmedieval:acacia_flower_pot"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:acacia_planks",
+      "count": 4
+    },
+    {
+      "item": "minecraft:dirt"
+    }
+  ]
+}

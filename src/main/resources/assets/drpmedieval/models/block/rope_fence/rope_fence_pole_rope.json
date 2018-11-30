@@ -1,7 +1,7 @@
 {
 	"__comment": "Designed by JTK222",
 	"textures": {
-		"particle": "blocks/e_particle",
+		"particle": "drpmedieval:blocks/rope_fence/post_oak",
 		"texture": "hanging_bridge_posts",
 		"rope": "rope"
 	},

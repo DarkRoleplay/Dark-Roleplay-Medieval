@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "large_jungle_lectern",
+  "outputs": [
+    {
+      "item": "drpmedieval:large_jungle_lectern"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:jungle_planks",
+      "count": 6
+    }
+  ]
+}

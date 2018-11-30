@@ -1,6 +1,0 @@
-{
-    "parent": "drpmedieval:block/simple_tables/simple_table",
-    "textures": {
-        "all": "drpmedieval:blocks/simple_tables/simple_table_acacia"
-    }
-}

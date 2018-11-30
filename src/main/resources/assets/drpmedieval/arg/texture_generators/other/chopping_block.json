@@ -1,0 +1,37 @@
+{
+	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/chopping_block/%wood%_chopping_block_bark",
+		"drpmedieval:textures/blocks/chopping_block/%wood%_chopping_block_top"
+	],
+	"required_textures":[
+		"drpmedieval:arg/textures/masks/chopping_block.png"
+	],
+	"textures":[
+		{
+			"base":"log_side",
+			"manipulations":[],
+			"output":"drpmedieval:textures/blocks/chopping_block/%wood%_chopping_block_bark"
+		},
+		{
+			"base":"log_side",
+			"manipulations":[
+				{
+					"type":"mask",
+					"texture":0
+				}
+			],
+			"cache":"%wood%_overlay"
+		},
+		{
+			"base":"log_top",
+			"manipulations":[
+				{
+					"type":"overlay",
+					"cached_texture":"%wood%_overlay"
+				}
+			],
+			"output":"drpmedieval:textures/blocks/chopping_block/%wood%_chopping_block_top"
+		}
+	]
+}

@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "materials",
+  "name": "wood_beams5",
+  "outputs": [
+    {
+      "item": "drpmedieval:spruce_wood_beam",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log",
+      "data": 1
+    }
+  ]
+}

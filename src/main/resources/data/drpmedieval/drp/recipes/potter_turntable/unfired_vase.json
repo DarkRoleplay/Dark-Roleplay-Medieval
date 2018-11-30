@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:pottery_turntable",
+  "category": "decoration",
+  "name": "unfired_vase",
+  "outputs": [
+    {
+      "item": "drpmedieval:unfired_vase"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:clay_ball",
+      "count": 2
+    }
+  ]
+}

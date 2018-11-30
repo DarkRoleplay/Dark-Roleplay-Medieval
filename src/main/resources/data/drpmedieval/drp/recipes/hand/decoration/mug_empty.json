@@ -1,0 +1,18 @@
+{
+  "category": "decorations",
+  "name": "mug_empty",
+  "outputs": [
+    {
+      "item": "drpmedieval:mug_empty"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:spruce_planks"
+    },
+    {
+      "item": "minecraft:iron_nugget",
+      "count": 2
+    }
+  ]
+}

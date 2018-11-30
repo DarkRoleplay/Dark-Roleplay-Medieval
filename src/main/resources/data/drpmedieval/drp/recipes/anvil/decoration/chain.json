@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "decorations",
+  "name": "chain",
+  "outputs": [
+    {
+      "item": "drpmedieval:chain",
+      "count": 2
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ]
+}

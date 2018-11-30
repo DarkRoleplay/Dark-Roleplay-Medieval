@@ -4,25 +4,19 @@
 bin/*
 build/*
 eclipse/*
-gradle/*
 run/*
-libs/*
 libs_src/*
 
 .classpath
 .gitignore
 .project
-build.gradle
-gradlew.bat
 
 Dark-Roleplay-Medieval_Client.launch
 Dark-Roleplay-Medieval_Server.launch
 Forge Latest_Client.launch
 Forge Latest_Server.launch
-gradle.properties
-gradlew
-greadle.bat
-script_buildCOMP.cmd
-script_buildDECOMP.cmd
-script_setupWorkspace.cmd
 *.launch
+.metadata/
+/bin/
+/.gradle/
+/build/

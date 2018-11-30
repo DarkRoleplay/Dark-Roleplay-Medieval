@@ -1,0 +1,18 @@
+{
+  "category": "crafting_stations",
+  "name": "jungle_chopping_block",
+  "outputs": [
+    {
+      "item": "drpmedieval:jungle_chopping_block"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log",
+      "data": 3
+    },
+    {
+      "item": "minecraft:iron_axe"
+    }
+  ]
+}

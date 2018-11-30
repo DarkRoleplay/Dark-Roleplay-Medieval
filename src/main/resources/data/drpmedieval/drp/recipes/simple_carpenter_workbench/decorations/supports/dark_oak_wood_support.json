@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "dark_oak_wood_support",
+  "outputs": [
+    {
+      "item": "drpmedieval:dark_oak_wood_support",
+      "count": 1
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:dark_oak_wood_beam",
+      "count": 1
+    }
+  ]
+}

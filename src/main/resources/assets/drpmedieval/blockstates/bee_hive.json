@@ -1,7 +1,8 @@
 {
     "forge_marker": 1,
     "defaults": {
-		"model": "drpmedieval:bee_hive/bee_hive"
+		"model": "drpmedieval:bee_hive/bee_hive",
+        "transform": "forge:default-block"
     },
 	"variants": {
 		"inventory":[{}],

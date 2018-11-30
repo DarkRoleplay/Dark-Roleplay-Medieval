@@ -1,0 +1,18 @@
+{
+  "category": "crafting_stations",
+  "name": "firepit_lit",
+  "outputs": [
+    {
+      "item": "drpmedieval:firepit_lit"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:oak_firewood",
+      "count": 4
+    },
+    {
+      "item": "minecraft:cobblestone"
+    }
+  ]
+}

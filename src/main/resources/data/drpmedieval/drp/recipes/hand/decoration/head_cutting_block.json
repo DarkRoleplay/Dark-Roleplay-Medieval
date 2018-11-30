@@ -1,0 +1,18 @@
+{
+  "category": "decorations",
+  "name": "head_cutting_block",
+  "outputs": [
+    {
+      "item": "drpmedieval:head_cutting_block"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "item": "drpmedieval:oak_planks",
+      "count": 4
+    }
+  ]
+}

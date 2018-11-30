@@ -1,0 +1,21 @@
+{
+	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/wood_support/%wood%_wood_support"
+	],
+	"required_textures":[
+		"drpmedieval:arg/textures/overlays/wood_support.png"
+	],
+	"textures":[
+		{
+			"base":"clean_planks",
+			"manipulations":[
+				{
+					"type":"overlay",
+					"texture":0
+				}
+			],
+			"output":"drpmedieval:textures/blocks/wood_support/%wood%_wood_support"
+		}
+	]
+}

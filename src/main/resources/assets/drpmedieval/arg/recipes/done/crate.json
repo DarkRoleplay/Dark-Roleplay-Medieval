@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "storage",
+  "name": "%wood%_crate",
+  "outputs": [
+    {
+      "item": "drpmedieval:%wood%_crate"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:%wood%_planks",
+      "count": 12
+    }
+  ]
+}

@@ -1,4 +1,8 @@
 {
+	"war_horn_0":{
+		"subtitle": "drpmedieval.sounds.war_horn",
+		"sounds": [ "drpmedieval:items/war_horn_0" ]
+	},
 	"block_ships_bell":{
 		"category": "block",
 		"subtitle": "drpmedieval.sounds.ships_bell",

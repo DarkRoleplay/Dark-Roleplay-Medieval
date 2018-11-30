@@ -1,0 +1,17 @@
+{
+  "category": "tools",
+  "name": "flint_knife",
+  "outputs": [
+    {
+      "item": "drpmedieval:flint_knife"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:flint"
+    }
+  ]
+}

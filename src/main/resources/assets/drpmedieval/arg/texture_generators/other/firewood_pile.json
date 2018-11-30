@@ -1,0 +1,19 @@
+{
+	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/firewood/%wood%_firewood_pile_sides",
+		"drpmedieval:textures/blocks/firewood/%wood%_firewood_pile_top"
+	],
+	"required_textures":[],
+	"textures":[
+		{
+			"base":"log_side",
+			"manipulations":[],
+			"output":"drpmedieval:textures/blocks/firewood/%wood%_firewood_pile_sides"
+		},{
+			"base":"log_top",
+			"manipulations":[],
+			"output":"drpmedieval:textures/blocks/firewood/%wood%_firewood_pile_top"
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "storage",
+  "name": "simple_acacia_chest",
+  "outputs": [
+    {
+      "item": "drpmedieval:simple_acacia_chest"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:acacia_planks",
+      "count": 10
+    }
+  ]
+}

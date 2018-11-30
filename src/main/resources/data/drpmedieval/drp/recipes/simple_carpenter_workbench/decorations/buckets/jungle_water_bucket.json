@@ -1,0 +1,18 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "jungle_water_bucket",
+  "outputs": [
+    {
+      "item": "drpmedieval:jungle_water_bucket"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:jungle_empty_bucket"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ]
+}

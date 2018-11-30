@@ -1,0 +1,19 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "decorations",
+  "name": "golden_ship_bell",
+  "outputs": [
+    {
+      "item": "drpmedieval:golden_ship_bell"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:gold_ingot",
+      "count": 2
+    },
+    {
+      "item": "drpmedieval:rope"
+    }
+  ]
+}

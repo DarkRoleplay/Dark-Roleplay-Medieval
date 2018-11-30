@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "storage",
+  "name": "acacia_crate",
+  "outputs": [
+    {
+      "item": "drpmedieval:acacia_crate"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:acacia_planks",
+      "count": 12
+    }
+  ]
+}

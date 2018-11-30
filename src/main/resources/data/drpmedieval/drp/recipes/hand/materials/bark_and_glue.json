@@ -1,0 +1,22 @@
+{
+  "category": "materials",
+  "name": "bark_and_glue",
+  "outputs": [
+    {
+      "item": "drpmedieval:bark_and_glue",
+      "count": 4
+    },
+    {
+      "item": "minecraft:planks",
+      "count": 3
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "item": "minecraft:log"
+    }
+  ]
+}

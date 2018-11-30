@@ -1,0 +1,25 @@
+{
+    "variants":{
+       "inventory":{"model":"drpmedieval:candles/candle_holder_empty"},
+       "addon_lighter=false,addon_trap=false,facing=north":{"model":"drpmedieval:candles/candle_holder_empty"},
+	   "addon_lighter=false,addon_trap=false,facing=east":{"model":"drpmedieval:candles/candle_holder_empty","y":90,"uvlock":true},
+	   "addon_lighter=false,addon_trap=false,facing=south":{"model":"drpmedieval:candles/candle_holder_empty","y":180,"uvlock":true},
+	   "addon_lighter=false,addon_trap=false,facing=west":{"model":"drpmedieval:candles/candle_holder_empty","y":270,"uvlock":true},
+	   
+	   "addon_lighter=true,addon_trap=false,facing=north":{"model":"drpmedieval:candles/candle_holder_empty"},
+	   "addon_lighter=true,addon_trap=false,facing=east":{"model":"drpmedieval:candles/candle_holder_empty","y":90,"uvlock":true},
+	   "addon_lighter=true,addon_trap=false,facing=south":{"model":"drpmedieval:candles/candle_holder_empty","y":180,"uvlock":true},
+	   "addon_lighter=true,addon_trap=false,facing=west":{"model":"drpmedieval:candles/candle_holder_empty","y":270,"uvlock":true},
+	   
+	   "addon_lighter=false,addon_trap=true,facing=north":{"model":"drpmedieval:candles/candle_holder_empty"},
+	   "addon_lighter=false,addon_trap=true,facing=east":{"model":"drpmedieval:candles/candle_holder_empty","y":90,"uvlock":true},
+	   "addon_lighter=false,addon_trap=true,facing=south":{"model":"drpmedieval:candles/candle_holder_empty","y":180,"uvlock":true},
+	   "addon_lighter=false,addon_trap=true,facing=west":{"model":"drpmedieval:candles/candle_holder_empty","y":270,"uvlock":true},
+	   
+	   "addon_lighter=true,addon_trap=true,facing=north":{"model":"drpmedieval:candles/candle_holder_empty"},
+	   "addon_lighter=true,addon_trap=true,facing=east":{"model":"drpmedieval:candles/candle_holder_empty","y":90,"uvlock":true},
+	   "addon_lighter=true,addon_trap=true,facing=south":{"model":"drpmedieval:candles/candle_holder_empty","y":180,"uvlock":true},
+	   "addon_lighter=true,addon_trap=true,facing=west":{"model":"drpmedieval:candles/candle_holder_empty","y":270,"uvlock":true}
+
+	}
+}

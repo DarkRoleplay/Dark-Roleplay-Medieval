@@ -1,0 +1,21 @@
+{
+	"station": "drpmedieval:simple_carpenter_workbench",
+    "category":"crafting_stations",
+    "name":"spinning_wheel",
+    "outputs":[
+        {
+            "item":"drpmedieval:spinning_wheel",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"drpmedieval:oak_planks",
+			"count":"20"
+        },
+		 {
+            "item":"drpmedieval:leather_string",
+			"count":"1"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+	"required_mod":"biomesoplenty",
+    "type":"wood",
+    "name":"hellbark",
+    
+    "log_side"			: "biomesoplenty:textures/blocks/hellbark_log.png",
+    "log_top"			: "biomesoplenty:textures/blocks/hellbark_log_top.png",
+    "planks"				: "biomesoplenty:textures/blocks/hellbark_planks.png",
+   	
+    "languages":{
+		"en_us":"Hellbark"
+    }
+}

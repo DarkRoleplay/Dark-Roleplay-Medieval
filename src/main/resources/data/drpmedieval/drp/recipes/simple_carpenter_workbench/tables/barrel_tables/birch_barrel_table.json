@@ -1,0 +1,22 @@
+{
+    "station":"drpmedieval:simple_carpenter_workbench",
+    "category":"tables",
+    "name":"birch_barrel_table",
+    "outputs":[
+        {
+            "item":"drpmedieval:birch_barrel_table",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"drpmedieval:birch_planks",
+			"count":"8"
+        },
+		{
+            "item":"minecraft:iron_nugget",
+			"count":"2"
+        }
+		
+    ]
+}

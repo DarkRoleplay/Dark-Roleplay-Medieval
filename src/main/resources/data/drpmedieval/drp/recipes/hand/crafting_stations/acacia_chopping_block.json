@@ -1,0 +1,17 @@
+{
+  "category": "crafting_stations",
+  "name": "acacia_chopping_block",
+  "outputs": [
+    {
+      "item": "drpmedieval:acacia_chopping_block"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log2"
+    },
+    {
+      "item": "minecraft:iron_axe"
+    }
+  ]
+}

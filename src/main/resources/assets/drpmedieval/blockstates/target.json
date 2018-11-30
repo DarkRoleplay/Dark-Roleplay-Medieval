@@ -1,0 +1,13 @@
+{
+    "variants":{
+        "facing=north,top=false":{"model":"drpmedieval:none"},
+        "facing=east,top=false":{"model":"drpmedieval:none", "y":90},
+        "facing=south,top=false":{"model":"drpmedieval:none", "y":180},
+        "facing=west,top=false":{"model":"drpmedieval:none", "y":270},
+		
+        "facing=north,top=true":{"model":"drpmedieval:none"},
+        "facing=east,top=true":{"model":"drpmedieval:none", "y":90},
+        "facing=south,top=true":{"model":"drpmedieval:none", "y":180},
+        "facing=west,top=true":{"model":"drpmedieval:none", "y":270}   
+    }
+}

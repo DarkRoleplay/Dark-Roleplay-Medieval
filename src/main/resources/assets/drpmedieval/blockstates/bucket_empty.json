@@ -1,8 +1,0 @@
-{
-    "variants":{
-        "facing=north":{"model":"drpmedieval:buckets/bucket_empty"},
-        "facing=east":{"model":"drpmedieval:buckets/bucket_empty", "y":90},
-        "facing=south":{"model":"drpmedieval:buckets/bucket_empty", "y":180},
-        "facing=west":{"model":"drpmedieval:buckets/bucket_empty", "y":270}   
-    }
-}

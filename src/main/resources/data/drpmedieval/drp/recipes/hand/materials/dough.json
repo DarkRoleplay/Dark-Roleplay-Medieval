@@ -1,0 +1,20 @@
+{
+  "category": "materials",
+  "name": "dough",
+  "outputs": [
+    {
+      "item": "drpmedieval:wheat_dough"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "drpmedieval:wheat_flour"
+    },
+    {
+      "item": "minecraft:egg"
+    }
+  ]
+}

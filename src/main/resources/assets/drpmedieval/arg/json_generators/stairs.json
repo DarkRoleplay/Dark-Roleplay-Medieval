@@ -1,0 +1,9 @@
+{
+	"type":"wood",
+	"jsons":[
+		{
+			"input" : "drpmedieval:arg/blockstates/stairs/simple_wood_stairs.json",
+			"output" : "drpmedieval:blockstates/simple_%wood%_stairs.json"
+		}
+	]
+}

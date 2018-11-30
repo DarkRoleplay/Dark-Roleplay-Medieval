@@ -1,0 +1,18 @@
+{
+    "station":"drpmedieval:simple_carpenter_workbench",
+    "category":"sittables",
+    "name":"acacia_log_chair",
+    "outputs":[
+        {
+            "item":"drpmedieval:acacia_log_chair",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"minecraft:log2",
+			"data":"0",
+			"count":"1"
+        }
+    ]
+}

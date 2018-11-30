@@ -1,0 +1,24 @@
+{
+  "station": "drpmedieval:cauldron",
+  "category": "stews",
+  "name": "cod_stew",
+  "outputs": [
+    {
+      "item": "drpmedieval:cod_stew",
+	  "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:bowl",
+      "count": 4
+    },
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "minecraft:fish",
+      "count": 2
+    }
+  ]
+}

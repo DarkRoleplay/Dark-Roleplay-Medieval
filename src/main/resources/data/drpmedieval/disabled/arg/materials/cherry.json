@@ -1,0 +1,18 @@
+{
+	"required_mod":"biomesoplenty",
+    "type":"wood",
+    "name":"cherry",
+    
+    "log_side"			: "biomesoplenty:textures/blocks/cherry_log.png",
+    "log_top"			: "biomesoplenty:textures/blocks/cherry_log_top.png",
+    "planks"			: "biomesoplenty:textures/blocks/cherry_planks.png",
+    
+    "items":{
+    	"planks"		: "biomesoplenty:plank_0:1",
+    	"log"			: "biomesoplenty:log_0:5"
+   	},
+   	
+    "languages":{
+		"en_us":"Cherry"
+    }
+}

@@ -1,6 +1,6 @@
 {
     "variants":{
-		"age=0":{"model":"drpmedieval:m_i_s_s_i_n_g"},
+		"age=0":{"model":"drpmedieval:none"},
 		"age=1":{"model":"drpmedieval:pears/pear_green1"},
 		"age=2":{"model":"drpmedieval:pears/pear_green2"},
 		"age=3":{"model":"drpmedieval:pears/pear_green3"},

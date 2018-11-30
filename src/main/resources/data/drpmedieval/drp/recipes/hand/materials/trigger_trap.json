@@ -1,0 +1,20 @@
+{
+  "category": "materials",
+  "name": "trigger_trap",
+  "outputs": [
+    {
+      "item": "drpmedieval:trigger_trap"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:string"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:tripwire_hook"
+    }
+  ]
+}

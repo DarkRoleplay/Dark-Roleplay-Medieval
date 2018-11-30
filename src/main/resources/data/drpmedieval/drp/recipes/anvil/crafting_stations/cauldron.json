@@ -1,0 +1,20 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "crafting_stations",
+  "name": "cauldron",
+  "outputs": [
+    {
+      "item": "drpmedieval:cauldron"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot",
+      "count": 16
+    },
+    {
+      "item": "drpmedieval:oak_firewood",
+      "count": 4
+    }
+  ]
+}

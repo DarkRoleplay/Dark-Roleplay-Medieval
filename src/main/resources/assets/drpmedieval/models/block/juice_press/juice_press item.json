@@ -1,7 +1,6 @@
 {
 	"__comment": "Designed by JTK222",
 	"textures": {
-		"particle": "blocks/e_particle",
 		"texture": "blocks/CleanPlankSpruce",
 		"metal": "blocks/Metal",
 		"mixed": "blocks/juice_press/juice press",

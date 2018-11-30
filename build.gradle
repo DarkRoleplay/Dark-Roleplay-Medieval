@@ -10,43 +10,57 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "0.2.0"
-group = "net.dark_roleplay.medieval"
-archivesBaseName = "Dark Roleplay Medieval"
+version = "1.12.2-0.2.8"
+group = "net.dark_roleplay"
+archivesBaseName = "drpmedieval"
 
 sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
 }
 
-minecraft {
-    version = "1.12-14.21.1.2387"
-    runDir = "run"
-    
-    mappings = "snapshot_20170624"
-    makeObfSourceJar = false
-}
+apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/minecraft.gradle'
+apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/configurations.gradle'
 
 repositories {
 	maven {
-		url 'https://repo.elytradev.com/'
+		name = "JEI"
+		url = "http://dvs1.progwml6.com/files/maven"
+	}
+	maven {
+		name = "Dark Roleplay"
+		url = "https://dark-roleplay.net/files/maven/"
+	}
+	maven{
+		name = "BoP"
+		url = "http://files.minecraftforge.net/maven/"
 	}
 }
 
 dependencies {
-	compile 'elucent:albedo:2.0-SNAPSHOT'
-}
-processResources {
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
+	//Compile against API, use full mod for runtime
+	deobfProvided group: "mezz.jei", name: "jei_${mc_version}", version: "${jei_version}", classifier: 'api'
+	runtime group: "mezz.jei", name: "jei_${mc_version}", version: "${jei_version}"
+  	runtime "com.github.glitchfiend.biomesoplenty:BiomesOPlenty:1.12.2-7.0.1.2399:universal"
+	
+	
+	contained group: "net.dark_roleplay", name: "drplibrary", version: "${mc_version}-${drp_library_version}", changing: true
+	contained group: "net.dark_roleplay.core_modules", name: "drpcmmaarg", version: "${mc_version}-${drp_core_module_maarg_version}", changing: true
+	contained group: "net.dark_roleplay.core_modules", name: "drpcmguis", version: "${mc_version}-${drp_core_module_guis_version}", changing: true
+	contained group: "net.dark_roleplay.core_modules", name: "drpcmlocks", version: "${mc_version}-${drp_core_module_locks_version}", changing: true
 
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-        
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+	
+	deobfProvided group: "net.dark_roleplay", name: "drplibrary", version: "${mc_version}-${drp_library_version}", changing: true
+	deobfProvided group: "net.dark_roleplay.core_modules", name: "drpcmmaarg", version: "${mc_version}-${drp_core_module_maarg_version}", changing: true
+	deobfProvided group: "net.dark_roleplay.core_modules", name: "drpcmguis", version: "${mc_version}-${drp_core_module_guis_version}", changing: true
+	deobfCompile group: "net.dark_roleplay.core_modules", name: "drpcmlocks", version: "${mc_version}-${drp_core_module_locks_version}", changing: true
+
+
+	deobfCompile group: "net.dark_roleplay", name: "drpcore", version: "${mc_version}-${drp_core_version}", changing: true
 }
+
+apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/mcmod_info.gradle'
+apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/signing.gradle'
+apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/contained_jar.gradle'
+apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/publishing.gradle'
+apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/mod_maven.gradle'

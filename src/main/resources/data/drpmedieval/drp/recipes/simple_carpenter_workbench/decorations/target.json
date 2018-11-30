@@ -1,0 +1,20 @@
+{
+  "station":"drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "target",
+  "outputs": [
+    {
+      "item": "drpmedieval:target"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:oak_planks",
+      "count": 10
+    },
+    {
+      "item": "drpmedieval:rope",
+      "count": 8
+    }
+  ]
+}

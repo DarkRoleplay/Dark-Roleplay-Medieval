@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "tables",
+  "name": "spruce_work_table",
+  "outputs": [
+    {
+      "item": "drpmedieval:spruce_work_table"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:spruce_planks",
+      "count": 8
+    }
+  ]
+}work

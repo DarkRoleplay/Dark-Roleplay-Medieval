@@ -1,0 +1,23 @@
+{
+	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/timbered_clay/vertical/%wood%_timbered_clay",
+		"drpmedieval:textures/blocks/timbered_clay/horizontal/%wood%_timbered_clay",
+		"drpmedieval:textures/blocks/timbered_clay/straight_cross/%wood%_timbered_clay"
+	],
+	"required_textures":[
+		"drpmedieval:arg/textures/textures/timbered_clay.png",
+		"drpmedieval:arg/textures/masks/timbered_clay/vertical.png", "drpmedieval:arg/textures/overlays/timbered_clay/vertical.png",
+		"drpmedieval:arg/textures/masks/timbered_clay/horizontal.png", "drpmedieval:arg/textures/overlays/timbered_clay/horizontal.png",
+		"drpmedieval:arg/textures/masks/timbered_clay/straight_cross.png", "drpmedieval:arg/textures/overlays/timbered_clay/straight_cross.png"
+	],
+	"textures":[
+		{"base":"clean_planks", "manipulations":[{"type":"mask","texture":"1"},{"type":"overlay","texture":"2"}], "cache":"%wood%_vertical"},
+		{"base":"clean_planks", "manipulations":[{"type":"mask","texture":"3"},{"type":"overlay","texture":"4"}], "cache":"%wood%_horizontal"},
+		{"base":"clean_planks", "manipulations":[{"type":"mask","texture":"5"},{"type":"overlay","texture":"6"}], "cache":"%wood%_straight_cross"},
+	
+		{"base":0, "manipulations":[{"type":"overlay","cached_texture":"%wood%_vertical"}], "output":"drpmedieval:textures/blocks/timbered_clay/vertical/%wood%_timbered_clay"},
+		{"base":0, "manipulations":[{"type":"overlay","cached_texture":"%wood%_horizontal"}], "output":"drpmedieval:textures/blocks/timbered_clay/horizontal/%wood%_timbered_clay"},
+		{"base":0, "manipulations":[{"type":"overlay","cached_texture":"%wood%_straight_cross"}], "output":"drpmedieval:textures/blocks/timbered_clay/straight_cross/%wood%_timbered_clay"}
+	]
+}

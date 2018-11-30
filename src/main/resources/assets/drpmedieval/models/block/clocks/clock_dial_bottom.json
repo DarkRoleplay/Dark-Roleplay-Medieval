@@ -1,0 +1,62 @@
+{
+	"__comment": "Designed by JTK222",
+	"textures": {
+		"particle": "drpmedieval:blocks/clocks/numbers_bottom",
+		"outside": "drpmedieval:blocks/clocks/wood",
+		"texture": "drpmedieval:blocks/clocks/numbers_bottom"
+	},
+	"elements": [ 	 
+		{
+			"__comment": "Center",
+			"from": [ 13, 1, 14 ],
+			"to": [ 16, 3, 16 ],
+			"faces": {
+				"down": { "uv": [ 13, 1.907349E-06, 16, 2.000002 ], "texture": "#outside" },
+				"up": { "uv": [ 13, 14, 16, 16 ], "texture": "#outside" },
+				"north": { "uv": [ 3.814697E-06, 13, 3.000004, 15 ], "texture": "#outside" },
+				"south": { "uv": [ 13, 13, 16, 15 ], "texture": "#outside" },
+				"west": { "uv": [ 14, 13, 16, 15 ], "texture": "#outside" },
+				"east": { "uv": [ 1.907349E-06, 13, 2.000002, 15 ], "texture": "#outside" }
+			}
+		},
+		{
+			"__comment": "Center",
+			"from": [ 3, 0, 14 ],
+			"to": [ 13, 2, 16 ],
+			"faces": {
+				"down": { "uv": [ 2.999998, 3.814697E-06, 13, 2.000004 ], "texture": "#outside" },
+				"up": { "uv": [ 2.999998, 14, 13, 16 ], "texture": "#outside" },
+				"north": { "uv": [ 3.000002, 14, 13, 16 ], "texture": "#outside" },
+				"south": { "uv": [ 2.999998, 14, 13, 16 ], "texture": "#outside" },
+				"west": { "uv": [ 14, 14, 16, 16 ], "texture": "#outside" },
+				"east": { "uv": [ 3.814697E-06, 14, 2.000004, 16 ], "texture": "#outside" }
+			}
+		},
+		{
+			"__comment": "Center",
+			"from": [ 0, 1, 14 ],
+			"to": [ 3, 3, 16 ],
+			"faces": {
+				"down": { "uv": [ 4.768372E-07, 5.722046E-06, 3, 2.000006 ], "texture": "#outside" },
+				"up": { "uv": [ 4.768372E-07, 13.99999, 3, 15.99999 ], "texture": "#outside" },
+				"north": { "uv": [ 13, 13, 16, 15 ], "texture": "#outside" },
+				"south": { "uv": [ 4.768372E-07, 13, 3, 15 ], "texture": "#outside" },
+				"west": { "uv": [ 13.99999, 13, 15.99999, 15 ], "texture": "#outside" },
+				"east": { "uv": [ 5.722046E-06, 13, 2.000006, 15 ], "texture": "#outside" }
+			}
+		},
+		{
+			"__comment": "Numbers",
+			"from": [ 0, 2, 15 ],
+			"to": [ 16, 16, 16 ],
+			"faces": {
+				"down": { "uv": [ 0, 3.814697E-06, 16, 1.000004 ], "texture": "#texture" },
+				"up": { "uv": [ 0, 15, 16, 16 ], "texture": "#texture" },
+				"north": { "uv": [ 1.907349E-06, 0, 16, 14 ], "texture": "#texture" },
+				"south": { "uv": [ 0, 0, 16, 14 ], "texture": "#texture" },
+				"west": { "uv": [ 15, 0, 16, 14 ], "texture": "#texture" },
+				"east": { "uv": [ 3.814697E-06, 0, 1.000004, 14 ], "texture": "#texture" }
+			}
+		}
+	]
+}

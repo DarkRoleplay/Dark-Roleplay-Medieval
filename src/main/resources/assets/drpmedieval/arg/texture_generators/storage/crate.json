@@ -1,0 +1,20 @@
+{
+	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/crate/%wood%_crate_plank",
+		"drpmedieval:textures/blocks/crate/%wood%_crate_bark"
+	],
+	"required_textures":[],
+	"textures":[
+		{
+			"base":"planks",
+			"manipulations":[],
+			"output":"drpmedieval:textures/blocks/crate/%wood%_crate_plank"
+		},
+		{
+			"base":"log_side",
+			"manipulations":[],
+			"output":"drpmedieval:textures/blocks/crate/%wood%_crate_bark"
+		}
+	]
+}

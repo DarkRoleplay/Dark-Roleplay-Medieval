@@ -1,20 +1,20 @@
 {
     "variants":{
-        "east=false,north=false,south=false,west=false":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=false,north=false,south=false,west=true":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=false,north=false,south=true,west=false":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=false,north=false,south=true,west=true":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=false,north=true,south=false,west=false":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=false,north=true,south=false,west=true":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=false,north=true,south=true,west=false":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=false,north=true,south=true,west=true":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=true,north=false,south=false,west=false":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=true,north=false,south=false,west=true":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=true,north=false,south=true,west=false":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=true,north=false,south=true,west=true":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=true,north=true,south=false,west=false":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=true,north=true,south=false,west=true":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=true,north=true,south=true,west=false":{"model":"drpmedieval:m_i_s_s_i_n_g"},
-		"east=true,north=true,south=true,west=true":{"model":"drpmedieval:m_i_s_s_i_n_g"}
+        "east=false,north=false,south=false,west=false":{"model":"drpmedieval:none"},
+		"east=false,north=false,south=false,west=true":{"model":"drpmedieval:none"},
+		"east=false,north=false,south=true,west=false":{"model":"drpmedieval:none"},
+		"east=false,north=false,south=true,west=true":{"model":"drpmedieval:none"},
+		"east=false,north=true,south=false,west=false":{"model":"drpmedieval:none"},
+		"east=false,north=true,south=false,west=true":{"model":"drpmedieval:none"},
+		"east=false,north=true,south=true,west=false":{"model":"drpmedieval:none"},
+		"east=false,north=true,south=true,west=true":{"model":"drpmedieval:none"},
+		"east=true,north=false,south=false,west=false":{"model":"drpmedieval:none"},
+		"east=true,north=false,south=false,west=true":{"model":"drpmedieval:none"},
+		"east=true,north=false,south=true,west=false":{"model":"drpmedieval:none"},
+		"east=true,north=false,south=true,west=true":{"model":"drpmedieval:none"},
+		"east=true,north=true,south=false,west=false":{"model":"drpmedieval:none"},
+		"east=true,north=true,south=false,west=true":{"model":"drpmedieval:none"},
+		"east=true,north=true,south=true,west=false":{"model":"drpmedieval:none"},
+		"east=true,north=true,south=true,west=true":{"model":"drpmedieval:none"}
     }
 }

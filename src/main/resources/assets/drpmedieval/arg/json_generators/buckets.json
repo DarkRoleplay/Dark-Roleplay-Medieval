@@ -1,0 +1,18 @@
+{
+	"type":"wood",
+	"jsons":[
+		{
+			"input" : "drpmedieval:arg/blockstates/buckets/empty_bucket.json",
+			"output" : "drpmedieval:blockstates/%wood%_empty_bucket.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/buckets/dirt_bucket.json",
+			"output" : "drpmedieval:blockstates/%wood%_dirt_bucket.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/buckets/water_bucket.json",
+			"output" : "drpmedieval:blockstates/%wood%_water_bucket.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/flower_pots/flower_pot.json",
+			"output" : "drpmedieval:blockstates/%wood%_flower_pot.json"
+		}
+	]
+}

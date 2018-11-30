@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "crafting_stations",
+  "name": "hanging_cauldron",
+  "outputs": [
+    {
+      "item": "drpmedieval:hanging_cauldron"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot",
+      "count": 16
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "building",
+  "name": "spruce_clean_plank",
+  "outputs": [
+    {
+      "item": "drpmedieval:spruce_clean_plank",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log",
+      "data": 1
+    }
+  ]
+}

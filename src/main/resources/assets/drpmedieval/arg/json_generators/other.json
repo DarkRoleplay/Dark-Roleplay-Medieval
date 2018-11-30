@@ -1,0 +1,18 @@
+{
+	"type":"wood",
+	"jsons":[
+		{
+			"input" : "drpmedieval:arg/blockstates/other/firewood_pile.json",
+			"output" : "drpmedieval:blockstates/%wood%_firewood_pile.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/other/chopping_block.json",
+			"output" : "drpmedieval:blockstates/%wood%_chopping_block.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/other/large_lectern.json",
+			"output" : "drpmedieval:blockstates/large_%wood%_lectern.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/other/wood_support.json",
+			"output" : "drpmedieval:blockstates/%wood%_wood_support.json"
+		}
+	]
+}

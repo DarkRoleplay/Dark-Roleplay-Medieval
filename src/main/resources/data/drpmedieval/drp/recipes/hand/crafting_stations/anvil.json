@@ -1,0 +1,16 @@
+{
+    "category": "crafting_stations",
+    "name":"anvil",
+    "outputs":[
+        {
+            "item":"drpmedieval:anvil",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"minecraft:iron_ingot",
+			"count":"32"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "tools",
+  "name": "golden_telescope",
+  "outputs": [
+    {
+      "item": "drpmedieval:golden_telescope"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:glass_pane"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "birch_closed_barrel",
+  "outputs": [
+    {
+      "item": "drpmedieval:birch_closed_barrel"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:birch_planks",
+      "count": 10
+    },
+    {
+      "item": "minecraft:iron_nugget",
+      "count": 4
+    }
+  ]
+}

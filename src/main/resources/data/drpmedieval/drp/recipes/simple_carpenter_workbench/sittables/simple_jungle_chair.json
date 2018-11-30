@@ -1,0 +1,17 @@
+{
+    "station":"drpmedieval:simple_carpenter_workbench",
+    "category":"sittables",
+    "name":"simple_plank_jungle_chair",
+    "outputs":[
+        {
+            "item":"drpmedieval:simple_plank_jungle_chair",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"drpmedieval:jungle_planks",
+			"count":"8"
+        }
+    ]
+}

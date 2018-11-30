@@ -1,0 +1,19 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "crafting_stations",
+  "name": "butter_churn",
+  "outputs": [
+    {
+      "item": "drpmedieval:butter_churn"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:spruce_planks",
+      "count": 4
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ]
+}

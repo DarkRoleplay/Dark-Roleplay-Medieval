@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "materials",
+  "name": "planks1",
+  "outputs": [
+    {
+      "item": "drpmedieval:dark_oak_planks",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log2",
+      "data": 1
+    }
+  ]
+}

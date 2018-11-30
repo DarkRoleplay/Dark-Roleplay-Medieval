@@ -1,0 +1,9 @@
+{
+    "variants":{
+        "facing=north":{"model":"drpmedieval:scales/golden_scale"},
+        "facing=east":{"model":"drpmedieval:scales/golden_scale", "y":90},
+        "facing=south":{"model":"drpmedieval:scales/golden_scale", "y":180},
+        "facing=west":{"model":"drpmedieval:scales/golden_scale", "y":270},
+		"inventory":{"model":"drpmedieval:scales/golden_scale"}
+    }
+}

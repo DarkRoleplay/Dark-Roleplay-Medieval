@@ -1,0 +1,12 @@
+{
+	"type":"wood",
+	"jsons":[
+		{
+			"input" : "drpmedieval:arg/blockstates/building_blocks/clean_plank.json",
+			"output" : "drpmedieval:blockstates/%wood%_clean_plank.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/building_blocks/mossy_log.json",
+			"output" : "drpmedieval:blockstates/mossy_%wood%_log.json"
+		}
+	]
+}

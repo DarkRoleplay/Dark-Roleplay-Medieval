@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:spruce_chopping_block",
+  "category": "firewood",
+  "name": "spruce_firewood_4",
+  "outputs": [
+    {
+      "item": "drpmedieval:jungle_firewood",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log",
+      "data": 3
+    }
+  ]
+}

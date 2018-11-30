@@ -1,0 +1,14 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model": "cube_all",
+        "textures": {
+			"all": "drpcmmaarg:blocks/clean_planks/clean_planks_%wood%"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"normal":[{}],
+		"inventory":[{}]
+	}
+}

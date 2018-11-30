@@ -1,0 +1,98 @@
+{
+	"joints": {
+		"lit":	{ "0": [ 1.0 ], "1": [ 1.0 ], "2": [ 1.0 ], "3": [ 1.0 ], "4": [ 1.0 ], "5": [ 1.0 ], "6": [ 1.0 ]}
+	},
+	"clips": {
+		"closed":{
+			"loop": false,
+			"joint_clips": {
+				"lit":[]
+			},
+			"events":{}
+		},"opening": {
+			"loop": false,
+			"joint_clips": {
+				"lit":[
+					{
+						"variable": "axis_x",
+						"type": "uniform",
+						"interpolation": "nearest",
+						"samples": [ 1 ]
+					},{
+						"variable": "origin_z",
+						"type": "uniform",
+						"interpolation": "nearest",
+						"samples": [ 0.921875 ]
+					},{
+						"variable": "origin_y",
+						"type": "uniform",
+						"interpolation": "nearest",
+						"samples": [ 0.65625 ]
+					},{
+						"variable": "angle",
+						"type": "uniform",
+						"interpolation": "linear",
+						"samples": [0, 85 ]
+					}
+				]
+			},
+			"events": {}
+		},"closing": {
+			"loop": false,
+			"joint_clips": {
+				"lit":[
+					{
+						"variable": "axis_x",
+						"type": "uniform",
+						"interpolation": "nearest",
+						"samples": [ 1 ]
+					},{
+						"variable": "origin_z",
+						"type": "uniform",
+						"interpolation": "nearest",
+						"samples": [ 0.921875 ]
+					},{
+						"variable": "origin_y",
+						"type": "uniform",
+						"interpolation": "nearest",
+						"samples": [ 0.65625 ]
+					},{
+						"variable": "angle",
+						"type": "uniform",
+						"interpolation": "linear",
+						"samples": [85, 0]
+					}
+				]
+			},
+			"events": {}
+		},"open": {
+			"loop": false,
+			"joint_clips": {
+				"lit":[
+					{
+						"variable": "axis_x",
+						"type": "uniform",
+						"interpolation": "nearest",
+						"samples": [ 1 ]
+					},{
+						"variable": "origin_z",
+						"type": "uniform",
+						"interpolation": "nearest",
+						"samples": [ 0.921875 ]
+					},{
+						"variable": "origin_y",
+						"type": "uniform",
+						"interpolation": "nearest",
+						"samples": [ 0.65625 ]
+					},{
+						"variable": "angle",
+						"type": "uniform",
+						"interpolation": "nearest",
+						"samples": [85]
+					}
+				]
+			},
+			"events": {}
+		}
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"type":"wood",
+	"jsons":[
+		{
+			"input" : "drpmedieval:arg/blockstates/tables/barrel_table.json",
+			"output" : "drpmedieval:blockstates/%wood%_barrel_table.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/tables/simple_plank_table.json",
+			"output" : "drpmedieval:blockstates/drp/connected_models/simple_plank_%wood%_table.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/tables/simple_solid_table.json",
+			"output" : "drpmedieval:blockstates/drp/connected_models/simple_solid_%wood%_table.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/tables/work_table.json",
+			"output" : "drpmedieval:blockstates/%wood%_work_table.json"
+		}
+	]
+}

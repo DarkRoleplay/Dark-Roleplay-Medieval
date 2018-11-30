@@ -1,0 +1,18 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "building",
+  "name": "mossy_acacia_log",
+  "outputs": [
+    {
+      "item": "drpmedieval:mossy_acacia_log"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:log2"
+    },
+    {
+      "item": "minecraft:vine"
+    }
+  ]
+}

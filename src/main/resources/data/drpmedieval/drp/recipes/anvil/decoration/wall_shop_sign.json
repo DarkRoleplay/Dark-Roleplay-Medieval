@@ -1,0 +1,20 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "decorations",
+  "name": "wall_shop_sign",
+  "outputs": [
+    {
+      "item": "drpmedieval:wall_shop_sign"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:spruce_planks",
+      "count": 4
+    },
+    {
+      "item": "minecraft:iron_ingot",
+      "count": 2
+    }
+  ]
+}

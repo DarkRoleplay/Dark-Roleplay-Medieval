@@ -1,0 +1,17 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:buckets/empty_bucket",
+        "textures": {
+			"texture": "drpmedieval:blocks/bucket/%wood%_bucket"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"axis":{
+			"x":{},
+			"z":{"y":90}
+		}
+	}
+}

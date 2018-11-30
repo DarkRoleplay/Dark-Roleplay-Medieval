@@ -1,0 +1,13 @@
+{
+	"required_mod":"biomesoplenty",
+    "type":"wood",
+    "name":"palm",
+    
+    "log_side"			: "biomesoplenty:textures/blocks/palm_log.png",
+    "log_top"			: "biomesoplenty:textures/blocks/palm_log_top.png",
+    "planks"				: "biomesoplenty:textures/blocks/palm_planks.png",
+   	
+    "languages":{
+		"en_us":"Palm"
+    }
+}

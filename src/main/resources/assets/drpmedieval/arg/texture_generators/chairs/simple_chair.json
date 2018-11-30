@@ -1,0 +1,14 @@
+{
+	"type":"wood",
+	"outputs":[
+		"drpmedieval:textures/blocks/simple_chair/simple_%wood%_chair"
+	],
+	"required_textures":[],
+	"textures":[
+		{
+			"base":"clean_planks",
+			"manipulations":[],
+			"output":"drpmedieval:textures/blocks/simple_chair/simple_%wood%_chair"
+		}
+	]
+}

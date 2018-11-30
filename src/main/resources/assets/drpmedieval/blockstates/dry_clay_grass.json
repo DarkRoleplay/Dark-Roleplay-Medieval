@@ -1,0 +1,20 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "cube_all",
+        "textures": {
+            "all": "drpmedieval:blocks/dry_clay/dry_clay"
+        },
+        "transform": "forge:default-block"
+    },
+    "variants": {
+		"inventory":[{ "model": "drpmedieval:dry_clay/dry_clay_grass" }],
+        "snowy=false": [
+            { "model": "drpmedieval:dry_clay/dry_clay_grass" },
+            { "model": "drpmedieval:dry_clay/dry_clay_grass", "y": 90 },
+            { "model": "drpmedieval:dry_clay/dry_clay_grass", "y": 180 },
+            { "model": "drpmedieval:dry_clay/dry_clay_grass", "y": 270 }
+        ],
+        "snowy=true":  { "model": "drpmedieval:dry_clay/dry_clay_snowed" }
+    }
+}
