@@ -1,18 +1,17 @@
 {
   "station": "drpmedieval:simple_carpenter_workbench",
-  "category": "decoration",
+  "category": "decorations",
   "name": "jungle_wood_support",
   "outputs": [
     {
       "item": "drpmedieval:jungle_wood_support",
-      "count": 2
+      "count": 1
     }
   ],
   "ingredients": [
     {
-      "item": "drpmedieval:planks",
-      "count": 4,
-      "data": 3
+      "item": "drpmedieval:jungle_wood_beam",
+      "count": 1
     }
   ]
 }

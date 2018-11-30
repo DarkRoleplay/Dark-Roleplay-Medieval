@@ -1,6 +1,6 @@
 {
   "station": "drpmedieval:simple_carpenter_workbench",
-  "category": "decoration",
+  "category": "decorations",
   "name": "dark_oak_empty_barrel",
   "outputs": [
     {
@@ -9,9 +9,8 @@
   ],
   "ingredients": [
     {
-      "item": "drpmedieval:planks",
-      "count": 8,
-      "data": 4
+      "item": "drpmedieval:dark_oak_planks",
+      "count": 8
     },
     {
       "item": "minecraft:iron_nugget",

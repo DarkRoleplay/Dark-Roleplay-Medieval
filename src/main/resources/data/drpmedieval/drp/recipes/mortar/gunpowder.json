@@ -13,10 +13,10 @@
       "item": "drpmedieval:charcoal_powder"
     },
 	{
-      "item": "drpmedieval:ore_chunk_sulfur"
+      "item": "drpmedieval:sulfur_ore_chunk"
     },
 	{
-      "item": "drpmedieval:ore_chunk_salpeter",
+      "item": "drpmedieval:salpeter_ore_chunk",
 	  "count": 2
     }
   ]

@@ -1,0 +1,19 @@
+{
+  "station":"drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "spruce_flower_pot",
+  "outputs": [
+    {
+      "item": "drpmedieval:spruce_flower_pot"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:spruce_planks",
+      "count": 4
+    },
+    {
+      "item": "minecraft:dirt"
+    }
+  ]
+}

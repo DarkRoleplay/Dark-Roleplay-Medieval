@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "storage",
+  "name": "simple_dark_oak_chest",
+  "outputs": [
+    {
+      "item": "drpmedieval:simple_dark_oak_chest"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:dark_oak_planks",
+      "count": 10
+    }
+  ]
+}

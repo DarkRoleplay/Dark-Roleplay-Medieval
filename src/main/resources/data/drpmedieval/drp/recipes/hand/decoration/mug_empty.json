@@ -8,8 +8,7 @@
   ],
   "ingredients": [
     {
-      "item": "drpmedieval:planks",
-      "data": 1
+      "item": "drpmedieval:spruce_planks"
     },
     {
       "item": "minecraft:iron_nugget",

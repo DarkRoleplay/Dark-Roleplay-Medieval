@@ -1,6 +1,6 @@
 {
   "station": "drpmedieval:simple_carpenter_workbench",
-  "category": "decoration",
+  "category": "decorations",
   "name": "oak_closed_barrel",
   "outputs": [
     {
@@ -9,7 +9,7 @@
   ],
   "ingredients": [
     {
-      "item": "drpmedieval:planks",
+      "item": "drpmedieval:oak_planks",
       "count": 10
     },
     {

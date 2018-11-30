@@ -1,0 +1,17 @@
+{
+    "station":"drpmedieval:simple_carpenter_workbench",
+    "category":"tables",
+    "name":"simple_solid_acacia_table",
+    "outputs":[
+        {
+            "item":"drpmedieval:simple_solid_acacia_table",
+            "count": 1
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"drpmedieval:acacia_planks",
+			"count": 8
+        }
+    ]
+}

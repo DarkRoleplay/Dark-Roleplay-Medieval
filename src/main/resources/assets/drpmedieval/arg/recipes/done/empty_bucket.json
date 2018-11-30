@@ -1,0 +1,20 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "%wood%_empty_bucket",
+  "outputs": [
+    {
+      "item": "drpmedieval:%wood%_empty_bucket"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:%wood%_planks",
+      "count": 2
+    },
+    {
+      "item": "minecraft:iron_nugget",
+      "count": 2
+    }
+  ]
+}
