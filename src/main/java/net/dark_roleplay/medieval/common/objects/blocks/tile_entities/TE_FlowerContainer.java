@@ -9,6 +9,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.Constants.NBT;
 
@@ -61,33 +62,54 @@ public class TE_FlowerContainer extends TileEntity{
         return compound;
     }
 
-	public boolean addFlower(ItemStack stack, boolean isClient) {
+
+    @Override
+    public SPacketUpdateTileEntity getUpdatePacket() {
+    	return new SPacketUpdateTileEntity(this.getPos(), 1, this.writeToNBT(new NBTTagCompound()));
+    }
+
+    @Override
+    public NBTTagCompound getUpdateTag(){
+        return this.writeToNBT(new NBTTagCompound());
+    }
+
+    @Override
+    public void onDataPacket(net.minecraft.network.NetworkManager net, net.minecraft.network.play.server.SPacketUpdateTileEntity pkt){
+    	 NBTTagCompound tag = pkt.getNbtCompound();
+         this.readFromNBT(tag);
+    }
+
+
+    @Override
+    public void handleUpdateTag(NBTTagCompound tag){
+        this.readFromNBT(tag);
+    }
+
+	public boolean addFlower(ItemStack stack) {
 		for(int i = 0; i < this.flowers.length; i++) {
-
+			stack.setCount(1);
 			if(this.flowers[i] == null) {
-
-				this.flowers[i] = isClient ? new FlowerDataClient(stack) : new FlowerData(stack);
-
-				if(isClient) {
-					this.flowers[i] = new FlowerDataClient(stack);
-				}else {
-					this.flowers[i] = new FlowerData(stack);
-				}
-
+				this.flowers[i] = new FlowerData(stack);
 				return true;
 			}
 		}
 		return false;
 	}
 
+	public ItemStack removeFlower() {
+		for(int i = 0; i < this.flowers.length; i++) {
+			if(this.flowers[i] != null) {
+				ItemStack stack = this.flowers[i].getStack();
+				this.flowers[i] = null;
+				return stack;
+			}
+		}
+		return ItemStack.EMPTY;
+	}
+
 	public FlowerData[] getFlowerData() {
 		return this.flowers;
 
-	}
-
-	@Override
-	public boolean hasFastRenderer() {
-		return false;//ToDo fix this some day
 	}
 
 	public static class FlowerData{
@@ -107,16 +129,10 @@ public class TE_FlowerContainer extends TileEntity{
 
 			return compound;
 		}
-	}
 
-	public static class FlowerDataClient extends FlowerData{
-
+		//Client Side code from bellow
 		IBakedModel model;
 		IBlockState state;
-
-		public FlowerDataClient(ItemStack stack) {
-			super(stack);
-		}
 
 		public IBakedModel getModel() {
 			return this.model;
@@ -139,5 +155,40 @@ public class TE_FlowerContainer extends TileEntity{
 			this.model = blockrendererdispatcher.getModelForState(state);
 		}
 
+		public ItemStack getStack() {
+			return this.stack;
+		}
 	}
+
+//	public static class FlowerDataClient extends FlowerData{
+//
+//		IBakedModel model;
+//		IBlockState state;
+//
+//		public FlowerDataClient(ItemStack stack) {
+//			super(stack);
+//		}
+//
+//		public IBakedModel getModel() {
+//			return this.model;
+//		}
+//
+//		public IBlockState getState() {
+//			return this.state;
+//		}
+//
+//		public void gatherBakedModel() {
+//			Item item = this.stack.getItem();
+//			if(!(item instanceof ItemBlock)) return;
+//
+//			ItemBlock block = (ItemBlock) item;
+//
+//			IBlockState state = block.getBlock().getStateFromMeta(item.getMetadata(this.stack));
+//			this.state = state;
+//
+//			BlockRendererDispatcher blockrendererdispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
+//			this.model = blockrendererdispatcher.getModelForState(state);
+//		}
+//
+//	}
 }

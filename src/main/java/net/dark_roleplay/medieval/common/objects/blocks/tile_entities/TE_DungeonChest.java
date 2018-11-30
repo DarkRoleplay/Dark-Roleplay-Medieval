@@ -110,7 +110,7 @@ public class TE_DungeonChest extends DynamicStorageTileEntity {
 
 		if(this.hasWorld() && this.getWorld().getBlockState(this.pos).getBlock() instanceof DungeonChest) {
 			if(this.getWorld().getBlockState(this.pos).getValue(BlockProperties.IS_OPEN)) {
-				this.goToAnimation("opening");
+				this.goToAnimation("open");
 			}
 		}
 	}

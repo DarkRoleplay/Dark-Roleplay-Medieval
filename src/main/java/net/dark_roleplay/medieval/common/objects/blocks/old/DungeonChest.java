@@ -6,6 +6,7 @@ import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.I
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.medieval.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.common.handler.MedievalGuis;
+import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
 import net.minecraft.block.properties.IProperty;
@@ -33,6 +34,7 @@ public class DungeonChest extends FacedBlock {
 
 	public DungeonChest (String name, BlockSettings settings) {
 		super(name, settings);
+		this.setDefaultState(this.getDefaultState().withProperty(BlockProperties.IS_OPEN, false));
 	}
 
 	// -------------------------------------------------- Block Data --------------------------------------------------
@@ -77,6 +79,7 @@ public class DungeonChest extends FacedBlock {
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+//		this.setDefaultState(this.getDefaultState().withProperty(BlockProperties.IS_OPEN, false));
 
 		TileEntity tileentity = world.getTileEntity(pos);
 		if (tileentity instanceof TE_DungeonChest) {
