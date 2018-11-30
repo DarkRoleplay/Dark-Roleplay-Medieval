@@ -80,7 +80,8 @@ public class ItemRegistryHandler {
 			new DRPMStew(8, 0.5F, "chicken_stew", ResourceFolders.Items.STEWS),
 			new DRPMStew(7, 0.5F, "cod_stew", ResourceFolders.Items.STEWS),
 			new DRPMStew(6, 0.3F, "vegie_stew", ResourceFolders.Items.STEWS),
-			new DRPMStew(6, 0.3F, "pumpkin_stew", ResourceFolders.Items.STEWS)
+			new DRPMStew(6, 0.3F, "pumpkin_stew", ResourceFolders.Items.STEWS),
+			new DRPFood(4, 0.5F, "ginger_bread", ResourceFolders.Items.BAKEWARES + "/breads", 64)
 		);
 
 		registerItems(reg, MedievalCreativeTabs.MATERIALS,
