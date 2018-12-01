@@ -5,7 +5,7 @@ import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.F
 
 import java.util.Random;
 
-import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -113,7 +113,7 @@ public class ClockDial extends Block{
 
 	@Override
 	public boolean canPlaceBlockOnSide(World world, BlockPos pos, EnumFacing side){
-		if(world.getBlockState(pos.offset(side.getOpposite())).getBlock() != MedievalBlocks.CLOCK_CORE)
+		if(world.getBlockState(pos.offset(side.getOpposite())).getBlock() != MedievalBlocksOld.CLOCK_CORE)
 			return false;
 		if(side.getAxis() == Axis.X){
 	        return this.canPlacePart(world, pos) && this.canPlacePart(world, pos.up()) && this.canPlacePart(world, pos.down()) && this.canPlacePart(world, pos.north()) && this.canPlacePart(world, pos.south());

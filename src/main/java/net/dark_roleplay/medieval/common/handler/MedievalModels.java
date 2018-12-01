@@ -41,33 +41,34 @@ public class MedievalModels {
 		toRegisterMeshes = null;
 
 		// Old Blocks
-		registerItemMesh("old_blocks", MedievalBlocks.ANVIL);
-		registerItemMesh("old_blocks", MedievalBlocks.GRINDSTONE);
-		registerItemMesh("old_blocks", MedievalBlocks.HANGING_CAULDRON);
-		registerItemMesh("old_blocks", MedievalBlocks.MORTAR);
-		registerItemMesh("old_blocks", MedievalBlocks.CAULDRON);
-		registerItemMesh("old_blocks", MedievalBlocks.ROPE_ANCHOR);
-		registerItemMesh("old_blocks", MedievalBlocks.FIREPIT_LIT);
+		registerItemMesh("old_blocks", MedievalBlocksOld.ANVIL);
+		registerItemMesh("old_blocks", MedievalBlocksOld.GRINDSTONE);
+		registerItemMesh("old_blocks", MedievalBlocksOld.HANGING_CAULDRON);
+		registerItemMesh("old_blocks", MedievalBlocksOld.MORTAR);
+		registerItemMesh("old_blocks", MedievalBlocksOld.CAULDRON);
+		registerItemMesh("old_blocks", MedievalBlocksOld.ROPE_ANCHOR);
+		registerItemMesh("old_blocks", MedievalBlocksOld.FIREPIT_LIT);
 		registerItemMesh("blocks", MedievalItems.TIMBERED_CLAY);
 
 		IStateMapper teRemover = new StateMap.Builder().ignore(BlockProperties.HAS_TE).build();
-		ModelLoader.setCustomStateMapper(MedievalBlocks.CLAY_SHINGLE_ROOF				, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.WHITE_CLAY_SHINGLE_ROOF 		, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.ORANGE_CLAY_SHINGLE_ROOF 		, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.MAGENTA_CLAY_SHINGLE_ROOF 		, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.LIGHT_BLUE_CLAY_SHINGLE_ROOF 	, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.YELLOW_CLAY_SHINGLE_ROOF 		, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.LIGHT_GREEN_CLAY_SHINGLE_ROOF 	, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.PINK_CLAY_SHINGLE_ROOF 			, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.GRAY_CLAY_SHINGLE_ROOF 			, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.LIGHT_GRAY_CLAY_SHINGLE_ROOF 	, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.CYAN_CLAY_SHINGLE_ROOF 			, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.PURPLE_CLAY_SHINGLE_ROOF 		, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.BLUE_CLAY_SHINGLE_ROOF 			, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.BROWN_CLAY_SHINGLE_ROOF 		, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.GREEN_CLAY_SHINGLE_ROOF 		, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.RED_CLAY_SHINGLE_ROOF 			, teRemover);
-		ModelLoader.setCustomStateMapper(MedievalBlocks.BLACK_CLAY_SHINGLE_ROOF 		, teRemover);
+//		IStateMapper test = new StateMap.Builder().
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.CLAY_SHINGLE_ROOF				, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.WHITE_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.ORANGE_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.MAGENTA_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.LIGHT_BLUE_CLAY_SHINGLE_ROOF 	, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.YELLOW_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.LIGHT_GREEN_CLAY_SHINGLE_ROOF 	, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.PINK_CLAY_SHINGLE_ROOF 			, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.GRAY_CLAY_SHINGLE_ROOF 			, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.LIGHT_GRAY_CLAY_SHINGLE_ROOF 	, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.CYAN_CLAY_SHINGLE_ROOF 			, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.PURPLE_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.BLUE_CLAY_SHINGLE_ROOF 			, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.BROWN_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.GREEN_CLAY_SHINGLE_ROOF 		, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.RED_CLAY_SHINGLE_ROOF 			, teRemover);
+		ModelLoader.setCustomStateMapper(MedievalBlocksOld.BLACK_CLAY_SHINGLE_ROOF 		, teRemover);
 
 		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
 

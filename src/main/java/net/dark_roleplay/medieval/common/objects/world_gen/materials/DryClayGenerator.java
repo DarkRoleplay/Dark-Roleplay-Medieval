@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.common.objects.world_gen.materials;
 import java.util.Random;
 
 import net.dark_roleplay.medieval.common.configs.WorldGen;
-import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -62,8 +62,8 @@ public class DryClayGenerator implements IWorldGenerator{
 			if(world.getBlockState(pos.up()).getBlock() == Blocks.WATER)
 				return Blocks.CLAY;
 			if(block == Blocks.GRASS)
-				return MedievalBlocks.DRY_CLAY_GRASS;
-			return MedievalBlocks.DRY_CLAY;
+				return MedievalBlocksOld.DRY_CLAY_GRASS;
+			return MedievalBlocksOld.DRY_CLAY;
 		}
 	}
 	

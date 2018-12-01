@@ -30,7 +30,7 @@ import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_Hang
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_RopeFence;
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_Timbering;
 import net.dark_roleplay.medieval.client.objects.model_loaders.MultiLayerModelLoader;
-import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.common.handler.MedievalGuis;
 import net.dark_roleplay.medieval.common.handler.MedievalMappings;
 import net.dark_roleplay.medieval.common.handler.MedievalPackets;
@@ -115,18 +115,18 @@ public class DarkRoleplayMedieval {
 		MedievalPackets.init();
 		proxy.init(event);
 
-		MedievalBlocks.CANDLE_HOLDER_UNLIT.init(MedievalBlocks.CANDLE_HOLDER_LIT, Item.getItemFromBlock(MedievalBlocks.BEESWAX_CANDLE));;
-		MedievalBlocks.CANDLE_HOLDER_LIT.init(MedievalBlocks.CANDLE_HOLDER_UNLIT, Item.getItemFromBlock(MedievalBlocks.BEESWAX_CANDLE));
-		MedievalBlocks.TORCH_HOLDER_UNLIT.init(MedievalBlocks.TORCH_HOLDER_LIT, Item.getItemFromBlock(Blocks.TORCH));
-		MedievalBlocks.TORCH_HOLDER_LIT.init(MedievalBlocks.TORCH_HOLDER_UNLIT, Item.getItemFromBlock(Blocks.TORCH));
-		MedievalBlocks.CANDLE_HOLDER_EMPTY.init(MedievalBlocks.CANDLE_HOLDER_UNLIT, Item.getItemFromBlock(MedievalBlocks.BEESWAX_CANDLE));
-		MedievalBlocks.TORCH_HOLDER_EMPTY.init(MedievalBlocks.TORCH_HOLDER_UNLIT, Item.getItemFromBlock(Blocks.TORCH));
+		MedievalBlocksOld.CANDLE_HOLDER_UNLIT.init(MedievalBlocksOld.CANDLE_HOLDER_LIT, Item.getItemFromBlock(MedievalBlocksOld.BEESWAX_CANDLE));;
+		MedievalBlocksOld.CANDLE_HOLDER_LIT.init(MedievalBlocksOld.CANDLE_HOLDER_UNLIT, Item.getItemFromBlock(MedievalBlocksOld.BEESWAX_CANDLE));
+		MedievalBlocksOld.TORCH_HOLDER_UNLIT.init(MedievalBlocksOld.TORCH_HOLDER_LIT, Item.getItemFromBlock(Blocks.TORCH));
+		MedievalBlocksOld.TORCH_HOLDER_LIT.init(MedievalBlocksOld.TORCH_HOLDER_UNLIT, Item.getItemFromBlock(Blocks.TORCH));
+		MedievalBlocksOld.CANDLE_HOLDER_EMPTY.init(MedievalBlocksOld.CANDLE_HOLDER_UNLIT, Item.getItemFromBlock(MedievalBlocksOld.BEESWAX_CANDLE));
+		MedievalBlocksOld.TORCH_HOLDER_EMPTY.init(MedievalBlocksOld.TORCH_HOLDER_UNLIT, Item.getItemFromBlock(Blocks.TORCH));
 
-		MedievalBlocks.SALPETER_ORE.init(MedievalItems.SALPETER_ORE_CHUNK);
-		MedievalBlocks.SILVER_ORE.init(MedievalItems.SILVER_ORE_CHUNK);
-		MedievalBlocks.TIN_ORE.init(MedievalItems.TIN_ORE_CHUNK);
-		MedievalBlocks.COPPER_ORE.init(MedievalItems.COPPER_ORE_CHUNK);
-		MedievalBlocks.SULFUR_ORE.init(MedievalItems.SULFUR_ORE_CHUNK);
+		MedievalBlocksOld.SALPETER_ORE.init(MedievalItems.SALPETER_ORE_CHUNK);
+		MedievalBlocksOld.SILVER_ORE.init(MedievalItems.SILVER_ORE_CHUNK);
+		MedievalBlocksOld.TIN_ORE.init(MedievalItems.TIN_ORE_CHUNK);
+		MedievalBlocksOld.COPPER_ORE.init(MedievalItems.COPPER_ORE_CHUNK);
+		MedievalBlocksOld.SULFUR_ORE.init(MedievalItems.SULFUR_ORE_CHUNK);
 
 		GameRegistry.addSmelting(MedievalItems.WHEAT_DOUGH, new ItemStack(Items.BREAD), 0.1f);
 		GameRegistry.addSmelting(MedievalItems.BARLEY_DOUGH, new ItemStack(Items.BREAD), 0.1f);
@@ -134,8 +134,8 @@ public class DarkRoleplayMedieval {
 		GameRegistry.addSmelting(MedievalItems.RAW_CATFISH, new ItemStack(MedievalItems.COOKED_CATFISH), 0.1f);
 		GameRegistry.addSmelting(MedievalItems.WHEAT_PUMPKIN_DOUGH, new ItemStack(MedievalItems.PUMPKIN_BREAD), 0.1f);
 		GameRegistry.addSmelting(MedievalItems.BARLEY_PUMPKIN_DOUGH, new ItemStack(MedievalItems.PUMPKIN_BREAD), 0.1f);
-		GameRegistry.addSmelting(Item.getItemFromBlock(Blocks.OBSIDIAN), new ItemStack(MedievalBlocks.OBSIDIAN_GLASS), 0.1f);
-		GameRegistry.addSmelting(Item.getItemFromBlock(MedievalBlocks.UNFIRED_VASE), new ItemStack(MedievalBlocks.FIRED_VASE), 0.1f);
+		GameRegistry.addSmelting(Item.getItemFromBlock(Blocks.OBSIDIAN), new ItemStack(MedievalBlocksOld.OBSIDIAN_GLASS), 0.1f);
+		GameRegistry.addSmelting(Item.getItemFromBlock(MedievalBlocksOld.UNFIRED_VASE), new ItemStack(MedievalBlocksOld.FIRED_VASE), 0.1f);
 	}
 
 	@EventHandler
@@ -207,49 +207,49 @@ public class DarkRoleplayMedieval {
 		public void init(FMLInitializationEvent event) {
 			Minecraft.getMinecraft().getResourceManager();
 			DryClayGrassColor color = new DryClayGrassColor();
-			Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(color, MedievalBlocks.DRY_CLAY_GRASS);
+			Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(color, MedievalBlocksOld.DRY_CLAY_GRASS);
 			Minecraft.getMinecraft().getItemColors().registerItemColorHandler((IItemColor) (stack, tintIndex) -> {
 			    IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
 			    return color.colorMultiplier(iblockstate, (IBlockAccess)null, (BlockPos)null, tintIndex);
-			}, MedievalBlocks.DRY_CLAY_GRASS);
+			}, MedievalBlocksOld.DRY_CLAY_GRASS);
 			Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new PaintBrushColors(), MedievalItems.DIRTY_PAINTBRUSH);
 
 			Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new SolidColor(),
 //				MedievalBlocks.WHITE_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.ORANGE_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.MAGENTA_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.LIGHT_BLUE_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.YELLOW_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.LIGHT_GREEN_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.PINK_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.GRAY_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.LIGHT_GRAY_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.CYAN_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.PURPLE_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.BLUE_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.BROWN_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.GREEN_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.RED_CLAY_SHINGLE_ROOF,
-				MedievalBlocks.BLACK_CLAY_SHINGLE_ROOF
+				MedievalBlocksOld.ORANGE_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.MAGENTA_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.LIGHT_BLUE_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.YELLOW_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.LIGHT_GREEN_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.PINK_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.GRAY_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.LIGHT_GRAY_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.CYAN_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.PURPLE_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.BLUE_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.BROWN_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.GREEN_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.RED_CLAY_SHINGLE_ROOF,
+				MedievalBlocksOld.BLACK_CLAY_SHINGLE_ROOF
 			);
 
 			Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new RoofItemColor(),
 //					MedievalBlocks.WHITE_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.ORANGE_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.MAGENTA_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.LIGHT_BLUE_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.YELLOW_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.LIGHT_GREEN_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.PINK_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.GRAY_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.LIGHT_GRAY_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.CYAN_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.PURPLE_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.BLUE_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.BROWN_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.GREEN_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.RED_CLAY_SHINGLE_ROOF,
-					MedievalBlocks.BLACK_CLAY_SHINGLE_ROOF
+					MedievalBlocksOld.ORANGE_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.MAGENTA_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.LIGHT_BLUE_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.YELLOW_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.LIGHT_GREEN_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.PINK_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.GRAY_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.LIGHT_GRAY_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.CYAN_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.PURPLE_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.BLUE_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.BROWN_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.GREEN_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.RED_CLAY_SHINGLE_ROOF,
+					MedievalBlocksOld.BLACK_CLAY_SHINGLE_ROOF
 				);
 		}
 

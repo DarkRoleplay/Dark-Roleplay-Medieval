@@ -107,7 +107,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 @EventBusSubscriber(modid = References.MODID)
 @ObjectHolder(References.MODID)
-public class MedievalBlocks {
+public class MedievalBlocksOld {
 
 	//Blockss
 

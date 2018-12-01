@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.objects.blocks.old;
 
 import java.util.Random;
 
-import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.common.handler.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
@@ -75,7 +75,7 @@ public class DryClayGrass extends Block{
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand){
         if (!world.isRemote){
             if (world.getLightFromNeighbors(pos.up()) < 4 && world.getBlockState(pos.up()).getLightOpacity(world, pos.up()) > 2){
-                world.setBlockState(pos, MedievalBlocks.DRY_CLAY.getDefaultState());
+                world.setBlockState(pos, MedievalBlocksOld.DRY_CLAY.getDefaultState());
             }else{
                 if (world.getLightFromNeighbors(pos.up()) >= 9) {
                     for (int i = 0; i < 2; ++i){
@@ -88,7 +88,7 @@ public class DryClayGrass extends Block{
                         IBlockState iblockstate = world.getBlockState(blockpos.up());
                         IBlockState iblockstate1 = world.getBlockState(blockpos);
 
-                        if (iblockstate1.getBlock() == MedievalBlocks.DRY_CLAY && world.getLightFromNeighbors(blockpos.up()) >= 4 && iblockstate.getLightOpacity(world, pos.up()) <= 2){
+                        if (iblockstate1.getBlock() == MedievalBlocksOld.DRY_CLAY && world.getLightFromNeighbors(blockpos.up()) >= 4 && iblockstate.getLightOpacity(world, pos.up()) <= 2){
                             world.setBlockState(blockpos, this.getDefaultState());
                         }
                     }

@@ -10,7 +10,7 @@ import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
 import net.dark_roleplay.library.util.InDevUtil;
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.common.handler.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.handler.ResourceFolders;
 import net.dark_roleplay.medieval.common.objects.items.BarkAndGlue;
@@ -127,11 +127,11 @@ public class ItemRegistryHandler {
 		//TODO Fix that
 
 		registerItems(reg, MedievalCreativeTabs.UTILITY,
-				new ItemMultiBlock(MedievalBlocks.SIMPLE_CARPENTER_WORKBENCH).setRegistryName("simple_carpenter_workbench"),
-				new ItemMultiBlock(MedievalBlocks.FORGE).setRegistryName("forge")
+				new ItemMultiBlock(MedievalBlocksOld.SIMPLE_CARPENTER_WORKBENCH).setRegistryName("simple_carpenter_workbench"),
+				new ItemMultiBlock(MedievalBlocksOld.FORGE).setRegistryName("forge")
 		);
 
-		registerItems(reg, MedievalCreativeTabs.BUILDING_MATS, new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
+		registerItems(reg, MedievalCreativeTabs.BUILDING_MATS, new ItemBlock(MedievalBlocksOld.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
 
 
 		if(InDevUtil.isDevEnv()) {

@@ -8,7 +8,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import net.dark_roleplay.medieval.client.objects.blocks.properties.UnlistedPropertyBool;
-import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -199,9 +199,9 @@ public class HangingBridge extends Block {
 
 	private boolean doesBlockAlign(IBlockAccess world, BlockPos pos){
 
-		return world.getBlockState(pos).getBlock().equals(MedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos).getBlock().equals(MedievalBlocks.HANGING_BRIDGE_TOP) ||
-				world.getBlockState(pos.up()).getBlock().equals(MedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.up()).getBlock().equals(MedievalBlocks.HANGING_BRIDGE_TOP) ||
-				world.getBlockState(pos.down()).getBlock().equals(MedievalBlocks.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.down()).getBlock().equals(MedievalBlocks.HANGING_BRIDGE_TOP);
+		return world.getBlockState(pos).getBlock().equals(MedievalBlocksOld.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos).getBlock().equals(MedievalBlocksOld.HANGING_BRIDGE_TOP) ||
+				world.getBlockState(pos.up()).getBlock().equals(MedievalBlocksOld.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.up()).getBlock().equals(MedievalBlocksOld.HANGING_BRIDGE_TOP) ||
+				world.getBlockState(pos.down()).getBlock().equals(MedievalBlocksOld.HANGING_BRIDGE_BOTTOM) || world.getBlockState(pos.down()).getBlock().equals(MedievalBlocksOld.HANGING_BRIDGE_TOP);
 	}
 
 	private void breakBridge(World world, BlockPos pos, BlockPos prevPos, EnumFacing.Axis axis){

@@ -1,0 +1,9 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+	    "model": "drpmedieval:decoration/mistletoe/mistletoe"
+    },
+    "variants": {
+		"normal": [{}]
+    }
+}

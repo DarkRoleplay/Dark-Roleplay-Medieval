@@ -56,7 +56,7 @@ dependencies {
 	deobfCompile group: "net.dark_roleplay.core_modules", name: "drpcmlocks", version: "${mc_version}-${drp_core_module_locks_version}", changing: true
 
 
-	deobfCompile group: "net.dark_roleplay", name: "drpcore", version: "${mc_version}-${drp_core_version}", changing: true
+	deobfCompile group: "net.dark_roleplay", name: "drpcore", version: "${mc_version}-${drp_core_version}", changing: true, transitive: false
 }
 
 apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/mcmod_info.gradle'

@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.client.objects.blocks.tesrs.old;
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityRopeAnchor;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -37,10 +37,10 @@ public class SpecialRenderRopeAnchor extends TileEntitySpecialRenderer<TileEntit
 			World worldIn = tileentity.getWorld();
 			BlockPos pos = tileentity.getPos();
 
-			Boolean North = worldIn.getBlockState(pos.add(0, -1, -1)).getBlock().equals(MedievalBlocks.ROPE);
-			Boolean East = worldIn.getBlockState(pos.add(1, -1, 0)).getBlock().equals(MedievalBlocks.ROPE);
-			Boolean South = worldIn.getBlockState(pos.add(0, -1, 1)).getBlock().equals(MedievalBlocks.ROPE);
-			Boolean West = worldIn.getBlockState(pos.add(-1, -1, 0)).getBlock().equals(MedievalBlocks.ROPE);
+			Boolean North = worldIn.getBlockState(pos.add(0, -1, -1)).getBlock().equals(MedievalBlocksOld.ROPE);
+			Boolean East = worldIn.getBlockState(pos.add(1, -1, 0)).getBlock().equals(MedievalBlocksOld.ROPE);
+			Boolean South = worldIn.getBlockState(pos.add(0, -1, 1)).getBlock().equals(MedievalBlocksOld.ROPE);
+			Boolean West = worldIn.getBlockState(pos.add(-1, -1, 0)).getBlock().equals(MedievalBlocksOld.ROPE);
 
 			if(North){
 				this.model.renderNorth(0.0625F);

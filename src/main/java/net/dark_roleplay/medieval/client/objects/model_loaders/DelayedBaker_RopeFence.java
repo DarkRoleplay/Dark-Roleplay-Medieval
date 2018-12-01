@@ -9,7 +9,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.common.objects.blocks.old.RopeFence;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
@@ -185,7 +185,7 @@ public class DelayedBaker_RopeFence extends DelayedBaker implements ICustomModel
 	@Override
 	public boolean accepts(ResourceLocation modelLocation) {
 		return ((modelLocation instanceof ModelResourceLocation)
-				&& MedievalBlocks.ROPE_FENCE.getRegistryName().equals(modelLocation)
+				&& MedievalBlocksOld.ROPE_FENCE.getRegistryName().equals(modelLocation)
 				&& !modelLocation.toString().contains("inventory"));
 	}
 

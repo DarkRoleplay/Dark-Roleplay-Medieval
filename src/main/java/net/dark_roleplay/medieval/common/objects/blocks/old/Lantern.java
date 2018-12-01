@@ -3,7 +3,7 @@ package net.dark_roleplay.medieval.common.objects.blocks.old;
 import java.util.List;
 import java.util.Random;
 
-import net.dark_roleplay.medieval.common.handler.MedievalBlocks;
+import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -133,7 +133,7 @@ public class Lantern extends Block{
 
 			if(heldStack.isEmpty() && state.getValue(LIT) && player.isSneaking()){
 				world.setBlockState(pos, state.withProperty(LIT, false));
-			}else if(!hasCandle && heldStack.getItem() == Item.getItemFromBlock(MedievalBlocks.BEESWAX_CANDLE)){
+			}else if(!hasCandle && heldStack.getItem() == Item.getItemFromBlock(MedievalBlocksOld.BEESWAX_CANDLE)){
 				player.getHeldItem(hand).shrink(1);
 				world.setBlockState(pos, state.withProperty(CANDLE, true));
 			}else if(hasCandle && heldStack.getItem() == Items.FLINT_AND_STEEL){

@@ -1,21 +1,21 @@
 package net.dark_roleplay.medieval.client.objects.items.color_handlers;
 
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.BLACK_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.BLUE_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.BROWN_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.CYAN_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.GRAY_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.GREEN_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.LIGHT_BLUE_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.LIGHT_GRAY_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.LIGHT_GREEN_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.MAGENTA_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.ORANGE_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.PINK_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.PURPLE_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.RED_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.WHITE_CLAY_SHINGLE_ROOF;
-import static net.dark_roleplay.medieval.common.handler.MedievalBlocks.YELLOW_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.BLACK_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.BLUE_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.BROWN_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.CYAN_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.GRAY_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.GREEN_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.LIGHT_BLUE_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.LIGHT_GRAY_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.LIGHT_GREEN_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.MAGENTA_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.ORANGE_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.PINK_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.PURPLE_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.RED_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.WHITE_CLAY_SHINGLE_ROOF;
+import static net.dark_roleplay.medieval.common.handler.MedievalBlocksOld.YELLOW_CLAY_SHINGLE_ROOF;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.color.IItemColor;
