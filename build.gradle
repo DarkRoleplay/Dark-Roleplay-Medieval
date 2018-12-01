@@ -62,7 +62,7 @@ dependencies {
 apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/mcmod_info.gradle'
 apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/signing.gradle'
 apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/contained_jar.gradle'
-if(project.hasProperty("mvn_url"){
+if(project.hasProperty("mvn_url")){
 	apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/publishing.gradle'
 }
 apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/mod_maven.gradle'
