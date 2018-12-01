@@ -1,13 +1,19 @@
 package net.dark_roleplay.medieval.handler;
 
 import net.dark_roleplay.library.experimental.blocks.DRPBlock;
+import net.dark_roleplay.library.experimental.blocks.behaviors.IBoundingBoxBehavior;
 import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.handler.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.handler.MedievalModels;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.placing.CeilingRequired;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -21,7 +27,9 @@ public class BlockRegistryHandler {
 		IForgeRegistry<Block> reg = registryEvent.getRegistry();
 
 		register(reg, MedievalCreativeTabs.CHRISTMAS,
-			new DRPBlock("mistletoe", BlockProperties.Settings.PLANT_DECO)
+			new DRPBlock("mistletoe", BlockProperties.Settings.PLANT_DECO) {
+				@Override public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {return NULL_AABB;}
+			}.addBehaviors(CeilingRequired.INSTANCE, new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.25F, 0.1875F, 0.25F, 0.75F, 1.0F, 0.75F)))
 		);
 	}
 
