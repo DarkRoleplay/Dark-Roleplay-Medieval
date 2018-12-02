@@ -6,6 +6,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
@@ -38,6 +39,8 @@ public class BlockProperties {
 	//Dungeon Chest
 	public static final PropertyBool LIT = PropertyBool.create("lit");
 	public static final PropertyBool IS_OPEN = PropertyBool.create("open");
+
+	public static final PropertyInteger BURNING_CANDLES = PropertyInteger.create("burning_candles", 0, 4);
 
 	/**
 	 * Default Implementation should set this to double, if there are 2+ equal blocks next to each other, otherwise it shoulg be single
