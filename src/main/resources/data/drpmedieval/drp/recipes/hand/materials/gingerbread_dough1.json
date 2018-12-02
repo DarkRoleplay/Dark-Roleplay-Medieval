@@ -1,0 +1,21 @@
+{
+  "category": "materials",
+  "name": "gingerbread_dough",
+  "outputs": [
+    {
+      "item": "drpmedieval:gingerbread_dough"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:honey_comb"
+    },
+    {
+      "item": "drpmedieval:barley_flour",
+	  "count": 3
+    },
+    {
+      "item": "minecraft:egg"
+    }
+  ]
+}
