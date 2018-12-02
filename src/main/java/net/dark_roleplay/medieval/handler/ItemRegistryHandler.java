@@ -83,7 +83,9 @@ public class ItemRegistryHandler {
 			new DRPMStew(7, 0.5F, "cod_stew", ResourceFolders.Items.STEWS),
 			new DRPMStew(6, 0.3F, "vegie_stew", ResourceFolders.Items.STEWS),
 			new DRPMStew(6, 0.3F, "pumpkin_stew", ResourceFolders.Items.STEWS),
-			new DRPFood(4, 0.5F, "ginger_bread", ResourceFolders.Items.BAKEWARES + "/breads", 64)
+			new DRPFood(4, 0.5F, "gingerbread_plate", ResourceFolders.Items.BAKEWARES + "/gingerbread", 64),
+			new DRPFood(4, 0.5F, "gingerbread_heart", ResourceFolders.Items.BAKEWARES + "/gingerbread", 64),
+			new DRPFood(4, 0.5F, "gingerbread_man", ResourceFolders.Items.BAKEWARES + "/gingerbread", 64)
 		);
 
 		registerItems(reg, MedievalCreativeTabs.MATERIALS,
@@ -116,7 +118,8 @@ public class ItemRegistryHandler {
 			new DRPItem("sulfur_ore_chunk", ResourceFolders.Items.MINERALS, 64),
 			new DRPItem("salpeter_ore_chunk", ResourceFolders.Items.MINERALS, 64),
 			new DRPItem("charcoal_powder", ResourceFolders.Items.PROCESSED_MINERALS, 64),
-			new BarkAndGlue("bark_and_glue", ResourceFolders.Items.OTHER_CONSUMABLES, 64)
+			new BarkAndGlue("bark_and_glue", ResourceFolders.Items.OTHER_CONSUMABLES, 64),
+			new DRPItem("gingerbread_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64)
 		);
 
 		registerItems(reg, MedievalCreativeTabs.DECORATION,
