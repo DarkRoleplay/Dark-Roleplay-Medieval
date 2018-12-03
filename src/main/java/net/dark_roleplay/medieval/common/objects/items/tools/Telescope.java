@@ -15,11 +15,12 @@ public class Telescope extends DRPItem{
 	public Telescope(String name, String foldername) {
 		super(name, foldername, 1);
 	}
-	
+
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer playerIn, EnumHand handIn){
 		if(world.isRemote){
 			DarkRoleplayMedieval.ClientProxy.TELESCOPE_LEVEL ++;
+
 			if(DarkRoleplayMedieval.ClientProxy.TELESCOPE_LEVEL == 4){
 				DarkRoleplayMedieval.ClientProxy.TELESCOPE_LEVEL = 0;
 				Minecraft.getMinecraft().gameSettings.smoothCamera = false;
@@ -28,5 +29,5 @@ public class Telescope extends DRPItem{
         return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
     }
 
-	
+
 }

@@ -19,7 +19,7 @@ public class OnCameraUpdate {
 	public static final Gui_Telescope telescope = new Gui_Telescope();
 
 	@SubscribeEvent
-	public void CamerUpdate(EntityViewRenderEvent.FOVModifier event){
+	public static void CamerUpdate(EntityViewRenderEvent.FOVModifier event){
 		if(DarkRoleplayMedieval.ClientProxy.TELESCOPE_LEVEL != 0){
 			if((((EntityPlayer)event.getEntity()).getHeldItemMainhand().getItem() instanceof Telescope) && (Minecraft.getMinecraft().gameSettings.thirdPersonView == 0)) {
 				Minecraft.getMinecraft().gameSettings.smoothCamera = true;
@@ -40,19 +40,18 @@ public class OnCameraUpdate {
 			}
 		}
 	}
-	
+
 	@SubscribeEvent
-	public void GameOverlay(RenderGameOverlayEvent.Post event){
+	public static void GameOverlay(RenderGameOverlayEvent.Post event){
 		if((event.getType() == RenderGameOverlayEvent.ElementType.HELMET) && (DarkRoleplayMedieval.ClientProxy.TELESCOPE_LEVEL != 0) && (Minecraft.getMinecraft().player.getHeldItemMainhand().getItem() instanceof Telescope)){
 			OnCameraUpdate.telescope.draw(Minecraft.getMinecraft());
 		}
 	}
-	
+
 	@SubscribeEvent
-	public void GameOverlay(RenderHandEvent event){
+	public static void GameOverlay(RenderHandEvent event){
 		if((DarkRoleplayMedieval.ClientProxy.TELESCOPE_LEVEL != 0) && (Minecraft.getMinecraft().player.getHeldItemMainhand().getItem() instanceof Telescope)){
 			event.setCanceled(true);
 		}
 	}
 }
- 
