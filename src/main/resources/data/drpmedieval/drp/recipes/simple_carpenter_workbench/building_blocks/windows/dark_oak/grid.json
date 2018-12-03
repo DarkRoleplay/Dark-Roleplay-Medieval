@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "building",
+  "name": "dark_oak_window_grid",
+  "outputs": [
+    {
+      "item": "drpmedieval:dark_oak_window_grid",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:dark_oak_planks",
+	  "count": 2
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+	"station": "drpmedieval:simple_carpenter_workbench",
+	"category": "building",
+	"name": "oak_roof",
+	"outputs": [
+		{
+		  "item": "drpmedieval:oak_shingle_roof",
+		  "count": 4
+		}
+	  ],
+	  "ingredients": [
+		{
+		  "item": "drpmedieval:oak_planks",
+		  "count": 8
+		}
+	]
+}

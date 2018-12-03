@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "building",
+  "name": "spruce_window_cross",
+  "outputs": [
+    {
+      "item": "drpmedieval:spruce_window_cross",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:spruce_planks",
+	  "count": 2
+    }
+  ]
+}

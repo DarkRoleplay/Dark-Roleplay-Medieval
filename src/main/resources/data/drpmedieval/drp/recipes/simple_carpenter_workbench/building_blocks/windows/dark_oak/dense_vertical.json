@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "building",
+  "name": "dark_oak_window_dense_vertical",
+  "outputs": [
+    {
+      "item": "drpmedieval:dark_oak_window_dense_vertical",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:dark_oak_planks",
+	  "count": 2
+    }
+  ]
+}

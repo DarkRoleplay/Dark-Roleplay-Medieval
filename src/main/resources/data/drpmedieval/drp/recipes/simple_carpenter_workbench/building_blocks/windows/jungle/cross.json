@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "building",
+  "name": "jungle_window_cross",
+  "outputs": [
+    {
+      "item": "drpmedieval:jungle_window_cross",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:jungle_planks",
+	  "count": 2
+    }
+  ]
+}

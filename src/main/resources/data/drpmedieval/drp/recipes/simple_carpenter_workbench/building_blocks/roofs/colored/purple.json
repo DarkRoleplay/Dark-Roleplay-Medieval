@@ -1,0 +1,26 @@
+{
+	"station": "drpmedieval:simple_carpenter_workbench",
+	"category": "building",
+	"name": "purple_clay_roof",
+	"outputs": [
+		{
+		  "item": "drpmedieval:purple_clay_shingle_roof",
+		  "count": 4
+		}
+	  ],
+	  "ingredients": [
+		{
+		  "item": "drpmedieval:oak_planks",
+		  "count": 4
+		},
+		{
+			"item": "minecraft:brick",
+			"count": 4
+		},
+		{
+			"item": "minecraft:dye",
+			"count": 1,
+			"data": 5
+		}
+	]
+}

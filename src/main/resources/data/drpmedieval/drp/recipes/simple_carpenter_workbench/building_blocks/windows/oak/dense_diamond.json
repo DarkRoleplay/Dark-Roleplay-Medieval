@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "building",
+  "name": "oak_window_dense_diamond",
+  "outputs": [
+    {
+      "item": "drpmedieval:oak_window_dense_diamond",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:oak_planks",
+	  "count": 4
+    }
+  ]
+}

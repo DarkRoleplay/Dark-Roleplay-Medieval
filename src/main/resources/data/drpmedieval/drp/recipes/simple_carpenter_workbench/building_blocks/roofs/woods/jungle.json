@@ -1,0 +1,17 @@
+{
+	"station": "drpmedieval:simple_carpenter_workbench",
+	"category": "building",
+	"name": "jungle_roof",
+	"outputs": [
+		{
+		  "item": "drpmedieval:jungle_shingle_roof",
+		  "count": 4
+		}
+	  ],
+	  "ingredients": [
+		{
+		  "item": "drpmedieval:jungle_planks",
+		  "count": 8
+		}
+	]
+}

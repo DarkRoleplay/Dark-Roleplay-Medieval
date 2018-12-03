@@ -1,0 +1,17 @@
+{
+	"station": "drpmedieval:simple_carpenter_workbench",
+	"category": "building",
+	"name": "birch_roof",
+	"outputs": [
+		{
+		  "item": "drpmedieval:birch_shingle_roof",
+		  "count": 4
+		}
+	  ],
+	  "ingredients": [
+		{
+		  "item": "drpmedieval:birch_planks",
+		  "count": 8
+		}
+	]
+}

@@ -1,0 +1,17 @@
+{
+  "station": "drpmedieval:simple_carpenter_workbench",
+  "category": "building",
+  "name": "acacia_window_vertical",
+  "outputs": [
+    {
+      "item": "drpmedieval:acacia_window_vertical",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:acacia_planks",
+	  "count": 1
+    }
+  ]
+}
