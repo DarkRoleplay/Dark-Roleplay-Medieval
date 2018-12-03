@@ -250,11 +250,11 @@ public class MedievalBlocksOld {
 				register(reg, MedievalCreativeTabs.BUILDING_MATS,
 					new DRPBlock(mat.getName() + "_clean_plank", Settings.WOOD_SOLID),
 					new NormalRoof(mat.getName() + "_shingle_roof", Settings.WOOD_ROOF),
-					new WoodenWindow(mat.getName() + "_window_cross", Settings.WOOD_DECO),
-					new WoodenWindow(mat.getName() + "_window_vertical", Settings.WOOD_DECO),
-					new WoodenWindow(mat.getName() + "_window_dense_diamond", Settings.WOOD_DECO),
-					new WoodenWindow(mat.getName() + "_window_dense_vertical", Settings.WOOD_DECO),
-					new WoodenWindow(mat.getName() + "_window_grid", Settings.WOOD_DECO)
+					new WoodenWindow(mat.getName() + "_window_cross", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.8125F, 1F, 1F, 0.9375F))),
+					new WoodenWindow(mat.getName() + "_window_vertical", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.8125F, 1F, 1F, 0.9375F))),
+					new WoodenWindow(mat.getName() + "_window_dense_diamond", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.8125F, 1F, 1F, 0.9375F))),
+					new WoodenWindow(mat.getName() + "_window_dense_vertical", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.8125F, 1F, 1F, 0.9375F))),
+					new WoodenWindow(mat.getName() + "_window_grid", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.8125F, 1F, 1F, 0.9375F)))
 				);
 
 				register(reg, MedievalCreativeTabs.UTILITY,
@@ -393,10 +393,8 @@ public class MedievalBlocksOld {
 			new AdvancedOre("silver_ore", 2) //TODO Update to DRPBlock
 		);
 		//Christmas Tab
-		register(reg, MedievalCreativeTabs.CHRISTMAS,
-			new FacedBlock("christmas_stocking", Settings.PAPER_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.1875f, 0.1875f, 0.875f, 0.8125f, 0.8125f, 1f)), new Behavior_Container()).setTileEntityFactory(() -> new DynamicStorageTileEntity(1)),
-			new DRPBlock("advent_wreath", Settings.PLANT_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.1875f, 0f, 0.1875f, 0.8125f, 0.125f, 0.8125f)))
-		);
+//		register(reg, MedievalCreativeTabs.CHRISTMAS,
+//			new FacedBlock("christmas_stocking", Settings.PAPER_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.1875f, 0.1875f, 0.875f, 0.8125f, 0.8125f, 1f)), new Behavior_Container()).setTileEntityFactory(() -> new DynamicStorageTileEntity(1))		);
 
 		registerNoItems(reg,
 			new Hops("hops"), //TODO Update to DRPBlock

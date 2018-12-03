@@ -1,0 +1,15 @@
+{
+  "category": "materials",
+  "name": "wood_cup",
+  "outputs": [
+    {
+      "item": "drpmedieval:wood_cup",
+      "count": 2
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:planks"
+    }
+  ]
+}

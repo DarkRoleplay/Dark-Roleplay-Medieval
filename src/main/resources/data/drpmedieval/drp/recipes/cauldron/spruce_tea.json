@@ -1,0 +1,25 @@
+{
+  "station": "drpmedieval:cauldron",
+  "category": "drinks",
+  "name": "spruce_tea",
+  "outputs": [
+    {
+      "item": "drpmedieval:spruce_tea",
+	  "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:wood_cup",
+      "count": 4
+    },
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "minecraft:leaves",
+      "count": 2,
+      "data" : 1
+    }
+  ]
+}

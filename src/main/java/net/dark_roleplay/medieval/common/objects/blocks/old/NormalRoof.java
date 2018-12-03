@@ -51,7 +51,6 @@ public class NormalRoof extends FacedBlock {
 	public NormalRoof(String name, BlockSettings settings) {
 		super(name, settings);
 		this.setDefaultState(this.getDefaultState().withProperty(STAIR_TYPE, StairType.STRAIGHT));
-		this.setLightOpacity(0);
 	}
 
 	@Override

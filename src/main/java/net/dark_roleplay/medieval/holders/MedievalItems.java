@@ -19,6 +19,10 @@ public class MedievalItems {
 		DIRTY_PAINTBRUSH 		= null,
 		FLINT_KNIFE			 	= null;
 
+	//DRINKS
+	public static final Item
+		SPRUCE_TEA				= null;
+
 	//FOOD
 	public static final Item
 		BUTTER					= null,

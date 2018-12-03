@@ -17,7 +17,7 @@ public class CandleLighting implements IActivatedBehavior{
 		if(player.isSneaking()) {
 			int currentLit = state.getValue(BlockProperties.BURNING_CANDLES);
 			if(currentLit > 0) {
-				world.setBlockState(pos, state.withProperty(BlockProperties.BURNING_CANDLES, currentLit--));
+				world.setBlockState(pos, state.withProperty(BlockProperties.BURNING_CANDLES, --currentLit));
 				return true;
 			}
 		}
@@ -26,7 +26,7 @@ public class CandleLighting implements IActivatedBehavior{
 
 		int currentLit = state.getValue(BlockProperties.BURNING_CANDLES);
 		if(currentLit < 4) {
-			world.setBlockState(pos, state.withProperty(BlockProperties.BURNING_CANDLES, currentLit++));
+			world.setBlockState(pos, state.withProperty(BlockProperties.BURNING_CANDLES, ++currentLit));
 			return true;
 		}
 

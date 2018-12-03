@@ -10,6 +10,7 @@ import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.library_old.items.ItemUtil;
 import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
+import net.dark_roleplay.medieval.holders.MedievalBlocks;
 import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -69,6 +70,9 @@ public class MedievalModels {
 		ModelLoader.setCustomStateMapper(MedievalBlocksOld.GREEN_CLAY_SHINGLE_ROOF 		, teRemover);
 		ModelLoader.setCustomStateMapper(MedievalBlocksOld.RED_CLAY_SHINGLE_ROOF 			, teRemover);
 		ModelLoader.setCustomStateMapper(MedievalBlocksOld.BLACK_CLAY_SHINGLE_ROOF 		, teRemover);
+
+		IStateMapper candlesRemover = new StateMap.Builder().ignore(BlockProperties.BURNING_CANDLES).build();
+		ModelLoader.setCustomStateMapper(MedievalBlocks.ADVENT_WREATH, candlesRemover);
 
 		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
 

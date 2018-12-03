@@ -1,0 +1,18 @@
+{
+  "category": "decorations",
+  "name": "advent_wreath",
+  "outputs": [
+    {
+      "item": "drpmedieval:advent_wreath"
+    }
+  ],
+  "ingredients": [
+	{
+      "item": "drpmedieval:beeswax_candle",
+      "count": 4
+    },{
+      "item": "minecraft:leaves",
+      "data": 1
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "category": "tools",
+  "name": "bone_war_horn",
+  "outputs": [
+    {
+      "item": "drpmedieval:bone_war_horn"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:bone",
+      "count": 3
+    }
+  ]
+}

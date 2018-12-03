@@ -22,6 +22,8 @@ public class ResourceFolders {
 		public static final String OTHER_FOOD 			= FOOD + "/other";
 
 
+		public static final String DRINKS 				= "drinks";
+
 		public static final String MATERIALS 			= "materials";
 		public static final String PLANT_MATS	 		= MATERIALS + "/plants";
 		public static final String COOKING_MATS			= MATERIALS + "/cooking";

@@ -1,7 +1,7 @@
 {
 	"__comment": "Designed by JTK222 with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"particle": "drpmedieval:blocks/candles/beeswax",
+		"particle": "drpmedieval:blocks/candles/metal",
 		"wax": "drpmedieval:blocks/candles/beeswax",
 		"wick": "drpmedieval:blocks/candles/wick",
 		"metal": "drpmedieval:blocks/candles/metal"

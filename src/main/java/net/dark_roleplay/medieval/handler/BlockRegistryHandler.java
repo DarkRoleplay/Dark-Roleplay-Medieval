@@ -7,6 +7,7 @@ import net.dark_roleplay.medieval.common.handler.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.handler.MedievalModels;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.advent_wreath.CandleLighting;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.advent_wreath.CandleParticles;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.placing.CeilingRequired;
 import net.dark_roleplay.medieval.common.objects.blocks.special.AdventWreath;
 import net.minecraft.block.Block;
@@ -28,12 +29,17 @@ public class BlockRegistryHandler {
 	public static final void register(RegistryEvent.Register<Block> registryEvent) {
 		IForgeRegistry<Block> reg = registryEvent.getRegistry();
 
-		register(reg, MedievalCreativeTabs.CHRISTMAS,
+		register(reg, MedievalCreativeTabs.DECORATION,
 			new DRPBlock("mistletoe", BlockProperties.Settings.PLANT_DECO) {
 				@Override public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {return NULL_AABB;}
 			}.addBehaviors(CeilingRequired.INSTANCE, new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.25F, 0.1875F, 0.25F, 0.75F, 1.0F, 0.75F))),
 
-			new AdventWreath("advent_wreath", BlockProperties.Settings.PLANT_DECO).addBehaviors(new CandleLighting()) //TODO Make behavior Singleton
+			new AdventWreath("advent_wreath", BlockProperties.Settings.PLANT_DECO) {
+				@Override public int getLightValue(IBlockState state) {
+					int currentLit = state.getValue(BlockProperties.BURNING_CANDLES);
+					return currentLit == 0 ? 0 : 7 + (currentLit * 2);
+				}
+			}.addBehaviors(new CandleLighting(), new CandleParticles(), new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0F, 0F, 0F, 1F, 0.6825F, 1F))) //TODO Make behavior Singleton
 		);
 	}
 

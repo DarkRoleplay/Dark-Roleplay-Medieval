@@ -8,7 +8,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 public class MedievalBlocks {
 
 	public static final Block
-		MISTLETOE = null;
+		MISTLETOE 				= null,
+		ADVENT_WREATH 			= null;
 
 
 }
