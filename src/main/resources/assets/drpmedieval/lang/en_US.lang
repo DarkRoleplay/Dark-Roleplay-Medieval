@@ -14,6 +14,7 @@ crafting.category.drpmedieval.pottery_turntable.decoration.name=Decoration
 crafting.category.drpmedieval.mortar.materials.name=Materials
 crafting.category.drpmedieval.cauldron.stews.name=Stews
 crafting.category.drpmedieval.cauldron.drinks.name=Drinks
+crafting.category.drpmedieval.cauldron.other.name=Other
 crafting.category.drpmedieval.anvil.crafting_stations.name=Crafting Stations
 crafting.category.drpmedieval.anvil.decorations.name=Decoration
 crafting.category.drpmedieval.anvil.tools.name=Tools
@@ -107,6 +108,9 @@ item.sugar_frame.name=Sugar Apiary Frame
 item.wax_frame.name=Wax Apiary Frame
 item.wood_cup.name=Wood Cup
 item.spruce_tea.name=Spruce Tea
+item.caramelized_red_apple.name=Caramelized Red Apple
+item.caramelized_yellow_apple.name=Caramelized Yellow Apple
+item.caramelized_green_apple.name=Caramelized Green Apple
 
 tile.drpmedieval.mistletoe.name=Mistletoe
 tile.drpmedieval.torch_holder_unlit.name=Unlit Torch Holder

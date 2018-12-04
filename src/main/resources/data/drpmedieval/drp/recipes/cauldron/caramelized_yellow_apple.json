@@ -1,0 +1,25 @@
+{
+  "station": "drpmedieval:cauldron",
+  "category": "other",
+  "name": "caramelized_yellow_apple",
+  "outputs": [
+    {
+      "item": "drpmedieval:caramelized_yellow_apple",
+	  "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:apple_yellow",
+      "count": 4
+    },
+    {
+      "item": "minecraft:stick",
+	  "count": 4
+    },
+    {
+      "item": "minecraft:sugar",
+      "count": 16
+    }
+  ]
+}
