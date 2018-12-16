@@ -1,0 +1,27 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:utility/storage/wall_shelf_ropes/single_wall_shelf_ropes",
+        "textures": {
+			"wood": "drpmedieval:blocks/simple_shelf/simple_%wood%_shelf"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"facing":{
+			"north":{},
+			"east":{"y":90},
+			"south":{"y":180},
+			"west":{"y":270}
+		},
+		"connection":{
+			"single":{
+				"model":"drpmedieval:utility/storage/wall_shelf_ropes/single_wall_shelf_ropes"
+			},
+			"double":{
+				"model":"drpmedieval:utility/storage/wall_shelf_ropes/double_wall_shelf_ropes"
+			}
+		}
+	}
+}

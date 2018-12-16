@@ -4,6 +4,9 @@
 		{
 			"input" : "drpmedieval:arg/blockstates/shingle_roof/shingle_roof.json",
 			"output" : "drpmedieval:blockstates/%wood%_shingle_roof.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/shingle_roof/snowed_shingle_roof.json",
+			"output" : "drpmedieval:blockstates/snowed_%wood%_shingle_roof.json"
 		}
 	]
 }

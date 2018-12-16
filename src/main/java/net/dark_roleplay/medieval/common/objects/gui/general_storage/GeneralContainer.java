@@ -18,40 +18,42 @@ public class GeneralContainer extends Container{
 
 	public GeneralContainer(TileEntity te, InventoryPlayer playerInventory) {
 		this.te = te;
-		
+
 		if(this.te.hasCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null)) {
 			IItemHandler handler = this.te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-			
+
 			this.slotCount = handler.getSlots();
-			
+
 			int size = handler.getSlots();
-			
+
+			outer:
 			for(int y = 0; y < Math.ceil(size / 9F); y++) {
 				for(int x = 0; x < 9; x++) {
-			        addSlotToContainer(new SlotItemHandler(handler, x + (y * 9), 8 + (x * 18), 8 + (y * 18)));
+					if(x + (y * 9) > size) break outer;
+			        this.addSlotToContainer(new SlotItemHandler(handler, x + (y * 9), 8 + (x * 18), 8 + (y * 18)));
 				}
 			}
 		}
-		
-        bindPlayerInventory(playerInventory);
+
+        this.bindPlayerInventory(playerInventory);
 	}
-	
+
     protected void bindPlayerInventory(InventoryPlayer playerInventory){
         for (int y = 0; y < 3; y++){
             for (int x = 0; x < 9; x++){
-                addSlotToContainer(new Slot(playerInventory, x + y * 9 + 9, 8 + x * 18, 84 + y * 18));
+                this.addSlotToContainer(new Slot(playerInventory, x + y * 9 + 9, 8 + x * 18, 84 + y * 18));
             }
         }
 
         for (int x = 0; x < 9; x++){
-            addSlotToContainer(new Slot(playerInventory, x, 8 + x * 18, 142));
+            this.addSlotToContainer(new Slot(playerInventory, x, 8 + x * 18, 142));
         }
     }
-	
+
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 		Vec3d playerPos = player.getPositionVector();
-		return te.getPos().distanceSqToCenter(playerPos.x, playerPos.y, playerPos.z) < 7D;
+		return this.te.getPos().distanceSqToCenter(playerPos.x, playerPos.y, playerPos.z) < 7D;
 	}
 
 	@Override

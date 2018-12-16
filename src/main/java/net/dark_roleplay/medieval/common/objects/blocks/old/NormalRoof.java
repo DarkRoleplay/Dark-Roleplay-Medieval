@@ -2,9 +2,11 @@ package net.dark_roleplay.medieval.common.objects.blocks.old;
 
 import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING_HORIZONTAL;
 import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.HAS_TE;
+import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.SNOWED;
 import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.STAIR_TYPE;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.Nullable;
 
@@ -27,6 +29,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 
 public class NormalRoof extends FacedBlock {
 
@@ -50,23 +53,25 @@ public class NormalRoof extends FacedBlock {
 
 	public NormalRoof(String name, BlockSettings settings) {
 		super(name, settings);
-		this.setDefaultState(this.getDefaultState().withProperty(STAIR_TYPE, StairType.STRAIGHT));
+		this.setDefaultState(this.getDefaultState().withProperty(STAIR_TYPE, StairType.STRAIGHT).withProperty(SNOWED, false).withProperty(HAS_TE, false));
+		this.setTickRandomly(true);
+		this.useNeighborBrightness = true;
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { FACING_HORIZONTAL, STAIR_TYPE, HAS_TE });
+		return new BlockStateContainer(this, new IProperty[] { FACING_HORIZONTAL, STAIR_TYPE, HAS_TE, SNOWED});
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(FACING_HORIZONTAL, EnumFacing.byHorizontalIndex(meta % 8))
-				.withProperty(HAS_TE, meta >= 8);
+		return this.getDefaultState().withProperty(FACING_HORIZONTAL, EnumFacing.byHorizontalIndex(meta & 0x3))
+				.withProperty(HAS_TE, (meta & 0x8) == 0x8).withProperty(SNOWED, (meta & 0x4) == 0x4);
 	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return state.getValue(FACING_HORIZONTAL).getHorizontalIndex() + (state.getValue(HAS_TE) ? 8 : 0);
+		return state.getValue(FACING_HORIZONTAL).getHorizontalIndex() | (state.getValue(SNOWED) ? 0x4 : 0) | (state.getValue(HAS_TE) ? 0x8 : 0);
 	}
 
 	@Override
@@ -125,6 +130,48 @@ public class NormalRoof extends FacedBlock {
 			addCollisionBoxToList(pos, entityBox, collidingBoxes, axisalignedbb);
 		}
 	}
+
+	@Override
+	public void randomTick(World world, BlockPos pos, IBlockState state, Random random){
+//		if(random.nextInt(20) != 1) return;
+
+		if (state.getValue(SNOWED)) return;
+
+		if(!world.isRaining()) return;
+
+		if (!world.canSeeSky(pos.up())) return;
+
+		Biome biome = world.getBiome(pos);
+
+		if (!biome.getEnableSnow() && biome.getTemperature(pos) >= 15) return;
+
+		world.setBlockState(pos, state.withProperty(SNOWED, true), 2);
+	}
+
+	@Override
+    public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
+        return false;
+    }
+
+//    /**
+//     * @deprecated call via {@link IBlockState#getPackedLightmapCoords(IBlockAccess,BlockPos)} whenever possible.
+//     * Implementing/overriding is fine.
+//     */
+//    @Override
+//	@Deprecated
+//    @SideOnly(Side.CLIENT)
+//    public int getPackedLightmapCoords(IBlockState state, IBlockAccess source, BlockPos pos){
+////    	return super.getPackedLightmapCoords(state, source, pos);
+//        int i = source.getCombinedLight(pos, state.getLightValue(source, pos));
+//        World w;
+//        if (i == 0 && state.getBlock() instanceof NormalRoof){
+//            pos = pos.up();
+//            state = source.getBlockState(pos);
+//            return source.getCombinedLight(pos, state.getLightValue(source, pos));
+//        }else{
+//            return i;
+//        }
+//    }
 
 	private static List<AxisAlignedBB> getCollisionBoxList(IBlockState bstate) {
 		List<AxisAlignedBB> list = Lists.<AxisAlignedBB>newArrayList();

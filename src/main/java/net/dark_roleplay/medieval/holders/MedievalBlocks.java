@@ -7,9 +7,21 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 @ObjectHolder(References.MODID)
 public class MedievalBlocks {
 
+	//Decoration - Nature
 	public static final Block
-		MISTLETOE 				= null,
-		ADVENT_WREATH 			= null;
+		MISTLETOE 					= null,
+		ADVENT_WREATH 				= null;
 
+	//Storage - Wooden
+	public static final Block
+		DOUBLE_OAK_ROPE_WALL_SHELF 	= null;
+
+	//Crafting - Wooden
+	public static final Block
+		OAK_CHOPPING_BLOCK 			= null;
+
+	//Building
+	public static final Block
+		STONE_BRICK_ARCH			= null;
 
 }

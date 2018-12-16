@@ -47,7 +47,10 @@ public class MedievalItems {
 		COD_STEW				= null,
 		VEGIE_STEW				= null,
 		PUMPKIN_STEW			= null,
-		BELL_PEPPER				= null;
+		BELL_PEPPER				= null,
+		CARAMELIZED_RED_APPLE	= null,
+		CARAMELIZED_YELLOW_APPLE= null,
+		CARAMELIZED_GREEN_APPLE	= null;
 
 	//MATERIALS
 	public static final Item
@@ -79,7 +82,8 @@ public class MedievalItems {
 		SULFUR_ORE_CHUNK		= null,
 		SALPETER_ORE_CHUNK		= null,
 		SPINDLE					= null,
-		BARLEY					= null;
+		BARLEY					= null,
+		OAK_FIREWOOD			= null;
 
 	//BLOCKS
 	public static final Item

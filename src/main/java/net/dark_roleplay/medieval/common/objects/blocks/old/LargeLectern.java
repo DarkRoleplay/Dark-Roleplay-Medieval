@@ -21,7 +21,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -158,15 +157,15 @@ public class LargeLectern extends Block implements LargeBlock{
 		return false;
 	}
 
-	@Override
-	public boolean hasTileEntity(IBlockState state) {
-		return true;
-	}
-
-	@Override
-	public TileEntity createTileEntity(World world, IBlockState state) {
-		return new TileEntity_Lectern();
-	}
+//	@Override
+//	public boolean hasTileEntity(IBlockState state) {
+//		return true;
+//	}
+//
+//	@Override
+//	public TileEntity createTileEntity(World world, IBlockState state) {
+//		return new TileEntity_Lectern();
+//	}
 
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
@@ -184,42 +183,42 @@ public class LargeLectern extends Block implements LargeBlock{
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-		if(!state.getValue(IS_TOP)){
-			pos = pos.up();
-			state = world.getBlockState(pos);
-		}
-
-		if(state.getValue(IS_TOP)){
-			TileEntity_Lectern te = (TileEntity_Lectern) world.getTileEntity(pos);
-			if((te != null) && te.renderBook()){
-				ItemStack stack = player.getHeldItem(hand).copy();
-
-				if (!world.isRemote){
-					player.setHeldItem(hand, te.getStack());
-
-		            this.resolveContents(te.getStack(), player);
-
-		        }
-
-		        player.openBook(te.getStack(), hand);
-		        if (!world.isRemote){
-		        	player.getServer().addScheduledTask(() -> player.setHeldItem(hand, stack));
-		        }
-
-			}else{
-				ItemStack stack = player.getHeldItem(hand).copy();
-				stack.setCount(1);
-				if(stack.getItem() == Items.WRITTEN_BOOK){
-					te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).insertItem(0, stack, false);
-					world.notifyBlockUpdate(pos, state, state, 3);
-					if(!world.isRemote){
-						player.getHeldItem(hand).shrink(1);
-					}
-				}
-			}
-		}
-
-		return true;
+//		if(!state.getValue(IS_TOP)){
+//			pos = pos.up();
+//			state = world.getBlockState(pos);
+//		}
+//
+//		if(state.getValue(IS_TOP)){
+//			TileEntity_Lectern te = (TileEntity_Lectern) world.getTileEntity(pos);
+//			if((te != null) && te.renderBook()){
+//				ItemStack stack = player.getHeldItem(hand).copy();
+//
+//				if (!world.isRemote){
+//					player.setHeldItem(hand, te.getStack());
+//
+//		            this.resolveContents(te.getStack(), player);
+//
+//		        }
+//
+//		        player.openBook(te.getStack(), hand);
+//		        if (!world.isRemote){
+//		        	player.getServer().addScheduledTask(() -> player.setHeldItem(hand, stack));
+//		        }
+//
+//			}else{
+//				ItemStack stack = player.getHeldItem(hand).copy();
+//				stack.setCount(1);
+//				if(stack.getItem() == Items.WRITTEN_BOOK){
+//					te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).insertItem(0, stack, false);
+//					world.notifyBlockUpdate(pos, state, state, 3);
+//					if(!world.isRemote){
+//						player.getHeldItem(hand).shrink(1);
+//					}
+//				}
+//			}
+//		}
+//
+		return false;
 	}
 
 

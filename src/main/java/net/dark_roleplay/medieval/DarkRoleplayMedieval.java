@@ -1,5 +1,7 @@
 package net.dark_roleplay.medieval;
 
+import java.util.HashMap;
+
 import com.google.common.collect.ImmutableMap;
 
 import net.dark_roleplay.library.sides.IProxy;
@@ -12,6 +14,7 @@ import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_FluidBarrel;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Roof;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Shelf;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_ShopSign;
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_WallShelf;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderAnvil;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderCauldron;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.old.SpecialRenderChain;
@@ -36,6 +39,7 @@ import net.dark_roleplay.medieval.common.handler.MedievalMappings;
 import net.dark_roleplay.medieval.common.handler.MedievalPackets;
 import net.dark_roleplay.medieval.common.handler.MedievalVillagers;
 import net.dark_roleplay.medieval.common.handler.MedievalWorldGen;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.chopping_block.ChoppingBlockActivation;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Banner;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
@@ -44,6 +48,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FluidBa
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Roof;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Shelf;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ShopSign;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_UniversalShelf;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityAnvil;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityCauldron;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityChain;
@@ -110,6 +115,10 @@ public class DarkRoleplayMedieval {
 
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
+		//TODO Port to data driven crafting system
+		ChoppingBlockActivation.firewoodRecipes = new HashMap<ItemStack, ItemStack>();
+
+
 		MedievalVillagers.init(event);
 		MedievalMappings.init(event);
 		MedievalPackets.init();
@@ -168,6 +177,7 @@ public class DarkRoleplayMedieval {
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_ClockCore.class, new TESR_ClockCore());
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_ShopSign.class, new TESR_ShopSign());
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_Shelf.class, new TESR_Shelf(Minecraft.getMinecraft().getRenderItem()));
+			ClientRegistry.bindTileEntitySpecialRenderer(TE_UniversalShelf.class, new TESR_WallShelf(Minecraft.getMinecraft().getRenderItem()));
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_FluidBarrel.class, new TESR_FluidBarrel());
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_FlowerContainer.class, new TESR_Flowers());
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_Banner.class, new TESR_Banner());

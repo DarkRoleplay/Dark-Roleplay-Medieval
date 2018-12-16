@@ -10,6 +10,9 @@
 		},{
 			"input" : "drpmedieval:arg/blockstates/storage/simple_shelf.json",
 			"output" : "drpmedieval:blockstates/simple_%wood%_shelf.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/storage/wall_shelf_ropes.json",
+			"output" : "drpmedieval:blockstates/double_%wood%_rope_wall_shelf.json"
 		}
 	]
 }

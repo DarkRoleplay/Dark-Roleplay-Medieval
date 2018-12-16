@@ -2,26 +2,41 @@ package net.dark_roleplay.medieval.common.objects.blocks.tile_entities;
 
 import javax.annotation.Nullable;
 
+import net.dark_roleplay.medieval.client.objects.blocks.tesrs.helper.ShelfRenderInformation;
 import net.dark_roleplay.medieval.common.objects.other.MultiStackHandler;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 
-public class TE_Shelf extends TileEntity {
+public class TE_UniversalShelf extends TileEntity {
 
-	private MultiStackHandler itemStackHandler = new MultiStackHandler(4) {
-		@Override
-		protected void onContentsChanged(int slot) {
-			TE_Shelf.this.markDirty();
-	        IBlockState state = TE_Shelf.this.world.getBlockState(TE_Shelf.this.getPos());
-			TE_Shelf.this.world.notifyBlockUpdate(TE_Shelf.this.getPos(), state, state, 2);
-		}
-	};
+	private ShelfRenderInformation renderInformation;
+
+	private MultiStackHandler itemStackHandler;
+
+	private Vec3d[] offsets;
+
+	//TODO save offsets in te data, create constructor without params
+	public TE_UniversalShelf(int size, Vec3d... offsets) {
+		this.offsets = offsets;
+		this.itemStackHandler = new MultiStackHandler(size, 2) {
+			@Override
+			protected void onContentsChanged(int slot) {
+				TE_UniversalShelf.this.markDirty();
+		        IBlockState state = TE_UniversalShelf.this.world.getBlockState(TE_UniversalShelf.this.getPos());
+				TE_UniversalShelf.this.world.notifyBlockUpdate(TE_UniversalShelf.this.getPos(), state, state, 2);
+			}
+		};
+	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
@@ -80,4 +95,13 @@ public class TE_Shelf extends TileEntity {
     public void handleUpdateTag(NBTTagCompound tag){
         this.readFromNBT(tag);
     }
+
+	@SideOnly(Side.CLIENT)
+	public ShelfRenderInformation getRenderInformation(RenderItem itemRenderer) {
+		if(this.renderInformation == null) {
+			this.renderInformation = new ShelfRenderInformation(this, itemRenderer, this.offsets);
+		}
+
+		return this.renderInformation;
+	}
 }

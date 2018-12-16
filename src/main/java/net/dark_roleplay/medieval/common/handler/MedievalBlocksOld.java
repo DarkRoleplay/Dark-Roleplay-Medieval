@@ -2,7 +2,6 @@ package net.dark_roleplay.medieval.common.handler;
 
 import java.util.Random;
 
-import net.dark_roleplay.core.api.storage.DynamicStorageTileEntity;
 import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
 import net.dark_roleplay.core_modules.maarg.api.materials.Material;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
@@ -16,7 +15,6 @@ import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Bell;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_CanPlaceChains;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Chair;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_ClockCore;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Container;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_CraftingStation;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_FlowerContainer;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.FacedBoundingBox;
@@ -69,6 +67,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FluidBa
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Roof;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Shelf;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ShopSign;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_UniversalShelf;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityAnvil;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityBookOne;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityCauldron;
@@ -184,19 +183,6 @@ public class MedievalBlocksOld {
 
 		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
 			if(logRequired.doesFulfillRequirements(mat)) {
-				register(reg, MedievalCreativeTabs.UTILITY,
-					new FacedBlock(mat.getName() + "_chopping_block", Settings.WOOD_DECO)
-						.addBehaviors(
-								new Behavior_CraftingStation(),
-								new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.75f, 0.9375f))
-								//new ChoppingBlockActivation()
-								//new Behavior_CraftingStation()
-						),//.setTileEntityFactory(TE_ChoppingBlock::new),
-					new DRPBlock(mat.getName() + "_crate", Settings.WOOD_DECO)
-						.addBehaviors(new Behavior_Container())
-						.setTileEntityFactory(() -> new DynamicStorageTileEntity(18))
-				);
-
 				register(reg, MedievalCreativeTabs.BUILDING_MATS,
 					new MossyLog("mossy_" + mat.getName() + "_log"), //TODO Update to DRPBlock
 					new WoodSupport(mat.getName() + "_wood_support", Settings.WOOD_DECO) //TODO Update to DRPBlock
@@ -436,13 +422,13 @@ public class MedievalBlocksOld {
 		//New Storage
 		GameRegistry.registerTileEntity(TE_FluidBarrel.class, new ResourceLocation(References.MODID, "tile_entity_fluid_barrel"));
 		GameRegistry.registerTileEntity(TE_Shelf.class, new ResourceLocation(References.MODID, "te_shelf"));
+		GameRegistry.registerTileEntity(TE_UniversalShelf.class, new ResourceLocation(References.MODID, "te_universal_shelf"));
 		GameRegistry.registerTileEntity(TE_ChoppingBlock.class, new ResourceLocation(References.MODID, "te_chopping_block"));
 
 		GameRegistry.registerTileEntity(TE_ClockCore.class, new ResourceLocation(References.MODID, "te_clock_core"));
 		GameRegistry.registerTileEntity(TE_ShopSign.class, new ResourceLocation(References.MODID,"te_shop_sign"));
 
 		//Old Storage
-		GameRegistry.registerTileEntity(DynamicStorageTileEntity.class, new ResourceLocation(References.MODID, "te_dynamic_storage"));
 		GameRegistry.registerTileEntity(TileEntityCrate.class, new ResourceLocation(References.MODID, "TilEntityCrate"));
 		GameRegistry.registerTileEntity(TE_DungeonChest.class, new ResourceLocation(References.MODID, "TileEntityDungeonChest"));
 

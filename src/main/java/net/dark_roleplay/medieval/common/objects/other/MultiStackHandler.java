@@ -10,11 +10,11 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class MultiStackHandler extends ItemStackHandler{
-	
+
     protected int[] stackSizes;
 
     protected int slotMultiplier = 4;
-    
+
     public MultiStackHandler(){
         this(1);
     }
@@ -22,6 +22,11 @@ public class MultiStackHandler extends ItemStackHandler{
     public MultiStackHandler(int size){
     	this.stacks = NonNullList.withSize(size, ItemStack.EMPTY);
     	this.stackSizes = new int[size];
+    }
+
+    public MultiStackHandler(int size, int slotMultiplier){
+    	this(size);
+    	this.slotMultiplier = slotMultiplier;
     }
 
     public MultiStackHandler(NonNullList<ItemStack> stacks){
@@ -38,22 +43,22 @@ public class MultiStackHandler extends ItemStackHandler{
     	this.stacks = NonNullList.withSize(size, ItemStack.EMPTY);
     	this.stackSizes = new int[size];
     }
-    
+
     @Override
     public void setStackInSlot(int slot, @Nonnull ItemStack stack) {
-        validateSlotIndex(slot);
+        this.validateSlotIndex(slot);
         if (ItemStack.areItemStacksEqual(this.stacks.get(slot), stack))
             return;
 
         this.stackSizes[slot] = stack.getCount();
         stack.setCount(1);
         this.stacks.set(slot, stack);
-        onContentsChanged(slot);
+        this.onContentsChanged(slot);
     }
-	
+
     @Override
     public int getSlots(){
-        return stacks.size();
+        return this.stacks.size();
     }
 
     @Override
@@ -61,7 +66,7 @@ public class MultiStackHandler extends ItemStackHandler{
     public ItemStack getStackInSlot(int slot){
 //    	System.out.println(this.stacks.toString());
 //    	System.out.println(slot + " -> " + this.stacks.get(slot));
-        validateSlotIndex(slot);
+        this.validateSlotIndex(slot);
         ItemStack out = this.stacks.get(slot);
 
         if(out.isEmpty())
@@ -73,19 +78,19 @@ public class MultiStackHandler extends ItemStackHandler{
         }
         return out;
     }
-    
+
     @Override
     @Nonnull
     public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate){
         if (stack.isEmpty())
             return ItemStack.EMPTY;
 
-        validateSlotIndex(slot);
+        this.validateSlotIndex(slot);
 
         ItemStack existing = this.stacks.get(slot);
         int amount = this.stackSizes[slot];
 
-        int limit = getStackLimit(slot, stack) * this.slotMultiplier;
+        int limit = this.getStackLimit(slot, stack) * this.slotMultiplier;
 
         int remaining = limit - amount;
 
@@ -101,15 +106,15 @@ public class MultiStackHandler extends ItemStackHandler{
         				this.stackSizes[slot] = amount + stack.getCount();
         				if(existing.isEmpty())
         					this.stacks.set(slot, ItemHandlerHelper.copyStackWithSize(stack, 1));
-        		        onContentsChanged(slot);
-        			} 
+        		        this.onContentsChanged(slot);
+        			}
         			return ItemStack.EMPTY;
         		}else if(stack.getCount() > remaining){
         			if(!simulate){
         				this.stackSizes[slot] = amount + remaining;
         				if(existing.isEmpty())
         					this.stacks.set(slot, ItemHandlerHelper.copyStackWithSize(stack, 1));
-        		        onContentsChanged(slot);
+        		        this.onContentsChanged(slot);
         			}
             		return ItemHandlerHelper.copyStackWithSize(stack, stack.getCount() - remaining);
         		}
@@ -117,14 +122,14 @@ public class MultiStackHandler extends ItemStackHandler{
     		return stack;
         }
     }
-    
+
     @Override
     @Nonnull
     public ItemStack extractItem(int slot, int amount, boolean simulate){
         if (amount == 0)
             return ItemStack.EMPTY;
 
-        validateSlotIndex(slot);
+        this.validateSlotIndex(slot);
 
         ItemStack existing = this.stacks.get(slot);
 
@@ -137,11 +142,11 @@ public class MultiStackHandler extends ItemStackHandler{
         	if(toExtract == this.stackSizes[slot])
         		this.stacks.set(slot, ItemStack.EMPTY);
         	this.stackSizes[slot] -= toExtract;
-            onContentsChanged(slot);
+            this.onContentsChanged(slot);
         }
         return ItemHandlerHelper.copyStackWithSize(existing, toExtract);
     }
-    
+
     @Override
     public int getSlotLimit(int slot){
         return 64;
@@ -149,9 +154,9 @@ public class MultiStackHandler extends ItemStackHandler{
 
     @Override
     protected int getStackLimit(int slot, @Nonnull ItemStack stack){
-        return Math.min(getSlotLimit(slot), stack.getMaxStackSize());
+        return Math.min(this.getSlotLimit(slot), stack.getMaxStackSize());
     }
-    
+
     @Override
     public NBTTagCompound serializeNBT(){
         NBTTagList nbtTagList = new NBTTagList();
@@ -172,7 +177,7 @@ public class MultiStackHandler extends ItemStackHandler{
 
     @Override
     public void deserializeNBT(NBTTagCompound nbt){
-        setSize(nbt.hasKey("size") ? nbt.getInteger("size") : 1);
+        this.setSize(nbt.hasKey("size") ? nbt.getInteger("size") : 1);
         NBTTagList tagList = (NBTTagList) nbt.getTag("items");
         for (int i = 0; i < tagList.tagCount(); i++){
             NBTTagCompound itemTags = tagList.getCompoundTagAt(i);
@@ -181,12 +186,12 @@ public class MultiStackHandler extends ItemStackHandler{
             this.stacks.set(itemTags.getInteger("slot"), new ItemStack(itemTags));
             this.stackSizes[itemTags.getInteger("slot")] = amount;
         }
-        onLoad();
+        this.onLoad();
     }
 
     @Override
     protected void validateSlotIndex(int slot) {
         if (slot < 0 || slot >= this.stacks.size())
-            throw new RuntimeException("Slot " + slot + " not in valid range - [0," + stacks.size() + ")");
+            throw new RuntimeException("Slot " + slot + " not in valid range - [0," + this.stacks.size() + ")");
     }
 }

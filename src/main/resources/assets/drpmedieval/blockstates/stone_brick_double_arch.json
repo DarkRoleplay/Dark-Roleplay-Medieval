@@ -1,0 +1,24 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model": "drpmedieval:building/stone_brick_archs/stone_brick_arch_bottom",
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"facing":{
+			"north":{},
+			"east":{"y":90},
+			"south":{"y":180},
+			"west":{"y":270}
+		},
+		"part":{
+			"bottom":{
+				"model": "drpmedieval:building/stone_brick_archs/stone_brick_arch_bottom"
+			},
+			"top":{
+				"model": "drpmedieval:building/stone_brick_archs/stone_brick_arch_top"
+			}
+		}
+	}
+}

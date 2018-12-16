@@ -87,10 +87,10 @@ public class ItemRegistryHandler {
 			new SpruceTea(1, 0.4F, "spruce_tea", ResourceFolders.Items.DRINKS),
 			new DRPFood(6, 0.8F, "caramelized_red_apple", ResourceFolders.Items.FRUITS + "/apples", 64),
 			new DRPFood(6, 0.8F, "caramelized_green_apple", ResourceFolders.Items.FRUITS + "/apples", 64),
-			new DRPFood(6, 0.8F, "caramelized_yellow_apple", ResourceFolders.Items.FRUITS + "/apples", 64)
-//			new DRPFood(4, 0.5F, "gingerbread_plate", ResourceFolders.Items.BAKEWARES + "/gingerbread", 64),
-//			new DRPFood(4, 0.5F, "gingerbread_heart", ResourceFolders.Items.BAKEWARES + "/gingerbread", 64),
-//			new DRPFood(4, 0.5F, "gingerbread_man", ResourceFolders.Items.BAKEWARES + "/gingerbread", 64)
+			new DRPFood(6, 0.8F, "caramelized_yellow_apple", ResourceFolders.Items.FRUITS + "/apples", 64),
+			new DRPFood(4, 0.5F, "gingerbread_plate", ResourceFolders.Items.BAKEWARES + "/gingerbread", 64),
+			new DRPFood(4, 0.5F, "gingerbread_heart", ResourceFolders.Items.BAKEWARES + "/gingerbread", 64),
+			new DRPFood(4, 0.5F, "gingerbread_man", ResourceFolders.Items.BAKEWARES + "/gingerbread", 64)
 		);
 
 		registerItems(reg, MedievalCreativeTabs.MATERIALS,

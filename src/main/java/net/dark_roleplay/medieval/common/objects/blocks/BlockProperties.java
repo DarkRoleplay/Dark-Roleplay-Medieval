@@ -43,12 +43,16 @@ public class BlockProperties {
 	public static final PropertyInteger BURNING_CANDLES = PropertyInteger.create("burning_candles", 0, 4);
 
 	/**
-	 * Default Implementation should set this to double, if there are 2+ equal blocks next to each other, otherwise it shoulg be single
+	 * Default Implementation should set this to double, if there are 2+ equal blocks next to each other, otherwise it should be single
 	 */
 	public static final PropertyEnum<ConnectionSD> SD_CONNECTION = PropertyEnum.<ConnectionSD>create("connection", ConnectionSD.class);
 	public static final PropertyBool GROUNDED = PropertyBool.create("grounded");
 
+	public static final PropertyEnum<Part> PART = PropertyEnum.<Part>create("part", Part.class);
+
+
 	public static final PropertyBool HAS_TE = PropertyBool.create("has_te");
+	public static final PropertyBool SNOWED = PropertyBool.create("snowed"); //TODO change to SD_CONNECTION
 
 
 
@@ -66,6 +70,14 @@ public class BlockProperties {
 	public static enum WindowPlacement implements IStringSerializable{
 		OFFSET,
 		CENTERED;
+
+		@Override
+		public String getName() { return this.name().toLowerCase(); }
+	}
+
+	public static enum Part implements IStringSerializable{
+		TOP,
+		BOTTOM;
 
 		@Override
 		public String getName() { return this.name().toLowerCase(); }
@@ -92,7 +104,7 @@ public class BlockProperties {
 		public static final BlockSettings WOOD_SOLID = new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F);
 		public static final BlockSettings WOOD_DECO = new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
 		public static final BlockSettings WOOD_DECO_TESR =new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setBlockRenderType(EnumBlockRenderType.INVISIBLE);
-		public static final BlockSettings WOOD_ROOF = new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setLightOpacity(255);
+		public static final BlockSettings WOOD_ROOF = new BlockSettings(Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setLightOpacity(255).setBlockFaceShape(BlockFaceShape.UNDEFINED);
 
 		public static final BlockSettings PAPER_DECO = new BlockSettings(Material.WOOD, SoundType.CLOTH, 1.0F, 2.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false);
 		public static final BlockSettings PLANT_DECO = new BlockSettings(Material.PLANTS, SoundType.PLANT, 0.0F, 0.0F).setBlockFaceShape(BlockFaceShape.UNDEFINED).setFullAndOpaque(false, false).setBlockRenderLayer(BlockRenderLayer.CUTOUT_MIPPED);

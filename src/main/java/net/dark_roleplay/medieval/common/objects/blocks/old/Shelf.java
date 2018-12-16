@@ -27,18 +27,17 @@ public class Shelf extends FacedBlock{
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		int slot = this.getSlotClicked(state, hitX, hitY, hitZ);
+		System.out.println(String.format("%f : %f : %f, %d", hitX, hitY, hitZ, slot));
 		if(slot == -1)
 			return false;
 		if(!world.isRemote){
 			TileEntity tileentity = world.getTileEntity(pos);
-			if(tileentity instanceof TE_Shelf){
-
+			if(tileentity.hasCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null)){
 
 				IItemHandler invHandler = tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
 				if(player.isSneaking() && player.getHeldItem(hand).isEmpty())
 					player.setHeldItem(hand, invHandler.extractItem(slot, 64, false));
 				else player.setHeldItem(hand, invHandler.insertItem(slot, player.getHeldItem(hand), false));
-
 			}
 		}
 		return true;
@@ -47,13 +46,13 @@ public class Shelf extends FacedBlock{
 	protected int getSlotClicked(IBlockState state, float hitX, float hitY, float hitZ){
 		switch(state.getValue(FACING_HORIZONTAL)){
 		case EAST:
-			return hitX == 1 ? hitY > 0.5 ? hitZ < 0.5 ? 2 : 3 : hitZ > 0.5 ? 0 : 1 : -1;
+			return hitX > 0 ? hitY > 0.5 ? hitZ < 0.5 ? 2 : 3 : hitZ > 0.5 ? 0 : 1 : -1;
 		case NORTH:
-			return hitZ == 0 ? hitX > 0.5 ? hitY > 0.5 ? 2 : 0 : hitY > 0.5 ? 3 : 1 : -1;
+			return hitZ < 1 ? hitX > 0.5 ? hitY > 0.5 ? 2 : 0 : hitY > 0.5 ? 3 : 1 : -1;
 		case SOUTH:
-			return hitZ == 1 ? hitX > 0.5 ? hitY > 0.5 ? 3 : 1 : hitY > 0.5 ? 2 : 0 : -1;
+			return hitZ > 0 ? hitX > 0.5 ? hitY > 0.5 ? 3 : 1 : hitY > 0.5 ? 2 : 0 : -1;
 		case WEST:
-			return hitX == 0 ? hitY > 0.5 ? hitZ < 0.5 ? 2 : 3 : hitZ > 0.5 ? 0 : 1 : -1;
+			return hitX < 1 ? hitY > 0.5 ? hitZ < 0.5 ? 2 : 3 : hitZ > 0.5 ? 0 : 1 : -1;
 		default:
 			return 0;
 		}
