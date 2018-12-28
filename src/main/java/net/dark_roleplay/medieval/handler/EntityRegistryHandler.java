@@ -1,9 +1,6 @@
 package net.dark_roleplay.medieval.handler;
 
-import java.awt.Color;
-
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.objects.entities.Entity_Fox;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -19,13 +16,13 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class EntityRegistryHandler {
 private static int entityID = 0;
 
-	
+
 	@SubscribeEvent
     public static void registerEntities(final RegistryEvent.Register<EntityEntry> event) {
         final IForgeRegistry<EntityEntry> reg = event.getRegistry();
-        
-//        reg.register(createBuilder("wheelbarrel").entity(Wheelbarrel.class).tracker(32, 3, true).build());        
-        reg.register(createBuilder("fox").entity(Entity_Fox.class).tracker(32, 3, true).egg(new Color(255, 100, 0).getRGB(), new Color(200, 200, 200).getRGB()).build());
+
+//        reg.register(createBuilder("wheelbarrel").entity(Wheelbarrel.class).tracker(32, 3, true).build());
+//        reg.register(createBuilder("fox").entity(Entity_Fox.class).tracker(32, 3, true).egg(new Color(255, 100, 0).getRGB(), new Color(200, 200, 200).getRGB()).build());
 //        reg.register(createBuilder("rope_slider").entity(RopeSlider.class).tracker(32, 10, true).build());
 
     }

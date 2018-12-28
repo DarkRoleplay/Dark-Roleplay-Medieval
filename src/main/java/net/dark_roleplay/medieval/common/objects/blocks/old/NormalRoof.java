@@ -29,7 +29,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 
 public class NormalRoof extends FacedBlock {
 
@@ -54,7 +53,7 @@ public class NormalRoof extends FacedBlock {
 	public NormalRoof(String name, BlockSettings settings) {
 		super(name, settings);
 		this.setDefaultState(this.getDefaultState().withProperty(STAIR_TYPE, StairType.STRAIGHT).withProperty(SNOWED, false).withProperty(HAS_TE, false));
-		this.setTickRandomly(true);
+//		this.setTickRandomly(true);
 		this.useNeighborBrightness = true;
 	}
 
@@ -133,19 +132,18 @@ public class NormalRoof extends FacedBlock {
 
 	@Override
 	public void randomTick(World world, BlockPos pos, IBlockState state, Random random){
-//		if(random.nextInt(20) != 1) return;
-
-		if (state.getValue(SNOWED)) return;
-
-		if(!world.isRaining()) return;
-
-		if (!world.canSeeSky(pos.up())) return;
-
-		Biome biome = world.getBiome(pos);
-
-		if (!biome.getEnableSnow() && biome.getTemperature(pos) >= 15) return;
-
-		world.setBlockState(pos, state.withProperty(SNOWED, true), 2);
+//
+//		if (state.getValue(SNOWED)) return;
+//
+//		if(!world.isRaining()) return;
+//
+//		if (!world.canSeeSky(pos.up())) return;
+//
+//		Biome biome = world.getBiome(pos);
+//
+//		if (!biome.getEnableSnow() && biome.getTemperature(pos) >= 15) return;
+//
+//		world.setBlockState(pos, state.withProperty(SNOWED, true), 2);
 	}
 
 	@Override
