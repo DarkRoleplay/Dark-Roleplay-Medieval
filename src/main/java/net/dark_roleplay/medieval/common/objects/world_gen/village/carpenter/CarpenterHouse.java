@@ -24,11 +24,11 @@ import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfessio
 
 public class CarpenterHouse extends StructureVillagePieces.House1{
 
-    private static final ResourceLocation STRUCTURE_RES_LOC = new ResourceLocation(References.MODID, "structure_test_2");
+    private static final ResourceLocation STRUCTURE_RES_LOC = new ResourceLocation(References.MODID, "new_carpenter_house");
 
-    private static final int X_SIZE = 12;
-    private static final int Y_SIZE = 9;
-    private static final int Z_SIZE = 13;
+    private static final int X_SIZE = 9;
+    private static final int Y_SIZE = 10;
+    private static final int Z_SIZE = 14;
 
     private int averageGroundLevel = -1;
 
@@ -56,7 +56,7 @@ public class CarpenterHouse extends StructureVillagePieces.House1{
             this.boundingBox.offset(0, this.averageGroundLevel-this.boundingBox.maxY+Y_SIZE - 2, 0);
         }
 
-        this.fillWithBlocks(world, sbb, 0, 0, 0, X_SIZE-1, Y_SIZE-1, Z_SIZE-1, Blocks.AIR);
+        //this.fillWithBlocks(world, sbb, 0, 0, 0, X_SIZE-1, Y_SIZE-1, Z_SIZE-1, Blocks.AIR);
         this.spawnActualHouse(world, sbb);
 
         for(int i = 0; i < X_SIZE; i++){
@@ -66,7 +66,7 @@ public class CarpenterHouse extends StructureVillagePieces.House1{
             }
         }
 
-        this.spawnVillagers(world, sbb, 1, 0, 1, 1);
+        this.spawnVillagers(world, sbb, 3, 1, 5, 1);
 
         return true;
     }
