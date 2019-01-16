@@ -22,6 +22,7 @@ public class MedievalBlocks {
 
 	//Building
 	public static final Block
-		STONE_BRICK_ARCH			= null;
+		STONE_BRICK_ARCH			= null,
+		DIRT_STAIRS					= null;
 
 }

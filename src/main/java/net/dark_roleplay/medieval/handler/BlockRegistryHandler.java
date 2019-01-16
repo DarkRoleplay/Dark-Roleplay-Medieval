@@ -15,9 +15,9 @@ import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Conta
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_CraftingStation;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.advent_wreath.CandleLighting;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.advent_wreath.CandleParticles;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.chopping_block.ChoppingBlockActivation;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.placing.CeilingRequired;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
+import net.dark_roleplay.medieval.common.objects.blocks.old.DirtStairs;
 import net.dark_roleplay.medieval.common.objects.blocks.special.AdventWreath;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ChoppingBlock;
 import net.minecraft.block.Block;
@@ -60,14 +60,17 @@ public class BlockRegistryHandler {
 					new FacedBlock(mat.getName() + "_chopping_block", Settings.WOOD_DECO)
 						.addBehaviors(
 								new Behavior_CraftingStation(),
-								new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.75f, 0.9375f)),
-								new ChoppingBlockActivation()
+								new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.75f, 0.9375f))
+//								new ChoppingBlockActivation()
 								//new Behavior_CraftingStation()
 						).setTileEntityFactory(TE_ChoppingBlock::new)
 					);
 			}
 		}
 
+		register(reg, MedievalCreativeTabs.BUILDING_MATS,
+			new DirtStairs("dirt_stairs", Settings.STONE_DECO)
+		);
 
 		GameRegistry.registerTileEntity(DynamicStorageTileEntity.class, new ResourceLocation(References.MODID, "te_dynamic_storage"));
 

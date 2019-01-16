@@ -1,11 +1,11 @@
 {
     "forge_marker": 1,
     "defaults": {
-		"model": "cube_column",
+		"model": "drpmedieval:dirt_stairs/dirt_stairs_straight",
         "textures":{
 			"dirt": "minecraft:blocks/dirt",
-			"plank": "drpmedieval:blocks/clean_plank/spruce_clean_plank",
-			"bark": "drpmedieval:blocks/apple_wood/log_apple"
+			"plank": "drpcmmaarg:blocks/clean_planks/clean_planks_spruce",
+			"bark": "drpcmmaarg:blocks/log_side/spruce_log_side"
 		},
         "transform": "forge:default-block"
     },

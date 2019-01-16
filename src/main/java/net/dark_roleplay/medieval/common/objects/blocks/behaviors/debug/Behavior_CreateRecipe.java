@@ -1,15 +1,8 @@
 package net.dark_roleplay.medieval.common.objects.blocks.behaviors.debug;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-import net.dark_roleplay.core.References;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IActivatedBehavior;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -68,28 +61,28 @@ public class Behavior_CreateRecipe implements IActivatedBehavior{
 		obj.add("ingredients", inputArr);
 
 
-		File file = new File(References.FOLDER_RECIPES.getPath() + "/" + output.getItem().getRegistryName().getPath() + ".json");
-		int i = 1;
-		while(file.exists()){
-			file = new File(References.FOLDER_RECIPES.getPath() + "/" + output.getItem().getRegistryName().getPath() + i + ".json");
-			i++;
-		}
+//		File file = new File(References.FOLDER_RECIPES.getPath() + "/" + output.getItem().getRegistryName().getPath() + ".json");
+//		int i = 1;
+//		while(file.exists()){
+//			file = new File(References.FOLDER_RECIPES.getPath() + "/" + output.getItem().getRegistryName().getPath() + i + ".json");
+//			i++;
+//		}
 
-		try {
-			file.createNewFile();
-
-
-
-			System.out.println(obj.toString());
-
-			FileWriter writer = new FileWriter(file);
-		    Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		    gson.toJson(obj, writer);
-		    writer.flush();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			file.createNewFile();
+//
+//
+//
+//			System.out.println(obj.toString());
+//
+//			FileWriter writer = new FileWriter(file);
+//		    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//		    gson.toJson(obj, writer);
+//		    writer.flush();
+//
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 
 	}
 

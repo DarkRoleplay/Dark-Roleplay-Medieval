@@ -3,6 +3,7 @@ package net.dark_roleplay.medieval.client.objects.blocks.tesrs;
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
+import net.dark_roleplay.medieval.common.objects.blocks.blocks.AxisBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FlowerContainer;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FlowerContainer.FlowerData;
 import net.minecraft.block.state.IBlockState;
@@ -27,6 +28,9 @@ public class TESR_Flowers extends TileEntitySpecialRenderer<TE_FlowerContainer>{
 	public final void render(TE_FlowerContainer te, double x, double y, double z, float partialTicks, int destroyStage, float partial) {
 		this.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 
+		IBlockState state = te.getWorld().getBlockState(te.getPos());
+		if(!(state.getBlock() instanceof AxisBlock)) return;
+
 		BlockRendererDispatcher blockrendererdispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
 		BlockModelRenderer renderer = blockrendererdispatcher.getBlockModelRenderer();
 		Tessellator tessellator = Tessellator.getInstance();
@@ -36,8 +40,6 @@ public class TESR_Flowers extends TileEntitySpecialRenderer<TE_FlowerContainer>{
 		FlowerData[] flowers = te.getFlowerData();
 
 		int flowerId = 0;
-
-		IBlockState state = te.getWorld().getBlockState(te.getPos());
 
 		boolean flag = state.getBlock().getRegistryName().getPath().contains("flower");
 		boolean rotate90 = state.getValue(BlockProperties.AXIS_HORIZONTAL) == EnumFacing.Axis.X;
