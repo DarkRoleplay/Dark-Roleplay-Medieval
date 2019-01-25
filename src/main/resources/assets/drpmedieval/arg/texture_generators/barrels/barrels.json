@@ -1,5 +1,6 @@
 {
 	"type":"wood",
+	"version": 0, 
 	"outputs":[
 		"drpmedieval:textures/blocks/barrels/%wood%_barrel_side",
 		"drpmedieval:textures/blocks/barrels/%wood%_barrel_top"
