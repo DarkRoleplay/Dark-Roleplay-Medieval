@@ -56,11 +56,11 @@ public class FacedBlock extends DRPBlock{
 		EnumFacing facing = state.getValue(FACING_HORIZONTAL);
 		switch(mirror) {
 			case FRONT_BACK:
-				if(facing == EnumFacing.NORTH || facing == EnumFacing.SOUTH)
-					facing = facing.getOpposite();
+				if(facing == EnumFacing.EAST || facing == EnumFacing.WEST)
+				facing = facing.getOpposite();
 				break;
 			case LEFT_RIGHT:
-				if(facing == EnumFacing.EAST || facing == EnumFacing.WEST)
+				if(facing == EnumFacing.SOUTH || facing == EnumFacing.NORTH)
 					facing = facing.getOpposite();
 			case NONE:
 			default:

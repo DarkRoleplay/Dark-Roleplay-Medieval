@@ -50,7 +50,6 @@ public class AxisBlock extends DRPBlock{
         return state;
     }
 
-
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] {AXIS_HORIZONTAL});
