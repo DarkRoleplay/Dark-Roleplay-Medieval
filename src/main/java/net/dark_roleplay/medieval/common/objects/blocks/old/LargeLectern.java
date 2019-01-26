@@ -32,6 +32,8 @@ import net.minecraft.network.play.server.SPacketSetSlot;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
@@ -273,4 +275,42 @@ public class LargeLectern extends Block implements LargeBlock{
 		return bbs;
 	}
 
+	@Override
+    public IBlockState withRotation(IBlockState state, Rotation rot){
+		EnumFacing facing = state.getValue(FACING_HORIZONTAL);
+		switch(rot) {
+			case CLOCKWISE_180:
+				facing = facing.rotateY().rotateY();
+				break;
+			case CLOCKWISE_90:
+				facing = facing.rotateY();
+				break;
+			case COUNTERCLOCKWISE_90:
+				facing = facing.rotateYCCW();
+				break;
+			case NONE:
+				break;
+			default:
+				break;
+		}
+        return state.withProperty(FACING_HORIZONTAL, facing);
+    }
+
+	@Override
+	public IBlockState withMirror(IBlockState state, Mirror mirror) {
+		EnumFacing facing = state.getValue(FACING_HORIZONTAL);
+		switch(mirror) {
+			case FRONT_BACK:
+				if(facing == EnumFacing.EAST || facing == EnumFacing.WEST)
+				facing = facing.getOpposite();
+				break;
+			case LEFT_RIGHT:
+				if(facing == EnumFacing.SOUTH || facing == EnumFacing.NORTH)
+					facing = facing.getOpposite();
+			case NONE:
+			default:
+				break;
+		}
+        return state.withProperty(FACING_HORIZONTAL, facing);
+    }
 }

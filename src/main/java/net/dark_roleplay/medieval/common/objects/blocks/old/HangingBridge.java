@@ -24,6 +24,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -220,4 +222,25 @@ public class HangingBridge extends Block {
 			}
 		}
 	}
+
+	@Override
+    public IBlockState withRotation(IBlockState state, Rotation rot){
+		EnumFacing.Axis axis = state.getValue(AXIS_HORIZONTAL);
+		switch(rot) {
+			case CLOCKWISE_90:
+			case COUNTERCLOCKWISE_90:
+				axis = axis == EnumFacing.Axis.X ? EnumFacing.Axis.Z : EnumFacing.Axis.X;
+				break;
+			case CLOCKWISE_180:
+			case NONE:
+			default:
+				break;
+		}
+        return state.withProperty(AXIS_HORIZONTAL, axis);
+    }
+
+	@Override
+	public IBlockState withMirror(IBlockState state, Mirror mirror) {
+        return state;
+    }
 }

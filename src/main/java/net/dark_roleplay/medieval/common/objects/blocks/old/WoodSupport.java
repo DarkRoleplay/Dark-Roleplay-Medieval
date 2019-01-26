@@ -11,6 +11,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Mirror;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -101,7 +102,6 @@ public class WoodSupport extends FacedBlock{
 					state = state.withProperty(TYPE, 1);
 				}
 			}
-			System.out.println(facing.toString() + ": " + hitX + " : " + hitZ);
 		}
 
 		return state;
@@ -141,4 +141,32 @@ public class WoodSupport extends FacedBlock{
 				return bb;
 		}
 	}
+
+	@Override
+	public IBlockState withMirror(IBlockState state, Mirror mirror) {
+		EnumFacing facing = state.getValue(FACING_HORIZONTAL);
+		int type = state.getValue(TYPE);
+		if(type == 0) return state;
+		switch(mirror) {
+			case FRONT_BACK:
+				if(type == 2 || type == 5) {
+					facing = facing.rotateY();
+				}else {
+					if(facing == EnumFacing.EAST || facing == EnumFacing.WEST)
+						facing = facing.getOpposite();
+				}
+				break;
+			case LEFT_RIGHT:
+				if(type == 2 || type == 5) {
+					facing = facing.rotateYCCW();
+				}else {
+					if(facing == EnumFacing.NORTH || facing == EnumFacing.SOUTH)
+						facing = facing.getOpposite();
+				}
+			case NONE:
+			default:
+				break;
+		}
+        return state.withProperty(FACING_HORIZONTAL, facing);
+    }
 }
