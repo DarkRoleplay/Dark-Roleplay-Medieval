@@ -186,6 +186,12 @@ public class ItemRegistryHandler {
         		);
         	}
 
+			if(planksRequired.doesFulfillRequirements(mat))
+				registerItems(reg, MedievalCreativeTabs.MATERIALS,
+					new DRPItem(mat.getNamed("%wood%_barrel_lit"), ResourceFolders.Items.PROCESSED_MATERIALS + "/barrel_lits", 16)
+				);
+
+
 			if(logRequired.doesFulfillRequirements(mat)) {
 				registerItems(reg, MedievalCreativeTabs.MATERIALS,
 					new ItemFirewood(mat.getName() + "_firewood", ResourceFolders.Items.PROCESSED_MATERIALS + "/firewood", 64)

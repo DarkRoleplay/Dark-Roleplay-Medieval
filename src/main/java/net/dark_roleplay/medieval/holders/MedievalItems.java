@@ -83,7 +83,8 @@ public class MedievalItems {
 		SALPETER_ORE_CHUNK		= null,
 		SPINDLE					= null,
 		BARLEY					= null,
-		OAK_FIREWOOD			= null;
+		OAK_FIREWOOD			= null,
+		OAK_BARREL_LIT			= null;
 
 	//BLOCKS
 	public static final Item
