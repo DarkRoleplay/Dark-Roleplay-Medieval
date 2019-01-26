@@ -1,7 +1,7 @@
 {
     "forge_marker": 1,
     "defaults": {
-		"model":"drpmedieval:wood_blocks/simple_chest",
+		"model":"drpmedieval:wood_blocks/simple_chest_full",
         "textures": {
 			"side": "drpmedieval:blocks/chests/simple_%wood%_chest_side",
 			"top": "drpmedieval:blocks/chests/simple_%wood%_chest_top"
