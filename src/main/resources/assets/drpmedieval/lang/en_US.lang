@@ -28,6 +28,8 @@ crafting.category.drpmedieval.simple_carpenter_workbench.decorations.name=Decora
 crafting.category.drpmedieval.simple_carpenter_workbench.crafting_stations.name=Crafting Stations
 crafting.category.drpmedieval.simple_carpenter_workbench.building.name=Bulding Blocks
 
+drpmedieval.item.clock_dial.tooltip=Can be placed onto a %s
+
 item.flint_knife.name=Flint Knife
 item.wood_wrench.name=Wooden Wrench
 item.wood_street_stomper.name=Wooden Street Stomper
