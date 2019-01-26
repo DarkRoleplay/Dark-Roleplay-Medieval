@@ -16,6 +16,9 @@
 		},{
 			"input" : "drpmedieval:arg/models/items/planks.json",
 			"output" : "drpmedieval:models/item/materials/processed_materials/planks/%wood%_planks.json"
+		},{
+			"input" : "drpmedieval:arg/models/item/materials/processed_materials/barrel_lit.json",
+			"output" : "drpmedieval:models/item/materials/processed_materials/barrel_lits/%wood%_barrel_lit.json"
 		}
 	]
 }

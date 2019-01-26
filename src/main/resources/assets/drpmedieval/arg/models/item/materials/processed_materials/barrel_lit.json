@@ -1,0 +1,7 @@
+{
+    "parent": "drpmedieval:item/materials/processed_materials/barrel_lits/barrel_lit",
+    "textures": {
+        "lit": "drpmedieval:blocks/barrels/%wood%_barrel_top",
+		"particle": "drpmedieval:blocks/barrels/%wood%_barrel_top"
+    }
+}
