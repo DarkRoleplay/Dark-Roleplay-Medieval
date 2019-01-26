@@ -20,6 +20,9 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumFacing.Axis;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -132,5 +135,26 @@ public class SimpleTable extends Block{
     	if(side == EnumFacing.UP)
     		return true;
     				return false;
+    }
+
+	@Override
+    public IBlockState withRotation(IBlockState state, Rotation rot){
+		EnumFacing.Axis axis = (Axis) state.getValue(AXIS_HORIZONTAL);
+		switch(rot) {
+			case CLOCKWISE_90:
+			case COUNTERCLOCKWISE_90:
+				axis = axis == EnumFacing.Axis.X ? EnumFacing.Axis.Z : EnumFacing.Axis.X;
+				break;
+			case CLOCKWISE_180:
+			case NONE:
+			default:
+				break;
+		}
+        return state.withProperty(AXIS_HORIZONTAL, axis);
+    }
+
+	@Override
+	public IBlockState withMirror(IBlockState state, Mirror mirror) {
+        return state;
     }
 }

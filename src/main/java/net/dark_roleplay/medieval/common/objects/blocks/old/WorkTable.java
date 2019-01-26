@@ -12,6 +12,8 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -114,5 +116,26 @@ public class WorkTable extends Block{
     	if(side == EnumFacing.UP)
     		return true;
     				return false;
+    }
+
+	@Override
+    public IBlockState withRotation(IBlockState state, Rotation rot){
+		EnumAxis axis = state.getValue(TABLE_AXIS);
+		switch(rot) {
+			case CLOCKWISE_90:
+			case COUNTERCLOCKWISE_90:
+				axis = axis == EnumAxis.X ? EnumAxis.Z : EnumAxis.X;
+				break;
+			case CLOCKWISE_180:
+			case NONE:
+			default:
+				break;
+		}
+        return state.withProperty(TABLE_AXIS, axis);
+    }
+
+	@Override
+	public IBlockState withMirror(IBlockState state, Mirror mirror) {
+        return state;
     }
 }

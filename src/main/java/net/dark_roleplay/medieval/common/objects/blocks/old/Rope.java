@@ -18,6 +18,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -208,4 +210,50 @@ public class Rope extends Block {
 		}
 		return true;
 	}
+
+	@Override
+    public IBlockState withRotation(IBlockState state, Rotation rot){
+		int pos = state.getValue(POSITION);
+		if(pos == 0) return state;
+		pos -= 1;
+		switch(rot) {
+			case CLOCKWISE_180:
+				pos += 2;
+				break;
+			case CLOCKWISE_90:
+				pos += 1;
+				break;
+			case COUNTERCLOCKWISE_90:
+				pos += 3;
+				break;
+			case NONE:
+				break;
+			default:
+				break;
+		}
+		pos %= 4;
+        return state.withProperty(POSITION, pos + 1);
+    }
+
+	@Override
+	public IBlockState withMirror(IBlockState state, Mirror mirror) {
+		int pos  = state.getValue(POSITION);
+		if(pos == 0) return state;
+		pos -= 1;
+		switch(mirror) {
+			case FRONT_BACK:
+				if(pos == 1 || pos == 3)
+					pos += 2;
+				break;
+			case LEFT_RIGHT:
+				if(pos == 0 || pos == 2)
+					pos += 2;
+				break;
+			case NONE:
+			default:
+				break;
+		}
+		pos %= 4;
+        return state.withProperty(POSITION, pos + 1);
+    }
 }
