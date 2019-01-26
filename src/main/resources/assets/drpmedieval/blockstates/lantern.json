@@ -1,0 +1,41 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "forge:multi-layer",
+    "custom": {
+      "base": "drpmedieval:lantern#base_empty",
+      "Solid": "drpmedieval:lantern#base_empty",
+      "Translucent": "drpmedieval:lantern#glass"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal": [{
+		"model": "drpmedieval:lantern/lantern_empty",
+		"custom": {}
+	}],
+    "inventory": [{}],
+    "candle": {
+      "false": {},
+      "true": {
+		"custom": {
+			"base": "drpmedieval:lantern#base_candle",
+			"Solid": "drpmedieval:lantern#base_candle"
+		}
+	  }
+    },
+	"lit": {
+		"false": {},
+		"true": {}
+	},
+    "base_empty": [{
+      "model":"drpmedieval:lantern/lantern_empty_solid"
+    }],
+	"base_candle": [{
+      "model":"drpmedieval:lantern/lantern_solid"
+    }],
+    "glass": [{
+		"model":"drpmedieval:lantern/lantern_translucent"
+    }]
+  }
+}

@@ -32,7 +32,6 @@ import net.dark_roleplay.medieval.client.objects.items.color_handlers.RoofItemCo
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_HangingBridge;
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_RopeFence;
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_Timbering;
-import net.dark_roleplay.medieval.client.objects.model_loaders.MultiLayerModelLoader;
 import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.common.handler.MedievalGuis;
 import net.dark_roleplay.medieval.common.handler.MedievalMappings;
@@ -169,7 +168,6 @@ public class DarkRoleplayMedieval {
 			ModelLoaderRegistry.registerLoader(new DelayedBaker_RopeFence());
 			ModelLoaderRegistry.registerLoader(new CustomBlockstateLoader());
 			ModelLoaderRegistry.registerLoader(new DelayedBaker_Timbering());
-			ModelLoaderRegistry.registerLoader(new MultiLayerModelLoader());
 
 //			RenderingRegistry.<Entity_Fox>registerEntityRenderingHandler(Entity_Fox.class, Render_Fox.FACTORY);
 //			RenderingRegistry.<Wheelbarrel>registerEntityRenderingHandler(Wheelbarrel.class, WheelbarrelRenderer.FACTORY);
