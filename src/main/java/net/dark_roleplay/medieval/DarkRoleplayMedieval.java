@@ -5,6 +5,8 @@ import java.util.HashMap;
 import com.google.common.collect.ImmutableMap;
 
 import net.dark_roleplay.library.sides.IProxy;
+import net.dark_roleplay.medieval.common.objects.barrel.SpecialRendererBarrel;
+import net.dark_roleplay.medieval.common.objects.barrel.TileEntityBarrel;
 import net.dark_roleplay.medieval.handler.MissingMappingRegistryHandler;
 import net.dark_roleplay.medieval.handler.PacketRegistryHandler;
 import net.dark_roleplay.medieval.handler.VillagerRegistryHandler;
@@ -57,12 +59,12 @@ import net.dark_roleplay.medieval.objects.blocks.utility.crafting.chopping_block
 import net.dark_roleplay.medieval.objects.blocks.utility.other.clock_core.SpecialRendererClockCore;
 import net.dark_roleplay.medieval.objects.blocks.utility.other.clock_core.TileEntityClockCore;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_chest.TileEntitySimpleChest;
-import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEntityShelf;
-import net.dark_roleplay.medieval.objects.items.blocks.roofs.ColorHandlerRoofItems;
-import net.dark_roleplay.medieval.objects.items.consumables.tools.paint_brush.ColorHandlerPaintBrush;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.SpecialRendererShelf;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.SpecialRendererWallShelf;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEnittyUniversalShelf;
+import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEntityShelf;
+import net.dark_roleplay.medieval.objects.items.blocks.roofs.ColorHandlerRoofItems;
+import net.dark_roleplay.medieval.objects.items.consumables.tools.paint_brush.ColorHandlerPaintBrush;
 import net.dark_roleplay.medieval.testing.Keybinds;
 import net.dark_roleplay.medieval.testing.blocks.TESR_Banner;
 import net.dark_roleplay.medieval.testing.blocks.TE_Banner;
@@ -185,6 +187,8 @@ public class DarkRoleplayMedieval {
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_Banner.class, new TESR_Banner());
 
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_BuildingScanner.class, new TESR_BuildingScanner());
+
+			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBarrel.class, new SpecialRendererBarrel());
 
 
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySimpleChest.class, new AnimationTESR<TileEntitySimpleChest>(){

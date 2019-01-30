@@ -9,9 +9,12 @@ import net.dark_roleplay.library.experimental.blocks.DRPBlock;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IBoundingBoxBehavior;
 import net.dark_roleplay.library.util.InDevUtil;
 import net.dark_roleplay.medieval.References;
+import net.dark_roleplay.medieval.common.objects.barrel.Barrel;
+import net.dark_roleplay.medieval.common.objects.barrel.ItemBarrel;
+import net.dark_roleplay.medieval.common.objects.barrel.TileEntityBarrel;
 import net.dark_roleplay.medieval.holders.MedievalBlockProperties;
-import net.dark_roleplay.medieval.holders.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.holders.MedievalBlockProperties.Settings;
+import net.dark_roleplay.medieval.holders.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.objects.blocks.building.advanced_ore.AdvancedOre;
 import net.dark_roleplay.medieval.objects.blocks.building.dirt_stairs.DirtStairs;
 import net.dark_roleplay.medieval.objects.blocks.building.double_arch.DoubleArch;
@@ -90,6 +93,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockRenderLayer;
@@ -110,6 +114,12 @@ public class BlockRegistryHandler {
 	private static final MaterialRequirements logRequired = new MaterialRequirements("log_side", "log_top");
 	private static final MaterialRequirements plankRequired = new MaterialRequirements("planks");
 	private static final MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
+
+	private static final IItemPropertyGetter isClosedGetter = (stack, world, entity) -> {
+		if(!stack.hasTagCompound()) return 1F;
+		else if(stack.getTagCompound().hasKey("is_closed")) return stack.getTagCompound().getBoolean("is_closed") ? 1F : 1F;
+		return 1F;
+	};
 
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Block> registryEvent) {
@@ -307,6 +317,16 @@ public class BlockRegistryHandler {
 					new DRPBlock(mat.getName() + "_fluid_barrel", Settings.WOOD_DECO).addBehaviors(new Behavior_FluidFill()).setTileEntityFactory(TileEntityFluidBarrel::new),
 					new SidewayBarrel("laying_" + mat.getName() + "_barrel", Settings.WOOD_DECO) //TODO Update to DRPBlock
 				);
+
+				Block barrel = new Barrel(mat.getName() + "_barrel", Settings.WOOD_DECO, mat).setTileEntityFactory(TileEntityBarrel::new);
+
+				registerNoItems(reg, barrel);
+
+				barrel.setCreativeTab(MedievalCreativeTabs.UTILITY);
+				ItemBarrel itemBlock = (ItemBarrel) new ItemBarrel(barrel).setRegistryName(barrel.getRegistryName());
+
+				ItemRegistryHandler.addBlockItem(itemBlock);
+				ModelRegistryHandler.addItemToRegisterMesh(itemBlock);
 			}
 
 			if(cleanPlankRequired.doesFulfillRequirements(mat)) {

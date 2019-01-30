@@ -52,7 +52,8 @@ public class MedievalBlockProperties {
 
 
 	public static final PropertyBool HAS_TE = PropertyBool.create("has_te");
-	public static final PropertyBool SNOWED = PropertyBool.create("snowed"); //TODO change to SD_CONNECTION
+	public static final PropertyBool SNOWED = PropertyBool.create("snowed");
+	public static final PropertyBool IS_CLOSED = PropertyBool.create("is_closed");
 
 
 

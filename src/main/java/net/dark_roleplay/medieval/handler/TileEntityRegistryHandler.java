@@ -2,6 +2,7 @@ package net.dark_roleplay.medieval.handler;
 
 import net.dark_roleplay.core.api.storage.DynamicStorageTileEntity;
 import net.dark_roleplay.medieval.References;
+import net.dark_roleplay.medieval.common.objects.barrel.TileEntityBarrel;
 import net.dark_roleplay.medieval.objects.blocks.building.roofs.TileEntityRoof;
 import net.dark_roleplay.medieval.objects.blocks.decoration.barrels.TileEntityFluidBarrel;
 import net.dark_roleplay.medieval.objects.blocks.decoration.flower_container.TileEntityFlowerContainer;
@@ -23,8 +24,8 @@ import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityTarget
 import net.dark_roleplay.medieval.objects.blocks.utility.crafting.chopping_block.TileEntityChoppingBlock;
 import net.dark_roleplay.medieval.objects.blocks.utility.other.clock_core.TileEntityClockCore;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_chest.TileEntitySimpleChest;
-import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEntityShelf;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEnittyUniversalShelf;
+import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEntityShelf;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -41,6 +42,7 @@ public class TileEntityRegistryHandler {
 		GameRegistry.registerTileEntity(TileEntityRoof.class, new ResourceLocation(References.MODID, "roof"));
 		GameRegistry.registerTileEntity(DynamicStorageTileEntity.class, new ResourceLocation(References.MODID, "te_dynamic_storage"));
 
+		GameRegistry.registerTileEntity(TileEntityBarrel.class, new ResourceLocation(References.MODID, "barrel"));
 
 		//TODO Look trough this
 		//TODO Finally make new models!
