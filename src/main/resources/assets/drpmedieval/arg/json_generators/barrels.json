@@ -16,6 +16,9 @@
 		},{
 			"input" : "drpmedieval:arg/blockstates/barrels/gunpowder_barrel.json",
 			"output" : "drpmedieval:blockstates/%wood%_gunpowder_barrel.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/barrels/barrel.json",
+			"output" : "drpmedieval:blockstates/%wood%_barrel.json"
 		}
 	]
 }

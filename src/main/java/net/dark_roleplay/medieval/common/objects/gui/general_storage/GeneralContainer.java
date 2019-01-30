@@ -53,7 +53,8 @@ public class GeneralContainer extends Container{
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 		Vec3d playerPos = player.getPositionVector();
-		return this.te.getPos().distanceSqToCenter(playerPos.x, playerPos.y, playerPos.z) < 7D;
+		double distance = this.te.getDistanceSq(playerPos.x, playerPos.y, playerPos.z); //newPos.x * newPos.x + newPos.
+		return distance < 56D;
 	}
 
 	@Override

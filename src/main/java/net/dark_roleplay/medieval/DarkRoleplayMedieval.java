@@ -39,6 +39,8 @@ import net.dark_roleplay.medieval.common.handler.MedievalMappings;
 import net.dark_roleplay.medieval.common.handler.MedievalPackets;
 import net.dark_roleplay.medieval.common.handler.MedievalVillagers;
 import net.dark_roleplay.medieval.common.handler.MedievalWorldGen;
+import net.dark_roleplay.medieval.common.objects.barrel.SpecialRendererBarrel;
+import net.dark_roleplay.medieval.common.objects.barrel.TileEntityBarrel;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.chopping_block.ChoppingBlockActivation;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Banner;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
@@ -183,6 +185,8 @@ public class DarkRoleplayMedieval {
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_Banner.class, new TESR_Banner());
 
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_BuildingScanner.class, new TESR_BuildingScanner());
+
+			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBarrel.class, new SpecialRendererBarrel());
 
 
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_DungeonChest.class, new AnimationTESR<TE_DungeonChest>(){

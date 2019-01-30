@@ -575,5 +575,11 @@
 			"translation":  [ 0, 3, 0 ],
 			"scale":  [ 0.25, 0.25, 0.25 ]
 		}
-	}
+	},
+	"overrides": [{
+		"predicate": {
+			"drpmedieval:is_closed": 0.9
+		},
+		"model":"drpmedieval:block/wood_blocks/closed_barrel"
+	}]
 }

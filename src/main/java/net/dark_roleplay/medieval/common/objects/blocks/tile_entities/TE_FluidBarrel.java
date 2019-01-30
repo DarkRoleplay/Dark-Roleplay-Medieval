@@ -2,7 +2,6 @@ package net.dark_roleplay.medieval.common.objects.blocks.tile_entities;
 
 import javax.annotation.Nullable;
 
-import net.dark_roleplay.medieval.common.objects.other.MultiStackHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -12,35 +11,35 @@ import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
 
 public class TE_FluidBarrel extends TileEntity{
 
 	private FluidTank fluidHandler = new FluidTank(16000){
+		@Override
 		protected void onContentsChanged(){
 			TE_FluidBarrel.this.markDirty();
-	        IBlockState state = world.getBlockState(getPos());
-			world.notifyBlockUpdate(getPos(), state, state, 3);
+	        IBlockState state = TE_FluidBarrel.this.world.getBlockState(TE_FluidBarrel.this.getPos());
+			TE_FluidBarrel.this.world.notifyBlockUpdate(TE_FluidBarrel.this.getPos(), state, state, 3);
 	    }
 	};
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		if (compound.hasKey("fluids")) {
-			fluidHandler.readFromNBT(compound.getCompoundTag("fluids"));
+			this.fluidHandler.readFromNBT(compound.getCompoundTag("fluids"));
 		}
 	}
 
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
-		compound.setTag("fluids", fluidHandler.writeToNBT(new NBTTagCompound()));
+		compound.setTag("fluids", this.fluidHandler.writeToNBT(new NBTTagCompound()));
 		return compound;
 	}
 
 	public boolean canInteractWith(EntityPlayer playerIn) {
-		return !isInvalid() && playerIn.getDistanceSq(pos.add(0.5D, 0.5D, 0.5D)) <= 8D;
+		return !this.isInvalid() && playerIn.getDistanceSq(this.pos.add(0.5D, 0.5D, 0.5D)) <= 8D;
 	}
 
 	@Override
@@ -54,19 +53,19 @@ public class TE_FluidBarrel extends TileEntity{
 	@Override
 	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
 		if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
-			return CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.cast(fluidHandler);
+			return CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.cast(this.fluidHandler);
 		}
 		return super.getCapability(capability, facing);
 	}
-	
+
 	@Override
 	@Nullable
     public SPacketUpdateTileEntity getUpdatePacket(){
         NBTTagCompound nbtTag = new NBTTagCompound();
         this.writeToNBT(nbtTag);
-        return new SPacketUpdateTileEntity(getPos(), 1, nbtTag);
+        return new SPacketUpdateTileEntity(this.getPos(), 1, nbtTag);
     }
-	
+
 	@Override
     public NBTTagCompound getUpdateTag() {
         return this.writeToNBT(new NBTTagCompound());

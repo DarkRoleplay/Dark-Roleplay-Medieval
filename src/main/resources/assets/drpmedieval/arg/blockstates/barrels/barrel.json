@@ -1,0 +1,23 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:wood_blocks/empty_barrel",
+        "textures": {
+			"side": "drpmedieval:blocks/barrels/%wood%_barrel_side",
+			"top": "drpmedieval:blocks/barrels/%wood%_barrel_top"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"normal":[{}],
+		"is_closed":{
+			"true":{
+				"model":"drpmedieval:wood_blocks/closed_barrel"
+			},
+			"false":{
+				"model":"drpmedieval:wood_blocks/empty_barrel"
+			}
+		}
+	}
+}

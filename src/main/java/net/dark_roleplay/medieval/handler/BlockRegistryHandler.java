@@ -9,6 +9,9 @@ import net.dark_roleplay.library.experimental.blocks.behaviors.IBoundingBoxBehav
 import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.handler.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.handler.MedievalModels;
+import net.dark_roleplay.medieval.common.objects.barrel.Barrel;
+import net.dark_roleplay.medieval.common.objects.barrel.ItemBarrel;
+import net.dark_roleplay.medieval.common.objects.barrel.TileEntityBarrel;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.Settings;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Container;
@@ -23,6 +26,7 @@ import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Choppin
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -40,6 +44,12 @@ public class BlockRegistryHandler {
 	private static final MaterialRequirements logRequired = new MaterialRequirements("log_side", "log_top");
 	private static final MaterialRequirements plankRequired = new MaterialRequirements("planks");
 	private static final MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
+
+	private static final IItemPropertyGetter isClosedGetter = (stack, world, entity) -> {
+		if(!stack.hasTagCompound()) return 1F;
+		else if(stack.getTagCompound().hasKey("is_closed")) return stack.getTagCompound().getBoolean("is_closed") ? 1F : 1F;
+		return 1F;
+	};
 
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Block> registryEvent) {
@@ -65,6 +75,18 @@ public class BlockRegistryHandler {
 								//new Behavior_CraftingStation()
 						).setTileEntityFactory(TE_ChoppingBlock::new)
 					);
+			}
+
+			if(plankRequired.doesFulfillRequirements(mat)) {
+				Block barrel = new Barrel(mat.getName() + "_barrel", Settings.WOOD_DECO, mat).setTileEntityFactory(TileEntityBarrel::new);
+
+				registerNoItems(reg, barrel);
+
+				barrel.setCreativeTab(MedievalCreativeTabs.UTILITY);
+				ItemBarrel itemBlock = (ItemBarrel) new ItemBarrel(barrel).setRegistryName(barrel.getRegistryName());
+
+				ItemRegistryHandler.addBlockItem(itemBlock);
+				MedievalModels.addItemToRegisterMesh(itemBlock);
 			}
 		}
 
@@ -106,6 +128,8 @@ public class BlockRegistryHandler {
 				}
 			}.addBehaviors(new CandleLighting(), new CandleParticles(), new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0F, 0F, 0F, 1F, 0.6825F, 1F))) //TODO Make behavior Singleton
 		);
+
+		GameRegistry.registerTileEntity(TileEntityBarrel.class, new ResourceLocation(References.MODID, "barrel"));
 	}
 
 	private static void register(IForgeRegistry<Block> reg, CreativeTabs creativeTab, Block... blocks){

@@ -33,7 +33,7 @@ public class MedievalGuis implements IGuiHandler {
 
 		switch (ID) {
 			case GUI_GENERAL_STORAGE:
-				return new GeneralContainer( te, player.inventory);
+				return new GeneralContainer(te, player.inventory);
 			case GUI_GENERAL_ITEM_STORAGE:
 				return new ItemInventoryContainer(player.getHeldItem(EnumHand.MAIN_HAND), player.inventory);
 			case GUI_SPINNING_WHEEL_PARTS:
