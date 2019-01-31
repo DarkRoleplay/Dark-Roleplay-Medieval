@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import com.google.gson.JsonObject;
 
-import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Roof;
+import net.dark_roleplay.medieval.common.objects.blocks_cleanup.building.roof.SpecialRendererRoof;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.IResourceManager;
@@ -21,10 +21,10 @@ public class CustomBlockstateLoader implements ICustomModelLoader{
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {
 		this.manager = resourceManager;
-		TESR_Roof.north = new HashMap<IBlockState, TextureAtlasSprite>();
-		TESR_Roof.east = new HashMap<IBlockState, TextureAtlasSprite>();
-		TESR_Roof.south = new HashMap<IBlockState, TextureAtlasSprite>();
-		TESR_Roof.west = new HashMap<IBlockState, TextureAtlasSprite>();
+		SpecialRendererRoof.north = new HashMap<IBlockState, TextureAtlasSprite>();
+		SpecialRendererRoof.east = new HashMap<IBlockState, TextureAtlasSprite>();
+		SpecialRendererRoof.south = new HashMap<IBlockState, TextureAtlasSprite>();
+		SpecialRendererRoof.west = new HashMap<IBlockState, TextureAtlasSprite>();
 	}
 
 	@Override

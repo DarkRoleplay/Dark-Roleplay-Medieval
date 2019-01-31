@@ -1,4 +1,4 @@
-package net.dark_roleplay.medieval.client.objects.blocks.tesrs;
+package net.dark_roleplay.medieval.common.objects.blocks_cleanup.building.roof;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +8,6 @@ import java.util.Map;
 import org.apache.commons.lang3.ArrayUtils;
 
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Roof;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
@@ -23,7 +22,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.animation.FastTESR;
 
-public class TESR_Roof extends FastTESR<TE_Roof> {
+public class SpecialRendererRoof extends FastTESR<TileEntityRoof> {
 
 	public static Map<IBlockState, TextureAtlasSprite> north = new HashMap<IBlockState, TextureAtlasSprite>();
 	public static Map<IBlockState, TextureAtlasSprite> east = new HashMap<IBlockState, TextureAtlasSprite>();
@@ -39,7 +38,7 @@ public class TESR_Roof extends FastTESR<TE_Roof> {
 	private BakedRoof model = null;
 
 	@Override
-	public void renderTileEntityFast(TE_Roof te, double x, double y, double z, float partialTicks, int destroyStage, float partial, BufferBuilder buffer) {
+	public void renderTileEntityFast(TileEntityRoof te, double x, double y, double z, float partialTicks, int destroyStage, float partial, BufferBuilder buffer) {
 		try {
 		BlockRendererDispatcher blockRenderDispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
 

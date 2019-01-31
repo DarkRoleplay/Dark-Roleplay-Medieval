@@ -1,4 +1,4 @@
-package net.dark_roleplay.medieval.common.handler;
+package net.dark_roleplay.medieval.handler;
 
 import java.util.ArrayList;
 
@@ -9,6 +9,7 @@ import net.dark_roleplay.library.experimental.connected_model.ConnectedModelLoad
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.library_old.items.ItemUtil;
 import net.dark_roleplay.medieval.References;
+import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.state_mappers.SnowStateMapper;
 import net.dark_roleplay.medieval.holders.MedievalBlocks;
@@ -28,7 +29,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @EventBusSubscriber(modid = References.MODID, value = Side.CLIENT)
-public class MedievalModels {
+public class ModelRegistryHandler {
 
 	static ArrayList<Item> toRegisterMeshes = new ArrayList<Item>();
 
@@ -54,23 +55,23 @@ public class MedievalModels {
 
 		IStateMapper roofMapper = SnowStateMapper.INSTANCE;
 //		IStateMapper test = new StateMap.Builder().
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.CLAY_SHINGLE_ROOF				, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.WHITE_CLAY_SHINGLE_ROOF 			, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.ORANGE_CLAY_SHINGLE_ROOF 		, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.MAGENTA_CLAY_SHINGLE_ROOF 		, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.LIGHT_BLUE_CLAY_SHINGLE_ROOF 	, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.YELLOW_CLAY_SHINGLE_ROOF 		, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.LIGHT_GREEN_CLAY_SHINGLE_ROOF 	, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.PINK_CLAY_SHINGLE_ROOF 			, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.GRAY_CLAY_SHINGLE_ROOF 			, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.LIGHT_GRAY_CLAY_SHINGLE_ROOF 	, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.CYAN_CLAY_SHINGLE_ROOF 			, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.PURPLE_CLAY_SHINGLE_ROOF 		, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.BLUE_CLAY_SHINGLE_ROOF 			, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.BROWN_CLAY_SHINGLE_ROOF 			, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.GREEN_CLAY_SHINGLE_ROOF 			, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.RED_CLAY_SHINGLE_ROOF 			, roofMapper);
-		ModelLoader.setCustomStateMapper(MedievalBlocksOld.BLACK_CLAY_SHINGLE_ROOF 			, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.CLAY_SHINGLE_ROOF				, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.WHITE_CLAY_SHINGLE_ROOF 		, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.ORANGE_CLAY_SHINGLE_ROOF 		, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.MAGENTA_CLAY_SHINGLE_ROOF 	, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.LIGHT_BLUE_CLAY_SHINGLE_ROOF 	, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.YELLOW_CLAY_SHINGLE_ROOF 		, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.LIGHT_GREEN_CLAY_SHINGLE_ROOF , roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.PINK_CLAY_SHINGLE_ROOF 		, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.GRAY_CLAY_SHINGLE_ROOF 		, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.LIGHT_GRAY_CLAY_SHINGLE_ROOF 	, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.CYAN_CLAY_SHINGLE_ROOF 		, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.PURPLE_CLAY_SHINGLE_ROOF 		, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.BLUE_CLAY_SHINGLE_ROOF 		, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.BROWN_CLAY_SHINGLE_ROOF 		, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.GREEN_CLAY_SHINGLE_ROOF 		, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.RED_CLAY_SHINGLE_ROOF 		, roofMapper);
+		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.BLACK_CLAY_SHINGLE_ROOF 		, roofMapper);
 
 		IStateMapper candlesRemover = new StateMap.Builder().ignore(BlockProperties.BURNING_CANDLES).build();
 		ModelLoader.setCustomStateMapper(MedievalBlocks.ADVENT_WREATH, candlesRemover);
@@ -91,7 +92,7 @@ public class MedievalModels {
 		ModelLoader.setCustomModelResourceLocation(MedievalItems.TIMBERED_CLAY, 0, new ModelResourceLocation(MedievalItems.TIMBERED_CLAY.getRegistryName().toString(), "inventory"));
 
 //		ModelLoader.registerItemVariants(LANTERN, new ResourceLocation(References.MODID, "lantern_solid"), new ResourceLocation(References.MODID, "lantern_translucent"));
-		new MedievalModels().registerTables();
+		new ModelRegistryHandler().registerTables();
 	}
 
 	//Special Code to rescue servers cause I am dumb.

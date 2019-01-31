@@ -1,7 +1,5 @@
 package net.dark_roleplay.medieval.common.handler;
 
-import java.util.Random;
-
 import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
 import net.dark_roleplay.core_modules.maarg.api.materials.Material;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
@@ -28,7 +26,6 @@ import net.dark_roleplay.medieval.common.objects.blocks.old.BeesWaxCandle;
 import net.dark_roleplay.medieval.common.objects.blocks.old.ClockDial;
 import net.dark_roleplay.medieval.common.objects.blocks.old.DryClay;
 import net.dark_roleplay.medieval.common.objects.blocks.old.DryClayGrass;
-import net.dark_roleplay.medieval.common.objects.blocks.old.DungeonChest;
 import net.dark_roleplay.medieval.common.objects.blocks.old.Forge;
 import net.dark_roleplay.medieval.common.objects.blocks.old.HangingBridge;
 import net.dark_roleplay.medieval.common.objects.blocks.old.HangingCauldron;
@@ -36,9 +33,6 @@ import net.dark_roleplay.medieval.common.objects.blocks.old.Hops;
 import net.dark_roleplay.medieval.common.objects.blocks.old.JuicePress;
 import net.dark_roleplay.medieval.common.objects.blocks.old.Lantern;
 import net.dark_roleplay.medieval.common.objects.blocks.old.LargeLectern;
-import net.dark_roleplay.medieval.common.objects.blocks.old.LogBench;
-import net.dark_roleplay.medieval.common.objects.blocks.old.MossyLog;
-import net.dark_roleplay.medieval.common.objects.blocks.old.NormalRoof;
 import net.dark_roleplay.medieval.common.objects.blocks.old.Rope;
 import net.dark_roleplay.medieval.common.objects.blocks.old.RopeAnchor;
 import net.dark_roleplay.medieval.common.objects.blocks.old.RopeFence;
@@ -50,21 +44,17 @@ import net.dark_roleplay.medieval.common.objects.blocks.old.SimpleTable;
 import net.dark_roleplay.medieval.common.objects.blocks.old.SolidSimpleTable;
 import net.dark_roleplay.medieval.common.objects.blocks.old.Target;
 import net.dark_roleplay.medieval.common.objects.blocks.old.TimberedClay;
-import net.dark_roleplay.medieval.common.objects.blocks.old.WoodSupport;
-import net.dark_roleplay.medieval.common.objects.blocks.old.WorkTable;
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.EmptyWallMount;
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.LitWallMount;
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.UnlitWallMount;
 import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.WallMounted;
 import net.dark_roleplay.medieval.common.objects.blocks.special.Mushrooms;
-import net.dark_roleplay.medieval.common.objects.blocks.special.SimpleWoodStairs;
 import net.dark_roleplay.medieval.common.objects.blocks.special.WoodenWindow;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ChoppingBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FlowerContainer;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FluidBarrel;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Roof;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Shelf;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ShopSign;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_UniversalShelf;
@@ -83,11 +73,11 @@ import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityRop
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityTarget;
 import net.dark_roleplay.medieval.handler.ItemRegistryHandler;
+import net.dark_roleplay.medieval.handler.ModelRegistryHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -134,25 +124,6 @@ public class MedievalBlocksOld {
 	 IRON_HOOK = null,
 	 BEESWAX_CANDLE = null;
 
-	public static final Block
-		CLAY_SHINGLE_ROOF				= null,
-		WHITE_CLAY_SHINGLE_ROOF 		= null,
-		ORANGE_CLAY_SHINGLE_ROOF 		= null,
-		MAGENTA_CLAY_SHINGLE_ROOF 		= null,
-		LIGHT_BLUE_CLAY_SHINGLE_ROOF 	= null,
-		YELLOW_CLAY_SHINGLE_ROOF 		= null,
-		LIGHT_GREEN_CLAY_SHINGLE_ROOF 	= null,
-		PINK_CLAY_SHINGLE_ROOF 			= null,
-		GRAY_CLAY_SHINGLE_ROOF 			= null,
-		LIGHT_GRAY_CLAY_SHINGLE_ROOF 	= null,
-		CYAN_CLAY_SHINGLE_ROOF 			= null,
-		PURPLE_CLAY_SHINGLE_ROOF 		= null,
-		BLUE_CLAY_SHINGLE_ROOF 			= null,
-		BROWN_CLAY_SHINGLE_ROOF 		= null,
-		GREEN_CLAY_SHINGLE_ROOF 		= null,
-		RED_CLAY_SHINGLE_ROOF 			= null,
-		BLACK_CLAY_SHINGLE_ROOF 		= null;
-
 	public static final EmptyWallMount CANDLE_HOLDER_EMPTY = null;
 	public static final UnlitWallMount CANDLE_HOLDER_UNLIT = null;
 	public static final LitWallMount CANDLE_HOLDER_LIT = null;
@@ -182,41 +153,6 @@ public class MedievalBlocksOld {
 		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
 
 		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
-			if(logRequired.doesFulfillRequirements(mat)) {
-				register(reg, MedievalCreativeTabs.BUILDING_MATS,
-					new MossyLog("mossy_" + mat.getName() + "_log"), //TODO Update to DRPBlock
-					new WoodSupport(mat.getName() + "_wood_support", Settings.WOOD_DECO) //TODO Update to DRPBlock
-				);
-
-				register(reg, MedievalCreativeTabs.DECORATION,
-					new LogBench(mat.getName() + "_log_bench", Settings.WOOD_DECO)
-						.addBehaviors(new Behavior_Chair(0.25F)), //TODO Update to DRPBlock
-					new FacedBlock(mat.getName() + "_log_chair", Settings.WOOD_DECO)
-						.addBehaviors(new Behavior_Chair(0.1875F)),
-					new AxisBlock(mat.getName() + "_firewood_pile", Settings.WOOD_DECO) {
-						@Override public int quantityDropped(Random random){ return 16; }
-					    @Override public Item getItemDropped(IBlockState state, Random rand, int fortune){return Item.getByNameOrId(References.MODID + ":" + mat.getName() + "_firewood"); }
-				    }
-				);
-
-				if(plankRequired.doesFulfillRequirements(mat)) {
-					register(reg, MedievalCreativeTabs.UTILITY,
-						new DungeonChest("simple_" + mat.getName() + "_chest", Settings.WOOD_DECO)
-							.setTileEntityFactory(TE_DungeonChest::new)//TODO Update to DRPBlock
-					);
-				}
-
-				if(cleanPlankRequired.doesFulfillRequirements(mat)) {
-					register(reg, MedievalCreativeTabs.BUILDING_MATS,
-						new SimpleWoodStairs("simple_" + mat.getName() + "_stairs", Settings.WOOD_DECO)
-					);
-
-					register(reg, MedievalCreativeTabs.UTILITY,
-							new WorkTable(mat.getName() + "_work_table") //TODO Update to DRPBlock  //TODO fix Settings
-					);
-				}
-			}
-
 			if(plankRequired.doesFulfillRequirements(mat)) {
 				register(reg, MedievalCreativeTabs.DECORATION,
 					new FacedBlock(mat.getName() + "_barrel_chair", Settings.WOOD_DECO).addBehaviors(new Behavior_Chair(0.3125f)),
@@ -235,7 +171,6 @@ public class MedievalBlocksOld {
 
 				register(reg, MedievalCreativeTabs.BUILDING_MATS,
 					new DRPBlock(mat.getName() + "_clean_plank", Settings.WOOD_SOLID),
-					new NormalRoof(mat.getName() + "_shingle_roof", Settings.WOOD_ROOF),
 					new WoodenWindow(mat.getName() + "_window_cross", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.8125F, 1F, 1F, 0.9375F))),
 					new WoodenWindow(mat.getName() + "_window_vertical", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.8125F, 1F, 1F, 0.9375F))),
 					new WoodenWindow(mat.getName() + "_window_dense_diamond", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.8125F, 1F, 1F, 0.9375F))),
@@ -335,24 +270,6 @@ public class MedievalBlocksOld {
 
 		//Building Blocks Tab
 		register(reg, MedievalCreativeTabs.BUILDING_MATS,
-			new NormalRoof("clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("white_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("orange_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("magenta_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("light_blue_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("yellow_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("light_green_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("pink_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("gray_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("light_gray_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("cyan_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("purple_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("blue_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("brown_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("green_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("red_clay_shingle_roof", Settings.WOOD_ROOF),
-			new NormalRoof("black_clay_shingle_roof", Settings.WOOD_ROOF),
-//			new NormalRoof("clay_shingle_roof", Settings.WOOD_DECO),
 			new DRPBlock("andesite_bricks", Settings.STONE_SOLID),
 			new DRPBlock("diorite_bricks", Settings.STONE_SOLID),
 			new DRPBlock("granite_bricks", Settings.STONE_SOLID),
@@ -433,7 +350,6 @@ public class MedievalBlocksOld {
 		GameRegistry.registerTileEntity(TE_DungeonChest.class, new ResourceLocation(References.MODID, "TileEntityDungeonChest"));
 
 		//New Test Things
-		GameRegistry.registerTileEntity(TE_Roof.class, new ResourceLocation(References.MODID, "tile_entity_roof"));
 		GameRegistry.registerTileEntity(TE_FlowerContainer.class, new ResourceLocation(References.MODID, "flower_container"));
 	}
 
@@ -442,7 +358,7 @@ public class MedievalBlocksOld {
 			block.setCreativeTab(creativeTab);
 			ItemBlock itemBlock = (ItemBlock) new ItemBlock(block).setRegistryName(block.getRegistryName());
 			ItemRegistryHandler.addBlockItem(itemBlock);
-			MedievalModels.addItemToRegisterMesh(itemBlock);
+			ModelRegistryHandler.addItemToRegisterMesh(itemBlock);
 		}
 		reg.registerAll(blocks);
 	}

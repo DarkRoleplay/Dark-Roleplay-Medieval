@@ -1,4 +1,4 @@
-package net.dark_roleplay.medieval.common.objects.blocks.old;
+package net.dark_roleplay.medieval.common.objects.blocks_cleanup.building.roof;
 
 import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING_HORIZONTAL;
 import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.HAS_TE;
@@ -16,21 +16,28 @@ import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.StairType;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Roof;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class NormalRoof extends FacedBlock {
+public class Roof extends FacedBlock {
 
 	protected static final AxisAlignedBB AABB_QTR_TOP_WEST = new AxisAlignedBB(0.0D, 0.5D, 0.0D, 0.5D, 1.0D, 1.0D);
 	protected static final AxisAlignedBB AABB_QTR_TOP_EAST = new AxisAlignedBB(0.5D, 0.5D, 0.0D, 1.0D, 1.0D, 1.0D);
@@ -50,7 +57,7 @@ public class NormalRoof extends FacedBlock {
 	protected static final AxisAlignedBB AABB_OCT_BOT_SW = new AxisAlignedBB(0.0D, 0.0D, 0.5D, 0.5D, 0.5D, 1.0D);
 	protected static final AxisAlignedBB AABB_OCT_BOT_SE = new AxisAlignedBB(0.5D, 0.0D, 0.5D, 1.0D, 0.5D, 1.0D);
 
-	public NormalRoof(String name, BlockSettings settings) {
+	public Roof(String name, BlockSettings settings) {
 		super(name, settings);
 		this.setDefaultState(this.getDefaultState().withProperty(STAIR_TYPE, StairType.STRAIGHT).withProperty(SNOWED, false).withProperty(HAS_TE, false));
 //		this.setTickRandomly(true);
@@ -80,16 +87,16 @@ public class NormalRoof extends FacedBlock {
 		IBlockState otherBlock2 = world.getBlockState(pos.offset(facing.getOpposite()));
 		IBlockState otherBlock3 = world.getBlockState(pos.offset(facing.rotateY()));
 		IBlockState otherBlock4 = world.getBlockState(pos.offset(facing.rotateYCCW()));
-		if (otherBlock.getBlock() instanceof NormalRoof && otherBlock.getValue(FACING_HORIZONTAL) == facing.rotateY()) {
+		if (otherBlock.getBlock() instanceof Roof && otherBlock.getValue(FACING_HORIZONTAL) == facing.rotateY()) {
 			return state.withProperty(STAIR_TYPE, StairType.INNER_LEFT);
-		} else if (otherBlock.getBlock() instanceof NormalRoof
+		} else if (otherBlock.getBlock() instanceof Roof
 				&& otherBlock.getValue(FACING_HORIZONTAL) == facing.rotateYCCW()) {
 			return state.withProperty(STAIR_TYPE, StairType.INNER_RIGHT);
-		} else if (otherBlock2.getBlock() instanceof NormalRoof
-				&& otherBlock2.getValue(FACING_HORIZONTAL) == facing.rotateY() && !(otherBlock3.getBlock() instanceof NormalRoof && otherBlock3.getValue(FACING_HORIZONTAL) == facing)) {
+		} else if (otherBlock2.getBlock() instanceof Roof
+				&& otherBlock2.getValue(FACING_HORIZONTAL) == facing.rotateY() && !(otherBlock3.getBlock() instanceof Roof && otherBlock3.getValue(FACING_HORIZONTAL) == facing)) {
 			return state.withProperty(STAIR_TYPE, StairType.OUTER_LEFT);
-		} else if (otherBlock2.getBlock() instanceof NormalRoof
-				&& otherBlock2.getValue(FACING_HORIZONTAL) == facing.rotateYCCW() && !(otherBlock4.getBlock() instanceof NormalRoof && otherBlock4.getValue(FACING_HORIZONTAL) == facing)) {
+		} else if (otherBlock2.getBlock() instanceof Roof
+				&& otherBlock2.getValue(FACING_HORIZONTAL) == facing.rotateYCCW() && !(otherBlock4.getBlock() instanceof Roof && otherBlock4.getValue(FACING_HORIZONTAL) == facing)) {
 			return state.withProperty(STAIR_TYPE, StairType.OUTER_RIGHT);
 		}
 
@@ -116,7 +123,7 @@ public class NormalRoof extends FacedBlock {
 
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
-		return new TE_Roof();
+		return new TileEntityRoof();
 	}
 
 	@Override
@@ -170,6 +177,28 @@ public class NormalRoof extends FacedBlock {
 //            return i;
 //        }
 //    }
+
+	@Override
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		if(state.getValue(SNOWED) && player.getHeldItem(hand).getItem() instanceof ItemTool) {
+			ItemStack held = player.getHeldItem(hand);
+			ItemTool tool = (ItemTool) held.getItem();
+			if(tool.getToolClasses(held).contains("shovel")) {
+				if(!player.isCreative()) held.damageItem(1, player);
+				world.setBlockState(pos, state.withProperty(SNOWED, false));
+				for(int i = 0; i < 15; i++)
+				world.spawnParticle(EnumParticleTypes.BLOCK_CRACK, pos.getX() + 0.5F, pos.getY() + 0.8F,  pos.getZ() + 0.5F, 0F, 0F, 0F, Block.getStateId(Blocks.SNOW_LAYER.getDefaultState()));
+				world.playSound(null, pos, Blocks.SNOW_LAYER.getSoundType().getBreakSound(), SoundCategory.BLOCKS, 2F, 1F);
+				return true;
+			}
+		}else if(!state.getValue(SNOWED) && player.getHeldItem(hand).getItem() == Item.getItemFromBlock(Blocks.SNOW_LAYER)) {
+			if(!player.isCreative()) player.getHeldItem(hand).shrink(1);
+			world.setBlockState(pos, state.withProperty(SNOWED, true));
+			world.playSound(null, pos, Blocks.SNOW_LAYER.getSoundType().getPlaceSound(), SoundCategory.BLOCKS, 2F, 1F);
+			return true;
+		}
+		return false;
+	}
 
 	private static List<AxisAlignedBB> getCollisionBoxList(IBlockState bstate) {
 		List<AxisAlignedBB> list = Lists.<AxisAlignedBB>newArrayList();

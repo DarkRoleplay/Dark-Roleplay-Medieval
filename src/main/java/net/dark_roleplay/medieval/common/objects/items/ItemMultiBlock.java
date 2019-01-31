@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.objects.items;
 
-import net.dark_roleplay.medieval.common.handler.MedievalModels;
+import net.dark_roleplay.medieval.handler.ModelRegistryHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +17,7 @@ public class ItemMultiBlock extends ItemBlock{
 
 	public ItemMultiBlock(Block block) {
 		super(block);
-		MedievalModels.addItemToRegisterMesh(this);
+		ModelRegistryHandler.addItemToRegisterMesh(this);
 	}
 
 	@SideOnly(Side.CLIENT)

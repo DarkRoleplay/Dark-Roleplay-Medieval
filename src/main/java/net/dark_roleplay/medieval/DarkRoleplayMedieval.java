@@ -11,7 +11,6 @@ import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Banner;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_ClockCore;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Flowers;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_FluidBarrel;
-import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Roof;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_Shelf;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_ShopSign;
 import net.dark_roleplay.medieval.client.objects.blocks.tesrs.TESR_WallShelf;
@@ -44,10 +43,11 @@ import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCo
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FlowerContainer;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FluidBarrel;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Roof;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Shelf;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ShopSign;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_UniversalShelf;
+import net.dark_roleplay.medieval.common.objects.blocks_cleanup.building.roof.SpecialRendererRoof;
+import net.dark_roleplay.medieval.common.objects.blocks_cleanup.building.roof.TileEntityRoof;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityAnvil;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityCauldron;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityChain;
@@ -60,6 +60,7 @@ import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityMor
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityRopeAnchor;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityTarget;
+import net.dark_roleplay.medieval.holders.MedievalBlocks;
 import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.dark_roleplay.medieval.testing.Keybinds;
 import net.dark_roleplay.medieval.testing.blockstate_loading.CustomBlockstateLoader;
@@ -171,7 +172,7 @@ public class DarkRoleplayMedieval {
 
 //			RenderingRegistry.<Entity_Fox>registerEntityRenderingHandler(Entity_Fox.class, Render_Fox.FACTORY);
 //			RenderingRegistry.<Wheelbarrel>registerEntityRenderingHandler(Wheelbarrel.class, WheelbarrelRenderer.FACTORY);
-			ClientRegistry.bindTileEntitySpecialRenderer(TE_Roof.class, new TESR_Roof());
+			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRoof.class, new SpecialRendererRoof());
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_ClockCore.class, new TESR_ClockCore());
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_ShopSign.class, new TESR_ShopSign());
 			ClientRegistry.bindTileEntitySpecialRenderer(TE_Shelf.class, new TESR_Shelf(Minecraft.getMinecraft().getRenderItem()));
@@ -224,40 +225,40 @@ public class DarkRoleplayMedieval {
 
 			Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new SolidColor(),
 //				MedievalBlocks.WHITE_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.ORANGE_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.MAGENTA_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.LIGHT_BLUE_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.YELLOW_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.LIGHT_GREEN_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.PINK_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.GRAY_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.LIGHT_GRAY_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.CYAN_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.PURPLE_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.BLUE_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.BROWN_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.GREEN_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.RED_CLAY_SHINGLE_ROOF,
-				MedievalBlocksOld.BLACK_CLAY_SHINGLE_ROOF
+				MedievalBlocks.Roofs.ORANGE_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.MAGENTA_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.LIGHT_BLUE_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.YELLOW_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.LIGHT_GREEN_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.PINK_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.GRAY_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.LIGHT_GRAY_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.CYAN_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.PURPLE_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.BLUE_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.BROWN_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.GREEN_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.RED_CLAY_SHINGLE_ROOF,
+				MedievalBlocks.Roofs.BLACK_CLAY_SHINGLE_ROOF
 			);
 
 			Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new RoofItemColor(),
 //					MedievalBlocks.WHITE_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.ORANGE_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.MAGENTA_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.LIGHT_BLUE_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.YELLOW_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.LIGHT_GREEN_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.PINK_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.GRAY_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.LIGHT_GRAY_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.CYAN_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.PURPLE_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.BLUE_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.BROWN_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.GREEN_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.RED_CLAY_SHINGLE_ROOF,
-					MedievalBlocksOld.BLACK_CLAY_SHINGLE_ROOF
+					MedievalBlocks.Roofs.ORANGE_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.MAGENTA_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.LIGHT_BLUE_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.YELLOW_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.LIGHT_GREEN_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.PINK_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.GRAY_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.LIGHT_GRAY_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.CYAN_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.PURPLE_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.BLUE_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.BROWN_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.GREEN_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.RED_CLAY_SHINGLE_ROOF,
+					MedievalBlocks.Roofs.BLACK_CLAY_SHINGLE_ROOF
 				);
 		}
 
