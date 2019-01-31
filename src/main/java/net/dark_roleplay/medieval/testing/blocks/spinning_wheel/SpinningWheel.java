@@ -1,9 +1,9 @@
 package net.dark_roleplay.medieval.testing.blocks.spinning_wheel;
 
-import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING_HORIZONTAL;
+import static net.dark_roleplay.medieval.holders.MedievalBlockProperties.FACING_HORIZONTAL;
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
-import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
+import net.dark_roleplay.medieval.objects.blocks.general.FacedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;

@@ -9,83 +9,83 @@ import net.dark_roleplay.library.experimental.blocks.DRPBlock;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IBoundingBoxBehavior;
 import net.dark_roleplay.library.util.InDevUtil;
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
-import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.Settings;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.AxisBoundingBox;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Bell;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_CanPlaceChains;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Chair;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_ClockCore;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Container;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_CraftingStation;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_FlowerContainer;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.FacedBoundingBox;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.advent_wreath.CandleLighting;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.advent_wreath.CandleParticles;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.barrels.Behavior_EmptyBarrel;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.barrels.Behavior_FluidFill;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.placing.CeilingRequired;
-import net.dark_roleplay.medieval.common.objects.blocks.behaviors.stone_arch.StoneArchPlacement;
-import net.dark_roleplay.medieval.common.objects.blocks.blocks.AxisBlock;
-import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
-import net.dark_roleplay.medieval.common.objects.blocks.blocks.PillarBlock;
-import net.dark_roleplay.medieval.common.objects.blocks.old.AdvancedOre;
-import net.dark_roleplay.medieval.common.objects.blocks.old.BeesWaxCandle;
-import net.dark_roleplay.medieval.common.objects.blocks.old.ClockDial;
-import net.dark_roleplay.medieval.common.objects.blocks.old.DirtStairs;
-import net.dark_roleplay.medieval.common.objects.blocks.old.DryClay;
-import net.dark_roleplay.medieval.common.objects.blocks.old.DryClayGrass;
-import net.dark_roleplay.medieval.common.objects.blocks.old.DungeonChest;
-import net.dark_roleplay.medieval.common.objects.blocks.old.Forge;
-import net.dark_roleplay.medieval.common.objects.blocks.old.HangingBridge;
-import net.dark_roleplay.medieval.common.objects.blocks.old.HangingCauldron;
-import net.dark_roleplay.medieval.common.objects.blocks.old.Hops;
-import net.dark_roleplay.medieval.common.objects.blocks.old.JuicePress;
-import net.dark_roleplay.medieval.common.objects.blocks.old.Lantern;
-import net.dark_roleplay.medieval.common.objects.blocks.old.LargeLectern;
-import net.dark_roleplay.medieval.common.objects.blocks.old.LogBench;
-import net.dark_roleplay.medieval.common.objects.blocks.old.MossyLog;
-import net.dark_roleplay.medieval.common.objects.blocks.old.Rope;
-import net.dark_roleplay.medieval.common.objects.blocks.old.RopeAnchor;
-import net.dark_roleplay.medieval.common.objects.blocks.old.RopeFence;
-import net.dark_roleplay.medieval.common.objects.blocks.old.Shelf;
-import net.dark_roleplay.medieval.common.objects.blocks.old.ShopSign;
-import net.dark_roleplay.medieval.common.objects.blocks.old.SidewayBarrel;
-import net.dark_roleplay.medieval.common.objects.blocks.old.SimpleCarpenterWorkbench;
-import net.dark_roleplay.medieval.common.objects.blocks.old.SimpleTable;
-import net.dark_roleplay.medieval.common.objects.blocks.old.SolidSimpleTable;
-import net.dark_roleplay.medieval.common.objects.blocks.old.Target;
-import net.dark_roleplay.medieval.common.objects.blocks.old.TimberedClay;
-import net.dark_roleplay.medieval.common.objects.blocks.old.WoodSupport;
-import net.dark_roleplay.medieval.common.objects.blocks.old.WorkTable;
-import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.EmptyWallMount;
-import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.LitWallMount;
-import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.UnlitWallMount;
-import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.WallMounted;
-import net.dark_roleplay.medieval.common.objects.blocks.special.AdventWreath;
-import net.dark_roleplay.medieval.common.objects.blocks.special.DoubleArch;
-import net.dark_roleplay.medieval.common.objects.blocks.special.Mushrooms;
-import net.dark_roleplay.medieval.common.objects.blocks.special.SimpleWoodStairs;
-import net.dark_roleplay.medieval.common.objects.blocks.special.WoodenWindow;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ChoppingBlock;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FlowerContainer;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FluidBarrel;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Shelf;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ShopSign;
-import net.dark_roleplay.medieval.common.objects.blocks_cleanup.building.roof.Roof;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityAnvil;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityCauldron;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityChain;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityFirepit;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityGrindstone;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityHook;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityKeyHanging;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityMortar;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityShipsWheel;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityTarget;
+import net.dark_roleplay.medieval.holders.MedievalBlockProperties;
 import net.dark_roleplay.medieval.holders.MedievalCreativeTabs;
+import net.dark_roleplay.medieval.holders.MedievalBlockProperties.Settings;
+import net.dark_roleplay.medieval.objects.blocks.building.advanced_ore.AdvancedOre;
+import net.dark_roleplay.medieval.objects.blocks.building.dirt_stairs.DirtStairs;
+import net.dark_roleplay.medieval.objects.blocks.building.double_arch.DoubleArch;
+import net.dark_roleplay.medieval.objects.blocks.building.double_arch.behaviors.StoneArchPlacement;
+import net.dark_roleplay.medieval.objects.blocks.building.dry_clay.DryClay;
+import net.dark_roleplay.medieval.objects.blocks.building.dry_clay.DryClayGrass;
+import net.dark_roleplay.medieval.objects.blocks.building.hanging_bridge.HangingBridge;
+import net.dark_roleplay.medieval.objects.blocks.building.mossy_log.MossyLog;
+import net.dark_roleplay.medieval.objects.blocks.building.roofs.Roof;
+import net.dark_roleplay.medieval.objects.blocks.building.simple_wood_stairs.SimpleWoodStairs;
+import net.dark_roleplay.medieval.objects.blocks.building.timbered_clay.TimberedClay;
+import net.dark_roleplay.medieval.objects.blocks.building.wood_supports.WoodSupport;
+import net.dark_roleplay.medieval.objects.blocks.building.wooden_window.WoodenWindow;
+import net.dark_roleplay.medieval.objects.blocks.decoration.advent_wreath.AdventWreath;
+import net.dark_roleplay.medieval.objects.blocks.decoration.advent_wreath.behaviors.CandleLighting;
+import net.dark_roleplay.medieval.objects.blocks.decoration.advent_wreath.behaviors.CandleParticles;
+import net.dark_roleplay.medieval.objects.blocks.decoration.barrels.SidewayBarrel;
+import net.dark_roleplay.medieval.objects.blocks.decoration.barrels.TileEntityFluidBarrel;
+import net.dark_roleplay.medieval.objects.blocks.decoration.barrels.behaviors.Behavior_EmptyBarrel;
+import net.dark_roleplay.medieval.objects.blocks.decoration.barrels.behaviors.Behavior_FluidFill;
+import net.dark_roleplay.medieval.objects.blocks.decoration.candles.BeesWaxCandle;
+import net.dark_roleplay.medieval.objects.blocks.decoration.clock_dial.ClockDial;
+import net.dark_roleplay.medieval.objects.blocks.decoration.flower_container.TileEntityFlowerContainer;
+import net.dark_roleplay.medieval.objects.blocks.decoration.flower_container.behaviors.FlowerContainer;
+import net.dark_roleplay.medieval.objects.blocks.decoration.lantern.Lantern;
+import net.dark_roleplay.medieval.objects.blocks.decoration.log_bench.LogBench;
+import net.dark_roleplay.medieval.objects.blocks.decoration.rope.Rope;
+import net.dark_roleplay.medieval.objects.blocks.decoration.rope.RopeAnchor;
+import net.dark_roleplay.medieval.objects.blocks.decoration.rope_fence.RopeFence;
+import net.dark_roleplay.medieval.objects.blocks.decoration.shop_signs.ShopSign;
+import net.dark_roleplay.medieval.objects.blocks.decoration.shop_signs.TileEntityShopSign;
+import net.dark_roleplay.medieval.objects.blocks.decoration.tables.simple_table.SimpleTable;
+import net.dark_roleplay.medieval.objects.blocks.decoration.tables.simple_table.SolidSimpleTable;
+import net.dark_roleplay.medieval.objects.blocks.decoration.target.Target;
+import net.dark_roleplay.medieval.objects.blocks.decoration.wall_mounted.EmptyWallMount;
+import net.dark_roleplay.medieval.objects.blocks.decoration.wall_mounted.LitWallMount;
+import net.dark_roleplay.medieval.objects.blocks.decoration.wall_mounted.UnlitWallMount;
+import net.dark_roleplay.medieval.objects.blocks.decoration.wall_mounted.WallMounted;
+import net.dark_roleplay.medieval.objects.blocks.general.AxisBlock;
+import net.dark_roleplay.medieval.objects.blocks.general.FacedBlock;
+import net.dark_roleplay.medieval.objects.blocks.general.PillarBlock;
+import net.dark_roleplay.medieval.objects.blocks.general.behaviors.AxisBoundingBox;
+import net.dark_roleplay.medieval.objects.blocks.general.behaviors.Behavior_Bell;
+import net.dark_roleplay.medieval.objects.blocks.general.behaviors.Behavior_CanPlaceChains;
+import net.dark_roleplay.medieval.objects.blocks.general.behaviors.Behavior_Chair;
+import net.dark_roleplay.medieval.objects.blocks.general.behaviors.Behavior_ClockCore;
+import net.dark_roleplay.medieval.objects.blocks.general.behaviors.Behavior_Container;
+import net.dark_roleplay.medieval.objects.blocks.general.behaviors.Behavior_CraftingStation;
+import net.dark_roleplay.medieval.objects.blocks.general.behaviors.FacedBoundingBox;
+import net.dark_roleplay.medieval.objects.blocks.general.behaviors.placing.CeilingRequired;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityAnvil;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityCauldron;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityChain;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityFirepit;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityGrindstone;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityHook;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityKeyHanging;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityMortar;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityShipsWheel;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityTarget;
+import net.dark_roleplay.medieval.objects.blocks.plants.hops.Hops;
+import net.dark_roleplay.medieval.objects.blocks.plants.mushrooms.Mushrooms;
+import net.dark_roleplay.medieval.objects.blocks.utility.crafting.carpenter_workbench.simple_carpenter_workbench.SimpleCarpenterWorkbench;
+import net.dark_roleplay.medieval.objects.blocks.utility.crafting.cauldron.HangingCauldron;
+import net.dark_roleplay.medieval.objects.blocks.utility.crafting.chopping_block.TileEntityChoppingBlock;
+import net.dark_roleplay.medieval.objects.blocks.utility.crafting.forge.Forge;
+import net.dark_roleplay.medieval.objects.blocks.utility.crafting.juice_press.JuicePress;
+import net.dark_roleplay.medieval.objects.blocks.utility.other.clock_core.TileEntityClockCore;
+import net.dark_roleplay.medieval.objects.blocks.utility.other.lecterns.large_lectern.LargeLectern;
+import net.dark_roleplay.medieval.objects.blocks.utility.other.work_table.WorkTable;
+import net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_chest.SimpleChest;
+import net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_chest.TileEntitySimpleChest;
+import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.Shelf;
+import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEntityShelf;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.IBlockState;
@@ -163,15 +163,10 @@ public class BlockRegistryHandler {
 
 		register(reg, MedievalCreativeTabs.DECORATION,
 			new FacedBlock("minecart_stopper", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.0625f, 0f, 0f, 0.9375, 1f, 0.875f))),
-			new DRPBlock("mistletoe", BlockProperties.Settings.PLANT_DECO) {
+			new DRPBlock("mistletoe", MedievalBlockProperties.Settings.PLANT_DECO) {
 				@Override public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {return NULL_AABB;}
 			}.addBehaviors(CeilingRequired.INSTANCE, new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.25F, 0.1875F, 0.25F, 0.75F, 1.0F, 0.75F))),
-			new AdventWreath("advent_wreath", BlockProperties.Settings.PLANT_DECO) {
-				@Override public int getLightValue(IBlockState state) {
-					int currentLit = state.getValue(BlockProperties.BURNING_CANDLES);
-					return currentLit == 0 ? 0 : 7 + (currentLit * 2);
-				}
-			}.addBehaviors(new CandleLighting(), new CandleParticles(), new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0F, 0F, 0F, 1F, 0.6825F, 1F))) //TODO Make behavior Singleton
+			new AdventWreath("advent_wreath", MedievalBlockProperties.Settings.PLANT_DECO).addBehaviors(new CandleLighting(), new CandleParticles(), new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0F, 0F, 0F, 1F, 0.6825F, 1F))) //TODO Make behavior Singleton
 		);
 
 		register(reg, MedievalCreativeTabs.UTILITY,
@@ -182,7 +177,7 @@ public class BlockRegistryHandler {
 			new FacedBlock("cauldron", Settings.METAL_DECO_TESR).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 1f, 0.9375f)),new Behavior_CraftingStation()).setTileEntityFactory(TileEntityCauldron::new), //TODO fix Settings
 			new FacedBlock("anvil", Settings.METAL_DECO_TESR).addBehaviors(new Behavior_CraftingStation(), new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.1875F, 1F, 1F, 0.8125F))).setTileEntityFactory(TileEntityAnvil::new), //TODO fix Settings
 			new FacedBlock("mortar", Settings.STONE_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.25f, 0f, 0.25f, 0.75f, 0.25f, 0.75f)), new Behavior_CraftingStation()).setTileEntityFactory(TileEntityMortar::new), //TODO fix Settings
-			new FacedBlock("clock_core", Settings.WOOD_DECO).setTileEntityFactory(TE_ClockCore::new).addBehaviors(new Behavior_ClockCore()),
+			new FacedBlock("clock_core", Settings.WOOD_DECO).setTileEntityFactory(TileEntityClockCore::new).addBehaviors(new Behavior_ClockCore()),
 			new FacedBlock("pottery_turntable", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0f, 0f, 0.0625f, 1f, 0.9375f, 0.9375f)), new Behavior_CraftingStation()),
 			new HangingCauldron("hanging_cauldron"), //TODO Update to DRPBlock  //TODO fix Settings
 			new JuicePress("juice_press", Settings.WOOD_DECO).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock  //TODO fix Settings
@@ -212,7 +207,7 @@ public class BlockRegistryHandler {
 			new EmptyWallMount("torch_holder_empty", Settings.METAL_DECO, new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F)), //TODO Update to DRPBlock
 			new LitWallMount("torch_holder_lit", Settings.METAL_DECO, new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F), 0.23D, 0.82D), //TODO Update to DRPBlock
 			new UnlitWallMount("torch_holder_unlit", Settings.METAL_DECO, new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F)), //TODO Update to DRPBlock
-			new ShopSign("wall_shop_sign", Settings.METAL_DECO).setTileEntityFactory(TE_ShopSign::new), //TODO Update to DRPBlock
+			new ShopSign("wall_shop_sign", Settings.METAL_DECO).setTileEntityFactory(TileEntityShopSign::new), //TODO Update to DRPBlock
 			new WallMounted("ships_helm", Settings.WOOD_DECO_TESR, new AxisAlignedBB(0F, 0F, 0.625F, 1F, 1F, 1F)).setTileEntityFactory(TileEntityShipsWheel::new), //TODO Update to DRPBlock
 			new Target("target", Settings.WOOD_DECO_TESR).setTileEntityFactory(TileEntityTarget::new), //TODO Update to DRPBlock
 			new Lantern("lantern", new net.minecraft.block.material.Material(MapColor.IRON), new AxisAlignedBB(0.25F, 0F, 0.25F, 0.75F, 0.5F, 0.75F)), //TODO Update to DRPBlock
@@ -262,8 +257,8 @@ public class BlockRegistryHandler {
 						new DRPBlock(mat.getName() + "_crate", Settings.WOOD_DECO)
 							.addBehaviors(new Behavior_Container())
 							.setTileEntityFactory(() -> new DynamicStorageTileEntity(18)),
-						new DungeonChest("simple_" + mat.getName() + "_chest", Settings.WOOD_DECO)
-							.setTileEntityFactory(TE_DungeonChest::new)//TODO Update to DRPBlock
+						new SimpleChest("simple_" + mat.getName() + "_chest", Settings.WOOD_DECO)
+							.setTileEntityFactory(TileEntitySimpleChest::new)//TODO Update to DRPBlock
 					);
 				}
 
@@ -283,7 +278,7 @@ public class BlockRegistryHandler {
 								new Behavior_CraftingStation(), new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.75f, 0.9375f))
 								//, new ChoppingBlockActivation(), new Behavior_CraftingStation()
 						)
-						.setTileEntityFactory(TE_ChoppingBlock::new)
+						.setTileEntityFactory(TileEntityChoppingBlock::new)
 				);
 
 				register(reg, MedievalCreativeTabs.BUILDING_MATS,
@@ -309,7 +304,7 @@ public class BlockRegistryHandler {
 					new DRPBlock(mat.getName() + "_empty_barrel", Settings.WOOD_DECO).addBehaviors(new Behavior_EmptyBarrel(References.MODID + ":%wood%_fluid_barrel", mat)),
 					new DRPBlock(mat.getName() + "_closed_barrel", Settings.WOOD_DECO),
 					new DRPBlock(mat.getName() + "_gunpowder_barrel", Settings.WOOD_DECO),
-					new DRPBlock(mat.getName() + "_fluid_barrel", Settings.WOOD_DECO).addBehaviors(new Behavior_FluidFill()).setTileEntityFactory(TE_FluidBarrel::new),
+					new DRPBlock(mat.getName() + "_fluid_barrel", Settings.WOOD_DECO).addBehaviors(new Behavior_FluidFill()).setTileEntityFactory(TileEntityFluidBarrel::new),
 					new SidewayBarrel("laying_" + mat.getName() + "_barrel", Settings.WOOD_DECO) //TODO Update to DRPBlock
 				);
 			}
@@ -330,7 +325,7 @@ public class BlockRegistryHandler {
 				);
 
 				register(reg, MedievalCreativeTabs.UTILITY,
-					new Shelf("simple_" + mat.getName() + "_shelf", Settings.WOOD_DECO).setTileEntityFactory(TE_Shelf::new), //TODO Update to DRPBlock
+					new Shelf("simple_" + mat.getName() + "_shelf", Settings.WOOD_DECO).setTileEntityFactory(TileEntityShelf::new), //TODO Update to DRPBlock
 					new LargeLectern("large_" + mat.getName() + "_lectern") //TODO Update to DRPBlock
 				);
 
@@ -338,8 +333,8 @@ public class BlockRegistryHandler {
 					new FacedBlock("simple_plank_" + mat.getName() + "_chair", Settings.WOOD_DECO).addBehaviors(new Behavior_Chair(0.3125F)).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0f, 0.0625f, 0.9375f, 1f, 0.9375f))),
 					new AxisBlock(mat.getName() + "_empty_bucket", Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875F, 0f, 0.21875F, 0.78125f, 0.5625f, 0.78125F))),
 					new AxisBlock(mat.getName() + "_water_bucket", Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875F, 0f, 0.21875F, 0.78125f, 0.5625f, 0.78125F))),
-					new AxisBlock(mat.getName() + "_dirt_bucket", Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875F, 0f, 0.21875F, 0.78125f, 0.5625f, 0.78125F)), new Behavior_FlowerContainer()).setTileEntityFactory(() -> new TE_FlowerContainer(3)),
-					new AxisBlock(mat.getName() + "_flower_pot", Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875f, 0f, 0f, 0.78125f, 0.5625f, 1f)), new Behavior_FlowerContainer()).setTileEntityFactory(() -> new TE_FlowerContainer(3)),
+					new AxisBlock(mat.getName() + "_dirt_bucket", Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875F, 0f, 0.21875F, 0.78125f, 0.5625f, 0.78125F)), new FlowerContainer()).setTileEntityFactory(() -> new TileEntityFlowerContainer(3)),
+					new AxisBlock(mat.getName() + "_flower_pot", Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875f, 0f, 0f, 0.78125f, 0.5625f, 1f)), new FlowerContainer()).setTileEntityFactory(() -> new TileEntityFlowerContainer(3)),
 					solidSimpleTable,
 					plankSimpleTable
 				);

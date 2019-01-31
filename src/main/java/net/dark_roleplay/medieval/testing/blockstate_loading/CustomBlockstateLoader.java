@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import com.google.gson.JsonObject;
 
-import net.dark_roleplay.medieval.common.objects.blocks_cleanup.building.roof.SpecialRendererRoof;
+import net.dark_roleplay.medieval.objects.blocks.building.roofs.SpecialRendererRoof;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.IResourceManager;

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.function.Function;
 
-import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker;
+import net.dark_roleplay.medieval.objects.other.DelayedBaker;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;

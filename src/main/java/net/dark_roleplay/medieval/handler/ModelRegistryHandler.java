@@ -9,10 +9,10 @@ import net.dark_roleplay.library.experimental.connected_model.ConnectedModelLoad
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.library_old.items.ItemUtil;
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
-import net.dark_roleplay.medieval.common.objects.blocks.state_mappers.SnowStateMapper;
+import net.dark_roleplay.medieval.holders.MedievalBlockProperties;
 import net.dark_roleplay.medieval.holders.MedievalBlocks;
 import net.dark_roleplay.medieval.holders.MedievalItems;
+import net.dark_roleplay.medieval.objects.blocks.building.roofs.StateMapperRoofs;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -52,7 +52,7 @@ public class ModelRegistryHandler {
 		registerItemMesh("old_blocks", MedievalBlocks.FIREPIT_LIT);
 		registerItemMesh("blocks", MedievalItems.TIMBERED_CLAY);
 
-		IStateMapper roofMapper = SnowStateMapper.INSTANCE;
+		IStateMapper roofMapper = StateMapperRoofs.INSTANCE;
 //		IStateMapper test = new StateMap.Builder().
 		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.CLAY_SHINGLE_ROOF				, roofMapper);
 		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.WHITE_CLAY_SHINGLE_ROOF 		, roofMapper);
@@ -72,7 +72,7 @@ public class ModelRegistryHandler {
 		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.RED_CLAY_SHINGLE_ROOF 		, roofMapper);
 		ModelLoader.setCustomStateMapper(MedievalBlocks.Roofs.BLACK_CLAY_SHINGLE_ROOF 		, roofMapper);
 
-		IStateMapper candlesRemover = new StateMap.Builder().ignore(BlockProperties.BURNING_CANDLES).build();
+		IStateMapper candlesRemover = new StateMap.Builder().ignore(MedievalBlockProperties.BURNING_CANDLES).build();
 		ModelLoader.setCustomStateMapper(MedievalBlocks.ADVENT_WREATH, candlesRemover);
 
 		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");

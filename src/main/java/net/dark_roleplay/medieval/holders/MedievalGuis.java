@@ -1,10 +1,10 @@
 package net.dark_roleplay.medieval.holders;
 
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ChoppingBlock;
-import net.dark_roleplay.medieval.common.objects.gui.chopping_block.ChoppingBlockContainer;
-import net.dark_roleplay.medieval.common.objects.gui.chopping_block.ChoppingBlockGui;
-import net.dark_roleplay.medieval.common.objects.gui.general_storage.GeneralContainer;
-import net.dark_roleplay.medieval.common.objects.gui.general_storage.GeneralGui;
+import net.dark_roleplay.medieval.objects.blocks.utility.crafting.chopping_block.TileEntityChoppingBlock;
+import net.dark_roleplay.medieval.objects.guis.chopping_block.ContainerChoppingBlock;
+import net.dark_roleplay.medieval.objects.guis.chopping_block.GuiChoppingBlock;
+import net.dark_roleplay.medieval.objects.guis.general_storage.ContainerUniversal;
+import net.dark_roleplay.medieval.objects.guis.general_storage.GuiUniversal;
 import net.dark_roleplay.medieval.testing.blocks.spinning_wheel.ContainerSpinningWheel;
 import net.dark_roleplay.medieval.testing.blocks.spinning_wheel.GuiSpinningWheel;
 import net.dark_roleplay.medieval.testing.blocks.spinning_wheel.SpinningWheelTileEntity;
@@ -33,7 +33,7 @@ public class MedievalGuis implements IGuiHandler {
 
 		switch (ID) {
 			case GUI_GENERAL_STORAGE:
-				return new GeneralContainer( te, player.inventory);
+				return new ContainerUniversal( te, player.inventory);
 			case GUI_GENERAL_ITEM_STORAGE:
 				return new ItemInventoryContainer(player.getHeldItem(EnumHand.MAIN_HAND), player.inventory);
 			case GUI_SPINNING_WHEEL_PARTS:
@@ -41,8 +41,8 @@ public class MedievalGuis implements IGuiHandler {
 					return new ContainerSpinningWheel((SpinningWheelTileEntity) te, player.inventory);
 				return null;
 			case GUI_CHOPPING_BLOCK:
-				if(te instanceof TE_ChoppingBlock)
-					return new ChoppingBlockContainer(te, player.inventory);
+				if(te instanceof TileEntityChoppingBlock)
+					return new ContainerChoppingBlock(te, player.inventory);
 				return null;
 			default:
 				return null;
@@ -55,7 +55,7 @@ public class MedievalGuis implements IGuiHandler {
 
 		switch (ID) {
 			case GUI_GENERAL_STORAGE:
-				return new GeneralGui(new GeneralContainer(te, player.inventory));
+				return new GuiUniversal(new ContainerUniversal(te, player.inventory));
 			case GUI_GENERAL_ITEM_STORAGE:
 				return new PurseGUI(new ItemInventoryContainer(player.getHeldItem(EnumHand.MAIN_HAND), player.inventory));
 			case GUI_SPINNING_WHEEL_PARTS:
@@ -63,8 +63,8 @@ public class MedievalGuis implements IGuiHandler {
 					return new GuiSpinningWheel(new ContainerSpinningWheel((SpinningWheelTileEntity) te, player.inventory));
 				return null;
 			case GUI_CHOPPING_BLOCK:
-				if(te instanceof TE_ChoppingBlock)
-					return new ChoppingBlockGui(new ChoppingBlockContainer(te, player.inventory));
+				if(te instanceof TileEntityChoppingBlock)
+					return new GuiChoppingBlock(new ContainerChoppingBlock(te, player.inventory));
 				return null;
 			default:
 				return null;

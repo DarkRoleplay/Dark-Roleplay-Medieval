@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.handler;
 
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.objects.events.MissingMappings;
+import net.dark_roleplay.medieval.objects.events.MissingMappings;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

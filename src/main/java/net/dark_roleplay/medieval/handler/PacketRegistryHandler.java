@@ -1,8 +1,8 @@
 package net.dark_roleplay.medieval.handler;
 
-import net.dark_roleplay.medieval.common.objects.packets.blocks.SyncPacket_ShopSign;
-import net.dark_roleplay.medieval.common.objects.packets.other.MergeCoins;
 import net.dark_roleplay.medieval.holders.MedievalNetwork;
+import net.dark_roleplay.medieval.objects.packets.blocks.SyncPacket_ShopSign;
+import net.dark_roleplay.medieval.objects.packets.other.MergeCoins;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class PacketRegistryHandler {

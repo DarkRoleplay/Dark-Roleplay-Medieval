@@ -1,11 +1,11 @@
 package net.dark_roleplay.medieval.handler;
 
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.configs.WorldGen;
-import net.dark_roleplay.medieval.common.objects.world_gen.materials.DryClayGenerator;
-import net.dark_roleplay.medieval.common.objects.world_gen.village.carpenter.CarpenterHouse;
-import net.dark_roleplay.medieval.common.objects.world_gen.village.carpenter.VillageHandlerCarpenter;
-import net.dark_roleplay.medieval.old.OreGen;
+import net.dark_roleplay.medieval.holders.configs.WorldGen;
+import net.dark_roleplay.medieval.objects.world_gen.materials.DryClayGenerator;
+import net.dark_roleplay.medieval.objects.world_gen.materials.OreGen;
+import net.dark_roleplay.medieval.objects.world_gen.village.carpenter.CarpenterHouse;
+import net.dark_roleplay.medieval.objects.world_gen.village.carpenter.VillageHandlerCarpenter;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

@@ -10,21 +10,21 @@ import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
 import net.dark_roleplay.library.util.InDevUtil;
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.objects.items.BarkAndGlue;
-import net.dark_roleplay.medieval.common.objects.items.DRPMStew;
-import net.dark_roleplay.medieval.common.objects.items.HangingBridge_Item;
-import net.dark_roleplay.medieval.common.objects.items.ItemFirewood;
-import net.dark_roleplay.medieval.common.objects.items.ItemMultiBlock;
-import net.dark_roleplay.medieval.common.objects.items.consumables.Key;
-import net.dark_roleplay.medieval.common.objects.items.consumables.Lock;
-import net.dark_roleplay.medieval.common.objects.items.consumables.drinks.SpruceTea;
-import net.dark_roleplay.medieval.common.objects.items.tools.FlintKnife;
-import net.dark_roleplay.medieval.common.objects.items.tools.StreetStomper;
-import net.dark_roleplay.medieval.common.objects.items.tools.Telescope;
-import net.dark_roleplay.medieval.common.objects.items.tools.WarHorn;
 import net.dark_roleplay.medieval.holders.MedievalBlocks;
 import net.dark_roleplay.medieval.holders.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.holders.ResourceFolders;
+import net.dark_roleplay.medieval.objects.items.blocks.ItemHangingBridge;
+import net.dark_roleplay.medieval.objects.items.blocks.ItemMultiBlock;
+import net.dark_roleplay.medieval.objects.items.consumables.BarkAndGlue;
+import net.dark_roleplay.medieval.objects.items.consumables.DRPMStew;
+import net.dark_roleplay.medieval.objects.items.consumables.ItemFirewood;
+import net.dark_roleplay.medieval.objects.items.consumables.Key;
+import net.dark_roleplay.medieval.objects.items.consumables.Lock;
+import net.dark_roleplay.medieval.objects.items.consumables.drinks.SpruceTea;
+import net.dark_roleplay.medieval.objects.items.consumables.tools.FlintKnife;
+import net.dark_roleplay.medieval.objects.items.consumables.tools.StreetStomper;
+import net.dark_roleplay.medieval.objects.items.consumables.tools.Telescope;
+import net.dark_roleplay.medieval.objects.items.consumables.tools.WarHorn;
 import net.dark_roleplay.medieval.testing.purse.DRPCoin;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -129,7 +129,7 @@ public class ItemRegistryHandler {
 		);
 
 		registerItems(reg, MedievalCreativeTabs.DECORATION,
-			new HangingBridge_Item("hanging_bridge", ResourceFolders.Items.BLOCKS, 64)
+			new ItemHangingBridge("hanging_bridge", ResourceFolders.Items.BLOCKS, 64)
 		);
 
 

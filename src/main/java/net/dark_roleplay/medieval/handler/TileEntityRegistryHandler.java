@@ -2,29 +2,29 @@ package net.dark_roleplay.medieval.handler;
 
 import net.dark_roleplay.core.api.storage.DynamicStorageTileEntity;
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ChoppingBlock;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FlowerContainer;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FluidBarrel;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Shelf;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ShopSign;
-import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_UniversalShelf;
-import net.dark_roleplay.medieval.common.objects.blocks_cleanup.building.roof.TileEntityRoof;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityAnvil;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityBookOne;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityCauldron;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityChain;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityCrate;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityFirepit;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityGrindstone;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityHangingCauldron;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityHook;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityKeyHanging;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityMortar;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityRopeAnchor;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityShipsWheel;
-import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityTarget;
+import net.dark_roleplay.medieval.objects.blocks.building.roofs.TileEntityRoof;
+import net.dark_roleplay.medieval.objects.blocks.decoration.barrels.TileEntityFluidBarrel;
+import net.dark_roleplay.medieval.objects.blocks.decoration.flower_container.TileEntityFlowerContainer;
+import net.dark_roleplay.medieval.objects.blocks.decoration.shop_signs.TileEntityShopSign;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityAnvil;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityBookOne;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityCauldron;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityChain;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityCrate;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityFirepit;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityGrindstone;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityHangingCauldron;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityHook;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityKeyHanging;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityMortar;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityRopeAnchor;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityShipsWheel;
+import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityTarget;
+import net.dark_roleplay.medieval.objects.blocks.utility.crafting.chopping_block.TileEntityChoppingBlock;
+import net.dark_roleplay.medieval.objects.blocks.utility.other.clock_core.TileEntityClockCore;
+import net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_chest.TileEntitySimpleChest;
+import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEntityShelf;
+import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEnittyUniversalShelf;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -59,20 +59,20 @@ public class TileEntityRegistryHandler {
 		GameRegistry.registerTileEntity(TileEntityFirepit.class, new ResourceLocation(References.MODID, "TileEntityFirepit"));
 
 		//New Storage
-		GameRegistry.registerTileEntity(TE_FluidBarrel.class, new ResourceLocation(References.MODID, "tile_entity_fluid_barrel"));
-		GameRegistry.registerTileEntity(TE_Shelf.class, new ResourceLocation(References.MODID, "te_shelf"));
-		GameRegistry.registerTileEntity(TE_UniversalShelf.class, new ResourceLocation(References.MODID, "te_universal_shelf"));
-		GameRegistry.registerTileEntity(TE_ChoppingBlock.class, new ResourceLocation(References.MODID, "te_chopping_block"));
+		GameRegistry.registerTileEntity(TileEntityFluidBarrel.class, new ResourceLocation(References.MODID, "tile_entity_fluid_barrel"));
+		GameRegistry.registerTileEntity(TileEntityShelf.class, new ResourceLocation(References.MODID, "te_shelf"));
+		GameRegistry.registerTileEntity(TileEnittyUniversalShelf.class, new ResourceLocation(References.MODID, "te_universal_shelf"));
+		GameRegistry.registerTileEntity(TileEntityChoppingBlock.class, new ResourceLocation(References.MODID, "te_chopping_block"));
 
-		GameRegistry.registerTileEntity(TE_ClockCore.class, new ResourceLocation(References.MODID, "te_clock_core"));
-		GameRegistry.registerTileEntity(TE_ShopSign.class, new ResourceLocation(References.MODID,"te_shop_sign"));
+		GameRegistry.registerTileEntity(TileEntityClockCore.class, new ResourceLocation(References.MODID, "te_clock_core"));
+		GameRegistry.registerTileEntity(TileEntityShopSign.class, new ResourceLocation(References.MODID,"te_shop_sign"));
 
 		//Old Storage
 		GameRegistry.registerTileEntity(TileEntityCrate.class, new ResourceLocation(References.MODID, "TilEntityCrate"));
-		GameRegistry.registerTileEntity(TE_DungeonChest.class, new ResourceLocation(References.MODID, "TileEntityDungeonChest"));
+		GameRegistry.registerTileEntity(TileEntitySimpleChest.class, new ResourceLocation(References.MODID, "TileEntityDungeonChest"));
 
 		//New Test Things
-		GameRegistry.registerTileEntity(TE_FlowerContainer.class, new ResourceLocation(References.MODID, "flower_container"));
+		GameRegistry.registerTileEntity(TileEntityFlowerContainer.class, new ResourceLocation(References.MODID, "flower_container"));
 	}
 
 }
