@@ -7,42 +7,101 @@ import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
 import net.dark_roleplay.library.experimental.blocks.DRPBlock;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IBoundingBoxBehavior;
+import net.dark_roleplay.library.util.InDevUtil;
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.handler.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.Settings;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.AxisBoundingBox;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Bell;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_CanPlaceChains;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Chair;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_ClockCore;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_Container;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_CraftingStation;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.Behavior_FlowerContainer;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.FacedBoundingBox;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.advent_wreath.CandleLighting;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.advent_wreath.CandleParticles;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.barrels.Behavior_EmptyBarrel;
+import net.dark_roleplay.medieval.common.objects.blocks.behaviors.barrels.Behavior_FluidFill;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.placing.CeilingRequired;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.stone_arch.StoneArchPlacement;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.AxisBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
+import net.dark_roleplay.medieval.common.objects.blocks.blocks.PillarBlock;
+import net.dark_roleplay.medieval.common.objects.blocks.old.AdvancedOre;
+import net.dark_roleplay.medieval.common.objects.blocks.old.BeesWaxCandle;
+import net.dark_roleplay.medieval.common.objects.blocks.old.ClockDial;
 import net.dark_roleplay.medieval.common.objects.blocks.old.DirtStairs;
+import net.dark_roleplay.medieval.common.objects.blocks.old.DryClay;
+import net.dark_roleplay.medieval.common.objects.blocks.old.DryClayGrass;
 import net.dark_roleplay.medieval.common.objects.blocks.old.DungeonChest;
+import net.dark_roleplay.medieval.common.objects.blocks.old.Forge;
+import net.dark_roleplay.medieval.common.objects.blocks.old.HangingBridge;
+import net.dark_roleplay.medieval.common.objects.blocks.old.HangingCauldron;
+import net.dark_roleplay.medieval.common.objects.blocks.old.Hops;
+import net.dark_roleplay.medieval.common.objects.blocks.old.JuicePress;
+import net.dark_roleplay.medieval.common.objects.blocks.old.Lantern;
+import net.dark_roleplay.medieval.common.objects.blocks.old.LargeLectern;
 import net.dark_roleplay.medieval.common.objects.blocks.old.LogBench;
 import net.dark_roleplay.medieval.common.objects.blocks.old.MossyLog;
+import net.dark_roleplay.medieval.common.objects.blocks.old.Rope;
+import net.dark_roleplay.medieval.common.objects.blocks.old.RopeAnchor;
+import net.dark_roleplay.medieval.common.objects.blocks.old.RopeFence;
+import net.dark_roleplay.medieval.common.objects.blocks.old.Shelf;
+import net.dark_roleplay.medieval.common.objects.blocks.old.ShopSign;
+import net.dark_roleplay.medieval.common.objects.blocks.old.SidewayBarrel;
+import net.dark_roleplay.medieval.common.objects.blocks.old.SimpleCarpenterWorkbench;
+import net.dark_roleplay.medieval.common.objects.blocks.old.SimpleTable;
+import net.dark_roleplay.medieval.common.objects.blocks.old.SolidSimpleTable;
+import net.dark_roleplay.medieval.common.objects.blocks.old.Target;
+import net.dark_roleplay.medieval.common.objects.blocks.old.TimberedClay;
 import net.dark_roleplay.medieval.common.objects.blocks.old.WoodSupport;
 import net.dark_roleplay.medieval.common.objects.blocks.old.WorkTable;
+import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.EmptyWallMount;
+import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.LitWallMount;
+import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.UnlitWallMount;
+import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.WallMounted;
 import net.dark_roleplay.medieval.common.objects.blocks.special.AdventWreath;
 import net.dark_roleplay.medieval.common.objects.blocks.special.DoubleArch;
+import net.dark_roleplay.medieval.common.objects.blocks.special.Mushrooms;
 import net.dark_roleplay.medieval.common.objects.blocks.special.SimpleWoodStairs;
+import net.dark_roleplay.medieval.common.objects.blocks.special.WoodenWindow;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ChoppingBlock;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FlowerContainer;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_FluidBarrel;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Shelf;
+import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ShopSign;
 import net.dark_roleplay.medieval.common.objects.blocks_cleanup.building.roof.Roof;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityAnvil;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityCauldron;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityChain;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityFirepit;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityGrindstone;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityHook;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityKeyHanging;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityMortar;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityShipsWheel;
+import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityTarget;
+import net.dark_roleplay.medieval.holders.MedievalCreativeTabs;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
 @EventBusSubscriber(modid = References.MODID)
@@ -55,6 +114,145 @@ public class BlockRegistryHandler {
 	@SubscribeEvent
 	public static final void register(RegistryEvent.Register<Block> registryEvent) {
 		IForgeRegistry<Block> reg = registryEvent.getRegistry();
+
+		register(reg, MedievalCreativeTabs.BUILDING_MATS,
+			new Roof("clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("white_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("orange_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("magenta_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("light_blue_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("yellow_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("light_green_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("pink_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("gray_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("light_gray_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("cyan_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("purple_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("blue_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("brown_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("green_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("red_clay_shingle_roof", Settings.WOOD_ROOF),
+			new Roof("black_clay_shingle_roof", Settings.WOOD_ROOF),
+			new DirtStairs("dirt_stairs", Settings.STONE_DECO),
+			new DoubleArch("stone_brick_double_arch", Settings.STONE_DECO).addBehaviors(StoneArchPlacement.INSTANCE),
+			new DRPBlock("andesite_bricks", Settings.STONE_SOLID),
+			new DRPBlock("diorite_bricks", Settings.STONE_SOLID),
+			new DRPBlock("granite_bricks", Settings.STONE_SOLID),
+			new PillarBlock("andesite_pillar", Settings.STONE_SOLID),
+			new PillarBlock("diorite_pillar", Settings.STONE_SOLID),
+			new PillarBlock("granite_pillar", Settings.STONE_SOLID),
+			new DRPBlock("snow_bricks", Settings.SNOW_SOLID),
+			new DRPBlock("packed_ice_bricks", Settings.PACKED_ICE),//TODO make slippery
+			new DryClay("dry_clay"), //TODO Update to DRPBlock
+			new DryClayGrass("dry_clay_grass"), //TODO Update to DRPBlock
+			new AdvancedOre("tin_ore", 1), //TODO Update to DRPBlock
+			new AdvancedOre("copper_ore", 1), //TODO Update to DRPBlock
+			new AdvancedOre("salpeter_ore", 1), //TODO Update to DRPBlock
+			new AdvancedOre("sulfur_ore", 1), //TODO Update to DRPBlock
+			new AdvancedOre("silver_ore", 2), //TODO Update to DRPBlock
+			new DRPBlock("obsidian_glass", Settings.OBSIDIAN_GLASS.setBlockRenderLayer(BlockRenderLayer.TRANSLUCENT)) {
+			    @Override
+				@SideOnly(Side.CLIENT)
+			    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side){
+			        IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
+
+			        return blockState != iblockstate;
+			    }
+			}
+		);
+
+		register(reg, MedievalCreativeTabs.DECORATION,
+			new FacedBlock("minecart_stopper", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.0625f, 0f, 0f, 0.9375, 1f, 0.875f))),
+			new DRPBlock("mistletoe", BlockProperties.Settings.PLANT_DECO) {
+				@Override public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {return NULL_AABB;}
+			}.addBehaviors(CeilingRequired.INSTANCE, new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.25F, 0.1875F, 0.25F, 0.75F, 1.0F, 0.75F))),
+			new AdventWreath("advent_wreath", BlockProperties.Settings.PLANT_DECO) {
+				@Override public int getLightValue(IBlockState state) {
+					int currentLit = state.getValue(BlockProperties.BURNING_CANDLES);
+					return currentLit == 0 ? 0 : 7 + (currentLit * 2);
+				}
+			}.addBehaviors(new CandleLighting(), new CandleParticles(), new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0F, 0F, 0F, 1F, 0.6825F, 1F))) //TODO Make behavior Singleton
+		);
+
+		register(reg, MedievalCreativeTabs.UTILITY,
+			new FacedBlock("butter_churn", Settings.WOOD_DECO).addBehaviors(new Behavior_CraftingStation(), new FacedBoundingBox(new AxisAlignedBB(0.4375f, 0f, 0.3125f , 0.8125f, 0.75f, 0.6875f))),
+			new FacedBlock("spinning_wheel", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.3125f, 0f, 0f, 1f, 0.6875f, 1f)), new Behavior_CraftingStation()),
+			new FacedBlock("grindstone", Settings.STONE_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.9375f, 0.9375f)),new Behavior_CraftingStation()).setTileEntityFactory(TileEntityGrindstone::new), //TODO fix Settings
+			new DRPBlock("firepit_lit", Settings.STONE_DECO_TESR).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0f, 0F, 0f, 1f, 0.5f, 1f)),new Behavior_CraftingStation()).setTileEntityFactory(TileEntityFirepit::new), //TODO fix Settings
+			new FacedBlock("cauldron", Settings.METAL_DECO_TESR).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 1f, 0.9375f)),new Behavior_CraftingStation()).setTileEntityFactory(TileEntityCauldron::new), //TODO fix Settings
+			new FacedBlock("anvil", Settings.METAL_DECO_TESR).addBehaviors(new Behavior_CraftingStation(), new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.1875F, 1F, 1F, 0.8125F))).setTileEntityFactory(TileEntityAnvil::new), //TODO fix Settings
+			new FacedBlock("mortar", Settings.STONE_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.25f, 0f, 0.25f, 0.75f, 0.25f, 0.75f)), new Behavior_CraftingStation()).setTileEntityFactory(TileEntityMortar::new), //TODO fix Settings
+			new FacedBlock("clock_core", Settings.WOOD_DECO).setTileEntityFactory(TE_ClockCore::new).addBehaviors(new Behavior_ClockCore()),
+			new FacedBlock("pottery_turntable", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0f, 0f, 0.0625f, 1f, 0.9375f, 0.9375f)), new Behavior_CraftingStation()),
+			new HangingCauldron("hanging_cauldron"), //TODO Update to DRPBlock  //TODO fix Settings
+			new JuicePress("juice_press", Settings.WOOD_DECO).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock  //TODO fix Settings
+		);
+
+		register(reg, MedievalCreativeTabs.DECORATION,
+			new FacedBlock("chain", Settings.METAL_DECO_TESR).setTileEntityFactory(TileEntityChain::new).addBehaviors(new Behavior_CanPlaceChains(), new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.375F, 0F, 0.375F, 0.625F, 1F, 0.625F))),
+			new FacedBlock("iron_hook", Settings.METAL_DECO_TESR).setTileEntityFactory(TileEntityHook::new).addBehaviors(new Behavior_CanPlaceChains(), new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.3125F, 0.375F, 0.3125F, 0.6875F, 1F, 0.6875F))),
+			new FacedBlock("golden_scale", Settings.METAL_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0f, 0f, 0.25f, 1f, 1f, 0.75f))),
+			new FacedBlock("mug_beer", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.3125f, 0f, 0.3125f, 0.6875f, 0.4375f, 0.6875f))),
+			new FacedBlock("mug_empty", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.3125f, 0f, 0.3125f, 0.6875f, 0.4375f, 0.6875f))),
+			new Rope("rope"),
+			new RopeAnchor("rope_anchor"),
+			new WallMounted("key_hanging", Settings.METAL_DECO_TESR, new AxisAlignedBB(0.3125F, 0.125F, 0.8125F, 0.6875F, 0.875F, 1F)).setTileEntityFactory(TileEntityKeyHanging::new),
+			new DRPBlock("unfired_vase", Settings.UNFIRED_POTTERY).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.3125f, 0f, 0.3125f, 0.6875f, 0.59375f, 0.6875f))), //TODO fix Settings
+			new DRPBlock("fired_vase", Settings.FIRED_POTTERY).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.3125f, 0f, 0.3125f, 0.6875f, 0.59375f, 0.6875f))), //TODO fix Settings
+			new Mushrooms("mushroom_brown", Settings.PLANT_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0F, 0F, 0F, 1F, 0.5F, 1F))),
+			new Mushrooms("mushroom_red", Settings.PLANT_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0F, 0F, 0F, 1F, 0.5F, 1F))),
+			new BeesWaxCandle("beeswax_candle"), //TODO Update to DRPBlock //TODO fix Settings
+			new RopeFence("rope_fence"), //TODO Update to DRPBlock //TODO fix Settings
+			new FacedBlock("head_cutting_block", Settings.STONE_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0f, 0f, 0f, 1f, 0.5f, 1f))),
+			new ClockDial("clock_dial", new AxisAlignedBB(0.0F, 0.0F, 0.875F, 1.0, 1.0F, 1.0F)), //TODO Update to DRPBlock
+			new DRPBlock("bee_hive", Settings.PAPER_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.1875f, 0.1875f, 0.1875f, 0.8125f, 1f, 0.8125f))), //TODO Update to DRPBlock
+			new EmptyWallMount("candle_holder_empty", Settings.METAL_DECO, new AxisAlignedBB(0.3125F, 0F, 0.5F, 0.6875F, 0.9375F, 1.0F)), //TODO Update to DRPBlock
+			new LitWallMount("candle_holder_lit", Settings.METAL_DECO, new AxisAlignedBB(0.3125F, 0F, 0.5F, 0.6875F, 0.9375F, 1.0F), 0.19D, 1.05D), //TODO Update to DRPBlock
+			new UnlitWallMount("candle_holder_unlit", Settings.METAL_DECO, new AxisAlignedBB(0.3125F, 0F, 0.5F, 0.6875F, 0.9375F, 1.0F)), //TODO Update to DRPBlock
+			new EmptyWallMount("torch_holder_empty", Settings.METAL_DECO, new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F)), //TODO Update to DRPBlock
+			new LitWallMount("torch_holder_lit", Settings.METAL_DECO, new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F), 0.23D, 0.82D), //TODO Update to DRPBlock
+			new UnlitWallMount("torch_holder_unlit", Settings.METAL_DECO, new AxisAlignedBB(0.375F, 0.2F, 0.75F, 0.625F, 0.8F, 1.0F)), //TODO Update to DRPBlock
+			new ShopSign("wall_shop_sign", Settings.METAL_DECO).setTileEntityFactory(TE_ShopSign::new), //TODO Update to DRPBlock
+			new WallMounted("ships_helm", Settings.WOOD_DECO_TESR, new AxisAlignedBB(0F, 0F, 0.625F, 1F, 1F, 1F)).setTileEntityFactory(TileEntityShipsWheel::new), //TODO Update to DRPBlock
+			new Target("target", Settings.WOOD_DECO_TESR).setTileEntityFactory(TileEntityTarget::new), //TODO Update to DRPBlock
+			new Lantern("lantern", new net.minecraft.block.material.Material(MapColor.IRON), new AxisAlignedBB(0.25F, 0F, 0.25F, 0.75F, 0.5F, 0.75F)), //TODO Update to DRPBlock
+			new FacedBlock("golden_ship_bell", Settings.METAL_DECO).addBehaviors(new Behavior_Bell(), new FacedBoundingBox(new AxisAlignedBB(0.25f, 0f, 0.25f, 0.75f, 1f, 0.75f)))
+		);
+
+		registerNoItems(reg,
+				new Hops("hops"), //TODO Update to DRPBlock
+//				new Barley("barley"), //TODO Update to DRPBlock
+				new HangingBridge("hanging_bridge_bottom" ,0F), //TODO Update to DRPBlock
+				new HangingBridge("hanging_bridge_top" ,0.5F), //TODO Update to DRPBlock
+				new Forge("forge", Settings.METAL_DECO).addBehaviors(new Behavior_CraftingStation()), //TODO Update to DRPBlock  //TODO fix Settings
+				new SimpleCarpenterWorkbench("simple_carpenter_workbench", Settings.WOOD_DECO).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock  //TODO fix Settings
+			);
+
+//		new FacedBlock("long_hanging_banner", Settings.WOOD_DECO_TESR).setTileEntityFactory(TE_Banner::new).addBehaviors(new Behavior_DrawBanner()),
+
+		/**for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
+			if(cleanPlankRequired.doesFulfillRequirements(mat)) {
+				register(reg, MedievalCreativeTabs.UTILITY,
+					new WallShelf(mat.getNamed("double_%wood%_rope_wall_shelf"), Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.5F, 1F, 1F, 1F)))
+					.setTileEntityFactory(() -> {
+						return new TE_UniversalShelf(4, new Vec3d(0.7, 0.22, -0.2), new Vec3d(0.30, 0.22, -0.2), new Vec3d(0.30, 0.71, -0.2), new Vec3d(0.7, 0.71, -0.2));//TODO Update to NORTH
+					})
+				);
+			}
+		}**/
+
+		if(InDevUtil.isDevEnv()) {
+//			reg.register(new TorchOverride());
+//			register(reg, MedievalCreativeTabs.UTILITY,
+//				new SpinningWheel("spinning_wheel2", Settings.WOOD_DECO).setTileEntityFactory(SpinningWheelTileEntity::new).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock
+//			);
+
+//			reg.register(new BuildingScanner());
+//			GameRegistry.registerTileEntity(TE_BuildingScanner.class, new ResourceLocation(References.MODID, "te_building_scanner"));
+//			GameRegistry.registerTileEntity(TileEntity_Lectern.class, new ResourceLocation(References.MODID, "tile_entity_lectern"));
+//			GameRegistry.registerTileEntity(SpinningWheelTileEntity.class, new ResourceLocation(References.MODID, "spinning_wheel"));
+//			GameRegistry.registerTileEntity(TE_Banner.class, new ResourceLocation(References.MODID, "tile_entity_banner"));
+		}
 
 		MaterialRegistry.getMaterialsForType("wood").forEach(mat -> {
 			if(logRequired.doesFulfillRequirements(mat)) {
@@ -89,8 +287,7 @@ public class BlockRegistryHandler {
 				);
 
 				register(reg, MedievalCreativeTabs.BUILDING_MATS,
-					new MossyLog("mossy_" + mat.getName() + "_log"), //TODO Update to DRPBlock
-					new WoodSupport(mat.getName() + "_wood_support", Settings.WOOD_DECO) //TODO Update to DRPBlock
+					new MossyLog("mossy_" + mat.getName() + "_log") //TODO Update to DRPBlock
 				);
 
 				register(reg, MedievalCreativeTabs.DECORATION,
@@ -105,62 +302,71 @@ public class BlockRegistryHandler {
 				);
 			}
 
+			if(plankRequired.doesFulfillRequirements(mat)) {
+				register(reg, MedievalCreativeTabs.DECORATION,
+					new FacedBlock(mat.getName() + "_barrel_chair", Settings.WOOD_DECO).addBehaviors(new Behavior_Chair(0.3125f)),
+					new AxisBlock(mat.getName() + "_barrel_table", Settings.WOOD_DECO),
+					new DRPBlock(mat.getName() + "_empty_barrel", Settings.WOOD_DECO).addBehaviors(new Behavior_EmptyBarrel(References.MODID + ":%wood%_fluid_barrel", mat)),
+					new DRPBlock(mat.getName() + "_closed_barrel", Settings.WOOD_DECO),
+					new DRPBlock(mat.getName() + "_gunpowder_barrel", Settings.WOOD_DECO),
+					new DRPBlock(mat.getName() + "_fluid_barrel", Settings.WOOD_DECO).addBehaviors(new Behavior_FluidFill()).setTileEntityFactory(TE_FluidBarrel::new),
+					new SidewayBarrel("laying_" + mat.getName() + "_barrel", Settings.WOOD_DECO) //TODO Update to DRPBlock
+				);
+			}
+
 			if(cleanPlankRequired.doesFulfillRequirements(mat)) {
+				Block solidSimpleTable = new SolidSimpleTable("simple_solid_" + mat.getName() + "_table"); //TODO Update to DRPBlock
+				Block plankSimpleTable = new SimpleTable("simple_plank_" + mat.getName() + "_table"); //TODO Update to DRPBlock
+
 				register(reg, MedievalCreativeTabs.BUILDING_MATS,
-					new Roof(mat.getName() + "_shingle_roof", Settings.WOOD_ROOF)
+					new Roof(mat.getName() + "_shingle_roof", Settings.WOOD_ROOF),
+					new DRPBlock(mat.getName() + "_clean_plank", Settings.WOOD_SOLID),
+					new WoodenWindow(mat.getName() + "_window_cross", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.8125F, 1F, 1F, 0.9375F))),
+					new WoodenWindow(mat.getName() + "_window_vertical", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.8125F, 1F, 1F, 0.9375F))),
+					new WoodenWindow(mat.getName() + "_window_dense_diamond", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.8125F, 1F, 1F, 0.9375F))),
+					new WoodenWindow(mat.getName() + "_window_dense_vertical", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.8125F, 1F, 1F, 0.9375F))),
+					new WoodenWindow(mat.getName() + "_window_grid", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.8125F, 1F, 1F, 0.9375F))),
+					new WoodSupport(mat.getName() + "_wood_support", Settings.WOOD_DECO) //TODO Update to DRPBlock
 				);
-			}
 
-		});
-
-		register(reg, MedievalCreativeTabs.BUILDING_MATS,
-			new DirtStairs("dirt_stairs", Settings.STONE_DECO),
-			new DoubleArch("stone_brick_double_arch", Settings.STONE_DECO)
-				.addBehaviors(StoneArchPlacement.INSTANCE),
-
-			new Roof("clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("white_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("orange_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("magenta_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("light_blue_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("yellow_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("light_green_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("pink_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("gray_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("light_gray_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("cyan_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("purple_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("blue_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("brown_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("green_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("red_clay_shingle_roof", Settings.WOOD_ROOF),
-			new Roof("black_clay_shingle_roof", Settings.WOOD_ROOF)
-		);
-
-
-		register(reg, MedievalCreativeTabs.DECORATION,
-			new DRPBlock("mistletoe", BlockProperties.Settings.PLANT_DECO) {
-				@Override public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {return NULL_AABB;}
-			}.addBehaviors(CeilingRequired.INSTANCE, new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.25F, 0.1875F, 0.25F, 0.75F, 1.0F, 0.75F))),
-
-			new AdventWreath("advent_wreath", BlockProperties.Settings.PLANT_DECO) {
-				@Override public int getLightValue(IBlockState state) {
-					int currentLit = state.getValue(BlockProperties.BURNING_CANDLES);
-					return currentLit == 0 ? 0 : 7 + (currentLit * 2);
-				}
-			}.addBehaviors(new CandleLighting(), new CandleParticles(), new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0F, 0F, 0F, 1F, 0.6825F, 1F))) //TODO Make behavior Singleton
-		);
-
-		/**for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
-			if(cleanPlankRequired.doesFulfillRequirements(mat)) {
 				register(reg, MedievalCreativeTabs.UTILITY,
-					new WallShelf(mat.getNamed("double_%wood%_rope_wall_shelf"), Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.5F, 1F, 1F, 1F)))
-					.setTileEntityFactory(() -> {
-						return new TE_UniversalShelf(4, new Vec3d(0.7, 0.22, -0.2), new Vec3d(0.30, 0.22, -0.2), new Vec3d(0.30, 0.71, -0.2), new Vec3d(0.7, 0.71, -0.2));//TODO Update to NORTH
-					})
+					new Shelf("simple_" + mat.getName() + "_shelf", Settings.WOOD_DECO).setTileEntityFactory(TE_Shelf::new), //TODO Update to DRPBlock
+					new LargeLectern("large_" + mat.getName() + "_lectern") //TODO Update to DRPBlock
+				);
+
+				register(reg, MedievalCreativeTabs.DECORATION,
+					new FacedBlock("simple_plank_" + mat.getName() + "_chair", Settings.WOOD_DECO).addBehaviors(new Behavior_Chair(0.3125F)).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0f, 0.0625f, 0.9375f, 1f, 0.9375f))),
+					new AxisBlock(mat.getName() + "_empty_bucket", Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875F, 0f, 0.21875F, 0.78125f, 0.5625f, 0.78125F))),
+					new AxisBlock(mat.getName() + "_water_bucket", Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875F, 0f, 0.21875F, 0.78125f, 0.5625f, 0.78125F))),
+					new AxisBlock(mat.getName() + "_dirt_bucket", Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875F, 0f, 0.21875F, 0.78125f, 0.5625f, 0.78125F)), new Behavior_FlowerContainer()).setTileEntityFactory(() -> new TE_FlowerContainer(3)),
+					new AxisBlock(mat.getName() + "_flower_pot", Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875f, 0f, 0f, 0.78125f, 0.5625f, 1f)), new Behavior_FlowerContainer()).setTileEntityFactory(() -> new TE_FlowerContainer(3)),
+					solidSimpleTable,
+					plankSimpleTable
+				);
+
+				registerNoItems(reg,  //TODO Update to DRPBlock
+					new TimberedClay(mat.getName() + "_timbered_clay_clean", 0),
+					new TimberedClay(mat.getName() + "_timbered_clay_diagonal_bt", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_diagonal_tb", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_cross", 2),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_t_bt", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_b_bt", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_t_tb", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_b_tb", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_arrow_b", 2),
+					new TimberedClay(mat.getName() + "_timbered_clay_arrow_t", 2),
+					new TimberedClay(mat.getName() + "_timbered_clay_arrow_r", 2),
+					new TimberedClay(mat.getName() + "_timbered_clay_arrow_l", 2),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_l_lr", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_r_lr", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_l_rl", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_double_diagonal_r_rl", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_vertical", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_horizontal", 1),
+					new TimberedClay(mat.getName() + "_timbered_clay_straight_cross", 1)
 				);
 			}
-		}**/
+		});
 	}
 
 	private static void register(IForgeRegistry<Block> reg, CreativeTabs creativeTab, Block... blocks){

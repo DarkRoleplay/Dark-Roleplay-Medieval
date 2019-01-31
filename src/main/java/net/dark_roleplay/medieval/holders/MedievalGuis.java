@@ -1,4 +1,4 @@
-package net.dark_roleplay.medieval.common.handler;
+package net.dark_roleplay.medieval.holders;
 
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ChoppingBlock;
 import net.dark_roleplay.medieval.common.objects.gui.chopping_block.ChoppingBlockContainer;

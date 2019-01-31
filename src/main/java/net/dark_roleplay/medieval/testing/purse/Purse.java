@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 import net.dark_roleplay.library.capabilities.CapabilityProvider;
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.medieval.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.common.handler.MedievalGuis;
+import net.dark_roleplay.medieval.holders.MedievalGuis;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

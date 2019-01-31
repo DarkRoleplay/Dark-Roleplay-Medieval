@@ -3,9 +3,9 @@ package net.dark_roleplay.medieval.common.objects.events;
 import org.lwjgl.input.Mouse;
 
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.handler.MedievalPackets;
 import net.dark_roleplay.medieval.common.objects.packets.other.MergeCoins;
 import net.dark_roleplay.medieval.holders.MedievalItems;
+import net.dark_roleplay.medieval.holders.MedievalNetwork;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -33,7 +33,7 @@ public class MouseClick {
 				if(ItemStack.areItemStacksEqualUsingNBTShareTag(held, stack)) {
 					if(stack.getCount() == 50) {
 						if(stack.getItem() == MedievalItems.BRONZE_COIN || stack.getItem() == MedievalItems.SILVER_COIN) {
-							MedievalPackets.sendToServer(new MergeCoins(under.getSlotIndex()));
+							MedievalNetwork.sendToServer(new MergeCoins(under.getSlotIndex()));
 							event.setCanceled(true);
 							mc.player.inventory.setItemStack(ItemStack.EMPTY);
 						}

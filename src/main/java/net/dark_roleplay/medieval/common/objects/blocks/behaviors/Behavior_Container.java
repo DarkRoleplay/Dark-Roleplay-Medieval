@@ -4,7 +4,7 @@ import net.dark_roleplay.core.api.storage.DynamicStorageTileEntity;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IActivatedBehavior;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IBreakingBehavior;
 import net.dark_roleplay.medieval.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.common.handler.MedievalGuis;
+import net.dark_roleplay.medieval.holders.MedievalGuis;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;

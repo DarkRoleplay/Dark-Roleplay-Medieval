@@ -2,8 +2,8 @@ package net.dark_roleplay.medieval.common.objects.blocks.old;
 
 import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.FACING_HORIZONTAL;
 
-import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityHangingCauldron;
+import net.dark_roleplay.medieval.holders.MedievalBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -73,6 +73,16 @@ public class HangingCauldron extends BlockContainer {
 		return new BlockStateContainer(this, new IProperty[] {FACING_HORIZONTAL});
 	}
 
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+
 	// -------------------------------------------------- Block Placement --------------------------------------------------
 
 	@Override
@@ -86,14 +96,14 @@ public class HangingCauldron extends BlockContainer {
 	}
 
 	protected boolean canBlockStay(World worldIn, BlockPos pos, EnumFacing facing) {
-		return worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true) || worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(MedievalBlocksOld.IRON_HOOK);
+		return worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true) || worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(MedievalBlocks.IRON_HOOK);
 	}
 
 	// -------------------------------------------------- Block Events --------------------------------------------------
 	@Override
 	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
 
-		if(!worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(MedievalBlocksOld.IRON_HOOK)) return Blocks.AIR.getDefaultState();
+		if(!worldIn.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP, true) && !worldIn.getBlockState(pos.offset(EnumFacing.UP)).getBlock().equals(MedievalBlocks.IRON_HOOK)) return Blocks.AIR.getDefaultState();
 		EntityPlayer entity = (EntityPlayer) placer;
 		if(entity != null){
 			int dir = MathHelper.floor(entity.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;

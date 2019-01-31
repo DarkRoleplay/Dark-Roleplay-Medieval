@@ -1,4 +1,4 @@
-package net.dark_roleplay.medieval.common.handler;
+package net.dark_roleplay.medieval.handler;
 
 import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.objects.events.MissingMappings;
@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
-public class MedievalMappings {
+public class MissingMappingRegistryHandler {
 
 	public static final void init(FMLInitializationEvent event) {
 //		registerMapping(Blocks.STONE, "minecart_stopper");

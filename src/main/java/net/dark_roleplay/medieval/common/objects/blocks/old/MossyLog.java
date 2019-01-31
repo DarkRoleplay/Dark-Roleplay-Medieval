@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old;
 
-import net.dark_roleplay.medieval.common.handler.MedievalCreativeTabs;
+import net.dark_roleplay.medieval.holders.MedievalCreativeTabs;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;

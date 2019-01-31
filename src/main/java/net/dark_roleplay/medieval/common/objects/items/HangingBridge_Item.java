@@ -1,9 +1,9 @@
 package net.dark_roleplay.medieval.common.objects.items;
 
 import net.dark_roleplay.library_old.items.DRPItem;
-import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.old.HangingBridge;
+import net.dark_roleplay.medieval.holders.MedievalBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -143,17 +143,17 @@ public class HangingBridge_Item extends DRPItem{
 						placePos = posZ1 > posZ2 ? pos2.add(0,-Math.abs(drop / 16),i) : pos.add(0, -Math.abs(drop / 16),i);
 
 						if(((drop % 16) / 8) == 0){
-							world.setBlockState(placePos, state = MedievalBlocksOld.HANGING_BRIDGE_TOP.getDefaultState().withProperty(BlockProperties.AXIS_HORIZONTAL, EnumFacing.Axis.X).withProperty(HangingBridge.HEIGHT, 7 - Math.abs(drop % 8)));
+							world.setBlockState(placePos, state = MedievalBlocks.HANGING_BRIDGE_TOP.getDefaultState().withProperty(BlockProperties.AXIS_HORIZONTAL, EnumFacing.Axis.X).withProperty(HangingBridge.HEIGHT, 7 - Math.abs(drop % 8)));
 						}else{
-							world.setBlockState(placePos, state = MedievalBlocksOld.HANGING_BRIDGE_BOTTOM.getDefaultState().withProperty(BlockProperties.AXIS_HORIZONTAL, EnumFacing.Axis.X).withProperty(HangingBridge.HEIGHT, 7 - Math.abs(drop % 8)));
+							world.setBlockState(placePos, state = MedievalBlocks.HANGING_BRIDGE_BOTTOM.getDefaultState().withProperty(BlockProperties.AXIS_HORIZONTAL, EnumFacing.Axis.X).withProperty(HangingBridge.HEIGHT, 7 - Math.abs(drop % 8)));
 						}
 						world.markAndNotifyBlock(placePos, world.getChunk(placePos), world.getBlockState(placePos), state, 3);
 					}else{
 						placePos = posX1 > posX2 ? pos2.add(i,-Math.abs(drop / 16),0) : pos.add(i, -Math.abs(drop / 16),0);
 						if(((drop % 16) / 8) == 0){
-							world.setBlockState(placePos, state =  MedievalBlocksOld.HANGING_BRIDGE_TOP.getDefaultState().withProperty(BlockProperties.AXIS_HORIZONTAL, EnumFacing.Axis.Z).withProperty(HangingBridge.HEIGHT, 7 - Math.abs(drop % 8)));
+							world.setBlockState(placePos, state =  MedievalBlocks.HANGING_BRIDGE_TOP.getDefaultState().withProperty(BlockProperties.AXIS_HORIZONTAL, EnumFacing.Axis.Z).withProperty(HangingBridge.HEIGHT, 7 - Math.abs(drop % 8)));
 						}else{
-							world.setBlockState(placePos, state =  MedievalBlocksOld.HANGING_BRIDGE_BOTTOM.getDefaultState().withProperty(BlockProperties.AXIS_HORIZONTAL, EnumFacing.Axis.Z).withProperty(HangingBridge.HEIGHT, 7 - Math.abs(drop % 8)));
+							world.setBlockState(placePos, state =  MedievalBlocks.HANGING_BRIDGE_BOTTOM.getDefaultState().withProperty(BlockProperties.AXIS_HORIZONTAL, EnumFacing.Axis.Z).withProperty(HangingBridge.HEIGHT, 7 - Math.abs(drop % 8)));
 						}
 						world.markAndNotifyBlock(placePos, world.getChunk(placePos), world.getBlockState(placePos), state, 3);
 					}

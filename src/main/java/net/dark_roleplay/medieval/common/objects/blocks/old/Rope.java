@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old;
 
-import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
+import net.dark_roleplay.medieval.holders.MedievalBlocks;
 import net.dark_roleplay.medieval.old.RopeFixPoint;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -171,10 +171,10 @@ public class Rope extends Block {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
 		if (player.getHeldItem(hand) != null) {
-			if (player.getHeldItem(hand).getItem().equals(Item.getItemFromBlock(MedievalBlocksOld.ROPE))) {
+			if (player.getHeldItem(hand).getItem().equals(Item.getItemFromBlock(MedievalBlocks.ROPE))) {
 				for (int i = pos.getY() - 1; i > 0; i--) {
 					BlockPos pos2 = new BlockPos(pos.getX(), pos.getY() - (pos.getY() - i), pos.getZ());
-					if (world.getBlockState(pos2).getBlock().equals(MedievalBlocksOld.ROPE)) {
+					if (world.getBlockState(pos2).getBlock().equals(MedievalBlocks.ROPE)) {
 						continue;
 					} else if (world.getBlockState(pos2).getBlock().equals(Blocks.AIR)) {
 						if (!world.isRemote) {
@@ -192,7 +192,7 @@ public class Rope extends Block {
 				if (player.isSneaking()) {
 					for (int i = pos.getY() - 1; i > 0; i--) {
 						BlockPos pos2 = new BlockPos(pos.getX(), pos.getY() - (pos.getY() - i), pos.getZ());
-						if (world.getBlockState(pos2).getBlock().equals(MedievalBlocksOld.ROPE)) {
+						if (world.getBlockState(pos2).getBlock().equals(MedievalBlocks.ROPE)) {
 							continue;
 						} else {
 							if (!world.isRemote) {
@@ -200,7 +200,7 @@ public class Rope extends Block {
 								world.setBlockState(pos3, Blocks.AIR.getDefaultState());
 								if (!world.isRemote)
 									world.spawnEntity(new EntityItem(world, player.posX, player.posY, player.posZ,
-											new ItemStack(MedievalBlocksOld.ROPE, 1)));
+											new ItemStack(MedievalBlocks.ROPE, 1)));
 							}
 							return true;
 						}

@@ -5,10 +5,10 @@ import static net.dark_roleplay.medieval.common.objects.blocks.BlockProperties.I
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.medieval.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.common.handler.MedievalGuis;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.blocks.FacedBlock;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
+import net.dark_roleplay.medieval.holders.MedievalGuis;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;

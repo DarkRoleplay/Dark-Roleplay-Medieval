@@ -1,4 +1,4 @@
-package net.dark_roleplay.medieval.common.handler;
+package net.dark_roleplay.medieval.handler;
 
 import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.common.configs.WorldGen;
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.VillagerRegistry;
 
-public class MedievalWorldGen {
+public class WorldGenRegistryHandler {
 
 	public static void init(FMLPreInitializationEvent event) {
 		if(WorldGen.GENERATE_VILLAGE_BUILDINGS) {

@@ -31,13 +31,11 @@ import net.dark_roleplay.medieval.client.objects.items.color_handlers.RoofItemCo
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_HangingBridge;
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_RopeFence;
 import net.dark_roleplay.medieval.client.objects.model_loaders.DelayedBaker_Timbering;
-import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
-import net.dark_roleplay.medieval.common.handler.MedievalGuis;
-import net.dark_roleplay.medieval.common.handler.MedievalMappings;
-import net.dark_roleplay.medieval.common.handler.MedievalPackets;
-import net.dark_roleplay.medieval.common.handler.MedievalVillagers;
-import net.dark_roleplay.medieval.common.handler.MedievalWorldGen;
 import net.dark_roleplay.medieval.common.objects.blocks.behaviors.chopping_block.ChoppingBlockActivation;
+import net.dark_roleplay.medieval.common.objects.blocks.old.AdvancedOre;
+import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.EmptyWallMount;
+import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.LitWallMount;
+import net.dark_roleplay.medieval.common.objects.blocks.old.wall_mounted.UnlitWallMount;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_Banner;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_ClockCore;
 import net.dark_roleplay.medieval.common.objects.blocks.tile_entities.TE_DungeonChest;
@@ -60,7 +58,12 @@ import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityMor
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityRopeAnchor;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityTarget;
+import net.dark_roleplay.medieval.handler.MissingMappingRegistryHandler;
+import net.dark_roleplay.medieval.handler.PacketRegistryHandler;
+import net.dark_roleplay.medieval.handler.VillagerRegistryHandler;
+import net.dark_roleplay.medieval.handler.WorldGenRegistryHandler;
 import net.dark_roleplay.medieval.holders.MedievalBlocks;
+import net.dark_roleplay.medieval.holders.MedievalGuis;
 import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.dark_roleplay.medieval.testing.Keybinds;
 import net.dark_roleplay.medieval.testing.blockstate_loading.CustomBlockstateLoader;
@@ -108,7 +111,7 @@ public class DarkRoleplayMedieval {
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
 		SIDE = event.getSide();
-		MedievalWorldGen.init(event);
+		WorldGenRegistryHandler.init(event);
 		NetworkRegistry.INSTANCE.registerGuiHandler(DarkRoleplayMedieval.INSTANCE, new MedievalGuis());
 		proxy.preInit(event);
 	}
@@ -119,23 +122,23 @@ public class DarkRoleplayMedieval {
 		ChoppingBlockActivation.firewoodRecipes = new HashMap<ItemStack, ItemStack>();
 
 
-		MedievalVillagers.init(event);
-		MedievalMappings.init(event);
-		MedievalPackets.init();
+		VillagerRegistryHandler.init(event);
+		MissingMappingRegistryHandler.init(event);
+		PacketRegistryHandler.init();
 		proxy.init(event);
 
-		MedievalBlocksOld.CANDLE_HOLDER_UNLIT.init(MedievalBlocksOld.CANDLE_HOLDER_LIT, Item.getItemFromBlock(MedievalBlocksOld.BEESWAX_CANDLE));;
-		MedievalBlocksOld.CANDLE_HOLDER_LIT.init(MedievalBlocksOld.CANDLE_HOLDER_UNLIT, Item.getItemFromBlock(MedievalBlocksOld.BEESWAX_CANDLE));
-		MedievalBlocksOld.TORCH_HOLDER_UNLIT.init(MedievalBlocksOld.TORCH_HOLDER_LIT, Item.getItemFromBlock(Blocks.TORCH));
-		MedievalBlocksOld.TORCH_HOLDER_LIT.init(MedievalBlocksOld.TORCH_HOLDER_UNLIT, Item.getItemFromBlock(Blocks.TORCH));
-		MedievalBlocksOld.CANDLE_HOLDER_EMPTY.init(MedievalBlocksOld.CANDLE_HOLDER_UNLIT, Item.getItemFromBlock(MedievalBlocksOld.BEESWAX_CANDLE));
-		MedievalBlocksOld.TORCH_HOLDER_EMPTY.init(MedievalBlocksOld.TORCH_HOLDER_UNLIT, Item.getItemFromBlock(Blocks.TORCH));
+		((UnlitWallMount)MedievalBlocks.CANDLE_HOLDER_UNLIT).init(MedievalBlocks.CANDLE_HOLDER_LIT, Item.getItemFromBlock(MedievalBlocks.BEESWAX_CANDLE));;
+		((LitWallMount)MedievalBlocks.CANDLE_HOLDER_LIT).init(MedievalBlocks.CANDLE_HOLDER_UNLIT, Item.getItemFromBlock(MedievalBlocks.BEESWAX_CANDLE));
+		((UnlitWallMount)MedievalBlocks.TORCH_HOLDER_UNLIT).init(MedievalBlocks.TORCH_HOLDER_LIT, Item.getItemFromBlock(Blocks.TORCH));
+		((LitWallMount)MedievalBlocks.TORCH_HOLDER_LIT).init(MedievalBlocks.TORCH_HOLDER_UNLIT, Item.getItemFromBlock(Blocks.TORCH));
+		((EmptyWallMount)MedievalBlocks.CANDLE_HOLDER_EMPTY).init(MedievalBlocks.CANDLE_HOLDER_UNLIT, Item.getItemFromBlock(MedievalBlocks.BEESWAX_CANDLE));
+		((EmptyWallMount)MedievalBlocks.TORCH_HOLDER_EMPTY).init(MedievalBlocks.TORCH_HOLDER_UNLIT, Item.getItemFromBlock(Blocks.TORCH));
 
-		MedievalBlocksOld.SALPETER_ORE.init(MedievalItems.SALPETER_ORE_CHUNK);
-		MedievalBlocksOld.SILVER_ORE.init(MedievalItems.SILVER_ORE_CHUNK);
-		MedievalBlocksOld.TIN_ORE.init(MedievalItems.TIN_ORE_CHUNK);
-		MedievalBlocksOld.COPPER_ORE.init(MedievalItems.COPPER_ORE_CHUNK);
-		MedievalBlocksOld.SULFUR_ORE.init(MedievalItems.SULFUR_ORE_CHUNK);
+		((AdvancedOre)MedievalBlocks.SALPETER_ORE).init(MedievalItems.SALPETER_ORE_CHUNK);
+		((AdvancedOre)MedievalBlocks.SILVER_ORE).init(MedievalItems.SILVER_ORE_CHUNK);
+		((AdvancedOre)MedievalBlocks.TIN_ORE).init(MedievalItems.TIN_ORE_CHUNK);
+		((AdvancedOre)MedievalBlocks.COPPER_ORE).init(MedievalItems.COPPER_ORE_CHUNK);
+		((AdvancedOre)MedievalBlocks.SULFUR_ORE).init(MedievalItems.SULFUR_ORE_CHUNK);
 
 		GameRegistry.addSmelting(MedievalItems.WHEAT_DOUGH, new ItemStack(Items.BREAD), 0.1f);
 		GameRegistry.addSmelting(MedievalItems.BARLEY_DOUGH, new ItemStack(Items.BREAD), 0.1f);
@@ -143,8 +146,8 @@ public class DarkRoleplayMedieval {
 		GameRegistry.addSmelting(MedievalItems.RAW_CATFISH, new ItemStack(MedievalItems.COOKED_CATFISH), 0.1f);
 		GameRegistry.addSmelting(MedievalItems.WHEAT_PUMPKIN_DOUGH, new ItemStack(MedievalItems.PUMPKIN_BREAD), 0.1f);
 		GameRegistry.addSmelting(MedievalItems.BARLEY_PUMPKIN_DOUGH, new ItemStack(MedievalItems.PUMPKIN_BREAD), 0.1f);
-		GameRegistry.addSmelting(Item.getItemFromBlock(Blocks.OBSIDIAN), new ItemStack(MedievalBlocksOld.OBSIDIAN_GLASS), 0.1f);
-		GameRegistry.addSmelting(Item.getItemFromBlock(MedievalBlocksOld.UNFIRED_VASE), new ItemStack(MedievalBlocksOld.FIRED_VASE), 0.1f);
+		GameRegistry.addSmelting(Item.getItemFromBlock(Blocks.OBSIDIAN), new ItemStack(MedievalBlocks.OBSIDIAN_GLASS), 0.1f);
+		GameRegistry.addSmelting(Item.getItemFromBlock(MedievalBlocks.UNFIRED_VASE), new ItemStack(MedievalBlocks.FIRED_VASE), 0.1f);
 	}
 
 	@EventHandler
@@ -216,11 +219,11 @@ public class DarkRoleplayMedieval {
 		public void init(FMLInitializationEvent event) {
 			Minecraft.getMinecraft().getResourceManager();
 			DryClayGrassColor color = new DryClayGrassColor();
-			Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(color, MedievalBlocksOld.DRY_CLAY_GRASS);
+			Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(color, MedievalBlocks.DRY_CLAY_GRASS);
 			Minecraft.getMinecraft().getItemColors().registerItemColorHandler((IItemColor) (stack, tintIndex) -> {
 			    IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
 			    return color.colorMultiplier(iblockstate, (IBlockAccess)null, (BlockPos)null, tintIndex);
-			}, MedievalBlocksOld.DRY_CLAY_GRASS);
+			}, MedievalBlocks.DRY_CLAY_GRASS);
 			Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new PaintBrushColors(), MedievalItems.DIRTY_PAINTBRUSH);
 
 			Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new SolidColor(),

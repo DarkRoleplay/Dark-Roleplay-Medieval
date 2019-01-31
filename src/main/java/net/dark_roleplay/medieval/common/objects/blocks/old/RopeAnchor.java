@@ -1,7 +1,7 @@
 package net.dark_roleplay.medieval.common.objects.blocks.old;
 
-import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityRopeAnchor;
+import net.dark_roleplay.medieval.holders.MedievalBlocks;
 import net.dark_roleplay.medieval.old.RopeFixPoint;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
@@ -83,10 +83,10 @@ public class RopeAnchor extends BlockContainer implements RopeFixPoint {
 	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
 
-		Boolean North = worldIn.getBlockState(pos.add(0, -1, -1)).getBlock().equals(MedievalBlocksOld.ROPE);
-		Boolean East = worldIn.getBlockState(pos.add(1, -1, 0)).getBlock().equals(MedievalBlocksOld.ROPE);
-		Boolean South = worldIn.getBlockState(pos.add(0, -1, 1)).getBlock().equals(MedievalBlocksOld.ROPE);
-		Boolean West = worldIn.getBlockState(pos.add(-1, -1, 0)).getBlock().equals(MedievalBlocksOld.ROPE);
+		Boolean North = worldIn.getBlockState(pos.add(0, -1, -1)).getBlock().equals(MedievalBlocks.ROPE);
+		Boolean East = worldIn.getBlockState(pos.add(1, -1, 0)).getBlock().equals(MedievalBlocks.ROPE);
+		Boolean South = worldIn.getBlockState(pos.add(0, -1, 1)).getBlock().equals(MedievalBlocks.ROPE);
+		Boolean West = worldIn.getBlockState(pos.add(-1, -1, 0)).getBlock().equals(MedievalBlocks.ROPE);
 
 		return state.withProperty(NORTH, North).withProperty(EAST, East).withProperty(SOUTH, South).withProperty(WEST, West);
 	}

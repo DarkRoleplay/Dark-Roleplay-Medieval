@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.handler.MedievalVillagers;
+import net.dark_roleplay.medieval.holders.MedievalVillagers;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;

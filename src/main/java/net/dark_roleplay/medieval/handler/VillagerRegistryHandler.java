@@ -1,8 +1,9 @@
-package net.dark_roleplay.medieval.common.handler;
+package net.dark_roleplay.medieval.handler;
 
 import java.util.Random;
 
 import net.dark_roleplay.medieval.References;
+import net.dark_roleplay.medieval.holders.MedievalVillagers;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.passive.EntityVillager.PriceInfo;
@@ -16,19 +17,14 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.fml.common.registry.VillagerRegistry;
 
 @EventBusSubscriber(modid = References.MODID)
-@ObjectHolder(value = References.MODID)
-public class MedievalVillagers {
+public class VillagerRegistryHandler {
 
-	public static final VillagerRegistry.VillagerProfession CARPENTER = null;
-
-	private static VillagerRegistry.VillagerCareer CARPENTER_TIMBERER;
 
 	public static void init(FMLInitializationEvent event) {
-		CARPENTER_TIMBERER.addTrade(1,
+		MedievalVillagers.CARPENTER_TIMBERER.addTrade(1,
 			new EmeraldsForStacks(new ItemStack(Blocks.LOG, 16, 0), new PriceInfo(1,2)),
 			new EmeraldsForStacks(new ItemStack(Blocks.LOG, 16, 1), new PriceInfo(1,2)),
 			new EmeraldsForStacks(new ItemStack(Blocks.LOG, 16, 2), new PriceInfo(1,2)),
@@ -41,7 +37,7 @@ public class MedievalVillagers {
 	@SubscribeEvent
 	public static void registerVillager(RegistryEvent.Register<VillagerRegistry.VillagerProfession> e) {
 		VillagerRegistry.VillagerProfession carpenter = createProf(new ResourceLocation(References.MODID, "carpenter"), new ResourceLocation(References.MODID, "textures/entities/villager/carpenter.png"), new ResourceLocation(References.MODID, "textures/entities/villager/zombie/carpenter.png"));
-		CARPENTER_TIMBERER = createCarrer(carpenter, new ResourceLocation(References.MODID, "carpenter"));
+		MedievalVillagers.CARPENTER_TIMBERER = createCarrer(carpenter, new ResourceLocation(References.MODID, "carpenter"));
 		e.getRegistry().register(
 			carpenter
 		);
@@ -88,5 +84,4 @@ public class MedievalVillagers {
 			}
 	    }
 	}
-
 }

@@ -9,7 +9,6 @@ import net.dark_roleplay.library.experimental.connected_model.ConnectedModelLoad
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.library_old.items.ItemUtil;
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.state_mappers.SnowStateMapper;
 import net.dark_roleplay.medieval.holders.MedievalBlocks;
@@ -44,13 +43,13 @@ public class ModelRegistryHandler {
 		toRegisterMeshes = null;
 
 		// Old Blocks
-		registerItemMesh("old_blocks", MedievalBlocksOld.ANVIL);
-		registerItemMesh("old_blocks", MedievalBlocksOld.GRINDSTONE);
-		registerItemMesh("old_blocks", MedievalBlocksOld.HANGING_CAULDRON);
-		registerItemMesh("old_blocks", MedievalBlocksOld.MORTAR);
-		registerItemMesh("old_blocks", MedievalBlocksOld.CAULDRON);
-		registerItemMesh("old_blocks", MedievalBlocksOld.ROPE_ANCHOR);
-		registerItemMesh("old_blocks", MedievalBlocksOld.FIREPIT_LIT);
+		registerItemMesh("old_blocks", MedievalBlocks.ANVIL);
+		registerItemMesh("old_blocks", MedievalBlocks.GRINDSTONE);
+		registerItemMesh("old_blocks", MedievalBlocks.HANGING_CAULDRON);
+		registerItemMesh("old_blocks", MedievalBlocks.MORTAR);
+		registerItemMesh("old_blocks", MedievalBlocks.CAULDRON);
+		registerItemMesh("old_blocks", MedievalBlocks.ROPE_ANCHOR);
+		registerItemMesh("old_blocks", MedievalBlocks.FIREPIT_LIT);
 		registerItemMesh("blocks", MedievalItems.TIMBERED_CLAY);
 
 		IStateMapper roofMapper = SnowStateMapper.INSTANCE;

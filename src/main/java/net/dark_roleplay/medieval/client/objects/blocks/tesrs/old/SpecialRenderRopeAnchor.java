@@ -3,8 +3,8 @@ package net.dark_roleplay.medieval.client.objects.blocks.tesrs.old;
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.common.objects.tile_entities.old.TileEntityRopeAnchor;
+import net.dark_roleplay.medieval.holders.MedievalBlocks;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -37,10 +37,10 @@ public class SpecialRenderRopeAnchor extends TileEntitySpecialRenderer<TileEntit
 			World worldIn = tileentity.getWorld();
 			BlockPos pos = tileentity.getPos();
 
-			Boolean North = worldIn.getBlockState(pos.add(0, -1, -1)).getBlock().equals(MedievalBlocksOld.ROPE);
-			Boolean East = worldIn.getBlockState(pos.add(1, -1, 0)).getBlock().equals(MedievalBlocksOld.ROPE);
-			Boolean South = worldIn.getBlockState(pos.add(0, -1, 1)).getBlock().equals(MedievalBlocksOld.ROPE);
-			Boolean West = worldIn.getBlockState(pos.add(-1, -1, 0)).getBlock().equals(MedievalBlocksOld.ROPE);
+			Boolean North = worldIn.getBlockState(pos.add(0, -1, -1)).getBlock().equals(MedievalBlocks.ROPE);
+			Boolean East = worldIn.getBlockState(pos.add(1, -1, 0)).getBlock().equals(MedievalBlocks.ROPE);
+			Boolean South = worldIn.getBlockState(pos.add(0, -1, 1)).getBlock().equals(MedievalBlocks.ROPE);
+			Boolean West = worldIn.getBlockState(pos.add(-1, -1, 0)).getBlock().equals(MedievalBlocks.ROPE);
 
 			if(North){
 				this.model.renderNorth(0.0625F);
@@ -75,85 +75,86 @@ class ModelRopeAnchor extends ModelBase {
 	ModelRenderer RopeWest;
 
 	public ModelRopeAnchor() {
-		textureWidth = 32;
-		textureHeight = 32;
+		this.textureWidth = 32;
+		this.textureHeight = 32;
 
-		Wood = new ModelRenderer(this, 0, 0);
-		Wood.addBox(-1.5F, 0F, -1.5F, 3, 5, 3);
-		Wood.setRotationPoint(0F, 19F, 0F);
-		Wood.setTextureSize(32, 32);
-		Wood.mirror = true;
-		setRotation(Wood, 0F, 0F, 0F);
-		RopeEast1 = new ModelRenderer(this, 8, 19);
-		RopeEast1.addBox(-1F, -0.3F, -1F, 2, 2, 2);
-		RopeEast1.setRotationPoint(-8F, 24F, 0F);
-		RopeEast1.setTextureSize(32, 32);
-		RopeEast1.mirror = true;
-		setRotation(RopeEast1, 0F, 0F, 2.216568F);
-		RopeNorth2 = new ModelRenderer(this, 0, 19);
-		RopeNorth2.addBox(-1F, -0.3F, -1F, 2, 2, 2);
-		RopeNorth2.setRotationPoint(0F, 24F, -8F);
-		RopeNorth2.setTextureSize(32, 32);
-		RopeNorth2.mirror = true;
-		setRotation(RopeNorth2, -2.216568F, 0F, 0F);
-		RopeNorth = new ModelRenderer(this, 0, 23);
-		RopeNorth.addBox(-1F, 0F, 0F, 2, 2, 7);
-		RopeNorth.setRotationPoint(0F, 22F, -8.6F);
-		RopeNorth.setTextureSize(32, 32);
-		RopeNorth.mirror = true;
-		setRotation(RopeNorth, 0.296706F, 0F, 0F);
-		RopeEast = new ModelRenderer(this, 0, 15);
-		RopeEast.addBox(0F, 0F, -1F, 7, 2, 2);
-		RopeEast.setRotationPoint(-8.6F, 22F, 0F);
-		RopeEast.setTextureSize(32, 32);
-		RopeEast.mirror = true;
-		setRotation(RopeEast, 0F, 0F, -0.296706F);
-		RopeWest1 = new ModelRenderer(this, 8, 19);
-		RopeWest1.addBox(-1F, -0.3F, -1F, 2, 2, 2);
-		RopeWest1.setRotationPoint(8F, 24F, 0F);
-		RopeWest1.setTextureSize(32, 32);
-		RopeWest1.mirror = true;
-		setRotation(RopeWest1, 0F, 0F, -2.216568F);
-		RopeSouth = new ModelRenderer(this, 0, 23);
-		RopeSouth.addBox(-1F, 0F, -7F, 2, 2, 7);
-		RopeSouth.setRotationPoint(0F, 22F, 8.6F);
-		RopeSouth.setTextureSize(32, 32);
-		RopeSouth.mirror = true;
-		setRotation(RopeSouth, -0.296706F, 0F, 0F);
-		RopeSouth1 = new ModelRenderer(this, 0, 19);
-		RopeSouth1.addBox(-1F, -1F, -0.3F, 2, 2, 2);
-		RopeSouth1.setRotationPoint(0F, 24F, 8F);
-		RopeSouth1.setTextureSize(32, 32);
-		RopeSouth1.mirror = true;
-		setRotation(RopeSouth1, 0.6457718F, 0F, 0F);
-		RopeCenter = new ModelRenderer(this, 0, 9);
-		RopeCenter.addBox(-2F, 0F, -2F, 4, 2, 4);
-		RopeCenter.setRotationPoint(0F, 20F, 0F);
-		RopeCenter.setTextureSize(32, 32);
-		RopeCenter.mirror = true;
-		setRotation(RopeCenter, 0F, 0F, 0F);
-		RopeWest = new ModelRenderer(this, 0, 15);
-		RopeWest.addBox(-7F, 0F, -1F, 7, 2, 2);
-		RopeWest.setRotationPoint(8.6F, 22F, 0F);
-		RopeWest.setTextureSize(32, 32);
-		RopeWest.mirror = true;
-		setRotation(RopeWest, 0F, 0F, 0.296706F);
+		this.Wood = new ModelRenderer(this, 0, 0);
+		this.Wood.addBox(-1.5F, 0F, -1.5F, 3, 5, 3);
+		this.Wood.setRotationPoint(0F, 19F, 0F);
+		this.Wood.setTextureSize(32, 32);
+		this.Wood.mirror = true;
+		this.setRotation(this.Wood, 0F, 0F, 0F);
+		this.RopeEast1 = new ModelRenderer(this, 8, 19);
+		this.RopeEast1.addBox(-1F, -0.3F, -1F, 2, 2, 2);
+		this.RopeEast1.setRotationPoint(-8F, 24F, 0F);
+		this.RopeEast1.setTextureSize(32, 32);
+		this.RopeEast1.mirror = true;
+		this.setRotation(this.RopeEast1, 0F, 0F, 2.216568F);
+		this.RopeNorth2 = new ModelRenderer(this, 0, 19);
+		this.RopeNorth2.addBox(-1F, -0.3F, -1F, 2, 2, 2);
+		this.RopeNorth2.setRotationPoint(0F, 24F, -8F);
+		this.RopeNorth2.setTextureSize(32, 32);
+		this.RopeNorth2.mirror = true;
+		this.setRotation(this.RopeNorth2, -2.216568F, 0F, 0F);
+		this.RopeNorth = new ModelRenderer(this, 0, 23);
+		this.RopeNorth.addBox(-1F, 0F, 0F, 2, 2, 7);
+		this.RopeNorth.setRotationPoint(0F, 22F, -8.6F);
+		this.RopeNorth.setTextureSize(32, 32);
+		this.RopeNorth.mirror = true;
+		this.setRotation(this.RopeNorth, 0.296706F, 0F, 0F);
+		this.RopeEast = new ModelRenderer(this, 0, 15);
+		this.RopeEast.addBox(0F, 0F, -1F, 7, 2, 2);
+		this.RopeEast.setRotationPoint(-8.6F, 22F, 0F);
+		this.RopeEast.setTextureSize(32, 32);
+		this.RopeEast.mirror = true;
+		this.setRotation(this.RopeEast, 0F, 0F, -0.296706F);
+		this.RopeWest1 = new ModelRenderer(this, 8, 19);
+		this.RopeWest1.addBox(-1F, -0.3F, -1F, 2, 2, 2);
+		this.RopeWest1.setRotationPoint(8F, 24F, 0F);
+		this.RopeWest1.setTextureSize(32, 32);
+		this.RopeWest1.mirror = true;
+		this.setRotation(this.RopeWest1, 0F, 0F, -2.216568F);
+		this.RopeSouth = new ModelRenderer(this, 0, 23);
+		this.RopeSouth.addBox(-1F, 0F, -7F, 2, 2, 7);
+		this.RopeSouth.setRotationPoint(0F, 22F, 8.6F);
+		this.RopeSouth.setTextureSize(32, 32);
+		this.RopeSouth.mirror = true;
+		this.setRotation(this.RopeSouth, -0.296706F, 0F, 0F);
+		this.RopeSouth1 = new ModelRenderer(this, 0, 19);
+		this.RopeSouth1.addBox(-1F, -1F, -0.3F, 2, 2, 2);
+		this.RopeSouth1.setRotationPoint(0F, 24F, 8F);
+		this.RopeSouth1.setTextureSize(32, 32);
+		this.RopeSouth1.mirror = true;
+		this.setRotation(this.RopeSouth1, 0.6457718F, 0F, 0F);
+		this.RopeCenter = new ModelRenderer(this, 0, 9);
+		this.RopeCenter.addBox(-2F, 0F, -2F, 4, 2, 4);
+		this.RopeCenter.setRotationPoint(0F, 20F, 0F);
+		this.RopeCenter.setTextureSize(32, 32);
+		this.RopeCenter.mirror = true;
+		this.setRotation(this.RopeCenter, 0F, 0F, 0F);
+		this.RopeWest = new ModelRenderer(this, 0, 15);
+		this.RopeWest.addBox(-7F, 0F, -1F, 7, 2, 2);
+		this.RopeWest.setRotationPoint(8.6F, 22F, 0F);
+		this.RopeWest.setTextureSize(32, 32);
+		this.RopeWest.mirror = true;
+		this.setRotation(this.RopeWest, 0F, 0F, 0.296706F);
 	}
 
+	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 
 		super.render(entity, f, f1, f2, f3, f4, f5);
-		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		Wood.render(f5);
-		RopeEast1.render(f5);
-		RopeNorth2.render(f5);
-		RopeNorth.render(f5);
-		RopeEast.render(f5);
-		RopeWest1.render(f5);
-		RopeSouth.render(f5);
-		RopeSouth1.render(f5);
-		RopeCenter.render(f5);
-		RopeWest.render(f5);
+		this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+		this.Wood.render(f5);
+		this.RopeEast1.render(f5);
+		this.RopeNorth2.render(f5);
+		this.RopeNorth.render(f5);
+		this.RopeEast.render(f5);
+		this.RopeWest1.render(f5);
+		this.RopeSouth.render(f5);
+		this.RopeSouth1.render(f5);
+		this.RopeCenter.render(f5);
+		this.RopeWest.render(f5);
 	}
 
 	private void setRotation(ModelRenderer model, float x, float y, float z) {
@@ -165,34 +166,35 @@ class ModelRopeAnchor extends ModelBase {
 
 	public void renderBase(float f5) {
 
-		Wood.render(f5);
-		RopeCenter.render(f5);
+		this.Wood.render(f5);
+		this.RopeCenter.render(f5);
 	}
 
 	public void renderNorth(float f5) {
 
-		RopeNorth2.render(f5);
-		RopeNorth.render(f5);
+		this.RopeNorth2.render(f5);
+		this.RopeNorth.render(f5);
 	}
 
 	public void renderEast(float f5) {
 
-		RopeEast.render(f5);
-		RopeEast1.render(f5);
+		this.RopeEast.render(f5);
+		this.RopeEast1.render(f5);
 	}
 
 	public void renderSouth(float f5) {
 
-		RopeSouth.render(f5);
-		RopeSouth1.render(f5);
+		this.RopeSouth.render(f5);
+		this.RopeSouth1.render(f5);
 	}
 
 	public void renderWest(float f5) {
 
-		RopeWest.render(f5);
-		RopeWest1.render(f5);
+		this.RopeWest.render(f5);
+		this.RopeWest1.render(f5);
 	}
 
+	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
 
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);

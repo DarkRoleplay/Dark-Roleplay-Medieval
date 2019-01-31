@@ -9,9 +9,9 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
 import net.dark_roleplay.medieval.common.objects.blocks.BlockProperties;
 import net.dark_roleplay.medieval.common.objects.blocks.old.HangingBridge;
+import net.dark_roleplay.medieval.holders.MedievalBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;
@@ -98,7 +98,7 @@ public class DelayedBaker_HangingBridge extends DelayedBaker implements ICustomM
 
 	@Override
 	public boolean accepts(ResourceLocation modelLocation) {
-		return ((modelLocation instanceof ModelResourceLocation) && (MedievalBlocksOld.HANGING_BRIDGE_BOTTOM.getRegistryName().equals(modelLocation)) || MedievalBlocksOld.HANGING_BRIDGE_TOP.getRegistryName().equals(modelLocation));
+		return ((modelLocation instanceof ModelResourceLocation) && (MedievalBlocks.HANGING_BRIDGE_BOTTOM.getRegistryName().equals(modelLocation)) || MedievalBlocks.HANGING_BRIDGE_TOP.getRegistryName().equals(modelLocation));
 	}
 
 	@Override

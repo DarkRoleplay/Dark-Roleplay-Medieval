@@ -1,4 +1,4 @@
-package net.dark_roleplay.medieval.common.handler;
+package net.dark_roleplay.medieval.holders;
 
 import net.dark_roleplay.core_modules.maarg.api.materials.Material;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;

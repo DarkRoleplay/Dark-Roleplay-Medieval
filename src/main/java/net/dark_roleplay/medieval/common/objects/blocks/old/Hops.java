@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.objects.blocks.old;
 
 import java.util.Random;
 
-import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
+import net.dark_roleplay.medieval.holders.MedievalBlocks;
 import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -80,7 +80,7 @@ public class Hops extends Block {
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune){
-        return Item.getItemFromBlock(MedievalBlocksOld.ROPE);
+        return Item.getItemFromBlock(MedievalBlocks.ROPE);
     }
 
 	@Override
@@ -125,7 +125,7 @@ public class Hops extends Block {
 		if(this.canGrow(state)){
 			if((i < 4 && rand.nextInt(10) == 0) || (i >= 4 && rand.nextInt(5) == 0)){
 				if(state.getValue(AGE).intValue() == 3){
-					if(worldIn.getBlockState(pos.up()).getBlock() == MedievalBlocksOld.ROPE){
+					if(worldIn.getBlockState(pos.up()).getBlock() == MedievalBlocks.ROPE){
 						worldIn.setBlockState(pos.up(), state.withProperty(AGE, 0), 2);
 					}
 				}

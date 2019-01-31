@@ -10,8 +10,6 @@ import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
 import net.dark_roleplay.library.util.InDevUtil;
 import net.dark_roleplay.library_old.items.DRPItem;
 import net.dark_roleplay.medieval.References;
-import net.dark_roleplay.medieval.common.handler.MedievalBlocksOld;
-import net.dark_roleplay.medieval.common.handler.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.common.objects.items.BarkAndGlue;
 import net.dark_roleplay.medieval.common.objects.items.DRPMStew;
 import net.dark_roleplay.medieval.common.objects.items.HangingBridge_Item;
@@ -24,6 +22,8 @@ import net.dark_roleplay.medieval.common.objects.items.tools.FlintKnife;
 import net.dark_roleplay.medieval.common.objects.items.tools.StreetStomper;
 import net.dark_roleplay.medieval.common.objects.items.tools.Telescope;
 import net.dark_roleplay.medieval.common.objects.items.tools.WarHorn;
+import net.dark_roleplay.medieval.holders.MedievalBlocks;
+import net.dark_roleplay.medieval.holders.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.holders.ResourceFolders;
 import net.dark_roleplay.medieval.testing.purse.DRPCoin;
 import net.minecraft.creativetab.CreativeTabs;
@@ -136,11 +136,11 @@ public class ItemRegistryHandler {
 		//TODO Fix that
 
 		registerItems(reg, MedievalCreativeTabs.UTILITY,
-				new ItemMultiBlock(MedievalBlocksOld.SIMPLE_CARPENTER_WORKBENCH).setRegistryName("simple_carpenter_workbench"),
-				new ItemMultiBlock(MedievalBlocksOld.FORGE).setRegistryName("forge")
+				new ItemMultiBlock(MedievalBlocks.SIMPLE_CARPENTER_WORKBENCH).setRegistryName("simple_carpenter_workbench"),
+				new ItemMultiBlock(MedievalBlocks.FORGE).setRegistryName("forge")
 		);
 
-		registerItems(reg, MedievalCreativeTabs.BUILDING_MATS, new ItemBlock(MedievalBlocksOld.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
+		registerItems(reg, MedievalCreativeTabs.BUILDING_MATS, new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
 
 
 		if(InDevUtil.isDevEnv()) {

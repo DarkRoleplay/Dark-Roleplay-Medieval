@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.common.objects.blocks.old;
 
 import java.util.Random;
 
-import net.dark_roleplay.medieval.common.handler.MedievalCreativeTabs;
+import net.dark_roleplay.medieval.holders.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
