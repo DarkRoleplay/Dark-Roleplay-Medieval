@@ -1,0 +1,17 @@
+{
+  "category": "building_blocks",
+  "name": "dirt_stairs",
+  "outputs": [
+    {
+      "item": "drpmedieval:dirt_stairs"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "drpmedieval:spruce_planks"
+    }
+  ]
+}

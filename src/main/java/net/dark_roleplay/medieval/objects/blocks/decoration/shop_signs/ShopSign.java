@@ -3,10 +3,8 @@ package net.dark_roleplay.medieval.objects.blocks.decoration.shop_signs;
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.medieval.holders.MedievalItems;
 import net.dark_roleplay.medieval.objects.blocks.decoration.wall_mounted.WallMounted;
-import net.dark_roleplay.medieval.objects.guis.sign_drawing.GuiSignDrawing;
 import net.dark_roleplay.medieval.objects.other.ImageConversion;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -28,7 +26,7 @@ public class ShopSign extends WallMounted{
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(world.isRemote && player.getHeldItem(hand).getItem() == MedievalItems.DIRTY_PAINTBRUSH){
-			Minecraft.getMinecraft().displayGuiScreen(new GuiSignDrawing((TileEntityShopSign) world.getTileEntity(pos)));
+			DrawingGuiHelper.openGUI(world, pos);
 		}
 		return true;
 	}
