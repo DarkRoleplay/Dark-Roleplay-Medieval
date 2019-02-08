@@ -21,7 +21,7 @@ public class Behavior_Bell implements IActivatedBehavior, ICollidedWithBehavior{
 
 	@Override
 	public boolean execute(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		world.playSound(player, pos, MedievalSounds.SHIPS_BELL, SoundCategory.BLOCKS, 1F, 1.1F);
+		world.playSound(null, pos, MedievalSounds.SHIPS_BELL, SoundCategory.BLOCKS, 1F, 1.1F);
 		return true;
 	}
 

@@ -24,9 +24,9 @@ public class WarHorn extends DRPItem{
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand){
 		BlockPos pos = player.getPosition();
 		float heightPitchOffset = (pos.getY() - 62) * 0.00075F;
-		System.out.println(heightPitchOffset);
 		Random rnd = new Random();
-		world.playSound(pos.getX(), pos.getY(), pos.getZ(), MedievalSounds.WAR_HORN, SoundCategory.MASTER, 20F, 1F - (0.05F * + (rnd.nextFloat() - 0.5F)) + heightPitchOffset, true);
+		world.playSound(null, pos, MedievalSounds.WAR_HORN, SoundCategory.PLAYERS, 20F, 1F - (0.05F * + (rnd.nextFloat() - 0.5F)) + heightPitchOffset);
+//		world.playSound(pos.getX(), pos.getY(), pos.getZ(), MedievalSounds.WAR_HORN, SoundCategory.MASTER, 20F, 1F - (0.05F * + (rnd.nextFloat() - 0.5F)) + heightPitchOffset, true);
 
 		player.getHeldItem(hand).damageItem(1, player);
 
