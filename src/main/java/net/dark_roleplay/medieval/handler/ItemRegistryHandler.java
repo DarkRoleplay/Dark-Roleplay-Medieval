@@ -13,6 +13,7 @@ import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.holders.MedievalBlocks;
 import net.dark_roleplay.medieval.holders.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.holders.ResourceFolders;
+import net.dark_roleplay.medieval.objects.item_note.ItemNote;
 import net.dark_roleplay.medieval.objects.items.blocks.ItemHangingBridge;
 import net.dark_roleplay.medieval.objects.items.blocks.ItemMultiBlock;
 import net.dark_roleplay.medieval.objects.items.consumables.BarkAndGlue;
@@ -124,7 +125,8 @@ public class ItemRegistryHandler {
 			new DRPItem("salpeter_ore_chunk", ResourceFolders.Items.MINERALS, 64),
 			new DRPItem("charcoal_powder", ResourceFolders.Items.PROCESSED_MINERALS, 64),
 			new BarkAndGlue("bark_and_glue", ResourceFolders.Items.OTHER_CONSUMABLES, 64),
-			new DRPItem("wood_cup", ResourceFolders.Items.OTHER_CONSUMABLES, 16)
+			new DRPItem("wood_cup", ResourceFolders.Items.OTHER_CONSUMABLES, 16),
+			new ItemNote("item_note", ResourceFolders.Items.OTHER_CONSUMABLES, 16)
 //			new DRPItem("gingerbread_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64)
 		);
 
