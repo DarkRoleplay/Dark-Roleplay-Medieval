@@ -7,14 +7,13 @@ import com.google.common.collect.ImmutableMap;
 
 import net.dark_roleplay.core.api.storage.DynamicStorageTileEntity;
 import net.dark_roleplay.medieval.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.References;
+import net.dark_roleplay.medieval.holders.MedievalASMHolder;
 import net.dark_roleplay.medieval.holders.MedievalBlockProperties;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.animation.Animation;
@@ -34,7 +33,7 @@ public class TileEntitySimpleChest extends DynamicStorageTileEntity {
 	public TileEntitySimpleChest() {
 		super(27);
 		this.asm = DarkRoleplayMedieval.proxy.load(
-				new ResourceLocation(References.MODID, "asms/block/simple_chest_top.json"),
+				MedievalASMHolder.SimpleChest.ASM_FILE,
 				ImmutableMap.<String, ITimeValue>of("click_time", this.clickTime));
 	}
 
@@ -46,7 +45,7 @@ public class TileEntitySimpleChest extends DynamicStorageTileEntity {
 	}
 
 	public void goToAnimation(String stage) {
-		if(!this.asm.currentState().equals("opening") && !this.asm.currentState().equals("closing"))
+		if(!this.asm.currentState().equals(MedievalASMHolder.SimpleChest.OPENING) && !this.asm.currentState().equals(MedievalASMHolder.SimpleChest.CLOSING))
 			this.clickTime.setValue(Animation.getWorldTime(this.getWorld()));
 		this.asm.transition(stage);
 	}
@@ -109,7 +108,7 @@ public class TileEntitySimpleChest extends DynamicStorageTileEntity {
 
 		if(this.hasWorld() && this.getWorld().getBlockState(this.pos).getBlock() instanceof SimpleChest) {
 			if(this.getWorld().getBlockState(this.pos).getValue(MedievalBlockProperties.IS_OPEN)) {
-				this.goToAnimation("open");
+				this.goToAnimation(MedievalASMHolder.SimpleChest.OPEN);
 			}
 		}
 	}

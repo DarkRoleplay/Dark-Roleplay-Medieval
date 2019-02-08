@@ -6,7 +6,19 @@
 		"closed":{
 			"loop": false,
 			"joint_clips": {
-				"lit":[]
+				"lit":[
+					{
+						"variable": "origin_z",
+						"type": "uniform",
+						"interpolation": "nearest",
+						"samples": [ 0.921875 ]
+					},{
+						"variable": "origin_y",
+						"type": "uniform",
+						"interpolation": "nearest",
+						"samples": [ 0.65625 ]
+					}
+				]
 			},
 			"events":{}
 		},"opening": {

@@ -5,6 +5,7 @@ import static net.dark_roleplay.medieval.holders.MedievalBlockProperties.IS_OPEN
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.medieval.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.holders.MedievalASMHolder;
 import net.dark_roleplay.medieval.holders.MedievalBlockProperties;
 import net.dark_roleplay.medieval.holders.MedievalGuis;
 import net.dark_roleplay.medieval.objects.blocks.general.FacedBlock;
@@ -89,10 +90,10 @@ public class SimpleChest extends FacedBlock {
 			}else {
 				if(world.isRemote) {
 					if(state.getValue(IS_OPEN)) {
-						chest.goToAnimation("closing");
+						chest.goToAnimation(MedievalASMHolder.SimpleChest.CLOSING);
 						Minecraft.getMinecraft().world.playSound(pos, SoundEvents.BLOCK_CHEST_CLOSE, SoundCategory.BLOCKS, 0.6F, 1F, true);
 					}else {
-						chest.goToAnimation("opening");
+						chest.goToAnimation(MedievalASMHolder.SimpleChest.OPENING);
 						Minecraft.getMinecraft().world.playSound(pos, SoundEvents.BLOCK_CHEST_OPEN, SoundCategory.BLOCKS, 0.6F, 1F, true);
 					}
 				}
