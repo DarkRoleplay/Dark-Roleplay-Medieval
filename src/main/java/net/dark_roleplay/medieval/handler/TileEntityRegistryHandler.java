@@ -21,10 +21,11 @@ import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityRopeAn
 import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityTarget;
 import net.dark_roleplay.medieval.objects.blocks.utility.crafting.chopping_block.TileEntityChoppingBlock;
+import net.dark_roleplay.medieval.objects.blocks.utility.crafting.honey_centrifuge.TileEntityHoneyCentrifuge;
 import net.dark_roleplay.medieval.objects.blocks.utility.other.clock_core.TileEntityClockCore;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_chest.TileEntitySimpleChest;
-import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEntityShelf;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEnittyUniversalShelf;
+import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEntityShelf;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -40,6 +41,7 @@ public class TileEntityRegistryHandler {
 	public static final void register(RegistryEvent.Register<Block> registryEvent) {
 		GameRegistry.registerTileEntity(TileEntityRoof.class, new ResourceLocation(References.MODID, "roof"));
 		GameRegistry.registerTileEntity(DynamicStorageTileEntity.class, new ResourceLocation(References.MODID, "te_dynamic_storage"));
+		GameRegistry.registerTileEntity(TileEntityHoneyCentrifuge.class, new ResourceLocation(References.MODID, "honey_centrifuge"));
 
 
 		//TODO Look trough this

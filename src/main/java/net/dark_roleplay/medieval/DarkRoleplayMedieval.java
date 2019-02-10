@@ -54,15 +54,18 @@ import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityRopeAn
 import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityTarget;
 import net.dark_roleplay.medieval.objects.blocks.utility.crafting.chopping_block.behaviors.ChoppingBlockActivation;
+import net.dark_roleplay.medieval.objects.blocks.utility.crafting.honey_centrifuge.TileEntityHoneyCentrifuge;
 import net.dark_roleplay.medieval.objects.blocks.utility.other.clock_core.SpecialRendererClockCore;
 import net.dark_roleplay.medieval.objects.blocks.utility.other.clock_core.TileEntityClockCore;
+import net.dark_roleplay.medieval.objects.blocks.utility.other.regenerating_ore.RegeneratingOre;
+import net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_chest.SpecialRendererHoneyCentrifuge;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_chest.TileEntitySimpleChest;
-import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEntityShelf;
-import net.dark_roleplay.medieval.objects.items.blocks.roofs.ColorHandlerRoofItems;
-import net.dark_roleplay.medieval.objects.items.consumables.tools.paint_brush.ColorHandlerPaintBrush;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.SpecialRendererShelf;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.SpecialRendererWallShelf;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEnittyUniversalShelf;
+import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEntityShelf;
+import net.dark_roleplay.medieval.objects.items.blocks.roofs.ColorHandlerRoofItems;
+import net.dark_roleplay.medieval.objects.items.consumables.tools.paint_brush.ColorHandlerPaintBrush;
 import net.dark_roleplay.medieval.testing.Keybinds;
 import net.dark_roleplay.medieval.testing.blocks.TESR_Banner;
 import net.dark_roleplay.medieval.testing.blocks.TE_Banner;
@@ -140,6 +143,15 @@ public class DarkRoleplayMedieval {
 		((AdvancedOre)MedievalBlocks.COPPER_ORE).init(MedievalItems.COPPER_ORE_CHUNK);
 		((AdvancedOre)MedievalBlocks.SULFUR_ORE).init(MedievalItems.SULFUR_ORE_CHUNK);
 
+		((RegeneratingOre)MedievalBlocks.REGENERATING_EMERALD_ORE).setOre(Blocks.EMERALD_ORE);
+		((RegeneratingOre)MedievalBlocks.REGENERATING_DIAMOND_ORE).setOre(Blocks.DIAMOND_ORE);
+		((RegeneratingOre)MedievalBlocks.REGENERATING_LAPIS_ORE).setOre(Blocks.LAPIS_ORE);
+		((RegeneratingOre)MedievalBlocks.REGENERATING_REDSTONE_ORE).setOre(Blocks.REDSTONE_ORE);
+		((RegeneratingOre)MedievalBlocks.REGENERATING_GOLD_ORE).setOre(Blocks.GOLD_ORE);
+		((RegeneratingOre)MedievalBlocks.REGENERATING_IRON_ORE).setOre(Blocks.IRON_ORE);
+		((RegeneratingOre)MedievalBlocks.REGENERATING_COAL_ORE).setOre(Blocks.COAL_ORE);
+		((RegeneratingOre)MedievalBlocks.REGENERATING_QUARTZ_ORE).setOre(Blocks.QUARTZ_ORE);
+
 		GameRegistry.addSmelting(MedievalItems.WHEAT_DOUGH, new ItemStack(Items.BREAD), 0.1f);
 		GameRegistry.addSmelting(MedievalItems.BARLEY_DOUGH, new ItemStack(Items.BREAD), 0.1f);
 		GameRegistry.addSmelting(MedievalItems.RAW_WOLF, new ItemStack(MedievalItems.COOKED_WOLF), 0.1f);
@@ -198,10 +210,12 @@ public class DarkRoleplayMedieval {
 					chest.handleEvents(time, pastEvents);
 				}
 			});
+			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityHoneyCentrifuge.class, new SpecialRendererHoneyCentrifuge());
+			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrindstone.class, new SpecialRenderGrindstone());
+
 
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAnvil.class, new SpecialRenderAnvil());
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMortar.class, new SpecialRenderMortar());
-			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrindstone.class, new SpecialRenderGrindstone());
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityHangingCauldron.class, new SpecialRenderHangingCauldron());
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCauldron.class, new SpecialRenderCauldron());
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityChain.class, new SpecialRenderChain());

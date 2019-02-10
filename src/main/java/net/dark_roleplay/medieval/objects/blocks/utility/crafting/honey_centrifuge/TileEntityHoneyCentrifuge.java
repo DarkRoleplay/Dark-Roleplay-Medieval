@@ -1,19 +1,25 @@
-package net.dark_roleplay.medieval.objects.blocks.other.old_tesr;
+package net.dark_roleplay.medieval.objects.blocks.utility.crafting.honey_centrifuge;
 
+import net.dark_roleplay.core.api.storage.DynamicStorageTileEntity;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 
-public class TileEntityGrindstone extends TileEntity implements ITickable{
+public class TileEntityHoneyCentrifuge extends DynamicStorageTileEntity implements ITickable{
 
+	private float progress = 0F;
 	private float speed = 0F;
 	private float lastRotation = 0F;
 	private float rotation = 0F;
 
+	public TileEntityHoneyCentrifuge() {
+		super(4);
+	}
 
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		compound = super.writeToNBT(compound);
+
+		compound.setFloat("progress", this.progress);
 		compound.setFloat("speed", this.speed);
 
 		return compound;
@@ -21,9 +27,14 @@ public class TileEntityGrindstone extends TileEntity implements ITickable{
 
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
+		this.progress = compound.getFloat("progress");
 		this.speed = compound.getFloat("speed");
 
 		super.readFromNBT(compound);
+	}
+
+	public float getProgress() {
+		return this.progress;
 	}
 
 	public float getSpeed() {
@@ -45,13 +56,14 @@ public class TileEntityGrindstone extends TileEntity implements ITickable{
 	@Override
 	public void update() {
 		if(this.speed > 0) {
+			this.progress += (this.speed / 20F);
 			this.lastRotation = this.rotation;
 			this.rotation += (this.speed / 20F);
 			if(this.rotation >= 360) {
 				this.lastRotation -= 360;
 				this.rotation -= 360;
 			}
-			this.speed -= 7F;
+			this.speed -= 10F;
 		}else {
 			this.lastRotation = this.rotation;
 		}

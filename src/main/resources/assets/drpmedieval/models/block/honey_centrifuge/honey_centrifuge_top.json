@@ -1,0 +1,238 @@
+{
+	"credit": "Made by JTK222 for Dark Roleplay, using Blockbench.",
+	"textures": {
+		"barrel": "drpmedieval:blocks/barrels/spruce_barrel_side",
+		"table": "drpmedieval:blocks/clean_planks/clean_planks_spruce",
+		"particle": "drpmedieval:blocks/barrels/spruce_barrel_side"
+	},
+	"elements": [
+		{
+			"from": [0, 10, 7],
+			"to": [16, 11, 9],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 1], "texture": "#table"},
+				"east": {"uv": [0, 0, 2, 1], "texture": "#table"},
+				"south": {"uv": [0, 0, 16, 1], "texture": "#table"},
+				"west": {"uv": [0, 0, 2, 1], "texture": "#table"},
+				"up": {"uv": [0, 0, 16, 2], "texture": "#table"},
+				"down": {"uv": [0, 0, 16, 2], "texture": "#table"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [6.4087, 0, 0],
+			"to": [9.5913, 10, 1],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"north": {"uv": [8, 0, 12, 10], "texture": "#barrel"},
+				"south": {"uv": [8, 6, 11.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"up": {"uv": [0, 0, 4, 1], "rotation": 180, "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [6.4087, 0, 0],
+			"to": [9.5913, 10, 1],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"north": {"uv": [12, 0, 16, 10], "texture": "#barrel"},
+				"south": {"uv": [8, 6, 11.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"up": {"uv": [0, 0, 4, 1], "rotation": 180, "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [6.4087, 0, 0],
+			"to": [9.5913, 10, 1],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 10], "texture": "#barrel"},
+				"south": {"uv": [0, 6, 3.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"up": {"uv": [0, 0, 4, 1], "rotation": 180, "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [6.4087, 0, 0],
+			"to": [9.5913, 10, 1],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"north": {"uv": [4, 0, 8, 10], "texture": "#barrel"},
+				"south": {"uv": [4, 6, 7.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"up": {"uv": [4, 0, 8, 1], "rotation": 180, "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [6.4087, 0, 0],
+			"to": [9.5913, 10, 1],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"north": {"uv": [8, 0, 12, 10], "texture": "#barrel"},
+				"south": {"uv": [8, 6, 11.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"up": {"uv": [8, 0, 12, 1], "rotation": 180, "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [6.4087, 0, 15],
+			"to": [9.5913, 10, 16],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"north": {"uv": [8, 6, 11.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"south": {"uv": [8, 0, 12, 10], "texture": "#barrel"},
+				"up": {"uv": [8, 0, 12, 1], "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [6.4087, 0, 15],
+			"to": [9.5913, 10, 16],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"north": {"uv": [12, 6, 15.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"south": {"uv": [12, 0, 16, 10], "texture": "#barrel"},
+				"up": {"uv": [12, 0, 16, 1], "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [6.4087, 0, 15],
+			"to": [9.5913, 10, 16],
+			"faces": {
+				"north": {"uv": [0, 6, 3.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"south": {"uv": [0, 0, 4, 10], "texture": "#barrel"},
+				"up": {"uv": [0, 0, 4, 1], "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [6.4087, 0, 15],
+			"to": [9.5913, 10, 16],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"north": {"uv": [4, 6, 7.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"south": {"uv": [4, 0, 8, 10], "texture": "#barrel"},
+				"up": {"uv": [4, 0, 8, 1], "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [6.4087, 0, 15],
+			"to": [9.5913, 10, 16],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"north": {"uv": [8, 6, 11.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"south": {"uv": [8, 0, 12, 10], "texture": "#barrel"},
+				"up": {"uv": [0, 0, 4, 1], "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [0, 0, 6.4087],
+			"to": [1, 10, 9.5913],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"east": {"uv": [12, 6, 15.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"west": {"uv": [12, 0, 16, 10], "texture": "#barrel"},
+				"up": {"uv": [12, 0, 16, 1], "rotation": 90, "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [0, 0, 6.4087],
+			"to": [1, 10, 9.5913],
+			"faces": {
+				"east": {"uv": [0, 6, 3.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"west": {"uv": [0, 0, 4, 10], "texture": "#barrel"},
+				"up": {"uv": [0, 0, 4, 1], "rotation": 90, "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [0, 0, 6.4087],
+			"to": [1, 10, 9.5913],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"east": {"uv": [4, 6, 7.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"west": {"uv": [4, 0, 8, 10], "texture": "#barrel"},
+				"up": {"uv": [4, 0, 8, 1], "rotation": 90, "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [15, 0, 6.4087],
+			"to": [16, 10, 9.5913],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"east": {"uv": [12, 0, 16, 10], "texture": "#barrel"},
+				"west": {"uv": [12, 6, 15.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"up": {"uv": [0, 0, 4, 1], "rotation": 270, "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [15, 0, 6.4087],
+			"to": [16, 10, 9.5913],
+			"faces": {
+				"east": {"uv": [0, 0, 4, 10], "texture": "#barrel"},
+				"west": {"uv": [0, 6, 3.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"up": {"uv": [0, 0, 4, 1], "rotation": 270, "texture": "#barrel"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [15, 0, 6.4087],
+			"to": [16, 10, 9.5913],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"east": {"uv": [4, 0, 8, 10], "texture": "#barrel"},
+				"west": {"uv": [4, 6, 7.1826, 16], "rotation": 180, "texture": "#barrel"},
+				"up": {"uv": [0, 0, 4, 1], "rotation": 270, "texture": "#barrel"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 225, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [0, -2.2, 0],
+			"scale": [0.43, 0.43, 0.43]
+		},
+		"fixed": {
+			"translation": [0, -3, 0],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "barrel_top",
+			"children": [0,
+				{
+					"name": "hexadecagon",
+					"children": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+				}
+			]
+		}
+	]
+}

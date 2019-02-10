@@ -54,6 +54,10 @@ public class MedievalBlockProperties {
 	public static final PropertyBool HAS_TE = PropertyBool.create("has_te");
 	public static final PropertyBool SNOWED = PropertyBool.create("snowed"); //TODO change to SD_CONNECTION
 
+	public static final PropertyInteger ORE_COUNT = PropertyInteger.create("ore_count", 0, 3);
+	public static final PropertyInteger ORE_LIMIT = PropertyInteger.create("ore_limit", 1, 3);
+
+
 
 
 	public static enum StairType implements IStringSerializable{

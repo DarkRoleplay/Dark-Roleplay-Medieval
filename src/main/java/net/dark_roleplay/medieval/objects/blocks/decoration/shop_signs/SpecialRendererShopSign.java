@@ -36,18 +36,18 @@ public class SpecialRendererShopSign extends TileEntitySpecialRenderer<TileEntit
 		    double z2 = z;
 		    if(facing == EnumFacing.NORTH){
 		    	 x2 = x + 0.46874;
-		    	 z2 = z - 0.28125;
+		    	 z2 = z - 0.28120;
 		    }
 		    if(facing == EnumFacing.SOUTH){
 		    	 x2 = x + 0.46874;
-		    	 z2 = z + 0.28125;
+		    	 z2 = z + 0.28120;
 		    }
 		    if(facing == EnumFacing.WEST){
-		    	 z2 = z + 0.46875;
+		    	 z2 = z + 0.46870;
 		    	 x2 = x - 0.28125;
 		    }
 		    if(facing == EnumFacing.EAST){
-		    	 z2 = z + 0.46875;
+		    	 z2 = z + 0.46870;
 		    	 x2 = x + 0.28125;
 		    }
 		    //NORTH

@@ -1,8 +1,22 @@
 {
-    "variants":{
-        "facing=north":{"model":"drpmedieval:none"},
-        "facing=east":{"model":"drpmedieval:none", "y":90},
-        "facing=south":{"model":"drpmedieval:none", "y":180},
-        "facing=west":{"model":"drpmedieval:none", "y":270}   
-    }
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:grindstone/grindstone_stand",
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"facing":{
+			"north":{},
+			"east":{"y":90},
+			"south":{"y":180},
+			"west":{"y":270}
+		},
+		"static": {
+            "true": {},
+            "false": {
+                "model":"drpmedieval:grindstone/grindstone_stone"
+            }
+        }
+	}
 }

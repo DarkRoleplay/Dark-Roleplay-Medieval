@@ -13,6 +13,9 @@
 		},{
 			"input" : "drpmedieval:arg/blockstates/other/wood_support.json",
 			"output" : "drpmedieval:blockstates/%wood%_wood_support.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/other/honey_centrifuge.json",
+			"output" : "drpmedieval:blockstates/%wood%_honey_centrifuge.json"
 		}
 	]
 }

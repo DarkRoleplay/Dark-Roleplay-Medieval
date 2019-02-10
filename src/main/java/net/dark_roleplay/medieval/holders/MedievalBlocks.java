@@ -65,6 +65,17 @@ public class MedievalBlocks {
 		SULFUR_ORE					= null,
 		SILVER_ORE					= null;
 
+	/* Regenerating Ores */
+	public static final Block
+		REGENERATING_EMERALD_ORE	= null,
+		REGENERATING_DIAMOND_ORE	= null,
+		REGENERATING_LAPIS_ORE		= null,
+		REGENERATING_REDSTONE_ORE	= null,
+		REGENERATING_GOLD_ORE		= null,
+		REGENERATING_IRON_ORE		= null,
+		REGENERATING_COAL_ORE		= null,
+		REGENERATING_QUARTZ_ORE		= null;
+
 	/* Utility */
 	public static final Block
 		BUTTER_CHURN				= null,

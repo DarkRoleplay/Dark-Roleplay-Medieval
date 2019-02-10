@@ -32,6 +32,9 @@ public class MedievalCreativeTabs {
 	@ItemStackHolder(value = References.MODID + ":oak_flower_pot")
 	public static final ItemStack DECORATION_ICON = ItemStack.EMPTY;
 
+	@ItemStackHolder(value = "minecraft:barrier")
+	public static final ItemStack CREATIVE_ICON = ItemStack.EMPTY;
+
 	public static final DRPCreativeTab DECORATION = new DRPCreativeTab("drpm_deco") {
 		@Override public ItemStack createIcon() {return DECORATION_ICON;}
 	};
@@ -54,6 +57,10 @@ public class MedievalCreativeTabs {
 
 	public static final DRPCreativeTab MATERIALS = new DRPCreativeTab("drpm_misc") {
 		@Override public ItemStack createIcon() {return MATERIALS_ICON;}
+	};
+
+	public static final DRPCreativeTab CREATIVE = new DRPCreativeTab("drpm_creative") {
+		@Override public ItemStack createIcon() {return CREATIVE_ICON;}
 	};
 
 	private static class DRPCreativeTab extends CreativeTabs{

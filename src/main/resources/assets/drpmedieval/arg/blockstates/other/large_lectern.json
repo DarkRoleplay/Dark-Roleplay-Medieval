@@ -17,12 +17,12 @@
 			"west":{"y":270}
 		},
 		"top":{
-			false: {"model":"drpmedieval:wood_blocks/large_lectern_bottom"},
-			true : {"model":"drpmedieval:wood_blocks/large_lectern_top"}
+			"false": {"model":"drpmedieval:wood_blocks/large_lectern_bottom"},
+			"true" : {"model":"drpmedieval:wood_blocks/large_lectern_top"}
 		},
 		"book":{
-			false: {},
-			true:  {"model":"drpmedieval:wood_blocks/large_lectern_book"}
+			"false": {},
+			"true":  {"model":"drpmedieval:wood_blocks/large_lectern_book"}
 		}
 	}
 }

@@ -5,13 +5,16 @@ import java.util.Random;
 import net.dark_roleplay.core.api.storage.DynamicStorageTileEntity;
 import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
 import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
+import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.library.experimental.blocks.DRPBlock;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IBoundingBoxBehavior;
+import net.dark_roleplay.library.experimental.variables.wrappers.IntegerWrapper;
 import net.dark_roleplay.library.util.InDevUtil;
 import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.holders.MedievalBlockProperties;
-import net.dark_roleplay.medieval.holders.MedievalCreativeTabs;
 import net.dark_roleplay.medieval.holders.MedievalBlockProperties.Settings;
+import net.dark_roleplay.medieval.holders.MedievalCreativeTabs;
+import net.dark_roleplay.medieval.holders.configs.Miscellaneous;
 import net.dark_roleplay.medieval.objects.blocks.building.advanced_ore.AdvancedOre;
 import net.dark_roleplay.medieval.objects.blocks.building.dirt_stairs.DirtStairs;
 import net.dark_roleplay.medieval.objects.blocks.building.double_arch.DoubleArch;
@@ -77,17 +80,23 @@ import net.dark_roleplay.medieval.objects.blocks.plants.mushrooms.Mushrooms;
 import net.dark_roleplay.medieval.objects.blocks.utility.crafting.carpenter_workbench.simple_carpenter_workbench.SimpleCarpenterWorkbench;
 import net.dark_roleplay.medieval.objects.blocks.utility.crafting.cauldron.HangingCauldron;
 import net.dark_roleplay.medieval.objects.blocks.utility.crafting.chopping_block.TileEntityChoppingBlock;
+import net.dark_roleplay.medieval.objects.blocks.utility.crafting.firepit.FirepitParticles;
 import net.dark_roleplay.medieval.objects.blocks.utility.crafting.forge.Forge;
+import net.dark_roleplay.medieval.objects.blocks.utility.crafting.grindstone.Grindstone;
+import net.dark_roleplay.medieval.objects.blocks.utility.crafting.honey_centrifuge.HoneyCentrifuge;
 import net.dark_roleplay.medieval.objects.blocks.utility.crafting.juice_press.JuicePress;
 import net.dark_roleplay.medieval.objects.blocks.utility.other.clock_core.TileEntityClockCore;
 import net.dark_roleplay.medieval.objects.blocks.utility.other.lecterns.large_lectern.LargeLectern;
+import net.dark_roleplay.medieval.objects.blocks.utility.other.regenerating_ore.RegeneratingOre;
 import net.dark_roleplay.medieval.objects.blocks.utility.other.work_table.WorkTable;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_chest.SimpleChest;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_chest.TileEntitySimpleChest;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.Shelf;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEntityShelf;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -172,8 +181,8 @@ public class BlockRegistryHandler {
 		register(reg, MedievalCreativeTabs.UTILITY,
 			new FacedBlock("butter_churn", Settings.WOOD_DECO).addBehaviors(new Behavior_CraftingStation(), new FacedBoundingBox(new AxisAlignedBB(0.4375f, 0f, 0.3125f , 0.8125f, 0.75f, 0.6875f))),
 			new FacedBlock("spinning_wheel", Settings.WOOD_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.3125f, 0f, 0f, 1f, 0.6875f, 1f)), new Behavior_CraftingStation()),
-			new FacedBlock("grindstone", Settings.STONE_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.9375f, 0.9375f)),new Behavior_CraftingStation()).setTileEntityFactory(TileEntityGrindstone::new), //TODO fix Settings
-			new DRPBlock("firepit_lit", Settings.STONE_DECO_TESR).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0f, 0F, 0f, 1f, 0.5f, 1f)),new Behavior_CraftingStation()).setTileEntityFactory(TileEntityFirepit::new), //TODO fix Settings
+			new Grindstone("grindstone", Settings.STONE_DECO).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 0.9375f, 0.9375f)),new Behavior_CraftingStation()).setTileEntityFactory(TileEntityGrindstone::new), //TODO fix Settings
+			new DRPBlock("firepit_lit", Settings.STONE_DECO_TESR.copy().setLightLevel(13)).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0f, 0F, 0f, 1f, 0.5f, 1f)),new Behavior_CraftingStation(), new FirepitParticles()).setTileEntityFactory(TileEntityFirepit::new), //TODO fix Settings
 			new FacedBlock("cauldron", Settings.METAL_DECO_TESR).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0F, 0.0625f, 0.9375f, 1f, 0.9375f)),new Behavior_CraftingStation()).setTileEntityFactory(TileEntityCauldron::new), //TODO fix Settings
 			new FacedBlock("anvil", Settings.METAL_DECO_TESR).addBehaviors(new Behavior_CraftingStation(), new FacedBoundingBox(new AxisAlignedBB(0F, 0F, 0.1875F, 1F, 1F, 0.8125F))).setTileEntityFactory(TileEntityAnvil::new), //TODO fix Settings
 			new FacedBlock("mortar", Settings.STONE_DECO).addBehaviors(new FacedBoundingBox(new AxisAlignedBB(0.25f, 0f, 0.25f, 0.75f, 0.25f, 0.75f)), new Behavior_CraftingStation()).setTileEntityFactory(TileEntityMortar::new), //TODO fix Settings
@@ -236,7 +245,26 @@ public class BlockRegistryHandler {
 			}
 		}**/
 
+
+//		 WOOD(0, 59, 2.0F, 0.0F, 15),
+//	        STONE(1, 131, 4.0F, 1.0F, 5),
+//	        IRON(2, 250, 6.0F, 2.0F, 14),
+//	        DIAMOND(3, 1561, 8.0F, 3.0F, 10),
+//	        GOLD(0, 32, 12.0F, 0.0F, 22);
+
+		BlockSettings vanillaOre = new BlockSettings(Material.ROCK, SoundType.STONE, 3.0F, 5.0F);
+
 		if(InDevUtil.isDevEnv()) {
+			register(reg, MedievalCreativeTabs.CREATIVE,
+				new RegeneratingOre("regenerating_emerald_ore", vanillaOre, 2, new IntegerWrapper(Miscellaneous.REGEN_TIME_EMERALD)),
+				new RegeneratingOre("regenerating_diamond_ore", vanillaOre, 2, new IntegerWrapper(Miscellaneous.REGEN_TIME_DIAMOND)),
+				new RegeneratingOre("regenerating_lapis_ore", vanillaOre, 1, new IntegerWrapper(Miscellaneous.REGEN_TIME_LAPIS)),
+				new RegeneratingOre("regenerating_redstone_ore", vanillaOre, 2, new IntegerWrapper(Miscellaneous.REGEN_TIME_REDSTONE)),
+				new RegeneratingOre("regenerating_gold_ore", vanillaOre, 2, new IntegerWrapper(Miscellaneous.REGEN_TIME_GOLD)),
+				new RegeneratingOre("regenerating_iron_ore", vanillaOre, 1, new IntegerWrapper(Miscellaneous.REGEN_TIME_IRON)),
+				new RegeneratingOre("regenerating_coal_ore", vanillaOre, 0, new IntegerWrapper(Miscellaneous.REGEN_TIME_COAL)),
+				new RegeneratingOre("regenerating_quartz_ore", vanillaOre, 0, new IntegerWrapper(Miscellaneous.REGEN_TIME_QUARTZ))
+			);
 //			reg.register(new TorchOverride());
 //			register(reg, MedievalCreativeTabs.UTILITY,
 //				new SpinningWheel("spinning_wheel2", Settings.WOOD_DECO).setTileEntityFactory(SpinningWheelTileEntity::new).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock
@@ -326,7 +354,8 @@ public class BlockRegistryHandler {
 
 				register(reg, MedievalCreativeTabs.UTILITY,
 					new Shelf("simple_" + mat.getName() + "_shelf", Settings.WOOD_DECO).setTileEntityFactory(TileEntityShelf::new), //TODO Update to DRPBlock
-					new LargeLectern("large_" + mat.getName() + "_lectern") //TODO Update to DRPBlock
+					new LargeLectern("large_" + mat.getName() + "_lectern"), //TODO Update to DRPBlock
+					new HoneyCentrifuge(mat.getNamed("%wood%_honey_centrifuge"), Settings.WOOD_DECO)
 				);
 
 				register(reg, MedievalCreativeTabs.DECORATION,
