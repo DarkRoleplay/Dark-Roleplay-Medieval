@@ -1,10 +1,9 @@
-package net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_chest;
+package net.dark_roleplay.medieval.objects.blocks.utility.crafting.honey_centrifuge;
 
 import java.util.List;
 
 import org.lwjgl.opengl.GL11;
 
-import net.dark_roleplay.medieval.objects.blocks.utility.crafting.honey_centrifuge.TileEntityHoneyCentrifuge;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -44,7 +43,7 @@ public class SpecialRendererHoneyCentrifuge extends TileEntitySpecialRenderer<Ti
 		}
 
 		GlStateManager.pushMatrix();
-		GlStateManager.translate(x + 0.5, y, z + 0.5);
+		GlStateManager.translate(x, y, z);
 		GlStateManager.rotate(rotation, 0F, 1F, 0F);
 
 		tessellator.draw();

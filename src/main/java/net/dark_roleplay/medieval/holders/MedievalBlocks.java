@@ -36,7 +36,6 @@ public class MedievalBlocks {
 		TORCH_HOLDER_LIT			= null,
 		TORCH_HOLDER_UNLIT			= null,
 		WALL_SHOP_SIGN				= null,
-		SHIPS_HELM					= null,
 		TARGET						= null,
 		LANTERN						= null,
 		GOLDEN_SHIP_BELL			= null;
@@ -104,7 +103,8 @@ public class MedievalBlocks {
 	public static final Block
 		OAK_CHOPPING_BLOCK 			= null,
 		LARGE_OAK_LECTERN 			= null,
-		OAK_WORK_TABLE	 			= null;
+		OAK_WORK_TABLE	 			= null,
+		OAK_HONEY_CENTRIFUGE		= null;
 
 	/* Storage */
 	public static final Block
@@ -131,6 +131,7 @@ public class MedievalBlocks {
 
 	/* Decoration */
 	public static final Block
+		OAK_SHIPS_HELM				= null,
 		OAK_LOG_BENCH				= null,
 		OAK_LOG_CHAIR				= null,
 		OAK_FIREWOOD_PILE			= null,

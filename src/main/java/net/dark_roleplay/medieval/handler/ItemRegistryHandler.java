@@ -136,8 +136,8 @@ public class ItemRegistryHandler {
 		//TODO Fix that
 
 		registerItems(reg, MedievalCreativeTabs.UTILITY,
-				new ItemMultiBlock(MedievalBlocks.SIMPLE_CARPENTER_WORKBENCH).setRegistryName("simple_carpenter_workbench"),
-				new ItemMultiBlock(MedievalBlocks.FORGE).setRegistryName("forge")
+			new ItemMultiBlock(MedievalBlocks.SIMPLE_CARPENTER_WORKBENCH).setRegistryName("simple_carpenter_workbench"),
+			new ItemMultiBlock(MedievalBlocks.FORGE).setRegistryName("forge")
 		);
 
 		registerItems(reg, MedievalCreativeTabs.BUILDING_MATS, new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));

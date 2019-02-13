@@ -12,15 +12,13 @@ import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityCauldr
 import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityChain;
 import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityCrate;
 import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityFirepit;
-import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityGrindstone;
 import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityHangingCauldron;
 import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityHook;
 import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityKeyHanging;
-import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityMortar;
 import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityRopeAnchor;
-import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityShipsWheel;
 import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityTarget;
 import net.dark_roleplay.medieval.objects.blocks.utility.crafting.chopping_block.TileEntityChoppingBlock;
+import net.dark_roleplay.medieval.objects.blocks.utility.crafting.grindstone.TileEntityGrindstone;
 import net.dark_roleplay.medieval.objects.blocks.utility.crafting.honey_centrifuge.TileEntityHoneyCentrifuge;
 import net.dark_roleplay.medieval.objects.blocks.utility.other.clock_core.TileEntityClockCore;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_chest.TileEntitySimpleChest;
@@ -47,7 +45,6 @@ public class TileEntityRegistryHandler {
 		//TODO Look trough this
 		//TODO Finally make new models!
 		GameRegistry.registerTileEntity(TileEntityAnvil.class, new ResourceLocation(References.MODID, "TileEntityAnvil"));
-		GameRegistry.registerTileEntity(TileEntityMortar.class, new ResourceLocation(References.MODID, "TileEntityMortar"));
 		GameRegistry.registerTileEntity(TileEntityGrindstone.class, new ResourceLocation(References.MODID, "TileEntityGrindstone"));
 		GameRegistry.registerTileEntity(TileEntityHangingCauldron.class, new ResourceLocation(References.MODID, "TileEntityHangingCauldron"));
 		GameRegistry.registerTileEntity(TileEntityBookOne.class, new ResourceLocation(References.MODID, "TileEntityBookOne"));
@@ -55,7 +52,6 @@ public class TileEntityRegistryHandler {
 		GameRegistry.registerTileEntity(TileEntityChain.class, new ResourceLocation(References.MODID, "TileEntityChain"));
 		GameRegistry.registerTileEntity(TileEntityHook.class, new ResourceLocation(References.MODID, "TileEntityHook"));
 		GameRegistry.registerTileEntity(TileEntityKeyHanging.class, new ResourceLocation(References.MODID, "TileEntityKeyHanging"));
-		GameRegistry.registerTileEntity(TileEntityShipsWheel.class, new ResourceLocation(References.MODID, "TileEntityShipsWheel"));
 		GameRegistry.registerTileEntity(TileEntityTarget.class, new ResourceLocation(References.MODID, "TileEntityTarget"));
 		GameRegistry.registerTileEntity(TileEntityRopeAnchor.class, new ResourceLocation(References.MODID, "TileEntityRopeAnchor"));
 		GameRegistry.registerTileEntity(TileEntityFirepit.class, new ResourceLocation(References.MODID, "TileEntityFirepit"));

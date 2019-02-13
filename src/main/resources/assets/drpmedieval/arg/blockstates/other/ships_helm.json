@@ -1,0 +1,21 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:ships_helm/ships_helm",
+        "textures": {
+			"log": "drpcmmaarg:blocks/stripped_log_side/stripped_%wood%_log_side",
+			"plank": "drpcmmaarg:blocks/planks/planks_%wood%",
+			"particle": "drpcmmaarg:blocks/stripped_log_side/stripped_%wood%_log_side"
+        },
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"inventory":[{}],
+		"facing":{
+			"north":{},
+			"east":{"y":90},
+			"south":{"y":180},
+			"west":{"y":270}
+		}
+	}
+}

@@ -16,6 +16,9 @@
 		},{
 			"input" : "drpmedieval:arg/blockstates/other/honey_centrifuge.json",
 			"output" : "drpmedieval:blockstates/%wood%_honey_centrifuge.json"
+		},{
+			"input" : "drpmedieval:arg/blockstates/other/ships_helm.json",
+			"output" : "drpmedieval:blockstates/%wood%_ships_helm.json"
 		}
 	]
 }

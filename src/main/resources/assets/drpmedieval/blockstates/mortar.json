@@ -1,8 +1,0 @@
-{
-    "variants":{
-        "facing=north":{"model":"drpmedieval:none"},
-        "facing=east":{"model":"drpmedieval:none", "y":90},
-        "facing=south":{"model":"drpmedieval:none", "y":180},
-        "facing=west":{"model":"drpmedieval:none", "y":270}   
-    }
-}

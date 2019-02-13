@@ -1,11 +1,12 @@
-package net.dark_roleplay.medieval.objects.blocks.other.old_tesr;
+package net.dark_roleplay.medieval.objects.blocks.utility.crafting.grindstone;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.lwjgl.opengl.GL11;
 
 import net.dark_roleplay.medieval.holders.MedievalBlockProperties;
-import net.dark_roleplay.medieval.objects.blocks.utility.crafting.grindstone.Grindstone;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
@@ -22,22 +23,23 @@ import net.minecraftforge.common.property.Properties;
 
 public class SpecialRenderGrindstone extends TileEntitySpecialRenderer<TileEntityGrindstone> {
 
-	List<BakedQuad> quads = null;
+
+	Map<IBlockState, List<BakedQuad>> quads = new HashMap<IBlockState, List<BakedQuad>>();
 
 	@Override
 	public void render(TileEntityGrindstone tileEntity, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
-		if(this.quads == null) {
-			BlockRendererDispatcher blockrendererdispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
-			this.quads =
-					blockrendererdispatcher.getBlockModelShapes().getModelForState(tileEntity.getWorld().getBlockState(tileEntity.getPos()).withProperty(Properties.StaticProperty, false))
-					.getQuads(tileEntity.getWorld().getBlockState(tileEntity.getPos()).withProperty(Properties.StaticProperty, false), null, 0L);;
-		}
-
-		this.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
-
 		IBlockState state = tileEntity.getWorld().getBlockState(tileEntity.getPos());
 
 		if(!(state.getBlock() instanceof Grindstone)) return;
+
+		if(!this.quads.containsKey(state.withProperty(Properties.StaticProperty, false))) {
+			BlockRendererDispatcher blockrendererdispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
+			this.quads.put(state,
+				blockrendererdispatcher.getBlockModelShapes().getModelForState(tileEntity.getWorld().getBlockState(tileEntity.getPos()).withProperty(Properties.StaticProperty, false))
+				.getQuads(tileEntity.getWorld().getBlockState(tileEntity.getPos()).withProperty(Properties.StaticProperty, false), null, 0L));
+		}
+
+		this.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 
 		EnumFacing facing = state.getValue(MedievalBlockProperties.FACING_HORIZONTAL);
 
@@ -47,7 +49,7 @@ public class SpecialRenderGrindstone extends TileEntitySpecialRenderer<TileEntit
 		BufferBuilder buffer = tessellator.getBuffer();
 		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.ITEM);
 
-		for(BakedQuad quad : this.quads) {
+		for(BakedQuad quad : this.quads.get(state)) {
 			VertexFormat format = quad.getFormat();
 			buffer.addVertexData(quad.getVertexData());
 		}
@@ -78,7 +80,6 @@ public class SpecialRenderGrindstone extends TileEntitySpecialRenderer<TileEntit
 		}
 
 		tessellator.draw();
-		this.quads = null;
 
 		GlStateManager.popMatrix();
 	}

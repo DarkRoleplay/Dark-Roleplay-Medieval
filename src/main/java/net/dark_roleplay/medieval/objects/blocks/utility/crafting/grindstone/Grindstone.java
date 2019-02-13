@@ -4,7 +4,6 @@ import static net.dark_roleplay.medieval.holders.MedievalBlockProperties.FACING_
 
 import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.medieval.objects.blocks.general.FacedBlock;
-import net.dark_roleplay.medieval.objects.blocks.other.old_tesr.TileEntityGrindstone;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;

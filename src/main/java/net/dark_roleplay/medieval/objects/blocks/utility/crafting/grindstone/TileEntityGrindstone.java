@@ -1,4 +1,4 @@
-package net.dark_roleplay.medieval.objects.blocks.other.old_tesr;
+package net.dark_roleplay.medieval.objects.blocks.utility.crafting.grindstone;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
