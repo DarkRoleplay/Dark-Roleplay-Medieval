@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.lwjgl.opengl.GL11;
 
+import net.dark_roleplay.medieval.holders.MedievalBlockProperties;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -14,6 +15,7 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.vertex.VertexFormat;
+import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.property.Properties;
 
 public class SpecialRendererHoneyCentrifuge extends TileEntitySpecialRenderer<TileEntityHoneyCentrifuge>{
@@ -25,7 +27,7 @@ public class SpecialRendererHoneyCentrifuge extends TileEntitySpecialRenderer<Ti
 		if(this.quads == null) {
 			BlockRendererDispatcher blockrendererdispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
 			this.quads =
-					blockrendererdispatcher.getBlockModelShapes().getModelForState(tileEntity.getWorld().getBlockState(tileEntity.getPos()).withProperty(Properties.StaticProperty, false))
+					blockrendererdispatcher.getBlockModelShapes().getModelForState(tileEntity.getWorld().getBlockState(tileEntity.getPos()).withProperty(Properties.StaticProperty, false).withProperty(MedievalBlockProperties.FACING_HORIZONTAL, EnumFacing.NORTH))
 					.getQuads(tileEntity.getWorld().getBlockState(tileEntity.getPos()).withProperty(Properties.StaticProperty, false), null, 0L);;
 		}
 
@@ -43,11 +45,9 @@ public class SpecialRendererHoneyCentrifuge extends TileEntitySpecialRenderer<Ti
 		}
 
 		GlStateManager.pushMatrix();
-		GlStateManager.translate(x, y, z);
+		GlStateManager.translate(x + 0.5F, y, z + 0.5F);
 		GlStateManager.rotate(rotation, 0F, 1F, 0F);
-
 		tessellator.draw();
-//		this.quads = null;
 
 		GlStateManager.popMatrix();
 	}

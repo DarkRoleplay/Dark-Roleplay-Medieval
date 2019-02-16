@@ -20,7 +20,8 @@
 		"static": {
             "true": {},
             "false": {
-                "model":"drpmedieval:honey_centrifuge/honey_centrifuge_handle"
+                "model":"drpmedieval:honey_centrifuge/honey_centrifuge_handle",
+                "y":0
             }
         },
 		"top": {
