@@ -1,6 +1,8 @@
 package net.dark_roleplay.medieval.objects.blocks.decoration.rope_fence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Nullable;
 
@@ -18,6 +20,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockPos.MutableBlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.property.ExtendedBlockState;
@@ -77,12 +80,11 @@ public class RopeFence extends Block{
 	protected BlockStateContainer createBlockState() {
 		return new ExtendedBlockState(this, new IProperty[] {RopeFence.NORTH_EAST,RopeFence.SOUTH_EAST,RopeFence.SOUTH_WEST,RopeFence.NORTH_WEST}, new IUnlistedProperty[]{RopeFence.NORTH, RopeFence.EAST, RopeFence.WEST, RopeFence.SOUTH});
 	}
-	
-		 /**
-	  * Can return IExtendedBlockState
-	  */
+
 	@Override
-	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos){
+    public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
+//	@Override
+//	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos){
 		state = super.getExtendedState(state, world, pos);
 		
 		if (state instanceof IExtendedBlockState){
@@ -96,60 +98,75 @@ public class RopeFence extends Block{
 			boolean se = false;
 			boolean sw = false;
 			boolean nw = false;
+			
+			MutableBlockPos mutablePos = new MutableBlockPos(pos);
 
-			if((world.getBlockState(pos.north()).getBlock() == this)){
+			mutablePos.north();
+			
+			if((world.getBlockState(mutablePos).getBlock() == this)){
 				n = 1;
-			} else if((world.getBlockState(pos.north().up()).getBlock() == this) && world.isAirBlock(pos.up())){
+			} else if(world.isSideSolid(mutablePos, EnumFacing.SOUTH, false)){
+				n = 1;
+			} else if((world.getBlockState(mutablePos.add(0,1, 0)).getBlock() == this) && world.isAirBlock(pos.up())){
 				n = 2;
-			} else if((world.getBlockState(pos.north().down()).getBlock() == this) && (world.getBlockState(pos.down()).getBlock() != this)){
+			} else if((world.getBlockState(mutablePos.add(0,-2,0)).getBlock() == this) && (world.getBlockState(pos.down()).getBlock() != this)){
 				n = 0;
-			}else if(world.isSideSolid(pos.north(), EnumFacing.SOUTH, false)){
-				n = 1;
 			}
 			
-			if((world.getBlockState(pos.east()).getBlock() == this)) {
+			mutablePos.setPos(pos.getX(), pos.getY(), pos.getZ());
+			mutablePos.east();
+			
+			if((world.getBlockState(mutablePos).getBlock() == this)) {
 				e = 1;
-			} else if((world.getBlockState(pos.east().up()).getBlock() == this) && world.isAirBlock(pos.up())){
+			}else if(world.isSideSolid(mutablePos, EnumFacing.WEST, false)){
+				e = 1;
+			} else if((world.getBlockState(mutablePos.add(0,1,0)).getBlock() == this) && world.isAirBlock(pos.up())){
 				e = 2;
-			} else if((world.getBlockState(pos.east().down()).getBlock() == this) && (world.getBlockState(pos.down()).getBlock() != this)){
+			} else if((world.getBlockState(mutablePos.add(0,-2,0)).getBlock() == this) && (world.getBlockState(pos.down()).getBlock() != this)){
 				e = 0;
-			}else if(world.isSideSolid(pos.east(), EnumFacing.WEST, false)){
-				e = 1;
 			}
 			
-			if((world.getBlockState(pos.south()).getBlock() == this)) {
+			mutablePos.setPos(pos.getX(), pos.getY(), pos.getZ());
+			mutablePos.south();
+			
+			if((world.getBlockState(mutablePos).getBlock() == this)) {
 				s = 1;
-			} else if((world.getBlockState(pos.south().up()).getBlock() == this) && world.isAirBlock(pos.up())){
+			} else if(world.isSideSolid(mutablePos, EnumFacing.NORTH, false)){
+				s = 1;
+			} else if((world.getBlockState(mutablePos.add(0,1,0)).getBlock() == this) && world.isAirBlock(pos.up())){
 				s = 2;
-			} else if((world.getBlockState(pos.south().down()).getBlock() == this) && (world.getBlockState(pos.down()).getBlock() != this)){
+			} else if((world.getBlockState(mutablePos.add(0,-2, 0)).getBlock() == this) && (world.getBlockState(pos.down()).getBlock() != this)){
 				s = 0;
-			}else if(world.isSideSolid(pos.south(), EnumFacing.NORTH, false)){
-				s = 1;
 			}
 			
-			if((world.getBlockState(pos.west()).getBlock() == this)) {
+			mutablePos.setPos(pos.getX(), pos.getY(), pos.getZ());
+			mutablePos.west();
+			
+			if((world.getBlockState(mutablePos).getBlock() == this)) {
 				w = 1;
-			} else if((world.getBlockState(pos.west().up()).getBlock() == this) && world.isAirBlock(pos.up())){
+			} else if(world.isSideSolid(mutablePos, EnumFacing.EAST, false)){
+				w = 1;
+			} else if((world.getBlockState(mutablePos.add(0,1,0)).getBlock() == this) && world.isAirBlock(pos.up())){
 				w = 2;
-			} else if((world.getBlockState(pos.west().down()).getBlock() == this) && (world.getBlockState(pos.down()).getBlock() != this)){
+			} else if((world.getBlockState(mutablePos.add(0,-2,0)).getBlock() == this) && (world.getBlockState(pos.down()).getBlock() != this)){
 				w = 0;
-			}else if(world.isSideSolid(pos.west(), EnumFacing.EAST, false)){
-				w = 1;
 			}
 			
-			if(((n == 3) && (e == 3)) && (world.getBlockState(pos.north().east()).getBlock() == this)) {
+			mutablePos.setPos(pos.getX(), pos.getY(), pos.getZ());
+			
+			if(((n == 3) && (e == 3)) && (world.getBlockState(mutablePos.north().east()).getBlock() == this)) {
 				ne = true;
 			}
 			
-			if(((s == 3) && (e ==3)) && (world.getBlockState(pos.south().east()).getBlock() == this)) {
+			if(((s == 3) && (e ==3)) && (world.getBlockState(mutablePos.south().south()).getBlock() == this)) {
 				se = true;
 			}
 			
-			if(((s == 3) && (w == 3)) && (world.getBlockState(pos.south().west()).getBlock() == this)) {
+			if(((s == 3) && (w == 3)) && (world.getBlockState(mutablePos.west().west()).getBlock() == this)) {
 				sw = true;
 			}
 			
-			if(((n == 3) && (w == 3)) && (world.getBlockState(pos.north().west()).getBlock() == this)) {
+			if(((n == 3) && (w == 3)) && (world.getBlockState(mutablePos.north().north()).getBlock() == this)) {
 				nw = true;
 			}
 			
@@ -157,7 +174,7 @@ public class RopeFence extends Block{
 				ext = (IExtendedBlockState) ext.withProperty(RopeFence.NORTH, n).withProperty(RopeFence.EAST, e).withProperty(RopeFence.SOUTH, s).withProperty(RopeFence.WEST, w).withProperty(RopeFence.NORTH_EAST, ne).withProperty(RopeFence.SOUTH_WEST, sw).withProperty(RopeFence.SOUTH_EAST, se).withProperty(RopeFence.NORTH_WEST, nw);;
 				state = ext;
 		}
-
+		
 		return state;
 	}
 

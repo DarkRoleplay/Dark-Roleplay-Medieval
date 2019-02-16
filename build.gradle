@@ -44,15 +44,15 @@ dependencies {
   	runtime "com.github.glitchfiend.biomesoplenty:BiomesOPlenty:1.12.2-7.0.1.2399:universal"
 	
 	contained group: "net.dark_roleplay", name: "drplibrary", version: "${mc_version}-${drp_library_version}", changing: true
-	contained group: "net.dark_roleplay.core_modules", name: "drpcmmaarg", version: "${mc_version}-${drp_core_module_maarg_version}", changing: true
-	contained group: "net.dark_roleplay.core_modules", name: "drpcmguis", version: "${mc_version}-${drp_core_module_guis_version}", changing: true
-	contained group: "net.dark_roleplay.core_modules", name: "drpcmlocks", version: "${mc_version}-${drp_core_module_locks_version}", changing: true
+	contained group: "net.dark_roleplay.core_modules", name: "drpcmmaarg", version: "${mc_version}-${drp_core_module_maarg_version}", changing: true, transitive: false
+	contained group: "net.dark_roleplay.core_modules", name: "drpcmguis", version: "${mc_version}-${drp_core_module_guis_version}", changing: true, transitive: false
+	contained group: "net.dark_roleplay.core_modules", name: "drpcmlocks", version: "${mc_version}-${drp_core_module_locks_version}", changing: true, transitive: false
 
 	
-	deobfProvided group: "net.dark_roleplay", name: "drplibrary", version: "${mc_version}-${drp_library_version}", changing: true
-	deobfProvided group: "net.dark_roleplay.core_modules", name: "drpcmmaarg", version: "${mc_version}-${drp_core_module_maarg_version}", changing: true
-	deobfProvided group: "net.dark_roleplay.core_modules", name: "drpcmguis", version: "${mc_version}-${drp_core_module_guis_version}", changing: true
-	deobfCompile group: "net.dark_roleplay.core_modules", name: "drpcmlocks", version: "${mc_version}-${drp_core_module_locks_version}", changing: true
+	deobfProvided group: "net.dark_roleplay", name: "drplibrary", version: "${mc_version}-${drp_library_version}", changing: true, transitive: false
+	deobfProvided group: "net.dark_roleplay.core_modules", name: "drpcmmaarg", version: "${mc_version}-${drp_core_module_maarg_version}", changing: true, transitive: false
+	deobfProvided group: "net.dark_roleplay.core_modules", name: "drpcmguis", version: "${mc_version}-${drp_core_module_guis_version}", changing: true, transitive: false
+	deobfCompile group: "net.dark_roleplay.core_modules", name: "drpcmlocks", version: "${mc_version}-${drp_core_module_locks_version}", changing: true, transitive: false
 
 
 	deobfCompile group: "net.dark_roleplay", name: "drpcore", version: "${mc_version}-${drp_core_version}", changing: true, transitive: false

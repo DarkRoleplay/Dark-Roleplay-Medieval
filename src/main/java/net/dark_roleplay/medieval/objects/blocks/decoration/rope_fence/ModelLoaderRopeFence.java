@@ -28,7 +28,7 @@ import net.minecraftforge.common.property.IExtendedBlockState;
 
 public class ModelLoaderRopeFence extends DelayedBaker implements ICustomModelLoader {
 
-	protected static final Map<IBlockState, List<BakedQuad>> CACHE = Maps.newHashMap();
+	protected static final Map<String, List<BakedQuad>> CACHE = Maps.newHashMap();
 
 	protected static ImmutableList<ResourceLocation> textures;
 
@@ -58,20 +58,12 @@ public class ModelLoaderRopeFence extends DelayedBaker implements ICustomModelLo
 	public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
 		side = null;
 
-		// IExtendedBlockState state = (IExtendetBlockState)
-		// state.getBlock().getExtendedState(state, world, pos);
 
-		List<BakedQuad> result = Lists.newArrayList();
-		this.addQuads(result, pole, 0, 0, state, side, rand);
-
-		if (state == null) {
+		if (state == null || !(state instanceof IExtendedBlockState)) {
+			List<BakedQuad> result = Lists.newArrayList();
+			this.addQuads(result, pole, 0, 0, state, side, rand);
 			return result;
 		}
-		//
-		// IExtendedBlockState state = (IExtendedBlockState) st;
-
-		if (CACHE.containsKey(state))
-			return CACHE.get(state);
 
 		int north = 3;
 		int east = 3;
@@ -94,6 +86,18 @@ public class ModelLoaderRopeFence extends DelayedBaker implements ICustomModelLo
 			if (exState.getUnlistedNames().contains(RopeFence.WEST))
 				west = exState.getValue(RopeFence.WEST);
 		}
+		
+		String stateKey = north_east + "" + south_east + south_west + north_west + "" + north + east + south + west;
+
+		
+		if (CACHE.containsKey(stateKey)) {
+			return CACHE.get(stateKey);
+		}
+		
+		List<BakedQuad> result = Lists.newArrayList();
+		this.addQuads(result, pole, 0, 0, state, side, rand);
+		
+
 
 		if (north == 2) {
 			this.addQuads(result, straight_rope2, 180, 0, state, side, rand);
@@ -137,7 +141,7 @@ public class ModelLoaderRopeFence extends DelayedBaker implements ICustomModelLo
 			this.addQuads(result, diagonal_rope, 270, 0, state, side, rand);
 		}
 
-		CACHE.put(state, result);
+		CACHE.put(stateKey, result);
 		return result;
 	}
 
