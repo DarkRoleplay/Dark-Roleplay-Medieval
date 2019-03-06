@@ -1,13 +1,6 @@
 package net.dark_roleplay.medieval.testing.purse;
 
-import net.dark_roleplay.library.experimental.guis.modular.ModularGui_Drawer;
-import net.dark_roleplay.medieval.References;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.Slot;
-import net.minecraft.util.ResourceLocation;
-
-public class PurseGUI  extends GuiContainer{
+public class PurseGUI {}/*  extends GuiContainer{
 
     private static final ResourceLocation background = new ResourceLocation(References.MODID, "textures/guis/storage/dynamic_storage.png");
 
@@ -37,3 +30,4 @@ public class PurseGUI  extends GuiContainer{
         }
 	}
 }
+*/

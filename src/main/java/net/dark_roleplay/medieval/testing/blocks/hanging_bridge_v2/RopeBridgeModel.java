@@ -22,7 +22,7 @@ public class RopeBridgeModel{
 
 	private void addHandel(Vec3d posA, Vec3d posB) {
 		float width = 0.0625f;
-		TextureAtlasSprite rope = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("drpmedieval:blocks/rope");
+		TextureAtlasSprite rope = Minecraft.getInstance().getTextureMap().getAtlasSprite("drpmedieval:blocks/rope");
 
 		Vec3d size = posB.subtract(posA);
 		double distance = size.length();

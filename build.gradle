@@ -1,67 +1,73 @@
 buildscript {
     repositories {
+        maven { url = 'https://files.minecraftforge.net/maven' }
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
     }
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'net.minecraftforge.gradle'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+apply plugin: 'eclipse'
 
-
-version = "1.12.2-0.3.2.1"
+version = "1.13.2-0.1.0-SNAPSHOT"
 group = "net.dark_roleplay"
 archivesBaseName = "drpmedieval"
 
-sourceCompatibility = targetCompatibility = '1.8'
-compileJava {
-    sourceCompatibility = targetCompatibility = '1.8'
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+
+minecraft {
+    mappings channel: 'snapshot', version: '20180921-1.13'
+    runs {
+		client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', ''
+            property 'forge.logging.console.level', 'debug'
+            mods {
+                drpmedieval {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('run_server')
+            property 'forge.logging.markers', ''
+            property 'forge.logging.console.level', 'debug'
+            mods {
+                drpmedieval {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
 }
 
-apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/minecraft.gradle'
-apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/configurations.gradle'
-
 repositories {
-	maven {
-		name = "JEI"
-		url = "http://dvs1.progwml6.com/files/maven"
-	}
 	maven {
 		name = "Dark Roleplay"
 		url = "https://dark-roleplay.net/files/maven/"
 	}
-	maven{
-		name = "BoP"
-		url = "http://files.minecraftforge.net/maven/"
-	}
 }
 
 dependencies {
-	//Compile against API, use full mod for runtime
-	deobfProvided group: "mezz.jei", name: "jei_${mc_version}", version: "${jei_version}", classifier: 'api'
-	runtime group: "mezz.jei", name: "jei_${mc_version}", version: "${jei_version}"
-  	runtime "com.github.glitchfiend.biomesoplenty:BiomesOPlenty:1.12.2-7.0.1.2399:universal"
-	
-	contained group: "net.dark_roleplay", name: "drplibrary", version: "${mc_version}-${drp_library_version}", changing: true
-	contained group: "net.dark_roleplay.core_modules", name: "drpcmmaarg", version: "${mc_version}-${drp_core_module_maarg_version}", changing: true, transitive: false
-	contained group: "net.dark_roleplay.core_modules", name: "drpcmguis", version: "${mc_version}-${drp_core_module_guis_version}", changing: true, transitive: false
-	contained group: "net.dark_roleplay.core_modules", name: "drpcmlocks", version: "${mc_version}-${drp_core_module_locks_version}", changing: true, transitive: false
-
-	
-	deobfProvided group: "net.dark_roleplay", name: "drplibrary", version: "${mc_version}-${drp_library_version}", changing: true, transitive: false
-	deobfProvided group: "net.dark_roleplay.core_modules", name: "drpcmmaarg", version: "${mc_version}-${drp_core_module_maarg_version}", changing: true, transitive: false
-	deobfProvided group: "net.dark_roleplay.core_modules", name: "drpcmguis", version: "${mc_version}-${drp_core_module_guis_version}", changing: true, transitive: false
-	deobfCompile group: "net.dark_roleplay.core_modules", name: "drpcmlocks", version: "${mc_version}-${drp_core_module_locks_version}", changing: true, transitive: false
-
-
-	deobfCompile group: "net.dark_roleplay", name: "drpcore", version: "${mc_version}-${drp_core_version}", changing: true, transitive: false
+    minecraft 'net.minecraftforge:forge:1.13.2-25.0.69'
+	compile group: "net.dark_roleplay", name: "drplibrary", version: "1.13.2-0.1.0-SNAPSHOT", changing: true, transitive: false
+	runtime group: "net.dark_roleplay", name: "drplibrary", version: "1.13.2-0.1.0-SNAPSHOT", changing: true, transitive: false
 }
 
-apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/mcmod_info.gradle'
-apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/signing.gradle'
-apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/contained_jar.gradle'
-if(project.hasProperty("mvn_url")){
-	apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/publishing.gradle'
+jar {
+    manifest {
+        attributes([
+            "Specification-Title": "examplemod",
+            "Specification-Vendor": "examplemodsareus",
+            "Specification-Version": "1", // We are version 1 of ourselves
+            "Implementation-Title": project.name,
+            "Implementation-Version": "${version}",
+            "Implementation-Vendor" :"examplemodsareus",
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
 }
-apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/mod_maven.gradle'

@@ -1,19 +1,16 @@
 package net.dark_roleplay.medieval.testing.blocks.hanging_bridge_v2;
 
-import net.dark_roleplay.medieval.References;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.relauncher.Side;
 
-@EventBusSubscriber(modid = References.MODID, value = Side.CLIENT)
+//@EventBusSubscriber(modid = References.MODID, value = Dist.CLIENT)
 public class RopeBridgeRenderer {
 
 	public static RopeBridgeModel model = new RopeBridgeModel(new Vec3d(-10.5 - 0.0625, 59, -9.5), new Vec3d(9.5 - 0.0625, 59, 10.5), new Vec3d(-9.5 - 0.0625, 59, -10.5), new Vec3d(10.5 + 0.0625, 59, 9.5));
 
 //	@SubscribeEvent
 	public static void renderGlobal(RenderWorldLastEvent event) {
-//		Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+//		Minecraft.getInstance().renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 //
 //		Tessellator tes = Tessellator.getInstance();
 //		BufferBuilder buffer = tes.getBuffer();
@@ -21,7 +18,7 @@ public class RopeBridgeRenderer {
 //
 ////		model = new RopeBridgeModel(new Vec3d(-10.5 - 0.0625, 59, -9.5), new Vec3d(9.5 - 0.0625, 59, 10.5), new Vec3d(-9.5 - 0.0625, 59, -10.5), new Vec3d(10.5 + 0.0625, 59, 9.5));
 //
-//		EntityPlayer player = Minecraft.getMinecraft().player;
+//		EntityPlayer player = Minecraft.getInstance().player;
 //
 //		GlStateManager.pushMatrix();
 //		GlStateManager.translate(

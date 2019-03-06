@@ -1,0 +1,68 @@
+{
+	"__comment": "Designed by Lukas",
+	"textures": {
+		"head": "drpmedieval:items/equipment/tools/street_stompers/stone_head",
+		"handle": "drpmedieval:items/equipment/tools/street_stompers/wood_handle"
+	},
+	"elements": [ 	 
+		{
+			"__comment": "Box1",
+			"from": [ 5, 0, 5 ],
+			"to": [ 11, 0.5, 11 ],
+			"faces": {
+				"down": { "uv": [ 5, 5, 11, 11 ], "texture": "#head" },
+				"up": { "uv": [ 5, 5, 11, 11 ], "texture": "#head" },
+				"north": { "uv": [ 5, 15.5, 11, 16 ], "texture": "#head" },
+				"south": { "uv": [ 5, 15.5, 11, 16 ], "texture": "#head" },
+				"west": { "uv": [ 5, 15.5, 11, 16 ], "texture": "#head" },
+				"east": { "uv": [ 5, 15.5, 11, 16 ], "texture": "#head" }
+			}
+		},
+		{
+			"__comment": "Box2",
+			"from": [ 7.5, 0.5, 7.5 ],
+			"to": [ 8.5, 16, 8.5 ],
+			"faces": {
+				"down": { "uv": [ 7.5, 7.5, 8.5, 8.5 ], "texture": "#handle" },
+				"up": { "uv": [ 7.5, 7.5, 8.5, 8.5 ], "texture": "#handle" },
+				"north": { "uv": [ 7.5, 0, 8.5, 15.5 ], "texture": "#handle" },
+				"south": { "uv": [ 7.5, 0, 8.5, 15.5 ], "texture": "#handle" },
+				"west": { "uv": [ 7.5, 0, 8.5, 15.5 ], "texture": "#handle" },
+				"east": { "uv": [ 7.5, 0, 8.5, 15.5 ], "texture": "#handle" }
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale":  [ 1, 1.5, 1 ]
+		},
+		"thirdperson_lefthand": {
+			"scale":  [ 1, 1.5, 1 ]
+		},
+		"firstperson_righthand": {
+			"rotation":  [ 161, 0, 1 ],
+			"translation":  [ 4, 0, 0 ],
+			"scale":  [ 1, 1.5, 1 ]
+		},
+		"firstperson_lefthand": {
+			"rotation":  [ 161, 0, 1 ],
+			"translation":  [ 4, 0, 0 ],
+			"scale":  [ 1, 1.5, 1 ]
+		},
+		"gui": {
+			"rotation":  [ 35, 45, 0 ],
+			"scale":  [ 0.5, 0.75, 0.5 ]
+		},
+		"head": {
+			"translation":  [ 0, 19, 0 ],
+			"scale":  [ 1, 1.5, 1 ]
+		},
+		"ground": {
+			"translation":  [ 0, 3, 0 ],
+			"scale":  [ 0.5, 0.75, 0.5 ]
+		},
+		"fixed": {
+			"scale":  [ 0.75, 1, 0.75 ]
+		}
+	}
+}

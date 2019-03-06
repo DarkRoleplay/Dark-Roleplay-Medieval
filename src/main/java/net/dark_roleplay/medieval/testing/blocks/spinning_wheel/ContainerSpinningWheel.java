@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class ContainerSpinningWheel extends Container{
+public class ContainerSpinningWheel{}/*  extends Container{
 
 	private SpinningWheelTileEntity te;
 
@@ -53,4 +53,4 @@ public class ContainerSpinningWheel extends Container{
 		return this.te.getPos().distanceSqToCenter(playerPos.x, playerPos.y, playerPos.z) < 5D;
 	}
 
-}
+}*/

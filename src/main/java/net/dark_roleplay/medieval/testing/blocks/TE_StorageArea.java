@@ -1,16 +1,6 @@
 package net.dark_roleplay.medieval.testing.blocks;
 
-import javax.annotation.Nullable;
-
-import net.dark_roleplay.medieval.objects.other.MultiStackHandler;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumFacing;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.items.CapabilityItemHandler;
-
-public class TE_StorageArea extends TileEntity {
+public class TE_StorageArea{}/*  extends TileEntity {
 
 	private MultiStackHandler inventoryMain = new MultiStackHandler(4) {
 		@Override
@@ -60,4 +50,4 @@ public class TE_StorageArea extends TileEntity {
 			return (T) this.inventoryMain;
     	return super.getCapability(capability, facing);
 	}
-}
+}*/

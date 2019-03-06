@@ -1,11 +1,6 @@
 package net.dark_roleplay.medieval.testing.guis.brewing;
 
-import net.dark_roleplay.core.api.old.modules.gui.Panel;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.util.ResourceLocation;
-
-public class PanelBrew extends Panel{
+public class PanelBrew{}/*  extends Panel{
 
 	private float rotation = 0F;
 	
@@ -44,7 +39,7 @@ public class PanelBrew extends Panel{
         GlStateManager.translate(width, width, 0);
 	    GlStateManager.rotate(rotation, 0F, 0F, 1F);
 	    
-        Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("drpmedieval", "textures/guis/brewing_temp.png"));
+        Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("drpmedieval", "textures/guis/brewing_temp.png"));
 
         drawTexturedModalRect(-width, -width, 0, 0, width * 2, width * 2);
 //		drawGradientRect(, width, width, 0xFF000033, 0xFF0000FF);
@@ -52,4 +47,4 @@ public class PanelBrew extends Panel{
 	    rotation += 0.5F;
 		GlStateManager.popMatrix();
 	}
-}
+}*/

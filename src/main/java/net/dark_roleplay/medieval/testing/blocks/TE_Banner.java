@@ -1,12 +1,6 @@
 package net.dark_roleplay.medieval.testing.blocks;
 
-import net.dark_roleplay.core.testing.drawing.ImageHelper;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.play.server.SPacketUpdateTileEntity;
-import net.minecraft.tileentity.TileEntity;
-
-public class TE_Banner extends TileEntity{
+public class TE_Banner{}/*  extends TileEntity{
 
 	private ImageHelper image;
 
@@ -61,4 +55,4 @@ public class TE_Banner extends TileEntity{
 	    if(pkt == null) return;
 	    this.image = ImageHelper.read(pkt.getNbtCompound());
 	}
-}
+}*/

@@ -1,25 +1,6 @@
 package net.dark_roleplay.medieval.testing.purse;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import net.dark_roleplay.library.capabilities.CapabilityProvider;
-import net.dark_roleplay.library_old.items.DRPItem;
-import net.dark_roleplay.medieval.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.holders.MedievalGuis;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.world.World;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
-
-public class Purse extends DRPItem {
+public class Purse{}/*  extends DRPItem {
 
 	public Purse(String name, String itemFolder, int stackSize) {
 		super(name, itemFolder, stackSize);
@@ -48,3 +29,4 @@ public class Purse extends DRPItem {
 				});
 	}
 }
+*/

@@ -1,9 +1,6 @@
 package net.dark_roleplay.medieval.testing.guis.brewing;
 
-import net.dark_roleplay.core.api.old.gui.DRPGuiScreen;
-import net.minecraft.util.ResourceLocation;
-
-public class GuiBrewing extends DRPGuiScreen{
+public class GuiBrewing{}/*  extends DRPGuiScreen{
 
 	private static final ResourceLocation cauldron = new ResourceLocation("drpmedieval", "textures/guis/cauldron_gui.png");
 	private PanelBrew brewing = new PanelBrew(100, 100, 75, 50, 0x1A000000);
@@ -31,3 +28,4 @@ public class GuiBrewing extends DRPGuiScreen{
 
 	
 }
+*/

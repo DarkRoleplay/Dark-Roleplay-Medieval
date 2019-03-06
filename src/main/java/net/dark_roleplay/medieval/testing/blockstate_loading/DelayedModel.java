@@ -1,23 +1,6 @@
 package net.dark_roleplay.medieval.testing.blockstate_loading;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.function.Function;
-
-import net.dark_roleplay.medieval.objects.other.DelayedBaker;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.block.model.BakedQuad;
-import net.minecraft.client.renderer.block.model.IBakedModel;
-import net.minecraft.client.renderer.block.model.ModelRotation;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.renderer.vertex.VertexFormat;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.IModel;
-import net.minecraftforge.common.model.IModelState;
-import net.minecraftforge.common.model.TRSRTransformation;
-
-public class DelayedModel extends DelayedBaker{
+public class DelayedModel{}/*  extends DelayedBaker{
 
 	private HashMap<String, ResourceLocation> models;
 	private List<List<ResourceLocation>> modelGroups;
@@ -74,4 +57,4 @@ public class DelayedModel extends DelayedBaker{
             0
         };
     }
-}
+}*/

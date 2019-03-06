@@ -1,0 +1,23 @@
+modLoader="javafml" #mandatory
+loaderVersion="[25,)" #mandatory (24 is current forge version)
+issueTrackerURL="http://my.issue.tracker/" #optional
+
+[[mods]]
+	modId="drpmedieval"
+	version="1.13.2-0.1.0-SNAPSHOT"
+	displayName="Dark Roleplay Medieval"
+	updateJSONURL="https://dark-roleplay.net/files/versions/drpmedieval/drpmedieval-1.13.2.json" #optional
+	displayURL="https://dark-roleplay.net/"
+	#logoFile="examplemod.png" #optional
+	credits="Lead Programmer: JTK222, Jr. Programmer: 0Mr_X0, Artists: Rolfaal & Kanno (https://twitter.com/lKanno_)"
+	authors=["JTK222", "0Mr_X0", "Rolfaal", "Kanno"]
+	description='''
+Dark Roleplay Medieval, is... //TODO FINISH THE DESCRIPTION
+'''
+
+[[dependencies.drpmedieval]] #optional
+    modId="forge" #mandatory
+    mandatory=true #mandatory
+    versionRange="[25,)" #mandatory
+    ordering="NONE"
+    side="BOTH"

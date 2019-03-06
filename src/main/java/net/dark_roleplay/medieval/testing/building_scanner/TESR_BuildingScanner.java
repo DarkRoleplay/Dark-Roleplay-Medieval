@@ -1,13 +1,6 @@
 package net.dark_roleplay.medieval.testing.building_scanner;
 
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.util.math.BlockPos;
-
-public class TESR_BuildingScanner extends TileEntitySpecialRenderer<TE_BuildingScanner> {
+public class TESR_BuildingScanner{}/*  extends TileEntityRenderer<TE_BuildingScanner> {
 
 	private int slowMode = 20;
 
@@ -72,4 +65,4 @@ public class TESR_BuildingScanner extends TileEntitySpecialRenderer<TE_BuildingS
         buffer.pos(maxX, centerY, centerZ).color(red, green, blue, 0.0F).endVertex();
     }
 
-}
+}*/

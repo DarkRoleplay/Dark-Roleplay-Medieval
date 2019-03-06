@@ -1,23 +1,25 @@
-.git/*
-.gradle/*
-.settings/*
-bin/*
-build/*
-eclipse/*
-run/*
-libs_src/*
-
+# eclipse
+bin
+*.launch
+.settings
+.metadata
 .classpath
-.gitignore
 .project
 
-Dark-Roleplay-Medieval_Client.launch
-Dark-Roleplay-Medieval_Server.launch
-Forge Latest_Client.launch
-Forge Latest_Server.launch
-*.launch
-.metadata/
-/bin/
-/.gradle/
-/build/
-src/main/resources - Kopie/
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+
+# Files from Forge MDK
+forge*changelog.txt

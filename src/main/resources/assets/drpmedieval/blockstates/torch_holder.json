@@ -1,0 +1,29 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model": "drpmedieval:torch_holder/torch_holder_empty",
+        "transform": "forge:default-block"
+    },
+	"variants": {
+		"facing=north,torch=none,addons=none":					[{"model" : "drpmedieval:torch_holder/empty/torch_holder"}],
+		"facing=north,torch=none,addons=lighter":				[{"model" : "drpmedieval:torch_holder/empty/torch_holder_lighter"}],
+		"facing=north,torch=none,addons=lever":					[{"model" : "drpmedieval:torch_holder/empty/torch_holder_lever"}],
+		"facing=north,torch=none,addons=pulled_lever":			[{"model" : "drpmedieval:torch_holder/empty/torch_holder_pulled_lever"}],
+		"facing=north,torch=none,addons=hidden_lever":			[{"model" : "drpmedieval:torch_holder/empty/torch_holder_hidden_lever"}],
+		"facing=north,torch=none,addons=pulled_hidden_lever":	[{"model" : "drpmedieval:torch_holder/empty/torch_holder_pulled_hidden_lever"}],
+		
+		"facing=north,torch=unlit,addons=none":					[{"model" : "drpmedieval:torch_holder/unlit/torch_holder"}],
+		"facing=north,torch=unlit,addons=lighter":				[{"model" : "drpmedieval:torch_holder/unlit/torch_holder_lighter"}],
+		"facing=north,torch=unlit,addons=lever":				[{"model" : "drpmedieval:torch_holder/unlit/torch_holder_lever"}],
+		"facing=north,torch=unlit,addons=pulled_lever":			[{"model" : "drpmedieval:torch_holder/unlit/torch_holder_pulled_lever"}],
+		"facing=north,torch=unlit,addons=hidden_lever":			[{"model" : "drpmedieval:torch_holder/unlit/torch_holder_hidden_lever"}],
+		"facing=north,torch=unlit,addons=pulled_hidden_lever":	[{"model" : "drpmedieval:torch_holder/unlit/torch_holder_pulled_hidden_lever"}],
+		
+		"facing=north,torch=lit,addons=none":					[{"model" : "drpmedieval:torch_holder/lit/torch_holder"}],
+		"facing=north,torch=lit,addons=lighter":				[{"model" : "drpmedieval:torch_holder/lit/torch_holder_lighter"}],
+		"facing=north,torch=lit,addons=lever":					[{"model" : "drpmedieval:torch_holder/lit/torch_holder_lever"}],
+		"facing=north,torch=lit,addons=pulled_lever":			[{"model" : "drpmedieval:torch_holder/lit/torch_holder_pulled_lever"}],
+		"facing=north,torch=lit,addons=hidden_lever":			[{"model" : "drpmedieval:torch_holder/lit/torch_holder_hidden_lever"}],
+		"facing=north,torch=lit,addons=pulled_hidden_lever":	[{"model" : "drpmedieval:torch_holder/lit/torch_holder_pulled_hidden_lever"}]
+	}
+}

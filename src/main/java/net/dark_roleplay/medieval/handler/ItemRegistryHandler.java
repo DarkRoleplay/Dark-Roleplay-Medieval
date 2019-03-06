@@ -1,212 +1,114 @@
 package net.dark_roleplay.medieval.handler;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import net.dark_roleplay.core.api.old.items.DRPFood;
-import net.dark_roleplay.core_modules.maarg.api.arg.MaterialRequirements;
-import net.dark_roleplay.core_modules.maarg.api.materials.Material;
-import net.dark_roleplay.core_modules.maarg.handler.MaterialRegistry;
-import net.dark_roleplay.library.util.InDevUtil;
-import net.dark_roleplay.library_old.items.DRPItem;
-import net.dark_roleplay.medieval.References;
+import net.dark_roleplay.medieval.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.holders.MedievalBlocks;
-import net.dark_roleplay.medieval.holders.MedievalCreativeTabs;
-import net.dark_roleplay.medieval.holders.ResourceFolders;
-import net.dark_roleplay.medieval.objects.items.blocks.ItemHangingBridge;
-import net.dark_roleplay.medieval.objects.items.blocks.ItemMultiBlock;
-import net.dark_roleplay.medieval.objects.items.consumables.BarkAndGlue;
-import net.dark_roleplay.medieval.objects.items.consumables.DRPMStew;
-import net.dark_roleplay.medieval.objects.items.consumables.ItemFirewood;
-import net.dark_roleplay.medieval.objects.items.consumables.Key;
-import net.dark_roleplay.medieval.objects.items.consumables.Lock;
-import net.dark_roleplay.medieval.objects.items.consumables.drinks.SpruceTea;
-import net.dark_roleplay.medieval.objects.items.consumables.tools.FlintKnife;
-import net.dark_roleplay.medieval.objects.items.consumables.tools.StreetStomper;
-import net.dark_roleplay.medieval.objects.items.consumables.tools.Telescope;
-import net.dark_roleplay.medieval.objects.items.consumables.tools.WarHorn;
-import net.dark_roleplay.medieval.testing.purse.DRPCoin;
-import net.minecraft.creativetab.CreativeTabs;
+import net.dark_roleplay.medieval.objects.items.equipment.tools.ItemTelescope;
+
+import static net.dark_roleplay.medieval.holders.MedievalCreativeTabs.*;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemSoup;
+import net.minecraft.item.Item.Properties;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.IForgeRegistry;
 
-@EventBusSubscriber(modid = References.MODID)
+@EventBusSubscriber(modid = DarkRoleplayMedieval.MODID, bus = Bus.MOD)
 public class ItemRegistryHandler {
 
-	//Helper to register ItemBlocks
-	private static Set<Item> blockItems = new HashSet<Item>();
+	private static Item.Properties PLACEHOLDER = new Properties().group(BUILDING_MATS);
+
+	private static IForgeRegistry<Item> registry = null;
 
 	@SubscribeEvent
-	public static final void registerItems(RegistryEvent.Register<Item> registryEvent) {
-		IForgeRegistry<Item> reg = registryEvent.getRegistry();
+	public static void registerItems(RegistryEvent.Register<Item> registryEvent) {
+		registry = registryEvent.getRegistry();
 
-		registerItems(reg, MedievalCreativeTabs.EQUIPMENT,
-			new FlintKnife("flint_knife", ResourceFolders.Items.TOOLS + "/knifes", 1),
-			new DRPItem("wood_wrench", ResourceFolders.Items.TOOLS + "/wrenches", 1),
-			new StreetStomper("wood_street_stomper", ResourceFolders.Items.TOOLS + "/street_stompers", 1, 256),
-			new StreetStomper("stone_street_stomper", ResourceFolders.Items.TOOLS + "/street_stompers", 1, 512),
-			new DRPItem("clean_paintbrush", ResourceFolders.Items.TOOLS + "/paintbrushes", 1),
-			new DRPItem("dirty_paintbrush", ResourceFolders.Items.TOOLS + "/paintbrushes", 1),
-			new Telescope("golden_telescope", ResourceFolders.Items.OTHER_EQUIPMENT + "/telescopes"),
-			new Telescope("silver_telescope", ResourceFolders.Items.OTHER_EQUIPMENT + "/telescopes"),
-			new WarHorn("bone_war_horn", ResourceFolders.Items.INSTRUMENTS + "/horns", 1),
-			new Lock("wooden_lock", ResourceFolders.Items.CONSUMABLES + "/locks", 16),
-			new Key("wooden_key", ResourceFolders.Items.CONSUMABLES + "/keys", 16)
-		);
+		//FOOD
+		reg(new ItemFood( 4, 0.2F, false, new Properties().group(FOOD)), "bell_pepper");
+		reg(new ItemFood( 0, 0.1F, false, new Properties().group(FOOD)), "blueberries");
+		reg(new ItemFood( 8, 0.2F, false, new Properties().group(FOOD)), "butter");
+		reg(new ItemFood( 6, 0.4F, false, new Properties().group(FOOD)), "caramelized_green_apple");
+		reg(new ItemFood( 6, 0.4F, false, new Properties().group(FOOD)), "caramelized_red_apple");
+		reg(new ItemFood( 6, 0.4F, false, new Properties().group(FOOD)), "caramelized_yellow_apple");
+		reg(new ItemFood( 6, 0.3F, false, new Properties().group(FOOD)), "cauliflower");
+		reg(new ItemSoup( 7, new Properties().maxStackSize(1).group(FOOD)), "chicken_stew");
+		reg(new ItemSoup( 6, new Properties().maxStackSize(1).group(FOOD)), "cod_stew");
+		reg(new ItemFood( 4, 0.3F, false, new Properties().group(FOOD)), "eggplant");
+		reg(new ItemFood( 1, 0.1F, false, new Properties().group(FOOD)), "garlic");
+		reg(new ItemFood( 4, 0.3F, false, new Properties().group(FOOD)), "green_apple");
+		reg(new ItemFood( 4, 0.3F, false, new Properties().group(FOOD)), "green_pear");
+		reg(new ItemFood( 6, 0.5F, false, new Properties().group(FOOD)), "grilled_catfish");
+		reg(new ItemFood( 6, 0.5F, true , new Properties().group(FOOD)), "grilled_wolf");
+		reg(new ItemFood(10, 0.6F, false, new Properties().group(FOOD)), "honey_comb");
+		reg(new ItemFood( 2, 0.1F, false, new Properties().group(FOOD)), "hops");
+		reg(new ItemFood( 3, 0.2F, false, new Properties().group(FOOD)), "onion");
+		reg(new ItemSoup( 6, new Properties().maxStackSize(1).group(FOOD)), "pumpkin_stew");
+		reg(new ItemFood( 3, 0.2F, false, new Properties().group(FOOD)), "raw_catfish");
+		reg(new ItemFood( 4, 0.2F,  true, new Properties().group(FOOD)), "raw_wolf");
+		reg(new ItemFood( 4, 0.2F, false, new Properties().group(FOOD)), "red_grapes");
+		reg(new ItemFood( 0, 0.2F, false, new Properties().group(FOOD)), "spruce_tea");
+		reg(new ItemFood( 4, 0.2F, false, new Properties().group(FOOD)), "turnip");
+		reg(new ItemSoup( 6, new Properties().maxStackSize(1).group(FOOD)), "vegetable_stew");
+		reg(new ItemFood( 4, 0.3F, false, new Properties().group(FOOD)), "yellow_apple");
+		reg(new ItemFood( 4, 0.3F, false, new Properties().group(FOOD)), "yellow_pear");
+		
+		//Tools
+		reg(new Item(new Properties().maxStackSize(1).group(EQUIPMENT)), "bone_war_horn");
+		reg(new Item(new Properties().maxStackSize(1).group(EQUIPMENT)), "clean_paintbrush");
+		reg(new Item(new Properties().maxStackSize(1).group(EQUIPMENT)), "dirty_paintbrush");
+		reg(new ItemTelescope(new Properties().maxStackSize(1).group(EQUIPMENT)), "golden_telescope");
+		reg(new ItemTelescope(new Properties().maxStackSize(1).group(EQUIPMENT)), "silver_telescope");
+		reg(new Item(new Properties().maxStackSize(1).group(EQUIPMENT)), "stone_street_stomper");
+		reg(new Item(new Properties().maxStackSize(1).group(EQUIPMENT)), "wooden_key");
+		reg(new Item(new Properties().maxStackSize(1).group(EQUIPMENT)), "wooden_lock");
+		reg(new Item(new Properties().maxStackSize(1).group(EQUIPMENT)), "wooden_street_stomper");
+		reg(new Item(new Properties().maxStackSize(1).group(EQUIPMENT)), "wooden_wrench");
+		
+		reg(new Item(PLACEHOLDER), "barley");
+		reg(new Item(PLACEHOLDER), "barley_dough");
+		reg(new Item(PLACEHOLDER), "barley_flour");
+		reg(new Item(PLACEHOLDER), "bat_ear");
+		reg(new Item(PLACEHOLDER), "bat_wing");
+		reg(new Item(PLACEHOLDER), "bronze_coin");
+		reg(new Item(PLACEHOLDER), "charcoal_powder");
+		reg(new Item(PLACEHOLDER), "copper_coin");
+		reg(new Item(PLACEHOLDER), "copper_ore_chunk");
+		reg(new Item(PLACEHOLDER), "cut_grass");
+		reg(new Item(PLACEHOLDER), "dry_clay_chunk");
+		reg(new Item(PLACEHOLDER), "gold_coin");
+		reg(new Item(PLACEHOLDER), "hardened_leather");
+		reg(new Item(PLACEHOLDER), "hardened_leather_strip");
+		reg(new Item(PLACEHOLDER), "hay");
+		reg(new Item(PLACEHOLDER), "leather_book_cover");
+		reg(new Item(PLACEHOLDER), "leather_strip");
+		reg(new Item(PLACEHOLDER), "rope");
+		reg(new Item(PLACEHOLDER), "salpeter_ore_chunk");
+		reg(new Item(PLACEHOLDER), "silver_coin");
+		reg(new Item(PLACEHOLDER), "silver_ore_chunk");
+		reg(new Item(PLACEHOLDER), "sulfur_ore_chunk");
+		reg(new Item(PLACEHOLDER), "thick_leather_book_cover");
+		reg(new Item(PLACEHOLDER), "thin_leather_book_cover");
+		reg(new Item(PLACEHOLDER), "tin_ore_chunk");
+		reg(new Item(PLACEHOLDER), "trigger_trap");
+		reg(new Item(PLACEHOLDER), "wheat_dough");
+		reg(new Item(PLACEHOLDER), "wheat_flour");
+		reg(new Item(PLACEHOLDER), "wolf_fur");
+		reg(new Item(PLACEHOLDER), "wooden_cup");
+		
+		reg(new ItemBlock(MedievalBlocks.TORCH_HOLDER, PLACEHOLDER), "torch_holder");
 
-		registerItems(reg, MedievalCreativeTabs.FOOD,
-			new DRPFood(6, 0.5F, "honey_comb", ResourceFolders.Items.OTHER_FOOD + "/honey", 64),
-			new DRPFood(3, 0.5F, "butter", ResourceFolders.Items.OTHER_FOOD + "/butter", 64),
-			new DRPFood(4, 0.3F, "apple_green", ResourceFolders.Items.FRUITS + "/apples", 64),
-			new DRPFood(4, 0.3F, "apple_yellow", ResourceFolders.Items.FRUITS + "/apples", 64),
-			new DRPFood(1, 0.1F, "blue_berries", ResourceFolders.Items.FRUITS + "/berries", 64),
-			new DRPFood(2, 0.2F, "grapes", ResourceFolders.Items.FRUITS + "/berries", 64),
-			new DRPFood(4, 0.3F, "pear_green", ResourceFolders.Items.FRUITS + "/pears", 64),
-			new DRPFood(4, 0.3F, "pear_yellow", ResourceFolders.Items.FRUITS + "/pears", 64),
-			new DRPFood(6, 0.6F, "cooked_catfish", ResourceFolders.Items.FISH + "/catfish", 64),
-			new DRPFood(2, 0.3F, "raw_catfish",  ResourceFolders.Items.FISH + "/catfish", 64),
-			new DRPFood(6, 0.4F, "cooked_wolf",  ResourceFolders.Items.MEAT + "/wolf", 64),
-			new DRPFood(2, 0.15F, "raw_wolf", ResourceFolders.Items.MEAT + "/wolf", 64),
-			new DRPFood(2, 0.4F, "turnip", ResourceFolders.Items.VEGETABLES, 64),
-			new DRPFood(2, 0.4F, "eggplant", ResourceFolders.Items.VEGETABLES, 64),
-			new DRPFood(2, 0.4F, "hops", ResourceFolders.Items.VEGETABLES, 64),
-			new DRPFood(4, 0.6F, "cauliflower", ResourceFolders.Items.VEGETABLES, 64),
-			new DRPFood(2, 0.4F, "garlic", ResourceFolders.Items.VEGETABLES, 64),
-			new DRPFood(2, 0.4F, "onion", ResourceFolders.Items.VEGETABLES, 64),
-			new DRPFood(2, 0.4F, "bell_pepper", ResourceFolders.Items.VEGETABLES, 64),
-			new DRPFood(6, 0.5F, "pumpkin_bread", ResourceFolders.Items.BAKEWARES + "/breads", 64),
-			new DRPMStew(8, 0.5F, "chicken_stew", ResourceFolders.Items.STEWS),
-			new DRPMStew(7, 0.5F, "cod_stew", ResourceFolders.Items.STEWS),
-			new DRPMStew(6, 0.3F, "vegie_stew", ResourceFolders.Items.STEWS),
-			new DRPMStew(6, 0.3F, "pumpkin_stew", ResourceFolders.Items.STEWS),
-			new SpruceTea(1, 0.4F, "spruce_tea", ResourceFolders.Items.DRINKS),
-			new DRPFood(6, 0.8F, "caramelized_red_apple", ResourceFolders.Items.FRUITS + "/apples", 64),
-			new DRPFood(6, 0.8F, "caramelized_green_apple", ResourceFolders.Items.FRUITS + "/apples", 64),
-			new DRPFood(6, 0.8F, "caramelized_yellow_apple", ResourceFolders.Items.FRUITS + "/apples", 64)
-//			new DRPFood(4, 0.5F, "gingerbread_plate", ResourceFolders.Items.BAKEWARES + "/gingerbread", 64),
-//			new DRPFood(4, 0.5F, "gingerbread_heart", ResourceFolders.Items.BAKEWARES + "/gingerbread", 64),
-//			new DRPFood(4, 0.5F, "gingerbread_man", ResourceFolders.Items.BAKEWARES + "/gingerbread", 64)
-		);
-
-		registerItems(reg, MedievalCreativeTabs.MATERIALS,
-			new DRPItem("grass", ResourceFolders.Items.PLANT_MATS, 64),
-			new DRPItem("hay", ResourceFolders.Items.PLANT_MATS, 64),
-			new DRPItem("wheat_pumpkin_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64),
-			new DRPItem("barley_pumpkin_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64),
-			new DRPItem("barley", ResourceFolders.Items.COOKING_MATS + "/cereals", 64),
-			new DRPItem("wheat_flour", ResourceFolders.Items.COOKING_MATS + "/flours", 64),
-			new DRPItem("barley_flour", ResourceFolders.Items.COOKING_MATS + "/flours", 64),
-			new DRPItem("wheat_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64),
-			new DRPItem("barley_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64),
-			new DRPCoin("bronze_coin", ResourceFolders.Items.CURRENCIES, 50),
-			new DRPCoin("silver_coin", ResourceFolders.Items.CURRENCIES, 50),
-			new DRPCoin("gold_coin", ResourceFolders.Items.CURRENCIES, 50),
-			new DRPItem("bat_ear", ResourceFolders.Items.MOB_DROPS + "/bat", 64),
-			new DRPItem("wolf_fur", ResourceFolders.Items.MOB_DROPS + "/wolf", 64),
-			new DRPItem("tap", ResourceFolders.Items.ATTACHMENTS, 64),
-			new DRPItem("trigger_trap", ResourceFolders.Items.ATTACHMENTS, 64),
-			new DRPItem("leather_string", ResourceFolders.Items.LEATHER_MATS, 64),
-			new DRPItem("tanned_leather_string", ResourceFolders.Items.LEATHER_MATS, 64),
-			new DRPItem("tanned_leather", ResourceFolders.Items.LEATHER_MATS, 64),
-			new DRPItem("leather_book_cover", ResourceFolders.Items.BOOKS, 64),
-			new DRPItem("thik_leather_book_cover", ResourceFolders.Items.BOOKS, 64),
-			new DRPItem("thin_leather_book_cover", ResourceFolders.Items.BOOKS, 64),
-			new DRPItem("dry_clay_chunk", ResourceFolders.Items.MINERALS, 64),
-			new DRPItem("silver_ore_chunk", ResourceFolders.Items.MINERALS, 64),
-			new DRPItem("tin_ore_chunk", ResourceFolders.Items.MINERALS, 64),
-			new DRPItem("copper_ore_chunk", ResourceFolders.Items.MINERALS, 64),
-			new DRPItem("sulfur_ore_chunk", ResourceFolders.Items.MINERALS, 64),
-			new DRPItem("salpeter_ore_chunk", ResourceFolders.Items.MINERALS, 64),
-			new DRPItem("charcoal_powder", ResourceFolders.Items.PROCESSED_MINERALS, 64),
-			new BarkAndGlue("bark_and_glue", ResourceFolders.Items.OTHER_CONSUMABLES, 64),
-			new DRPItem("wood_cup", ResourceFolders.Items.OTHER_CONSUMABLES, 16)
-//			new DRPItem("gingerbread_dough", ResourceFolders.Items.COOKING_MATS + "/doughs", 64)
-		);
-
-		registerItems(reg, MedievalCreativeTabs.DECORATION,
-			new ItemHangingBridge("hanging_bridge", ResourceFolders.Items.BLOCKS, 64)
-		);
-
-
-		//TODO Fix that
-
-		registerItems(reg, MedievalCreativeTabs.UTILITY,
-			new ItemMultiBlock(MedievalBlocks.SIMPLE_CARPENTER_WORKBENCH).setRegistryName("simple_carpenter_workbench"),
-			new ItemMultiBlock(MedievalBlocks.FORGE).setRegistryName("forge")
-		);
-
-		registerItems(reg, MedievalCreativeTabs.BUILDING_MATS, new ItemBlock(MedievalBlocks.OAK_TIMBERED_CLAY_CLEAN).setRegistryName("timbered_clay"));
-
-
-		if(InDevUtil.isDevEnv()) {
-//			registerItems(reg, MedievalCreativeTabs.MATERIALS,
-//				new DRPItem("stone_bricks", ResourceFolders.Items.PROCESSED_MATERIALS, 64)
-//			);
-//
-//			registerItems(reg, MedievalCreativeTabs.EQUIPMENT,
-//				new Purse("leather_purse", ResourceFolders.Items.OTHER_EQUIPMENT, 1)
-//			);
-//
-//			registerItems(reg, MedievalCreativeTabs.MATERIALS,
-//				new DRPItem("beeswax", "misc", 64),
-//				new DRPItem("empty_frame", "misc/apiary_frames", 1),
-//				new DRPItem("honey_frame", "misc/apiary_frames", 1),
-//				new DRPItem("brute_frame", "misc/apiary_frames", 1),
-//				new DRPItem("sugar_frame", "misc/apiary_frames", 1),
-//				new DRPItem("wax_frame", "misc/apiary_frames", 1)
-//			);
-		}
-
-
-		MaterialRequirements logRequired = new MaterialRequirements("log_side", "log_top");
-		MaterialRequirements planksRequired = new MaterialRequirements("planks");
-		MaterialRequirements cleanPlankRequired = new MaterialRequirements("clean_planks");
-
-		//Register Wooden Items
-		for(Material mat : MaterialRegistry.getMaterialsForType("wood")){
-			if(cleanPlankRequired.doesFulfillRequirements(mat)) {
-				registerItems(reg, MedievalCreativeTabs.MATERIALS,
-    				new DRPItem(mat.getName() + "_wood_beam", ResourceFolders.Items.PROCESSED_MATERIALS + "/wood_beams", 64) {
-	    				@Override
-	    				public int getItemBurnTime(ItemStack itemStack){
-	    			        return 400;
-    					}
-    				},
-    				new DRPItem(mat.getName() + "_planks", ResourceFolders.Items.PROCESSED_MATERIALS + "/planks", 64) {
-	    				@Override
-	    				public int getItemBurnTime(ItemStack itemStack){
-	    			        return 400;
-    					}
-    				}
-        		);
-        	}
-
-			if(logRequired.doesFulfillRequirements(mat)) {
-				registerItems(reg, MedievalCreativeTabs.MATERIALS,
-					new ItemFirewood(mat.getName() + "_firewood", ResourceFolders.Items.PROCESSED_MATERIALS + "/firewood", 64)
-				);
-			}
-		}
-
-		for(Item item : blockItems){
-			reg.register(item);
-		}
+//		registry = null;
 	}
 
-	protected static void registerItems(IForgeRegistry<Item> reg, CreativeTabs creativeTab, Item... items){
-		for(Item item : items)
-			item.setCreativeTab(creativeTab);
-		reg.registerAll(items);
-	}
-
-	//Helper to Register ItemBlocks
-	public static void addBlockItem(ItemBlock item){
-		blockItems.add(item);
+	protected static void reg(Item item, String registryName) {
+		item.setRegistryName(new ResourceLocation(DarkRoleplayMedieval.MODID, registryName));
+		registry.register(item);
 	}
 }
 // No more code

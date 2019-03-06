@@ -1,14 +1,6 @@
 package net.dark_roleplay.medieval.testing.blocks;
 
-import net.dark_roleplay.core.testing.drawing.ImageHelper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-
-public class TESR_Banner extends TileEntitySpecialRenderer<TE_Banner>{
+public class TESR_Banner{}/*  extends TileEntityRenderer<TE_Banner>{
 
 	@Override
 	public void render(TE_Banner te, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
@@ -16,7 +8,7 @@ public class TESR_Banner extends TileEntitySpecialRenderer<TE_Banner>{
 
 		if(image == null) return;
 
-		Minecraft.getMinecraft().getTextureManager().bindTexture(image.getResource());
+		Minecraft.getInstance().getTextureManager().bindTexture(image.getResource());
 
 		Tessellator tes = Tessellator.getInstance();
 		BufferBuilder buf = tes.getBuffer();
@@ -46,4 +38,4 @@ public class TESR_Banner extends TileEntitySpecialRenderer<TE_Banner>{
 		GlStateManager.color(1f, 1f, 1f, alpha);
 //		GlStateManager.enableLighting();
 	}
-}
+}*/

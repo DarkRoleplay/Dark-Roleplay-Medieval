@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "drpmedieval:items/equipment/tools/paintbrushes/clean_paintbrush",
+        "layer1": "drpmedieval:items/equipment/tools/paintbrushes/paint_paintbrush"
+    }
+}

@@ -10,7 +10,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class ControllerStackHandler implements IItemHandler, IItemHandlerModifiable, INBTSerializable<NBTTagCompound>{
+public class ControllerStackHandler{}/*  implements IItemHandler, IItemHandlerModifiable, INBTSerializable<NBTTagCompound>{
 
 	private Map<ItemStack, StackHolder> inventory = new HashMap<ItemStack, StackHolder>();
 	
@@ -93,3 +93,4 @@ public class ControllerStackHandler implements IItemHandler, IItemHandlerModifia
 	}
 	
 }
+*/

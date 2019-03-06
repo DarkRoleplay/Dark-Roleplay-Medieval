@@ -1,0 +1,25 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "cube_all",
+        "textures": {
+            "all": "minecraft:blocks/iron_ore"
+        },
+        "transform": "forge:default-block"
+    },
+    "variants": {
+		"normal": [{}],
+		"inventory":[{}],
+		"ore_count":{
+			"0":{"textures": {  "all": "minecraft:blocks/stone" }},
+			"1":{"textures": {  "all": "drpmedieval:blocks/ores/coal/poor_ore" }},
+			"2":{"textures": {  "all": "minecraft:blocks/coal_ore" }},
+			"3":{"textures": {  "all": "drpmedieval:blocks/ores/coal/rich_ore" }}
+		},
+		"ore_limit":{
+			"1":{},
+			"2":{},
+			"3":{}
+		}
+	}
+}

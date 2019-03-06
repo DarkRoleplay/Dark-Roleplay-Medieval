@@ -1,18 +1,6 @@
 package net.dark_roleplay.medieval.testing.blockstate_loading;
 
-import java.util.HashMap;
-
-import com.google.gson.JsonObject;
-
-import net.dark_roleplay.medieval.objects.blocks.building.roofs.SpecialRendererRoof;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.resources.IResourceManager;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.ICustomModelLoader;
-import net.minecraftforge.client.model.IModel;
-
-public class CustomBlockstateLoader implements ICustomModelLoader{
+public class CustomBlockstateLoader{}/*  implements ICustomModelLoader{
 
 	private IResourceManager manager;
 
@@ -61,4 +49,4 @@ public class CustomBlockstateLoader implements ICustomModelLoader{
 		return new DelayedModel();
 	}
 
-}
+}*/

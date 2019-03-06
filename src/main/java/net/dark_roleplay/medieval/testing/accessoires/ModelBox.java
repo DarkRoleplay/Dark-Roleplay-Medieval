@@ -1,14 +1,6 @@
 package net.dark_roleplay.medieval.testing.accessoires;
 
-import org.lwjgl.opengl.GL11;
-
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
-
-public class ModelBox extends ModelBiped {
+public class ModelBox{}/*  extends ModelBiped {
     public ModelRenderer BodyCenter;
     public ModelRenderer BodyBack;
     public ModelRenderer Tail1;
@@ -194,4 +186,4 @@ public class ModelBox extends ModelBiped {
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
     }
-}
+}*/

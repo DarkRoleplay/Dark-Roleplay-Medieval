@@ -11,7 +11,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class SpinningWheelTileEntity extends TileEntity{
+public class SpinningWheelTileEntity{}/*  extends TileEntity{
 
 	protected ItemStackHandler inventory = new ItemStackHandler(4) {
 	    @Override
@@ -58,4 +58,4 @@ public class SpinningWheelTileEntity extends TileEntity{
 			return (T) this.inventory;
     	return super.getCapability(capability, facing);
 	}
-}
+}*/

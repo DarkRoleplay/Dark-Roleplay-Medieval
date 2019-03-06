@@ -1,15 +1,6 @@
 package net.dark_roleplay.medieval.testing.purse;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.Slot;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
-
-public class ItemInventoryContainer extends Container{
+public class ItemInventoryContainer{}/*  extends Container{
 
 	private ItemStack itemProtector;
 	protected int slotCount;
@@ -83,4 +74,4 @@ public class ItemInventoryContainer extends Container{
 
         return itemstack;
     }
-}
+}*/

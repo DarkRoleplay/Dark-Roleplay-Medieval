@@ -2,7 +2,7 @@ package net.dark_roleplay.medieval.testing.blocks.storage_controller;
 
 import net.minecraft.tileentity.TileEntity;
 
-public class StorageControllerTE extends TileEntity{
+public class StorageControllerTE{}/*  extends TileEntity{
 
 	protected ControllerStackHandler inventoryMain = null;
 
@@ -20,3 +20,4 @@ public class StorageControllerTE extends TileEntity{
 	}
 	
 }
+*/

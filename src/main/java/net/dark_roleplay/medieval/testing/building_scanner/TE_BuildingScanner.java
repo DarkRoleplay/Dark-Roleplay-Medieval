@@ -1,13 +1,6 @@
 package net.dark_roleplay.medieval.testing.building_scanner;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ITickable;
-import net.minecraft.util.math.BlockPos;
-
-public class TE_BuildingScanner extends TileEntity implements ITickable{
+public class TE_BuildingScanner{}/*  extends TileEntity implements ITickable{
 
 	public List<BlockPos> containedArea = new ArrayList<BlockPos>();
 	public List<Long> scannedBlocks = new ArrayList<Long>();
@@ -43,4 +36,4 @@ public class TE_BuildingScanner extends TileEntity implements ITickable{
 		}
 	}
 
-}
+}*/

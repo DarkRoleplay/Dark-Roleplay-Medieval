@@ -18,7 +18,7 @@ public class BlockStateLoader {
 		InputStream in;
 		Gson gson = new Gson();
 		try {
-			in = Minecraft.getMinecraft().getResourceManager().getResource(loc).getInputStream();
+			in = Minecraft.getInstance().getResourceManager().getResource(loc).getInputStream();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 			JsonElement je = gson.fromJson(reader, JsonElement.class);
 			in.close();
