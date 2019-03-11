@@ -47,14 +47,14 @@ public class MedievalCreativeTabs {
 	public static final ItemGroup MISCELLANEOUS = new ItemGroup("drpmedieval.miscellaneous") {
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack createIcon() {
-			return new ItemStack(Blocks.POWERED_RAIL);
+			return new ItemStack(MedievalItems.HAY);
 		}
 	};
 	
 	public static final ItemGroup CREATIVE = new ItemGroup("drpmedieval.creative_only") {
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack createIcon() {
-			return new ItemStack(Blocks.POWERED_RAIL);
+			return new ItemStack(Blocks.BARRIER.asItem());
 		}
 	};
 }

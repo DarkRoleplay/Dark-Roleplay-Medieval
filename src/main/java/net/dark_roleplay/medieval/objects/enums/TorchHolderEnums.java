@@ -22,6 +22,22 @@ public class TorchHolderEnums{
 		public String getName() {
 			return name;
 		}
+		
+		public boolean isLever() {
+			return this == LEVER || this == PULLED_LEVER || this == HIDDEN_LEVER || this == PULLED_HIDDEN_LEVER;
+		}
+		
+		public boolean isPulledLever() {
+			return this == PULLED_LEVER || this == PULLED_HIDDEN_LEVER;
+		}
+		
+		public Addons toggleLever() {
+			if(this == LEVER) return PULLED_LEVER;
+			else if(this == PULLED_LEVER) return LEVER;
+			else if(this == HIDDEN_LEVER) return PULLED_HIDDEN_LEVER;
+			else if(this == PULLED_HIDDEN_LEVER) return HIDDEN_LEVER;
+			return this;
+		}
 	}
 	
 	public static enum Torch implements IStringSerializable{
