@@ -5,6 +5,13 @@ import net.dark_roleplay.medieval.holders.MedievalBlocks;
 import net.dark_roleplay.medieval.objects.items.equipment.tools.ItemTelescope;
 
 import static net.dark_roleplay.medieval.holders.MedievalCreativeTabs.*;
+
+import net.dark_roleplay.drpmarg.api.Constants;
+import net.dark_roleplay.drpmarg.api.MaterialRequirements;
+import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemSoup;
@@ -16,6 +23,8 @@ import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 
 @EventBusSubscriber(modid = DarkRoleplayMedieval.MODID, bus = Bus.MOD)
@@ -24,7 +33,7 @@ public class ItemRegistryHandler {
 	private static Item.Properties PLACEHOLDER = new Properties().group(BUILDING_MATS);
 
 	private static IForgeRegistry<Item> registry = null;
-
+	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> registryEvent) {
 		registry = registryEvent.getRegistry();
@@ -104,6 +113,14 @@ public class ItemRegistryHandler {
 		reg(new ItemBlock(MedievalBlocks.TORCH_HOLDER, PLACEHOLDER), "torch_holder");
 
 //		registry = null;
+		
+		MaterialRequirements planks = new MaterialRequirements(Constants.MAT_WOOD, "planks");
+		
+		
+		
+		planks.execute(material -> {
+			reg(new ItemBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DarkRoleplayMedieval.MODID, String.format("simple_%s_plank_chair", material.getName()))), PLACEHOLDER), String.format("simple_%s_plank_chair", material.getName()));
+		});
 	}
 
 	protected static void reg(Item item, String registryName) {

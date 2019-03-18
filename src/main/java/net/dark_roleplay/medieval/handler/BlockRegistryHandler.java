@@ -1,5 +1,7 @@
 package net.dark_roleplay.medieval.handler;
 
+import net.dark_roleplay.drpmarg.api.Constants;
+import net.dark_roleplay.drpmarg.api.MaterialRequirements;
 import net.dark_roleplay.medieval.DarkRoleplayMedieval;
 import net.dark_roleplay.medieval.objects.blocks.TorchHolder;
 import net.minecraft.block.Block;
@@ -24,6 +26,12 @@ public class BlockRegistryHandler {
 		registry = registryEvent.getRegistry();
 		
 		reg(new TorchHolder(Block.Properties.create(Material.IRON).hardnessAndResistance(4.0F, 3.0F).sound(SoundType.METAL)), "torch_holder");
+
+		MaterialRequirements planks = new MaterialRequirements(Constants.MAT_WOOD, "planks");
+		
+		planks.execute(material -> {
+			reg(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(4.0F, 3.0F).sound(SoundType.WOOD)), String.format("simple_%s_plank_chair", material.getName()));
+		});
 	}
 	
 	protected static void reg(Block block, String registryName) {

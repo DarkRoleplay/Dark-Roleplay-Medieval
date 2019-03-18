@@ -2,6 +2,7 @@ package net.dark_roleplay.medieval;
 
 import net.dark_roleplay.medieval.holders.MedievalConfigs;
 import net.dark_roleplay.medieval.holders.MedievalGuis;
+import net.dark_roleplay.medieval.minigame.MinigameHandler;
 import net.dark_roleplay.medieval.temporary.model_quality.ModelQualityModelLoader;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.fml.ExtensionPoint;
@@ -25,6 +26,23 @@ public class DarkRoleplayMedieval {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupCommonStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupServerStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClientStuff);
+        
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(MinigameHandler::setupCommonStuff);
+        
+//        MaterialType woodType = new MaterialType("wood");
+//		String[] woods = {"acacia", "birch", "dark_oak", "jungle", "oak", "spruce"};
+//		
+//		for(String wood : woods) {
+//			Material mat = new Material(woodType, wood, String.format("drpmaarg.material.%s", wood));
+//			mat.setTexture("log_side", new ResourceLocation("minecraft", String.format("textures/block/%s_log.png", wood)));
+//			mat.setTexture("log_top", new ResourceLocation("minecraft", String.format("textures/block/%s_log_top.png", wood)));
+//			mat.setTexture("stripped_log_side", new ResourceLocation("minecraft", String.format("textures/block/stripped_%s_log.png", wood)));
+//			mat.setTexture("stripped_log_top", new ResourceLocation("minecraft", String.format("textures/block/stripped_%s_log_top.png", wood)));
+//			mat.setTexture("planks", new ResourceLocation("minecraft", String.format("textures/block/%s_planks.png", wood)));
+//			
+//			MaterialRegistry.register(mat);
+//		}
+        
 	}
 	
 	
