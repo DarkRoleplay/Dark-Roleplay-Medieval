@@ -1,0 +1,50 @@
+{
+	"__comment": "Designed by JTK222",
+	"textures": {
+		"particle": "drpmedieval:blocks/clocks/numbers_center",
+		"outside": "drpmedieval:blocks/clocks/wood",
+		"texture": "drpmedieval:blocks/clocks/numbers_center"
+	},
+	"elements": [ 	 
+		{
+			"__comment": "Box1",
+			"from": [ 0, 0, 15 ],
+			"to": [ 16, 16, 16 ],
+			"faces": {
+				"down": { "uv": [ 0, 0, 16, 1 ], "texture": "#texture" },
+				"up": { "uv": [ 0, 15, 16, 16 ], "texture": "#texture" },
+				"north": { "uv": [ 0, 0, 16, 16 ], "texture": "#texture" },
+				"south": { "uv": [ 0, 0, 16, 16 ], "texture": "#texture" },
+				"west": { "uv": [ 15, 0, 16, 16 ], "texture": "#texture" },
+				"east": { "uv": [ 0, 0, 1, 16 ], "texture": "#texture" }
+			}
+		},
+		{
+			"__comment": "Box2",
+			"from": [ 5.875, 8, 14.5 ],
+			"to": [ 8.875, 11, 15 ],
+			"rotation": { "origin": [ 5.875, 8, 14.5 ], "axis": "z", "angle": -45 },
+			"faces": {
+				"down": { "uv": [ 6.5, 0.9250002, 9.5, 1.125 ], "texture": "#outside" },
+				"up": { "uv": [ 6.5, 14.875, 9.5, 15.075 ], "texture": "#outside" },
+				"north": { "uv": [ 6.5, 6.5, 9.5, 9.5 ], "texture": "#outside" },
+				"south": { "uv": [ 6.5, 6.5, 9.5, 9.5 ], "texture": "#outside" },
+				"west": { "uv": [ 14.875, 6.5, 15.075, 9.5 ], "texture": "#outside" },
+				"east": { "uv": [ 0.925, 6.5, 1.125, 9.5 ], "texture": "#outside" }
+			}
+		},
+		{
+			"__comment": "Box2",
+			"from": [ 6.5, 6.5, 14.51 ],
+			"to": [ 9.5, 9.5, 15 ],
+			"faces": {
+				"down": { "uv": [ 6.5, 1, 9.5, 1.5 ], "texture": "#outside" },
+				"up": { "uv": [ 6.5, 14.5, 9.5, 15 ], "texture": "#outside" },
+				"north": { "uv": [ 6.5, 6.5, 9.5, 9.5 ], "texture": "#outside" },
+				"south": { "uv": [ 6.5, 6.5, 9.5, 9.5 ], "texture": "#outside" },
+				"west": { "uv": [ 14.5, 6.5, 15, 9.5 ], "texture": "#outside" },
+				"east": { "uv": [ 1, 6.5, 1.5, 9.5 ], "texture": "#outside" }
+			}
+		}
+	]
+}

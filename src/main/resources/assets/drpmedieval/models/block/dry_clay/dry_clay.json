@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "drpmedieval:blocks/dry_clay/dry_clay"
-    }
-}

@@ -1,0 +1,186 @@
+{
+	"credit": "Made by JTK222 for Dark Roleplay, using Blockbench.",
+	"textures": {
+		"stone": "minecraft:blocks/stone",
+		"stone_side": "drpmedieval:blocks/grindstone/grindstone_side",
+		"metal": "drpmedieval:blocks/metal",
+		"handle": "drpcmmaarg:blocks/planks/planks_oak",
+		"particle": "minecraft:blocks/stone"
+	},
+	"elements": [
+		{
+			"from": [7.999, -6, -6],
+			"to": [14.001, 6, 6],
+			"faces": {
+				"east": {"uv": [0, 0, 12, 12], "texture": "#stone_side"},
+				"west": {"uv": [0, 0, 12, 12], "texture": "#stone_side"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [8.001, -1.19348, -6],
+			"to": [14, 1.19347, 6],
+			"rotation": {"angle": -45, "axis": "x", "origin": [10, 0, 0]},
+			"faces": {
+				"north": {"uv": [12, 8.387, 6, 6], "texture": "#stone"},
+				"east": {"uv": [0, 0, 12, 2.38695], "texture": "#stone"},
+				"south": {"uv": [0, 4, 6, 6.387], "texture": "#stone"},
+				"west": {"uv": [6, 0, 8.387, 12], "rotation": 90, "texture": "#stone"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [8, -1.19347, -6],
+			"to": [13.999, 1.19347, 6],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [11, 0, 0]},
+			"faces": {
+				"north": {"uv": [12, 10.387, 6, 8], "texture": "#stone"},
+				"east": {"uv": [0, 0, 12, 2.38694], "texture": "#stone"},
+				"south": {"uv": [0, 6, 6, 8.387], "texture": "#stone"},
+				"west": {"uv": [9, 0, 11.387, 12], "rotation": 90, "texture": "#stone"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [8.001, -1.19347, -6],
+			"to": [14, 1.19348, 6],
+			"faces": {
+				"north": {"uv": [12, 12.387, 6, 10], "texture": "#stone"},
+				"east": {"uv": [0, 0, 12, 2.38695], "texture": "#stone"},
+				"south": {"uv": [0, 8, 6, 10.387], "texture": "#stone"},
+				"west": {"uv": [12, 0, 14.387, 12], "rotation": 90, "texture": "#stone"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [8, -1.19347, -6],
+			"to": [13.999, 1.19348, 6],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [11, 0, 0]},
+			"faces": {
+				"north": {"uv": [12, 14.387, 6, 12], "texture": "#stone"},
+				"east": {"uv": [0, 0, 12, 2.38695], "texture": "#stone"},
+				"south": {"uv": [0, 10, 6, 12.387], "texture": "#stone"},
+				"west": {"uv": [0, 0, 2.3869, 12], "rotation": 90, "texture": "#stone"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [8.001, -1.19347, -6],
+			"to": [14, 1.19347, 6],
+			"rotation": {"angle": 45, "axis": "x", "origin": [10, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 11, 6, 13.387], "texture": "#stone"},
+				"east": {"uv": [0, 0, 12, 2.38694], "texture": "#stone"},
+				"south": {"uv": [0, 12, 6, 14.387], "texture": "#stone"},
+				"west": {"uv": [3, 0, 5.387, 12], "rotation": 90, "texture": "#stone"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [8.001, -6, -1.19347],
+			"to": [14, 6, 1.19348],
+			"faces": {
+				"east": {"uv": [0, 0, 2.38695, 12], "texture": "#stone"},
+				"west": {"uv": [0, 0, 2.38695, 12], "texture": "#stone"},
+				"up": {"uv": [0, 0, 6, 2.38695], "texture": "#stone"},
+				"down": {"uv": [6, 2, 12, 4.387], "texture": "#stone"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [8, -6, -1.19347],
+			"to": [13.999, 6, 1.19343],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [11, 0, 0]},
+			"faces": {
+				"east": {"uv": [0, 0, 2.3869, 12], "texture": "#stone"},
+				"west": {"uv": [3, 0, 5.387, 12], "texture": "#stone"},
+				"up": {"uv": [0, 2, 6, 4.387], "texture": "#stone"},
+				"down": {"uv": [6, 4, 12, 6.387], "texture": "#stone"}
+			}
+		},
+		{
+			"name": "hexadecagon",
+			"from": [8, -6, -1.19347],
+			"to": [13.999, 6, 1.19347],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [11, 0, 0]},
+			"faces": {
+				"east": {"uv": [0, 0, 2.38694, 12], "texture": "#stone"},
+				"west": {"uv": [6, 0, 8.387, 12], "texture": "#stone"},
+				"up": {"uv": [0, 13, 6, 15.387], "texture": "#stone"},
+				"down": {"uv": [6, 0, 12, 2.387], "texture": "#stone"}
+			}
+		},
+		{
+			"from": [4, -0.75, -0.75],
+			"to": [16, 0.75, 0.75],
+			"faces": {
+				"north": {"uv": [0, 6, 12, 7.5], "texture": "#metal"},
+				"east": {"uv": [14, 2, 15.5, 3.5], "texture": "#metal"},
+				"south": {"uv": [0, 2, 12, 3.5], "texture": "#metal"},
+				"west": {"uv": [14, 0, 15.5, 1.5], "texture": "#metal"},
+				"up": {"uv": [0, 0, 12, 1.5], "texture": "#metal"},
+				"down": {"uv": [0, 4, 12, 5.5], "texture": "#metal"}
+			}
+		},
+		{
+			"from": [4.25, -1, -1],
+			"to": [5.75, 1, 1],
+			"faces": {
+				"north": {"uv": [6, 0, 7.5, 2], "texture": "#metal"},
+				"east": {"uv": [0, 14, 2, 16], "texture": "#metal"},
+				"south": {"uv": [2, 0, 3.5, 2], "texture": "#metal"},
+				"west": {"uv": [2, 14, 4, 16], "texture": "#metal"},
+				"up": {"uv": [0, 0, 1.5, 2], "texture": "#metal"},
+				"down": {"uv": [4, 0, 5.5, 2], "texture": "#metal"}
+			}
+		},
+		{
+			"from": [4.5, 0.75, -0.5],
+			"to": [5.5, 4.75, 0.5],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 4], "texture": "#metal"},
+				"east": {"uv": [1, 0, 2, 4], "texture": "#metal"},
+				"south": {"uv": [2, 0, 3, 4], "texture": "#metal"},
+				"west": {"uv": [3, 0, 4, 4], "texture": "#metal"},
+				"up": {"uv": [9, 0, 10, 1], "texture": "#metal"}
+			}
+		},
+		{
+			"from": [4, 4, -0.25],
+			"to": [4.5, 4.5, 0.25],
+			"faces": {
+				"north": {"uv": [0, 0, 0.5, 0.5], "texture": "#metal"},
+				"south": {"uv": [0, 0, 0.5, 0.5], "texture": "#metal"},
+				"up": {"uv": [0, 0, 0.5, 0.5], "texture": "#metal"},
+				"down": {"uv": [0, 0, 0.5, 0.5], "texture": "#metal"}
+			}
+		},
+		{
+			"from": [0.5, 3.75, -0.5],
+			"to": [4, 4.75, 0.5],
+			"faces": {
+				"north": {"uv": [0, 3, 3.5, 4], "texture": "#handle"},
+				"east": {"uv": [0, 0, 1, 1], "texture": "#handle"},
+				"south": {"uv": [3.5, 1, 0, 2], "texture": "#handle"},
+				"west": {"uv": [0, 0, 1, 1], "texture": "#handle"},
+				"up": {"uv": [3.5, 0, 0, 1], "texture": "#handle"},
+				"down": {"uv": [3.5, 2, 0, 3], "texture": "#handle"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "stone",
+			"children": [0,
+				{
+					"name": "hexadecagon",
+					"children": [1, 2, 3, 4, 5, 6, 7, 8]
+				},
+				{
+					"name": "handle",
+					"children": [9, 10, 11, 12, 13]
+				}
+			]
+		}
+	]
+}

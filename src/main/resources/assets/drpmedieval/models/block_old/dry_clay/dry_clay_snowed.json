@@ -1,0 +1,9 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "particle": "drpmedieval:blocks/dry_clay/dry_clay",
+        "bottom": "drpmedieval:blocks/dry_clay/dry_clay",
+        "top": "drpmedieval:blocks/dry_clay/dry_clay_grass",
+        "side": "drpmedieval:blocks/dry_clay/dry_clay_grass_snowed"
+    }
+}

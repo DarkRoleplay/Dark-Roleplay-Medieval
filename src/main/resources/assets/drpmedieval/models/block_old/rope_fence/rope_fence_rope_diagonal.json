@@ -1,0 +1,50 @@
+{
+	"__comment": "Designed by JTK222",
+	"textures": {
+		"rope": "drpmedieval:blocks/rope_fence/rope"
+	},
+	"elements": [
+		{
+			"__comment": "RopeN",
+			"from": [ 12, 12.5, -1.5 ],
+			"to": [ 13, 13.5, 3.5 ],
+			"rotation": { "origin": [ 12.5, 12.5, 3.5 ], "axis": "y", "angle": -45 },
+			"faces": {
+				"down": { "uv": [ 15.68198, 11.38909, 16, 16 ], "texture": "#rope" },
+				"up": { "uv": [ 15.68198, 0, 16, 4.610913 ], "texture": "#rope" },
+				"north": { "uv": [ 0, 2.5, 0.3180199, 3.5 ], "texture": "#rope" },
+				"south": { "uv": [ 15.68198, 2.5, 16, 3.5 ], "texture": "#rope" },
+				"west": { "uv": [ 0, 2.5, 4.610913, 3.5 ], "texture": "#rope" },
+				"east": { "uv": [ 11.38909, 2.5, 16, 3.5 ], "texture": "#rope" }
+			}
+		},
+		{
+			"__comment": "RopeN",
+			"from": [ 9.0202, 13.5, 4.3131 ],
+			"to": [ 10.0202, 14.5, 6.3131 ],
+			"rotation": { "origin": [ 9.5, 13.5, 6.5 ], "axis": "y", "angle": -45 },
+			"faces": {
+				"down": { "uv": [ 10.70711, 9.385618, 11.70711, 11.38562 ], "texture": "#rope" },
+				"up": { "uv": [ 10.70711, 4.614382, 11.70711, 6.614382 ], "texture": "#rope" },
+				"north": { "uv": [ 4.292893, 1.5, 5.292893, 2.5 ], "texture": "#rope" },
+				"south": { "uv": [ 10.70711, 1.5, 11.70711, 2.5 ], "texture": "#rope" },
+				"west": { "uv": [ 4.614382, 1.5, 6.614382, 2.5 ], "texture": "#rope" },
+				"east": { "uv": [ 9.385618, 1.5, 11.38562, 2.5 ], "texture": "#rope" }
+			}
+		},
+		{
+			"__comment": "RopeN",
+			"from": [ 10.5, 13, 2.5 ],
+			"to": [ 11.5, 14, 5 ],
+			"rotation": { "origin": [ 11, 13, 5 ], "axis": "y", "angle": -45 },
+			"faces": {
+				"down": { "uv": [ 12.41421, 10.62132, 13.41421, 13.12132 ], "texture": "#rope" },
+				"up": { "uv": [ 12.41421, 2.87868, 13.41421, 5.37868 ], "texture": "#rope" },
+				"north": { "uv": [ 2.585787, 2, 3.585787, 3 ], "texture": "#rope" },
+				"south": { "uv": [ 12.41421, 2, 13.41421, 3 ], "texture": "#rope" },
+				"west": { "uv": [ 2.87868, 2, 5.37868, 3 ], "texture": "#rope" },
+				"east": { "uv": [ 10.62132, 2, 13.12132, 3 ], "texture": "#rope" }
+			}
+		}
+	]
+}

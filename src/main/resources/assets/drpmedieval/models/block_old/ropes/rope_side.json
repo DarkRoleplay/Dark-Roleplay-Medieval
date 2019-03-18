@@ -1,0 +1,22 @@
+{
+    "__comment": "model generated using mr_crayfish's model creator (http://mrcrayfish.com/modelcreator/)",
+    "textures": {
+		"particle": "drpmedieval:blocks/rope",
+        "0": "drpmedieval:blocks/rope"
+    },
+    "elements": [
+        {
+            "name": "cube",
+            "from": [ 7.0, 0.0, 0.0 ], 
+            "to": [ 9.0, 16.0, 2.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 0.0, 0.0, 2.0, 16.0 ] },
+                "east": { "texture": "#0", "uv": [ 2.0, 0.0, 4.0, 16.0 ] },
+                "south": { "texture": "#0", "uv": [ 4.0, 0.0, 6.0, 16.0 ] },
+                "west": { "texture": "#0", "uv": [ 6.0, 0.0, 8.0, 16.0 ] },
+                "up": { "texture": "#0", "uv": [ 0.0, 0.0, 2.0, 2.0 ] },
+                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 2.0, 2.0 ] }
+            }
+        }
+    ]
+}

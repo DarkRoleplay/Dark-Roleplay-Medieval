@@ -1,6 +1,0 @@
-{
-    "parent": "drpmedieval:block/apples/apple4",
-    "textures": {
-        "apple": "drpmedieval:m_i_s_s_i_n_g"
-    }
-}

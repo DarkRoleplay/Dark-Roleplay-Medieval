@@ -1,0 +1,36 @@
+{
+	"__comment": "Designed by JTK222",
+	"textures": {
+		"particle": "drpmedieval:blocks/hanging_bridge_posts",
+		"texture": "drpmedieval:blocks/hanging_bridge_posts",
+		"rope": "drpmedieval:blocks/rope"
+	},
+	"elements": [
+		{
+			"__comment": "Cube8",
+			"from": [ -3, 0, -4.5 ],
+			"to": [ 1, 17, -0.5 ],
+			"faces": {
+				"down": { "uv": [ 0, 8, 4, 12 ], "texture": "#texture" },
+				"up": { "uv": [ 0, 12, 4, 16 ], "texture": "#texture" },
+				"north": { "uv": [ 4, 0, 8, 16 ], "texture": "#texture" },
+				"south": { "uv": [ 8, 0, 12, 16 ], "texture": "#texture" },
+				"west": { "uv": [ 12, 0, 16, 16 ], "texture": "#texture" },
+				"east": { "uv": [ 8, 0, 12, 16 ], "texture": "#texture" }
+			}
+		},
+		{
+			"__comment": "Cube9",
+			"from": [ -3.5, 14, -5 ],
+			"to": [ 1.5, 16, 0 ],
+			"faces": {
+				"down": { "uv": [ 0, 5, 5, 10 ], "texture": "#rope" },
+				"up": { "uv": [ 0, 0, 5, 5 ], "texture": "#rope" },
+				"north": { "uv": [ 5, 0, 7, 5 ], "texture": "#rope", "rotation": 270 },
+				"south": { "uv": [ 5, 5, 7, 10 ], "texture": "#rope", "rotation": 270 },
+				"west": { "uv": [ 5, 10, 7, 15 ], "texture": "#rope", "rotation": 270 },
+				"east": { "uv": [ 5, 5, 7, 10 ], "texture": "#rope", "rotation": 90 }
+			}
+		}
+	]
+}
