@@ -3,7 +3,8 @@
 	"textures": {
 		"1": "drpmedieval:blocks/metal",
 		"2": "drpmedieval:blocks/roof/planks_treaded_wood",
-		"3": "block/black_concrete_powder"
+		"3": "block/black_concrete_powder",
+		"particle": "drpmedieval:blocks/roof/planks_treaded_wood" 
 	},
 	"elements": [
 		{

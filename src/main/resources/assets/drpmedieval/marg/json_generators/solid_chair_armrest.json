@@ -1,0 +1,22 @@
+{
+	"version" : 0,
+	"type":"wood",
+	"jsons":[
+		{
+			"input" : "drpmedieval:marg/jsons/blockstates/solid_chair_armrest.json",
+			"output" : "drpmedieval:blockstates/%wood%_solid_chair_armrest.json"
+		},
+		{
+			"input" : "drpmedieval:marg/jsons/item_model/solid_chair_armrest.json",
+			"output" : "drpmedieval:models/item/%wood%_solid_chair_armrest.json"
+		},
+		{
+			"input" : "drpmedieval:marg/jsons/item_model/solid_chair_armrest.json",
+			"output" : "drpmedieval:models/block/chairs/%wood%_solid_chair_armrest.json"
+		},
+		{
+			"input" : "drpmedieval:marg/jsons/item_model/solid_chair_armrest_hidden_compartment.json",
+			"output" : "drpmedieval:models/block/chairs/%wood%_solid_chair_armrest_hidden_compartment.json"
+		}
+	]
+}

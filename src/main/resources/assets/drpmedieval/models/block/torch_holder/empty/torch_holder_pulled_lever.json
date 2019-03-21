@@ -3,7 +3,8 @@
 	"textures": {
 		"1": "drpmedieval:blocks/metal",
 		"2": "drpmedieval:blocks/roof/planks_treaded_wood",
-		"4": "block/white_wool"
+		"4": "block/white_wool",
+		"particle": "drpmedieval:blocks/roof/planks_treaded_wood" 
 	},
 	"elements": [
 		{

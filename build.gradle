@@ -52,11 +52,17 @@ repositories {
 	}
 }
 
+   
+
 dependencies {
     minecraft 'net.minecraftforge:forge:1.13.2-25.0.88'
-	deobf group: "net.dark_roleplay", name: "drplibrary", version: "1.13.2-0.1.0-SNAPSHOT", changing: true, transitive: false
 	
-	deobf group: "net.dark_roleplay.modules", name: "drpmarg", version: "1.13.2-0.1.0-SNAPSHOT", changing: true, transitive: false
+	//deobf group: "net.dark_roleplay", name: "drplibrary", version: "1.13.2-0.1.0-SNAPSHOT", changing: true, transitive: false
+	//deobf group: "net.dark_roleplay.modules", name: "drpmarg", version: "1.13.2-0.1.0-SNAPSHOT", changing: true, transitive: false
+
+	compile files('libs/drplibrary.jar')
+	compile files('libs/drpmarg.jar')
+	
 }
 
 jar {

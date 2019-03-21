@@ -4,7 +4,8 @@
 		"torch": "block/torch",
 		"metal": "drpmedieval:blocks/metal",
 		"planks": "drpmedieval:blocks/roof/planks_treaded_wood",
-		"flint": "block/black_concrete_powder"
+		"flint": "block/black_concrete_powder",
+		"particle": "drpmedieval:blocks/roof/planks_treaded_wood" 
 	},
 	"elements": [
 		{

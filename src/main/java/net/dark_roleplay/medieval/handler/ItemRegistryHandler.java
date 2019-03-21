@@ -1,29 +1,25 @@
 package net.dark_roleplay.medieval.handler;
 
-import net.dark_roleplay.medieval.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.holders.MedievalBlocks;
-import net.dark_roleplay.medieval.objects.items.equipment.tools.ItemTelescope;
-
-import static net.dark_roleplay.medieval.holders.MedievalCreativeTabs.*;
+import static net.dark_roleplay.medieval.holders.MedievalCreativeTabs.BUILDING_MATS;
+import static net.dark_roleplay.medieval.holders.MedievalCreativeTabs.EQUIPMENT;
+import static net.dark_roleplay.medieval.holders.MedievalCreativeTabs.FOOD;
+import static net.dark_roleplay.medieval.holders.MedievalCreativeTabs.MISCELLANEOUS;
 
 import net.dark_roleplay.drpmarg.api.Constants;
 import net.dark_roleplay.drpmarg.api.MaterialRequirements;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
+import net.dark_roleplay.medieval.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.holders.MedievalBlocks;
+import net.dark_roleplay.medieval.objects.items.equipment.tools.ItemTelescope;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemSoup;
 import net.minecraft.item.Item.Properties;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemSoup;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -116,10 +112,10 @@ public class ItemRegistryHandler {
 		
 		MaterialRequirements planks = new MaterialRequirements(Constants.MAT_WOOD, "planks");
 		
-		
-		
 		planks.execute(material -> {
-			reg(new ItemBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DarkRoleplayMedieval.MODID, String.format("simple_%s_plank_chair", material.getName()))), PLACEHOLDER), String.format("simple_%s_plank_chair", material.getName()));
+			reg(new ItemBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DarkRoleplayMedieval.MODID, String.format("%s_plank_chair", material.getName()))), PLACEHOLDER), String.format("%s_plank_chair", material.getName()));
+			reg(new ItemBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DarkRoleplayMedieval.MODID, String.format("%s_solid_chair", material.getName()))), PLACEHOLDER), String.format("%s_solid_chair", material.getName()));
+			reg(new ItemBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DarkRoleplayMedieval.MODID, String.format("%s_solid_chair_armrest", material.getName()))), PLACEHOLDER), String.format("%s_solid_chair_armrest", material.getName()));
 		});
 	}
 

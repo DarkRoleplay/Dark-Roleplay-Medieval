@@ -6,7 +6,6 @@ public class PanelBrew{}/*  extends Panel{
 	
 	public PanelBrew(int posX, int posY, int radius, int circleResolution, int bgColor) {
 		super(posX, posY, radius, circleResolution, bgColor);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override

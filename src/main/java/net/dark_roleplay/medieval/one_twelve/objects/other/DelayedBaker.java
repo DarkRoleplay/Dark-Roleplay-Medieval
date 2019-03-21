@@ -21,7 +21,7 @@ package net.dark_roleplay.medieval.one_twelve.objects.other;
 //import net.minecraftforge.common.model.IModelState;
 //import net.minecraftforge.common.model.TRSRTransformation;
 
-//TODO Update to 1.13
+//PORT to 1.13
 public abstract class DelayedBaker{// implements IBakedModel, IModel{
 
 //

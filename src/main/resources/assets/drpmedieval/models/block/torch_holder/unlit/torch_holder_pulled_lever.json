@@ -4,7 +4,8 @@
 		"torch": "drpmedieval:blocks/torch_off",
 		"metal": "drpmedieval:blocks/metal",
 		"planks": "drpmedieval:blocks/roof/planks_treaded_wood",
-		"string": "block/white_wool"
+		"string": "block/white_wool",
+		"particle": "drpmedieval:blocks/roof/planks_treaded_wood" 
 	},
 	"elements": [
 		{

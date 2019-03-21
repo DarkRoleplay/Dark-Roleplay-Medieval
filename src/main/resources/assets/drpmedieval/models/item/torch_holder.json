@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "assets:blocks/metal",
-		"2": "assets:blocks/roof/planks_treaded_wood"
+		"1": "drpmedieval:blocks/metal",
+		"2": "drpmedieval:blocks/roof/planks_treaded_wood"
 	},
 	"elements": [
 		{

@@ -3,7 +3,10 @@ package net.dark_roleplay.medieval.handler;
 import net.dark_roleplay.drpmarg.api.Constants;
 import net.dark_roleplay.drpmarg.api.MaterialRequirements;
 import net.dark_roleplay.medieval.DarkRoleplayMedieval;
-import net.dark_roleplay.medieval.objects.blocks.TorchHolder;
+import net.dark_roleplay.medieval.objects.blocks.decoration.chairs.PlankChairBlock;
+import net.dark_roleplay.medieval.objects.blocks.decoration.chairs.SolidChairArmrestBlock;
+import net.dark_roleplay.medieval.objects.blocks.decoration.chairs.SolidChairBlock;
+import net.dark_roleplay.medieval.objects.blocks.decoration.light_sources.TorchHolderBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -25,12 +28,14 @@ public class BlockRegistryHandler {
 	public static void registerItems(RegistryEvent.Register<Block> registryEvent) {
 		registry = registryEvent.getRegistry();
 		
-		reg(new TorchHolder(Block.Properties.create(Material.IRON).hardnessAndResistance(4.0F, 3.0F).sound(SoundType.METAL)), "torch_holder");
+		reg(new TorchHolderBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(4.0F, 3.0F).sound(SoundType.METAL)), "torch_holder");
 
 		MaterialRequirements planks = new MaterialRequirements(Constants.MAT_WOOD, "planks");
 		
 		planks.execute(material -> {
-			reg(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(4.0F, 3.0F).sound(SoundType.WOOD)), String.format("simple_%s_plank_chair", material.getName()));
+			reg(new PlankChairBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(4.0F, 3.0F).sound(SoundType.WOOD)), String.format("%s_plank_chair", material.getName()));
+			reg(new SolidChairBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(4.0F, 3.0F).sound(SoundType.WOOD)), String.format("%s_solid_chair", material.getName()));
+			reg(new SolidChairArmrestBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(4.0F, 3.0F).sound(SoundType.WOOD)), String.format("%s_solid_chair_armrest", material.getName()));
 		});
 	}
 	

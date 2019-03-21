@@ -1,0 +1,18 @@
+{
+	"version" : 0,
+	"type":"wood",
+	"jsons":[
+		{
+			"input" : "drpmedieval:marg/jsons/blockstates/plank_chair.json",
+			"output" : "drpmedieval:blockstates/%wood%_plank_chair.json"
+		},
+		{
+			"input" : "drpmedieval:marg/jsons/item_model/plank_chair.json",
+			"output" : "drpmedieval:models/item/%wood%_plank_chair.json"
+		},
+		{
+			"input" : "drpmedieval:marg/jsons/item_model/plank_chair.json",
+			"output" : "drpmedieval:models/block/chairs/%wood%_plank_chair.json"
+		}
+	]
+}

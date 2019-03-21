@@ -1,11 +1,10 @@
-package net.dark_roleplay.medieval.objects.blocks;
+package net.dark_roleplay.medieval.objects.blocks.decoration.light_sources;
 
 import java.util.Random;
 
 import javax.annotation.Nullable;
 
 import net.dark_roleplay.medieval.holders.MedievalItems;
-import net.dark_roleplay.medieval.objects.enums.TorchHolderEnums;
 import net.dark_roleplay.medieval.objects.enums.TorchHolderEnums.Addons;
 import net.dark_roleplay.medieval.objects.enums.TorchHolderEnums.Torch;
 import net.minecraft.block.Block;
@@ -16,20 +15,19 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.Particles;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particles.RedstoneParticleData;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.AttachFace;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.EnumFacing.Axis;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
@@ -38,7 +36,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class TorchHolder extends Block {
+public class TorchHolderBlock extends Block {
 
 	private static VoxelShape EMPTY_NORTH = Block.makeCuboidShape(5.75, 1.5, 10.75, 10.25, 9.5, 16);
 	private static VoxelShape EMPTY_EAST = Block.makeCuboidShape(0, 1.5, 5.75, 5.25, 9.5, 10.25);
@@ -49,9 +47,40 @@ public class TorchHolder extends Block {
 	protected static final EnumProperty<Torch> TORCH = EnumProperty.create("torch", Torch.class);
 	public static final DirectionProperty HORIZONTAL_FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-	public TorchHolder(Properties properties) {
+	public TorchHolderBlock(Properties properties) {
 		super(properties);
 		this.setDefaultState(this.getDefaultState().with(ADDONS, Addons.NONE).with(TORCH, Torch.NONE));
+	}
+
+	@Override
+	public void getDrops(IBlockState state, NonNullList<ItemStack> drops, World world, BlockPos pos, int fortune) {
+		super.getDrops(state, drops, world, pos, fortune);
+		switch(state.get(TORCH)) {
+			case LIT:
+			case UNLIT:
+				drops.add(new ItemStack(Blocks.TORCH));
+				break;
+			case NONE:
+			default:
+				break;
+		}
+		
+		switch(state.get(ADDONS)) {
+			case HIDDEN_LEVER:
+			case PULLED_HIDDEN_LEVER:				
+				drops.add(new ItemStack(Blocks.LEVER));
+				break;
+			case LEVER:
+			case PULLED_LEVER:
+				drops.add(new ItemStack(MedievalItems.TRIGGER_TRAP));
+				break;
+			case LIGHTER:
+				drops.add(new ItemStack(Items.FLINT));
+				break;
+			case NONE:
+			default:
+				break;
+		}
 	}
 
 	@Override
@@ -129,12 +158,16 @@ public class TorchHolder extends Block {
 	@Override
 	public void animateTick(IBlockState state, World world, BlockPos pos, Random rand) {
 		if (state.get(TORCH) == Torch.LIT) {
-//		      EnumFacing enumfacing = p_196379_0_.get(HORIZONTAL_FACING).getOpposite();
-//		      EnumFacing enumfacing1 = getFacing(p_196379_0_).getOpposite();
-//		      double d0 = (double)p_196379_2_.getX() + 0.5D + 0.1D * (double)enumfacing.getXOffset() + 0.2D * (double)enumfacing1.getXOffset();
-//		      double d1 = (double)p_196379_2_.getY() + 0.5D + 0.1D * (double)enumfacing.getYOffset() + 0.2D * (double)enumfacing1.getYOffset();
-//		      double d2 = (double)p_196379_2_.getZ() + 0.5D + 0.1D * (double)enumfacing.getZOffset() + 0.2D * (double)enumfacing1.getZOffset();
-//		      p_196379_1_.spawnParticle(new RedstoneParticleData(1.0F, 0.0F, 0.0F, p_196379_3_), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+			EnumFacing enumfacing = state.get(HORIZONTAL_FACING);
+			double d0 = (double) pos.getX() + 0.5D;
+			double d1 = (double) pos.getY() + 0.7D + (!state.get(ADDONS).isPulledLever() ? 0.12D : -0.02D);
+			double d2 = (double) pos.getZ() + 0.5D;
+			double d3 = !state.get(ADDONS).isPulledLever() ? 0.16D : 0D;
+			EnumFacing enumfacing1 = enumfacing.getOpposite();
+			world.spawnParticle(Particles.SMOKE, d0 + d3 * (double) enumfacing1.getXOffset(), d1,
+					d2 + d3 * (double) enumfacing1.getZOffset(), 0.0D, 0.0D, 0.0D);
+			world.spawnParticle(Particles.FLAME, d0 + d3 * (double) enumfacing1.getXOffset(), d1,
+					d2 + d3 * (double) enumfacing1.getZOffset(), 0.0D, 0.0D, 0.0D);
 		}
 	}
 

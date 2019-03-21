@@ -3,7 +3,8 @@
 	"textures": {
 		"torch": "block/torch",
 		"metal": "drpmedieval:blocks/metal",
-		"planks": "drpmedieval:blocks/roof/planks_treaded_wood"
+		"planks": "drpmedieval:blocks/roof/planks_treaded_wood",
+		"particle": "drpmedieval:blocks/roof/planks_treaded_wood" 
 	},
 	"elements": [
 		{

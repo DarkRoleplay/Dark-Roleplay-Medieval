@@ -2,6 +2,7 @@
 	"guis.drpmedieval.tooltip_work_in_progress" : "%sThis Item is still Work in Progress!",
 	"guis.drpmedieval.tooltip_description" : "%sPress 'CTRL' to show more Info",
 	
+	"interaction.drpmedieval.chair.to_far" : "%s is to far away",
 	
 	"itemGroup.drpmedieval.decoration" : "Decorations",
 	"itemGroup.drpmedieval.building_materials" : "Building Materials",

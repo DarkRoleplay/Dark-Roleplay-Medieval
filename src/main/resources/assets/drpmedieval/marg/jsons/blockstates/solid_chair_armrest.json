@@ -1,0 +1,22 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:chairs/%wood%_solid_chair_armrest",
+        "textures": {
+			"planks": "drpmarg:block/planks/%wood%_planks",
+			"particle": "drpmarg:block/planks/%wood%_planks"
+        }
+    },
+	"variants": {
+		"facing":{
+			"north":{},
+			"east":{"y":90},
+			"south":{"y":180},
+			"west":{"y":270}
+		},
+		"hidden_compartment":{
+			"true":{"model":"drpmedieval:chairs/%wood%_solid_chair_armrest_hidden_compartment"},
+			"false":{}
+		}
+	}
+}

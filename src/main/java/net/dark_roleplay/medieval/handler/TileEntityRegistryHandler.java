@@ -1,11 +1,32 @@
 package net.dark_roleplay.medieval.handler;
 
-//@EventBusSubscriber(modid = References.MODID)
+import net.dark_roleplay.medieval.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.objects.blocks.decoration.chairs.SolidChairTileEntity;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.registries.IForgeRegistry;
+
+@EventBusSubscriber(modid = DarkRoleplayMedieval.MODID, bus = Bus.MOD)
 public class TileEntityRegistryHandler {
-//
-//	//Abusing this till we get a Registry Event for TileEntities
-//	@SubscribeEvent
-//	public static final void register(RegistryEvent.Register<Block> registryEvent) {
+	
+	private static IForgeRegistry<TileEntityType<? extends TileEntity>> registry = null;
+	
+	@SubscribeEvent
+	public static void registerItems(RegistryEvent.Register<TileEntityType<? extends TileEntity>> registryEvent) {
+		registry = registryEvent.getRegistry();
+		
+		reg(TileEntityType.Builder.create(SolidChairTileEntity::new).build(null), "solid_chair_armrest");
+	}
+	
+	protected static void reg(TileEntityType<? extends TileEntity> tileEntity, String registryName) {
+		tileEntity.setRegistryName(new ResourceLocation(DarkRoleplayMedieval.MODID, registryName));
+		registry.register(tileEntity);
+	}
 //		GameRegistry.registerTileEntity(TileEntityRoof.class, new ResourceLocation(References.MODID, "roof"));
 //		GameRegistry.registerTileEntity(DynamicStorageTileEntity.class, new ResourceLocation(References.MODID, "te_dynamic_storage"));
 //		GameRegistry.registerTileEntity(TileEntityHoneyCentrifuge.class, new ResourceLocation(References.MODID, "honey_centrifuge"));
@@ -40,6 +61,4 @@ public class TileEntityRegistryHandler {
 //
 //		//New Test Things
 //		GameRegistry.registerTileEntity(TileEntityFlowerContainer.class, new ResourceLocation(References.MODID, "flower_container"));
-//	}
-
 }

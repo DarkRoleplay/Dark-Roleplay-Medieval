@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.one_twelve.objects.events.client;
 
-//TODO Update to 1.13
+//PORT to 1.13
 //@EventBusSubscriber(modid = References.MODID, value = Side.CLIENT)
 public class RenderBlockHighlight {
 
