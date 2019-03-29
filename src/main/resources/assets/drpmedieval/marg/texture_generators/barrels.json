@@ -5,8 +5,8 @@
 		"drpmedieval:textures/blocks/barrels/%wood%_barrel_top"
 	],
 	"required_textures":[
-		"drpmedieval:arg/textures/overlays/barrel_side.png",
-		"drpmedieval:arg/textures/overlays/barrel_top.png"
+		"drpmedieval:marg/textures/overlays/barrel_side.png",
+		"drpmedieval:marg/textures/overlays/barrel_top.png"
 	],
 	"textures":[
 		{

@@ -1,0 +1,30 @@
+{
+	"version" : 0,
+	"type":"wood",
+	"jsons":[
+		{
+			"input" : "drpmedieval:marg/jsons/blockstates/solid_bench.json",
+			"output" : "drpmedieval:blockstates/%wood%_solid_bench.json"
+		},
+		{
+			"input" : "drpmedieval:marg/jsons/block_model/solid_bench_single.json",
+			"output" : "drpmedieval:models/block/benches/%wood%_solid_bench_single.json"
+		},
+		{
+			"input" : "drpmedieval:marg/jsons/block_model/solid_bench_left.json",
+			"output" : "drpmedieval:models/block/benches/%wood%_solid_bench_left.json"
+		},
+		{
+			"input" : "drpmedieval:marg/jsons/block_model/solid_bench_right.json",
+			"output" : "drpmedieval:models/block/benches/%wood%_solid_bench_right.json"
+		},
+		{
+			"input" : "drpmedieval:marg/jsons/block_model/solid_bench_center.json",
+			"output" : "drpmedieval:models/block/benches/%wood%_solid_bench_center.json"
+		},
+		{
+			"input" : "drpmedieval:marg/jsons/block_model/solid_bench_center_support.json",
+			"output" : "drpmedieval:models/block/benches/%wood%_solid_bench_center_support.json"
+		}
+	]
+}

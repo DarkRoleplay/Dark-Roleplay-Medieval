@@ -3,6 +3,7 @@ package net.dark_roleplay.medieval.handler;
 import net.dark_roleplay.drpmarg.api.Constants;
 import net.dark_roleplay.drpmarg.api.MaterialRequirements;
 import net.dark_roleplay.medieval.DarkRoleplayMedieval;
+import net.dark_roleplay.medieval.objects.blocks.decoration.benches.BenchBlock;
 import net.dark_roleplay.medieval.objects.blocks.decoration.chairs.PlankChairBlock;
 import net.dark_roleplay.medieval.objects.blocks.decoration.chairs.SolidChairArmrestBlock;
 import net.dark_roleplay.medieval.objects.blocks.decoration.chairs.SolidChairBlock;
@@ -36,6 +37,8 @@ public class BlockRegistryHandler {
 			reg(new PlankChairBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(4.0F, 3.0F).sound(SoundType.WOOD)), String.format("%s_plank_chair", material.getName()));
 			reg(new SolidChairBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(4.0F, 3.0F).sound(SoundType.WOOD)), String.format("%s_solid_chair", material.getName()));
 			reg(new SolidChairArmrestBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(4.0F, 3.0F).sound(SoundType.WOOD)), String.format("%s_solid_chair_armrest", material.getName()));
+			reg(new BenchBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(4.0F, 3.0F).sound(SoundType.WOOD)), String.format("%s_solid_bench", material.getName()));
+
 		});
 	}
 	

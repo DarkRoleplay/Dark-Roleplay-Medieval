@@ -1,0 +1,23 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"model":"drpmedieval:chairs/%wood%_solid_chair",
+        "textures": {
+			"planks": "drpmarg:block/planks/%wood%_planks",
+			"particle": "drpmarg:block/planks/%wood%_planks"
+        }
+    },
+	"variants": {
+		"axis":{
+			"x":{},
+			"z":{"y":90}
+		},
+		"section":{
+			"single":{"model":"drpmedieval:benches/%wood%_solid_bench_single"},
+			"left":{"model":"drpmedieval:benches/%wood%_solid_bench_left"},
+			"right":{"model":"drpmedieval:benches/%wood%_solid_bench_right"},
+			"center":{"model":"drpmedieval:benches/%wood%_solid_bench_center"},
+			"center_support":{"model":"drpmedieval:benches/%wood%_solid_bench_center_support"}
+		}
+	}
+}
