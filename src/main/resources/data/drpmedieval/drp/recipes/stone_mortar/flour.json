@@ -1,0 +1,16 @@
+{
+  "station": "drpmedieval:stone_mortar_and_pestle",
+  "category": "materials",
+  "name": "flour",
+  "outputs": [
+    {
+      "item": "drpmedieval:wheat_flour",
+      "count": 2
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:wheat"
+    }
+  ]
+}

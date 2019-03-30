@@ -92,6 +92,7 @@ public class ModelRegistryHandler {
 
 //		ModelLoader.registerItemVariants(LANTERN, new ResourceLocation(References.MODID, "lantern_solid"), new ResourceLocation(References.MODID, "lantern_translucent"));
 		new ModelRegistryHandler().registerTables();
+		
 	}
 
 	//Special Code to rescue servers cause I am dumb.

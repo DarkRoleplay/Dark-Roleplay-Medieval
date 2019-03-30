@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.Side;
 public class References {
 
 	public static final String NAME = "Dark Roleplay Medieval";
-	public static final String VERSION = "1.12.2-0.3.2.1";
+	public static final String VERSION = "1.12.2-0.3.3";
 	public static final String MODID = "drpmedieval";
 	public static final String ACCEPTEDVERSIONS = "[1.12,1.13)";
 	public static final String DEPENDECIES = "required-after:drpcore@[1.12.2-0.4.6.2,)";

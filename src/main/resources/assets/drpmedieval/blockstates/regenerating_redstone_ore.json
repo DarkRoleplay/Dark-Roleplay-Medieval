@@ -12,9 +12,9 @@
 		"inventory":[{}],
 		"ore_count":{
 			"0":{"textures": {  "all": "minecraft:blocks/stone" }},
-			"1":{"textures": {  "all": "drpmedieval:blocks/ores/iron/poor_ore" }},
-			"2":{"textures": {  "all": "minecraft:blocks/iron_ore" }},
-			"3":{"textures": {  "all": "drpmedieval:blocks/ores/iron/rich_ore" }}
+			"1":{"textures": {  "all": "drpmedieval:blocks/ores/redstone/poor_ore" }},
+			"2":{"textures": {  "all": "minecraft:blocks/redstone_ore" }},
+			"3":{"textures": {  "all": "drpmedieval:blocks/ores/redstone/rich_ore" }}
 		},
 		"ore_limit":{
 			"1":{},

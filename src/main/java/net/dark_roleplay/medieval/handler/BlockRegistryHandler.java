@@ -91,6 +91,7 @@ import net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_c
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.chests.simple_chest.TileEntitySimpleChest;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.Shelf;
 import net.dark_roleplay.medieval.objects.blocks.utility.storage.shelfs.TileEntityShelf;
+import net.dark_roleplay.medieval.objects.items.DRPItemBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -245,17 +246,16 @@ public class BlockRegistryHandler {
 
 		BlockSettings vanillaOre = new BlockSettings(Material.ROCK, SoundType.STONE, 3.0F, 5.0F);
 
-		if(InDevUtil.isDevEnv()) {
-			register(reg, MedievalCreativeTabs.CREATIVE,
-				new RegeneratingOre("regenerating_emerald_ore", vanillaOre, 2, new IntegerWrapper(Miscellaneous.REGEN_TIME_EMERALD)),
-				new RegeneratingOre("regenerating_diamond_ore", vanillaOre, 2, new IntegerWrapper(Miscellaneous.REGEN_TIME_DIAMOND)),
-				new RegeneratingOre("regenerating_lapis_ore", vanillaOre, 1, new IntegerWrapper(Miscellaneous.REGEN_TIME_LAPIS)),
-				new RegeneratingOre("regenerating_redstone_ore", vanillaOre, 2, new IntegerWrapper(Miscellaneous.REGEN_TIME_REDSTONE)),
-				new RegeneratingOre("regenerating_gold_ore", vanillaOre, 2, new IntegerWrapper(Miscellaneous.REGEN_TIME_GOLD)),
-				new RegeneratingOre("regenerating_iron_ore", vanillaOre, 1, new IntegerWrapper(Miscellaneous.REGEN_TIME_IRON)),
-				new RegeneratingOre("regenerating_coal_ore", vanillaOre, 0, new IntegerWrapper(Miscellaneous.REGEN_TIME_COAL)),
-				new RegeneratingOre("regenerating_quartz_ore", vanillaOre, 0, new IntegerWrapper(Miscellaneous.REGEN_TIME_QUARTZ))
-			);
+//		if(InDevUtil.isDevEnv()) {
+			registerWithMeta(reg, MedievalCreativeTabs.CREATIVE, new RegeneratingOre("regenerating_emerald_ore", vanillaOre, 2, new IntegerWrapper(Miscellaneous.REGEN_TIME_EMERALD)), "poor_emerald_ore", "emerald_ore", "rich_emerald_ore");
+			registerWithMeta(reg, MedievalCreativeTabs.CREATIVE, new RegeneratingOre("regenerating_diamond_ore", vanillaOre, 2, new IntegerWrapper(Miscellaneous.REGEN_TIME_DIAMOND)), "poor_diamond_ore", "diamond_ore", "rich_diamond_ore");
+			registerWithMeta(reg, MedievalCreativeTabs.CREATIVE, new RegeneratingOre("regenerating_lapis_ore", vanillaOre, 1, new IntegerWrapper(Miscellaneous.REGEN_TIME_LAPIS)), "poor_lapis_ore", "lapis_ore", "rich_lapis_ore");
+			registerWithMeta(reg, MedievalCreativeTabs.CREATIVE, new RegeneratingOre("regenerating_redstone_ore", vanillaOre, 2, new IntegerWrapper(Miscellaneous.REGEN_TIME_REDSTONE)), "poor_redstone_ore", "redstone_ore", "rich_redstone_ore");
+			registerWithMeta(reg, MedievalCreativeTabs.CREATIVE, new RegeneratingOre("regenerating_gold_ore", vanillaOre, 2, new IntegerWrapper(Miscellaneous.REGEN_TIME_GOLD)), "poor_gold_ore", "gold_ore", "rich_gold_ore");
+			registerWithMeta(reg, MedievalCreativeTabs.CREATIVE, new RegeneratingOre("regenerating_iron_ore", vanillaOre, 1, new IntegerWrapper(Miscellaneous.REGEN_TIME_IRON)), "poor_iron_ore", "iron_ore", "rich_iron_ore");
+			registerWithMeta(reg, MedievalCreativeTabs.CREATIVE, new RegeneratingOre("regenerating_coal_ore", vanillaOre, 0, new IntegerWrapper(Miscellaneous.REGEN_TIME_COAL)), "poor_coal_ore", "coal_ore", "rich_coal_ore");
+			registerWithMeta(reg, MedievalCreativeTabs.CREATIVE, new RegeneratingOre("regenerating_quartz_ore", vanillaOre, 0, new IntegerWrapper(Miscellaneous.REGEN_TIME_QUARTZ)), "poor_quartz_ore", "quartz_ore", "rich_quartz_ore");
+			
 //			reg.register(new TorchOverride());
 //			register(reg, MedievalCreativeTabs.UTILITY,
 //				new SpinningWheel("spinning_wheel2", Settings.WOOD_DECO).setTileEntityFactory(SpinningWheelTileEntity::new).addBehaviors(new Behavior_CraftingStation()) //TODO Update to DRPBlock
@@ -266,7 +266,7 @@ public class BlockRegistryHandler {
 //			GameRegistry.registerTileEntity(TileEntity_Lectern.class, new ResourceLocation(References.MODID, "tile_entity_lectern"));
 //			GameRegistry.registerTileEntity(SpinningWheelTileEntity.class, new ResourceLocation(References.MODID, "spinning_wheel"));
 //			GameRegistry.registerTileEntity(TE_Banner.class, new ResourceLocation(References.MODID, "tile_entity_banner"));
-		}
+//		}
 
 		MaterialRegistry.getMaterialsForType("wood").forEach(mat -> {
 			if(logRequired.doesFulfillRequirements(mat)) {
@@ -392,12 +392,20 @@ public class BlockRegistryHandler {
 		for(Block block : blocks){
 			block.setCreativeTab(creativeTab);
 			ItemBlock itemBlock = (ItemBlock) new ItemBlock(block).setRegistryName(block.getRegistryName());
-			ItemRegistryHandler.addBlockItem(itemBlock);
+			ItemRegistryHandler.addItem(itemBlock);
 			ModelRegistryHandler.addItemToRegisterMesh(itemBlock);
 		}
 		reg.registerAll(blocks);
 	}
-
+	
+	private static void registerWithMeta(IForgeRegistry<Block> reg, CreativeTabs creativeTab, Block block, String... subNames){
+		block.setCreativeTab(creativeTab);
+		DRPItemBlock itemBlock = new DRPItemBlock(block.getRegistryName().getPath(), block, "blocks", 64, subNames);
+		itemBlock.setCreativeTab(creativeTab);
+		ItemRegistryHandler.addItem(itemBlock);
+		reg.register(block);
+	}
+	
 	private static void registerNoItems(IForgeRegistry<Block> reg, Block... blocks){
 		reg.registerAll(blocks);
 	}

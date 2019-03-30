@@ -13,6 +13,12 @@
 		},{
 			"key":"tile.drpmedieval.%wood%_flower_pot.name",
 			"en_us":"%wood% Flower Pot"
+		},{
+			"key":"tile.drpmedieval.%wood%_honey_centrifuge.name",
+			"en_us":"%wood% Honey Centrifuge"
+		},{
+			"key":"tile.drpmedieval.%wood%_ships_helm.name",
+			"en_us":"%wood% Ships Helm"
 		}
 	]
 }

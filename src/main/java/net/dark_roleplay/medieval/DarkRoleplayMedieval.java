@@ -71,6 +71,7 @@ import net.dark_roleplay.medieval.testing.building_scanner.TE_BuildingScanner;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -176,6 +177,7 @@ public class DarkRoleplayMedieval {
 
 		@Override
 		public void preInit(FMLPreInitializationEvent event) {
+			
 			ModelLoaderRegistry.registerLoader(new ModelLoaderHangingBridge());
 			ModelLoaderRegistry.registerLoader(new ModelLoaderRopeFence());
 			ModelLoaderRegistry.registerLoader(new CustomBlockstateLoader());

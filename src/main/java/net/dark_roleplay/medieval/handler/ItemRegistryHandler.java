@@ -39,7 +39,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ItemRegistryHandler {
 
 	//Helper to register ItemBlocks
-	private static Set<Item> blockItems = new HashSet<Item>();
+	private static Set<Item> scheduledItems = new HashSet<Item>();
 
 	@SubscribeEvent
 	public static final void registerItems(RegistryEvent.Register<Item> registryEvent) {
@@ -54,9 +54,7 @@ public class ItemRegistryHandler {
 			new DRPItem("dirty_paintbrush", ResourceFolders.Items.TOOLS + "/paintbrushes", 1),
 			new Telescope("golden_telescope", ResourceFolders.Items.OTHER_EQUIPMENT + "/telescopes"),
 			new Telescope("silver_telescope", ResourceFolders.Items.OTHER_EQUIPMENT + "/telescopes"),
-			new WarHorn("bone_war_horn", ResourceFolders.Items.INSTRUMENTS + "/horns", 1),
-			new Lock("wooden_lock", ResourceFolders.Items.CONSUMABLES + "/locks", 16),
-			new Key("wooden_key", ResourceFolders.Items.CONSUMABLES + "/keys", 16)
+			new WarHorn("bone_war_horn", ResourceFolders.Items.INSTRUMENTS + "/horns", 1)
 		);
 
 		registerItems(reg, MedievalCreativeTabs.FOOD,
@@ -132,7 +130,11 @@ public class ItemRegistryHandler {
 			new ItemHangingBridge("hanging_bridge", ResourceFolders.Items.BLOCKS, 64)
 		);
 
-
+		
+		registerItems(reg, MedievalCreativeTabs.CREATIVE,
+				new Lock("wooden_lock", ResourceFolders.Items.CONSUMABLES + "/locks", 16),
+				new Key("wooden_key", ResourceFolders.Items.CONSUMABLES + "/keys", 16)
+			);
 		//TODO Fix that
 
 		registerItems(reg, MedievalCreativeTabs.UTILITY,
@@ -193,7 +195,7 @@ public class ItemRegistryHandler {
 			}
 		}
 
-		for(Item item : blockItems){
+		for(Item item : scheduledItems){
 			reg.register(item);
 		}
 	}
@@ -205,8 +207,8 @@ public class ItemRegistryHandler {
 	}
 
 	//Helper to Register ItemBlocks
-	public static void addBlockItem(ItemBlock item){
-		blockItems.add(item);
+	public static void addItem(Item item){
+		scheduledItems.add(item);
 	}
 }
 // No more code

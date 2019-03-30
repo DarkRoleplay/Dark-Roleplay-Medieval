@@ -98,7 +98,7 @@ public class RegeneratingOre extends DRPBlock{
 
 	@Override
 	public void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
-		if(!world.isRemote) return;
+		if(world.isRemote) return;
 		ItemStack heldItem = player.getHeldItemMainhand();
 		int fortune = 0;
 
@@ -136,7 +136,8 @@ public class RegeneratingOre extends DRPBlock{
 
 	@Override
 	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-        return this.getStateFromMeta((meta + 1) % 4).withProperty(ORE_COUNT, (meta + 1) % 4);
+		System.out.println(meta);
+        return this.getStateFromMeta(meta == 0 ? 4 : meta == 1 ? 10 : 15);
     }
 
 	@Override

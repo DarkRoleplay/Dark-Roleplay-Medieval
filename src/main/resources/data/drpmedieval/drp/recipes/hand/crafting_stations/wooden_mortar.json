@@ -1,0 +1,20 @@
+{
+    "category":"crafting_stations",
+    "name":"stone_mortar",
+    "outputs":[
+        {
+            "item":"drpmedieval:wooden_mortar_and_pestle",
+            "count":"1"
+        }
+    ],
+    "ingredients":[
+        {
+            "item":"minecraft:planks",
+			"count":"1"
+        },
+        {
+            "item":"minecraft:stick",
+			"count":"1"
+        }
+    ]
+}

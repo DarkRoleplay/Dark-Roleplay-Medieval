@@ -1,9 +1,9 @@
 {
     "category":"crafting_stations",
-    "name":"mortar",
+    "name":"stone_mortar",
     "outputs":[
         {
-            "item":"drpmedieval:mortar",
+            "item":"drpmedieval:stone_mortar_and_pestle",
             "count":"1"
         }
     ],

@@ -4,6 +4,7 @@ itemGroup.drpm_utility=DRP Utility
 itemGroup.drpm_food=DRP Food
 itemGroup.drpm_equip=DRP Equipment
 itemGroup.drpm_misc=Miscellaneous
+itemGroup.drpm_creative=Creative Only
 
 crafting.category.minecraft.air.materials.name=Materials
 crafting.category.minecraft.air.tools.name=Equipment
@@ -89,7 +90,7 @@ item.leather_string.name=Leather String
 item.tanned_leather_string.name=Tanned Leather String
 item.tanned_leather.name=Tanned Leather
 item.leather_book_cover.name=Leather Book Cover
-item.thik_leather_book_cover.name=Thik Leather Book Cover
+item.thik_leather_book_cover.name=Thick Leather Book Cover
 item.thin_leather_book_cover.name=Thin Leather Book Cover
 item.dry_clay_chunk.name=Dry Clay Chunk
 item.silver_ore_chunk.name=Silver Ore Chunk
@@ -114,6 +115,37 @@ item.caramelized_red_apple.name=Caramelized Red Apple
 item.caramelized_yellow_apple.name=Caramelized Yellow Apple
 item.caramelized_green_apple.name=Caramelized Green Apple
 
+item.regenerating_redstone_ore.poor_redstone_ore.name=Poor Regenerating Redstone Ore
+item.regenerating_coal_ore.poor_coal_ore.name=Poor Regenerating Coal Ore
+item.regenerating_diamond_ore.poor_diamond_ore.name=Poor Regenerating Diamond Ore
+item.regenerating_emerald_ore.poor_emerald_ore.name=Poor Regenerating Emerald Ore
+item.regenerating_lapis_ore.poor_lapis_ore.name=Poor Regenerating Lapis Ore
+item.regenerating_gold_ore.poor_gold_ore.name=Poor Regenerating Gold Ore
+item.regenerating_iron_ore.poor_iron_ore.name=Poor Regenerating Iron Ore
+item.regenerating_quartz_ore.poor_quartz_ore.name=Poor Regenerating Quartz Ore
+
+item.regenerating_redstone_ore.redstone_ore.name=Regenerating Redstone Ore
+item.regenerating_coal_ore.coal_ore.name=Regenerating Coal Ore
+item.regenerating_diamond_ore.diamond_ore.name=Regenerating Diamond Ore
+item.regenerating_emerald_ore.emerald_ore.name=Regenerating Emerald Ore
+item.regenerating_lapis_ore.lapis_ore.name=Regenerating Lapis Ore
+item.regenerating_gold_ore.gold_ore.name=Regenerating Gold Ore
+item.regenerating_iron_ore.iron_ore.name=Regenerating Iron Ore
+item.regenerating_quartz_ore.quartz_ore.name=Regenerating Quartz Ore
+
+item.regenerating_redstone_ore.rich_redstone_ore.name=Regenerating Redstone Ore
+item.regenerating_coal_ore.rich_coal_ore.name=Regenerating Coal Ore
+item.regenerating_diamond_ore.rich_diamond_ore.name=Regenerating Diamond Ore
+item.regenerating_emerald_ore.rich_emerald_ore.name=Regenerating Emerald Ore
+item.regenerating_lapis_ore.rich_lapis_ore.name=Regenerating Lapis Ore
+item.regenerating_gold_ore.rich_gold_ore.name=Regenerating Gold Ore
+item.regenerating_iron_ore.rich_iron_ore.name=Regenerating Iron Ore
+item.regenerating_quartz_ore.rich_quartz_ore.name=Regenerating Quartz Ore
+
+tile.drpmedieval.dirt_stairs.name=Dirt Stairs
+tile.drpmedieval.wooden_mortar_and_pestle.name=Wooden Mortar and Pestle
+tile.drpmedieval.stone_mortar_and_pestle.name=Stone Mortar and Pestle
+tile.drpmedieval.stone_brick_double_arch.name=Stone Double Arch
 tile.drpmedieval.mistletoe.name=Mistletoe
 tile.drpmedieval.torch_holder_unlit.name=Unlit Torch Holder
 tile.drpmedieval.wall_shop_sign.name=Wall Shop Sign
