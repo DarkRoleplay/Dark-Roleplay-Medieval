@@ -14,10 +14,10 @@ import net.minecraftforge.registries.IForgeRegistry;
 @EventBusSubscriber(modid = DarkRoleplayMedieval.MODID, bus = Bus.MOD)
 public class TileEntityRegistryHandler {
 	
-	private static IForgeRegistry<TileEntityType<? extends TileEntity>> registry = null;
+	private static IForgeRegistry<TileEntityType<?>> registry = null;
 	
 	@SubscribeEvent
-	public static void registerItems(RegistryEvent.Register<TileEntityType<? extends TileEntity>> registryEvent) {
+	public static void registerItems(RegistryEvent.Register<TileEntityType<?> > registryEvent) {
 		registry = registryEvent.getRegistry();
 		
 		reg(TileEntityType.Builder.create(SolidChairTileEntity::new).build(null), "solid_chair_armrest");

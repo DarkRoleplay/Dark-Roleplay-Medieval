@@ -74,4 +74,10 @@ public class MedievalItems {
 		WOODEN_WRENCH				= null,
 		YELLOW_APPLE				= null,
 		YELLOW_PEAR					= null;
+	
+	public static final Item
+		TORCH_HOLDER				= null,
+		OAK_SOLID_CHAIR				= null,
+		OAK_PLANK_CHAIR				= null,
+		OAK_SOLID_CHAIR_ARMREST		= null;
 }

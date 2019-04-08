@@ -11,8 +11,9 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
 
-version = "1.13.2-0.1.0-SNAPSHOT"
+version = "1.13.2-0.1.0"
 group = "net.dark_roleplay"
 archivesBaseName = "drpmedieval"
 
@@ -47,34 +48,80 @@ minecraft {
 
 repositories {
 	maven {
-		name = "Dark Roleplay"
 		url = "https://dark-roleplay.net/files/maven/"
 	}
 }
 
-   
-
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.13.2-25.0.88'
+    minecraft 'net.minecraftforge:forge:1.13.2-25.0.108'
 	
-	//deobf group: "net.dark_roleplay", name: "drplibrary", version: "1.13.2-0.1.0-SNAPSHOT", changing: true, transitive: false
-	//deobf group: "net.dark_roleplay.modules", name: "drpmarg", version: "1.13.2-0.1.0-SNAPSHOT", changing: true, transitive: false
-
+	//deobf group: "net.dark_roleplay", name: "drplibrary", version: "1.13.2-0.1.0"
+	//deobf group: "net.dark_roleplay.modules", name: "drpmarg", version: "1.13.2-0.1.1"
+	
 	compile files('libs/drplibrary.jar')
 	compile files('libs/drpmarg.jar')
-	
 }
 
 jar {
     manifest {
         attributes([
-            "Specification-Title": "examplemod",
-            "Specification-Vendor": "examplemodsareus",
+            "Specification-Title": "drpmedieval",
+            "Specification-Vendor": "Dark Roleplay",
             "Specification-Version": "1", // We are version 1 of ourselves
-            "Implementation-Title": project.name,
+            "Implementation-Title": "Dark Roleplay Medieval",
             "Implementation-Version": "${version}",
             "Implementation-Vendor" :"examplemodsareus",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
+    }
+}
+
+// Publishing
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        include 'META-INF/mods.toml'
+
+        expand 'version': project.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'META-INF/mods.toml'
+    }
+}
+
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = project.archivesBaseName
+            version = project.version
+            groupId = project.group
+			
+            //artifact build
+            //artifact javadocJar
+            artifact sourcesJar
+        }
+    }
+    repositories {
+        maven {
+            url = project.mvn_url
+			credentials {
+				username project.mvn_username_drp
+				password project.mvn_password_drp
+			}
+        }
     }
 }

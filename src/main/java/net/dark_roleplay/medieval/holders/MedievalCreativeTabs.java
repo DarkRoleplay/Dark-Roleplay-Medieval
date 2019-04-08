@@ -12,23 +12,23 @@ public class MedievalCreativeTabs {
 	public static final ItemGroup DECORATION = new ItemGroup("drpmedieval.decoration") {
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack createIcon() {
-			return new ItemStack(Blocks.POWERED_RAIL);
+			return new ItemStack(MedievalItems.OAK_SOLID_CHAIR_ARMREST);
 		}
 	};
 	
-	public static final ItemGroup BUILDING_MATS = new ItemGroup("drpmedieval.building_materials") {
-		@OnlyIn(Dist.CLIENT)
-		public ItemStack createIcon() {
-			return new ItemStack(Blocks.POWERED_RAIL);
-		}
-	};
+//	public static final ItemGroup BUILDING_MATS = new ItemGroup("drpmedieval.building_materials") {
+//		@OnlyIn(Dist.CLIENT)
+//		public ItemStack createIcon() {
+//			return new ItemStack(Blocks.POWERED_RAIL);
+//		}
+//	};
 	
-	public static final ItemGroup UTILITY = new ItemGroup("drpmedieval.utility") {
-		@OnlyIn(Dist.CLIENT)
-		public ItemStack createIcon() {
-			return new ItemStack(Blocks.POWERED_RAIL);
-		}
-	};
+//	public static final ItemGroup UTILITY = new ItemGroup("drpmedieval.utility") {
+//		@OnlyIn(Dist.CLIENT)
+//		public ItemStack createIcon() {
+//			return new ItemStack(Blocks.POWERED_RAIL);
+//		}
+//	};
 	
 	public static final ItemGroup FOOD = new ItemGroup("drpmedieval.food") {
 		@OnlyIn(Dist.CLIENT)
@@ -51,10 +51,10 @@ public class MedievalCreativeTabs {
 		}
 	};
 	
-	public static final ItemGroup CREATIVE = new ItemGroup("drpmedieval.creative_only") {
-		@OnlyIn(Dist.CLIENT)
-		public ItemStack createIcon() {
-			return new ItemStack(Blocks.BARRIER.asItem());
-		}
-	};
+//	public static final ItemGroup CREATIVE = new ItemGroup("drpmedieval.creative_only") {
+//		@OnlyIn(Dist.CLIENT)
+//		public ItemStack createIcon() {
+//			return new ItemStack(Blocks.BARRIER.asItem());
+//		}
+//	};
 }

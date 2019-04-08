@@ -190,9 +190,6 @@ public class SolidChairBlock extends ChairBlock {
 	@Override
 	public boolean onBlockActivated(IBlockState state, World world, BlockPos pos, EntityPlayer player, EnumHand hand,
 			EnumFacing side, float hitX, float hitY, float hitZ) {
-		System.out.println(
-				hitX + " : " + hitY + " : " + hitZ + " -> " + buttons.get(state.get(HORIZONTAL_FACING)).toString()
-						+ buttons.get(state.get(HORIZONTAL_FACING)).contains(hitX, hitY, hitZ));
 
 		if (state.get(HIDDEN_COMPARTMENT) && buttons.get(state.get(HORIZONTAL_FACING)).contains(hitX, hitY, hitZ)) {
 			TileEntity te = world.getTileEntity(pos);

@@ -1,6 +1,6 @@
 package net.dark_roleplay.medieval.handler;
 
-import static net.dark_roleplay.medieval.holders.MedievalCreativeTabs.BUILDING_MATS;
+import static net.dark_roleplay.medieval.holders.MedievalCreativeTabs.DECORATION;
 import static net.dark_roleplay.medieval.holders.MedievalCreativeTabs.EQUIPMENT;
 import static net.dark_roleplay.medieval.holders.MedievalCreativeTabs.FOOD;
 import static net.dark_roleplay.medieval.holders.MedievalCreativeTabs.MISCELLANEOUS;
@@ -26,7 +26,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 @EventBusSubscriber(modid = DarkRoleplayMedieval.MODID, bus = Bus.MOD)
 public class ItemRegistryHandler {
 
-	private static Item.Properties PLACEHOLDER = new Properties().group(BUILDING_MATS);
+	private static Item.Properties PLACEHOLDER = new Properties().group(MISCELLANEOUS);
 
 	private static IForgeRegistry<Item> registry = null;
 	
@@ -92,7 +92,7 @@ public class ItemRegistryHandler {
 		reg(new Item(new Properties().group(MISCELLANEOUS)), "hay");
 		reg(new Item(new Properties().group(MISCELLANEOUS)), "leather_book_cover");
 		reg(new Item(new Properties().group(MISCELLANEOUS)), "leather_strip");
-		reg(new Item(new Properties().group(MISCELLANEOUS)), "rope");
+//		reg(new Item(new Properties().group(MISCELLANEOUS)), "rope");
 		reg(new Item(new Properties().group(MISCELLANEOUS)), "salpeter_ore_chunk");
 		reg(new Item(new Properties().group(MISCELLANEOUS)), "silver_coin");
 		reg(new Item(new Properties().group(MISCELLANEOUS)), "silver_ore_chunk");
@@ -106,16 +106,16 @@ public class ItemRegistryHandler {
 		reg(new Item(new Properties().group(MISCELLANEOUS)), "wolf_fur");
 		reg(new Item(new Properties().group(MISCELLANEOUS)), "wooden_cup");
 		
-		reg(new ItemBlock(MedievalBlocks.TORCH_HOLDER, PLACEHOLDER), "torch_holder");
+		reg(new ItemBlock(MedievalBlocks.TORCH_HOLDER, new Properties().group(DECORATION)), "torch_holder");
 
 //		registry = null;
 		
 		MaterialRequirements planks = new MaterialRequirements(Constants.MAT_WOOD, "planks");
 		
 		planks.execute(material -> {
-			reg(new ItemBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DarkRoleplayMedieval.MODID, String.format("%s_plank_chair", material.getName()))), PLACEHOLDER), String.format("%s_plank_chair", material.getName()));
-			reg(new ItemBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DarkRoleplayMedieval.MODID, String.format("%s_solid_chair", material.getName()))), PLACEHOLDER), String.format("%s_solid_chair", material.getName()));
-			reg(new ItemBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DarkRoleplayMedieval.MODID, String.format("%s_solid_chair_armrest", material.getName()))), PLACEHOLDER), String.format("%s_solid_chair_armrest", material.getName()));
+			reg(new ItemBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DarkRoleplayMedieval.MODID, String.format("%s_plank_chair", material.getName()))), new Properties().group(DECORATION)), String.format("%s_plank_chair", material.getName()));
+			reg(new ItemBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DarkRoleplayMedieval.MODID, String.format("%s_solid_chair", material.getName()))), new Properties().group(DECORATION)), String.format("%s_solid_chair", material.getName()));
+			reg(new ItemBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DarkRoleplayMedieval.MODID, String.format("%s_solid_chair_armrest", material.getName()))), new Properties().group(DECORATION)), String.format("%s_solid_chair_armrest", material.getName()));
 		});
 	}
 
