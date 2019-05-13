@@ -1,0 +1,21 @@
+{
+	"station": "drpmedieval:simple_carpenter_workbench",
+	"category": "building",
+	"name": "dark_oak_stairs",
+	"outputs": [
+		{
+		  "item": "drpmedieval:simple_dark_oak_stairs",
+		  "count": 2
+		}
+	  ],
+	  "ingredients": [
+		{
+		  "item": "drpmedieval:dark_oak_planks",
+		  "count": 4
+		},
+		{
+		  "item": "drpmedieval:dark_oak_wood_beam",
+		  "count": 1
+		}
+	]
+}

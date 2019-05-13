@@ -1,0 +1,25 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "crafting_stations",
+	"name": "jungle_honey_centrifuge",
+	"outputs": [
+		{
+		  "item": "drpmedieval:jungle_honey_centrifuge",
+		  "count": 1
+		}
+	  ],
+	  "ingredients": [
+		{
+		  "item": "drpmedieval:jungle_planks",
+		  "count": 16
+		},
+		{
+		  "item": "drpmedieval:jungle_wood_beam",
+		  "count": 1
+		},
+		{
+		  "item": "minecraft:iron_ingot",
+		  "count": 4
+		}
+	]
+}

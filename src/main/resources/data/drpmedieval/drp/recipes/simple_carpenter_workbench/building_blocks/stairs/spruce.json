@@ -1,0 +1,21 @@
+{
+	"station": "drpmedieval:simple_carpenter_workbench",
+	"category": "building",
+	"name": "spruce_stairs",
+	"outputs": [
+		{
+		  "item": "drpmedieval:simple_spruce_stairs",
+		  "count": 2
+		}
+	  ],
+	  "ingredients": [
+		{
+		  "item": "drpmedieval:spruce_planks",
+		  "count": 4
+		},
+		{
+		  "item": "drpmedieval:spruce_wood_beam",
+		  "count": 1
+		}
+	]
+}

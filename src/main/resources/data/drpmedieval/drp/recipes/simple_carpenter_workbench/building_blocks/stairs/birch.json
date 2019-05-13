@@ -1,0 +1,21 @@
+{
+	"station": "drpmedieval:simple_carpenter_workbench",
+	"category": "building",
+	"name": "birch_stairs",
+	"outputs": [
+		{
+		  "item": "drpmedieval:simple_birch_stairs",
+		  "count": 2
+		}
+	  ],
+	  "ingredients": [
+		{
+		  "item": "drpmedieval:birch_planks",
+		  "count": 4
+		},
+		{
+		  "item": "drpmedieval:birch_wood_beam",
+		  "count": 1
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "crafting_stations",
+	"name": "birch_honey_centrifuge",
+	"outputs": [
+		{
+		  "item": "drpmedieval:birch_honey_centrifuge",
+		  "count": 1
+		}
+	  ],
+	  "ingredients": [
+		{
+		  "item": "drpmedieval:birch_planks",
+		  "count": 16
+		},
+		{
+		  "item": "drpmedieval:birch_wood_beam",
+		  "count": 1
+		},
+		{
+		  "item": "minecraft:iron_ingot",
+		  "count": 4
+		}
+	]
+}

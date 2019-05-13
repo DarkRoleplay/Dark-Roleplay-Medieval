@@ -1,0 +1,21 @@
+{
+	"station": "drpmedieval:simple_carpenter_workbench",
+	"category": "building",
+	"name": "jungle_stairs",
+	"outputs": [
+		{
+		  "item": "drpmedieval:simple_jungle_stairs",
+		  "count": 2
+		}
+	  ],
+	  "ingredients": [
+		{
+		  "item": "drpmedieval:jungle_planks",
+		  "count": 4
+		},
+		{
+		  "item": "drpmedieval:jungle_wood_beam",
+		  "count": 1
+		}
+	]
+}

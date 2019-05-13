@@ -1,0 +1,21 @@
+{
+	"station": "drpmedieval:simple_carpenter_workbench",
+	"category": "building",
+	"name": "acacia_stairs",
+	"outputs": [
+		{
+		  "item": "drpmedieval:simple_acacia_stairs",
+		  "count": 2
+		}
+	  ],
+	  "ingredients": [
+		{
+		  "item": "drpmedieval:acacia_planks",
+		  "count": 4
+		},
+		{
+		  "item": "drpmedieval:acacia_wood_beam",
+		  "count": 1
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "crafting_stations",
+	"name": "oak_honey_centrifuge",
+	"outputs": [
+		{
+		  "item": "drpmedieval:oak_honey_centrifuge",
+		  "count": 1
+		}
+	  ],
+	  "ingredients": [
+		{
+		  "item": "drpmedieval:oak_planks",
+		  "count": 16
+		},
+		{
+		  "item": "drpmedieval:oak_wood_beam",
+		  "count": 1
+		},
+		{
+		  "item": "minecraft:iron_ingot",
+		  "count": 4
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+  "station": "drpmedieval:anvil",
+  "category": "crafting_stations",
+	"name": "acacia_honey_centrifuge",
+	"outputs": [
+		{
+		  "item": "drpmedieval:acacia_honey_centrifuge",
+		  "count": 1
+		}
+	  ],
+	  "ingredients": [
+		{
+		  "item": "drpmedieval:acacia_planks",
+		  "count": 16
+		},
+		{
+		  "item": "drpmedieval:acacia_wood_beam",
+		  "count": 1
+		},
+		{
+		  "item": "minecraft:iron_ingot",
+		  "count": 4
+		}
+	]
+}
