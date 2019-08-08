@@ -9,7 +9,6 @@ import net.dark_roleplay.library.experimental.blocks.BlockSettings;
 import net.dark_roleplay.library.experimental.blocks.DRPBlock;
 import net.dark_roleplay.library.experimental.blocks.behaviors.IBoundingBoxBehavior;
 import net.dark_roleplay.library.experimental.variables.wrappers.IntegerWrapper;
-import net.dark_roleplay.library.util.InDevUtil;
 import net.dark_roleplay.medieval.References;
 import net.dark_roleplay.medieval.holders.MedievalBlockProperties;
 import net.dark_roleplay.medieval.holders.MedievalBlockProperties.Settings;
@@ -36,6 +35,7 @@ import net.dark_roleplay.medieval.objects.blocks.decoration.barrels.TileEntityFl
 import net.dark_roleplay.medieval.objects.blocks.decoration.barrels.behaviors.Behavior_EmptyBarrel;
 import net.dark_roleplay.medieval.objects.blocks.decoration.barrels.behaviors.Behavior_FluidFill;
 import net.dark_roleplay.medieval.objects.blocks.decoration.candles.BeesWaxCandle;
+import net.dark_roleplay.medieval.objects.blocks.decoration.chairs.ChairBlock;
 import net.dark_roleplay.medieval.objects.blocks.decoration.clock_dial.ClockDial;
 import net.dark_roleplay.medieval.objects.blocks.decoration.flower_container.TileEntityFlowerContainer;
 import net.dark_roleplay.medieval.objects.blocks.decoration.flower_container.behaviors.FlowerContainer;
@@ -311,7 +311,7 @@ public class BlockRegistryHandler {
 				register(reg, MedievalCreativeTabs.DECORATION,
 					new LogBench(mat.getNamed("%wood%_log_bench"), Settings.WOOD_DECO)
 						.addBehaviors(new Behavior_Chair(0.25F)), //TODO Update to DRPBlock
-					new FacedBlock(mat.getNamed("%wood%_log_chair"), Settings.WOOD_DECO)
+					new ChairBlock(mat.getNamed("%wood%_log_chair"), Settings.WOOD_DECO, 6)
 						.addBehaviors(new Behavior_Chair(0.1875F)),
 					new AxisBlock(mat.getNamed("%wood%_firewood_pile"), Settings.WOOD_DECO) {
 						@Override public int quantityDropped(Random random){ return 16; }
@@ -322,7 +322,7 @@ public class BlockRegistryHandler {
 
 			if(plankRequired.doesFulfillRequirements(mat)) {
 				register(reg, MedievalCreativeTabs.DECORATION,
-					new FacedBlock(mat.getNamed("%wood%_barrel_chair"), Settings.WOOD_DECO).addBehaviors(new Behavior_Chair(0.3125f)),
+					new ChairBlock(mat.getNamed("%wood%_barrel_chair"), Settings.WOOD_DECO, 8).addBehaviors(new Behavior_Chair(0.3125f)),
 					new AxisBlock(mat.getNamed("%wood%_barrel_table"), Settings.WOOD_DECO),
 					new DRPBlock(mat.getNamed("%wood%_empty_barrel"), Settings.WOOD_DECO).addBehaviors(new Behavior_EmptyBarrel(References.MODID + ":%wood%_fluid_barrel", mat)),
 					new DRPBlock(mat.getNamed("%wood%_closed_barrel"), Settings.WOOD_DECO),
@@ -354,7 +354,7 @@ public class BlockRegistryHandler {
 				);
 
 				register(reg, MedievalCreativeTabs.DECORATION,
-					new FacedBlock(mat.getNamed("simple_plank_%wood%_chair"), Settings.WOOD_DECO).addBehaviors(new Behavior_Chair(0.3125F)).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0f, 0.0625f, 0.9375f, 1f, 0.9375f))),
+					new ChairBlock(mat.getNamed("simple_plank_%wood%_chair"), Settings.WOOD_DECO, 8).addBehaviors(new Behavior_Chair(0.3125F)).addBehaviors(new IBoundingBoxBehavior.SimpleImpl(new AxisAlignedBB(0.0625f, 0f, 0.0625f, 0.9375f, 1f, 0.9375f))),
 					new AxisBlock(mat.getNamed("%wood%_empty_bucket"), Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875F, 0f, 0.21875F, 0.78125f, 0.5625f, 0.78125F))),
 					new AxisBlock(mat.getNamed("%wood%_water_bucket"), Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875F, 0f, 0.21875F, 0.78125f, 0.5625f, 0.78125F))),
 					new AxisBlock(mat.getNamed("%wood%_dirt_bucket"), Settings.WOOD_DECO).addBehaviors(new AxisBoundingBox(new AxisAlignedBB(0.21875F, 0f, 0.21875F, 0.78125f, 0.5625f, 0.78125F)), new FlowerContainer()).setTileEntityFactory(() -> new TileEntityFlowerContainer(3)),
