@@ -35,27 +35,29 @@ repositories {
 		name = "BoP"
 		url = "http://files.minecraftforge.net/maven/"
 	}
+	flatDir {
+		dirs 'libs'
+	}
 }
 
 dependencies {
 	//Compile against API, use full mod for runtime
 	deobfProvided group: "mezz.jei", name: "jei_${mc_version}", version: "${jei_version}", classifier: 'api'
 	runtime group: "mezz.jei", name: "jei_${mc_version}", version: "${jei_version}"
-  	runtime "com.github.glitchfiend.biomesoplenty:BiomesOPlenty:1.12.2-7.0.1.2399:universal"
+  runtime "com.github.glitchfiend.biomesoplenty:BiomesOPlenty:1.12.2-7.0.1.2399:universal"
 	
-	contained group: "net.dark_roleplay", name: "drplibrary", version: "${mc_version}-${drp_library_version}", changing: true
-	contained group: "net.dark_roleplay.core_modules", name: "drpcmmaarg", version: "${mc_version}-${drp_core_module_maarg_version}", changing: true, transitive: false
-	contained group: "net.dark_roleplay.core_modules", name: "drpcmguis", version: "${mc_version}-${drp_core_module_guis_version}", changing: true, transitive: false
-	contained group: "net.dark_roleplay.core_modules", name: "drpcmlocks", version: "${mc_version}-${drp_core_module_locks_version}", changing: true, transitive: false
+	contained name: "drpcmguis-1.12.2-0.0.1-SNAPSHOT"
+	contained name: "drpcmlocks-1.12.2-1.0.0-SNAPSHOT"
+	contained name: "drpcmmaarg-1.12.2-0.10.0-SNAPSHOT"
+	contained name: "drplibrary-1.12.2-0.1.3-SNAPSHOT"
 
 	
-	deobfProvided group: "net.dark_roleplay", name: "drplibrary", version: "${mc_version}-${drp_library_version}", changing: true, transitive: false
-	deobfProvided group: "net.dark_roleplay.core_modules", name: "drpcmmaarg", version: "${mc_version}-${drp_core_module_maarg_version}", changing: true, transitive: false
-	deobfProvided group: "net.dark_roleplay.core_modules", name: "drpcmguis", version: "${mc_version}-${drp_core_module_guis_version}", changing: true, transitive: false
-	deobfCompile group: "net.dark_roleplay.core_modules", name: "drpcmlocks", version: "${mc_version}-${drp_core_module_locks_version}", changing: true, transitive: false
+	deobfProvided name: "drpcmguis-1.12.2-0.0.1-SNAPSHOT"
+	deobfProvided name: "drpcmlocks-1.12.2-1.0.0-SNAPSHOT"
+	deobfProvided name: "drpcmmaarg-1.12.2-0.10.0-SNAPSHOT"
+	deobfProvided name: "drplibrary-1.12.2-0.1.3-SNAPSHOT"
 
-
-	deobfCompile group: "net.dark_roleplay", name: "drpcore", version: "${mc_version}-${drp_core_version}", changing: true, transitive: false
+	deobfCompile name: "drpcore-1.12.2-0.4.8"
 }
 
 apply from: 'https://dark-roleplay.net/files/gradle_helpers/1.12.2/mcmod_info.gradle'
