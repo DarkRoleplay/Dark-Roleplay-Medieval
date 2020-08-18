@@ -21,3 +21,11 @@ Forge Latest_Server.launch
 /.gradle/
 /build/
 src/main/resources - Kopie/
+
+.idea/gradle.xml
+
+.idea/misc.xml
+
+.idea/workspace.xml
+
+.idea/
