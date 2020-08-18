@@ -6,6 +6,7 @@ build/*
 eclipse/*
 run/*
 libs_src/*
+classes/**
 
 .classpath
 .gitignore
